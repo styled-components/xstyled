@@ -1,0 +1,40 @@
+{
+  "/Users/neoziro/Projects/xstyled/packages/system/dist/xstyled-system.es.js": {
+    "bundled": 23527,
+    "minified": 13691,
+    "gzipped": 3842,
+    "treeshaked": {
+      "rollup": {
+        "code": 18,
+        "import_statements": 18
+      },
+      "webpack": {
+        "code": 3102
+      }
+    }
+  },
+  "/Users/neoziro/Projects/xstyled/packages/system/dist/xstyled-system.cjs.js": {
+    "bundled": 26234,
+    "minified": 16107,
+    "gzipped": 4360
+  },
+  "dist/xstyled-system.es.js": {
+    "bundled": 23527,
+    "minified": 13691,
+    "gzipped": 3842,
+    "treeshaked": {
+      "rollup": {
+        "code": 18,
+        "import_statements": 18
+      },
+      "webpack": {
+        "code": 3102
+      }
+    }
+  },
+  "dist/xstyled-system.cjs.js": {
+    "bundled": 26234,
+    "minified": 16107,
+    "gzipped": 4360
+  }
+}

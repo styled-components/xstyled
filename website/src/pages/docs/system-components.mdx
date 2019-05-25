@@ -1,0 +1,76 @@
+---
+menu: Guides
+title: System Components
+order: 0
+---
+
+# System Components
+
+`@xstyled/styled-components` gives you system components out of the box.
+
+## Use the Box component
+
+The `Box` component has all system props built-in.
+
+```js
+import { Box } from '@xstyled/styled-components'
+
+const RedBox = props => <Box color="primary" m={2} {...props} />
+```
+
+## Create a system component
+
+Aditionnaly to all shorthand html tags available in `styled-components`, `@xstyled/styled-components` exposes a `box`.
+
+```js
+import styled from '@xstyled/styled-components'
+
+/* Creates a `div` box */
+const RedBox = styled.box`
+  background-color: red;
+`
+
+<RedBox m={2} />
+```
+
+All tags also have their `xxBox` variants:
+
+```js
+import styled from '@xstyled/styled-components'
+
+/* Creates a `header` box */
+const HeaderBox = styled.headerBox`
+  width: 200px;
+`
+
+<HeaderBox m={2} />
+```
+
+## Use `as` property
+
+The `as` property is also supported, exactly like in `styled-components`.
+
+```js
+import styled from '@xstyled/styled-components'
+
+/* Creates a `div` box */
+const RedBox = styled.box`
+  background-color: red;
+`
+
+/* Replace `div` by `p`, but it is still a box! */
+<RedBox as="p" m={2} />
+```
+
+## Create your own box
+
+If you don't want to use `@xstyled/styled-components`, you can create your own box component:
+
+```js
+import styled from 'styled-components'
+import { system } from '@xstyled/system'
+
+const Box = styled.div(system)
+```
+
+See all available [system prop utilities](/docs/system-props/).

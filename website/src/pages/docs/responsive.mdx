@@ -1,0 +1,61 @@
+---
+menu: Guides
+title: Responsive
+order: 5
+---
+
+# Responsive
+
+Handling responsive is very easy with `@xstyled/system` either using props or utilities.
+
+## Create a responsive component
+
+`breakpoints` is a utility to create mobile first responsive components.
+
+```js
+import { breakpoints } from '@xstyled/system'
+
+const Container = styled.div(
+  breakpoints({
+    xs: css`
+      /* All devices */
+    `,
+    md: css`
+      /* Up to md breakpoint */
+    `,
+    lg: css`
+      /* Up to lg breakpoint */
+    `,
+  }),
+)
+```
+
+Default good breakpoints are available. They can also be specified under the key `breakpoints` in your theme:
+
+```js
+// theme.js
+export default {
+  breakpoints: {
+    xs: 0,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200,
+  },
+}
+```
+
+The above breakpoints are the one used as default.
+
+## Tweak a component for responsive
+
+Using [system props](/docs/system-props/), you can tweak a component right from props. Each one of them accepts an object to define responsive values for each prop.
+
+```js
+import { Box } from '@xstyled/system'
+
+/* The box will be displayed only in mobile! */
+;<Box display={{ sm: 'block', md: 'none' }} />
+```
+
+See [system components](/docs/system-components/) to know how to use system props in your components.
