@@ -10,7 +10,7 @@
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 [![Dependencies](https://img.shields.io/david/smooth-code/xstyled.svg?path=packages%2Fsystem)](https://david-dm.org/smooth-code/xstyled?path=packages/system)
 [![DevDependencies](https://img.shields.io/david/dev/smooth-code/xstyled.svg)](https://david-dm.org/smooth-code/xstyled?type=dev)
-[![Small size](https://img.badgesize.io/https://unpkg.com/@xstyled/system/dist/loadable.min.js?compression=gzip)](https://unpkg.com/@xstyled/system/dist/loadable.min.js)
+[![Small size](https://img.badgesize.io/https://unpkg.com/@xstyled/styled-components/dist/xstyled-system.min.js?compression=gzip)](https://unpkg.com/@xstyled/styled-components/dist/xstyled-system.min.js)
 
 ```bash
 npm install @xstyled/system
