@@ -27,7 +27,5 @@ const ts = {
 }
 
 // NOTE: This highlights template-strings as strings of CSS
-if (typeof window !== 'undefined') {
-  window.Prism.languages.insertBefore('jsx', 'template-string', ts)
-}
+languages.insertBefore('jsx', 'template-string', ts)
 require('prismjs').languages.insertBefore('js', 'template-string', ts)

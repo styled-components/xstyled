@@ -12,7 +12,6 @@ import {
 
 const Editor = styled.div`
   background-color: gray200;
-  font-family: monospace !important;
   font-weight: 300;
   height: 400px;
   overflow-y: scroll;
