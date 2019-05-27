@@ -29,12 +29,6 @@ Specific getters are built-in. All theme getters are exported independently and 
 - `getBorder`: `th.border`
 - `getBorderStyle`: `th.borderStyle`
 - `getShadow`: `th.shadow`
-- `getWidth`: `th.width`
-- `getHeight`: `th.height`
-- `getMaxWidth`: `th.maxWidth`
-- `getMaxHeight`: `th.maxHeight`
-- `getMinWidth`: `th.minWidth`
-- `getMinHeight`: `th.minHeight`
 - `getSize`: `th.size`
 - `getZIndex`: `th.zIndex`
 - `getSpace`: `th.space`
@@ -44,14 +38,14 @@ Specific getters are built-in. All theme getters are exported independently and 
 - `getFontWeight`: `th.fontWeight`
 - `getLetterSpacing`: `th.letterSpacing`
 
-All getters have the same behaviour as their corresponding system properties. For example, `th.width(0.5)` result is `50%`, `th.space(2)` is `8px`.
+All getters have the same behaviour as their corresponding system properties. For example, `th.size(0.5)` result is `50%`, `th.space(2)` is `8px`.
 
 ```js
 import { th } from '@xstyled/system'
 
 const Container = styled.div`
   margin: ${th.space(2)}; /* 8px */
-  width: ${th.width(0.2)}; /* 20% */
+  width: ${th.size(0.2)}; /* 20% */
   font-family: ${th.font('sans-serif')}; /* Arial, Helvetica, sans-serif */
   color: ${th.color('primary')}; /* red */
 `

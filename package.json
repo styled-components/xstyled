@@ -3,6 +3,16 @@
   "workspaces": [
     "packages/*"
   ],
+  "bundlesize": [
+    {
+      "path": "./packages/system/dist/xstyled-system.min.js",
+      "maxSize": "4.5 kB"
+    },
+    {
+      "path": "./packages/styled-components/dist/xstyled.min.js",
+      "maxSize": "4 kB"
+    }
+  ],
   "scripts": {
     "build": "lerna run build",
     "build:watch": "WATCH_MODE=true lerna run --parallel build -- --watch",
@@ -22,6 +32,7 @@
     "babel-jest": "^24.8.0",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "benchmark": "^2.1.4",
+    "bundlesize": "^0.17.2",
     "codecov": "^3.5.0",
     "conventional-github-releaser": "^3.1.2",
     "eslint": "^5.16.0",

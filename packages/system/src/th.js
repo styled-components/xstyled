@@ -7,12 +7,6 @@ import {
   getBorder,
   getBorderStyle,
   getShadow,
-  getWidth,
-  getHeight,
-  getMaxWidth,
-  getMaxHeight,
-  getMinWidth,
-  getMinHeight,
   getSize,
   getZIndex,
   getSpace,
@@ -36,12 +30,6 @@ th.radius = getRadius
 th.border = getBorder
 th.borderStyle = getBorderStyle
 th.shadow = getShadow
-th.width = getWidth
-th.height = getHeight
-th.maxWidth = getMaxWidth
-th.maxHeight = getMaxHeight
-th.minWidth = getMinWidth
-th.minHeight = getMinHeight
 th.size = getSize
 th.zIndex = getZIndex
 th.space = getSpace
