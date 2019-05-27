@@ -5,12 +5,7 @@ import {
   getBorder,
   getBorderStyle,
   getShadow,
-  getWidth,
-  getHeight,
-  getMaxWidth,
-  getMaxHeight,
-  getMinWidth,
-  getMinHeight,
+  getSize,
   getZIndex,
   getFont,
   getFontSize,
@@ -30,25 +25,25 @@ const getMultiValues = transform => value => {
   return p => values.map(value => transform(value)(p)).join(' ')
 }
 
-const getSpaceNumber = getNumber(getSpace)
-const getMultiSpaceNumber = getMultiValues(getSpaceNumber)
-
-const getBorderNumber = getNumber(getBorder)
+const getNumberSpace = getNumber(getSpace)
+const getMultiNumberSpace = getMultiValues(getNumberSpace)
+const getNumberBorder = getNumber(getBorder)
+const getNumberSize = getNumber(getSize)
 
 export const propGetters = {
   // getSpace
-  margin: getMultiSpaceNumber,
-  'margin-top': getSpaceNumber,
-  'margin-bottom': getSpaceNumber,
-  'margin-left': getSpaceNumber,
-  'margin-right': getSpaceNumber,
-  padding: getMultiSpaceNumber,
-  'padding-top': getSpaceNumber,
-  'padding-bottom': getSpaceNumber,
-  'padding-left': getSpaceNumber,
-  'padding-right': getSpaceNumber,
-  'grid-gap': getMultiSpaceNumber,
-  'grid-row-gap': getSpaceNumber,
+  margin: getMultiNumberSpace,
+  'margin-top': getNumberSpace,
+  'margin-bottom': getNumberSpace,
+  'margin-left': getNumberSpace,
+  'margin-right': getNumberSpace,
+  padding: getMultiNumberSpace,
+  'padding-top': getNumberSpace,
+  'padding-bottom': getNumberSpace,
+  'padding-left': getNumberSpace,
+  'padding-right': getNumberSpace,
+  'grid-gap': getMultiNumberSpace,
+  'grid-row-gap': getNumberSpace,
 
   // getColor
   color: getColor,
@@ -63,11 +58,11 @@ export const propGetters = {
   'border-radius': getNumber(getRadius),
 
   // getBorder
-  border: getBorderNumber,
-  'border-top': getBorderNumber,
-  'border-right': getBorderNumber,
-  'border-bottom': getBorderNumber,
-  'border-left': getBorderNumber,
+  border: getNumberBorder,
+  'border-top': getNumberBorder,
+  'border-right': getNumberBorder,
+  'border-bottom': getNumberBorder,
+  'border-left': getNumberBorder,
 
   // getBorderStyle
   'border-style': getBorderStyle,
@@ -75,23 +70,13 @@ export const propGetters = {
   // getShadow
   'box-shadow': getShadow,
 
-  // getWidth
-  width: getNumber(getWidth),
-
-  // getHeight
-  height: getNumber(getHeight),
-
-  // getMaxWidth
-  'max-width': getNumber(getMaxWidth),
-
-  // getMaxHeight
-  'max-height': getNumber(getMaxHeight),
-
-  // getMinWidth
-  'min-width': getNumber(getMinWidth),
-
-  // getMinHeight
-  'min-height': getNumber(getMinHeight),
+  // getSize
+  width: getNumberSize,
+  height: getNumberSize,
+  'max-width': getNumberSize,
+  'max-height': getNumberSize,
+  'min-width': getNumberSize,
+  'min-height': getNumberSize,
 
   // getZIndex
   'z-index': getZIndex,

@@ -92,7 +92,7 @@ describe('styles', () => {
       {
         styleRule: 'width',
         theme: {
-          widths: {
+          sizes: {
             large: 400,
           },
         },
@@ -104,7 +104,7 @@ describe('styles', () => {
       {
         styleRule: 'height',
         theme: {
-          heights: {
+          sizes: {
             large: 400,
           },
         },
@@ -128,7 +128,7 @@ describe('styles', () => {
       {
         styleRule: 'max-width',
         theme: {
-          maxWidths: {
+          sizes: {
             large: 400,
           },
         },
@@ -140,7 +140,7 @@ describe('styles', () => {
       {
         styleRule: 'max-height',
         theme: {
-          maxHeights: {
+          sizes: {
             large: 400,
           },
         },
@@ -152,7 +152,7 @@ describe('styles', () => {
       {
         styleRule: 'min-width',
         theme: {
-          minWidths: {
+          sizes: {
             large: 400,
           },
         },
@@ -164,7 +164,7 @@ describe('styles', () => {
       {
         styleRule: 'min-height',
         theme: {
-          minHeights: {
+          sizes: {
             large: 400,
           },
         },
