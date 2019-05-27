@@ -1297,6 +1297,22 @@
     "@webassemblyjs/wast-parser" "1.7.11"
     "@xtuc/long" "4.2.1"
 
+"@xstyled/styled-components@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.0.0.tgz#d9d44f42851253d3401e94ceaaffaee25ee39959"
+  integrity sha512-XtsHIFcWmbztxnSCgApHKfEmE7sbg7lNA7qSJhCzI163u5g8UvL6vSM2TMSjt+QmUviEw4S14qHp92qAPaHL1w==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@xstyled/system" "^1.0.0"
+
+"@xstyled/system@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.0.0.tgz#0196e1d144beda5602e0795d39822a29548d8533"
+  integrity sha512-OnX/EnqTsrO+0rzgB9/uDKo+y9rrweAeq6D51DSuLoEtv+QHyygi12TbyWy5wxXjZ0/ONDrVWa9bZZ9HcJGADA==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+    deepmerge "^3.2.0"
+
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
