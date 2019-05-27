@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/npm/l/@xstyled/styled-components.svg)](https://github.com/smooth-code/xstyled/blob/master/LICENSE)
 [![npm package](https://img.shields.io/npm/v/@xstyled/styled-components/latest.svg)](https://www.npmjs.com/package/@xstyled/styled-components)
 [![npm downloads](https://img.shields.io/npm/dm/@xstyled/styled-components.svg)](https://www.npmjs.com/package/@xstyled/styled-components)
-[![Build Status](https://img.shields.io/travis/smooth-code/xstyled.svg)](https://travis-ci.org/smooth-code/xstyled)
+[![CircleCI](https://circleci.com/gh/smooth-code/xstyled.svg?style=svg)](https://circleci.com/gh/smooth-code/xstyled)
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 [![Dependencies](https://img.shields.io/david/smooth-code/xstyled.svg?path=packages%2Fstyled-components)](https://david-dm.org/smooth-code/xstyled?path=packages/styled-components)
 [![DevDependencies](https://img.shields.io/david/dev/smooth-code/xstyled.svg)](https://david-dm.org/smooth-code/xstyled?type=dev)
