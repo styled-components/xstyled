@@ -40,22 +40,22 @@ const Container = styled.div`
 const code = `
 const Button = styled.a\`
   /* This renders the buttons above... Edit me! */
-  border: 2;
-  transition: background-color 300ms, color 300ms;
+  border: 2; /* ⟶ 2px solid */
+  color: white; /* ⟶ theme.colors.white */
+  border-color: primary; /* ⟶ theme.colors.primary */
+  border-radius: medium; /* ⟶ theme.radii.medium */
+  padding: 2 4; /* ⟶ theme.space.* */
+  margin: 5 2; /* ⟶ theme.space.* */
+  background-color: primary; /* ⟶ theme.colors.primary */
   display: inline-block;
-  color: white;
-  border-color: primary;
-  border-radius: medium;
-  padding: 2 4;
-  margin: 5 2;
-  background-color: primary;
+  transition: background-color 300ms, color 300ms;
 
   &:hover {
     color: white;
     background-color: primaryLight;
   }
 
-  \${p => p.variant === 'secondary' && css\`
+  \${p => p.secondary && css\`
     color: primary;
     background-color: transparent;
 
@@ -84,7 +84,6 @@ render(
         href="https://github.com/smooth-code/xstyled"
         target="_blank"
         rel="noopener"
-        primary
       >
         GitHub
       </Button>
@@ -92,6 +91,7 @@ render(
         as={Link}
         variant="secondary"
         to="/docs/getting-started/"
+        secondary
       >
         Getting Started
       </Button>

@@ -17,16 +17,6 @@ const ts = {
     lookbehind: true,
     greedy: true,
     inside: {
-      // interpolation: {
-      //   pattern: /\$\{[^}]+\}/,
-      //   inside: {
-      //     'interpolation-punctuation': {
-      //       pattern: /^\$\{|\}$/,
-      //       alias: 'punctuation',
-      //     },
-      //     rest: languages.jsx,
-      //   },
-      // },
       string: {
         pattern: /[^$;]+/,
         inside: languages.css,
