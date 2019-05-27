@@ -28,6 +28,8 @@ You can safely migrate a code base to `@xstyled/styled-components` without any i
 With xstyled, you need to explicitely transforms your CSS using `css` utility:
 
 ```js
+import styled, { css } from '@xstyled/styled-components'
+
 // 🚫 Not good
 const Box = styled.div`
   ${p => ({ margin: p.margin })}
@@ -35,7 +37,7 @@ const Box = styled.div`
 
 // ✅ Good
 const Box = styled.div`
-  ${p => ({ margin: p.margin })}
+  ${p => css({ margin: p.margin })}
 `
 ```
 
@@ -44,6 +46,8 @@ const Box = styled.div`
 xstyled transforms css properties. You have to write complete CSS properties and not use function interpolation in the middle of your CSS declaration.
 
 ```js
+import styled from '@xstyled/styled-components'
+
 // 🚫 Not good
 const Box = styled.div`
   margin: ${p => p.margin};
