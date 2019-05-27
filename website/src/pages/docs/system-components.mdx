@@ -15,7 +15,7 @@ The `Box` component has all system props built-in.
 ```js
 import { Box } from '@xstyled/styled-components'
 
-const RedBox = props => <Box color="primary" m={2} {...props} />
+const PrimaryBox = props => <Box color="primary" m={2} {...props} />
 ```
 
 ## Create a system component
@@ -38,12 +38,12 @@ All tags also have their `xxBox` variants:
 ```js
 import styled from '@xstyled/styled-components'
 
-/* Creates a `header` box */
-const HeaderBox = styled.headerBox`
-  width: 200px;
+/* Creates a `a` box */
+const ABox = styled.aBox`
+  color: primary;
 `
 
-<HeaderBox m={2} />
+<ABox href="/about">Link</ABox>
 ```
 
 ## Use `as` property
