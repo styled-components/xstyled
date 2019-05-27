@@ -33,6 +33,10 @@ jobs:
           command: yarn build
 
       - run:
+          name: Bundle size
+          command: yarn bundlesize
+
+      - run:
           name: Lint code
           command: yarn lint
 
