@@ -23,6 +23,7 @@ npm install @xstyled/styled-components
 Quicklinks to some of the most-visited pages:
 
 - [**Getting started**](https://www.smooth-code.com/open-source/xstyled/docs/getting-started/)
+- [Motivation](https://www.smooth-code.com/open-source/xstyled/docs/motivation/)
 - [System](https://www.smooth-code.com/open-source/xstyled/docs/system/)
 
 ## Example
