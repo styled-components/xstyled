@@ -32,8 +32,8 @@ Quicklinks to some of the most-visited pages:
 import styled from '@xstyled/styled-components'
 
 const Box = styled.div`
-  background-color: primary; /* Will use theme.colors.primary */
-  margin: 2; /* Will use theme.space.2 */
+  background-color: primary; /* ⟶ theme.colors.primary */
+  margin: 2; /* ⟶ theme.space.2 */
 `
 
 export default Box
