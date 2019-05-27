@@ -13,7 +13,7 @@
 [![Small size](https://img.badgesize.io/https://unpkg.com/@xstyled/styled-components/dist/xstyled.min.js?compression=gzip)](https://unpkg.com/@xstyled/styled-components/dist/xstyled.min.js)
 
 ```bash
-npm install @xstyled/styled-components
+npm install @xstyled/styled-components styled-components
 ```
 
 ## [Docs](https://www.smooth-code.com/open-source/xstyled)
