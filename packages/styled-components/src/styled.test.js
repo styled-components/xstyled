@@ -65,6 +65,14 @@ describe('#styled', () => {
     expect(container.firstChild).toHaveStyleRule('margin-top', '2px')
     expect(container.firstChild).toHaveStyleRule('padding', '4px')
   })
+  it('works with "attrs"', () => {
+    const Dummy = styled.div.attrs({ 'aria-label': 'label' })`
+      margin: 2;
+    `
+    const { container } = render(<Dummy />)
+    expect(container.firstChild.getAttribute('aria-label')).toBe('label')
+    expect(container.firstChild).toHaveStyleRule('margin', '8px')
+  })
 })
 
 describe('#styled.xxx', () => {
