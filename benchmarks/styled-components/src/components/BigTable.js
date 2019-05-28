@@ -96,6 +96,8 @@ export default function App({ Table }) {
   const handleClick = React.useCallback(() => setTable(getTable()), [])
   return (
     <div>
+      <h2>The higher the percentage, the faster was the cell render</h2>
+      <h3>{Table.displayName}</h3>
       <div>
         <input type="submit" value="Generate" onClick={handleClick} />{' '}
         <span>{getUniqueSize(table)} unique cells</span>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Table({ table, toPercent }) {
+const ReactTable = function Table({ table, toPercent }) {
   return (
     <div>
       {table.map((row, i) => (
@@ -13,3 +13,7 @@ export default function Table({ table, toPercent }) {
     </div>
   )
 }
+
+ReactTable.displayName = 'Pure React'
+
+export default ReactTable

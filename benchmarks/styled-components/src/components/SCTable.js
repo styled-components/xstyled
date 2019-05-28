@@ -1,22 +1,22 @@
 import React from 'react'
-import styled from '@xstyled/styled-components'
+import styled from 'styled-components'
 
-const Table = styled('div')`
+const Table = styled.div`
   display: table;
   margin-top: 10px;
 `
 
-const Row = styled('div')`
+const Row = styled.div`
   display: table-row;
 `
 
-const Cell = styled('div')`
+const Cell = styled.div`
   display: table-cell;
   padding: 10px;
   background: rgba(74, 174, 53, ${props => props.value});
 `
 
-export default ({ table, toPercent }) => (
+const styledComponentsTable = ({ table, toPercent }) => (
   <Table>
     {table.map((row, i) => (
       <Row key={i}>
@@ -29,3 +29,7 @@ export default ({ table, toPercent }) => (
     ))}
   </Table>
 )
+
+styledComponentsTable.displayName = 'styled-components'
+
+export default styledComponentsTable
