@@ -7,9 +7,9 @@ module.exports = {
   mode: 'production',
   entry: path.resolve(SRC_DIR, 'index.js'),
   output: {
-		path: `${__dirname}/public`,
-		filename: 'bundle.js',
-		publicPath: '/',
+    path: `${__dirname}/public`,
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   devServer: {
     inline:true,
