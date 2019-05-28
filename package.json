@@ -18,7 +18,7 @@
     "build:watch": "WATCH_MODE=true lerna run --parallel build -- --watch",
     "format": "prettier --write \"**/*.{js,json,md,mdx}\"",
     "lint": "eslint .",
-    "release": "lerna publish --conventional-commits --force-publish=* && conventional-github-releaser --preset angular",
+    "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
     "test": "jest"
   },
   "devDependencies": {
