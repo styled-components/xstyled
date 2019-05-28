@@ -7,6 +7,7 @@
 [![npm package](https://img.shields.io/npm/v/@xstyled/system/latest.svg)](https://www.npmjs.com/package/@xstyled/system)
 [![npm downloads](https://img.shields.io/npm/dm/@xstyled/system.svg)](https://www.npmjs.com/package/@xstyled/system)
 [![CircleCI](https://circleci.com/gh/smooth-code/xstyled.svg?style=svg)](https://circleci.com/gh/smooth-code/xstyled)
+[![codecov](https://codecov.io/gh/smooth-code/xstyled/branch/master/graph/badge.svg)](https://codecov.io/gh/smooth-code/xstyled)
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 [![Dependencies](https://img.shields.io/david/smooth-code/xstyled.svg?path=packages%2Fsystem)](https://david-dm.org/smooth-code/xstyled?path=packages/system)
 [![DevDependencies](https://img.shields.io/david/dev/smooth-code/xstyled.svg)](https://david-dm.org/smooth-code/xstyled?type=dev)
