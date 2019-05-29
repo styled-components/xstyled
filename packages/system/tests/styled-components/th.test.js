@@ -1,5 +1,5 @@
 import React from 'react'
-import 'jest-styled-components'
+import 'jest-dom/extend-expect'
 import { render } from 'react-testing-library'
 import styled from 'styled-components'
 import { th } from '../../src'
@@ -161,9 +161,8 @@ describe('#th', () => {
           ${config.cssProp}: ${util(value)};
         `
         const { container } = render(<Dummy theme={config.theme} />)
-        expect(container.firstChild).toHaveStyleRule(
-          config.cssProp,
-          String(expected),
+        expect(container.firstChild).toHaveStyle(
+          `${config.cssProp}: ${expected};`,
         )
       },
     )
