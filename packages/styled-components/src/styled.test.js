@@ -1,5 +1,5 @@
 import React from 'react'
-import 'jest-styled-components'
+import 'jest-dom/extend-expect'
 import { render } from 'react-testing-library'
 import { ThemeProvider } from 'styled-components'
 import styled, { css } from '.'
@@ -12,9 +12,11 @@ describe('#styled', () => {
       margin-top: 2px;
     `
     const { container } = render(<Dummy />)
-    expect(container.firstChild).toHaveStyleRule('margin', '8px')
-    expect(container.firstChild).toHaveStyleRule('margin-top', '2px')
-    expect(container.firstChild).toHaveStyleRule('padding', '4px')
+    expect(container.firstChild).toHaveStyle(`
+      margin: 8px;
+      padding: 4px;
+      margin-top: 2px;
+    `)
   })
 
   it('works with conditional css', () => {
@@ -25,8 +27,10 @@ describe('#styled', () => {
       `}
     `
     const { container } = render(<Dummy margin={2} />)
-    expect(container.firstChild).toHaveStyleRule('color', 'red')
-    expect(container.firstChild).toHaveStyleRule('margin', '8px')
+    expect(container.firstChild).toHaveStyle(`
+      color: red;
+      margin: 8px;
+    `)
   })
 
   it('reads value from the theme', () => {
@@ -43,7 +47,7 @@ describe('#styled', () => {
         <Dummy />
       </ThemeProvider>,
     )
-    expect(container.firstChild).toHaveStyleRule('color', 'pink')
+    expect(container.firstChild).toHaveStyle('color: pink;')
   })
 
   it('works with css as object', () => {
@@ -51,27 +55,24 @@ describe('#styled', () => {
       margin: '2',
     })
     const { container } = render(<Dummy />)
-    expect(container.firstChild).toHaveStyleRule('margin', '8px')
+    expect(container.firstChild).toHaveStyle('margin: 8px;')
   })
 
   it('works with "withConfig"', () => {
     const Dummy = styled.div.withConfig({})`
       margin: 2;
-      padding: 1;
-      margin-top: 2px;
     `
     const { container } = render(<Dummy />)
-    expect(container.firstChild).toHaveStyleRule('margin', '8px')
-    expect(container.firstChild).toHaveStyleRule('margin-top', '2px')
-    expect(container.firstChild).toHaveStyleRule('padding', '4px')
+    expect(container.firstChild).toHaveStyle('margin: 8px;')
   })
+
   it('works with "attrs"', () => {
     const Dummy = styled.div.attrs({ 'aria-label': 'label' })`
       margin: 2;
     `
     const { container } = render(<Dummy />)
-    expect(container.firstChild.getAttribute('aria-label')).toBe('label')
-    expect(container.firstChild).toHaveStyleRule('margin', '8px')
+    expect(container.firstChild).toHaveAttribute('aria-label', 'label')
+    expect(container.firstChild).toHaveStyle('margin: 8px;')
   })
 })
 
@@ -86,13 +87,13 @@ describe('#styled.xxx', () => {
     const Dummy = styled.box``
     const { container } = render(<Dummy m={1} />)
     expect(container.firstChild.tagName).toBe('DIV')
-    expect(container.firstChild).toHaveStyleRule('margin', '4px')
+    expect(container.firstChild).toHaveStyle('margin: 4px;')
   })
 
   it('supports Xbox tags', () => {
     const Dummy = styled.headerBox``
     const { container } = render(<Dummy m={1} />)
     expect(container.firstChild.tagName).toBe('HEADER')
-    expect(container.firstChild).toHaveStyleRule('margin', '4px')
+    expect(container.firstChild).toHaveStyle('margin: 4px;')
   })
 })

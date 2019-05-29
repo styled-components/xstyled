@@ -1,5 +1,5 @@
 import React from 'react'
-import 'jest-styled-components'
+import 'jest-dom/extend-expect'
 import { render } from 'react-testing-library'
 import styled from 'styled-components'
 import { css } from './css'
@@ -14,9 +14,11 @@ describe('#css', () => {
       `}
     `
     const { container } = render(<Dummy />)
-    expect(container.firstChild).toHaveStyleRule('margin', '8px')
-    expect(container.firstChild).toHaveStyleRule('margin-top', '2px')
-    expect(container.firstChild).toHaveStyleRule('padding', '4px')
+    expect(container.firstChild).toHaveStyle(`
+      margin: 8px;
+      margin-top: 2px;
+      padding: 4px;
+    `)
   })
 
   it('transforms multi values', () => {
@@ -26,6 +28,6 @@ describe('#css', () => {
       `}
     `
     const { container } = render(<Dummy />)
-    expect(container.firstChild).toHaveStyleRule('margin', '4px 8px')
+    expect(container.firstChild).toHaveStyle('margin: 4px 8px;')
   })
 })
