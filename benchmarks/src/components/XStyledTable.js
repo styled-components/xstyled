@@ -17,15 +17,18 @@ const Cell = styled('div')`
 `
 
 export default ({ table, toPercent }) => (
-  <Table>
-    {table.map((row, i) => (
-      <Row key={i}>
-        {row.map((x, j) => (
-          <Cell key={`${i}${j}`} value={x}>
-            {toPercent(x)}
-          </Cell>
-        ))}
-      </Row>
-    ))}
-  </Table>
+  <React.Fragment>
+    <h3>xstyled</h3>
+    <Table>
+      {table.map((row, i) => (
+        <Row key={i}>
+          {row.map((x, j) => (
+            <Cell key={`${i}${j}`} value={x}>
+              {toPercent(x)}
+            </Cell>
+          ))}
+        </Row>
+      ))}
+    </Table>
+  </React.Fragment>
 )
