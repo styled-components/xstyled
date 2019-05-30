@@ -15,6 +15,7 @@ import {
   getLineHeight,
   getFontWeight,
   getLetterSpacing,
+  getTransition,
 } from './styles/index'
 
 export const th = path => props => {
@@ -38,3 +39,4 @@ th.fontSize = getFontSize
 th.lineHeight = getLineHeight
 th.fontWeight = getFontWeight
 th.letterSpacing = getLetterSpacing
+th.transition = getTransition

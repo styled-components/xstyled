@@ -447,6 +447,18 @@ describe('styles', () => {
         expectations: [[1, '1'], [0.2, '0.2']],
       },
     ],
+    [
+      'transition',
+      {
+        styleRule: 'transition',
+        theme: {
+          transitions: {
+            color: 'color 500ms',
+          },
+        },
+        expectations: [['all 300ms', 'all 300ms'], ['color', 'color 500ms']],
+      },
+    ],
   ])('#%s', (name, config) => {
     const Dummy = styled.div`
       ${styles[name]};

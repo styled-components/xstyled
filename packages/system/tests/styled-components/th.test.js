@@ -151,6 +151,14 @@ describe('#th', () => {
         theme: { letterSpacings: { sm: 2 } },
       },
     ],
+    [
+      'transition',
+      {
+        cssProp: 'transition',
+        expectations: [['all 300ms', 'all 300ms'], ['color', 'color 500ms']],
+        theme: { transitions: { color: 'color 500ms' } },
+      },
+    ],
   ])('#%s', (name, config) => {
     const util = th[name]
 
