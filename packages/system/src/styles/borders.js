@@ -58,7 +58,7 @@ export const borderColor = style({
   themeGet: getColor,
 })
 
-const getBorderWidth = themeGetter({
+export const getBorderWidth = themeGetter({
   key: 'borderWidths',
   transform: px,
 })

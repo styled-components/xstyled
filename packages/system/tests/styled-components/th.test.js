@@ -57,6 +57,14 @@ describe('#th', () => {
       },
     ],
     [
+      'borderWidth',
+      {
+        cssProp: 'borderWidth',
+        expectations: [[0, 0], [1, '1px'], ['sm', '2px']],
+        theme: { borderWidths: { sm: 2 } },
+      },
+    ],
+    [
       'borderStyle',
       {
         cssProp: 'border-style',
