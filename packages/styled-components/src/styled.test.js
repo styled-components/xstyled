@@ -1,6 +1,6 @@
 import React from 'react'
 import 'jest-dom/extend-expect'
-import { render } from 'react-testing-library'
+import { render } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import styled, { css } from '.'
 
