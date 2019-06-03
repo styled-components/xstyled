@@ -5,6 +5,7 @@ import {
   getPercent,
   getRadius,
   getBorder,
+  getBorderWidth,
   getBorderStyle,
   getShadow,
   getSize,
@@ -29,6 +30,7 @@ th.px = getPx
 th.percent = getPercent
 th.radius = getRadius
 th.border = getBorder
+th.borderWidth = getBorderWidth
 th.borderStyle = getBorderStyle
 th.shadow = getShadow
 th.size = getSize

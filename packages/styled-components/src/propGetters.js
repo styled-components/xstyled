@@ -3,6 +3,7 @@ import {
   getColor,
   getRadius,
   getBorder,
+  getBorderWidth,
   getBorderStyle,
   getShadow,
   getSize,
@@ -28,8 +29,15 @@ const getMultiValues = transform => value => {
 
 const getNumberSpace = getNumber(getSpace)
 const getMultiNumberSpace = getMultiValues(getNumberSpace)
+
 const getNumberBorder = getNumber(getBorder)
+
+const getNumberBorderWidth = getNumber(getBorderWidth)
+const getMultiNumberBorderWidth = getMultiValues(getNumberBorderWidth)
+
 const getNumberSize = getNumber(getSize)
+
+const getMultiBorderStyle = getMultiValues(getBorderStyle)
 
 export const propGetters = {
   // getSpace
@@ -65,8 +73,19 @@ export const propGetters = {
   'border-bottom': getNumberBorder,
   'border-left': getNumberBorder,
 
+  // getBorderWidth
+  'border-width': getMultiNumberBorderWidth,
+  'boder-top-width': getNumberBorderWidth,
+  'boder-right-width': getNumberBorderWidth,
+  'boder-bottom-width': getNumberBorderWidth,
+  'boder-left-width': getNumberBorderWidth,
+
   // getBorderStyle
-  'border-style': getBorderStyle,
+  'border-style': getMultiBorderStyle,
+  'boder-top-style': getBorderStyle,
+  'boder-right-style': getBorderStyle,
+  'boder-bottom-style': getBorderStyle,
+  'boder-left-style': getBorderStyle,
 
   // getShadow
   'box-shadow': getShadow,
