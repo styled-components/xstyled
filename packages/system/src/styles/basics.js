@@ -20,7 +20,12 @@ export const overflow = style({
   prop: 'overflow',
 })
 
+export const getTransition = themeGetter({ key: 'transitions' })
+
+export const transition = style({ prop: 'transition', themeGet: getTransition })
+
 export const basics = compose(
   opacity,
   overflow,
+  transition,
 )

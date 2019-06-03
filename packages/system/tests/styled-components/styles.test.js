@@ -1,6 +1,6 @@
 import React from 'react'
 import 'jest-styled-components'
-import { render } from 'react-testing-library'
+import { render } from '@testing-library/react'
 import styled from 'styled-components'
 import * as styles from '../../src'
 
@@ -445,6 +445,18 @@ describe('styles', () => {
       {
         styleRule: 'opacity',
         expectations: [[1, '1'], [0.2, '0.2']],
+      },
+    ],
+    [
+      'transition',
+      {
+        styleRule: 'transition',
+        theme: {
+          transitions: {
+            color: 'color 500ms',
+          },
+        },
+        expectations: [['all 300ms', 'all 300ms'], ['color', 'color 500ms']],
       },
     ],
   ])('#%s', (name, config) => {

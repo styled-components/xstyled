@@ -1,6 +1,6 @@
 import React from 'react'
 import 'jest-dom/extend-expect'
-import { render } from 'react-testing-library'
+import { render } from '@testing-library/react'
 import styled from 'styled-components'
 import { th } from '../../src'
 
@@ -149,6 +149,14 @@ describe('#th', () => {
         cssProp: 'letter-spacing',
         expectations: [[0, '0'], [3, '3px'], ['sm', '2px']],
         theme: { letterSpacings: { sm: 2 } },
+      },
+    ],
+    [
+      'transition',
+      {
+        cssProp: 'transition',
+        expectations: [['all 300ms', 'all 300ms'], ['color', 'color 500ms']],
+        theme: { transitions: { color: 'color 500ms' } },
       },
     ],
   ])('#%s', (name, config) => {

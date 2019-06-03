@@ -12,6 +12,7 @@ import {
   getLineHeight,
   getFontWeight,
   getLetterSpacing,
+  getTransition,
 } from '@xstyled/system'
 
 const getNumber = transform => value => {
@@ -95,4 +96,7 @@ export const propGetters = {
 
   // getLetterSpacing
   'letter-spacing': getNumber(getLetterSpacing),
+
+  // getTransition
+  transition: getTransition,
 }
