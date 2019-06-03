@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/smooth-code/xstyled/compare/v1.0.4...v1.1.0) (2019-06-03)
+
+
+### Features
+
+* add transitions ([be415b2](https://github.com/smooth-code/xstyled/commit/be415b2))
+
+
+
+
+
 ## [1.0.4](https://github.com/smooth-code/xstyled/compare/v1.0.3...v1.0.4) (2019-05-29)
 
 
