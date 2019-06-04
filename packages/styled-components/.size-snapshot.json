@@ -19,22 +19,22 @@
     "gzipped": 1185
   },
   "dist/xstyled.es.js": {
-    "bundled": 5664,
-    "minified": 3478,
-    "gzipped": 1346,
+    "bundled": 6306,
+    "minified": 4000,
+    "gzipped": 1426,
     "treeshaked": {
       "rollup": {
-        "code": 2243,
-        "import_statements": 383
+        "code": 2473,
+        "import_statements": 403
       },
       "webpack": {
-        "code": 3279
+        "code": 3564
       }
     }
   },
   "dist/xstyled.cjs.js": {
-    "bundled": 7383,
-    "minified": 4868,
-    "gzipped": 1475
+    "bundled": 8044,
+    "minified": 5410,
+    "gzipped": 1551
   }
 }
