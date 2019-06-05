@@ -3,3 +3,4 @@ node_modules/
 dist/
 package.json
 CHANGELOG.md
+.cache

@@ -3,7 +3,6 @@ import pkg from './package.json'
 
 export default getRollupConfig({
   pwd: __dirname,
-  buildName: 'xstyled-system',
-  name: 'xstyledSystem',
+  buildName: 'xstyled-core',
   pkg,
 })

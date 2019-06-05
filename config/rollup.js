@@ -6,7 +6,12 @@ import commonjs from 'rollup-plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 
-export const getRollupConfig = ({ pwd, buildName, name }) => {
+export const getRollupConfig = ({
+  pwd,
+  buildName,
+  name = null,
+  globals = {},
+}) => {
   const SOURCE_DIR = path.resolve(pwd, 'src')
   const DIST_DIR = path.resolve(pwd, 'dist')
   const input = `${SOURCE_DIR}/index.js`
@@ -20,10 +25,6 @@ export const getRollupConfig = ({ pwd, buildName, name }) => {
       ['@babel/plugin-transform-runtime', { useESModules }],
     ],
   })
-
-  const globals = {
-    'styled-components': 'styled',
-  }
 
   const umdConfig = {
     input,
@@ -78,5 +79,5 @@ export const getRollupConfig = ({ pwd, buildName, name }) => {
     return [esmConfig, cjsConfig]
   }
 
-  return [esmConfig, cjsConfig, umdConfig, minConfig]
+  return [esmConfig, cjsConfig, ...(name ? [umdConfig, minConfig] : [])]
 }

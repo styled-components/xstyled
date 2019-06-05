@@ -1,0 +1,22 @@
+{
+  "name": "@xstyled/core",
+  "description": "xstyled core utilities",
+  "version": "1.1.1",
+  "sideEffects": false,
+  "main": "dist/xstyled-core.cjs.js",
+  "module": "dist/xstyled-core.es.js",
+  "author": "Greg Bergé <berge.greg@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "prebuild": "shx rm -rf dist",
+    "prepublishOnly": "yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.4.4",
+    "@xstyled/system": "^1.1.1"
+  }
+}
