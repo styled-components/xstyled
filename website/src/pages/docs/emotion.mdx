@@ -6,7 +6,7 @@ order: 15
 
 # Use with emotion
 
-There is no alternative of `@xstyled/styled-components` for [emotion](https://emotion.sh). But `@xstyled/system` is fully compatible!
+xstyled has complete support of [emotion](https://emotion.sh).
 
 ## System as props
 
@@ -34,4 +34,51 @@ const Box = styled.div`
 
 ## System as styled
 
-System as styled is coming for emotion, today you are stick with system as getters, sorry!
+System can also be used seemlessly in your CSS. `@xstyled/emotion` is a wrapper around `@emotion/styled` that gives you this power:
+
+```js
+import styled from '@xstyled/emotion'
+
+const PrimaryBox = styled.div`
+  width: 200px;
+  height: 200px;
+  background-color: primary;
+`
+```
+
+The above example reads `primary` from `theme.colors`.
+
+## Use css prop
+
+xstyled also support emotion `css` property. The only thing you have to is importing `jsx` and `css` from `@xstyled/emotion`. See [emotion documentation](https://emotion.sh/docs/css-prop).
+
+```js
+/** @jsx jsx */
+import { jsx, css } from '@xstyled/emotion'
+
+function PrimaryBox() {
+  return (
+    <div
+      css={css`
+        width: 200px;
+        height: 200px;
+        background-color: primary;
+      `}
+    />
+  )
+}
+```
+
+The above example reads `primary` from `theme.colors`.
+
+## Babel preset
+
+To avoid the `/** @jsx jsx */` you can use `@xstyled/babel-preset-emotion-css-prop`. It has the same interface as `@emotion/babel-preset-css-prop`, see [emotion documentation](https://emotion.sh/docs/css-prop).
+
+**.babelrc**
+
+```json
+{
+  "presets": ["@xstyled/babel-preset-emotion-css-prop"]
+}
+```

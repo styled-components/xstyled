@@ -1,5 +1,4 @@
 export {
-  createGlobalStyle,
   isStyledComponent,
   keyframes,
   ServerStyleSheet,
@@ -14,5 +13,6 @@ export {
 } from 'styled-components'
 
 export { css } from './css'
+export { createGlobalStyle } from './createGlobalStyle'
 export { Box } from './Box'
 export { styled as default } from './styled'

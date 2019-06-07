@@ -3,12 +3,14 @@ import pkg from './package.json'
 
 export default getRollupConfig({
   pwd: __dirname,
-  buildName: 'xstyled-styled-components',
+  buildName: 'xstyled-emotion',
   name: 'xstyled',
   pkg,
   globals: {
     react: 'React',
     '@xstyled/system': 'xstyledSystem',
-    'styled-components': 'styled',
+    'emotion-theming': 'emotionTheming',
+    '@emotion/core': 'emotion',
+    '@emotion/styled': 'styled',
   },
 })

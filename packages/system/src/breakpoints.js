@@ -26,12 +26,9 @@ export const between = (lower, upper, rules) => props => {
   const min = getBreakpointMin(breakpoints, lower)
   const max = getBreakpointMax(breakpoints, upper)
 
-  if (min !== null && max !== null) {
-    return [`${mediaBetweenWidth(min, max)} {`, rules, '}']
-  }
   if (max === null) return up(lower, rules)(props)
   if (min === null) return down(upper, rules)(props)
-  return null
+  return [`${mediaBetweenWidth(min, max)} {`, rules, '}']
 }
 
 export const breakpoints = values => props => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import 'jest-dom/extend-expect'
 import { render } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'emotion-theming'
 import styled, { css } from '.'
 
 describe('#styled', () => {
@@ -55,23 +55,6 @@ describe('#styled', () => {
       margin: '2',
     })
     const { container } = render(<Dummy />)
-    expect(container.firstChild).toHaveStyle('margin: 8px;')
-  })
-
-  it('works with "withConfig"', () => {
-    const Dummy = styled.div.withConfig({})`
-      margin: 2;
-    `
-    const { container } = render(<Dummy />)
-    expect(container.firstChild).toHaveStyle('margin: 8px;')
-  })
-
-  it('works with "attrs"', () => {
-    const Dummy = styled.div.attrs({ 'aria-label': 'label' })`
-      margin: 2;
-    `
-    const { container } = render(<Dummy />)
-    expect(container.firstChild).toHaveAttribute('aria-label', 'label')
     expect(container.firstChild).toHaveStyle('margin: 8px;')
   })
 })

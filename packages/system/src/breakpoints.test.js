@@ -86,6 +86,7 @@ describe('#down', () => {
 
 describe('#between', () => {
   it('applies style between breakpoints', () => {
+    expect(between('xs', 'xs', 'xs-xs')({})).toBe('xs-xs')
     expect(between('xs', 'sm', 'xs-sm')({})).toEqual([
       '@media (max-width: 575.98px) {',
       'xs-sm',

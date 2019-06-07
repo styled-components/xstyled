@@ -1,16 +1,16 @@
 {
-  "name": "@xstyled/styled-components",
-  "description": "Xstyled bindings for styled-components.",
+  "name": "@xstyled/emotion",
+  "description": "Xstyled bindings for emotion.",
   "version": "1.1.1",
   "keywords": [
-    "styled-components",
+    "emotion",
     "css",
     "system",
     "styled-system"
   ],
   "sideEffects": false,
-  "main": "dist/xstyled-styled-components.cjs.js",
-  "module": "dist/xstyled-styled-components.es.js",
+  "main": "dist/xstyled-emotion.cjs.js",
+  "module": "dist/xstyled-emotion.es.js",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -22,7 +22,9 @@
     "access": "public"
   },
   "peerDependencies": {
-    "styled-components": "^4.0.0"
+    "@emotion/styled": "^10.0.0",
+    "@emotion/core": "^10.0.0",
+    "emotion-theming": "^10.0.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
