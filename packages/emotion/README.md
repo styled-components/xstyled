@@ -3,18 +3,18 @@
 </h1>
 <p align="center" style="font-size: 1.2rem;">A new way to style components</p>
 
-[![License](https://img.shields.io/npm/l/@xstyled/styled-components.svg)](https://github.com/smooth-code/xstyled/blob/master/LICENSE)
-[![npm package](https://img.shields.io/npm/v/@xstyled/styled-components/latest.svg)](https://www.npmjs.com/package/@xstyled/styled-components)
-[![npm downloads](https://img.shields.io/npm/dm/@xstyled/styled-components.svg)](https://www.npmjs.com/package/@xstyled/styled-components)
+[![License](https://img.shields.io/npm/l/@xstyled/emotion.svg)](https://github.com/smooth-code/xstyled/blob/master/LICENSE)
+[![npm package](https://img.shields.io/npm/v/@xstyled/emotion/latest.svg)](https://www.npmjs.com/package/@xstyled/emotion)
+[![npm downloads](https://img.shields.io/npm/dm/@xstyled/emotion.svg)](https://www.npmjs.com/package/@xstyled/emotion)
 [![CircleCI](https://circleci.com/gh/smooth-code/xstyled.svg?style=svg)](https://circleci.com/gh/smooth-code/xstyled)
 [![codecov](https://codecov.io/gh/smooth-code/xstyled/branch/master/graph/badge.svg)](https://codecov.io/gh/smooth-code/xstyled)
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
-[![Dependencies](https://img.shields.io/david/smooth-code/xstyled.svg?path=packages%2Fstyled-components)](https://david-dm.org/smooth-code/xstyled?path=packages/styled-components)
+[![Dependencies](https://img.shields.io/david/smooth-code/xstyled.svg?path=packages%2Femotion)](https://david-dm.org/smooth-code/xstyled?path=packages/emotion)
 [![DevDependencies](https://img.shields.io/david/dev/smooth-code/xstyled.svg)](https://david-dm.org/smooth-code/xstyled?type=dev)
-[![Small size](https://img.badgesize.io/https://unpkg.com/@xstyled/styled-components/dist/xstyled-styled-components.min.js?compression=gzip)](https://unpkg.com/@xstyled/styled-components/dist/xstyled-styled-components.min.js)
+[![Small size](https://img.badgesize.io/https://unpkg.com/@xstyled/emotion/dist/xstyled-emotion.min.js?compression=gzip)](https://unpkg.com/@xstyled/emotion/dist/xstyled-emotion.min.js)
 
 ```bash
-npm install @xstyled/styled-components styled-components
+npm install @xstyled/emotion @emotion/core @emotion/styled emotion-theming
 ```
 
 ## [Docs](https://www.smooth-code.com/open-source/xstyled)
@@ -30,7 +30,7 @@ Quicklinks to some of the most-visited pages:
 ## Example
 
 ```js
-import styled from '@xstyled/styled-components'
+import styled from '@xstyled/emotion'
 
 const Box = styled.div`
   background-color: primary; /* ⟶ theme.colors.primary */
