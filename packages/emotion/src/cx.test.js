@@ -5,6 +5,12 @@ import { render } from '@testing-library/react'
 import { css, cx } from '.'
 
 describe('#cx', () => {
+  it('throws with string value', () => {
+    expect(() => render(<div css={cx(`margin: 2px`)} />)).toThrow(
+      'Strings are not allowed as css prop values',
+    )
+  })
+
   it('handles css values', () => {
     const { container } = render(
       <div

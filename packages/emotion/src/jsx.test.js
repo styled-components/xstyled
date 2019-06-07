@@ -4,6 +4,11 @@ import { render } from '@testing-library/react'
 import { jsx, css } from '.'
 
 describe('#jsx', () => {
+  it('does nothing without css prop', () => {
+    const { container } = render(<div />)
+    expect(container.firstChild.tagName).toBe('DIV')
+  })
+
   it('handles css string', () => {
     const { container } = render(
       <div

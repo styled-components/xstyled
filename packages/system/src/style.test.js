@@ -7,13 +7,28 @@ describe('#style', () => {
   })
 
   describe('style', () => {
-    it('should work without any theme', () => {
+    it('works without any theme', () => {
       expect(fontFamily({ fontFamily: 'title' })).toEqual({
         fontFamily: 'title',
       })
     })
 
-    it('should work with a theme', () => {
+    it('returns null if style is not valid', () => {
+      expect(fontFamily({ fontFamily: () => {} })).toBe(null)
+    })
+
+    it('works with breakpoints', () => {
+      expect(fontFamily({ fontFamily: { xs: 'title' } })).toEqual({
+        fontFamily: 'title',
+      })
+      expect(fontFamily({ fontFamily: { md: 'title' } })).toEqual({
+        '@media (min-width: 768px)': {
+          fontFamily: 'title',
+        },
+      })
+    })
+
+    it('works with a theme', () => {
       expect(
         fontFamily({
           fontFamily: 'title',
@@ -24,7 +39,7 @@ describe('#style', () => {
       })
     })
 
-    it('should work with theme functions', () => {
+    it('works with theme functions', () => {
       expect(
         fontFamily({
           fontFamily: 'title',
