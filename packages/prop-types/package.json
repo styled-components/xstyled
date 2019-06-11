@@ -1,0 +1,32 @@
+{
+  "name": "@xstyled/prop-types",
+  "description": "Generate prop-types from xstyled utilities.",
+  "version": "1.2.0",
+  "keywords": [
+    "emotion",
+    "styled-components",
+    "css",
+    "system",
+    "styled-system",
+    "prop-types"
+  ],
+  "sideEffects": false,
+  "main": "dist/xstyled-prop-types.cjs.js",
+  "module": "dist/xstyled-prop-types.es.js",
+  "author": "Greg Bergé <berge.greg@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "prebuild": "shx rm -rf dist",
+    "prepublishOnly": "yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.0.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.4.4"
+  }
+}
