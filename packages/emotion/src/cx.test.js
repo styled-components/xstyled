@@ -1,8 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core'
 import 'jest-dom/extend-expect'
-import { render } from '@testing-library/react'
+import { render, cleanup } from '@testing-library/react'
 import { css, cx } from '.'
+
+afterEach(cleanup)
 
 describe('#cx', () => {
   it('throws with string value', () => {

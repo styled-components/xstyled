@@ -1,8 +1,10 @@
 import React from 'react'
 import 'jest-dom/extend-expect'
-import { render } from '@testing-library/react'
+import { render, cleanup } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import styled, { css } from '.'
+
+afterEach(cleanup)
 
 describe('#styled', () => {
   it('transforms rules', () => {

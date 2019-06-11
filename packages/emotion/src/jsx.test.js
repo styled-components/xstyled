@@ -1,7 +1,9 @@
 /** @jsx jsx */
 import 'jest-dom/extend-expect'
-import { render } from '@testing-library/react'
+import { render, cleanup } from '@testing-library/react'
 import { jsx, css } from '.'
+
+afterEach(cleanup)
 
 describe('#jsx', () => {
   it('does nothing without css prop', () => {
