@@ -1,8 +1,10 @@
 import React from 'react'
 import 'jest-styled-components'
-import { render } from '@testing-library/react'
+import { render, cleanup } from '@testing-library/react'
 import styled, { css } from 'styled-components'
 import { breakpoints, up, down, between } from '../../src'
+
+afterEach(cleanup)
 
 describe('#breakpoints', () => {
   it('should work with `css`', () => {

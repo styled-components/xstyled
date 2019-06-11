@@ -1,8 +1,10 @@
 import React from 'react'
 import 'jest-styled-components'
-import { render } from '@testing-library/react'
+import { render, cleanup } from '@testing-library/react'
 import styled from 'styled-components'
 import * as styles from '../../src'
+
+afterEach(cleanup)
 
 describe('styles', () => {
   describe.each([

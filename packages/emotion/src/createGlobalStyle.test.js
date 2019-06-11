@@ -1,7 +1,9 @@
 import React from 'react'
 import 'jest-dom/extend-expect'
-import { render } from '@testing-library/react'
+import { render, cleanup } from '@testing-library/react'
 import { createGlobalStyle } from '.'
+
+afterEach(cleanup)
 
 describe('#createGlobalStyle', () => {
   it('injects global styles', () => {
