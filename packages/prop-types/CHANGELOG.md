@@ -5,15 +5,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.3.0](https://github.com/smooth-code/xstyled/compare/v1.2.0...v1.3.0) (2019-06-11)
 
-**Note:** Version bump only for package @xstyled/core
-
-
-
-
-
-# [1.2.0](https://github.com/smooth-code/xstyled/compare/v1.1.1...v1.2.0) (2019-06-07)
-
 
 ### Features
 
-* support emotion ([4b600a4](https://github.com/smooth-code/xstyled/commit/4b600a4))
+* add @xstyled/prop-types utility ([73782fd](https://github.com/smooth-code/xstyled/commit/73782fd)), closes [#23](https://github.com/smooth-code/xstyled/issues/23)
