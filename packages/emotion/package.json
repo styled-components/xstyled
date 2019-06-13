@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/emotion",
   "description": "Xstyled bindings for emotion.",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "keywords": [
     "emotion",
     "css",
@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
-    "@xstyled/core": "^1.3.0"
+    "@xstyled/core": "^1.4.0"
   }
 }

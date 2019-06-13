@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/smooth-code/xstyled/compare/v1.3.0...v1.4.0) (2019-06-13)
+
+
+### Features
+
+* add xgrids (bootstrap like grids) ([47bcaff](https://github.com/smooth-code/xstyled/commit/47bcaff))
+
+
+
+
+
 # [1.3.0](https://github.com/smooth-code/xstyled/compare/v1.2.0...v1.3.0) (2019-06-11)
 
 
