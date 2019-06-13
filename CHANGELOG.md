@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/smooth-code/xstyled/compare/v1.4.0...v1.5.0) (2019-06-13)
+
+
+### Features
+
+* expose `getBreakpoints` ([b8dcc29](https://github.com/smooth-code/xstyled/commit/b8dcc29))
+
+
+
+
+
 # [1.4.0](https://github.com/smooth-code/xstyled/compare/v1.3.0...v1.4.0) (2019-06-13)
 
 
