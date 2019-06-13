@@ -39,7 +39,7 @@ function styleFromValue(cssProperties, value, props, themeGet) {
   return null
 }
 
-function createStyleGenerator(getStyle, props, generators) {
+export function createStyleGenerator(getStyle, props, generators) {
   getStyle.meta = {
     props,
     getStyle,
@@ -49,7 +49,7 @@ function createStyleGenerator(getStyle, props, generators) {
   return getStyle
 }
 
-function reduceBreakpoints(props, values, getStyle = identity) {
+export function reduceBreakpoints(props, values, getStyle = identity) {
   const breakpoints = getBreakpoints(props)
   const keys = Object.keys(values)
   let allStyle = {}
