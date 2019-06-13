@@ -1,4 +1,4 @@
-import { style } from './style'
+import { style, themeGetter } from './style'
 
 describe('#style', () => {
   const fontFamily = style({
@@ -6,7 +6,31 @@ describe('#style', () => {
     key: 'fonts',
   })
 
-  describe('style', () => {
+  describe('#themeGetter', () => {
+    it('reads from theme', () => {
+      const scope = themeGetter({ key: 'scope' })
+      expect(scope('value')({ theme: { scope: { value: 'foo' } } })).toBe('foo')
+    })
+
+    it('uses defaultVariants', () => {
+      const scope = themeGetter({
+        key: 'scope',
+        defaultVariants: { foo: 'bar' },
+      })
+      const theme = { scope: { x: 'y' } }
+      expect(scope('foo')({})).toBe('bar')
+      expect(scope('x')({ theme })).toBe('y')
+    })
+
+    it('supports transform func', () => {
+      const scope = themeGetter({ key: 'scope', transform: x => x + 1 })
+      const theme = { scope: [1] }
+      expect(scope(10)({ theme })).toBe(11)
+      expect(scope(0)({ theme })).toBe(2)
+    })
+  })
+
+  describe('#style', () => {
     it('works without any theme', () => {
       expect(fontFamily({ fontFamily: 'title' })).toEqual({
         fontFamily: 'title',

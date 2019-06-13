@@ -8,6 +8,7 @@ import { grids } from './grids'
 import { positioning } from './positioning'
 import { space } from './space'
 import { typography } from './typography'
+import { xgrids } from './xgrids'
 
 export * from './backgrounds'
 export * from './basics'
@@ -18,6 +19,7 @@ export * from './layout'
 export * from './positioning'
 export * from './space'
 export * from './typography'
+export * from './xgrids'
 
 export const system = compose(
   backgrounds,
@@ -29,4 +31,5 @@ export const system = compose(
   positioning,
   space,
   typography,
+  xgrids,
 )

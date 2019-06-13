@@ -29,6 +29,8 @@ describe('util', () => {
       expect(percent(0.3)).toBe('30%')
       expect(percent('20em')).toBe('20em')
       expect(percent(-0.3)).toBe('-30%')
+      // rounds percent
+      expect(percent(0.3333333333)).toBe('33.3333%')
     })
   })
 })
