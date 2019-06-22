@@ -59,6 +59,19 @@ describe('#styled', () => {
     const { container } = render(<Dummy />)
     expect(container.firstChild).toHaveStyle('margin: 8px;')
   })
+
+  it('transforms first class interpolations', () => {
+    const Dummy = styled.div`
+      ${() => [
+        'color: red;',
+        css`
+          margin: 1;
+        `,
+      ]}
+    `
+    const { container } = render(<Dummy />)
+    expect(container.firstChild).toHaveStyle('color: red; margin: 4px;')
+  })
 })
 
 describe('#styled.xxx', () => {
