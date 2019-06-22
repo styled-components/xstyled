@@ -52,6 +52,23 @@ describe('#styled', () => {
     expect(container.firstChild).toHaveStyle('color: pink;')
   })
 
+  it('handles negative values', () => {
+    const theme = {
+      space: {
+        md: 10,
+      },
+    }
+    const Dummy = styled.div`
+      margin: -md;
+    `
+    const { container } = render(
+      <ThemeProvider theme={theme}>
+        <Dummy />
+      </ThemeProvider>,
+    )
+    expect(container.firstChild).toHaveStyle('margin: -10px;')
+  })
+
   it('works with css as object', () => {
     const Dummy = styled.div({
       margin: '2',
