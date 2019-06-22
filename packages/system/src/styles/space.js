@@ -1,21 +1,27 @@
 import { style, themeGetter, compose } from '../style'
-import { num, negative } from '../util'
+import { is, string, negative } from '../util'
 import { px as pxUnit } from '../unit'
+
+function toNegative(value) {
+  if (string(value)) return `-${value}`
+  return value * -1
+}
 
 export const getSpace = themeGetter({
   key: 'space',
   defaultVariants: [0, 4, 8, 16, 24, 48, 96, 144, 192, 240],
   transform: (_, { rawValue, variants }) => {
-    if (!num(rawValue)) {
-      return variants[rawValue] || rawValue
+    if (string(rawValue)) {
+      const neg = rawValue.startsWith('-')
+      const variantKey = neg ? rawValue.substr(1) : rawValue
+      const variantValue = variants[variantKey]
+      const value = is(variantValue) ? variantValue : rawValue
+      return pxUnit(neg ? toNegative(value) : value)
     }
     const abs = Math.abs(rawValue)
     const neg = negative(rawValue)
-    const value = variants[abs] || abs
-    if (!num(value)) {
-      return pxUnit(neg ? `-${value}` : value)
-    }
-    return pxUnit(value * (neg ? -1 : 1))
+    const value = is(variants[abs]) ? variants[abs] : abs
+    return pxUnit(neg ? toNegative(value) : value)
   },
 })
 

@@ -64,7 +64,7 @@ export const propGetters = {
   'border-left-color': getColor,
 
   // getRadius
-  'border-radius': getNumber(getRadius),
+  'border-radius': getMultiValues(getNumber(getRadius)),
 
   // getBorder
   border: getNumberBorder,
