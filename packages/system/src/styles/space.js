@@ -13,9 +13,9 @@ export const getSpace = themeGetter({
   transform: (_, { rawValue, variants }) => {
     if (string(rawValue)) {
       const neg = rawValue.startsWith('-')
-      const variantKey = neg ? rawValue.substr(1) : rawValue
-      const variantValue = variants[variantKey]
-      const value = is(variantValue) ? variantValue : rawValue
+      const absoluteValue = neg ? rawValue.substr(1) : rawValue
+      const variantValue = variants[absoluteValue]
+      const value = is(variantValue) ? variantValue : absoluteValue
       return pxUnit(neg ? toNegative(value) : value)
     }
     const abs = Math.abs(rawValue)

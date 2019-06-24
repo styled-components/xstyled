@@ -25,6 +25,8 @@ describe('#getSpace', () => {
     const props = { theme: { space: { md: 10 } } }
     expect(getSpace('md')(props)).toEqual('10px')
     expect(getSpace('-md')(props)).toEqual('-10px')
+    expect(getSpace('-10')(props)).toEqual('-10')
+    expect(getSpace('-10px')(props)).toEqual('-10px')
   })
 })
 
