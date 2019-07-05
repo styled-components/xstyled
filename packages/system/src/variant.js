@@ -1,4 +1,4 @@
-import { getThemeValue, merge, warn, is } from './util'
+import { getThemeValue, merge, warn, is, assign } from './util'
 
 export const variant = ({
   key = null,
@@ -7,7 +7,7 @@ export const variant = ({
   prop = 'variant',
 }) => props => {
   const themeVariants = is(key) ? getThemeValue(props, key) : null
-  const computedVariants = merge(variants, themeVariants)
+  const computedVariants = merge(assign({}, variants), themeVariants)
   const value = props[prop] !== undefined ? props[prop] : defaultValue
   const result = getThemeValue(props, value, computedVariants)
   warn(is(result), `variant "${value}" not found`)

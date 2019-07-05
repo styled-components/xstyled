@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import deepmerge from 'deepmerge' // < 1kb payload overhead when lodash/merge is > 3kb.
 
 const DEV = process.env.NODE_ENV !== 'production'
 
@@ -24,13 +23,27 @@ export const get = (from, path) => {
   return result
 }
 
-export const merge = (acc, item) => {
-  if (!is(item)) {
-    return acc
+export const assign = (a, b) => {
+  if (!is(b)) return a
+  // eslint-disable-next-line no-restricted-syntax, guard-for-in
+  for (const key in b) {
+    a[key] = b[key]
   }
+  return a
+}
 
-  // No need to clone deep, it's way faster.
-  return deepmerge(acc, item, { clone: false })
+export const merge = (a, b) => {
+  if (!is(b)) return a
+  // eslint-disable-next-line no-restricted-syntax
+  for (const key in b) {
+    // eslint-disable-next-line no-continue
+    if (obj(a[key])) {
+      a[key] = merge(assign({}, a[key]), b[key])
+    } else {
+      a[key] = b[key]
+    }
+  }
+  return a
 }
 
 export const warn = (condition, message) => {

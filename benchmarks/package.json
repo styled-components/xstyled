@@ -5,21 +5,21 @@
     "start": "webpack-dev-server"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "benchmark": "^2.1.4",
     "html-webpack-plugin": "^3.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "webpack": "^4.32.2",
-    "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.5.1"
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
-    "@xstyled/styled-components": "^1.0.3",
-    "styled-components": "^4.2.1",
-    "styled-system": "^5.0.2"
+    "@xstyled/styled-components": "^1.5.2",
+    "styled-components": "^4.3.2",
+    "styled-system": "^5.0.12"
   }
 }

@@ -8,6 +8,7 @@ import {
   negative,
   get,
   merge,
+  assign,
   cascade,
   getThemeValue,
 } from './util'
@@ -98,15 +99,32 @@ describe('util', () => {
     })
   })
 
-  describe('#merge', () => {
-    it('merges an item into another', () => {
+  describe('#assign', () => {
+    it('assigns an item into another', () => {
       const a = { x: 1 }
       const b = { y: 2 }
-      const result = merge(a, b)
+      const result = assign(a, b)
       expect(result).toEqual({ x: 1, y: 2 })
+      expect(result).toBe(a)
     })
 
-    it('returns the first one if the second is not defined', () => {
+    it('supports null as second attribute', () => {
+      const a = { x: 1 }
+      const result = assign(a, null)
+      expect(result).toBe(a)
+    })
+  })
+
+  describe('#merge', () => {
+    it('merges an item into another', () => {
+      const a = { x: 1, z: { a: 1 } }
+      const b = { y: 2, z: { b: 2 } }
+      const result = merge(a, b)
+      expect(result).toEqual({ x: 1, y: 2, z: { a: 1, b: 2 } })
+      expect(result).toBe(a)
+    })
+
+    it('supports null as second attribute', () => {
       const a = { x: 1 }
       const result = merge(a, null)
       expect(result).toBe(a)

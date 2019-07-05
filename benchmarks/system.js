@@ -3,6 +3,8 @@ const Benchmark = require('benchmark')
 const xsys = require('@xstyled/system')
 const sys = require('styled-system')
 
+// Benchmark.options.maxTime = 0.2
+
 const xsysSystem = xsys.compose(
   xsys.fontSize,
   xsys.space,
@@ -13,7 +15,7 @@ const sysSystem = sys.compose(
   sys.space,
 )
 
-const suite = new Benchmark.Suite()
+const suite = new Benchmark.Suite('systems')
 
 const xSysValue = {
   theme: {},

@@ -327,7 +327,13 @@ describe('styles', () => {
       'top',
       {
         styleRule: 'top',
-        expectations: [[10, '10px'], ['10px', '10px'], ['4%', '4%']],
+        expectations: [
+          ['10', '10'],
+          [10, '10px'],
+          ['10', '10'],
+          ['10px', '10px'],
+          ['4%', '4%'],
+        ],
       },
     ],
     [
