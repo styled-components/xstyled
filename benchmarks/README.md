@@ -1,10 +1,10 @@
-# xstyled Benchmarks
+# Benchmarks
 
 A collection of `xstyled` benchmarks
 
 ## Web
 
-Use this to benchmark `@xstyled/styled-components` against other libraries.
+Benchmarks `@xstyled/styled-components` VS `styled-components` in real conditions.
 
 ```bash
 npm start
@@ -14,8 +14,5 @@ The app will run on `http://localhost:8083`
 
 ## CLI
 
-Use this to benchmark `@xstyled/system` against other libraries
-
-```bash
-npm run benchmark
-```
+- Use `npm run bench-system` to bench `@xstyled/system` against other libraries
+- Use `npm run bench-styled-components` to bench `@xstyled/styled-components` against `styled-components`

@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "benchmark": "node ./system.js",
+    "bench-system": "node ./system.js",
+    "bench-styled-components": "node ./styled-components.js",
     "start": "webpack-dev-server"
   },
   "devDependencies": {
