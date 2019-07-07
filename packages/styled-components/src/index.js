@@ -14,5 +14,4 @@ export {
 
 export { css } from './css'
 export { createGlobalStyle } from './createGlobalStyle'
-export { Box } from './Box'
-export { styled as default } from './styled'
+export { Box, styled as default } from './styled'

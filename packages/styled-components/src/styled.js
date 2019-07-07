@@ -38,7 +38,7 @@ const createBoxComponent = component => ({ as, ...props }) => {
   return <Component {...omittedProps} />
 }
 
-const Box = styled(createBoxComponent('div'))(createBox)
+export const Box = styled(createBoxComponent('div'))(createBox)
 
 styled.box = styled(Box)
 
