@@ -2,9 +2,19 @@ import React from 'react'
 import 'jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
-import styled, { css } from '.'
+import styled, { css, Box } from '.'
 
 afterEach(cleanup)
+
+describe('#Box', () => {
+  it('creates system based components', () => {
+    const { container } = render(<Box m={2} p={1} />)
+    expect(container.firstChild).toHaveStyle(`
+      margin: 8px;
+      padding: 4px;
+    `)
+  })
+})
 
 describe('#styled', () => {
   it('transforms rules', () => {
@@ -132,5 +142,21 @@ describe('#styled.xxxBox', () => {
     expect(container.firstChild.tagName).toBe('HEADER')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
     expect(container.firstChild).not.toHaveAttribute('margin')
+  })
+
+  it('does not forward props', () => {
+    const Dummy = styled.divBox``
+    const { container } = render(<Dummy display="flex" />)
+    expect(container.firstChild.tagName).toBe('DIV')
+    expect(container.firstChild).toHaveStyle('display: flex;')
+    expect(container.firstChild).not.toHaveAttribute('display')
+  })
+
+  it('supports forwardedAs', () => {
+    const Dummy = styled.divBox``
+    const { container } = render(<Dummy forwardedAs="header" display="flex" />)
+    expect(container.firstChild.tagName).toBe('HEADER')
+    expect(container.firstChild).toHaveStyle('display: flex;')
+    expect(container.firstChild).not.toHaveAttribute('display')
   })
 })
