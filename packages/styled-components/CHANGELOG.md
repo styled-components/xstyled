@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/smooth-code/xstyled/compare/v1.5.2...v1.5.3) (2019-07-07)
+
+
+### Bug Fixes
+
+* prevent system props on boxes ([4ec5044](https://github.com/smooth-code/xstyled/commit/4ec5044))
+
+
+
+
+
 ## [1.5.2](https://github.com/smooth-code/xstyled/compare/v1.5.1...v1.5.2) (2019-06-24)
 
 **Note:** Version bump only for package @xstyled/styled-components

@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/core",
   "description": "xstyled core utilities",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "sideEffects": false,
   "main": "dist/xstyled-core.cjs.js",
   "module": "dist/xstyled-core.es.js",
@@ -17,6 +17,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
-    "@xstyled/system": "^1.5.2"
+    "@xstyled/system": "^1.5.3"
   }
 }
