@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/styled-components",
   "description": "Xstyled bindings for styled-components.",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "keywords": [
     "styled-components",
     "css",
