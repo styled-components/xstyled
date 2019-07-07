@@ -1,42 +1,77 @@
+/* eslint-disable no-continue, no-underscore-dangle, no-restricted-syntax, guard-for-in, no-multi-assign */
 import { getBreakpoints, getBreakpointMin, mediaMinWidth } from './media'
 import {
   is,
   num,
   string,
   obj,
-  merge,
   getThemeValue,
   warn,
   identity,
+  merge,
+  assign,
 } from './util'
 
-const transformOptions = {}
+const cacheSupported =
+  typeof Map !== 'undefined' && typeof WeakMap !== 'undefined'
+const caches = cacheSupported ? new WeakMap() : null
+function getThemeCache(theme) {
+  if (caches.has(theme)) return caches.get(theme)
+  const cache = {}
+  caches.set(theme, cache)
+  return cache
+}
 
-export const themeGetter = ({ transform, key, defaultVariants }) => value => {
-  return props => {
+const noopCache = {
+  has: () => false,
+  set: () => {},
+  get: () => {},
+}
+
+function getCacheNamespace(theme, namespace) {
+  if (!cacheSupported || !theme) return noopCache
+  const cache = getThemeCache(theme)
+  cache[namespace] = cache[namespace] || new Map()
+  return cache[namespace]
+}
+
+let themeGetterId = 0
+export const themeGetter = ({ transform, key, defaultVariants }) => {
+  const id = themeGetterId++
+  return value => props => {
+    if (!string(value) && !num(value)) return value
+    const cache = getCacheNamespace(props.theme, `__themeGetter${id}`)
+    if (cache.has(value)) return cache.get(value)
     let variants = is(key) ? getThemeValue(props, key) : null
     variants = is(variants) ? variants : defaultVariants
     const themeValue = is(variants)
       ? getThemeValue(props, value, variants)
       : null
     const computedValue = is(themeValue) ? themeValue : value
-    if (!transform) return computedValue
-    transformOptions.rawValue = value
-    transformOptions.variants = variants
-    return transform(computedValue, transformOptions)
+    if (!transform) {
+      cache.set(value, computedValue)
+      return computedValue
+    }
+    const transformedValue = transform(computedValue, {
+      rawValue: value,
+      variants,
+    })
+    cache.set(value, transformedValue)
+    return transformedValue
   }
 }
 
-function styleFromValue(cssProperties, value, props, themeGet) {
+function styleFromValue(cssProperties, value, props, themeGet, cache) {
+  if (obj(value)) return null
+  if (cache.has(value)) return cache.get(value)
   const computedValue = themeGet(value)(props)
-  if (string(computedValue) || num(computedValue)) {
-    const style = {}
-    for (let i = 0; i < cssProperties.length; i++) {
-      style[cssProperties[i]] = computedValue
-    }
-    return style
+  if (!string(computedValue) && !num(computedValue)) return null
+  const style = {}
+  for (const key in cssProperties) {
+    style[cssProperties[key]] = computedValue
   }
-  return null
+  cache.set(value, style)
+  return style
 }
 
 export function createStyleGenerator(getStyle, props, generators) {
@@ -45,51 +80,68 @@ export function createStyleGenerator(getStyle, props, generators) {
     getStyle,
     generators,
   }
-
   return getStyle
 }
 
-export function reduceBreakpoints(props, values, getStyle = identity) {
+function getMedias(props) {
   const breakpoints = getBreakpoints(props)
-  const keys = Object.keys(values)
-  let allStyle = {}
-  for (let i = 0; i < keys.length; i++) {
-    const breakpoint = keys[i]
+  const medias = {}
+  for (const breakpoint in breakpoints) {
+    medias[breakpoint] = mediaMinWidth(
+      getBreakpointMin(breakpoints, breakpoint),
+    )
+  }
+  return medias
+}
+
+function getCachedMedias(props, cache) {
+  if (cache.has('_medias')) {
+    return cache.get('_medias')
+  }
+  const medias = getMedias(props)
+  cache.set('_medias', medias)
+  return medias
+}
+
+export function reduceBreakpoints(props, values, getStyle = identity, cache) {
+  const medias = cache ? getCachedMedias(props, cache) : getMedias(props)
+  let styles = {}
+  for (const breakpoint in values) {
     const style = getStyle(values[breakpoint])
-
-    if (style !== null) {
-      const breakpointValue = getBreakpointMin(breakpoints, breakpoint)
-
-      if (breakpointValue === null) {
-        allStyle = merge(allStyle, style)
-      } else {
-        allStyle = merge(allStyle, {
-          [mediaMinWidth(breakpointValue)]: style,
-        })
-      }
+    if (style === null) continue
+    const media = medias[breakpoint]
+    if (media === null) {
+      styles = merge(styles, style)
+    } else {
+      styles[media] = styles[media] ? assign(styles[media], style) : style
     }
   }
-  return allStyle
+  return styles
 }
 
 function getStyleFactory(prop, cssProperties, themeGet) {
   return function getStyle(props) {
     const value = props[prop]
     if (!is(value)) return null
-
-    const style = styleFromValue(cssProperties, value, props, themeGet)
-
-    if (style !== null) {
-      return style
-    }
+    const cache = getCacheNamespace(props.theme, prop)
 
     if (obj(value)) {
-      return reduceBreakpoints(props, value, breakpointValue =>
-        styleFromValue(cssProperties, breakpointValue, props, themeGet),
+      return reduceBreakpoints(
+        props,
+        value,
+        breakpointValue =>
+          styleFromValue(
+            cssProperties,
+            breakpointValue,
+            props,
+            themeGet,
+            cache,
+          ),
+        cache,
       )
     }
 
-    return null
+    return styleFromValue(cssProperties, value, props, themeGet, cache)
   }
 }
 
@@ -123,17 +175,15 @@ export function compose(...generators) {
   const generatorsByProp = indexGeneratorsByProp(flatGenerators)
 
   function getStyle(props) {
-    const propKeys = Object.keys(props)
-    const propCount = propKeys.length
-    let allStyle = {}
-    for (let i = 0; i < propCount; i++) {
-      const propKey = propKeys[i]
-      const generator = generatorsByProp[propKey]
+    const styles = {}
+    for (const key in props) {
+      const generator = generatorsByProp[key]
       if (generator) {
-        allStyle = merge(allStyle, generator.meta.getStyle(props))
+        const style = generator.meta.getStyle(props)
+        merge(styles, style)
       }
     }
-    return allStyle
+    return styles
   }
 
   const props = flatGenerators.reduce(
@@ -162,6 +212,7 @@ export function style({
       ),
     )
   }
+
   themeGet = themeGet || themeGetter({ key, transform })
   const getStyle = getStyleFactory(prop, cssProperties, themeGet)
   return createStyleGenerator(getStyle, [prop])

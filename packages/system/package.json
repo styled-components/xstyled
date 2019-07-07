@@ -23,7 +23,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.4",
-    "deepmerge": "^3.2.0"
+    "@babel/runtime": "^7.4.4"
   }
 }
