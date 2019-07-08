@@ -11,6 +11,7 @@ import {
   assign,
   cascade,
   getThemeValue,
+  omit,
 } from './util'
 
 describe('util', () => {
@@ -150,6 +151,12 @@ describe('util', () => {
           foo: p => p.theme.other,
         }),
       ).toBe('x')
+    })
+  })
+
+  describe('#omit', () => {
+    it('omits values', () => {
+      expect(omit({ a: 'x', b: 'y' }, ['b'])).toEqual({ a: 'x' })
     })
   })
 })

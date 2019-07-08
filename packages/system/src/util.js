@@ -62,3 +62,14 @@ export const cascade = (fn, ...args) => {
 
 export const getThemeValue = (props, path, initial = props.theme) =>
   cascade(get(initial, path), props)
+
+export function omit(object, values) {
+  const result = {}
+  // eslint-disable-next-line no-restricted-syntax
+  for (const key in object) {
+    if (values.indexOf(key) === -1) {
+      result[key] = object[key]
+    }
+  }
+  return result
+}

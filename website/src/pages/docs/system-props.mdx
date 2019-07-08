@@ -43,6 +43,32 @@ const Box = styled.div`
 <Box color="primary" backgroundColor="gray" />
 ```
 
+## Avoid undesired props
+
+With `styled-components`, all props are forwarded, to avoid that behaviour, use `createSystemComponent` method, it omits all properties.
+
+```js
+import React from 'react'
+import { compose, color, backgroundColor, createSystemComponent } from '@xstyled/system'
+
+const colors = compose(
+  color,
+  backgroundColor,
+)
+
+const InnerBox = createSystemComponent(React.createElement, 'div', colors)
+
+const Box = styled(InnerBox)`
+  ${colors}
+`
+
+// color and backgroundColor are available
+<Box color="primary" backgroundColor="gray" />
+
+// use forwardedAs instead of as to keep using the system component
+<Box forwardedAs="header" color="primary" backgroundColor="gray" />
+```
+
 ## Space
 
 The space utility converts shorthand margin and padding props to margin and padding CSS declarations.

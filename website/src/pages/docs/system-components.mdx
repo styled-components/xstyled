@@ -48,7 +48,7 @@ const ABox = styled.aBox`
 
 ## Use `as` property
 
-The `as` property is also supported, exactly like in `styled-components`.
+On all `Box` components, use `forwardedAs` property instead of `as` to avoid undesired attributes on HTML element.
 
 ```js
 import styled from '@xstyled/styled-components'
@@ -59,7 +59,7 @@ const RedBox = styled.box`
 `
 
 /* Replace `div` by `p`, but it is still a box! */
-<RedBox as="p" m={2} />
+<RedBox forwardedAs="p" m={2} />
 ```
 
 ## Create your own box
@@ -67,10 +67,14 @@ const RedBox = styled.box`
 If you don't want to use `@xstyled/styled-components`, you can create your own box component:
 
 ```js
+import React from 'react'
 import styled from 'styled-components'
-import { system } from '@xstyled/system'
+import { system, createSystemComponent } from '@xstyled/system'
 
-const Box = styled.div(system)
+const InnerBox = createSystemComponent(React.createElement)
+const Box = styled(InnerBox)(system)
 ```
+
+> We use `createSystemComponent` to avoid undesired attributes on HTML element.
 
 See all available [system prop utilities](/docs/system-props/).
