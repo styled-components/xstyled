@@ -2,6 +2,7 @@
 import React from 'react'
 import scStyled from 'styled-components'
 import { createBox } from '@xstyled/core'
+import { createSystemComponent } from '@xstyled/system'
 import { css } from './css'
 
 function getCreateStyle(baseCreateStyle) {
@@ -21,28 +22,15 @@ export function styled(component) {
   return getCreateStyle(scStyled(component))
 }
 
-function omit(object, values) {
-  const result = {}
-  // eslint-disable-next-line no-restricted-syntax
-  for (const key in object) {
-    if (values.indexOf(key) === -1) {
-      result[key] = object[key]
-    }
-  }
-  return result
-}
+const InnerBox = createSystemComponent(React.createElement)
 
-const createBoxComponent = component => ({ as, ...props }) => {
-  const omittedProps = omit(props, createBox.meta.props)
-  const Component = as || component
-  return <Component {...omittedProps} />
-}
-
-export const Box = styled(createBoxComponent('div'))(createBox)
+export const Box = styled(InnerBox)(createBox)
 
 styled.box = styled(Box)
 
 Object.keys(scStyled).forEach(key => {
   styled[key] = styled(key)
-  styled[`${key}Box`] = styled(Box.withComponent(createBoxComponent(key)))
+  styled[`${key}Box`] = styled(
+    Box.withComponent(createSystemComponent(React.createElement, key)),
+  )
 })
