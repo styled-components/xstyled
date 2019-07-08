@@ -1,6 +1,6 @@
 import { style, themeGetter, compose } from '../style'
 import { is, string, negative } from '../util'
-import { px as pxUnit } from '../unit'
+import { rpxPx } from '../unit'
 
 function toNegative(value) {
   if (string(value)) return `-${value}`
@@ -16,12 +16,12 @@ export const getSpace = themeGetter({
       const absoluteValue = neg ? rawValue.substr(1) : rawValue
       const variantValue = variants[absoluteValue]
       const value = is(variantValue) ? variantValue : absoluteValue
-      return pxUnit(neg ? toNegative(value) : value)
+      return rpxPx(neg ? toNegative(value) : value)
     }
     const abs = Math.abs(rawValue)
     const neg = negative(rawValue)
     const value = is(variants[abs]) ? variants[abs] : abs
-    return pxUnit(neg ? toNegative(value) : value)
+    return rpxPx(neg ? toNegative(value) : value)
   },
 })
 

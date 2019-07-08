@@ -1,5 +1,5 @@
 import { style, compose, themeGetter } from '../style'
-import { px } from '../unit'
+import { rpx, rpxPx } from '../unit'
 import { getColor } from './basics'
 
 export const getFont = themeGetter({ key: 'fonts' })
@@ -12,7 +12,7 @@ export const fontFamily = style({
 export const getFontSize = themeGetter({
   key: 'fontSizes',
   defaultVariants: [0, 12, 14, 16, 20, 24, 32, 48, 64, 72],
-  transform: px,
+  transform: rpxPx,
 })
 
 export const fontSize = style({
@@ -20,7 +20,7 @@ export const fontSize = style({
   themeGet: getFontSize,
 })
 
-export const getLineHeight = themeGetter({ key: 'lineHeights' })
+export const getLineHeight = themeGetter({ key: 'lineHeights', transform: rpx })
 
 export const lineHeight = style({
   prop: 'lineHeight',
@@ -40,7 +40,7 @@ export const textAlign = style({
 
 export const getLetterSpacing = themeGetter({
   key: 'letterSpacings',
-  transform: px,
+  transform: rpxPx,
 })
 
 export const letterSpacing = style({

@@ -1,4 +1,4 @@
-import { unit, px, percent } from './unit'
+import { unit, px, rpx, percent } from './unit'
 
 describe('util', () => {
   describe('#unit', () => {
@@ -31,6 +31,19 @@ describe('util', () => {
       expect(percent(-0.3)).toBe('-30%')
       // rounds percent
       expect(percent(0.3333333333)).toBe('33.3333%')
+    })
+  })
+
+  describe('#rpx', () => {
+    it('transforms px into rem', () => {
+      expect(rpx(0)).toBe(0)
+      expect(rpx(10)).toBe(10)
+      expect(rpx('10rpx')).toBe('0.625rem')
+      expect(rpx('16rpx')).toBe('1rem')
+      expect(rpx('-16rpx')).toBe('-1rem')
+      expect(rpx('0rpx')).toBe(0)
+      expect(rpx('10px')).toBe('10px')
+      expect(rpx('10px')).toBe('10px')
     })
   })
 })

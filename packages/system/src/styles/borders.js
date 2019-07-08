@@ -1,11 +1,11 @@
 import { style, themeGetter, compose } from '../style'
 import { num } from '../util'
-import { px } from '../unit'
+import { px, rpxPx } from '../unit'
 import { getColor, getRadius } from './basics'
 
 export const getBorder = themeGetter({
   key: 'borders',
-  transform: n => (num(n) && n > 0 ? `${n}px solid` : n),
+  transform: n => (num(n) && n > 0 ? `${px(n)} solid` : n),
 })
 
 export const border = style({
@@ -60,7 +60,7 @@ export const borderColor = style({
 
 export const getBorderWidth = themeGetter({
   key: 'borderWidths',
-  transform: px,
+  transform: rpxPx,
 })
 
 export const borderWidth = style({
