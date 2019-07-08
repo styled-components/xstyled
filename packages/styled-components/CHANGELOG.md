@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/smooth-code/xstyled/compare/v1.5.4...v1.6.0) (2019-07-08)
+
+
+### Features
+
+* introduce createSystemComponent to avoid undesired HTML attributes ([3187f68](https://github.com/smooth-code/xstyled/commit/3187f68))
+
+
+
+
+
 ## [1.5.4](https://github.com/smooth-code/xstyled/compare/v1.5.3...v1.5.4) (2019-07-07)
 
 
