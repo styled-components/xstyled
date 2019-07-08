@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/smooth-code/xstyled/compare/v1.6.0...v1.7.0) (2019-07-08)
+
+
+### Features
+
+* introduce rpx unit ([8bcc4cb](https://github.com/smooth-code/xstyled/commit/8bcc4cb))
+
+
+
+
+
 # [1.6.0](https://github.com/smooth-code/xstyled/compare/v1.5.4...v1.6.0) (2019-07-08)
 
 
