@@ -28,7 +28,13 @@ describe('styles', () => {
         theme: {
           fontSizes: [10, 15, 40],
         },
-        expectations: [[0, '10px'], [1, '15px'], [20, '20px'], ['3em', '3em']],
+        expectations: [
+          [0, '10px'],
+          [1, '15px'],
+          [20, '20px'],
+          ['3em', '3em'],
+          ['16rpx', '1rem'],
+        ],
       },
     ],
     [
@@ -38,7 +44,13 @@ describe('styles', () => {
         theme: {
           lineHeights: [1.2, 1.5, 2],
         },
-        expectations: [[0, 1.2], [1, 1.5], [3, 3], ['3em', '3em']],
+        expectations: [
+          [0, 1.2],
+          [1, 1.5],
+          [3, 3],
+          ['3em', '3em'],
+          ['16rpx', '1rem'],
+        ],
       },
     ],
     [
@@ -70,6 +82,7 @@ describe('styles', () => {
           [1, '2px'],
           [1.1, '1.1px'],
           ['2rem', '2rem'],
+          ['16rpx', '1rem'],
         ],
       },
     ],
@@ -98,7 +111,12 @@ describe('styles', () => {
             large: 400,
           },
         },
-        expectations: [[0.5, '50%'], ['large', '400px'], [50, '50px']],
+        expectations: [
+          [0.5, '50%'],
+          ['large', '400px'],
+          [50, '50px'],
+          ['16rpx', '1rem'],
+        ],
       },
     ],
     [
@@ -110,7 +128,12 @@ describe('styles', () => {
             large: 400,
           },
         },
-        expectations: [[0.5, '50%'], ['large', '400px'], [50, '50px']],
+        expectations: [
+          [0.5, '50%'],
+          ['large', '400px'],
+          [50, '50px'],
+          ['16rpx', '1rem'],
+        ],
       },
     ],
     [
@@ -122,7 +145,12 @@ describe('styles', () => {
             large: 400,
           },
         },
-        expectations: [[0.5, '50%'], ['large', '400px'], [50, '50px']],
+        expectations: [
+          [0.5, '50%'],
+          ['large', '400px'],
+          [50, '50px'],
+          ['16rpx', '1rem'],
+        ],
       },
     ],
     [
@@ -134,7 +162,12 @@ describe('styles', () => {
             large: 400,
           },
         },
-        expectations: [[0.5, '50%'], ['large', '400px'], [50, '50px']],
+        expectations: [
+          [0.5, '50%'],
+          ['large', '400px'],
+          [50, '50px'],
+          ['16rpx', '1rem'],
+        ],
       },
     ],
     [
@@ -146,7 +179,12 @@ describe('styles', () => {
             large: 400,
           },
         },
-        expectations: [[0.5, '50%'], ['large', '400px'], [50, '50px']],
+        expectations: [
+          [0.5, '50%'],
+          ['large', '400px'],
+          [50, '50px'],
+          ['16rpx', '1rem'],
+        ],
       },
     ],
     [
@@ -158,7 +196,12 @@ describe('styles', () => {
             large: 400,
           },
         },
-        expectations: [[0.5, '50%'], ['large', '400px'], [50, '50px']],
+        expectations: [
+          [0.5, '50%'],
+          ['large', '400px'],
+          [50, '50px'],
+          ['16rpx', '1rem'],
+        ],
       },
     ],
     [
@@ -170,7 +213,12 @@ describe('styles', () => {
             large: 400,
           },
         },
-        expectations: [[0.5, '50%'], ['large', '400px'], [50, '50px']],
+        expectations: [
+          [0.5, '50%'],
+          ['large', '400px'],
+          [50, '50px'],
+          ['16rpx', '1rem'],
+        ],
       },
     ],
     [
@@ -226,7 +274,7 @@ describe('styles', () => {
       'flexBasis',
       {
         styleRule: 'flex-basis',
-        expectations: [[0.5, '50%'], [50, '50px']],
+        expectations: [[0.5, '50%'], [50, '50px'], ['16rpx', '1rem']],
       },
     ],
     [
@@ -330,9 +378,13 @@ describe('styles', () => {
         expectations: [
           ['10', '10'],
           [10, '10px'],
+          [-10, '-10px'],
           ['10', '10'],
+          ['16rpx', '1rem'],
           ['10px', '10px'],
           ['4%', '4%'],
+          ['16rpx', '1rem'],
+          ['-16rpx', '-1rem'],
         ],
       },
     ],
@@ -340,21 +392,51 @@ describe('styles', () => {
       'right',
       {
         styleRule: 'right',
-        expectations: [[10, '10px'], ['10px', '10px'], ['4%', '4%']],
+        expectations: [
+          ['10', '10'],
+          [10, '10px'],
+          [-10, '-10px'],
+          ['10', '10'],
+          ['16rpx', '1rem'],
+          ['10px', '10px'],
+          ['4%', '4%'],
+          ['16rpx', '1rem'],
+          ['-16rpx', '-1rem'],
+        ],
       },
     ],
     [
       'bottom',
       {
         styleRule: 'bottom',
-        expectations: [[10, '10px'], ['10px', '10px'], ['4%', '4%']],
+        expectations: [
+          ['10', '10'],
+          [10, '10px'],
+          [-10, '-10px'],
+          ['10', '10'],
+          ['16rpx', '1rem'],
+          ['10px', '10px'],
+          ['4%', '4%'],
+          ['16rpx', '1rem'],
+          ['-16rpx', '-1rem'],
+        ],
       },
     ],
     [
       'left',
       {
         styleRule: 'left',
-        expectations: [[10, '10px'], ['10px', '10px'], ['4%', '4%']],
+        expectations: [
+          ['10', '10'],
+          [10, '10px'],
+          [-10, '-10px'],
+          ['10', '10'],
+          ['16rpx', '1rem'],
+          ['10px', '10px'],
+          ['4%', '4%'],
+          ['16rpx', '1rem'],
+          ['-16rpx', '-1rem'],
+        ],
       },
     ],
     [
@@ -368,7 +450,7 @@ describe('styles', () => {
       'borderWidth',
       {
         styleRule: 'border-width',
-        expectations: [[1, '1px'], ['20%', '20%']],
+        expectations: [[1, '1px'], ['20%', '20%'], ['16rpx', '1rem']],
       },
     ],
     [
@@ -427,7 +509,7 @@ describe('styles', () => {
           },
         },
         styleRule: 'border-radius',
-        expectations: [['round', '50%'], [10, '10px']],
+        expectations: [['round', '50%'], [10, '10px'], ['16rpx', '1rem']],
       },
     ],
     [

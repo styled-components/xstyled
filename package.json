@@ -6,7 +6,7 @@
   "bundlesize": [
     {
       "path": "./packages/system/dist/xstyled-system.min.js",
-      "maxSize": "4.4 kB"
+      "maxSize": "4.5 kB"
     },
     {
       "path": "./packages/styled-components/dist/xstyled-styled-components.min.js",

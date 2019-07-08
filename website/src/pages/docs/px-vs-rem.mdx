@@ -1,0 +1,44 @@
+---
+menu: Guides
+title: Pixels vs rem
+order: 6
+---
+
+# Pixels vs Rem
+
+[Using `rem` is always better for accessiblity](https://engageinteractive.co.uk/blog/em-vs-rem-vs-px), but it is very hard to implement a complete design using `rem` unit because most of design tools are not ready for it. For example, Sketch displays pixels instead of rem.
+
+xstyled solves this problem by providing a new unit `rpx`. When you use `rpx` as unit, all your pixels are automatically converted in rem. It uses a base of `1rem = 16px`, the default on modern browsers.
+
+## Use `rpx` in styled components
+
+`rpx` is supported in the majority of CSS properties.
+
+```js
+import styled from '@xstyled/styled-components'
+
+const Title = styled.h1`
+  font-size: 20rpx;
+  line-height: 24rpx;
+`
+
+// This code will output:
+// font-size: 1.25rem;
+// line-height: 1.5rem;
+```
+
+## Use `rpx` with `th` utility
+
+If you don't use `@xstyled/components` or for special cases like `calc` you can use `th.px` utility to handle `rpx` unit.
+
+```js
+import styled from 'styled-components'
+import { th } from '@xstyled/system'
+
+const Title = styled.h1`
+  width: calc(100% + ${th.px('20rpx')});
+`
+
+// This code will output:
+// width: calc(100% + 1.25rem);
+```

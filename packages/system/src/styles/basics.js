@@ -1,15 +1,17 @@
 import { style, themeGetter, compose } from '../style'
-import { px, percent } from '../unit'
+import { rpxPx, percent } from '../unit'
 
 export const getColor = themeGetter({ key: 'colors' })
 
-export const getPx = themeGetter({ transform: px })
+export const getPx = themeGetter({ transform: rpxPx })
 
-export const getPercent = themeGetter({ transform: percent })
+export const getPercent = themeGetter({
+  transform: percent,
+})
 
 export const getRadius = themeGetter({
   key: 'radii',
-  transform: px,
+  transform: rpxPx,
 })
 
 export const opacity = style({
