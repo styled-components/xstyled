@@ -1,8 +1,29 @@
 import { style, compose, themeGetter } from '../style'
-import { rpx, rpxPx } from '../unit'
-import { getColor } from './basics'
+import { rpx } from '../unit'
+import { getColor, getPx } from './basics'
 
-export const getFont = themeGetter({ key: 'fonts' })
+// Getters
+
+export const getFont = themeGetter({ name: 'font', key: 'fonts' })
+
+export const getLineHeight = themeGetter({
+  name: 'lineHeight',
+  key: 'lineHeights',
+  transform: rpx,
+})
+
+export const getFontWeight = themeGetter({
+  name: 'fontWeight',
+  key: 'fontWeights',
+})
+
+export const getLetterSpacing = themeGetter({
+  name: 'letterSpacing',
+  key: 'letterSpacings',
+  compose: getPx,
+})
+
+// Styles
 
 export const fontFamily = style({
   prop: 'fontFamily',
@@ -10,9 +31,10 @@ export const fontFamily = style({
 })
 
 export const getFontSize = themeGetter({
+  name: 'fontSize',
   key: 'fontSizes',
   defaultVariants: [0, 12, 14, 16, 20, 24, 32, 48, 64, 72],
-  transform: rpxPx,
+  compose: getPx,
 })
 
 export const fontSize = style({
@@ -20,14 +42,10 @@ export const fontSize = style({
   themeGet: getFontSize,
 })
 
-export const getLineHeight = themeGetter({ key: 'lineHeights', transform: rpx })
-
 export const lineHeight = style({
   prop: 'lineHeight',
   themeGet: getLineHeight,
 })
-
-export const getFontWeight = themeGetter({ key: 'fontWeights' })
 
 export const fontWeight = style({
   prop: 'fontWeight',
@@ -36,11 +54,6 @@ export const fontWeight = style({
 
 export const textAlign = style({
   prop: 'textAlign',
-})
-
-export const getLetterSpacing = themeGetter({
-  key: 'letterSpacings',
-  transform: rpxPx,
 })
 
 export const letterSpacing = style({

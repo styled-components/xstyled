@@ -28,6 +28,17 @@ describe('#style', () => {
       expect(scope(10)({ theme })).toBe(11)
       expect(scope(0)({ theme })).toBe(2)
     })
+
+    it('supports transform func from theme', () => {
+      const scope = themeGetter({
+        key: 'scope',
+        name: 'getter',
+        transform: x => x + 1,
+      })
+      const theme = { scope: [1], transformers: { getter: x => x + 2 } }
+      expect(scope(10)({ theme })).toBe(12)
+      expect(scope(0)({ theme })).toBe(3)
+    })
   })
 
   describe('#style', () => {

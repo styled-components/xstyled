@@ -1,29 +1,35 @@
 import { style, themeGetter, compose } from '../style'
 import { is, string, negative } from '../util'
-import { rpxPx } from '../unit'
+import { getPx } from './basics'
 
 function toNegative(value) {
   if (string(value)) return `-${value}`
   return value * -1
 }
 
+// Getters
+
 export const getSpace = themeGetter({
+  name: 'space',
   key: 'space',
   defaultVariants: [0, 4, 8, 16, 24, 48, 96, 144, 192, 240],
+  compose: getPx,
   transform: (_, { rawValue, variants }) => {
     if (string(rawValue)) {
       const neg = rawValue.startsWith('-')
       const absoluteValue = neg ? rawValue.substr(1) : rawValue
       const variantValue = variants[absoluteValue]
       const value = is(variantValue) ? variantValue : absoluteValue
-      return rpxPx(neg ? toNegative(value) : value)
+      return neg ? toNegative(value) : value
     }
     const abs = Math.abs(rawValue)
     const neg = negative(rawValue)
     const value = is(variants[abs]) ? variants[abs] : abs
-    return rpxPx(neg ? toNegative(value) : value)
+    return neg ? toNegative(value) : value
   },
 })
+
+// Styles
 
 export const margin = style({
   prop: ['margin', 'm'],

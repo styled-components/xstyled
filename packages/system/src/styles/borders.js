@@ -1,12 +1,33 @@
 import { style, themeGetter, compose } from '../style'
 import { num } from '../util'
-import { px, rpxPx } from '../unit'
-import { getColor, getRadius } from './basics'
+import { px } from '../unit'
+import { getColor, getRadius, getPx } from './basics'
+
+// Getters
 
 export const getBorder = themeGetter({
+  name: 'border',
   key: 'borders',
   transform: n => (num(n) && n > 0 ? `${px(n)} solid` : n),
 })
+
+export const getBorderWidth = themeGetter({
+  name: 'borderWidth',
+  key: 'borderWidths',
+  compose: getPx,
+})
+
+export const getBorderStyle = themeGetter({
+  name: 'borderStyle',
+  key: 'borderStyles',
+})
+
+export const getShadow = themeGetter({
+  name: 'shadow',
+  key: 'shadows',
+})
+
+// Style
 
 export const border = style({
   prop: 'border',
@@ -58,18 +79,9 @@ export const borderColor = style({
   themeGet: getColor,
 })
 
-export const getBorderWidth = themeGetter({
-  key: 'borderWidths',
-  transform: rpxPx,
-})
-
 export const borderWidth = style({
   prop: 'borderWidth',
   themeGet: getBorderWidth,
-})
-
-export const getBorderStyle = themeGetter({
-  key: 'borderStyles',
 })
 
 export const borderStyle = style({
@@ -80,10 +92,6 @@ export const borderStyle = style({
 export const borderRadius = style({
   prop: 'borderRadius',
   themeGet: getRadius,
-})
-
-export const getShadow = themeGetter({
-  key: 'shadows',
 })
 
 export const boxShadow = style({
