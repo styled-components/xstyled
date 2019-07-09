@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/styled-components",
   "description": "Xstyled bindings for styled-components.",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "keywords": [
     "styled-components",
     "css",
@@ -26,6 +26,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
-    "@xstyled/core": "^1.8.0"
+    "@xstyled/core": "^1.8.1"
   }
 }
