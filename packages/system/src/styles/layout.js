@@ -1,10 +1,15 @@
 import { style, themeGetter, compose } from '../style'
-import { percent } from '../unit'
+import { getPercent } from './basics'
+
+// Getters
 
 export const getSize = themeGetter({
-  transform: percent,
+  name: 'size',
   key: 'sizes',
+  compose: getPercent,
 })
+
+// Styles
 
 export const display = style({
   prop: 'display',

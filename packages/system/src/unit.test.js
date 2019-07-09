@@ -1,4 +1,4 @@
-import { unit, px, rpx, percent } from './unit'
+import { unit, px, rpx, percent, remPx } from './unit'
 
 describe('util', () => {
   describe('#unit', () => {
@@ -25,7 +25,7 @@ describe('util', () => {
   describe('#percent', () => {
     it('transforms into percent < 1 and in px > 1', () => {
       expect(percent(0)).toBe(0)
-      expect(percent(10)).toBe('10px')
+      expect(percent(10)).toBe(10)
       expect(percent(0.3)).toBe('30%')
       expect(percent('20em')).toBe('20em')
       expect(percent(-0.3)).toBe('-30%')
@@ -34,8 +34,16 @@ describe('util', () => {
     })
   })
 
+  describe('#remPx', () => {
+    it('transforms num into rem', () => {
+      expect(remPx(0)).toBe(0)
+      expect(remPx(10)).toBe('0.625rem')
+      expect(remPx('10px')).toBe('10px')
+    })
+  })
+
   describe('#rpx', () => {
-    it('transforms px into rem', () => {
+    it('transforms "rpx" into rem', () => {
       expect(rpx(0)).toBe(0)
       expect(rpx(10)).toBe(10)
       expect(rpx('10rpx')).toBe('0.625rem')

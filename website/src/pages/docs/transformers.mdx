@@ -1,0 +1,60 @@
+---
+menu: Introduction
+title: System
+order: 11
+---
+
+# Transformers
+
+Using transformers, you can configure the underlayer of system. For example, you can choose to use `rem` unit instead of `px`.
+
+## Use `rem` instead of `px`
+
+To use `rem` instead of `px`, configure transformers in your theme.
+
+```js
+import styled, { ThemeProvider } from '@xstyled/styled-components'
+import { rpxTransformers } from '@xstyled/system'
+
+const theme = {
+  transformers: {
+    ...rpxTransformers,
+  },
+}
+
+export default () => (
+  <ThemeProvider theme={theme}>
+    <Box m={16} />
+  </ThemeProvider>
+)
+
+// The style of the box will be `margin: 1rem` instead of `margin: 16px`.
+```
+
+## Use custom transformers
+
+All [theme getters](/docs/system-utilities/#theme-getters) are configurable threw transformers.
+
+```js
+import styled, { ThemeProvider } from '@xstyled/styled-components'
+import { rpxTransformers } from '@xstyled/system'
+import { lighten } from 'polished'
+
+const theme = {
+  transformers: {
+    color: value => {
+      const matches = value.match(/(.*)\.light/)
+      if (!matches) return value
+      return lighten(0.2, matches[1])
+    },
+  },
+}
+
+export default () => (
+  <ThemeProvider theme={theme}>
+    <Box backgroundColor="black.light" />
+  </ThemeProvider>
+)
+
+// The background of the box will be "black" lightened with 0.2
+```
