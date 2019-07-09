@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.3](https://github.com/smooth-code/xstyled/compare/v1.8.2...v1.8.3) (2019-07-09)
+
+
+### Bug Fixes
+
+* fix fontSize, lineHeight & zIndex getters ([07b90f5](https://github.com/smooth-code/xstyled/commit/07b90f5))
+
+
+
+
+
 ## [1.8.2](https://github.com/smooth-code/xstyled/compare/v1.8.1...v1.8.2) (2019-07-09)
 
 
