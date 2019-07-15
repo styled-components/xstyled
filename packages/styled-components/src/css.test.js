@@ -1,5 +1,5 @@
 import React from 'react'
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import styled from 'styled-components'
 import { css } from './css'
