@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.4](https://github.com/smooth-code/xstyled/compare/v1.8.3...v1.8.4) (2019-07-15)
+
+
+### Bug Fixes
+
+* do not export styled-components internals ([3f98ca5](https://github.com/smooth-code/xstyled/commit/3f98ca5)), closes [#37](https://github.com/smooth-code/xstyled/issues/37)
+
+
+
+
+
 ## [1.8.3](https://github.com/smooth-code/xstyled/compare/v1.8.2...v1.8.3) (2019-07-09)
 
 
