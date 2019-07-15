@@ -7,7 +7,7 @@ module.exports = {
   mode: 'production',
   entry: path.resolve(SRC_DIR, 'index.js'),
   devServer: {
-    inline:true,
+    inline: true,
     contentBase: './public',
     port: 8083,
   },
@@ -20,7 +20,9 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({
-    title: 'xstyled Benchmark',
-  })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'xstyled Benchmark',
+    }),
+  ],
 }
