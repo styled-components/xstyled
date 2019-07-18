@@ -99,16 +99,16 @@ export const propGetters = {
   'min-height': getNumberSize,
 
   // getZIndex
-  'z-index': getZIndex,
+  'z-index': getNumber(getZIndex),
 
   // getFont
   'font-family': getFont,
 
   // getFontSize
-  'font-size': getFontSize,
+  'font-size': getNumber(getFontSize),
 
   // getLineHeight
-  'line-height': getLineHeight,
+  'line-height': getNumber(getLineHeight),
 
   // getFontWeight
   'font-weight': getFontWeight,

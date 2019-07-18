@@ -36,29 +36,39 @@ function getCacheNamespace(theme, namespace) {
 }
 
 let themeGetterId = 0
-export const themeGetter = ({ transform, key, defaultVariants }) => {
+export const themeGetter = ({
+  name,
+  transform: defaultTransform,
+  key,
+  defaultVariants,
+  compose,
+}) => {
   const id = themeGetterId++
-  return value => props => {
-    if (!string(value) && !num(value)) return value
+  const getter = value => props => {
+    let res = value
+    if (!string(value) && !num(value)) return res
     const cache = getCacheNamespace(props.theme, `__themeGetter${id}`)
     if (cache.has(value)) return cache.get(value)
     let variants = is(key) ? getThemeValue(props, key) : null
     variants = is(variants) ? variants : defaultVariants
-    const themeValue = is(variants)
-      ? getThemeValue(props, value, variants)
-      : null
-    const computedValue = is(themeValue) ? themeValue : value
-    if (!transform) {
-      cache.set(value, computedValue)
-      return computedValue
+    res = is(variants) ? getThemeValue(props, value, variants) : null
+    res = is(res) ? res : value
+    const transform =
+      (name && props.theme && props.theme.transformers
+        ? props.theme.transformers[name]
+        : null) || defaultTransform
+    if (transform) {
+      res = transform(res, {
+        rawValue: value,
+        variants,
+      })
     }
-    const transformedValue = transform(computedValue, {
-      rawValue: value,
-      variants,
-    })
-    cache.set(value, transformedValue)
-    return transformedValue
+    res = compose ? compose(res)(props) : res
+    cache.set(value, res)
+    return res
   }
+  getter.meta = { name, transform: defaultTransform }
+  return getter
 }
 
 function styleFromValue(cssProperties, value, props, themeGet, cache) {

@@ -22,7 +22,7 @@ export function styled(component) {
   return getCreateStyle(scStyled(component))
 }
 
-const InnerBox = createSystemComponent(React.createElement)
+const InnerBox = createSystemComponent(React)
 
 export const Box = styled(InnerBox)(createBox)
 
@@ -31,6 +31,6 @@ styled.box = styled(Box)
 Object.keys(scStyled).forEach(key => {
   styled[key] = styled(key)
   styled[`${key}Box`] = styled(
-    Box.withComponent(createSystemComponent(React.createElement, key)),
+    Box.withComponent(createSystemComponent(React, key)),
   )
 })

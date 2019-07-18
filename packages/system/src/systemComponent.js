@@ -2,15 +2,18 @@ import { omit } from './util'
 import { system as allSystem } from './styles/index'
 
 export const createSystemComponent = (
-  createElement,
+  { createElement, forwardRef },
   defaultComponent = 'div',
   system = allSystem,
 ) => {
-  function SystemComponent({ as, ...props }) {
+  const SystemComponent = forwardRef(function SystemComponent(
+    { as, ...props },
+    ref,
+  ) {
     const omittedProps = omit(props, system.meta.props)
     const Component = as || defaultComponent
-    return createElement(Component, omittedProps)
-  }
+    return createElement(Component, { ref, ...omittedProps })
+  })
   SystemComponent.displayName = 'SystemComponent'
   return SystemComponent
 }
