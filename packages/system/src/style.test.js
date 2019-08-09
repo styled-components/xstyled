@@ -10,6 +10,9 @@ describe('#style', () => {
     it('reads from theme', () => {
       const scope = themeGetter({ key: 'scope' })
       expect(scope('value')({ theme: { scope: { value: 'foo' } } })).toBe('foo')
+      expect(
+        scope('a.b.c')({ theme: { scope: { a: { b: { c: 'd' } } } } }),
+      ).toBe('d')
     })
 
     it('uses defaultVariants', () => {

@@ -142,6 +142,9 @@ describe('util', () => {
     it('gets a value from the theme', () => {
       expect(getThemeValue({}, 'foo')).toBe(undefined)
       expect(getThemeValue({ theme: { foo: 'bar' } }, 'foo')).toBe('bar')
+      expect(getThemeValue({ theme: { a: { b: { c: 'd' } } } }, 'a.b.c')).toBe(
+        'd',
+      )
       expect(getThemeValue({ theme: { foo: 'bar' } }, 'x')).toBe(undefined)
     })
 

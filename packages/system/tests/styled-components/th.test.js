@@ -144,7 +144,9 @@ describe('#th', () => {
           [-2, '-8px'],
           ['16rpx', '1rem'],
           ['-16rpx', '-1rem'],
+          ['button.md', '100px'],
         ],
+        theme: { space: { 1: '4px', 2: '8px', button: { md: '100px' } } },
       },
     ],
     [
