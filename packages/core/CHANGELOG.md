@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/smooth-code/xstyled/compare/v1.8.4...v1.9.0) (2019-08-09)
+
+
+### Bug Fixes
+
+* link grid-column-gap to space getter ([#42](https://github.com/smooth-code/xstyled/issues/42)) ([8f22405](https://github.com/smooth-code/xstyled/commit/8f22405))
+
+
+### Features
+
+* add fill property support ([c31dc11](https://github.com/smooth-code/xstyled/commit/c31dc11))
+
+
+
+
+
 ## [1.8.4](https://github.com/smooth-code/xstyled/compare/v1.8.3...v1.8.4) (2019-07-15)
 
 **Note:** Version bump only for package @xstyled/core

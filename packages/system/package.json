@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/system",
   "description": "Modern style system for styled-components & emotion.",
-  "version": "1.8.4",
+  "version": "1.9.0",
   "keywords": [
     "emotion",
     "styled-components",
