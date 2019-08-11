@@ -54,10 +54,11 @@ export const warn = (condition, message) => {
   }
 }
 
-export const cascade = (fn, ...args) => {
-  if (!func(fn)) return fn
-  const next = fn(...args)
-  return cascade(next, ...args)
+export function cascade(value, arg) {
+  if (typeof value === 'function') {
+    return cascade(value(arg), arg)
+  }
+  return value
 }
 
 export const getThemeValue = (props, path, initial = props.theme) =>
@@ -72,4 +73,36 @@ export function omit(object, values) {
     }
   }
   return result
+}
+
+/* eslint-disable no-continue, no-loop-func, no-cond-assign */
+export function flattenStrings(array) {
+  return array.reduce((flattenedArray, value) => {
+    const lastIndex = flattenedArray.length - 1
+    const last = flattenedArray[lastIndex]
+    if (typeof last === 'string' && typeof value === 'string') {
+      flattenedArray[lastIndex] = last + value
+    } else {
+      flattenedArray.push(value)
+    }
+    return flattenedArray
+  }, [])
+}
+
+function flattenDown(array, result) {
+  for (let i = 0; i < array.length; i++) {
+    const value = array[i]
+
+    if (Array.isArray(value)) {
+      flattenDown(value, result)
+    } else {
+      result.push(value)
+    }
+  }
+
+  return result
+}
+
+export function flatten(array) {
+  return flattenDown(array, [])
 }

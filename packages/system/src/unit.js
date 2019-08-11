@@ -1,4 +1,4 @@
-import { num, string } from './util'
+import { num, string } from '@xstyled/util'
 
 const round = value => Math.round(value * 10 ** 4) / 10 ** 4
 

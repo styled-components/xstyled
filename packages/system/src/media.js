@@ -1,4 +1,4 @@
-import { is, getThemeValue } from './util'
+import { is, getThemeValue } from '@xstyled/util'
 import { px } from './unit'
 
 const DEFAULT_BREAKPOINTS = {

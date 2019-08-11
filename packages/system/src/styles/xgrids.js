@@ -1,5 +1,5 @@
+import { obj } from '@xstyled/util'
 import { createStyleGenerator, reduceBreakpoints, compose } from '../style'
-import { obj } from '../util'
 import { getPercent } from './basics'
 
 export const row = createStyleGenerator(

@@ -1,5 +1,5 @@
+import { num } from '@xstyled/util'
 import { style, themeGetter, compose } from '../style'
-import { num } from '../util'
 import { px } from '../unit'
 import { getColor, getRadius, getPx } from './basics'
 

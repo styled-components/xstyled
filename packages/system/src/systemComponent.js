@@ -1,4 +1,4 @@
-import { omit } from './util'
+import { omit } from '@xstyled/util'
 import { system as allSystem } from './styles/index'
 
 export const createSystemComponent = (

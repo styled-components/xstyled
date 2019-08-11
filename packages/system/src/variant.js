@@ -1,4 +1,4 @@
-import { getThemeValue, merge, warn, is, assign } from './util'
+import { getThemeValue, merge, warn, is, assign } from '@xstyled/util'
 
 export const variant = ({
   key = null,

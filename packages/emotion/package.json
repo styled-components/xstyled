@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
-    "@xstyled/core": "^1.9.1"
+    "@xstyled/core": "^1.9.1",
+    "@xstyled/util": "^1.9.1"
   }
 }
