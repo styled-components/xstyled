@@ -1,4 +1,4 @@
-import { cascade, flatten } from '@xstyled/core'
+import { cascade, flatten } from '@xstyled/util'
 import { css } from './css'
 
 export function cx(styles) {

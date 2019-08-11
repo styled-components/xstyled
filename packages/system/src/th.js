@@ -1,4 +1,4 @@
-import { is, warn, getThemeValue } from './util'
+import { is, warn, getThemeValue } from '@xstyled/util'
 import {
   getColor,
   getPx,

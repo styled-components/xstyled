@@ -1,4 +1,4 @@
-import { num } from './util'
+import { num } from '@xstyled/util'
 import { remPx, rpx } from './unit'
 
 export const rpxTransformers = {

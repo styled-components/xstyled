@@ -1,6 +1,6 @@
 import { unit, px, rpx, percent, remPx } from './unit'
 
-describe('util', () => {
+describe('unit', () => {
   describe('#unit', () => {
     it('adds a unit if it is a number', () => {
       const em = unit('em')

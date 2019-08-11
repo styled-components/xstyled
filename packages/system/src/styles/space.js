@@ -1,5 +1,5 @@
+import { is, string, negative, getThemeValue } from '@xstyled/util'
 import { style, themeGetter, compose } from '../style'
-import { is, string, negative, getThemeValue } from '../util'
 import { getPx } from './basics'
 
 function toNegative(value) {

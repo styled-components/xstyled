@@ -1,5 +1,4 @@
 /* eslint-disable no-continue, no-underscore-dangle, no-restricted-syntax, guard-for-in, no-multi-assign */
-import { getBreakpoints, getBreakpointMin, mediaMinWidth } from './media'
 import {
   is,
   num,
@@ -10,7 +9,8 @@ import {
   identity,
   merge,
   assign,
-} from './util'
+} from '@xstyled/util'
+import { getBreakpoints, getBreakpointMin, mediaMinWidth } from './media'
 
 const cacheSupported =
   typeof Map !== 'undefined' && typeof WeakMap !== 'undefined'

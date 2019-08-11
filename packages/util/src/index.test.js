@@ -12,7 +12,7 @@ import {
   cascade,
   getThemeValue,
   omit,
-} from './util'
+} from '.'
 
 describe('util', () => {
   describe('#is', () => {
