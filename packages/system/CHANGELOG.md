@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/smooth-code/xstyled/compare/v1.9.0...v1.9.1) (2019-08-11)
+
+
+### Bug Fixes
+
+* **system:** fix space resolution algo ([f50196b](https://github.com/smooth-code/xstyled/commit/f50196b))
+
+
+
+
+
 # [1.9.0](https://github.com/smooth-code/xstyled/compare/v1.8.4...v1.9.0) (2019-08-09)
 
 
