@@ -61,6 +61,7 @@ export const themeGetter = ({
       res = transform(res, {
         rawValue: value,
         variants,
+        props,
       })
     }
     res = compose ? compose(res)(props) : res

@@ -1,5 +1,5 @@
 import { style, themeGetter, compose } from '../style'
-import { is, string, negative, get } from '../util'
+import { is, string, negative, getThemeValue } from '../util'
 import { getPx } from './basics'
 
 function toNegative(value) {
@@ -14,11 +14,11 @@ export const getSpace = themeGetter({
   key: 'space',
   defaultVariants: [0, 4, 8, 16, 24, 48, 96, 144, 192, 240],
   compose: getPx,
-  transform: (_, { rawValue, variants }) => {
+  transform: (_, { rawValue, variants, props }) => {
     if (string(rawValue)) {
       const neg = rawValue.startsWith('-')
       const absoluteValue = neg ? rawValue.substr(1) : rawValue
-      const variantValue = get(variants, absoluteValue)
+      const variantValue = getThemeValue(props, absoluteValue, variants)
       const value = is(variantValue) ? variantValue : absoluteValue
       return neg ? toNegative(value) : value
     }
