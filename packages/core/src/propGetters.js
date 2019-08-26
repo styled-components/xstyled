@@ -91,6 +91,7 @@ export const propGetters = {
 
   // getShadow
   'box-shadow': getShadow,
+  'text-shadow': getShadow,
 
   // getSize
   width: getNumberSize,
