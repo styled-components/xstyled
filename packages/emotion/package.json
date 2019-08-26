@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/emotion",
   "description": "Xstyled bindings for emotion.",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "keywords": [
     "emotion",
     "css",
