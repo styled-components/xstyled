@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/smooth-code/xstyled/compare/v1.10.1...v1.11.0) (2019-08-28)
+
+
+### Features
+
+* add support for text-shadow ([#49](https://github.com/smooth-code/xstyled/issues/49)) ([96ef25a](https://github.com/smooth-code/xstyled/commit/96ef25a))
+
+
+
+
+
 # [1.10.0](https://github.com/smooth-code/xstyled/compare/v1.9.1...v1.10.0) (2019-08-11)
 
 
