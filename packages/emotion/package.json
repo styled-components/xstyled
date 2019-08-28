@@ -27,7 +27,7 @@
     "emotion-theming": "^10.0.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.4",
+    "@babel/runtime": "^7.5.5",
     "@xstyled/core": "^1.10.0",
     "@xstyled/util": "^1.10.0"
   }
