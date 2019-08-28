@@ -17,7 +17,7 @@ const Cell = styled.div`
 `
 
 export default ({ table, toPercent }) => (
-  <React.Fragment>
+  <>
     <h3>styled-components</h3>
     <Table>
       {table.map((row, i) => (
@@ -30,5 +30,5 @@ export default ({ table, toPercent }) => (
         </Row>
       ))}
     </Table>
-  </React.Fragment>
+  </>
 )

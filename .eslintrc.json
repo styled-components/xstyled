@@ -3,6 +3,7 @@
   "extends": ["smooth", "smooth/project", "smooth/react"],
   "rules": {
     "no-plusplus": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-props-no-spreading": "off"
   }
 }
