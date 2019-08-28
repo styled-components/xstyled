@@ -22,11 +22,6 @@ export const getBorderStyle = themeGetter({
   key: 'borderStyles',
 })
 
-export const getShadow = themeGetter({
-  name: 'shadow',
-  key: 'shadows',
-})
-
 // Style
 
 export const border = style({
@@ -94,11 +89,6 @@ export const borderRadius = style({
   themeGet: getRadius,
 })
 
-export const boxShadow = style({
-  prop: 'boxShadow',
-  themeGet: getShadow,
-})
-
 export const borders = compose(
   border,
   borderTop,
@@ -113,5 +103,4 @@ export const borders = compose(
   borderWidth,
   borderStyle,
   borderRadius,
-  boxShadow,
 )
