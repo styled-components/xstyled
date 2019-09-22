@@ -120,14 +120,17 @@ export function useColorModeState(theme, { target = document.body } = {}) {
 
   // Add mode className
   const customPropertiesEnabled = hasCustomPropertiesEnabled(theme)
+  const initialColorModeName = getInitialColorModeName(theme)
+  const pristine = mode === initialColorModeName && !storage.get()
   React.useLayoutEffect(() => {
     if (!customPropertiesEnabled) return undefined
+    if (pristine) return undefined
     const className = getColorModeClassName(mode)
     target.classList.add(className)
     return () => {
       target.classList.remove(className)
     }
-  }, [customPropertiesEnabled, target, mode])
+  }, [customPropertiesEnabled, target, mode, pristine])
 
   // Store mode preference
   const changedRef = React.useRef(false)
