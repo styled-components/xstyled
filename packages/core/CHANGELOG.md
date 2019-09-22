@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.1](https://github.com/smooth-code/xstyled/compare/v1.12.0...v1.12.1) (2019-09-22)
+
+
+### Bug Fixes
+
+* **color-mode:** fix camelCase properties ([05ea6e7](https://github.com/smooth-code/xstyled/commit/05ea6e7))
+
+
+
+
+
 # [1.12.0](https://github.com/smooth-code/xstyled/compare/v1.11.0...v1.12.0) (2019-09-22)
 
 
