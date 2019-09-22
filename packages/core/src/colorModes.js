@@ -101,36 +101,28 @@ export function createColorStyles(theme, { targetSelector = 'body' } = {}) {
   return `${targetSelector}{${styles}}`
 }
 
-function getInitialMode(theme) {
-  if (!hasColorModes(theme)) return null
-  const stored = storage.get()
-  if (stored) return stored
-  if (hasMediaQueryEnabled(theme) && theme.colors && theme.colors.modes) {
-    const systemMode = SYSTEM_MODES.find(mode => {
-      if (!theme.colors.modes[mode]) return null
-      return detectSystemMode(mode)
-    })
-    return systemMode || getDefaultColorModeName(theme)
-  }
-  return getDefaultColorModeName(theme)
+function useSystemMode(theme) {
+  return React.useMemo(() => {
+    if (!hasColorModes(theme) || !hasMediaQueryEnabled(theme)) return null
+    return (
+      SYSTEM_MODES.find(mode => {
+        if (!theme.colors.modes[mode]) return null
+        return detectSystemMode(mode)
+      }) || null
+    )
+  }, [theme])
 }
 
 export function useColorModeState(theme, { target = document.body } = {}) {
-  const [mode, setMode] = React.useState(() => getInitialMode(theme))
+  const systemMode = useSystemMode(theme)
+  const [mode, setMode] = React.useState(() => {
+    if (!hasColorModes(theme)) return null
+    const storedMode = storage.get()
+    return storedMode || systemMode || getDefaultColorModeName(theme)
+  })
 
   // Add mode className
   const customPropertiesEnabled = hasCustomPropertiesEnabled(theme)
-  const initialColorModeName = getInitialColorModeName(theme)
-  const pristine = mode === initialColorModeName && !storage.get()
-  React.useLayoutEffect(() => {
-    if (!customPropertiesEnabled) return undefined
-    if (pristine) return undefined
-    const className = getColorModeClassName(mode)
-    target.classList.add(className)
-    return () => {
-      target.classList.remove(className)
-    }
-  }, [customPropertiesEnabled, target, mode, pristine])
 
   // Store mode preference
   const changedRef = React.useRef(false)
@@ -141,6 +133,21 @@ export function useColorModeState(theme, { target = document.body } = {}) {
       changedRef.current = true
     }
   }, [mode])
+
+  const initialMode = getInitialColorModeName(theme)
+
+  React.useEffect(() => {
+    if (!customPropertiesEnabled) return undefined
+    const storedMode = storage.get()
+    const fromSystem = !storedMode && systemMode === mode
+    const initial = !storedMode && initialMode === mode
+    if (fromSystem || initial) return undefined
+    const className = getColorModeClassName(mode)
+    target.classList.add(className)
+    return () => {
+      target.classList.remove(className)
+    }
+  }, [customPropertiesEnabled, target, mode, systemMode, initialMode])
 
   return [mode, setMode]
 }
