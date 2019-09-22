@@ -41,6 +41,29 @@ function hasColorModes(theme) {
   return theme && theme.colors && theme.colors.modes
 }
 
+function hasCustomPropertiesEnabled(theme) {
+  return (
+    theme &&
+    (theme.useCustomProperties === undefined || theme.useCustomProperties)
+  )
+}
+
+function hasMediaQueryEnabled(theme) {
+  return (
+    theme &&
+    (theme.useColorSchemeMediaQuery === undefined ||
+      theme.useColorSchemeMediaQuery)
+  )
+}
+
+function getInitialColorModeName(theme) {
+  return theme.initialColorModeName || 'default'
+}
+
+function getDefaultColorModeName(theme) {
+  return theme.defaultColorModeName || getInitialColorModeName(theme)
+}
+
 export function createColorStyles(theme, { targetSelector = 'body' } = {}) {
   if (!hasColorModes(theme)) return null
   const { modes, ...colors } = theme.colors
@@ -69,7 +92,8 @@ export function createColorStyles(theme, { targetSelector = 'body' } = {}) {
     })
   }
 
-  Object.keys(modes).forEach(mode => {
+  const initialModeName = getInitialColorModeName(theme)
+  ;[initialModeName, ...Object.keys(modes)].forEach(mode => {
     const key = `&.${getColorModeClassName(mode)}`
     styles += `${key}{${getModePropertiesDeclarations(mode)}}`
   })
@@ -77,34 +101,10 @@ export function createColorStyles(theme, { targetSelector = 'body' } = {}) {
   return `${targetSelector}{${styles}}`
 }
 
-function hasCustomPropertiesEnabled(theme) {
-  return (
-    theme &&
-    (theme.useCustomProperties === undefined || theme.useCustomProperties)
-  )
-}
-
-function hasMediaQueryEnabled(theme) {
-  return (
-    theme &&
-    (theme.useColorSchemeMediaQuery === undefined ||
-      theme.useColorSchemeMediaQuery)
-  )
-}
-
-function getInitialColorModeName(theme) {
-  return theme.initialColorModeName || 'default'
-}
-
-function getDefaultColorModeName(theme) {
-  return theme.defaultColorModeName || getInitialColorModeName(theme)
-}
-
 function getInitialMode(theme) {
+  if (!hasColorModes(theme)) return null
   const stored = storage.get()
-  if (stored) {
-    return stored
-  }
+  if (stored) return stored
   if (hasMediaQueryEnabled(theme) && theme.colors && theme.colors.modes) {
     const systemMode = SYSTEM_MODES.find(mode => {
       if (!theme.colors.modes[mode]) return null
@@ -120,26 +120,24 @@ export function useColorModeState(theme, { target = document.body } = {}) {
 
   // Add mode className
   const customPropertiesEnabled = hasCustomPropertiesEnabled(theme)
-  const initialColorMode = getInitialColorModeName(theme)
   React.useLayoutEffect(() => {
     if (!customPropertiesEnabled) return undefined
-    if (mode === initialColorMode) return undefined
     const className = getColorModeClassName(mode)
     target.classList.add(className)
     return () => {
       target.classList.remove(className)
     }
-  }, [customPropertiesEnabled, target, mode, initialColorMode])
+  }, [customPropertiesEnabled, target, mode])
 
   // Store mode preference
-  const defaultColorMode = getDefaultColorModeName(theme)
+  const changedRef = React.useRef(false)
   React.useEffect(() => {
-    if (mode === defaultColorMode) {
-      storage.clear()
-      return
+    if (changedRef.current) {
+      storage.set(mode)
+    } else {
+      changedRef.current = true
     }
-    storage.set(mode)
-  }, [defaultColorMode, mode])
+  }, [mode])
 
   return [mode, setMode]
 }
@@ -200,6 +198,11 @@ export function createColorModeProvider({
 }) {
   function ColorModeProvider({ children, target, targetSelector }) {
     const theme = React.useContext(ThemeContext)
+    if (!theme) {
+      throw new Error(
+        '[ColorModeProvider] requires ThemeProvider upper in the tree',
+      )
+    }
     const colorState = useColorModeState(theme, { target })
     const colorModeTheme = useColorModeTheme(theme, colorState[0])
     return (
