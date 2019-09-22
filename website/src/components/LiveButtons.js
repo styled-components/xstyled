@@ -1,4 +1,3 @@
-// import '../utils/prism'
 import React from 'react'
 import { Link } from 'gatsby'
 import styled, { ThemeProvider, css } from '@xstyled/styled-components'
