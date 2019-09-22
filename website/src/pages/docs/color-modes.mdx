@@ -1,0 +1,292 @@
+---
+menu: Guides
+title: Color Modes
+order: 5
+---
+
+# Color Modes
+
+Color modes add support for dark mode but also number of other color modes.
+
+## Getting started
+
+### 1. Defining colors
+
+To enable color modes in your application, the first thing to do is to make your theme compatible with.
+
+In the `theme.colors` object, add a nested `modes` object that will contain keys for optional color modes. The name for the base color mode is `default`.
+
+```js
+// example theme colors
+{
+  colors: {
+    text: '#000',
+    background: '#fff',
+    primary: '#07c',
+    modes: {
+      dark: {
+        text: '#fff',
+        background: '#000',
+        primary: '#0cf',
+      }
+    }
+  }
+}
+```
+
+The colors defined at the root of the `colors` object will be accessible as `default`. All colors found in colors.modes will be referenced by their key. The above example will have two modes:
+
+- `default`
+- `dark`
+
+### 2. Add ColorModeProvider
+
+After your theme ready, you have to add a `ColorModeProvider`, just after your `ThemeProvider`:
+
+```js
+import React from 'react'
+import { ThemeProvider, ColorModeProvider } from '@xstyled/styled-components'
+import App from './App'
+
+const theme = {
+  colors: {
+    text: '#000',
+    background: '#fff',
+    primary: '#07c',
+    modes: {
+      dark: {
+        text: '#fff',
+        background: '#000',
+        primary: '#0cf',
+      },
+    },
+  },
+}
+
+function Root() {
+  return (
+    <ThemeProvider theme={theme}>
+      <ColorModeProvider>
+        <App />
+      </ColorModeProvider>
+    </ThemeProvider>
+  )
+}
+```
+
+Now your app is ready! It will automatically uses dark mode according to user system preferences.
+
+## Basics
+
+### Change color mode
+
+Use the `useColorMode` hook in your application to change the color mode. This value will be stored in `localStorage` and used whenever the page is loaded.
+
+```js
+import React from 'react'
+import { useColorMode } from '@xstyled/styled-components'
+
+function Example(props) {
+  const [colorMode, setColorMode] = useColorMode()
+  return (
+    <header>
+      <button
+        onClick={e => {
+          setColorMode(colorMode === 'default' ? 'dark' : 'default')
+        }}
+      >
+        Toggle {colorMode === 'default' ? 'Dark' : 'Light'}
+      </button>
+    </header>
+  )
+}
+```
+
+### Gatsby
+
+To use it with [Gatsby](https://gatsbyjs.org), add the following code to `gatsby-ssr.js`:
+
+```js
+import React from 'react'
+import { getColorModeInitScriptElement } from '@xstyled/styled-components'
+
+export function onRenderBody({ setPreBodyComponents }) {
+  setPreBodyComponents([getColorModeInitScriptElement()])
+}
+```
+
+### Next
+
+To use it with [Next](https://nextjs.org/), create a `_document.js`:
+
+```js
+import React from 'react'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { getColorModeInitScriptElement } from '@xstyled/styled-components'
+
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx)
+    return initialProps
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head />
+        <body>
+          {getColorModeInitScriptElement()}
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
+}
+```
+
+### SSR
+
+For SSR, you have to include in the `<head>` or at the top of the body the initialization script.
+
+You can use `getColorModeInitScriptElement` to get it as a React element or `getColorModeInitScriptTag` to get it as a plain string.
+
+## Advanced
+
+There are a few advanced usages of color modes when you need more flexibility. For most usecases, you won't need to reference this section.
+
+### Use another default color mode
+
+The colors you define at the root level, outside of `theme.colors.modes` is named `default`. This is the color mode used by default. Use `defaultColorMode` to start with another color mode:
+
+```js
+{
+  defaultColorModeName: 'dark',
+  colors: {
+    text: '#000',
+    background: '#fff',
+    primary: '#07c',
+    modes: {
+      dark: {
+        text: '#fff',
+        background: '#000',
+        primary: '#0cf',
+      }
+    }
+  }
+}
+```
+
+At the first visit, the user will use the `dark` color mode.
+
+### Renaming the default color mode
+
+The colors you define at the root level, outside of `theme.colors.modes` is named `default`. If you'd like to customize it you can do so by setting `initialColorModeName`:
+
+```js
+{
+  initialColorModeName: 'light',
+  colors: {
+    text: '#000',
+    background: '#fff',
+    primary: '#07c',
+    modes: {
+      dark: {
+        text: '#fff',
+        background: '#000',
+        primary: '#0cf',
+      }
+    }
+  }
+}
+```
+
+At the first visit, the user will use the `light` color mode that is implicitely the default one.
+
+### Disable `prefers-color-scheme`
+
+By default, `dark` and `light` mode are automatically activated if `@media (prefers-color-scheme: dark)` matches. It means it automatically follows user system preference.
+
+To turn off this behaviour, add `useColorSchemeMediaQuery: false` to your theme:
+
+```js
+{
+  useColorSchemeMediaQuery: false,
+  colors: {
+    text: '#000',
+    background: '#fff',
+    modes: {
+      dark: {
+        text: '#fff',
+        background: '#000',
+      }
+    }
+  }
+}
+```
+
+## Turn off custom properties
+
+The default implementation of xstyled color modes uses [CSS custom properties](https://caniuse.com/#feat=css-variables). If you're supporting browsers that don't support custom properties you can turn off this setting.
+
+Not using CSS custom properties cause the colors to flash on initial page load if you use SSR or static generation ([Next](https://nextjs.org/) or [Gatsby](https://gatsbyjs.org)).
+
+```js
+// example theme colors
+{
+  useCustomProperties: false,
+  colors: {
+    text: '#000',
+    background: '#fff',
+    primary: '#07c',
+    modes: {
+      dark: {
+        text: '#fff',
+        background: '#000',
+        primary: '#0cf',
+      }
+    }
+  }
+}
+```
+
+### Use another target
+
+By default, color modes is linked to `document.body`, but sometimes you may want to specify another target, more specific. To use another target, add `target` and `targetSelector` to `ColorModeProvider`:
+
+```js
+import React from 'react'
+import { ThemeProvider, ColorModeProvider } from '@xstyled/styled-components'
+import App from './App'
+
+const target = document.getElementById('small-react-app')
+
+const theme = {
+  colors: {
+    text: '#000',
+    background: '#fff',
+    primary: '#07c',
+    modes: {
+      dark: {
+        text: '#fff',
+        background: '#000',
+        primary: '#0cf',
+      },
+    },
+  },
+}
+
+function Root() {
+  return (
+    <ThemeProvider theme={theme}>
+      <ColorModeProvider target={target} targetSelector="#small-react-app">
+        <App />
+      </ColorModeProvider>
+    </ThemeProvider>
+  )
+}
+
+render(<Root />, target)
+```
+
+> `getColorModeInitScriptElement` & `getColorModeInitScriptTag` also accept a `target` option to configure the script. Example: `getColorModeInitScriptTag({ target: 'document.getElementById("small-react-app")' })`

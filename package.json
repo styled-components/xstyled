@@ -10,11 +10,11 @@
     },
     {
       "path": "./packages/styled-components/dist/xstyled-styled-components.min.js",
-      "maxSize": "1.8 kB"
+      "maxSize": "3.8 kB"
     },
     {
       "path": "./packages/emotion/dist/xstyled-emotion.min.js",
-      "maxSize": "1.8 kB"
+      "maxSize": "3.8 kB"
     }
   ],
   "scripts": {

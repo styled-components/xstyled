@@ -4,6 +4,7 @@ export { jsx } from './jsx'
 export { createGlobalStyle } from './createGlobalStyle'
 export { styled as default } from './styled'
 export * from './Box'
+export * from './colorModes'
 export {
   withEmotionCache,
   CacheProvider,
