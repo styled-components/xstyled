@@ -1,30 +1,25 @@
-import '../utils/prism'
+// import '../utils/prism'
 import React from 'react'
 import { Link } from 'gatsby'
 import styled, { ThemeProvider, css } from '@xstyled/styled-components'
-import { variant } from '@xstyled/system'
-import {
-  LiveProvider,
-  LiveEditor,
-  LiveError,
-  LivePreview,
-} from '@probablyup/react-live'
+import { variant, th } from '@xstyled/system'
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
 const Editor = styled.div`
-  background-color: gray200;
+  background-color: gray800;
   font-weight: 300;
   height: 400px;
   overflow-y: scroll;
   border-radius: 5;
-  caret-color: #343a40;
+  caret-color: ${th.color('white')};
   text-align: left;
   padding: 10px;
 
-  pre {
+  textarea {
     margin: 0;
   }
 
-  pre:focus {
+  textarea:focus {
     outline: none;
   }
 `
