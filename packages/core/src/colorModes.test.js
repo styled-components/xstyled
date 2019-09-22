@@ -81,7 +81,7 @@ describe('#createColorStyles', () => {
       },
     }
     expect(createColorStyles(theme)).toBe(
-      `body{--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff0000;--xstyled-colors-danger: #ff0000;--xstyled-colors-text: #000;@media (prefers-color-scheme: dark){--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff4400;--xstyled-colors-danger: #ff4400;--xstyled-colors-text: #fff;}&.xstyled-color-mode-dark{--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff4400;--xstyled-colors-danger: #ff4400;--xstyled-colors-text: #fff;}}`,
+      `body{--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff0000;--xstyled-colors-danger: #ff0000;--xstyled-colors-text: #000;@media (prefers-color-scheme: dark){--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff4400;--xstyled-colors-danger: #ff4400;--xstyled-colors-text: #fff;}&.xstyled-color-mode-default{--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff0000;--xstyled-colors-danger: #ff0000;--xstyled-colors-text: #000;}&.xstyled-color-mode-dark{--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff4400;--xstyled-colors-danger: #ff4400;--xstyled-colors-text: #fff;}}`,
     )
   })
 })
@@ -203,12 +203,13 @@ describe('#useColorModeState', () => {
       const setDarkModeBtn = getByTestId('setDarkMode')
       const setDefaultModeBtn = getByTestId('setDefaultMode')
       expect(getByTestId('mode')).toHaveTextContent('default')
-      expect(document.body).not.toHaveClass('xstyled-color-mode-default')
+      expect(document.body).toHaveClass('xstyled-color-mode-default')
       expect(document.body).not.toHaveClass('xstyled-color-mode-dark')
       fireEvent.click(setDarkModeBtn)
+      expect(document.body).not.toHaveClass('xstyled-color-mode-default')
       expect(document.body).toHaveClass('xstyled-color-mode-dark')
       fireEvent.click(setDefaultModeBtn)
-      expect(document.body).not.toHaveClass('xstyled-color-mode-default')
+      expect(document.body).toHaveClass('xstyled-color-mode-default')
       expect(document.body).not.toHaveClass('xstyled-color-mode-dark')
     })
 
@@ -221,12 +222,13 @@ describe('#useColorModeState', () => {
       const setDarkModeBtn = getByTestId('setDarkMode')
       const setDefaultModeBtn = getByTestId('setDefaultMode')
       expect(getByTestId('mode')).toHaveTextContent('default')
-      expect(main).not.toHaveClass('xstyled-color-mode-default')
+      expect(main).toHaveClass('xstyled-color-mode-default')
       expect(main).not.toHaveClass('xstyled-color-mode-dark')
       fireEvent.click(setDarkModeBtn)
+      expect(main).not.toHaveClass('xstyled-color-mode-default')
       expect(main).toHaveClass('xstyled-color-mode-dark')
       fireEvent.click(setDefaultModeBtn)
-      expect(main).not.toHaveClass('xstyled-color-mode-default')
+      expect(main).toHaveClass('xstyled-color-mode-default')
       expect(main).not.toHaveClass('xstyled-color-mode-dark')
     })
   })
@@ -253,7 +255,7 @@ describe('#useColorModeState', () => {
     fireEvent.click(setDarkModeBtn)
     expect(window.localStorage.getItem('xstyled-color-mode')).toBe('dark')
     fireEvent.click(setDefaultModeBtn)
-    expect(window.localStorage.getItem('xstyled-color-mode')).toBe(null)
+    expect(window.localStorage.getItem('xstyled-color-mode')).toBe('default')
   })
 })
 
