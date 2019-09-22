@@ -104,10 +104,10 @@ const Container = styled.div`
       /* All devices */
     `,
     md: css`
-     /* Up to md breakpoint */
+     /* From md breakpoint */
     `,
     lg: css`
-     /* Up to lg breakpoint */
+     /* From lg breakpoint */
     `
   }}
 `
@@ -115,7 +115,7 @@ const Container = styled.div`
 
 ### up
 
-`up` lets you apply style up to a breakpoint.
+`up` lets you apply style from a breakpoint.
 
 ```js
 import { styled, css, up } from '@xstyled/system'
@@ -134,7 +134,7 @@ const Box = styled.div`
 
 ### down
 
-`down` lets you apply style down to a breakpoint.
+`down` lets you apply style up to a breakpoint.
 
 ```js
 import { styled, css, up } from '@xstyled/system'
