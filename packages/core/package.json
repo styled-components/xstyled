@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/core",
   "description": "xstyled core utilities",
-  "version": "1.12.2",
+  "version": "1.12.3",
   "sideEffects": false,
   "main": "dist/xstyled-core.cjs.js",
   "module": "dist/xstyled-core.es.js",

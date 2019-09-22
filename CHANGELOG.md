@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.3](https://github.com/smooth-code/xstyled/compare/v1.12.2...v1.12.3) (2019-09-22)
+
+
+### Bug Fixes
+
+* **color-mode:** fix pristine className ([5e0ff9a](https://github.com/smooth-code/xstyled/commit/5e0ff9a))
+
+
+
+
+
 ## [1.12.2](https://github.com/smooth-code/xstyled/compare/v1.12.1...v1.12.2) (2019-09-22)
 
 
