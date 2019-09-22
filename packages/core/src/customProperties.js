@@ -36,7 +36,7 @@ export function toCustomPropertiesDeclarations(
   object,
   parent,
   theme = object,
-  state = {},
+  state = { value: '' },
 ) {
   for (const key in object) {
     const value = object[key]
@@ -46,14 +46,14 @@ export function toCustomPropertiesDeclarations(
       continue
     }
     if (string(value)) {
-      state[toVarName(name)] = value
+      state.value += `${toVarName(name)}: ${value};`
       continue
     }
     if (func(value)) {
-      state[toVarName(name)] = value({ theme })
+      state.value += `${toVarName(name)}: ${value({ theme })};`
       continue
     }
   }
 
-  return state
+  return state.value
 }

@@ -80,29 +80,9 @@ describe('#createColorStyles', () => {
         },
       },
     }
-    expect(createColorStyles(theme)).toEqual({
-      body: {
-        '--xstyled-colors-black': '#000',
-        '--xstyled-colors-white': '#fff',
-        '--xstyled-colors-red': '#ff0000',
-        '--xstyled-colors-danger': '#ff0000',
-        '--xstyled-colors-text': '#000',
-        '@media (prefers-color-scheme: dark)': {
-          '--xstyled-colors-black': '#000',
-          '--xstyled-colors-white': '#fff',
-          '--xstyled-colors-red': '#ff4400',
-          '--xstyled-colors-danger': '#ff4400',
-          '--xstyled-colors-text': '#fff',
-        },
-        '&.xstyled-color-mode-dark': {
-          '--xstyled-colors-black': '#000',
-          '--xstyled-colors-white': '#fff',
-          '--xstyled-colors-red': '#ff4400',
-          '--xstyled-colors-danger': '#ff4400',
-          '--xstyled-colors-text': '#fff',
-        },
-      },
-    })
+    expect(createColorStyles(theme)).toBe(
+      `body{--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff0000;--xstyled-colors-danger: #ff0000;--xstyled-colors-text: #000;@media (prefers-color-scheme: dark){--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff4400;--xstyled-colors-danger: #ff4400;--xstyled-colors-text: #fff;}&.xstyled-color-mode-dark{--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff4400;--xstyled-colors-danger: #ff4400;--xstyled-colors-text: #fff;}}`,
+    )
   })
 })
 

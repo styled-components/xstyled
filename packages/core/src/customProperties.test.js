@@ -38,6 +38,18 @@ describe('#toCustomPropertiesReferences', () => {
     })
   })
 
+  it('handles camel case', () => {
+    expect(
+      toCustomPropertiesReferences({
+        colors: { fooBar: 'x' },
+      }),
+    ).toEqual({
+      colors: {
+        fooBar: 'var(--colors-fooBar, x)',
+      },
+    })
+  })
+
   it('supports prefix', () => {
     expect(
       toCustomPropertiesReferences(
@@ -54,21 +66,21 @@ describe('#toCustomPropertiesReferences', () => {
 
 describe('#toCustomPropertiesDeclarations', () => {
   it('only transforms string', () => {
-    expect(toCustomPropertiesDeclarations({ foo: 'bar' })).toEqual({
-      '--foo': 'bar',
-    })
-    expect(toCustomPropertiesDeclarations({ foo: 2 })).toEqual({})
-    expect(toCustomPropertiesDeclarations({ foo: null })).toEqual({})
-    expect(toCustomPropertiesDeclarations({ foo: false })).toEqual({})
-    expect(toCustomPropertiesDeclarations({ foo: undefined })).toEqual({})
+    expect(toCustomPropertiesDeclarations({ foo: 'bar' })).toBe('--foo: bar;')
+    expect(toCustomPropertiesDeclarations({ foo: 2 })).toBe('')
+    expect(toCustomPropertiesDeclarations({ foo: null })).toBe('')
+    expect(toCustomPropertiesDeclarations({ foo: false })).toBe('')
+    expect(toCustomPropertiesDeclarations({ foo: undefined })).toBe('')
+  })
+
+  it('handles camel case', () => {
+    expect(toCustomPropertiesDeclarations({ fooBar: 'x' })).toBe('--fooBar: x;')
   })
 
   it('supports nesting', () => {
     expect(
       toCustomPropertiesDeclarations({ colors: { primary: 'blue' } }),
-    ).toEqual({
-      '--colors-primary': 'blue',
-    })
+    ).toBe('--colors-primary: blue;')
   })
 
   it('supports xstyled func references', () => {
@@ -76,10 +88,7 @@ describe('#toCustomPropertiesDeclarations', () => {
       toCustomPropertiesDeclarations({
         colors: { blue: '#0000FF', primary: th.color('blue') },
       }),
-    ).toEqual({
-      '--colors-blue': '#0000FF',
-      '--colors-primary': '#0000FF',
-    })
+    ).toBe('--colors-blue: #0000FF;--colors-primary: #0000FF;')
   })
 
   it('supports prefix', () => {
@@ -90,8 +99,6 @@ describe('#toCustomPropertiesDeclarations', () => {
         },
         'xstyled',
       ),
-    ).toEqual({
-      '--xstyled-foo': 'bar',
-    })
+    ).toBe('--xstyled-foo: bar;')
   })
 })

@@ -44,7 +44,7 @@ function hasColorModes(theme) {
 export function createColorStyles(theme, { targetSelector = 'body' } = {}) {
   if (!hasColorModes(theme)) return null
   const { modes, ...colors } = theme.colors
-  const styles = toCustomPropertiesDeclarations(
+  let styles = toCustomPropertiesDeclarations(
     colors,
     XSTYLED_COLORS_PREFIX,
     theme,
@@ -64,17 +64,17 @@ export function createColorStyles(theme, { targetSelector = 'body' } = {}) {
     SYSTEM_MODES.forEach(mode => {
       if (modes[mode]) {
         const mediaQuery = getMediaQuery(getColorModeQuery(mode))
-        styles[mediaQuery] = getModePropertiesDeclarations(mode)
+        styles += `${mediaQuery}{${getModePropertiesDeclarations(mode)}}`
       }
     })
   }
 
   Object.keys(modes).forEach(mode => {
     const key = `&.${getColorModeClassName(mode)}`
-    styles[key] = getModePropertiesDeclarations(mode)
+    styles += `${key}{${getModePropertiesDeclarations(mode)}}`
   })
 
-  return { [targetSelector]: styles }
+  return `${targetSelector}{${styles}}`
 }
 
 function hasCustomPropertiesEnabled(theme) {
