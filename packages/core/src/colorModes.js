@@ -30,13 +30,6 @@ function getModeTheme(theme, mode) {
 const getMediaQuery = query => `@media ${query}`
 const getColorModeQuery = mode => `(prefers-color-scheme: ${mode})`
 
-function detectSystemMode(mode) {
-  if (window.matchMedia === undefined) return null
-  const query = getColorModeQuery(mode)
-  const mql = window.matchMedia(query)
-  return mql.matches && mql.media === query
-}
-
 function hasColorModes(theme) {
   return theme && theme.colors && theme.colors.modes
 }
@@ -101,55 +94,96 @@ export function createColorStyles(theme, { targetSelector = 'body' } = {}) {
   return `${targetSelector}{${styles}}`
 }
 
+function getSystemModeMql(mode) {
+  if (window.matchMedia === undefined) return null
+  const query = getColorModeQuery(mode)
+  return window.matchMedia(query)
+}
+
 function useSystemMode(theme) {
-  return React.useMemo(() => {
-    if (!hasColorModes(theme) || !hasMediaQueryEnabled(theme)) return null
-    return (
-      SYSTEM_MODES.find(mode => {
-        if (!theme.colors.modes[mode]) return null
-        return detectSystemMode(mode)
-      }) || null
-    )
+  const configs = React.useMemo(() => {
+    if (!hasMediaQueryEnabled(theme)) return []
+    return SYSTEM_MODES.map(mode => {
+      if (!theme.colors.modes[mode]) return null
+      const mql = getSystemModeMql(mode)
+      return mql ? { mode, mql } : null
+    }).filter(Boolean)
   }, [theme])
+
+  const [systemMode, setSystemMode] = React.useState(() => {
+    const config = configs.find(config => config.mql.matches)
+    return config ? config.mode : null
+  })
+
+  React.useEffect(() => {
+    const cleans = configs
+      .filter(({ mql }) => mql.addListener && mql.removeListener)
+      .map(({ mode, mql }) => {
+        const handler = ({ matches }) => {
+          if (matches) {
+            setSystemMode(mode)
+          } else {
+            setSystemMode(previousMode => (previousMode === mode ? null : mode))
+          }
+        }
+        mql.addListener(handler)
+        return () => mql.removeListener(handler)
+      })
+    return () => cleans.forEach(clean => clean())
+  })
+
+  return systemMode
 }
 
 export function useColorModeState(theme, { target = document.body } = {}) {
   const systemMode = useSystemMode(theme)
+  const defaultColorMode = getDefaultColorModeName(theme)
+  const initialColorMode = getInitialColorModeName(theme)
   const [mode, setMode] = React.useState(() => {
     if (!hasColorModes(theme)) return null
     const storedMode = storage.get()
-    return storedMode || systemMode || getDefaultColorModeName(theme)
+    return storedMode || systemMode || defaultColorMode
   })
 
   // Add mode className
   const customPropertiesEnabled = hasCustomPropertiesEnabled(theme)
 
+  const manualSetRef = React.useRef(false)
+  const manuallySetMode = React.useCallback(value => {
+    manualSetRef.current = true
+    setMode(value)
+  }, [])
+
   // Store mode preference
-  const changedRef = React.useRef(false)
-  React.useEffect(() => {
-    if (changedRef.current) {
+  React.useLayoutEffect(() => {
+    if (manualSetRef.current) {
       storage.set(mode)
-    } else {
-      changedRef.current = true
     }
   }, [mode])
 
-  const initialMode = getInitialColorModeName(theme)
-
-  React.useEffect(() => {
-    if (!customPropertiesEnabled) return undefined
+  // Sync system mode
+  React.useLayoutEffect(() => {
     const storedMode = storage.get()
-    const fromSystem = !storedMode && systemMode === mode
-    const initial = !storedMode && initialMode === mode
-    if (fromSystem || initial) return undefined
+    if (storedMode) return
+    const targetMode = systemMode || defaultColorMode
+    if (targetMode === mode) return
+    setMode(targetMode)
+  }, [mode, systemMode, defaultColorMode])
+
+  // Add and remove class names
+  React.useLayoutEffect(() => {
+    if (!customPropertiesEnabled) return undefined
+    const stored = storage.get()
+    const initial = initialColorMode !== mode
+    if (!stored && !initial) return undefined
     const className = getColorModeClassName(mode)
     target.classList.add(className)
     return () => {
       target.classList.remove(className)
     }
-  }, [customPropertiesEnabled, target, mode, systemMode, initialMode])
+  }, [customPropertiesEnabled, target, mode, initialColorMode])
 
-  return [mode, setMode]
+  return [mode, manuallySetMode]
 }
 
 export function useColorModeTheme(theme, mode) {
