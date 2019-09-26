@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.1](https://github.com/smooth-code/xstyled/compare/v1.13.0...v1.13.1) (2019-09-26)
+
+
+### Bug Fixes
+
+* **color-mode:** use lazy init to solve SSR issue ([ab5ed55](https://github.com/smooth-code/xstyled/commit/ab5ed55))
+
+
+
+
+
 # [1.13.0](https://github.com/smooth-code/xstyled/compare/v1.12.8...v1.13.0) (2019-09-26)
 
 
