@@ -296,6 +296,7 @@ describe('#useColorModeTheme', () => {
           ...darkTheme.colors,
           ...darkTheme.colors.modes.dark,
         },
+        __colorMode: 'dark',
         __rawColors: darkTheme.colors,
         useCustomProperties: false,
       })

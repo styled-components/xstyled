@@ -216,7 +216,7 @@ export function useColorModeTheme(theme, mode) {
     if (!hasColorModes(theme)) return theme
 
     if (mode === getInitialColorModeName(theme)) {
-      return theme
+      return { ...theme, __colorMode: mode }
     }
 
     return {
@@ -225,6 +225,7 @@ export function useColorModeTheme(theme, mode) {
         ...theme.colors,
         ...theme.colors.modes[mode],
       },
+      __colorMode: mode,
       __rawColors: theme.colors,
     }
   }, [theme, mode])
