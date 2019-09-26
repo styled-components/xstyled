@@ -135,7 +135,7 @@ function useSystemMode(theme) {
   return systemMode
 }
 
-export function useColorModeState(theme, { target = document.body } = {}) {
+export function useColorModeState(theme, { target } = {}) {
   const systemMode = useSystemMode(theme)
   const defaultColorMode = getDefaultColorModeName(theme)
   const initialColorMode = getInitialColorModeName(theme)
@@ -177,9 +177,10 @@ export function useColorModeState(theme, { target = document.body } = {}) {
     const initial = initialColorMode !== mode
     if (!stored && !initial) return undefined
     const className = getColorModeClassName(mode)
-    target.classList.add(className)
+    const usedTarget = target || document.body
+    usedTarget.classList.add(className)
     return () => {
-      target.classList.remove(className)
+      usedTarget.classList.remove(className)
     }
   }, [customPropertiesEnabled, target, mode, initialColorMode])
 
