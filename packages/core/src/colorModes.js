@@ -9,7 +9,10 @@ import {
 const STORAGE_KEY = 'xstyled-color-mode'
 
 const storage = {
-  get: () => window.localStorage.getItem(STORAGE_KEY),
+  get: () =>
+    typeof window === 'undefined'
+      ? null
+      : window.localStorage.getItem(STORAGE_KEY),
   set: value => window.localStorage.setItem(STORAGE_KEY, value),
   clear: () => window.localStorage.removeItem(STORAGE_KEY),
 }
@@ -95,7 +98,9 @@ export function createColorStyles(theme, { targetSelector = 'body' } = {}) {
 }
 
 function getSystemModeMql(mode) {
-  if (window.matchMedia === undefined) return null
+  if (typeof window === 'undefined' || window.matchMedia === undefined) {
+    return null
+  }
   const query = getColorModeQuery(mode)
   return window.matchMedia(query)
 }
