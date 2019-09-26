@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.8](https://github.com/smooth-code/xstyled/compare/v1.12.7...v1.12.8) (2019-09-26)
+
+
+### Bug Fixes
+
+* **color-mode:** fix SSR compat ([bb0188a](https://github.com/smooth-code/xstyled/commit/bb0188a))
+
+
+
+
+
 ## [1.12.7](https://github.com/smooth-code/xstyled/compare/v1.12.6...v1.12.7) (2019-09-26)
 
 
