@@ -149,8 +149,7 @@ export function useColorModeState(theme, { target } = {}) {
   const initialColorMode = getInitialColorModeName(theme)
   const [mode, setMode] = React.useState(() => {
     if (!hasColorModes(theme)) return null
-    const storedMode = storage.get()
-    return storedMode || systemMode || defaultColorMode
+    return defaultColorMode
   })
 
   // Add mode className
@@ -160,6 +159,16 @@ export function useColorModeState(theme, { target } = {}) {
   const manuallySetMode = React.useCallback(value => {
     manualSetRef.current = true
     setMode(value)
+  }, [])
+
+  // Set initial color mode in lazy
+  useIsomorphicLayoutEffect(() => {
+    if (!hasColorModes(theme)) return
+    const storedMode = storage.get()
+    const initialMode = storedMode || systemMode || defaultColorMode
+    if (mode !== initialMode) {
+      setMode(storedMode || systemMode || defaultColorMode)
+    }
   }, [])
 
   // Store mode preference
