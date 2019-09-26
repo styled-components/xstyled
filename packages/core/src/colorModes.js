@@ -135,6 +135,9 @@ function useSystemMode(theme) {
   return systemMode
 }
 
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect
+
 export function useColorModeState(theme, { target } = {}) {
   const systemMode = useSystemMode(theme)
   const defaultColorMode = getDefaultColorModeName(theme)
@@ -155,14 +158,14 @@ export function useColorModeState(theme, { target } = {}) {
   }, [])
 
   // Store mode preference
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (manualSetRef.current) {
       storage.set(mode)
     }
   }, [mode])
 
   // Sync system mode
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const storedMode = storage.get()
     if (storedMode) return
     const targetMode = systemMode || defaultColorMode
@@ -171,7 +174,7 @@ export function useColorModeState(theme, { target } = {}) {
   }, [mode, systemMode, defaultColorMode])
 
   // Add and remove class names
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!customPropertiesEnabled) return undefined
     const stored = storage.get()
     const initial = initialColorMode !== mode
