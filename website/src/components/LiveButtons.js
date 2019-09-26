@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled, { ThemeProvider, css } from '@xstyled/styled-components'
+import { usePrismTheme } from 'smooth-doc/components'
 import { variant, th } from '@xstyled/system'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
 const Editor = styled.div`
-  background-color: gray800;
+  background-color: secondary-bg;
   font-weight: 300;
   height: 400px;
   overflow-y: scroll;
@@ -25,7 +26,7 @@ const Editor = styled.div`
 
 const Container = styled.div`
   text-align: center;
-  max-width: 650px;
+  max-width: 650;
   margin: 0 auto;
   padding-bottom: 5;
 `
@@ -37,8 +38,8 @@ const Button = styled.a\`
   color: white; /* ⟶ theme.colors.white */
   border-color: primary; /* ⟶ theme.colors.primary */
   border-radius: medium; /* ⟶ theme.radii.medium */
-  padding: 2 4; /* ⟶ theme.space.* */
-  margin: 5 2; /* ⟶ theme.space.* */
+  padding: 8 24; /* ⟶ theme.space.* */
+  margin: 48 8; /* ⟶ theme.space.* */
   background-color: primary; /* ⟶ theme.colors.primary */
   display: inline-block;
   transition: background-color 300ms, color 300ms;
@@ -96,9 +97,16 @@ render(
 const scope = { React, ThemeProvider, styled, css, variant, Link }
 
 export default function LiveButtons() {
+  const theme = usePrismTheme()
   return (
     <Container>
-      <LiveProvider mountStylesheet={false} code={code} scope={scope} noInline>
+      <LiveProvider
+        theme={theme}
+        mountStylesheet={false}
+        code={code}
+        scope={scope}
+        noInline
+      >
         <LivePreview />
         <LiveError />
         <Editor>
