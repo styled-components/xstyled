@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/smooth-code/xstyled/compare/v1.12.8...v1.13.0) (2019-09-26)
+
+
+### Features
+
+* **color-mode:** inject __colorMode into theme ([ab3ad17](https://github.com/smooth-code/xstyled/commit/ab3ad17))
+
+
+
+
+
 ## [1.12.8](https://github.com/smooth-code/xstyled/compare/v1.12.7...v1.12.8) (2019-09-26)
 
 
