@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.7](https://github.com/smooth-code/xstyled/compare/v1.12.6...v1.12.7) (2019-09-26)
+
+
+### Bug Fixes
+
+* isomorphic layout effect ([987f308](https://github.com/smooth-code/xstyled/commit/987f308))
+
+
+
+
+
 ## [1.12.6](https://github.com/smooth-code/xstyled/compare/v1.12.5...v1.12.6) (2019-09-26)
 
 
