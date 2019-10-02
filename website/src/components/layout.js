@@ -6,6 +6,8 @@ import * as xstyledSystem from '@xstyled/system'
 const { css } = xstyledSc
 
 const CustomBox = styled.box`
+  white-space: normal;
+
   ${p =>
     p.col &&
     css`
@@ -19,6 +21,16 @@ const CustomBox = styled.box`
       font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
         Roboto, 'Helvetica Neue', Arial, sans-serif;
     `}
+
+  ${p =>
+    p.row && p.alignItems
+      ? css`
+          margin-top: 0.25rem;
+          margin-bottom: 0.25rem;
+          min-height: 10rem;
+          background-color: rgba(189, 73, 50, 0.3);
+        `
+      : null}
 `
 
 export default function Layout({ children }) {

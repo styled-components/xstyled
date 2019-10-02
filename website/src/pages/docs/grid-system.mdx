@@ -1,7 +1,7 @@
 ---
 menu: Guides
 title: Grid system
-order: 5
+order: 2
 ---
 
 # Grid system
@@ -19,15 +19,17 @@ import styled, { Box } from '@xstyled/styled-components'
 
 function Example() {
   return (
-    <Box row mx={-8}>
-      <Box col px={8}>
-        Column 1
-      </Box>
-      <Box col px={8}>
-        Column 2
-      </Box>
-      <Box col px={8}>
-        Column 3
+    <Box mx={8}>
+      <Box row mx={-8}>
+        <Box col px={8}>
+          Column 1
+        </Box>
+        <Box col px={8}>
+          Column 2
+        </Box>
+        <Box col px={8}>
+          Column 3
+        </Box>
       </Box>
     </Box>
   )
@@ -176,6 +178,477 @@ function Example() {
         <Box col>3 of 3</Box>
       </Box>
     </>
+  )
+}
+
+render(<Example />)
+```
+
+## Responsiveness
+
+xstyled's grid includes five tiers of predefined classes for building complex responsive layouts. Customize the size of your columns on extra small, small, medium, large, or extra large devices however you see fit. You can also [set your own breakpoints in the theme](/docs/responsive/).
+
+### All breakpoints
+
+For grids that are the same from the smallest of devices to the largest, use the object notation. Specify a number value when you need a particularly sized column; otherwise, feel free to put the prop without a value (true).
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <>
+      <Box row>
+        <Box col>-</Box>
+        <Box col>-</Box>
+        <Box col>-</Box>
+        <Box col>-</Box>
+      </Box>
+      <Box row>
+        <Box col={2 / 3}>{`col={2 / 3}`}</Box>
+        <Box col={1 / 3}>{`col={1 / 3}`}</Box>
+      </Box>
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+### Stacked to horizontal
+
+Using a single set of `sm` props, you can create a basic grid system that starts out stacked before becoming horizontal with at the small breakpoint (`sm`).
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <>
+      <Box row>
+        <Box col={{ xs: 1, sm: 2 / 3 }}>{`{ xs: 1, sm: 2 / 3 }`}</Box>
+        <Box col={{ xs: 1, sm: 1 / 3 }}>{`{ xs: 1, sm: 1 / 3 }`}</Box>
+      </Box>
+      <Box row>
+        <Box col={{ xs: 1, sm: true }}>{`{ xs: 1, sm: true }`}</Box>
+        <Box col={{ xs: 1, sm: true }}>{`{ xs: 1, sm: true }`}</Box>
+        <Box col={{ xs: 1, sm: true }}>{`{ xs: 1, sm: true }`}</Box>
+      </Box>
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+### Mix and match
+
+Don’t want your columns to simply stack in some grid tiers? Use a combination of different props for each tier as needed. See the example below for a better idea of how it all works.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <>
+      {/* Stack the columns on mobile by making one full-width and the other half-width */}
+      <Box row>
+        <Box col={{ xs: 1, md: 2 / 3 }}>{`{ xs: 1, md: 2 / 3 }`}</Box>
+        <Box col={{ xs: 1 / 2, md: 1 / 3 }}>{`{ xs: 1 / 2, md: 1 / 3 }`}</Box>
+      </Box>
+      {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
+      <Box row>
+        <Box col={{ xs: 1 / 2, md: 1 / 3 }}>{`{ xs: 1 / 2, md: 1 / 3 }`}</Box>
+        <Box col={{ xs: 1 / 2, md: 1 / 3 }}>{`{ xs: 1 / 2, md: 1 / 3 }`}</Box>
+        <Box col={{ xs: 1 / 2, md: 1 / 3 }}>{`{ xs: 1 / 2, md: 1 / 3 }`}</Box>
+      </Box>
+      {/* Columns are always 50% wide, on mobile and desktop */}
+      <Box row>
+        <Box col={1 / 2}>{`1 / 2`}</Box>
+        <Box col={1 / 2}>{`1 / 2`}</Box>
+      </Box>
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+## Gutters
+
+### Basics
+
+To add gutters, add a container with a horizontal padding (`px`), a `row` with a negative horizontal margin (`mx`) and `col`s with a horizontal padding (`px`).
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <Box px={10}>
+      <Box row mx={-10}>
+        <Box col px={10}>
+          Custom column padding
+        </Box>
+        <Box col px={10}>
+          Custom column padding
+        </Box>
+      </Box>
+    </Box>
+  )
+}
+
+render(<Example />)
+```
+
+### Vertical and horizontal
+
+To set vertical and horizontal gutters, use `p` instead of `px` and `m` instead of `mx`.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <Box p={30}>
+      <Box row m={-30}>
+        <Box col={1 / 2} p={30} m={0}>
+          <Box backgroundColor="primary" height={20} />
+        </Box>
+        <Box col={1 / 2} p={30} m={0}>
+          <Box backgroundColor="primary" height={20} />
+        </Box>
+        <Box col={1 / 2} p={30} m={0}>
+          <Box backgroundColor="primary" height={20} />
+        </Box>
+        <Box col={1 / 2} p={30} m={0}>
+          <Box backgroundColor="primary" height={20} />
+        </Box>
+      </Box>
+    </Box>
+  )
+}
+
+render(<Example />)
+```
+
+### No external gutter
+
+To remove external gutter, remove padding on the container.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <Box border={1} borderColor="#555">
+      <Box px={30}>
+        <Box row mx={-30}>
+          <Box col={1 / 2} px={30}>
+            <Box backgroundColor="primary" height={20} />
+          </Box>
+          <Box col={1 / 2} px={30}>
+            <Box backgroundColor="primary" height={20} />
+          </Box>
+        </Box>
+      </Box>
+      <Box p={0}>
+        <Box row mx={-30}>
+          <Box col={1 / 2} px={30}>
+            <Box backgroundColor="primary" height={20} />
+          </Box>
+          <Box col={1 / 2} px={30}>
+            <Box backgroundColor="primary" height={20} />
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  )
+}
+
+render(<Example />)
+```
+
+### Responsive gutters
+
+Gutters can be responsively adjusted by breakpoint-specific padding and negative margin utilities. To change the gutters in a given row, pair a negative margin utility on the `row` and matching padding utilities on the `col`s. The `container` parent may need to be adjusted too to avoid unwanted overflow, using again matching padding utility.
+
+Here’s an example of customizing the grid at the large (`lg`) breakpoint and above. We’ve increased the `col` padding with `px={{ lg: 5 }}`, counteracted that with `mx={{ lg: -5 }}` on the parent `row` and then adjusted the container wrapper with `px={{ lg: 5 }}`.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <Box px={{ lg: 5 }}>
+      <Box row mx={{ lg: -5 }}>
+        <Box col py={3} px={{ lg: 5 }}>
+          Custom column padding
+        </Box>
+        <Box col py={3} px={{ lg: 5 }}>
+          Custom column padding
+        </Box>
+      </Box>
+    </Box>
+  )
+}
+
+render(<Example />)
+```
+
+## Alignment
+
+Use flexbox alignment utilities to vertically and horizontally align columns.
+
+### Horizontal alignment
+
+Use `justifyContent` to set the horizontal alignment.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <>
+      <Box row justifyContent="flex-start">
+        <Box col={1 / 3}>One of two columns</Box>
+        <Box col={1 / 3}>One of two columns</Box>
+      </Box>
+      <Box row justifyContent="center">
+        <Box col={1 / 3}>One of two columns</Box>
+        <Box col={1 / 3}>One of two columns</Box>
+      </Box>
+      <Box row justifyContent="flex-end">
+        <Box col={1 / 3}>One of two columns</Box>
+        <Box col={1 / 3}>One of two columns</Box>
+      </Box>
+      <Box row justifyContent="space-around">
+        <Box col={1 / 3}>One of two columns</Box>
+        <Box col={1 / 3}>One of two columns</Box>
+      </Box>
+      <Box row justifyContent="space-between">
+        <Box col={1 / 3}>One of two columns</Box>
+        <Box col={1 / 3}>One of two columns</Box>
+      </Box>
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+### Vertical alignment
+
+Use `alignItems` to set the vertical alignment.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <>
+      <Box row alignItems="flex-start">
+        <Box col>One of three columns</Box>
+        <Box col>One of three columns</Box>
+        <Box col>One of three columns</Box>
+      </Box>
+      <Box row alignItems="center">
+        <Box col>One of three columns</Box>
+        <Box col>One of three columns</Box>
+        <Box col>One of three columns</Box>
+      </Box>
+      <Box row alignItems="flex-end">
+        <Box col>One of three columns</Box>
+        <Box col>One of three columns</Box>
+        <Box col>One of three columns</Box>
+      </Box>
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+## Column wrapping
+
+If the sum of `col`s weight that are placed within a single `row` is superior to 1, each group of extra columns will, as one unit, wrap onto a new line.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <Box row>
+      <Box col={3 / 4}>{`1 / 4`}</Box>
+      <Box col={1 / 3}>
+        {`1 / 3`}
+        <br />
+        Since 1 / 4 + 1 / 3 = 1.08 &gt; 12, this 4-column-wide gets wrapped onto
+        a new line as one contiguous unit.
+      </Box>
+      <Box col={1 / 2}>
+        {`xs={6}`}
+        <br />
+        Subsequent columns continue along the new line.
+      </Box>
+    </Box>
+  )
+}
+
+render(<Example />)
+```
+
+## Column breaks
+
+Breaking columns to a new line in flexbox requires a small hack: add an element with `width: 100%` wherever you want to wrap your columns to a new line. Normally this is accomplished with multiple `row`, but not every implementation method can account for this.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <Box row>
+      <Box col={{ xs: 1 / 2, sm: 1 / 4 }}>{`{ xs: 1 / 2, sm: 1 / 4 }`}</Box>
+      <Box col={{ xs: 1 / 2, sm: 1 / 4 }}>{`{ xs: 1 / 2, sm: 1 / 4 }`}</Box>
+      {/* Force next columns to break to new line */}
+      <Box width="100%" />
+
+      <Box col={{ xs: 1 / 2, sm: 1 / 4 }}>{`{ xs: 1 / 2, sm: 1 / 4 }`}</Box>
+      <Box col={{ xs: 1 / 2, sm: 1 / 4 }}>{`{ xs: 1 / 2, sm: 1 / 4 }`}</Box>
+    </Box>
+  )
+}
+
+render(<Example />)
+```
+
+You may also apply this break at specific breakpoints with our responsive display utilities.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <Box row>
+      <Box col={{ xs: 1 / 2, sm: 1 / 4 }}>{`{ xs: 1 / 2, sm: 1 / 4 }`}</Box>
+      <Box col={{ xs: 1 / 2, sm: 1 / 4 }}>{`{ xs: 1 / 2, sm: 1 / 4 }`}</Box>
+      {/* Force next columns to break to new line at md breakpoint and up */}
+      <Box width="100%" display={{ xs: 'none', md: 'block' }} />
+
+      <Box col={{ xs: 1 / 2, sm: 1 / 4 }}>{`{ xs: 1 / 2, sm: 1 / 4 }`}</Box>
+      <Box col={{ xs: 1 / 2, sm: 1 / 4 }}>{`{ xs: 1 / 2, sm: 1 / 4 }`}</Box>
+    </Box>
+  )
+}
+
+render(<Example />)
+```
+
+## Reordering
+
+### Order prop
+
+Use `order` prop for controlling the visual order of your content. Like all utilities, it supports responsive, you can use `order={{ sm: 2 }}`.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <Box row>
+      <Box col>First, but unordered</Box>
+      <Box col order={2}>
+        Second, but last
+      </Box>
+      <Box col order={1}>
+        Third, but first
+      </Box>
+    </Box>
+  )
+}
+
+render(<Example />)
+```
+
+### Offsets
+
+You can move columns by applying `margin-left` (`ml`) on them.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <>
+      <Box row>
+        <Box col={1 / 3}>{`col={1 / 3}`}</Box>
+        <Box col={1 / 3} ml="33.333%">{`col={1 / 3} ml="33.333%"`}</Box>
+      </Box>
+      <Box row>
+        <Box col={1 / 4} ml="25%">{`col={1 / 4} ml="25%"`}</Box>
+        <Box col={1 / 4} ml="25%">{`col={1 / 4} ml="25%"`}</Box>
+      </Box>
+      <Box row>
+        <Box col={1 / 2} ml="25%">
+          {`col={1 / 2} ml="25%"`}
+        </Box>
+      </Box>
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+You can also set `margin` to `auto` to force sibling columns away from one another.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <>
+      <Box row>
+        <Box col={1 / 3}>{`col={1/4}`}</Box>
+        <Box col={1 / 3} ml="auto">{`col={1/4} ml="auto"`}</Box>
+      </Box>
+      <Box row>
+        <Box
+          col={1 / 4}
+          ml={{ md: 'auto' }}
+        >{`col={1/4} ml={{ md: 'auto' }}`}</Box>
+        <Box
+          col={1 / 4}
+          ml={{ md: 'auto' }}
+        >{`col={1/4} ml={{ md: 'auto' }}`}</Box>
+      </Box>
+      <Box row>
+        <Box col="auto" mr="auto">{`col="auto" mr="auto"`}</Box>
+        <Box col="auto">{`col="auto"`}</Box>
+      </Box>
+    </>
+  )
+}
+
+render(<Example />)
+```
+
+## Nesting
+
+To nest a grid, specify a `col` as a `row`.
+
+```js live noInline
+import styled, { Box } from '@xstyled/styled-components'
+
+function Example() {
+  return (
+    <Box row>
+      <Box col={3 / 4} row>
+        {/* {`Level 1: col={3 / 4}`} */}
+        <Box col={2 / 3}>{`Level 2: col={2 / 3} `}</Box>
+        <Box col={1 / 3}>{`Level 2: col={1 / 3} `}</Box>
+      </Box>
+    </Box>
   )
 }
 
