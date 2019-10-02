@@ -11,6 +11,7 @@
     "@xstyled/styled-components": "^1.13.0",
     "@xstyled/system": "^1.11.0",
     "gatsby": "^2.15.28",
+    "gatsby-plugin-layout": "^1.1.10",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-live": "^2.2.1",
