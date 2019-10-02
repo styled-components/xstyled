@@ -1,0 +1,171 @@
+---
+menu: Guides
+title: Grid
+order: 1
+---
+
+# Grid
+
+Quickly style your app with column and rows. 
+
+## Create a grid
+
+- Give the property `row` to a Box to create a row. 
+- A grid is automatically created as soon as you create a row and will wrap all the rows.
+- Give the property `col` to a Box to create a column.
+- By default, a `col` width is set to `true`, which is equivalent to `flex-grow: 1`. Ergo, it will span over the whole line.  
+
+```js
+import styled, {Box} from '@xstyled/styled-components'
+
+export function Xgrid (){
+    return (
+        <Box row>
+            <Box col>Column 1</Box>
+            <Box col>Column 2</Box>
+        </Box>
+    )
+}
+```
+
+## Set your columns width
+- A `col`'s width is comprised between 0 and 1 (`true` is also accepted).
+- You may also use fractions. For example: 1/2 or 1/4. 
+- If a `col` width isn't specified, the latter will adjust its size depending on the situation:
+    - If the sum of all columns on the same line isn't equal to 1: it will fill up the available space on the line. 
+    - If the sum of all columns on the same line is equal to 1: it will fill up an entire line below.
+- Each `col` is fully responsive and will adjust its size according to the viewport. 
+
+```js
+import styled, {Box} from '@xstyled/styled-components'
+
+export function Xgrid (){
+    return (
+        <Box row>
+            <Box col>Column 1</Box>
+            <Box col={0.7}>Column 2</Box>
+            <Box col>Column 3</Box>
+        </Box>
+    )
+}
+```
+
+## Auto-layout columns
+- Give the property `auto` to a `col` and let it automatically adjust its size to your content.
+
+```js
+import styled, {Box} from '@xstyled/styled-components'
+
+export function Xgrid (){
+    return (
+        <Box row>
+            <Box col="auto">Column 1 is very very very large</Box>
+            <Box col="auto">Column 2 is short</Box>
+            <Box col="auto">Col3</Box>
+        </Box>
+    )
+}
+```
+
+
+## Add several rows
+- Since columns automatically slide to a new line as soon as there is no more space available, you can simply pile them up.
+- For more design flexibility, you can also close the existing row, and create a new one below. 
+
+```js
+import styled, {Box} from '@xstyled/styled-components'
+
+export function Xgrid (){
+    return (
+        <Box row>
+            <Box col={1/2}>Column 1</Box>
+            <Box col>Column 2</Box>
+        </Box>
+        <Box row>
+            <Box col={1/3}>Column 4</Box>
+            <Box col={1/3}>Column 5</Box>
+            <Box col>Column 6</Box>
+        </Box>
+    )
+}
+```
+
+## Align your content
+- Use flexbox properties to vertically & horizontally align your columns' content.
+
+```js
+import styled, {Box} from '@xstyled/styled-components'
+
+export function Xgrid (){
+    return (
+        <Box row>
+            <Box col={0.2} height={300}>
+                column 1 content: big image
+            </Box>
+            <Box col display="flex" alignItems="center" justifyContent="center">
+                column 2 content: text description
+            </Box>
+      </Box>
+    )
+}
+```
+
+## Spacing
+- Use margin & padding properties directly on your `col` & `row` to adjust your layout.
+- Tip: you can use [X-Style properties](/docs/system-props/#space) to shorten your syntax!
+    - margin: m / mt / mb / my / mx 
+    - padding: p / pt / pb / py / px
+
+```js
+import styled, {Box} from '@xstyled/styled-components'
+
+export function Xgrid (){
+    return (
+         <Box row mb={20}>
+            <Box col={1/2}>Column 1</Box>
+            <Box col pl={10}>Column 2</Box>
+        </Box>
+        <Box row mx={35}>
+            <Box col={1/3}>Column 4</Box>
+            <Box col={1/3}>Column 5</Box>
+            <Box col>Column 6</Box>
+        </Box>
+    )
+}
+```
+
+## Add breakpoints
+
+Make your grid reponsive by adding breakpoints to your columns!
+- Pass an object to the `col` and specify its expected width on the breakpoints of your choice (xs, sm, md, lg, xl).
+
+```js
+import styled, {Box} from '@xstyled/styled-components'
+
+export function Xgrid (){
+    return (
+        <Box row>
+            <Box col={{xs: 1, md: 1/3}}>Column 1</Box>
+            <Box col={{xs: 1, md: 1/3}}>Column 2</Box>
+            <Box col>Column 3</Box>
+        </Box>
+    )
+}
+```
+
+## Re-ordering
+- Change the order of your `col` with the `order` property.
+
+```js
+import styled, {Box} from '@xstyled/styled-components'
+
+export function Xgrid (){
+    return (
+        <Box row>
+            <Box col={0.2} order={{xs: 2, md: 1}}>column 1</Box>
+            <Box col order={{xs: 3, md: 2}}>column 2</Box>
+            <Box col order={{xs: 1, md: 3}}>column 3</Box>
+        </Box>
+    )
+}
+```
