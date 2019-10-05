@@ -25,7 +25,7 @@ const Button = styled.button`
 <Button variant="secondary" />
 ```
 
-As you can see the code is kind of messy. `variant` utility will help you to fix that.
+As you can see the code is kind of messy. The `variant` utility will help you to fix that.
 
 ## With variant utility
 
@@ -89,7 +89,7 @@ import { variant } from '@xstyled/system'
 
 const Button = styled.button`
   ${variant({
-    key: 'buttons'
+    key: 'buttons',
     default: 'primary',
   })}
 `
