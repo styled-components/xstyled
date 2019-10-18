@@ -20,7 +20,7 @@ const PrimaryBox = props => <Box color="primary" m={2} {...props} />
 
 ## Create a system component
 
-Aditionnaly to all shorthand html tags available in `styled-components`, `@xstyled/styled-components` exposes a `box`.
+Additionally to all shorthand html tags available in `styled-components`, `@xstyled/styled-components` exposes a `box`.
 
 ```js
 import styled from '@xstyled/styled-components'
@@ -48,7 +48,7 @@ const ABox = styled.aBox`
 
 ## Use `forwardedAs` property
 
-On all `Box` components, use `forwardedAs` property instead of `as` to avoid undesired attributes on HTML element.
+On all `Box` components, use `forwardedAs` property instead of `as` to avoid undesired attributes on the HTML element.
 
 ```js
 import styled from '@xstyled/styled-components'
@@ -75,6 +75,6 @@ const InnerBox = createSystemComponent(React)
 const Box = styled(InnerBox)(system)
 ```
 
-> We use `createSystemComponent` to avoid undesired attributes on HTML element.
+> We use `createSystemComponent` to avoid undesired attributes on the HTML element.
 
 See all available [system prop utilities](/docs/system-props/).

@@ -6,13 +6,13 @@ order: 5
 
 # Color Modes
 
-Color modes add support for dark mode but also number of other color modes.
+Color modes add support for dark mode but also any number of other color modes.
 
 ## Getting started
 
 ### 1. Defining colors
 
-To enable color modes in your application, the first thing to do is to make your theme compatible with.
+To enable color modes in your application, the first thing to do is to make your theme color mode compatible.
 
 In the `theme.colors` object, add a nested `modes` object that will contain keys for optional color modes. The name for the base color mode is `default`.
 
@@ -41,7 +41,7 @@ The colors defined at the root of the `colors` object will be accessible as `def
 
 ### 2. Add ColorModeProvider
 
-After your theme ready, you have to add a `ColorModeProvider`, just after your `ThemeProvider`:
+After your theme and color modes are ready, you have to add a `ColorModeProvider`, just after your `ThemeProvider`:
 
 ```js
 import React from 'react'
@@ -163,7 +163,7 @@ You can use `getColorModeInitScriptElement` to get it as a React element or `get
 
 ## Advanced
 
-There are a few advanced usages of color modes when you need more flexibility. For most usecases, you won't need to reference this section.
+There are a few advanced usages of color modes when you need more flexibility. For most use cases, you won't need to reference this section.
 
 ### Use another default color mode
 
