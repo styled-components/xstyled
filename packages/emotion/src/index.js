@@ -12,4 +12,5 @@ export {
   Global,
   ClassNames,
 } from '@emotion/core'
-export { ThemeProvider, withTheme } from 'emotion-theming'
+export { ThemeProvider, withTheme, useTheme } from 'emotion-theming'
+export * from './breakpoints'

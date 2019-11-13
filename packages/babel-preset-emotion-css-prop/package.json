@@ -16,10 +16,10 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/runtime": "^7.5.5",
-    "@emotion/babel-plugin-jsx-pragmatic": "^0.1.2",
-    "babel-plugin-emotion": "^10.0.16"
+    "@babel/plugin-transform-react-jsx": "^7.7.0",
+    "@babel/runtime": "^7.7.2",
+    "@emotion/babel-plugin-jsx-pragmatic": "^0.1.4",
+    "babel-plugin-emotion": "^10.0.23"
   },
   "peerDependencies": {
     "@babel/core": "^7.0.0"
