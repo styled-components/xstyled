@@ -17,8 +17,7 @@ describe('#css', () => {
     `
     const { container } = render(<Dummy />)
     expect(container.firstChild).toHaveStyle(`
-      margin: 8px;
-      margin-top: 2px;
+      margin: 2px 8px 8px 8px;
       padding: 4px;
     `)
   })

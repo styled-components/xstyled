@@ -12,7 +12,10 @@ describe('#th', () => {
       'color',
       {
         cssProp: 'color',
-        expectations: [['#000', '#000'], ['primary', 'red']],
+        expectations: [
+          ['#000', '#000'],
+          ['primary', 'red'],
+        ],
         theme: { colors: { primary: 'red' } },
       },
     ],
@@ -76,7 +79,7 @@ describe('#th', () => {
     [
       'borderWidth',
       {
-        cssProp: 'borderWidth',
+        cssProp: 'border-width',
         expectations: [
           [0, 0],
           [1, '1px'],
@@ -91,7 +94,10 @@ describe('#th', () => {
       'borderStyle',
       {
         cssProp: 'border-style',
-        expectations: [['solid', 'solid'], ['s', 'solid']],
+        expectations: [
+          ['solid', 'solid'],
+          ['s', 'solid'],
+        ],
         theme: { borderStyles: { s: 'solid' } },
       },
     ],
@@ -127,7 +133,11 @@ describe('#th', () => {
       'zIndex',
       {
         cssProp: 'z-index',
-        expectations: [[0, '0'], [5, '5'], ['modal', '200']],
+        expectations: [
+          [0, '0'],
+          [5, '5'],
+          ['modal', '200'],
+        ],
         theme: { zIndices: { modal: '200' } },
       },
     ],
@@ -153,7 +163,10 @@ describe('#th', () => {
       'font',
       {
         cssProp: 'font',
-        expectations: [['arial', 'arial'], ['serif', 'times']],
+        expectations: [
+          ['arial', 'arial'],
+          ['serif', 'times'],
+        ],
         theme: { fonts: { serif: 'times' } },
       },
     ],
@@ -189,7 +202,11 @@ describe('#th', () => {
       'fontWeight',
       {
         cssProp: 'font-weight',
-        expectations: [['bold', 'bold'], [200, '200'], ['medium', '500']],
+        expectations: [
+          ['bold', 'bold'],
+          [200, '200'],
+          ['medium', '500'],
+        ],
         theme: { fontWeights: { medium: 500 } },
       },
     ],
@@ -211,7 +228,10 @@ describe('#th', () => {
       'transition',
       {
         cssProp: 'transition',
-        expectations: [['all 300ms', 'all 300ms'], ['color', 'color 500ms']],
+        expectations: [
+          ['all 300ms', 'all 300ms'],
+          ['color', 'color 500ms'],
+        ],
         theme: { transitions: { color: 'color 500ms' } },
       },
     ],

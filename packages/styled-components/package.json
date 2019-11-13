@@ -25,7 +25,7 @@
     "styled-components": "^4.0.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.5.5",
+    "@babel/runtime": "^7.7.2",
     "@xstyled/core": "^1.13.1",
     "@xstyled/util": "^1.11.0"
   }
