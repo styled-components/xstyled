@@ -14,3 +14,4 @@ export {
 } from '@emotion/core'
 export { ThemeProvider, withTheme, useTheme } from 'emotion-theming'
 export * from './breakpoints'
+export * from '@xstyled/system'
