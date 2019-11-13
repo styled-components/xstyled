@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/smooth-code/xstyled/compare/v1.14.0...v1.15.0) (2019-11-13)
+
+
+### Bug Fixes
+
+* add missing properties top, left, right, bottom ([c20345b](https://github.com/smooth-code/xstyled/commit/c20345bc69d2056c26b133d1ad969ec22f874609))
+
+
+
+
+
 # [1.14.0](https://github.com/smooth-code/xstyled/compare/v1.13.1...v1.14.0) (2019-11-13)
 
 

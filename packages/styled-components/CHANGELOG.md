@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/smooth-code/xstyled/compare/v1.14.0...v1.15.0) (2019-11-13)
+
+
+### Features
+
+* re-export everything from @xstyled/system ([a2b6fc8](https://github.com/smooth-code/xstyled/commit/a2b6fc81494c42add14b45d5743e2fa7f3a4797f))
+
+
+
+
+
 # [1.14.0](https://github.com/smooth-code/xstyled/compare/v1.13.1...v1.14.0) (2019-11-13)
 
 
