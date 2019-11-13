@@ -14,6 +14,7 @@ import {
   getFontWeight,
   getLetterSpacing,
   getTransition,
+  getPx,
 } from '@xstyled/system'
 
 const getNumber = transform => value => {
@@ -26,6 +27,8 @@ const getMultiValues = transform => value => {
   const values = value.split(SPACES)
   return p => values.map(value => transform(value)(p)).join(' ')
 }
+
+const getNumberPx = getNumber(getPx)
 
 const getNumberSpace = getNumber(getSpace)
 const getMultiNumberSpace = getMultiValues(getNumberSpace)
@@ -121,4 +124,10 @@ export const propGetters = {
 
   // getTransition
   transition: getTransition,
+
+  // getPx
+  top: getNumberPx,
+  right: getNumberPx,
+  bottom: getNumberPx,
+  left: getNumberPx,
 }
