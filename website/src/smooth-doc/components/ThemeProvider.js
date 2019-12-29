@@ -4,7 +4,7 @@ import deepmerge from 'deepmerge'
 import { theme as smoothDocTheme } from 'smooth-doc/src/components/ThemeProvider'
 
 const theme = deepmerge(smoothDocTheme, {
-  colors: { primary: '#DB3080' },
+  colors: { primary: '#DB3080', modes: { dark: { primary: '#FF78AE' } } },
 })
 
 export function ThemeProvider({ children }) {
