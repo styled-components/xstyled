@@ -2,7 +2,6 @@
   "private": true,
   "scripts": {
     "build": "gatsby build && cp _redirects public/",
-    "build:pp": "gatsby build --prefix-paths && cp _redirects public/",
     "dev": "gatsby develop",
     "serve": "gatsby serve"
   },
