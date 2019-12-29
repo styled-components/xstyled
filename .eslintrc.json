@@ -4,6 +4,7 @@
   "rules": {
     "no-plusplus": "off",
     "import/no-extraneous-dependencies": "off",
+    "import/extensions": "off",
     "react/jsx-props-no-spreading": "off"
   }
 }
