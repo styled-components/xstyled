@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.1](https://github.com/smooth-code/xstyled/tree/master/packages/system/compare/v1.15.0...v1.15.1) (2019-12-29)
+
+**Note:** Version bump only for package @xstyled/system
+
+
+
+
+
 # [1.14.0](https://github.com/smooth-code/xstyled/compare/v1.13.1...v1.14.0) (2019-11-13)
 
 

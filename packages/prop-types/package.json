@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/prop-types",
   "description": "Generate prop-types from xstyled utilities.",
-  "version": "1.14.0",
+  "version": "1.15.1",
   "keywords": [
     "emotion",
     "styled-components",
