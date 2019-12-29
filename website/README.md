@@ -1,6 +1,6 @@
 # xstyled website
 
-[Documentation site](https://www.smooth-code.com/open-source/loadable-components/) for [xstyled](https://github.com/smooth-code/loadable-components). This website is running on [gatsbyjs](gatsbyjs.org).
+[Documentation site](https://xstyled.dev) for [xstyled](https://github.com/smooth-code/xstyled). This website is running on [gatsbyjs](gatsbyjs.org).
 
 ## Getting Started
 

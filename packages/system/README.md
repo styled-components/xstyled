@@ -23,8 +23,8 @@ npm install @xstyled/system
 
 Quicklinks to some of the most-visited pages:
 
-- [**Getting started**](https://www.smooth-code.com/open-source/xstyled/docs/getting-started/)
-- [System](https://www.smooth-code.com/open-source/xstyled/docs/system/)
+- [**Getting started**](https://xstyled.dev/docs/getting-started/)
+- [System](https://xstyled.dev/docs/system/)
 
 ## Example
 

@@ -113,4 +113,60 @@ const Container = styled.div`
 `
 ```
 
-For more responsive utilities, see also [Responsive](/docs/responsive/)
+### up
+
+`up` lets you apply style from a breakpoint.
+
+```js
+import styled, { css, up } from '@xstyled/styled-components'
+
+const Box = styled.div`
+  width: 200px;
+  height: 200px;
+  ${up(
+    'md',
+    css`
+      height: 300px;
+    `,
+  )}
+`
+```
+
+### down
+
+`down` lets you apply style up to a breakpoint.
+
+```js
+import styled, { css, down } from '@xstyled/styled-components'
+
+const Box = styled.div`
+  width: 200px;
+  height: 200px;
+  ${down(
+    'md',
+    css`
+      height: 100px;
+    `,
+  )}
+`
+```
+
+### between
+
+`between` lets you apply style between two breakpoints.
+
+```js
+import styled, { css, between } from '@xstyled/styled-components'
+
+const Box = styled.div`
+  width: 200px;
+  height: 200px;
+  ${between(
+    'md',
+    'lg',
+    css`
+      height: 300px;
+    `,
+  )}
+`
+```

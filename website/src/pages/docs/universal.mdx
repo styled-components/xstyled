@@ -1,0 +1,45 @@
+---
+menu: Introduction
+title: Universal
+order: 20
+---
+
+# Universal
+
+xstyled is universal, it means you can use it with [emotion](https://emotion.sh/) or [styled-components](https://styled-components.com) by switching the name of the package you use.
+
+**styled-components:**
+
+```js
+import styled from '@xstyled/styled-components'
+
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3;
+  border: 2;
+  border-color: primary;
+  color: primary;
+  margin: 0 3;
+  padding: 1 3;
+`
+```
+
+**emotion:**
+
+```js
+import styled from '@xstyled/emotion'
+
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3;
+  border: 2;
+  border-color: primary;
+  color: primary;
+  margin: 0 3;
+  padding: 1 3;
+`
+```
+
+As you can see, the only change is the `import styled from ...`. So you can switch from emotion to styled-components easily!
+
+In the documentation `@xstyled/styled-components` is used, if you want to use emotion instead, follow [this guide](/docs/emotion/).

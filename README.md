@@ -17,15 +17,15 @@
 npm install @xstyled/styled-components styled-components
 ```
 
-## [Docs](https://www.smooth-code.com/open-source/xstyled)
+## [Docs](https://xstyled.dev)
 
-**See the documentation at [smooth-code.com/open-source/xstyled](https://www.smooth-code.com/open-source/xstyled)** for more information about using xstyled!
+**See the documentation at [xstyled.dev](https://xstyled.dev)** for more information about using xstyled!
 
 Quicklinks to some of the most-visited pages:
 
-- [**Getting started**](https://www.smooth-code.com/open-source/xstyled/docs/getting-started/)
-- [Motivation](https://www.smooth-code.com/open-source/xstyled/docs/motivation/)
-- [System](https://www.smooth-code.com/open-source/xstyled/docs/system/)
+- [**Getting started**](https://xstyled.dev/docs/getting-started/)
+- [Motivation](https://xstyled.dev/docs/motivation/)
+- [System](https://xstyled.dev/docs/system/)
 
 ## Example
 

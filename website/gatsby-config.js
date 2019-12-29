@@ -8,11 +8,12 @@ module.exports = {
         author: 'Greg Bergé',
         description:
           'Consistent theme based CSS for styled-components & emotion.',
-        siteUrl: 'https://www.smooth-code.com/open-source/xstyled/',
+        siteUrl: 'https://xstyled.dev',
         github: 'https://github.com/smooth-code/xstyled',
         menu: ['About', 'Introduction', 'Guides', 'API'],
         nav: [{ title: 'Docs', url: '/docs/' }],
         codeFundProperty: 306,
+        googleAnalytics: 'UA-154496255-3',
         algoliaDocSearch: {
           apiKey: '9a5b8a758fdc63c340972ae48583c2f9',
           indexName: 'smooth-code-xstyled',

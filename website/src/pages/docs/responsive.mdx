@@ -8,48 +8,9 @@ order: 5
 
 Handling responsive is very easy with `@xstyled/system` either using props or utilities.
 
-## Create a responsive component
-
-`breakpoints` is a utility to create mobile first responsive components.
-
-```js
-import { breakpoints } from '@xstyled/system'
-
-const Container = styled.div(
-  breakpoints({
-    xs: css`
-      /* All devices */
-    `,
-    md: css`
-      /* From md breakpoint */
-    `,
-    lg: css`
-      /* From lg breakpoint */
-    `,
-  }),
-)
-```
-
-Default good breakpoints are available. They can also be specified under the key `breakpoints` in your theme:
-
-```js
-// theme.js
-export default {
-  breakpoints: {
-    xs: 0,
-    sm: 576,
-    md: 768,
-    lg: 992,
-    xl: 1200,
-  },
-}
-```
-
-The above breakpoints are the default values provided by xstyled.
-
 ## Tweak a component for responsive
 
-Using [system props](/docs/system-props/), you can tweak a component right from props. Each one of them accepts an object to define responsive values for each prop.
+Using [style props](/docs/style-props/), you can tweak a component right from props. Each one of them accepts an object to define responsive values for each prop.
 
 ```js
 import { Box } from '@xstyled/system'
@@ -58,7 +19,7 @@ import { Box } from '@xstyled/system'
 const OnlyMobileBox = () => <Box display={{ sm: 'block', md: 'none' }} />
 ```
 
-See [system components](/docs/system-components/) to know how to use system props in your components.
+See [style using props](/docs/style-using-props/) to know how to use system props in your components.
 
 ## Grid system
 
@@ -96,35 +57,48 @@ Grid system are [bootstrap like](https://getbootstrap.com/) grids. It gives you 
 
 See a [complete guide about Grid system](/docs/grid-system/).
 
-## up
+## Create a responsive component
 
-`up` lets you apply style from a breakpoint.
+`breakpoints` is a utility to create mobile first responsive components.
 
 ```js
-import styled, { css, up } from '@xstyled/styled-components'
+import { breakpoints } from '@xstyled/system'
+
+const Container = styled.div(
+  breakpoints({
+    xs: css`
+      /* All devices */
+    `,
+    md: css`
+      /* From md breakpoint */
+    `,
+    lg: css`
+      /* From lg breakpoint */
+    `,
+  }),
+)
+```
+
+Default good breakpoints are available. They can also be specified under the key `breakpoints` in your theme:
+
+You can also use `up`, `down` and `between`:
+
+```js
+import styled, { css, up, down } from '@xstyled/styled-components'
 
 const Box = styled.div`
   width: 200px;
   height: 200px;
+
+  /* This style applies only after "md" breakpoint */
   ${up(
     'md',
     css`
       height: 300px;
     `,
   )}
-`
-```
 
-## down
-
-`down` lets you apply style up to a breakpoint.
-
-```js
-import styled, { css, down } from '@xstyled/styled-components'
-
-const Box = styled.div`
-  width: 200px;
-  height: 200px;
+  /* This style applies only before "md" breakpoint */
   ${down(
     'md',
     css`
@@ -134,22 +108,21 @@ const Box = styled.div`
 `
 ```
 
-## between
+See [all system utilities available](/docs/system-utilities/).
 
-`between` lets you apply style between two breakpoints.
+## Default breakpoints
 
 ```js
-import styled, { css, between } from '@xstyled/styled-components'
-
-const Box = styled.div`
-  width: 200px;
-  height: 200px;
-  ${between(
-    'md',
-    'lg',
-    css`
-      height: 300px;
-    `,
-  )}
-`
+// theme.js
+export default {
+  breakpoints: {
+    xs: 0,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200,
+  },
+}
 ```
+
+The above breakpoints are the default values provided by xstyled.

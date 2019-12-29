@@ -21,6 +21,12 @@
   "publishConfig": {
     "access": "public"
   },
+  "homepage": "https://xstyled.dev",
+  "repository": "https://github.com/smooth-code/xstyled/tree/master/packages/emotion",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/gregberge"
+  },
   "peerDependencies": {
     "@emotion/core": "^10.0.0",
     "@emotion/styled": "^10.0.0",
