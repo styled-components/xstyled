@@ -12,6 +12,12 @@
     "prebuild": "shx rm -rf dist",
     "prepublishOnly": "yarn build"
   },
+  "homepage": "https://xstyled.dev",
+  "repository": "https://github.com/smooth-code/xstyled/tree/master/packages/core",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/gregberge"
+  },
   "publishConfig": {
     "access": "public"
   },

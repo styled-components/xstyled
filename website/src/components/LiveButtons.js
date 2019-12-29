@@ -27,7 +27,7 @@ const Editor = styled.div`
 const Container = styled.div`
   text-align: center;
   max-width: 650;
-  margin: 0 auto;
+  margin: 0 auto 50;
   padding-bottom: 5;
 `
 
@@ -62,8 +62,8 @@ const Button = styled.a\`
 
 const theme = {
   colors: {
-    primary: 'palevioletred',
-    primaryLight: 'pink',
+    primary: '#DB3080',
+    primaryLight: 'palevioletred',
     secondary: 'gray'
   },
   radii: {

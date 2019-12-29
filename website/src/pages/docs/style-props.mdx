@@ -1,73 +1,12 @@
 ---
 menu: API
-title: System Props
+title: Style Props
 order: 10
 ---
 
-# System Props
+# Style Props
 
-`@xstyled/system` exposes all system prop utilities.
-
-## Use system props
-
-All system prop utilities are exported from `@xstyled/system`, you can use them independently, compose them, or use them all using `system`.
-
-```js
-import { system } from '@xstyled/system'
-
-const Box = styled.div`
-  ${system}
-`
-
-// All utilities are available
-<Box m={1} color="primary" />
-```
-
-## Compose system props
-
-The `compose` method composes existing utilities:
-
-```js
-import { compose, color, backgroundColor } from '@xstyled/system'
-
-const colors = compose(
-  color,
-  backgroundColor,
-)
-
-const Box = styled.div`
-  ${colors}
-`
-
-// color and backgroundColor are available
-<Box color="primary" backgroundColor="gray" />
-```
-
-## Avoid undesired props
-
-With `styled-components`, all props are forwarded, to avoid that behaviour, use `createSystemComponent` method, it omits all properties.
-
-```js
-import React from 'react'
-import { compose, color, backgroundColor, createSystemComponent } from '@xstyled/system'
-
-const colors = compose(
-  color,
-  backgroundColor,
-)
-
-const InnerBox = createSystemComponent(React, 'div', colors)
-
-const Box = styled(InnerBox)`
-  ${colors}
-`
-
-// color and backgroundColor are available
-<Box color="primary" backgroundColor="gray" />
-
-// use forwardedAs instead of as to keep using the system component
-<Box forwardedAs="header" color="primary" backgroundColor="gray" />
-```
+Almost every CSS attributes are available in props.
 
 ## Space
 
