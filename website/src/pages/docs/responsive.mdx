@@ -101,7 +101,7 @@ See a [complete guide about Grid system](/docs/grid-system/).
 `up` lets you apply style from a breakpoint.
 
 ```js
-import { styled, css, up } from '@xstyled/system'
+import styled, { css, up } from '@xstyled/styled-components'
 
 const Box = styled.div`
   width: 200px;
@@ -120,7 +120,7 @@ const Box = styled.div`
 `down` lets you apply style up to a breakpoint.
 
 ```js
-import { styled, css, up } from '@xstyled/system'
+import styled, { css, down } from '@xstyled/styled-components'
 
 const Box = styled.div`
   width: 200px;
@@ -139,7 +139,7 @@ const Box = styled.div`
 `between` lets you apply style between two breakpoints.
 
 ```js
-import { styled, css, up } from '@xstyled/system'
+import styled, { css, between } from '@xstyled/styled-components'
 
 const Box = styled.div`
   width: 200px;
