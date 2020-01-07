@@ -66,6 +66,7 @@ export const propGetters = {
   'border-right-color': getColor,
   'border-bottom-color': getColor,
   'border-left-color': getColor,
+  'outline-color': getColor,
   fill: getColor,
 
   // getRadius
