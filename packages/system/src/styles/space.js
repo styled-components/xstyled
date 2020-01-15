@@ -62,13 +62,13 @@ export const marginLeft = style({
 })
 
 export const mx = style({
-  prop: 'mx',
+  prop: ['marginHorizontal', 'mx'],
   cssProperty: ['marginRight', 'marginLeft'],
   themeGet: getSpace,
 })
 
 export const my = style({
-  prop: 'my',
+  prop: ['marginVertical', 'my'],
   cssProperty: ['marginTop', 'marginBottom'],
   themeGet: getSpace,
 })
@@ -104,13 +104,13 @@ export const paddingLeft = style({
 })
 
 export const px = style({
-  prop: 'px',
+  prop: ['paddingHorizontal', 'px'],
   cssProperty: ['paddingRight', 'paddingLeft'],
   themeGet: getSpace,
 })
 
 export const py = style({
-  prop: 'py',
+  prop: ['paddingVertical', 'py'],
   cssProperty: ['paddingTop', 'paddingBottom'],
   themeGet: getSpace,
 })
