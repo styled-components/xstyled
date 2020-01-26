@@ -60,3 +60,24 @@ const Box = styled.div`
   `}
 `
 ```
+
+## CSS property
+
+[Styled Components CSS property](https://styled-components.com/docs/api#css-prop) is not supported by xstyled and it will not be supported.
+
+Styled Components CSS property rely on a Babel transformation to work. Some edge-cases like using state in a CSS property are not supported:
+
+```js
+function Example() {
+  const [value, setValue] = useState(false)
+  return (
+    <div
+      css={`
+        color: ${value ? 'red' : 'blue'};
+      `}
+    />
+  )
+}
+```
+
+The above code does not work. Since CSS property support is not good, I prefer to not encourage its usage in xstyled.
