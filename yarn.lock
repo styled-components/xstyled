@@ -889,12 +889,16 @@
   dependencies:
     "@emotion/memoize" "0.7.4"
 
-"@emotion/jest@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@emotion/jest/-/jest-0.3.0.tgz#17983279a44337dc62af8a797127d12560d65fe5"
-  integrity sha1-F5gyeaRDN9xir4p5cSfRJWDWX+U=
+"@emotion/jest@^11.0.0-next.10":
+  version "11.0.0-next.10"
+  resolved "https://registry.yarnpkg.com/@emotion/jest/-/jest-11.0.0-next.10.tgz#ab7f7eb059d525375d3faf73f95cf1243bffa7bf"
+  integrity sha512-qSwLl9KRNOvEvq1ihjqGJ+LgMDMfrVNmuW4BaYivNDtzm6Srhha5vR0wY441j1Y11/yHFM/+QMTcj2N232tHMQ==
   dependencies:
+    "@babel/runtime" "^7.7.2"
+    "@types/jest" "^24.0.22"
+    chalk "^2.4.1"
     css "^2.2.1"
+    specificity "^0.4.1"
 
 "@emotion/memoize@0.7.3":
   version "0.7.3"
@@ -2137,7 +2141,7 @@
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*":
+"@types/jest@*", "@types/jest@^24.0.22":
   version "24.9.1"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.9.1.tgz#02baf9573c78f1b9974a5f36778b366aa77bd534"
   integrity sha512-Fb38HkXSVA4L8fGKEZ6le5bB8r6MRWlOCZbVuWZcmOMSCd2wCYOwN1ibj8daIoV9naq7aaOZjrLCoCMptKU/4Q==
@@ -9181,6 +9185,11 @@ spdx-license-ids@^3.0.0:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.5.tgz#3694b5804567a458d3c8045842a6358632f62654"
   integrity sha512-J+FWzZoynJEXGphVIS+XEh3kFSjZX/1i9gFBaWQcB+/tmpe2qUsSBABpcxqxnAxFdiUFEgAX1bjYGQvIZmoz9Q==
+
+specificity@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/specificity/-/specificity-0.4.1.tgz#aab5e645012db08ba182e151165738d00887b019"
+  integrity sha512-1klA3Gi5PD1Wv9Q0wUoOQN1IWAuPu0D1U03ThXTr0cJ20+/iq2tHSDnK7Kk/0LXJ1ztUB2/1Os0wKmfyNgUQfg==
 
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
