@@ -1,5 +1,5 @@
 import React from 'react'
-import { jsx as emJsx } from '@emotion/core'
+import { jsx as emJsx } from '@emotion/react'
 import { cx } from './cx'
 
 export function jsx(type, props, ...args) {

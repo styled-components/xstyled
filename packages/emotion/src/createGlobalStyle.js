@@ -1,6 +1,5 @@
 import React from 'react'
-import { withTheme } from 'emotion-theming'
-import { Global } from '@emotion/core'
+import { Global, withTheme } from '@emotion/react'
 import { css } from './css'
 
 export const createGlobalStyle = (...args) => {

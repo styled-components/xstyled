@@ -9,7 +9,6 @@ export default getRollupConfig({
   globals: {
     react: 'React',
     '@xstyled/system': 'xstyledSystem',
-    'emotion-theming': 'emotionTheming',
     '@emotion/core': 'emotion',
     '@emotion/styled': 'styled',
   },

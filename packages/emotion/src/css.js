@@ -1,4 +1,4 @@
-import { css as emCss } from '@emotion/core'
+import { css as emCss } from '@emotion/react'
 import { transform } from '@xstyled/core'
 
 function styleToString(style, props) {

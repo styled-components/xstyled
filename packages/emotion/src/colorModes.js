@@ -1,6 +1,5 @@
 import React from 'react'
-import { ThemeContext, Global } from '@emotion/core'
-import { ThemeProvider } from 'emotion-theming'
+import { ThemeContext, Global, ThemeProvider } from '@emotion/react'
 import { createColorModeProvider, createColorStyles } from '@xstyled/core'
 
 function ColorModeStyle({ targetSelector }) {
