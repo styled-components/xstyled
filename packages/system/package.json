@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/system",
   "description": "Modern style system for styled-components & emotion.",
-  "version": "1.15.1",
+  "version": "1.16.0",
   "keywords": [
     "emotion",
     "styled-components",
@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.3",
-    "@xstyled/util": "^1.15.1"
+    "@xstyled/util": "^1.16.0"
   }
 }

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/smooth-code/xstyled/tree/master/packages/styled-components/compare/v1.15.1...v1.16.0) (2020-02-02)
+
+
+### Features
+
+* support styled-components v5 ([e1bd0eb](https://github.com/smooth-code/xstyled/tree/master/packages/styled-components/commit/e1bd0eb1e0e9e867073dfb7478ba0f2e573b761b)), closes [#86](https://github.com/smooth-code/xstyled/tree/master/packages/styled-components/issues/86)
+
+
+
+
+
 ## [1.15.1](https://github.com/smooth-code/xstyled/tree/master/packages/styled-components/compare/v1.15.0...v1.15.1) (2019-12-29)
 
 **Note:** Version bump only for package @xstyled/styled-components

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/smooth-code/xstyled/tree/master/packages/core/compare/v1.15.1...v1.16.0) (2020-02-02)
+
+
+### Features
+
+* **core:** add outline-color to propGetters ([#82](https://github.com/smooth-code/xstyled/tree/master/packages/core/issues/82)) ([36d9585](https://github.com/smooth-code/xstyled/tree/master/packages/core/commit/36d9585c1672a0f5640619d074f778dc235fc288))
+
+
+
+
+
 ## [1.15.1](https://github.com/smooth-code/xstyled/tree/master/packages/core/compare/v1.15.0...v1.15.1) (2019-12-29)
 
 **Note:** Version bump only for package @xstyled/core
