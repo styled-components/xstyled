@@ -1,8 +1,8 @@
 import path from 'path'
-import nodeResolve from 'rollup-plugin-node-resolve'
+import nodeResolve from '@rollup/plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
-import replace from 'rollup-plugin-replace'
-import commonjs from 'rollup-plugin-commonjs'
+import replace from '@rollup/plugin-replace'
+import commonjs from '@rollup/plugin-commonjs'
 import { terser } from 'rollup-plugin-terser'
 import { sizeSnapshot } from 'rollup-plugin-size-snapshot'
 

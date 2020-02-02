@@ -29,7 +29,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/runtime": "^7.8.3",
+    "@babel/runtime": "^7.8.4",
     "@xstyled/util": "^1.15.1"
   }
 }
