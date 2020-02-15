@@ -81,17 +81,17 @@ export const propGetters = {
 
   // getBorderWidth
   'border-width': getMultiNumberBorderWidth,
-  'boder-top-width': getNumberBorderWidth,
-  'boder-right-width': getNumberBorderWidth,
-  'boder-bottom-width': getNumberBorderWidth,
-  'boder-left-width': getNumberBorderWidth,
+  'border-top-width': getNumberBorderWidth,
+  'border-right-width': getNumberBorderWidth,
+  'border-bottom-width': getNumberBorderWidth,
+  'border-left-width': getNumberBorderWidth,
 
   // getBorderStyle
   'border-style': getMultiBorderStyle,
-  'boder-top-style': getBorderStyle,
-  'boder-right-style': getBorderStyle,
-  'boder-bottom-style': getBorderStyle,
-  'boder-left-style': getBorderStyle,
+  'border-top-style': getBorderStyle,
+  'border-right-style': getBorderStyle,
+  'border-bottom-style': getBorderStyle,
+  'border-left-style': getBorderStyle,
 
   // getShadow
   'box-shadow': getShadow,
