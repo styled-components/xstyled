@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/smooth-code/xstyled/tree/master/packages/system/compare/v1.16.0...v1.17.0) (2020-02-24)
+
+
+### Features
+
+* alias backgroundColor prop with bg ([c23bfff](https://github.com/smooth-code/xstyled/tree/master/packages/system/commit/c23bfff2875bb5856c218ddc8dfbdb7d61ad3c5a)), closes [#89](https://github.com/smooth-code/xstyled/tree/master/packages/system/issues/89)
+* support fontStyle in props ([1777736](https://github.com/smooth-code/xstyled/tree/master/packages/system/commit/17777366373c2f3ca864682f13158f6f3a962802)), closes [#91](https://github.com/smooth-code/xstyled/tree/master/packages/system/issues/91)
+
+
+
+
+
 # [1.16.0](https://github.com/smooth-code/xstyled/tree/master/packages/system/compare/v1.15.1...v1.16.0) (2020-02-02)
 
 **Note:** Version bump only for package @xstyled/system

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/smooth-code/xstyled/compare/v1.16.0...v1.17.0) (2020-02-24)
+
+
+### Bug Fixes
+
+* **prop-types:** border typo ([#98](https://github.com/smooth-code/xstyled/issues/98)) ([2078165](https://github.com/smooth-code/xstyled/commit/20781650f8403ce537d239e75b4501f87160da9d))
+
+
+### Features
+
+* add border-x-x-radius, outline-style, outline-width support ([693dc5d](https://github.com/smooth-code/xstyled/commit/693dc5de1669bc2d90b94d4ab44ed12d3164fb75))
+* alias backgroundColor prop with bg ([c23bfff](https://github.com/smooth-code/xstyled/commit/c23bfff2875bb5856c218ddc8dfbdb7d61ad3c5a)), closes [#89](https://github.com/smooth-code/xstyled/issues/89)
+* support fontStyle in props ([1777736](https://github.com/smooth-code/xstyled/commit/17777366373c2f3ca864682f13158f6f3a962802)), closes [#91](https://github.com/smooth-code/xstyled/issues/91)
+
+
+
+
+
 # [1.16.0](https://github.com/smooth-code/xstyled/compare/v1.15.1...v1.16.0) (2020-02-02)
 
 
