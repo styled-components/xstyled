@@ -72,6 +72,16 @@ describe('styles', () => {
       },
     ],
     [
+      'fontStyle',
+      {
+        styleRule: 'font-style',
+        expectations: [
+          ['normal', 'normal'],
+          ['italic', 'italic'],
+        ],
+      },
+    ],
+    [
       'textAlign',
       {
         styleRule: 'text-align',

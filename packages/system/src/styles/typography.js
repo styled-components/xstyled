@@ -52,6 +52,10 @@ export const fontWeight = style({
   themeGet: getFontWeight,
 })
 
+export const fontStyle = style({
+  prop: 'fontStyle',
+})
+
 export const textAlign = style({
   prop: 'textAlign',
 })
@@ -73,6 +77,7 @@ export const textTransform = style({
 export const typography = compose(
   fontFamily,
   fontSize,
+  fontStyle,
   lineHeight,
   fontWeight,
   textAlign,
