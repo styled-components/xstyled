@@ -71,6 +71,10 @@ export const propGetters = {
 
   // getRadius
   'border-radius': getMultiValues(getNumber(getRadius)),
+  'border-top-left-radius': getMultiValues(getNumber(getRadius)),
+  'border-top-right-radius': getMultiValues(getNumber(getRadius)),
+  'border-bottom-right-radius': getMultiValues(getNumber(getRadius)),
+  'border-bottom-left-radius': getMultiValues(getNumber(getRadius)),
 
   // getBorder
   border: getNumberBorder,
@@ -85,6 +89,7 @@ export const propGetters = {
   'border-right-width': getNumberBorderWidth,
   'border-bottom-width': getNumberBorderWidth,
   'border-left-width': getNumberBorderWidth,
+  'outline-width': getNumberBorderWidth,
 
   // getBorderStyle
   'border-style': getMultiBorderStyle,
@@ -92,6 +97,7 @@ export const propGetters = {
   'border-right-style': getBorderStyle,
   'border-bottom-style': getBorderStyle,
   'border-left-style': getBorderStyle,
+  'outline-style': getBorderStyle,
 
   // getShadow
   'box-shadow': getShadow,

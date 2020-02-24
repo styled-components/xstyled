@@ -18,7 +18,10 @@ describe('styles', () => {
             secondary: 'sans-serif',
           },
         },
-        expectations: [['arial', 'arial'], ['primary', 'serif']],
+        expectations: [
+          ['arial', 'arial'],
+          ['primary', 'serif'],
+        ],
       },
     ],
     [
@@ -60,14 +63,32 @@ describe('styles', () => {
         theme: {
           fontWeights: [400, 500, 800],
         },
-        expectations: [[0, 400], [1, 500], [800, 800], ['medium', 'medium']],
+        expectations: [
+          [0, 400],
+          [1, 500],
+          [800, 800],
+          ['medium', 'medium'],
+        ],
+      },
+    ],
+    [
+      'fontStyle',
+      {
+        styleRule: 'font-style',
+        expectations: [
+          ['normal', 'normal'],
+          ['italic', 'italic'],
+        ],
       },
     ],
     [
       'textAlign',
       {
         styleRule: 'text-align',
-        expectations: [['center', 'center'], ['justify', 'justify']],
+        expectations: [
+          ['center', 'center'],
+          ['justify', 'justify'],
+        ],
       },
     ],
     [
@@ -225,98 +246,141 @@ describe('styles', () => {
       'display',
       {
         styleRule: 'display',
-        expectations: [['flex', 'flex'], ['block', 'block']],
+        expectations: [
+          ['flex', 'flex'],
+          ['block', 'block'],
+        ],
       },
     ],
     [
       'verticalAlign',
       {
         styleRule: 'vertical-align',
-        expectations: [['middle', 'middle'], ['50%', '50%']],
+        expectations: [
+          ['middle', 'middle'],
+          ['50%', '50%'],
+        ],
       },
     ],
     [
       'alignItems',
       {
         styleRule: 'align-items',
-        expectations: [['flex-start', 'flex-start'], ['center', 'center']],
+        expectations: [
+          ['flex-start', 'flex-start'],
+          ['center', 'center'],
+        ],
       },
     ],
     [
       'alignContent',
       {
         styleRule: 'align-content',
-        expectations: [['flex-start', 'flex-start'], ['center', 'center']],
+        expectations: [
+          ['flex-start', 'flex-start'],
+          ['center', 'center'],
+        ],
       },
     ],
     [
       'justifyContent',
       {
         styleRule: 'justify-content',
-        expectations: [['flex-start', 'flex-start'], ['center', 'center']],
+        expectations: [
+          ['flex-start', 'flex-start'],
+          ['center', 'center'],
+        ],
       },
     ],
     [
       'justifyItems',
       {
         styleRule: 'justify-items',
-        expectations: [['flex-start', 'flex-start'], ['center', 'center']],
+        expectations: [
+          ['flex-start', 'flex-start'],
+          ['center', 'center'],
+        ],
       },
     ],
     [
       'flexWrap',
       {
         styleRule: 'flex-wrap',
-        expectations: [['wrap', 'wrap'], ['nowrap', 'nowrap']],
+        expectations: [
+          ['wrap', 'wrap'],
+          ['nowrap', 'nowrap'],
+        ],
       },
     ],
     [
       'flexBasis',
       {
         styleRule: 'flex-basis',
-        expectations: [[0.5, '50%'], [50, '50px'], ['16rpx', '1rem']],
+        expectations: [
+          [0.5, '50%'],
+          [50, '50px'],
+          ['16rpx', '1rem'],
+        ],
       },
     ],
     [
       'flexDirection',
       {
         styleRule: 'flex-direction',
-        expectations: [['row', 'row'], ['column', 'column']],
+        expectations: [
+          ['row', 'row'],
+          ['column', 'column'],
+        ],
       },
     ],
     [
       'flex',
       {
         styleRule: 'flex',
-        expectations: [[1, '1'], ['1 0 auto', '1 0 auto']],
+        expectations: [
+          [1, '1'],
+          ['1 0 auto', '1 0 auto'],
+        ],
       },
     ],
     [
       'justifySelf',
       {
         styleRule: 'justify-self',
-        expectations: [['flex-start', 'flex-start'], ['center', 'center']],
+        expectations: [
+          ['flex-start', 'flex-start'],
+          ['center', 'center'],
+        ],
       },
     ],
     [
       'alignSelf',
       {
         styleRule: 'align-self',
-        expectations: [['flex-start', 'flex-start'], ['center', 'center']],
+        expectations: [
+          ['flex-start', 'flex-start'],
+          ['center', 'center'],
+        ],
       },
     ],
     [
       'order',
       {
         styleRule: 'order',
-        expectations: [[1, '1'], [10, '10']],
+        expectations: [
+          [1, '1'],
+          [10, '10'],
+        ],
       },
     ],
     [
       'background',
       {
         styleRule: 'background',
-        expectations: [['red', 'red'], ['blue', 'blue']],
+        expectations: [
+          ['red', 'red'],
+          ['blue', 'blue'],
+        ],
       },
     ],
     [
@@ -328,7 +392,26 @@ describe('styles', () => {
           },
         },
         styleRule: 'background-color',
-        expectations: [['primary', 'red'], ['blue', 'blue']],
+        expectations: [
+          ['primary', 'red'],
+          ['blue', 'blue'],
+        ],
+      },
+    ],
+    [
+      'bg',
+      {
+        utility: 'backgroundColor',
+        theme: {
+          colors: {
+            primary: 'red',
+          },
+        },
+        styleRule: 'background-color',
+        expectations: [
+          ['primary', 'red'],
+          ['blue', 'blue'],
+        ],
       },
     ],
     [
@@ -342,21 +425,30 @@ describe('styles', () => {
       'backgroundSize',
       {
         styleRule: 'background-size',
-        expectations: [['cover', 'cover'], ['50%', '50%']],
+        expectations: [
+          ['cover', 'cover'],
+          ['50%', '50%'],
+        ],
       },
     ],
     [
       'backgroundRepeat',
       {
         styleRule: 'background-repeat',
-        expectations: [['no-repeat', 'no-repeat'], ['repeat-y', 'repeat-y']],
+        expectations: [
+          ['no-repeat', 'no-repeat'],
+          ['repeat-y', 'repeat-y'],
+        ],
       },
     ],
     [
       'position',
       {
         styleRule: 'position',
-        expectations: [['absolute', 'absolute'], ['relative', 'relative']],
+        expectations: [
+          ['absolute', 'absolute'],
+          ['relative', 'relative'],
+        ],
       },
     ],
     [
@@ -368,7 +460,10 @@ describe('styles', () => {
           },
         },
         styleRule: 'z-index',
-        expectations: [['alert', '100'], [20, '20']],
+        expectations: [
+          ['alert', '100'],
+          [20, '20'],
+        ],
       },
     ],
     [
@@ -443,49 +538,71 @@ describe('styles', () => {
       'border',
       {
         styleRule: 'border',
-        expectations: [[1, '1px solid'], ['1px solid red', '1px solid red']],
+        expectations: [
+          [1, '1px solid'],
+          ['1px solid red', '1px solid red'],
+        ],
       },
     ],
     [
       'borderWidth',
       {
         styleRule: 'border-width',
-        expectations: [[1, '1px'], ['20%', '20%'], ['16rpx', '1rem']],
+        expectations: [
+          [1, '1px'],
+          ['20%', '20%'],
+          ['16rpx', '1rem'],
+        ],
       },
     ],
     [
       'borderStyle',
       {
         styleRule: 'border-style',
-        expectations: [['solid', 'solid'], ['dashed', 'dashed']],
+        expectations: [
+          ['solid', 'solid'],
+          ['dashed', 'dashed'],
+        ],
       },
     ],
     [
       'borderTop',
       {
         styleRule: 'border-top',
-        expectations: [[1, '1px solid'], ['1px solid red', '1px solid red']],
+        expectations: [
+          [1, '1px solid'],
+          ['1px solid red', '1px solid red'],
+        ],
       },
     ],
     [
       'borderRight',
       {
         styleRule: 'border-right',
-        expectations: [[1, '1px solid'], ['1px solid red', '1px solid red']],
+        expectations: [
+          [1, '1px solid'],
+          ['1px solid red', '1px solid red'],
+        ],
       },
     ],
     [
       'borderBottom',
       {
         styleRule: 'border-bottom',
-        expectations: [[1, '1px solid'], ['1px solid red', '1px solid red']],
+        expectations: [
+          [1, '1px solid'],
+          ['1px solid red', '1px solid red'],
+        ],
       },
     ],
     [
       'borderLeft',
       {
         styleRule: 'border-left',
-        expectations: [[1, '1px solid'], ['1px solid red', '1px solid red']],
+        expectations: [
+          [1, '1px solid'],
+          ['1px solid red', '1px solid red'],
+        ],
       },
     ],
     [
@@ -497,7 +614,10 @@ describe('styles', () => {
           },
         },
         styleRule: 'border-color',
-        expectations: [['primary', 'red'], ['blue', 'blue']],
+        expectations: [
+          ['primary', 'red'],
+          ['blue', 'blue'],
+        ],
       },
     ],
     [
@@ -509,7 +629,11 @@ describe('styles', () => {
           },
         },
         styleRule: 'border-radius',
-        expectations: [['round', '50%'], [10, '10px'], ['16rpx', '1rem']],
+        expectations: [
+          ['round', '50%'],
+          [10, '10px'],
+          ['16rpx', '1rem'],
+        ],
       },
     ],
     [
@@ -534,7 +658,10 @@ describe('styles', () => {
       'opacity',
       {
         styleRule: 'opacity',
-        expectations: [[1, '1'], [0.2, '0.2']],
+        expectations: [
+          [1, '1'],
+          [0.2, '0.2'],
+        ],
       },
     ],
     [
@@ -546,12 +673,15 @@ describe('styles', () => {
             color: 'color 500ms',
           },
         },
-        expectations: [['all 300ms', 'all 300ms'], ['color', 'color 500ms']],
+        expectations: [
+          ['all 300ms', 'all 300ms'],
+          ['color', 'color 500ms'],
+        ],
       },
     ],
   ])('#%s', (name, config) => {
     const Dummy = styled.div`
-      ${styles[name]};
+      ${styles[config.utility || name]};
     `
 
     describe.each(config.expectations)(
@@ -581,6 +711,7 @@ describe('styles', () => {
           const styleRules = Array.isArray(config.styleRule)
             ? config.styleRule
             : [config.styleRule]
+
           styleRules.forEach(styleRule => {
             expect(container.firstChild).toHaveStyleRule(
               styleRule,

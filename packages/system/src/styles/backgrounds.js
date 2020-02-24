@@ -6,7 +6,8 @@ export const background = style({
 })
 
 export const backgroundColor = style({
-  prop: 'backgroundColor',
+  prop: ['backgroundColor', 'bg'],
+  cssProperty: 'backgroundColor',
   themeGet: getColor,
 })
 
