@@ -10,11 +10,11 @@ order: 30
 
 ## How to get Prop Types?
 
-Import `getUtilityPropTypes` from `@xstyled/prop-types` and generates prop-types for a custom utility.
+Import `getSystemPropTypes` from `@xstyled/prop-types` and generates prop-types for a custom utility.
 
 ```js
 import { compose, space, color } from '@xstyled/system'
-import { getUtilityPropTypes } from '@xstyled/prop-types'
+import { getSystemPropTypes } from '@xstyled/prop-types'
 
 const customSystem = compose(
   space,
@@ -25,5 +25,5 @@ const SystemBox = styled.div`
   ${customSystem}
 `
 
-SystemBox.propTypes = getUtilityPropTypes(customSystem)
+SystemBox.propTypes = getSystemPropTypes(customSystem)
 ```
