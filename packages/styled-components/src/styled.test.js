@@ -102,6 +102,28 @@ describe('#styled', () => {
     expect(container.firstChild).toHaveAttribute('aria-label', 'label')
     expect(container.firstChild).toHaveStyle('margin: 8px;')
   })
+
+  it('works with keyframes', () => {
+    const animation = keyframes`
+      from {
+        transform: translateX(0%);
+      }
+
+      to {
+        transform: translateX(100%);
+      }
+    `
+    const Dummy = styled.div`
+      ${css`
+        animation: ${animation};
+      `}
+    `
+    const { container } = render(<Dummy />)
+
+    expect(container.firstChild).toHaveStyle(
+      `animation: ${animation.getName()};`,
+    )
+  })
 })
 
 describe('#styled.xxx', () => {
