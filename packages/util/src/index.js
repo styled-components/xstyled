@@ -2,14 +2,14 @@
 
 const DEV = process.env.NODE_ENV !== 'production'
 
-export const identity = x => x
+export const identity = (x) => x
 
-export const is = n => n !== undefined && n !== null
-export const num = n => typeof n === 'number' && !Number.isNaN(n)
-export const string = n => typeof n === 'string' && n !== ''
-export const obj = n => typeof n === 'object' && n !== null
-export const func = n => typeof n === 'function'
-export const negative = n => num(n) && n < 0
+export const is = (n) => n !== undefined && n !== null
+export const num = (n) => typeof n === 'number' && !Number.isNaN(n)
+export const string = (n) => typeof n === 'string' && n !== ''
+export const obj = (n) => typeof n === 'object' && n !== null
+export const func = (n) => typeof n === 'function'
+export const negative = (n) => num(n) && n < 0
 
 export const get = (from, path) => {
   const paths = String(path).split('.')

@@ -13,7 +13,7 @@ const Row = styled('div')`
 const Cell = styled('div')`
   display: table-cell;
   padding: 10px;
-  background: rgba(74, 174, 53, ${props => props.value});
+  background: rgba(74, 174, 53, ${(props) => props.value});
 `
 
 export default ({ table, toPercent }) => (

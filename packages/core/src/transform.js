@@ -17,7 +17,7 @@ export function transform(rawValue) {
       const cleanValue = propValue.replace(IMPORTANT_REGEXP, '')
       values.push(rawValue.slice(lastIndex, matches.index))
       values.push(
-        p =>
+        (p) =>
           `${start}${prop}: ${getter(cleanValue)(p)}${
             hasImportant ? ' !important' : ''
           };${end}`,

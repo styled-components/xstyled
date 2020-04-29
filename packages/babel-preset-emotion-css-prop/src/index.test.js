@@ -1,7 +1,7 @@
 import { transform } from '@babel/core'
 import preset from './index'
 
-const testPreset = code => {
+const testPreset = (code) => {
   const result = transform(code, {
     presets: [preset],
     configFile: false,

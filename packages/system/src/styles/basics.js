@@ -7,7 +7,7 @@ export const getColor = themeGetter({ name: 'color', key: 'colors' })
 
 export const getPx = themeGetter({
   name: 'px',
-  transform: value => px(rpx(value)),
+  transform: (value) => px(rpx(value)),
 })
 
 export const getPercent = themeGetter({
@@ -39,8 +39,4 @@ export const overflow = style({
 
 export const transition = style({ prop: 'transition', themeGet: getTransition })
 
-export const basics = compose(
-  opacity,
-  overflow,
-  transition,
-)
+export const basics = compose(opacity, overflow, transition)

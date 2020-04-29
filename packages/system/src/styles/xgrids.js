@@ -38,7 +38,7 @@ function getColStyle(props, size) {
 }
 
 export const col = createStyleGenerator(
-  props => {
+  (props) => {
     const value = props.col
     const common = {
       boxSizing: 'border-box',
@@ -51,7 +51,7 @@ export const col = createStyleGenerator(
       const breakpointsStyle = reduceBreakpoints(
         props,
         value,
-        breakpointValue => getColStyle(props, breakpointValue),
+        (breakpointValue) => getColStyle(props, breakpointValue),
       )
 
       return {
@@ -68,7 +68,4 @@ export const col = createStyleGenerator(
   ['col'],
 )
 
-export const xgrids = compose(
-  row,
-  col,
-)
+export const xgrids = compose(row, col)

@@ -1,7 +1,7 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider, keyframes } from 'styled-components'
 import styled, { css, Box } from '.'
 
 afterEach(cleanup)
@@ -33,7 +33,7 @@ describe('#styled', () => {
   it('works with conditional css', () => {
     const Dummy = styled.div`
       color: red;
-      ${p => css`
+      ${(p) => css`
         margin: ${p.margin};
       `}
     `

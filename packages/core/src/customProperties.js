@@ -6,7 +6,7 @@ import { obj, string, func } from '@xstyled/util'
 
 const join = (...args) => args.filter(Boolean).join('.')
 
-const toVarName = key => `--${key.replace(/\./g, '-')}`
+const toVarName = (key) => `--${key.replace(/\./g, '-')}`
 const toVarValue = (key, value) => `var(${toVarName(key)}, ${value})`
 
 export function toCustomPropertiesReferences(object, parent, theme = object) {

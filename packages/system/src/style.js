@@ -44,7 +44,7 @@ export const themeGetter = ({
   compose,
 }) => {
   const id = themeGetterId++
-  const getter = value => props => {
+  const getter = (value) => (props) => {
     let res = value
     if (!string(value) && !num(value)) return res
     const cache = getCacheNamespace(props.theme, `__themeGetter${id}`)
@@ -140,7 +140,7 @@ function getStyleFactory(prop, cssProperties, themeGet) {
       return reduceBreakpoints(
         props,
         value,
-        breakpointValue =>
+        (breakpointValue) =>
           styleFromValue(
             cssProperties,
             breakpointValue,
@@ -173,7 +173,7 @@ function indexGeneratorsByProp(styles) {
 
 export function compose(...generators) {
   let flatGenerators = []
-  generators.forEach(gen => {
+  generators.forEach((gen) => {
     warn(gen, `Undefined generator in "compose" method`)
     if (!gen) return
     if (gen.meta.generators) {
@@ -218,7 +218,7 @@ export function style({
 
   if (Array.isArray(prop)) {
     return compose(
-      ...prop.map(prop =>
+      ...prop.map((prop) =>
         style({ prop, cssProperty: cssProperties, key, transform, themeGet }),
       ),
     )

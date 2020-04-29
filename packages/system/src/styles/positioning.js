@@ -32,11 +32,4 @@ export const left = style({
   themeGet: getPx,
 })
 
-export const positioning = compose(
-  position,
-  zIndex,
-  top,
-  right,
-  bottom,
-  left,
-)
+export const positioning = compose(position, zIndex, top, right, bottom, left)

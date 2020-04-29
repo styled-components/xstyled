@@ -16,10 +16,7 @@ Import `getSystemPropTypes` from `@xstyled/prop-types` and generates prop-types 
 import { compose, space, color } from '@xstyled/system'
 import { getSystemPropTypes } from '@xstyled/prop-types'
 
-const customSystem = compose(
-  space,
-  color,
-)
+const customSystem = compose(space, color)
 
 const SystemBox = styled.div`
   ${customSystem}

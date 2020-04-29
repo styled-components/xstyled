@@ -11,7 +11,7 @@ function styleToString(style, props) {
 export function css(strings, ...rawArgs) {
   const emCssArgs = emCss(strings, ...rawArgs)
   const transformedStyles = transform(emCssArgs.styles)
-  return props => ({
+  return (props) => ({
     ...emCssArgs,
     styles: styleToString(transformedStyles, props),
   })

@@ -15,7 +15,7 @@ function getTable(max = 30) {
 
 function getUniqueSize(table) {
   const set = new Set()
-  table.forEach(row => row.forEach(x => set.add(x)))
+  table.forEach((row) => row.forEach((x) => set.add(x)))
   return set.size
 }
 
@@ -27,7 +27,7 @@ async function runTestRerender() {
   const input = document.querySelector('input')
   for (let i = 0; i < 10; i++) {
     // eslint-disable-next-line no-await-in-loop
-    await new Promise(resolve => {
+    await new Promise((resolve) => {
       performance.mark(`startRerender${i}`)
       input.click()
 

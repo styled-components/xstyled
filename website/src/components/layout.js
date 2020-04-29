@@ -8,7 +8,7 @@ const { css } = xstyledSc
 const CustomBox = styled.box`
   white-space: normal;
 
-  ${p =>
+  ${(p) =>
     p.col &&
     css`
       margin-top: 0.5rem;
@@ -22,7 +22,7 @@ const CustomBox = styled.box`
         Roboto, 'Helvetica Neue', Arial, sans-serif;
     `}
 
-  ${p =>
+  ${(p) =>
     p.row && p.alignItems
       ? css`
           margin-top: 0.25rem;

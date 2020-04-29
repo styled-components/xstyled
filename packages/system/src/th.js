@@ -19,7 +19,7 @@ import {
   getTransition,
 } from './styles/index'
 
-export const th = path => props => {
+export const th = (path) => (props) => {
   const value = getThemeValue(props, path)
   warn(is(value), `value "${path}" not found in theme`)
   return value
@@ -42,6 +42,6 @@ export const th = path => props => {
   getFontWeight,
   getLetterSpacing,
   getTransition,
-].forEach(themeGetter => {
+].forEach((themeGetter) => {
   th[themeGetter.meta.name] = themeGetter
 })

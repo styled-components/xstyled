@@ -7,11 +7,11 @@ import { css } from './css'
 
 function getCreateStyle(baseCreateStyle) {
   const createStyle = (...args) => baseCreateStyle([css(...args)])
-  createStyle.attrs = attrs => {
+  createStyle.attrs = (attrs) => {
     const nextCreateStyle = baseCreateStyle.attrs(attrs)
     return getCreateStyle(nextCreateStyle)
   }
-  createStyle.withConfig = config => {
+  createStyle.withConfig = (config) => {
     const nextCreateStyle = baseCreateStyle.withConfig(config)
     return getCreateStyle(nextCreateStyle)
   }
@@ -28,7 +28,7 @@ export const Box = styled(InnerBox)(createBox)
 
 styled.box = styled(Box)
 
-Object.keys(scStyled).forEach(key => {
+Object.keys(scStyled).forEach((key) => {
   styled[key] = styled(key)
   styled[`${key}Box`] = styled(
     Box.withComponent(createSystemComponent(React, key)),

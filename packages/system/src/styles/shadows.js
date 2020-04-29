@@ -19,7 +19,4 @@ export const textShadow = style({
   themeGet: getShadow,
 })
 
-export const shadows = compose(
-  boxShadow,
-  textShadow,
-)
+export const shadows = compose(boxShadow, textShadow)
