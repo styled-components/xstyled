@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.1](https://github.com/smooth-code/xstyled/compare/v1.17.0...v1.17.1) (2020-04-29)
+
+
+### Bug Fixes
+
+* **styled-components:** fix keyframes error in v5 ([ccf3469](https://github.com/smooth-code/xstyled/commit/ccf3469063c66f572c14bab33b85f5f39564348e))
+
+
+
+
+
 # [1.17.0](https://github.com/smooth-code/xstyled/compare/v1.16.0...v1.17.0) (2020-02-24)
 
 
