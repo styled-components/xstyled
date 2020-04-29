@@ -5,7 +5,7 @@ export const variant = ({
   default: defaultValue,
   variants = {},
   prop = 'variant',
-}) => props => {
+}) => (props) => {
   const themeVariants = is(key) ? getThemeValue(props, key) : null
   const computedVariants = merge(assign({}, variants), themeVariants)
   const value = props[prop] !== undefined ? props[prop] : defaultValue

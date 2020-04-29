@@ -8,7 +8,7 @@ import { getColor, getRadius, getPx } from './basics'
 export const getBorder = themeGetter({
   name: 'border',
   key: 'borders',
-  transform: n => (num(n) && n > 0 ? `${px(n)} solid` : n),
+  transform: (n) => (num(n) && n > 0 ? `${px(n)} solid` : n),
 })
 
 export const getBorderWidth = themeGetter({

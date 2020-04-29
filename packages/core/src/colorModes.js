@@ -13,12 +13,12 @@ const storage = {
     typeof window === 'undefined'
       ? null
       : window.localStorage.getItem(STORAGE_KEY),
-  set: value => window.localStorage.setItem(STORAGE_KEY, value),
+  set: (value) => window.localStorage.setItem(STORAGE_KEY, value),
   clear: () => window.localStorage.removeItem(STORAGE_KEY),
 }
 
 const COLOR_MODE_CLASS_PREFIX = 'xstyled-color-mode-'
-const getColorModeClassName = mode => `${COLOR_MODE_CLASS_PREFIX}${mode}`
+const getColorModeClassName = (mode) => `${COLOR_MODE_CLASS_PREFIX}${mode}`
 
 const XSTYLED_COLORS_PREFIX = 'xstyled-colors'
 const SYSTEM_MODES = ['light', 'dark']
@@ -30,8 +30,8 @@ function getModeTheme(theme, mode) {
   }
 }
 
-const getMediaQuery = query => `@media ${query}`
-const getColorModeQuery = mode => `(prefers-color-scheme: ${mode})`
+const getMediaQuery = (query) => `@media ${query}`
+const getColorModeQuery = (mode) => `(prefers-color-scheme: ${mode})`
 
 function hasColorModes(theme) {
   return theme && theme.colors && theme.colors.modes
@@ -80,7 +80,7 @@ export function createColorStyles(theme, { targetSelector = 'body' } = {}) {
   }
 
   if (theme.useColorSchemeMediaQuery !== false) {
-    SYSTEM_MODES.forEach(mode => {
+    SYSTEM_MODES.forEach((mode) => {
       if (modes[mode]) {
         const mediaQuery = getMediaQuery(getColorModeQuery(mode))
         styles += `${mediaQuery}{${getModePropertiesDeclarations(mode)}}`
@@ -89,7 +89,7 @@ export function createColorStyles(theme, { targetSelector = 'body' } = {}) {
   }
 
   const initialModeName = getInitialColorModeName(theme)
-  ;[initialModeName, ...Object.keys(modes)].forEach(mode => {
+  ;[initialModeName, ...Object.keys(modes)].forEach((mode) => {
     const key = `&.${getColorModeClassName(mode)}`
     styles += `${key}{${getModePropertiesDeclarations(mode)}}`
   })
@@ -108,7 +108,7 @@ function getSystemModeMql(mode) {
 function useSystemMode(theme) {
   const configs = React.useMemo(() => {
     if (!hasMediaQueryEnabled(theme)) return []
-    return SYSTEM_MODES.map(mode => {
+    return SYSTEM_MODES.map((mode) => {
       if (!theme.colors.modes[mode]) return null
       const mql = getSystemModeMql(mode)
       return mql ? { mode, mql } : null
@@ -116,7 +116,7 @@ function useSystemMode(theme) {
   }, [theme])
 
   const [systemMode, setSystemMode] = React.useState(() => {
-    const config = configs.find(config => config.mql.matches)
+    const config = configs.find((config) => config.mql.matches)
     return config ? config.mode : null
   })
 
@@ -128,13 +128,15 @@ function useSystemMode(theme) {
           if (matches) {
             setSystemMode(mode)
           } else {
-            setSystemMode(previousMode => (previousMode === mode ? null : mode))
+            setSystemMode((previousMode) =>
+              previousMode === mode ? null : mode,
+            )
           }
         }
         mql.addListener(handler)
         return () => mql.removeListener(handler)
       })
-    return () => cleans.forEach(clean => clean())
+    return () => cleans.forEach((clean) => clean())
   })
 
   return systemMode
@@ -156,7 +158,7 @@ export function useColorModeState(theme, { target } = {}) {
   const customPropertiesEnabled = hasCustomPropertiesEnabled(theme)
 
   const manualSetRef = React.useRef(false)
-  const manuallySetMode = React.useCallback(value => {
+  const manuallySetMode = React.useCallback((value) => {
     manualSetRef.current = true
     setMode(value)
   }, [])

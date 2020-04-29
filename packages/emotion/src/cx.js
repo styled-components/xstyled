@@ -4,7 +4,7 @@ import { css } from './css'
 export function cx(styles) {
   if (typeof styles === 'string') return styles
 
-  return theme => {
+  return (theme) => {
     const p = { theme }
 
     function parseStyle(style) {

@@ -54,7 +54,7 @@ export function useThemeBreakpoint(theme) {
     return (
       Object.keys(breakpoints)
         .reverse()
-        .find(breakpoint => width > breakpoints[breakpoint]) || null
+        .find((breakpoint) => width > breakpoints[breakpoint]) || null
     )
   }, [breakpoints, width])
 }

@@ -15,9 +15,9 @@ export function getBreakpoints(props) {
   return DEFAULT_BREAKPOINTS
 }
 
-export const mediaMinWidth = value =>
+export const mediaMinWidth = (value) =>
   value ? `@media (min-width: ${value})` : null
-export const mediaMaxWidth = value =>
+export const mediaMaxWidth = (value) =>
   value ? `@media (max-width: ${value})` : null
 export const mediaBetweenWidth = (min, max) =>
   `@media (min-width: ${min}) and (max-width: ${max})`

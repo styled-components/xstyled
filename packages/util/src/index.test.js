@@ -151,7 +151,7 @@ describe('util', () => {
     it('starts from the initial value specified', () => {
       expect(
         getThemeValue({ theme: { other: 'x' } }, 'foo', {
-          foo: p => p.theme.other,
+          foo: (p) => p.theme.other,
         }),
       ).toBe('x')
     })

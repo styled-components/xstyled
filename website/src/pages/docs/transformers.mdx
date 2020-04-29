@@ -19,7 +19,7 @@ import { lighten } from 'polished'
 
 const theme = {
   transformers: {
-    color: value => {
+    color: (value) => {
       const matches = value.match(/(.*)\.light/)
       if (!matches) return value
       return lighten(0.2, matches[1])

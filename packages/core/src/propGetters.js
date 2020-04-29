@@ -17,15 +17,15 @@ import {
   getPx,
 } from '@xstyled/system'
 
-const getNumber = transform => value => {
+const getNumber = (transform) => (value) => {
   const num = Number(value)
   return transform(Number.isNaN(num) ? value : num)
 }
 
 const SPACES = /\s+/
-const getMultiValues = transform => value => {
+const getMultiValues = (transform) => (value) => {
   const values = value.split(SPACES)
-  return p => values.map(value => transform(value)(p)).join(' ')
+  return (p) => values.map((value) => transform(value)(p)).join(' ')
 }
 
 const getNumberPx = getNumber(getPx)

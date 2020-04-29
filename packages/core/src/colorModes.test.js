@@ -127,7 +127,7 @@ describe('#useColorModeState', () => {
 
   describe('with window.matchMedia', () => {
     function mockMatchMedia(mode) {
-      window.matchMedia = jest.fn(query => ({
+      window.matchMedia = jest.fn((query) => ({
         matches: query === `(prefers-color-scheme: ${mode})`,
         media: query,
       }))

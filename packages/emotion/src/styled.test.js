@@ -23,7 +23,7 @@ describe('#styled', () => {
   it('works with conditional css', () => {
     const Dummy = styled.div`
       color: red;
-      ${p => css`
+      ${(p) => css`
         margin: ${p.margin};
       `}
     `

@@ -5,15 +5,9 @@ const sys = require('styled-system')
 
 // Benchmark.options.maxTime = 0.2
 
-const xsysSystem = xsys.compose(
-  xsys.fontSize,
-  xsys.space,
-)
+const xsysSystem = xsys.compose(xsys.fontSize, xsys.space)
 
-const sysSystem = sys.compose(
-  sys.fontSize,
-  sys.space,
-)
+const sysSystem = sys.compose(sys.fontSize, sys.space)
 
 const suite = new Benchmark.Suite('systems')
 
@@ -39,7 +33,7 @@ console.log('sys', runSys())
 suite
   .add('@xstyled/system', runXsys)
   .add('styled-system', runSys)
-  .on('cycle', event => {
+  .on('cycle', (event) => {
     console.log(String(event.target))
   })
   .on('complete', function onComplete() {

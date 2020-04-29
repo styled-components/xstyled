@@ -26,7 +26,7 @@ describe('#style', () => {
     })
 
     it('supports transform func', () => {
-      const scope = themeGetter({ key: 'scope', transform: x => x + 1 })
+      const scope = themeGetter({ key: 'scope', transform: (x) => x + 1 })
       const theme = { scope: [1] }
       expect(scope(10)({ theme })).toBe(11)
       expect(scope(0)({ theme })).toBe(2)
@@ -36,9 +36,9 @@ describe('#style', () => {
       const scope = themeGetter({
         key: 'scope',
         name: 'getter',
-        transform: x => x + 1,
+        transform: (x) => x + 1,
       })
-      const theme = { scope: [1], transformers: { getter: x => x + 2 } }
+      const theme = { scope: [1], transformers: { getter: (x) => x + 2 } }
       expect(scope(10)({ theme })).toBe(12)
       expect(scope(0)({ theme })).toBe(3)
     })
