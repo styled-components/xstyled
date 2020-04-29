@@ -6,7 +6,7 @@ import { createSystemComponent } from '@xstyled/system'
 import { css } from './css'
 
 function getCreateStyle(baseCreateStyle) {
-  const createStyle = (...args) => baseCreateStyle([css(...args)])
+  const createStyle = (...args) => baseCreateStyle`${css(...args)}`
   createStyle.attrs = (attrs) => {
     const nextCreateStyle = baseCreateStyle.attrs(attrs)
     return getCreateStyle(nextCreateStyle)
