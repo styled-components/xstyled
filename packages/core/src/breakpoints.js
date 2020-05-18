@@ -31,16 +31,17 @@ function useThemeMaxValue(theme, key) {
 }
 
 export function useViewportWidth() {
-  const [width, setWidth] = React.useState(null)
+  const [width, setWidth] = React.useState(typeof window === 'undefined' ? null : window.innerWidth)
 
-  React.useLayoutEffect(() => {
-    setWidth(window.innerWidth)
-
+  React.useEffect(() => {
     function handleResize() {
       setWidth(window.innerWidth)
     }
 
+    // Add the listener, then setWidth to avoid race.
     window.addEventListener('resize', handleResize)
+    setWidth(window.innerWidth)
+
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
