@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.2](https://github.com/smooth-code/xstyled/tree/master/packages/core/compare/v1.17.1...v1.17.2) (2020-07-18)
+
+
+### Bug Fixes
+
+* **breakpoints:** useThemeUp inclusive min ([#113](https://github.com/smooth-code/xstyled/tree/master/packages/core/issues/113)) ([722d5fc](https://github.com/smooth-code/xstyled/tree/master/packages/core/commit/722d5fcc6d77c2b6a3edb6572597b06c7d41e68f))
+
+
+
+
+
 ## [1.17.1](https://github.com/smooth-code/xstyled/tree/master/packages/core/compare/v1.17.0...v1.17.1) (2020-04-29)
 
 **Note:** Version bump only for package @xstyled/core

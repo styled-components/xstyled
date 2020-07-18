@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/util",
   "description": "xstyled utilities",
-  "version": "1.17.1",
+  "version": "1.17.2",
   "sideEffects": false,
   "main": "dist/xstyled-util.cjs.js",
   "module": "dist/xstyled-util.es.js",
