@@ -12,7 +12,8 @@ module.exports = {
         github: 'https://github.com/smooth-code/xstyled',
         menu: ['About', 'Introduction', 'Guides', 'API'],
         nav: [{ title: 'Docs', url: '/docs/' }],
-        codeFundProperty: 306,
+        carbonAdUrl:
+          '//cdn.carbonads.com/carbon.js?serve=CE7IL2JN&placement=xstyleddev',
         googleAnalytics: 'UA-154496255-3',
         algoliaDocSearch: {
           apiKey: '9a5b8a758fdc63c340972ae48583c2f9',
