@@ -22,8 +22,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.9.4",
-    "@babel/runtime": "^7.9.6",
+    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "@babel/runtime": "^7.10.5",
     "@emotion/babel-plugin-jsx-pragmatic": "^0.1.4",
     "babel-plugin-emotion": "^10.0.33"
   },

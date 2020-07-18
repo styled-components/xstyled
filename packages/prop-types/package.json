@@ -33,6 +33,6 @@
     "prop-types": "^15.0.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.9.6"
+    "@babel/runtime": "^7.10.5"
   }
 }
