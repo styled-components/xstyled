@@ -62,7 +62,7 @@ export function useThemeBreakpoint(theme) {
 export function useThemeUp(theme, key) {
   const value = useThemeMinValue(theme, key)
   const width = useViewportWidth()
-  return width > value
+  return width >= value
 }
 
 export function useThemeDown(theme, key) {
