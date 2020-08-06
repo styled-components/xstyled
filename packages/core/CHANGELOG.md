@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/smooth-code/xstyled/tree/master/packages/core/compare/v1.17.2...v1.18.0) (2020-08-06)
+
+
+### Bug Fixes
+
+* **breakpoints:** races in useViewportWidth ([#114](https://github.com/smooth-code/xstyled/tree/master/packages/core/issues/114)) ([fc70500](https://github.com/smooth-code/xstyled/tree/master/packages/core/commit/fc70500b994634a0aa3d79e4d5fdaa1cc531c711))
+
+
+### Features
+
+* **xstyled:** support multiple values in box-shadow, text-shadow ([#128](https://github.com/smooth-code/xstyled/tree/master/packages/core/issues/128)) ([c8487fc](https://github.com/smooth-code/xstyled/tree/master/packages/core/commit/c8487fce1be6dccd64c5b0d73a5221cf302c1704)), closes [#127](https://github.com/smooth-code/xstyled/tree/master/packages/core/issues/127)
+
+
+
+
+
 ## [1.17.2](https://github.com/smooth-code/xstyled/tree/master/packages/core/compare/v1.17.1...v1.17.2) (2020-07-18)
 
 
