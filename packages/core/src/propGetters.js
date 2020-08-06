@@ -23,24 +23,30 @@ const getNumber = (transform) => (value) => {
 }
 
 const SPACES = /\s+/
-const getMultiValues = (transform) => (value) => {
+const getMultiDimensions = (transform) => (value) => {
   const values = value.split(SPACES)
   return (p) => values.map((value) => transform(value)(p)).join(' ')
+}
+
+const COMMA = /\s*,\s*/
+const getMultiValues = (transform) => (value) => {
+  const values = value.split(COMMA)
+  return (p) => values.map((value) => transform(value)(p)).join(',')
 }
 
 const getNumberPx = getNumber(getPx)
 
 const getNumberSpace = getNumber(getSpace)
-const getMultiNumberSpace = getMultiValues(getNumberSpace)
+const getMultiNumberSpace = getMultiDimensions(getNumberSpace)
 
 const getNumberBorder = getNumber(getBorder)
 
 const getNumberBorderWidth = getNumber(getBorderWidth)
-const getMultiNumberBorderWidth = getMultiValues(getNumberBorderWidth)
+const getMultiNumberBorderWidth = getMultiDimensions(getNumberBorderWidth)
 
 const getNumberSize = getNumber(getSize)
 
-const getMultiBorderStyle = getMultiValues(getBorderStyle)
+const getMultiBorderStyle = getMultiDimensions(getBorderStyle)
 
 export const propGetters = {
   // getSpace
@@ -70,11 +76,11 @@ export const propGetters = {
   fill: getColor,
 
   // getRadius
-  'border-radius': getMultiValues(getNumber(getRadius)),
-  'border-top-left-radius': getMultiValues(getNumber(getRadius)),
-  'border-top-right-radius': getMultiValues(getNumber(getRadius)),
-  'border-bottom-right-radius': getMultiValues(getNumber(getRadius)),
-  'border-bottom-left-radius': getMultiValues(getNumber(getRadius)),
+  'border-radius': getMultiDimensions(getNumber(getRadius)),
+  'border-top-left-radius': getMultiDimensions(getNumber(getRadius)),
+  'border-top-right-radius': getMultiDimensions(getNumber(getRadius)),
+  'border-bottom-right-radius': getMultiDimensions(getNumber(getRadius)),
+  'border-bottom-left-radius': getMultiDimensions(getNumber(getRadius)),
 
   // getBorder
   border: getNumberBorder,
@@ -100,8 +106,8 @@ export const propGetters = {
   'outline-style': getBorderStyle,
 
   // getShadow
-  'box-shadow': getShadow,
-  'text-shadow': getShadow,
+  'box-shadow': getMultiValues(getShadow),
+  'text-shadow': getMultiValues(getShadow),
 
   // getSize
   width: getNumberSize,
