@@ -8,14 +8,30 @@ import {
 
 const STORAGE_KEY = 'xstyled-color-mode'
 
-const storage = {
-  get: () =>
-    typeof window === 'undefined'
-      ? null
-      : window.localStorage.getItem(STORAGE_KEY),
-  set: (value) => window.localStorage.setItem(STORAGE_KEY, value),
-  clear: () => window.localStorage.removeItem(STORAGE_KEY),
-}
+const isLocalStorageAvailable =
+  typeof window !== 'undefined' &&
+  (() => {
+    try {
+      const STORAGE_TEST_KEY = `${STORAGE_KEY}-test`
+      window.localStorage.setItem(STORAGE_TEST_KEY, STORAGE_TEST_KEY)
+      window.localStorage.removeItem(STORAGE_TEST_KEY)
+      return true
+    } catch (err) {
+      return false
+    }
+  })()
+
+const storage = isLocalStorageAvailable
+  ? {
+      get: () => window.localStorage.getItem(STORAGE_KEY),
+      set: (value) => window.localStorage.setItem(STORAGE_KEY, value),
+      clear: () => window.localStorage.removeItem(STORAGE_KEY),
+    }
+  : {
+      get: () => null,
+      set: () => {},
+      clear: () => {},
+    }
 
 const COLOR_MODE_CLASS_PREFIX = 'xstyled-color-mode-'
 const getColorModeClassName = (mode) => `${COLOR_MODE_CLASS_PREFIX}${mode}`
