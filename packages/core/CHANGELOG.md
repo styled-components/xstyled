@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/smooth-code/xstyled/tree/master/packages/core/compare/v1.18.0...v1.18.1) (2020-08-10)
+
+
+### Bug Fixes
+
+* **styled-components:** local storage not available ([#129](https://github.com/smooth-code/xstyled/tree/master/packages/core/issues/129)) ([304602c](https://github.com/smooth-code/xstyled/tree/master/packages/core/commit/304602c2454127a2ce3bf2d6f81cd3a75dc97ad9))
+
+
+
+
+
 # [1.18.0](https://github.com/smooth-code/xstyled/tree/master/packages/core/compare/v1.17.2...v1.18.0) (2020-08-06)
 
 
