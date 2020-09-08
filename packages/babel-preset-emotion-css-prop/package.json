@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@babel/plugin-transform-react-jsx": "^7.10.4",
-    "@babel/runtime": "^7.10.5",
+    "@babel/runtime": "^7.11.2",
     "@emotion/babel-plugin-jsx-pragmatic": "^0.1.4",
     "babel-plugin-emotion": "^10.0.33"
   },

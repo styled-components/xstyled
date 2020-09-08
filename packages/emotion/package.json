@@ -33,7 +33,7 @@
     "emotion-theming": "^10.0.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.10.5",
+    "@babel/runtime": "^7.11.2",
     "@xstyled/core": "^1.18.1",
     "@xstyled/system": "^1.17.2",
     "@xstyled/util": "^1.17.2"
