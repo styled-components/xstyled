@@ -22,6 +22,14 @@ export const flexWrap = style({
   prop: 'flexWrap',
 })
 
+export const flexGrow = style({
+  prop: 'flexGrow',
+})
+
+export const flexShrink = style({
+  prop: 'flexShrink',
+})
+
 export const flexBasis = style({
   prop: 'flexBasis',
   themeGet: getPercent,
@@ -55,6 +63,8 @@ export const flexboxes = compose(
   justifyItems,
   flexWrap,
   flexBasis,
+  flexShrink,
+  flexGrow,
   flexDirection,
   flex,
   justifySelf,
