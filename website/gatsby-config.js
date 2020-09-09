@@ -1,24 +1,32 @@
+const path = require('path')
+
 module.exports = {
   plugins: [
     {
       resolve: 'smooth-doc',
       options: {
         name: 'xstyled',
-        slug: 'xstyled',
         author: 'Greg Bergé',
         description:
           'Consistent theme based CSS for styled-components & emotion.',
         siteUrl: 'https://xstyled.dev',
-        github: 'https://github.com/smooth-code/xstyled',
-        menu: ['About', 'Introduction', 'Guides', 'API'],
-        nav: [{ title: 'Docs', url: '/docs/' }],
-        carbonAdUrl:
+        githubRepositoryURL: 'https://github.com/smooth-code/xstyled',
+        baseDirectory: path.resolve(__dirname, '..'),
+        navItems: [{ title: 'Docs', url: '/docs/' }],
+        sections: ['About', 'Introduction', 'Guides', 'API'],
+        carbonAdsURL:
           '//cdn.carbonads.com/carbon.js?serve=CE7IL2JN&placement=xstyleddev',
-        googleAnalytics: 'UA-154496255-3',
-        algoliaDocSearch: {
+        licenseKey: '24A6B70D-C4A94AA6-826DC75D-64B099AA',
+        docSearch: {
           apiKey: '9a5b8a758fdc63c340972ae48583c2f9',
           indexName: 'smooth-code-xstyled',
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-154496255-3',
       },
     },
     {
