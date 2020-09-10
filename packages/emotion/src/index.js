@@ -11,6 +11,7 @@ export {
   ThemeContext,
   Global,
   ClassNames,
+  keyframes,
 } from '@emotion/core'
 export { ThemeProvider, withTheme, useTheme } from 'emotion-theming'
 export * from './breakpoints'
