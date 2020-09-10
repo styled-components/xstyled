@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/smooth-code/xstyled/compare/v1.18.1...v1.19.0) (2020-09-10)
+
+
+### Bug Fixes
+
+* adds keyframes to emotion exports ([#135](https://github.com/smooth-code/xstyled/issues/135)) ([194d442](https://github.com/smooth-code/xstyled/commit/194d4429176711778d95b0815cbc39c49d3104bd))
+
+
+### Features
+
+* add `flexShrink` and `flexGrow` props ([#130](https://github.com/smooth-code/xstyled/issues/130)) ([9492a00](https://github.com/smooth-code/xstyled/commit/9492a0051c31648bb40ec3a11e5b9483e1488fcd))
+
+
+
+
+
 ## [1.18.1](https://github.com/smooth-code/xstyled/compare/v1.18.0...v1.18.1) (2020-08-10)
 
 

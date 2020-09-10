@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/smooth-code/xstyled/tree/master/packages/system/compare/v1.18.1...v1.19.0) (2020-09-10)
+
+
+### Features
+
+* add `flexShrink` and `flexGrow` props ([#130](https://github.com/smooth-code/xstyled/tree/master/packages/system/issues/130)) ([9492a00](https://github.com/smooth-code/xstyled/tree/master/packages/system/commit/9492a0051c31648bb40ec3a11e5b9483e1488fcd))
+
+
+
+
+
 ## [1.17.2](https://github.com/smooth-code/xstyled/tree/master/packages/system/compare/v1.17.1...v1.17.2) (2020-07-18)
 
 **Note:** Version bump only for package @xstyled/system

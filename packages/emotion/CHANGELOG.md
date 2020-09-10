@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/smooth-code/xstyled/tree/master/packages/emotion/compare/v1.18.1...v1.19.0) (2020-09-10)
+
+
+### Bug Fixes
+
+* adds keyframes to emotion exports ([#135](https://github.com/smooth-code/xstyled/tree/master/packages/emotion/issues/135)) ([194d442](https://github.com/smooth-code/xstyled/tree/master/packages/emotion/commit/194d4429176711778d95b0815cbc39c49d3104bd))
+
+
+
+
+
 ## [1.18.1](https://github.com/smooth-code/xstyled/tree/master/packages/emotion/compare/v1.18.0...v1.18.1) (2020-08-10)
 
 **Note:** Version bump only for package @xstyled/emotion
