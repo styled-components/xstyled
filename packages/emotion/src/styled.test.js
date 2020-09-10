@@ -2,7 +2,7 @@ import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import { ThemeProvider } from 'emotion-theming'
-import styled, { css } from '.'
+import styled, { css, keyframes } from '.'
 
 afterEach(cleanup)
 
@@ -32,6 +32,27 @@ describe('#styled', () => {
       color: red;
       margin: 8px;
     `)
+  })
+
+  it('works with keyframes', () => {
+    const animation = keyframes`
+      from {
+        transform: translateX(0%);
+      }
+
+      to {
+        transform: translateX(100%);
+      }
+    `
+    const Dummy = styled.div`
+      ${css`
+        animation: ${animation};
+      `}
+    `
+
+    const { container } = render(<Dummy />)
+
+    expect(container.firstChild).toHaveStyle(`animation: ${animation.name};`)
   })
 
   it('reads value from the theme', () => {
