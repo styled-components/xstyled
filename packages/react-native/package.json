@@ -1,0 +1,39 @@
+{
+  "name": "@xstyled/react-native",
+  "description": "Xstyled bindings for styled-components/native.",
+  "version": "1.19.0",
+  "keywords": [
+    "styled-components",
+    "css",
+    "system",
+    "styled-system"
+  ],
+  "sideEffects": false,
+  "main": "dist/xstyled-react-native.cjs.js",
+  "module": "dist/xstyled-react-native.es.js",
+  "author": "Diego Oliveira <diegooliveira.tsi@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "prebuild": "shx rm -rf dist",
+    "prepublishOnly": "yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://xstyled.dev",
+  "repository": "https://github.com/smooth-code/xstyled/tree/master/packages/react-native",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/gregberge"
+  },
+  "peerDependencies": {
+    "styled-components": "^4.0.0 || ^5.0.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.11.2",
+    "@xstyled/core": "^1.19.0",
+    "@xstyled/system": "^1.19.0",
+    "@xstyled/util": "^1.19.0"
+  }
+}
