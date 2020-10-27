@@ -187,6 +187,8 @@ export function compose(...generators) {
 
   function getStyle(props) {
     const styles = {}
+    const breakpoints = Object.values(getBreakpoints(props))
+
     for (const key in props) {
       const generator = generatorsByProp[key]
       if (generator) {
@@ -194,7 +196,21 @@ export function compose(...generators) {
         merge(styles, style)
       }
     }
-    return styles
+
+    const medias = breakpoints.reduce((mediasAcc, breakpoint) => {
+      const currentMediaKey = `@media (min-width: ${breakpoint}px)`;
+      const isValid = Object.keys(styles).includes(currentMediaKey);
+      if(!isValid) return mediasAcc;
+      return {
+        ...mediasAcc,
+        [currentMediaKey]: styles[currentMediaKey]
+      };
+    }, {});
+    
+    return {
+      ...medias,
+      ...styles,
+    }
   }
 
   const props = flatGenerators.reduce(
@@ -204,6 +220,7 @@ export function compose(...generators) {
 
   return createStyleGenerator(getStyle, props, generators)
 }
+
 
 export function style({
   prop,
