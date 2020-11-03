@@ -173,11 +173,13 @@ function indexGeneratorsByProp(styles) {
 
 function getMediaOrder(styles, props) {
   const medias = {} 
-  const breakpoints = Object.values(getBreakpoints(props))
+  const breakpoints = getBreakpoints(props)
+  const stylesProperties = Object.keys(styles)
 
-  for (const breakpoint in breakpoints) {
-    const currentMediaKey = `@media (min-width: ${breakpoints[breakpoint]}px)`;
-    const isValid = Object.keys(styles).includes(currentMediaKey);
+  for (const key in breakpoints) {
+    const breakpoint = breakpoints[key]
+    const currentMediaKey = `@media (min-width: ${breakpoint}px)`;
+    const isValid = stylesProperties.includes(currentMediaKey);
 
     if (!isValid) continue
     medias[currentMediaKey] = styles[currentMediaKey]
