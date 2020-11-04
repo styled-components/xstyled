@@ -171,6 +171,23 @@ function indexGeneratorsByProp(styles) {
   return index
 }
 
+function getMediaOrder(styles, props) {
+  const medias = {} 
+  const breakpoints = getBreakpoints(props)
+  const stylesProperties = Object.keys(styles)
+
+  for (const key in breakpoints) {
+    const breakpoint = breakpoints[key]
+    const currentMediaKey = `@media (min-width: ${breakpoint}px)`;
+    const isValid = stylesProperties.includes(currentMediaKey);
+
+    if (!isValid) continue
+    medias[currentMediaKey] = styles[currentMediaKey]
+  }
+
+  return medias
+}
+
 export function compose(...generators) {
   let flatGenerators = []
   generators.forEach((gen) => {
@@ -194,7 +211,8 @@ export function compose(...generators) {
         merge(styles, style)
       }
     }
-    return styles
+
+    return assign(getMediaOrder(styles, props), styles);
   }
 
   const props = flatGenerators.reduce(
