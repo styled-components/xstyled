@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.1](https://github.com/smooth-code/xstyled/compare/v1.19.0...v1.19.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* **breakpoints:** multiple responsive style props ([#141](https://github.com/smooth-code/xstyled/issues/141)) ([b884076](https://github.com/smooth-code/xstyled/commit/b884076cec72cd89a9434616c22cb9e9468f656b))
+* **prop-types:** add bool option to the prop-types to use it with col and row props ([#142](https://github.com/smooth-code/xstyled/issues/142)) ([3a835ba](https://github.com/smooth-code/xstyled/commit/3a835ba97177dbe0a1ef3848e16b6e1b8373f1e0))
+
+
+
+
+
 # [1.19.0](https://github.com/smooth-code/xstyled/compare/v1.18.1...v1.19.0) (2020-09-10)
 
 

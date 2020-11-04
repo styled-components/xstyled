@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.1](https://github.com/smooth-code/xstyled/tree/master/packages/system/compare/v1.19.0...v1.19.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* **breakpoints:** multiple responsive style props ([#141](https://github.com/smooth-code/xstyled/tree/master/packages/system/issues/141)) ([b884076](https://github.com/smooth-code/xstyled/tree/master/packages/system/commit/b884076cec72cd89a9434616c22cb9e9468f656b))
+
+
+
+
+
 # [1.19.0](https://github.com/smooth-code/xstyled/tree/master/packages/system/compare/v1.18.1...v1.19.0) (2020-09-10)
 
 

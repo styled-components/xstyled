@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.1](https://github.com/smooth-code/xstyled/tree/master/packages/prop-types/compare/v1.19.0...v1.19.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* **prop-types:** add bool option to the prop-types to use it with col and row props ([#142](https://github.com/smooth-code/xstyled/tree/master/packages/prop-types/issues/142)) ([3a835ba](https://github.com/smooth-code/xstyled/tree/master/packages/prop-types/commit/3a835ba97177dbe0a1ef3848e16b6e1b8373f1e0))
+
+
+
+
+
 # [1.19.0](https://github.com/smooth-code/xstyled/tree/master/packages/prop-types/compare/v1.18.1...v1.19.0) (2020-09-10)
 
 **Note:** Version bump only for package @xstyled/prop-types
