@@ -67,6 +67,6 @@
     "rollup-plugin-size-snapshot": "^0.12.0",
     "rollup-plugin-terser": "^7.0.2",
     "shx": "^0.3.2",
-    "styled-components": "5.1.0"
+    "styled-components": "5.2.1"
   }
 }
