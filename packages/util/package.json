@@ -3,13 +3,14 @@
   "description": "xstyled utilities",
   "version": "1.19.0",
   "sideEffects": false,
-  "main": "dist/xstyled-util.cjs.js",
-  "module": "dist/xstyled-util.es.js",
+  "main": "dist/index.js",
+  "module": "dist/util.esm.js",
+  "typings": "dist/index.d.ts",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
-    "prebuild": "shx rm -rf dist",
+    "watch": "tsdx watch",
+    "build": "tsdx build",
     "prepublishOnly": "yarn build"
   },
   "homepage": "https://xstyled.dev",

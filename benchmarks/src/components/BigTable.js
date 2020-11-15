@@ -1,5 +1,5 @@
 /* eslint-env browser */
-import React from 'react'
+import * as React from 'react'
 
 function getTable(max = 30) {
   const table = []

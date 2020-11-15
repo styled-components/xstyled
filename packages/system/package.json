@@ -10,13 +10,14 @@
     "styled-system"
   ],
   "sideEffects": false,
-  "main": "dist/xstyled-system.cjs.js",
-  "module": "dist/xstyled-system.es.js",
+  "main": "dist/index.js",
+  "module": "dist/system.esm.js",
+  "typings": "dist/index.d.ts",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
-    "prebuild": "shx rm -rf dist",
+    "watch": "tsdx watch",
+    "build": "tsdx build",
     "prepublishOnly": "yarn build"
   },
   "homepage": "https://xstyled.dev",
@@ -30,6 +31,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
-    "@xstyled/util": "^1.19.0"
+    "@xstyled/util": "^1.19.0",
+    "csstype": "^3.0.3 "
   }
 }
