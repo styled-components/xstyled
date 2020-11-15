@@ -9,13 +9,14 @@
     "styled-system"
   ],
   "sideEffects": false,
-  "main": "dist/xstyled-emotion.cjs.js",
-  "module": "dist/xstyled-emotion.es.js",
+  "main": "dist/index.js",
+  "module": "dist/emotion.esm.js",
+  "typings": "dist/index.d.ts",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
-    "prebuild": "shx rm -rf dist",
+    "watch": "tsdx watch",
+    "build": "tsdx build",
     "prepublishOnly": "yarn build"
   },
   "publishConfig": {

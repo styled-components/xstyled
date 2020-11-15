@@ -11,13 +11,14 @@
     "prop-types"
   ],
   "sideEffects": false,
-  "main": "dist/xstyled-prop-types.cjs.js",
-  "module": "dist/xstyled-prop-types.es.js",
+  "main": "dist/index.js",
+  "module": "dist/prop-types.esm.js",
+  "typings": "dist/index.d.ts",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
-    "prebuild": "shx rm -rf dist",
+    "watch": "tsdx watch",
+    "build": "tsdx build",
     "prepublishOnly": "yarn build"
   },
   "homepage": "https://xstyled.dev",
