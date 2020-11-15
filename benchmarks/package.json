@@ -3,6 +3,7 @@
   "scripts": {
     "bench-system": "node ./system.js",
     "bench-styled-components": "node ./styled-components.js",
+    "bench-emotion": "node ./emotion.js",
     "start": "webpack-dev-server"
   },
   "devDependencies": {
@@ -19,7 +20,11 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
+    "@xstyled/emotion": "^1.19.0",
     "@xstyled/styled-components": "^1.17.1",
+    "emotion-theming": "^10.0.27",
     "styled-components": "^5.1.0",
     "styled-system": "^5.1.5"
   }
