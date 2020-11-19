@@ -1,4 +1,5 @@
-import { css as emCss, Interpolation } from '@emotion/core'
+import { css as emCss } from '@emotion/react'
+import { CSSInterpolation } from '@emotion/serialize'
 import { transform } from '@xstyled/core'
 
 function styleToString(style: any, props: any): any {
@@ -11,7 +12,7 @@ function styleToString(style: any, props: any): any {
 // @ts-ignore
 export const css: typeof emCss = (
   strings: TemplateStringsArray,
-  ...rawArgs: Array<Interpolation>
+  ...rawArgs: Array<CSSInterpolation>
 ) => {
   const emCssArgs = emCss(strings, ...rawArgs)
   const transformedStyles = transform(emCssArgs.styles)

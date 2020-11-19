@@ -14,7 +14,7 @@
 [![Small size](https://img.badgesize.io/https://unpkg.com/@xstyled/emotion/dist/xstyled-emotion.min.js?compression=gzip)](https://unpkg.com/@xstyled/emotion/dist/xstyled-emotion.min.js)
 
 ```bash
-npm install @xstyled/emotion @emotion/core @emotion/styled emotion-theming
+npm install @xstyled/emotion @emotion/react @emotion/styled
 ```
 
 ## [Docs](https://www.smooth-code.com/open-source/xstyled)

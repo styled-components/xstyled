@@ -1,6 +1,6 @@
-import { matchers } from 'jest-emotion'
+import { matchers } from '@emotion/jest'
 import styled from '@emotion/styled'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { testBreakpoints } from '../common/breakpoints'
 
 expect.extend(matchers)

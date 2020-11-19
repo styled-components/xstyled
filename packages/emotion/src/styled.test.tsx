@@ -1,7 +1,7 @@
 import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
-import { ThemeProvider } from 'emotion-theming'
+import { ThemeProvider } from '@emotion/react'
 import styled, { css, keyframes } from '.'
 
 afterEach(cleanup)
@@ -147,7 +147,9 @@ describe('#styled.xxxBox', () => {
 
   it('supports as prop', () => {
     const Dummy = styled.divBox``
-    const { container } = render(<Dummy as="a" margin={1} />)
+    // This is not supported by emotion
+    // @ts-expect-error
+    const { container } = render(<Dummy as="a" margin={1} href="ok" />)
     expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
     expect(container.firstChild).not.toHaveAttribute('margin')

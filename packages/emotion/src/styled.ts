@@ -1,13 +1,11 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
 import * as React from 'react'
-import emStyled, {
-  CreateStyled,
-  CreateStyledComponentIntrinsic,
-} from '@emotion/styled'
+import emStyled, { CreateStyledComponent, CreateStyled } from '@emotion/styled'
+import { Theme } from '@emotion/react'
 import { createSystemComponent, SystemProps } from '@xstyled/system'
 import { Box } from './Box'
 import { css } from './css'
-import { BoxElements, DefaultTheme } from './types'
+import { BoxElements } from './types'
 
 function flattenArgs(arg: any, props: any): any {
   if (typeof arg === 'function') return flattenArgs(arg(props), props)
@@ -25,17 +23,14 @@ function getCreateStyle(baseCreateStyle: any) {
     })
 }
 
-type ThemedXStyledComponentFactories<T extends object> = {
-  [Key in keyof BoxElements]: CreateStyledComponentIntrinsic<
-    BoxElements[Key],
-    SystemProps<T> & { as?: any },
-    T
+type BoxStyledTags = {
+  [Tag in keyof BoxElements]: CreateStyledComponent<
+    SystemProps<Theme> & { as?: React.ElementType; theme?: Theme },
+    JSX.IntrinsicElements[BoxElements[Tag]]
   >
 }
 
-interface CreateXStyled<T extends object = DefaultTheme>
-  extends CreateStyled<T>,
-    ThemedXStyledComponentFactories<T> {}
+interface CreateXStyled extends CreateStyled, BoxStyledTags {}
 
 // @ts-ignore
 export const styled: CreateXStyled = (component) => {
@@ -51,6 +46,6 @@ Object.keys(emStyled).forEach((key) => {
   // @ts-ignore
   styled[`${key}Box`] = styled(
     // @ts-ignore
-    Box.withComponent(createSystemComponent<DefaultTheme>(React, key)),
+    Box.withComponent(createSystemComponent<Theme>(React, key)),
   )
 })

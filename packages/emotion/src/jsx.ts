@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { jsx as emJsx } from '@emotion/core'
+import { jsx as emJsx } from '@emotion/react'
 import { cx } from './cx'
 
 // @ts-ignore
