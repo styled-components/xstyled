@@ -4,7 +4,7 @@ import {
   useThemeUp,
   useThemeDown,
 } from '@xstyled/core'
-import { useTheme } from 'emotion-theming'
+import { useTheme } from '@emotion/react'
 
 export { useViewportWidth } from '@xstyled/core'
 

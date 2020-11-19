@@ -2,7 +2,7 @@
 // see https://github.com/emotion-js/emotion/blob/master/packages/babel-preset-css-prop/src/index.js
 import jsx from '@babel/plugin-transform-react-jsx'
 import pragmatic from '@emotion/babel-plugin-jsx-pragmatic'
-import emotion from 'babel-plugin-emotion'
+import emotion from '@emotion/babel-plugin'
 
 const pragmaName = '___xstyledEmotionJSX'
 

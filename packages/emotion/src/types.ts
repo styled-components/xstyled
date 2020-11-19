@@ -1,5 +1,3 @@
-export interface DefaultTheme {}
-
 export interface BoxElements {
   box: 'div'
   aBox: 'a'

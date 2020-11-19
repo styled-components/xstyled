@@ -1,7 +1,7 @@
 // @ts-nocheck
 import * as React from 'react'
-import { withTheme } from 'emotion-theming'
-import { Global } from '@emotion/core'
+import { withTheme } from '@emotion/react'
+import { Global } from '@emotion/react'
 import { css } from './css'
 
 export const createGlobalStyle = (...args) => {

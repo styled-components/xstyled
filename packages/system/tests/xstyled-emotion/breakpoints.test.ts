@@ -1,4 +1,4 @@
-import { matchers } from 'jest-emotion'
+import { matchers } from '@emotion/jest'
 import styled, { css } from '@xstyled/emotion'
 import { testBreakpoints } from '../common/breakpoints'
 

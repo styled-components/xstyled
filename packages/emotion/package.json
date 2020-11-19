@@ -29,9 +29,8 @@
     "url": "https://github.com/sponsors/gregberge"
   },
   "peerDependencies": {
-    "@emotion/core": "^10.0.0",
-    "@emotion/styled": "^10.0.0",
-    "emotion-theming": "^10.0.0"
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
