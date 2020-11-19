@@ -11,64 +11,6 @@ import { createSystemComponent, SystemProps } from '@xstyled/system'
 import { css } from './css'
 import { BoxElements } from './types'
 
-declare module 'styled-components' {
-  type ForwardRefExoticBase<P> = Pick<
-    React.ForwardRefExoticComponent<P>,
-    keyof React.ForwardRefExoticComponent<any>
-  >
-
-  type StyledComponentPropsWithAs<
-    C extends string | React.ComponentType<any>,
-    T extends object,
-    O extends object,
-    A extends keyof any
-  > = StyledComponentProps<C, T, O, A> & { as?: C }
-
-  type StyledComponentPropsWithForwardedAs<
-    C extends string | React.ComponentType<any>,
-    T extends object,
-    O extends object,
-    A extends keyof any
-  > = StyledComponentProps<C, T, SystemProps<T> & O, A> & {
-    forwardedAs?: C
-  }
-
-  interface StyledComponentBase<
-    C extends string | React.ComponentType<any>,
-    T extends object,
-    O extends object = {},
-    A extends keyof any = never
-  > extends ForwardRefExoticBase<StyledComponentProps<C, T, O, A>> {
-    // add our own fake call signature to implement the polymorphic 'as' prop
-    (
-      props: StyledComponentProps<C, T, O, A> & {
-        as?: never
-        forwardedAs?: never
-      },
-    ): React.ReactElement<StyledComponentProps<C, T, O, A>>
-
-    <AsC extends string | React.ComponentType<any> = C>(
-      props: StyledComponentPropsWithForwardedAs<AsC, T, O, A>,
-    ): React.ReactElement<StyledComponentPropsWithForwardedAs<AsC, T, O, A>>
-
-    <AsC extends string | React.ComponentType<any> = C>(
-      props: StyledComponentPropsWithAs<AsC, T, O, A>,
-    ): React.ReactElement<StyledComponentPropsWithAs<AsC, T, O, A>>
-
-    withComponent<WithC extends AnyStyledComponent>(
-      component: WithC,
-    ): StyledComponent<
-      StyledComponentInnerComponent<WithC>,
-      T,
-      O & StyledComponentInnerOtherProps<WithC>,
-      A | StyledComponentInnerAttrs<WithC>
-    >
-    withComponent<WithC extends string | React.ComponentType<any>>(
-      component: WithC,
-    ): StyledComponent<WithC, T, O, A>
-  }
-}
-
 function getCreateStyle(baseCreateStyle: ThemedStyledFunction<any, any>) {
   // @ts-ignore
   const createStyle = (...args: any) => baseCreateStyle`${css(...args)}`
@@ -103,7 +45,7 @@ export const styled = <XStyledInterface>(
 
 export const InnerBox = createSystemComponent<DefaultTheme>(React, 'div')
 
-export const Box = styled(InnerBox)(createBox)
+export const Box = styled(InnerBox)<SystemProps<DefaultTheme>>(createBox)
 
 // @ts-ignore
 styled.box = styled(Box)
@@ -112,7 +54,7 @@ Object.keys(scStyled).forEach((key) => {
   // @ts-ignore
   styled[key] = styled(key)
   // @ts-ignore
-  styled[`${key}Box`] = styled(
+  styled[`${key}Box`] = styled<SystemProps<DefaultTheme>>(
     // @ts-ignore
     Box.withComponent(createSystemComponent<DefaultTheme>(React, key)),
   )

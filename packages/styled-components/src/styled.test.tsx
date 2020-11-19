@@ -20,7 +20,7 @@ describe('#Box', () => {
     expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle(`
       margin: 8px;
-      padding: 4px;
+      padding: 4px; 
     `)
   })
 })
@@ -41,19 +41,31 @@ describe('#styled', () => {
 
   it('works with conditional css', () => {
     interface DummyProps {
-      margin: number
+      foo: number
     }
     const Dummy = styled.div<DummyProps>`
       color: red;
-      ${(p: DummyProps) => css`
-        margin: ${p.margin};
+      ${(p) => css`
+        margin: ${p.foo};
       `}
     `
-    const { container } = render(<Dummy margin={2} />)
+    const { container } = render(<Dummy foo={2} />)
     expect(container.firstChild).toHaveStyle(`
       color: red;
       margin: 8px;
     `)
+  })
+
+  it('works with render props', () => {
+    const Foo = ({
+      children,
+    }: {
+      children: ({ content }: { content: string }) => React.ReactNode
+    }) => <div>{children({ content: 'Hello World' })}</div>
+
+    const StyledFoo = styled(Foo)``
+
+    render(<StyledFoo>{({ content }) => <span>{content}</span>}</StyledFoo>)
   })
 
   it('reads value from the theme', () => {
@@ -155,9 +167,9 @@ describe('#styled.xxxBox', () => {
   })
 
   it('supports xxxBox tags', () => {
-    const Dummy = styled.headerBox``
-    const { container } = render(<Dummy m={1} />)
-    expect(container.firstChild!.nodeName).toBe('HEADER')
+    const Dummy = styled.aBox``
+    const { container } = render(<Dummy m={1} href="#" />)
+    expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
   })
 
