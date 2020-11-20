@@ -15,7 +15,10 @@ export const getColor = themeGetter({
 
 export const getPx = themeGetter({
   name: 'px',
-  transform: (value: number | string) => px(rpx(value)),
+  transform: (value: number | string, { props }) => {
+    const rootFontSize = props?.theme?.settings?.rootFontSize ?? undefined
+    return px(rpx(value, { rootFontSize }))
+  },
 })
 
 export const getPercent = themeGetter({
