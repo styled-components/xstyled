@@ -1,5 +1,4 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
-import * as React from 'react'
 import scStyled, {
   ThemedStyledFunction,
   StyledConfig,
@@ -7,7 +6,7 @@ import scStyled, {
   DefaultTheme,
 } from 'styled-components'
 import { createBox } from '@xstyled/core'
-import { createSystemComponent, SystemProps } from '@xstyled/system'
+import { SystemProps } from '@xstyled/system'
 import { css } from './css'
 import { BoxElements } from './types'
 
@@ -43,11 +42,11 @@ export const styled = <XStyledInterface>(
   ((component: any) => getCreateStyle(scStyled(component)))
 )
 
-export const InnerBox = createSystemComponent<DefaultTheme>(React, 'div')
+export const Box = styled('div').withConfig({
+  shouldForwardProp: (prop, defaultValidatorFn) =>
+    !createBox.meta.props.includes(prop) && defaultValidatorFn(prop),
+})<SystemProps<DefaultTheme>>(createBox)
 
-export const Box = styled(InnerBox)<SystemProps<DefaultTheme>>(createBox)
-
-// @ts-ignore
 styled.box = styled(Box)
 
 Object.keys(scStyled).forEach((key) => {
@@ -56,6 +55,6 @@ Object.keys(scStyled).forEach((key) => {
   // @ts-ignore
   styled[`${key}Box`] = styled<SystemProps<DefaultTheme>>(
     // @ts-ignore
-    Box.withComponent(createSystemComponent<DefaultTheme>(React, key)),
+    Box.withComponent(key),
   )
 })
