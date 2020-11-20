@@ -15,8 +15,8 @@ describe('#Box', () => {
     `)
   })
 
-  it('supports "forwardedAs" prop', () => {
-    const { container } = render(<Box forwardedAs="a" m={2} p={1} href="#" />)
+  it('supports "as" prop', () => {
+    const { container } = render(<Box as="a" m={2} p={1} href="#" />)
     expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle(`
       margin: 8px;
@@ -193,14 +193,6 @@ describe('#styled.xxxBox', () => {
     const Dummy = styled.divBox``
     const { container } = render(<Dummy display="flex" />)
     expect(container.firstChild!.nodeName).toBe('DIV')
-    expect(container.firstChild).toHaveStyle('display: flex;')
-    expect(container.firstChild).not.toHaveAttribute('display')
-  })
-
-  it('supports forwardedAs', () => {
-    const Dummy = styled.divBox``
-    const { container } = render(<Dummy forwardedAs="a" display="flex" />)
-    expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle('display: flex;')
     expect(container.firstChild).not.toHaveAttribute('display')
   })

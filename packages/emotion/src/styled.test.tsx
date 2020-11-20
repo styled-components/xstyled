@@ -2,9 +2,28 @@ import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import { ThemeProvider } from '@emotion/react'
-import styled, { css, keyframes } from '.'
+import styled, { css, keyframes, Box } from '.'
 
 afterEach(cleanup)
+
+describe('#Box', () => {
+  it('creates system based components', () => {
+    const { container } = render(<Box m={2} p={1} />)
+    expect(container.firstChild).toHaveStyle(`
+    margin: 8px;
+    padding: 4px;
+    `)
+  })
+
+  it('supports "as" prop', () => {
+    const { container } = render(<Box as="a" m={2} p={1} />)
+    expect(container.firstChild!.nodeName).toBe('A')
+    expect(container.firstChild).toHaveStyle(`
+      margin: 8px;
+      padding: 4px;
+    `)
+  })
+})
 
 describe('#styled', () => {
   it('transforms rules', () => {

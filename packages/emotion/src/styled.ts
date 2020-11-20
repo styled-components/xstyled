@@ -2,8 +2,8 @@
 import * as React from 'react'
 import emStyled, { CreateStyledComponent, CreateStyled } from '@emotion/styled'
 import { Theme } from '@emotion/react'
-import { createSystemComponent, SystemProps } from '@xstyled/system'
-import { Box } from './Box'
+import { createBox } from '@xstyled/core'
+import { SystemProps } from '@xstyled/system'
 import { css } from './css'
 import { BoxElements } from './types'
 
@@ -33,19 +33,23 @@ type BoxStyledTags = {
 interface CreateXStyled extends CreateStyled, BoxStyledTags {}
 
 // @ts-ignore
-export const styled: CreateXStyled = (component) => {
+export const styled: CreateXStyled = (component: any) => {
   return getCreateStyle(emStyled(component))
 }
 
+export const Box = emStyled('div', {
+  shouldForwardProp: (prop: string) =>
+    prop !== 'as' && !createBox.meta.props.includes(prop),
+})<SystemProps<Theme>>(createBox)
+
 styled.box = styled(Box)
 
-// @ts-ignore
 Object.keys(emStyled).forEach((key) => {
   // @ts-ignore
   styled[key] = styled(key)
   // @ts-ignore
   styled[`${key}Box`] = styled(
     // @ts-ignore
-    Box.withComponent(createSystemComponent<Theme>(React, key)),
+    Box.withComponent(key),
   )
 })
