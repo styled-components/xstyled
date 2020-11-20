@@ -11,18 +11,23 @@ export const unit = (unit: string) => <
 
 export const px = unit('px')
 
-const pxToRem = (value: number) => round(value / 16)
+interface PxToRemOptions {
+  rootFontSize?: number
+}
 
-export const remPx = <T>(value: T) =>
-  num(value) && value !== 0 ? `${pxToRem(value)}rem` : value
+const pxToRem = (value: number, { rootFontSize = 16 }: PxToRemOptions = {}) =>
+  round(value / rootFontSize)
 
-export const rpx = <T>(value: T) => {
+export const remPx = <T>(value: T, options?: PxToRemOptions) =>
+  num(value) && value !== 0 ? `${pxToRem(value, options)}rem` : value
+
+export const rpx = <T>(value: T, options?: PxToRemOptions) => {
   if (!string(value) || value.length < 4) return value
   const unit = value.slice(-3)
   if (unit !== 'rpx') return value
   const n = Number(value.slice(0, value.length - 3))
   if (n === 0) return 0
-  return `${pxToRem(n)}rem`
+  return `${pxToRem(n, options)}rem`
 }
 
 export const percent = (n: string | number) =>

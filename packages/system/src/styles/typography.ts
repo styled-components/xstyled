@@ -20,7 +20,10 @@ export type LineHeightGetter<T = {}> = VariantsType<
 export const getLineHeight = themeGetter({
   name: 'lineHeight',
   key: 'lineHeights',
-  transform: rpx,
+  transform: (value: number | string, { props }) => {
+    const rootFontSize = props?.theme?.settings?.rootFontSize ?? undefined
+    return rpx(value, { rootFontSize })
+  },
 })
 
 export type FontWeightGetter<T = {}> = VariantsType<
