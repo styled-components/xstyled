@@ -2,12 +2,7 @@ import * as CSS from 'csstype'
 import { is, string, negative, getThemeValue } from '@xstyled/util'
 import { style, themeGetter, compose } from '../style'
 import { getPx } from './basics'
-import {
-  ExtractThemeProperty,
-  VariantsType,
-  SystemProperty,
-  Variants,
-} from '../types'
+import { ExtractThemeProperty, VariantsType, SystemProperty } from '../types'
 
 function toNegative(value: string | number) {
   if (string(value)) return `-${value}`
@@ -15,16 +10,10 @@ function toNegative(value: string | number) {
 }
 
 // Getters
-const defaultSpaceVariants = <const>[0, 4, 8, 16, 24, 48, 96, 144, 192, 240]
-export type SpaceGetter<T = {}> = VariantsType<
-  ExtractThemeProperty<T, 'space'> extends Variants
-    ? ExtractThemeProperty<T, 'space'>
-    : typeof defaultSpaceVariants
->
+export type SpaceGetter<T = {}> = VariantsType<ExtractThemeProperty<T, 'space'>>
 export const getSpace = themeGetter({
   name: 'space',
   key: 'space',
-  defaultVariants: defaultSpaceVariants,
   compose: getPx,
   transform: (_, { rawValue, variants, props }) => {
     if (string(rawValue)) {
@@ -36,7 +25,8 @@ export const getSpace = themeGetter({
     }
     const abs = Math.abs(rawValue)
     const neg = negative(rawValue)
-    const value = is(variants[abs]) ? variants[abs] : abs
+    // @ts-ignore
+    const value = is(variants && variants[abs]) ? variants[abs] : abs
     return neg ? toNegative(value) : value
   },
 })
