@@ -1,6 +1,6 @@
 import * as CSS from 'csstype'
 import { is, string, negative, getThemeValue } from '@xstyled/util'
-import { style, themeGetter, compose } from '../style'
+import { style, themeGetter, compose, createStyleGenerator } from '../style'
 import { getPx } from './basics'
 import { ExtractThemeProperty, VariantsType, SystemProperty } from '../types'
 
@@ -210,6 +210,70 @@ export const py = style<PaddingYProps>({
   themeGet: getSpace,
 })
 
+export interface SpaceYProps<T = {}> {
+  spaceY?: SystemProperty<SpaceGetter<T>, T>
+}
+export const spaceY = createStyleGenerator<SpaceYProps>(
+  props => {
+    const value = getSpace(props.spaceY)(props)
+    return {
+      '& > :not([hidden]) ~ :not([hidden])': {
+        '--x-space-y-reverse': 0,
+        marginTop: `calc(${value} * calc(1 - var(--x-space-y-reverse)))`,
+        marginBottom: `calc(${value} * var(--x-space-y-reverse))`,
+      },
+    }
+  },
+  ['spaceY'],
+)
+
+export interface SpaceXProps<T = {}> {
+  spaceX?: SystemProperty<SpaceGetter<T>, T>
+}
+export const spaceX = createStyleGenerator<SpaceXProps>(
+  props => {
+    const value = getSpace(props.spaceX)(props)
+    return {
+      '& > :not([hidden]) ~ :not([hidden])': {
+        '--x-space-x-reverse': 0,
+        marginRight: `calc(${value} * var(--x-space-x-reverse))`,
+        marginLeft: `calc(${value} * calc(1 - var(--x-space-x-reverse)))`,
+      },
+    }
+  },
+  ['spaceX'],
+)
+
+export interface SpaceXReverseProps<T = {}> {
+  spaceXReverse?: SystemProperty<boolean, T>
+}
+export const spaceXReverse = createStyleGenerator<SpaceXProps>(
+  props => {
+    if (!props.spaceXReverse) return null
+    return {
+      '& > :not([hidden]) ~ :not([hidden])': {
+        '--x-space-x-reverse': '1',
+      },
+    }
+  },
+  ['spaceXReverse'],
+)
+
+export interface SpaceYReverseProps<T = {}> {
+  spaceYReverse?: SystemProperty<boolean, T>
+}
+export const spaceYReverse = createStyleGenerator<SpaceYProps>(
+  props => {
+    if (!props.spaceYReverse) return null
+    return {
+      '& > :not([hidden]) ~ :not([hidden])': {
+        '--x-space-y-reverse': '1',
+      },
+    }
+  },
+  ['spaceYReverse'],
+)
+
 export type SpaceProps<T = {}> = MarginProps<T> &
   MarginTopProps<T> &
   MarginRightProps<T> &
@@ -223,7 +287,11 @@ export type SpaceProps<T = {}> = MarginProps<T> &
   PaddingBottomProps<T> &
   PaddingLeftProps<T> &
   PaddingXProps<T> &
-  PaddingYProps<T>
+  PaddingYProps<T> &
+  SpaceXProps<T> &
+  SpaceYProps<T> &
+  SpaceXReverseProps<T> &
+  SpaceYReverseProps<T>
 export const space = compose<SpaceProps>(
   margin,
   marginTop,
@@ -239,4 +307,8 @@ export const space = compose<SpaceProps>(
   paddingLeft,
   px,
   py,
+  spaceX,
+  spaceY,
+  spaceXReverse,
+  spaceYReverse,
 )
