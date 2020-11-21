@@ -34,6 +34,24 @@ interface StyleGetter {
   (props: Props): any
 }
 
+const states = {
+  motionSafe: '@media (prefers-reduced-motion: no-preference)',
+  motionReduce: '@media (prefers-reduced-motion: reduce)',
+  first: '&:first-child',
+  last: '&:last-child',
+  odd: '&:odd',
+  even: '&:even',
+  visited: '&:visited',
+  checked: '&:checked',
+  focusWithin: '&:focus-within',
+  hover: '&:hover',
+  focus: '&:focus',
+  focusVisible: '&:focus-visible',
+  active: '&:active',
+  disabled: '&:disabled',
+}
+const stateNames = Object.keys(states) as (keyof typeof states)[]
+
 const cacheSupported =
   typeof Map !== 'undefined' && typeof WeakMap !== 'undefined'
 
@@ -203,7 +221,7 @@ function getStyleFactory(
       return reduceBreakpoints(
         props,
         value,
-        (breakpointValue) =>
+        breakpointValue =>
           styleFromValue(
             cssProperties,
             breakpointValue,
@@ -216,6 +234,17 @@ function getStyleFactory(
     }
 
     return styleFromValue(cssProperties, value, props, themeGet, cache)
+  }
+}
+
+function getStateStyleFactory(
+  stateName: keyof typeof states,
+  getStyle: StyleGetter,
+): StyleGetter {
+  return (props: Props) => {
+    const result = getStyle(props)
+    if (result === null) return result
+    return { [states[stateName]]: result }
   }
 }
 
@@ -254,7 +283,7 @@ export function compose<T>(
   ...generators: StyleGenerator<any>[]
 ): StyleGenerator<T> {
   let flatGenerators: StyleGenerator[] = []
-  generators.forEach((gen) => {
+  generators.forEach(gen => {
     warn(Boolean(gen), `Undefined generator in "compose" method`)
     if (!gen) return
     if (gen.meta.generators) {
@@ -307,9 +336,10 @@ export function style<TProps extends object>({
         : [cssProperty]
       : prop
 
-    const generators = prop.map((prop) =>
+    const generators = prop.map(prop =>
       style({ prop, cssProperty: cssProperties, key, transform, themeGet }),
     )
+
     // @ts-ignore
     return compose(...generators)
   }
@@ -321,6 +351,22 @@ export function style<TProps extends object>({
     : [prop]
 
   themeGet = themeGet || themeGetter({ key, transform })
+
+  const capitalizedProp = prop.charAt(0).toUpperCase() + prop.slice(1)
+  const generators: StyleGenerator<TProps>[] = []
+  for (let i = 0; i < stateNames.length; i++) {
+    const stateName = stateNames[i]
+    const stateProp = `${stateName}${capitalizedProp}`
+    const getStyle = getStateStyleFactory(
+      stateName,
+      getStyleFactory(stateProp, cssProperties, themeGet),
+    )
+    const generator = createStyleGenerator<TProps>(getStyle, [stateProp])
+    generators.push(generator)
+  }
   const getStyle = getStyleFactory(prop, cssProperties, themeGet)
-  return createStyleGenerator<TProps>(getStyle, [prop])
+  const generator = createStyleGenerator<TProps>(getStyle, [prop])
+  generators.push(generator)
+  // @ts-ignore
+  return compose(...generators)
 }

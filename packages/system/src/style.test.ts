@@ -59,8 +59,21 @@ describe('#style', () => {
       })
     })
 
-    it('returns null if style is not valid', () => {
-      expect(fontFamily({ fontFamily: () => {} })).toBe(null)
+    it('works with states', () => {
+      expect(fontFamily({ hoverFontFamily: 'title' })).toEqual({
+        '&:hover': {
+          fontFamily: 'title',
+        },
+      })
+      expect(fontFamily({ motionReduceFontFamily: { md: 'title' } })).toEqual({
+        '@media (prefers-reduced-motion: reduce)': {
+          '@media (min-width: 768px)': { fontFamily: 'title' },
+        },
+      })
+    })
+
+    it('returns empty object if style is not valid', () => {
+      expect(fontFamily({ fontFamily: () => {} })).toEqual({})
     })
 
     it('works with breakpoints', () => {
