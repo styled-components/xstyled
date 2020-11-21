@@ -23,6 +23,7 @@ export const display = style<DisplayProps>({
 
 export interface WidthProps<T = {}> {
   width?: SystemProperty<SizeGetter<T> | CSS.Property.Width, T>
+  w?: SystemProperty<SizeGetter<T> | CSS.Property.Width, T>
 }
 export const width = style<WidthProps>({
   prop: ['width', 'w'],
@@ -31,6 +32,7 @@ export const width = style<WidthProps>({
 
 export interface HeightProps<T = {}> {
   height?: SystemProperty<SizeGetter<T> | CSS.Property.Height, T>
+  h?: SystemProperty<SizeGetter<T> | CSS.Property.Height, T>
 }
 export const height = style<HeightProps>({
   prop: ['height', 'h'],
@@ -39,6 +41,7 @@ export const height = style<HeightProps>({
 
 export interface MaxWidthProps<T = {}> {
   maxWidth?: SystemProperty<SizeGetter<T> | CSS.Property.MaxWidth, T>
+  maxW?: SystemProperty<SizeGetter<T> | CSS.Property.MaxWidth, T>
 }
 export const maxWidth = style<MaxWidthProps>({
   prop: ['maxWidth', 'maxW'],
@@ -47,6 +50,7 @@ export const maxWidth = style<MaxWidthProps>({
 
 export interface MaxHeightProps<T = {}> {
   maxHeight?: SystemProperty<SizeGetter<T> | CSS.Property.MaxHeight, T>
+  maxH?: SystemProperty<SizeGetter<T> | CSS.Property.MaxHeight, T>
 }
 export const maxHeight = style<MaxHeightProps>({
   prop: ['maxHeight', 'maxH'],
@@ -55,6 +59,7 @@ export const maxHeight = style<MaxHeightProps>({
 
 export interface MinWidthProps<T = {}> {
   minWidth?: SystemProperty<SizeGetter<T> | CSS.Property.MinWidth, T>
+  minW?: SystemProperty<SizeGetter<T> | CSS.Property.MinWidth, T>
 }
 export const minWidth = style<MinWidthProps>({
   prop: ['minWidth', 'minW'],
@@ -63,6 +68,7 @@ export const minWidth = style<MinWidthProps>({
 
 export interface MinHeightProps<T = {}> {
   minHeight?: SystemProperty<SizeGetter<T> | CSS.Property.MinHeight, T>
+  minH?: SystemProperty<SizeGetter<T> | CSS.Property.MinHeight, T>
 }
 export const minHeight = style<MinHeightProps>({
   prop: ['minHeight', 'minH'],
