@@ -28,7 +28,7 @@ describe('#style', () => {
     it('supports transform func', () => {
       const scope = themeGetter({
         key: 'scope',
-        transform: (x) => (typeof x === 'number' ? x + 1 : x),
+        transform: x => (typeof x === 'number' ? x + 1 : x),
       })
       const theme = { scope: [1] }
       expect(scope(10)({ theme })).toBe(11)
@@ -39,7 +39,7 @@ describe('#style', () => {
       const scope = themeGetter({
         key: 'scope',
         name: 'getter',
-        transform: (x) => (typeof x === 'number' ? x + 1 : x),
+        transform: x => (typeof x === 'number' ? x + 1 : x),
       })
       const theme = {
         scope: [1],
