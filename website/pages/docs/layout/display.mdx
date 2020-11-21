@@ -1,0 +1,34 @@
+---
+section: Layout
+title: Display
+---
+
+# Display
+
+Utilities for controlling the display box type of an element.
+
+| React props         | CSS Properties                                                                  |
+| ------------------- | ------------------------------------------------------------------------------- |
+| `display="[value]"` | [`display: [value];`](https://developer.mozilla.org/en-US/docs/Web/CSS/display) |
+
+# Block
+
+Use `block` to create a block-level element.
+
+```js live noInline
+import { Box } from '@xstyled/styled-components'
+
+render(
+  <Box>
+    <Box as="span" display="block">
+      1
+    </Box>
+    <Box as="span" display="block">
+      2
+    </Box>
+    <Box as="span" display="block">
+      3
+    </Box>
+  </Box>,
+)
+```

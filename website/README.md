@@ -1,4 +1,4 @@
-# xstyled website
+# @xstyled/website
 
 [Documentation site](https://xstyled.dev) for [xstyled](https://github.com/smooth-code/xstyled). This website is running on [gatsbyjs](gatsbyjs.org).
 
@@ -8,7 +8,7 @@ To install and run the docs site locally:
 
 ```bash
 yarn
-yarn dev
+yarn develop
 ```
 
 Then, open your favorite browser to [localhost:8000](http://localhost:8000/). GraphiQL runs at [localhost:8000/\_\_\_graphql](http://localhost:8000/___graphql).
