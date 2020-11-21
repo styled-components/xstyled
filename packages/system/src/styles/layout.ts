@@ -75,12 +75,6 @@ export interface SizeProps<T = {}> {
     T
   >
 }
-export const size = style<SizeProps>({
-  prop: 'size',
-  cssProperty: ['width', 'height'],
-  themeGet: getSize,
-})
-
 export interface VerticalAlignProps<T = {}> {
   verticalAlign?: SystemProperty<CSS.Property.VerticalAlign, T>
 }
@@ -95,7 +89,6 @@ export type LayoutProps<T = {}> = DisplayProps<T> &
   MaxHeightProps<T> &
   MinWidthProps<T> &
   MinHeightProps<T> &
-  SizeProps<T> &
   VerticalAlignProps<T>
 export const layout = compose<LayoutProps>(
   display,
@@ -105,6 +98,5 @@ export const layout = compose<LayoutProps>(
   maxHeight,
   minWidth,
   minHeight,
-  size,
   verticalAlign,
 )
