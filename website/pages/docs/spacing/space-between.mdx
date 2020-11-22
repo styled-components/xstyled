@@ -19,59 +19,61 @@ Utilities for controlling the space between child elements.
 Control the horizontal space between elements using the `spaceX={amount}` utilities.
 
 ```jsx preview
-<template preview>
-  <Box display="flex">
-    <Box
-      width={16}
-      height={16}
-      color="white"
-      bg="fuchsia-500"
-      fontSize="2xl"
-      fontWeight="extrabold"
-      borderRadius="md"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      1
+<>
+  <template preview>
+    <Box display="flex">
+      <Box
+        width={16}
+        height={16}
+        color="white"
+        bg="fuchsia-500"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        borderRadius="md"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        1
+      </Box>
+      <Box width={4} height={16} borderRadius="md" bg="fuchsia-200" />
+      <Box
+        width={16}
+        height={16}
+        color="white"
+        bg="fuchsia-500"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        borderRadius="md"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        2
+      </Box>
+      <Box width={4} height={16} borderRadius="md" bg="fuchsia-200" />
+      <Box
+        width={16}
+        height={16}
+        color="white"
+        bg="fuchsia-500"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        borderRadius="md"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        3
+      </Box>
     </Box>
-    <Box width={4} height={16} borderRadius="md" bg="fuchsia-200" />
-    <Box
-      width={16}
-      height={16}
-      color="white"
-      bg="fuchsia-500"
-      fontSize="2xl"
-      fontWeight="extrabold"
-      borderRadius="md"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      2
-    </Box>
-    <Box width={4} height={16} borderRadius="md" bg="fuchsia-200" />
-    <Box
-      width={16}
-      height={16}
-      color="white"
-      bg="fuchsia-500"
-      fontSize="2xl"
-      fontWeight="extrabold"
-      borderRadius="md"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      3
-    </Box>
+  </template>
+  <Box display="flex" spaceX={4}>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
   </Box>
-</template>
-<Box display="flex" spaceX={4}>
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</Box>
+</>
 ```
 
 ## Add vertical space between children
@@ -79,56 +81,58 @@ Control the horizontal space between elements using the `spaceX={amount}` utilit
 Control the vertical space between elements using the `spaceY={amount}` utilities.
 
 ```jsx preview
-<template preview>
-  <div>
-    <Box
-      height={16}
-      color="white"
-      bg="blue-500"
-      fontSize="2xl"
-      fontWeight="extrabold"
-      borderRadius="md"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      1
-    </Box>
-    <Box height={4} borderRadius="md" bg="blue-200" />
-    <Box
-      height={16}
-      color="white"
-      bg="blue-500"
-      fontSize="2xl"
-      fontWeight="extrabold"
-      borderRadius="md"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      2
-    </Box>
-    <Box height={4} borderRadius="md" bg="blue-200" />
-    <Box
-      height={16}
-      color="white"
-      bg="blue-500"
-      fontSize="2xl"
-      fontWeight="extrabold"
-      borderRadius="md"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      3
-    </Box>
-  </div>
-</template>
-<Box spaceY={4}>
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</Box>
+<>
+  <template preview>
+    <div>
+      <Box
+        height={16}
+        color="white"
+        bg="blue-500"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        borderRadius="md"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        1
+      </Box>
+      <Box height={4} borderRadius="md" bg="blue-200" />
+      <Box
+        height={16}
+        color="white"
+        bg="blue-500"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        borderRadius="md"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        2
+      </Box>
+      <Box height={4} borderRadius="md" bg="blue-200" />
+      <Box
+        height={16}
+        color="white"
+        bg="blue-500"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        borderRadius="md"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        3
+      </Box>
+    </div>
+  </template>
+  <Box spaceY={4}>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </Box>
+</>
 ```
 
 ## Reversing children order
@@ -136,61 +140,63 @@ Control the vertical space between elements using the `spaceY={amount}` utilitie
 If your elements are in reverse order (using say `flexDirection="row-reverse"` or `flexDirection="col-reverse"`), use the `spaceXReverse` or `spaceYReverse` utilities to ensure the space is added to the correct side of each element.
 
 ```jsx preview
-<template preview>
-  <>
-  <Box display="flex" flexDirection="row-reverse">
-    <Box
-      width={16}
-      height={16}
-      color="white"
-      bg="fuchsia-500"
-      fontSize="2xl"
-      fontWeight="extrabold"
-      borderRadius="md"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      1
-    </Box>
-    <Box width={4} height={16} borderRadius="md" bg="fuchsia-200" />
-    <Box
-      width={16}
-      height={16}
-      color="white"
-      bg="fuchsia-500"
-      fontSize="2xl"
-      fontWeight="extrabold"
-      borderRadius="md"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      2
-    </Box>
-    <Box width={4} height={16} borderRadius="md" bg="fuchsia-200" />
-    <Box
-      width={16}
-      height={16}
-      color="white"
-      bg="fuchsia-500"
-      fontSize="2xl"
-      fontWeight="extrabold"
-      borderRadius="md"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-    >
-      3
-    </Box>
+<>
+  <template preview>
+    <>
+      <Box display="flex" flexDirection="row-reverse">
+        <Box
+          width={16}
+          height={16}
+          color="white"
+          bg="fuchsia-500"
+          fontSize="2xl"
+          fontWeight="extrabold"
+          borderRadius="md"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          1
+        </Box>
+        <Box width={4} height={16} borderRadius="md" bg="fuchsia-200" />
+        <Box
+          width={16}
+          height={16}
+          color="white"
+          bg="fuchsia-500"
+          fontSize="2xl"
+          fontWeight="extrabold"
+          borderRadius="md"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          2
+        </Box>
+        <Box width={4} height={16} borderRadius="md" bg="fuchsia-200" />
+        <Box
+          width={16}
+          height={16}
+          color="white"
+          bg="fuchsia-500"
+          fontSize="2xl"
+          fontWeight="extrabold"
+          borderRadius="md"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          3
+        </Box>
+      </Box>
+    </>
+  </template>
+  <Box display="flex" spaceX={4} spaceXReverse>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
   </Box>
-  </>
-</template>
-<Box display="flex" spaceX={4} spaceXReverse>
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</Box>
+</>
 ```
 
 ## Responsive

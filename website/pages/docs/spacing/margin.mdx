@@ -25,87 +25,206 @@ Control the margin on one side of an element using the `m{t|r|b|l}={size}` utili
 For example, `mt={6}` would add `1.5rem` of margin to the top of an element, `mr={4}` would add `1rem` of margin to the right of an element, `mb={8}` would add `2rem` of margin to the bottom of an element, and `ml={2}` would add `0.5rem` of margin to the left of an element.
 
 ```jsx preview
-<template preview>
-  <Box display="flex" flexWrap="wrap" alignItems="flex-start" justifyContent="center" color="white" fontFamily="mono" mx={-5}>
-    <Box mx={5} bg="cool-gray-200" borderRadius="md" overflow="hidden" pt={6}>
-      <Box bg="rose-500" display="flex" alignItems="center" justifyContent="center" py={3} px={4}>
-        mt-6
+<>
+  <template preview>
+    <Box
+      display="flex"
+      flexWrap="wrap"
+      alignItems="flex-start"
+      justifyContent="center"
+      color="white"
+      fontFamily="mono"
+      mx={-5}
+    >
+      <Box mx={5} bg="rose-200" borderRadius="md" overflow="hidden" pt={6}>
+        <Box
+          bg="rose-500"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          mt=6
+        </Box>
+      </Box>
+      <Box
+        mx={5}
+        bg="rose-200"
+        borderRadius="md"
+        overflow="hidden"
+        pr={4}
+        mt={6}
+      >
+        <Box
+          bg="rose-500"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          mr=4
+        </Box>
+      </Box>
+      <Box
+        mx={5}
+        bg="rose-200"
+        borderRadius="md"
+        overflow="hidden"
+        pb={8}
+        mt={6}
+      >
+        <Box
+          bg="rose-500"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          mb=8
+        </Box>
+      </Box>
+      <Box
+        mx={5}
+        bg="rose-200"
+        borderRadius="md"
+        overflow="hidden"
+        pl={2}
+        mt={6}
+      >
+        <Box
+          bg="rose-500"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          ml=2
+        </Box>
       </Box>
     </Box>
-    <Box mx={5} bg="cool-gray-200" borderRadius="md" overflow="hidden" pr={4} mt={6}>
-      <Box bg="rose-500" display="flex" alignItems="center" justifyContent="center" py={3} px={4}>
-        mr-4
-      </Box>
-    </Box>
-    <Box mx={5} bg="cool-gray-200" borderRadius="md" overflow="hidden" pb={8} mt={6}>
-      <Box bg="rose-500" display="flex" alignItems="center" justifyContent="center" py={3} px={4}>
-        mb-8
-      </Box>
-    </Box>
-    <Box mx={5} bg="cool-gray-200" borderRadius="md" overflow="hidden" pl={2} mt={6}>
-      <Box bg="rose-500" display="flex" alignItems="center" justifyContent="center" py={3} px={4}>
-        ml-2
-      </Box>
-    </Box>
-  </Box>
-</template>
-<Box mt={6}>mt-6</Box>
-<Box mr={4}>mr-4</Box>
-<Box mb={8}>mb-8</Box>
-<Box ml={2}>ml-2</Box>
+  </template>
+  <Box mt={6}>mt=6</Box>
+  <Box mr={4}>mr=4</Box>
+  <Box mb={8}>mb=8</Box>
+  <Box ml={2}>ml=2</Box>
+</>
 ```
 
 ## Add horizontal margin
 
-Control the horizontal margin of an element using the `px={size}` utilities.
+Control the horizontal margin of an element using the `mx={size}` utilities.
 
 ```jsx preview
-<template preview>
-  <Box display="flex" justifyContent="center" color="white" fontFamily="mono">
-    <Box bg="emerald-200" borderRadius="md" overflow="hidden" px={8}>
-      <Box bg="emerald-500" py={3} px={4}>px-8</Box>
+<>
+  <template preview>
+    <Box display="flex" justifyContent="center" color="white" fontFamily="mono">
+      <Box bg="emerald-200" borderRadius="md" overflow="hidden" px={8}>
+        <Box bg="emerald-500" py={3} px={4}>
+          mx=8
+        </Box>
+      </Box>
     </Box>
-  </Box>
-</template>
-<Box px={8}>px-8</Box>
+  </template>
+  <Box px={8}>mx=8</Box>
+</>
 ```
 
 ## Add vertical margin
 
-Control the vertical margin of an element using the `py={size}` utilities.
+Control the vertical margin of an element using the `my={size}` utilities.
 
 ```jsx preview
-<template preview>
-  <Box display="flex" justifyContent="center" color="white" fontFamily="mono">
-    <Box bg="indigo-200" borderRadius="md" overflow="hidden" py={8}>
-      <Box bg="indigo-500" py={3} px={4}>py-8</Box>
+<>
+  <template preview>
+    <Box display="flex" justifyContent="center" color="white" fontFamily="mono">
+      <Box bg="indigo-200" borderRadius="md" overflow="hidden" py={8}>
+        <Box bg="indigo-500" py={3} px={4}>
+          my=8
+        </Box>
+      </Box>
     </Box>
-  </Box>
-</template>
-<Box py={8}>py-8</Box>
+  </template>
+  <Box py={8}>my=8</Box>
+</>
 ```
 
 ## Add margin to all sides
 
-Control the margin on all sides of an element using the `p={size}` utilities.
+Control the margin on all sides of an element using the `m={size}` utilities.
 
 ```jsx preview
-<template preview>
-  <Box display="flex" justifyContent="center" color="white" fontFamily="mono">
-    <Box bg="fuchsia-200" borderRadius="md" overflow="hidden" p={8}>
-      <Box bg="fuchsia-500" py={3} px={4}>p-8</Box>
+<>
+  <template preview>
+    <Box display="flex" justifyContent="center" color="white" fontFamily="mono">
+      <Box bg="fuchsia-200" borderRadius="md" overflow="hidden" p={8}>
+        <Box bg="fuchsia-500" py={3} px={4}>
+          m=8
+        </Box>
+      </Box>
     </Box>
+  </template>
+  <Box p={8}>m=8</Box>
+</>
+```
+
+## Negative margins
+
+It is possible to specify a negative margin in all margin utilities.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      display="flex"
+      justifyContent="space-around"
+      alignItems="center"
+      color="white"
+      fontFamily="mono"
+    >
+      <Box display="flex" flexDirection="column" alignItems="center">
+        <Box
+          position="relative"
+          w={32}
+          h={16}
+          bg="fuchsia-300"
+          borderRadius="md"
+          overflow="hidden"
+        >
+          <Box position="absolute" bottom={0} w="100%" h={8} bg="fuchsia-800" />
+        </Box>
+        <Box
+          position="relative"
+          mt={-8}
+          bg="fuchsia-500"
+          borderRadius="md"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          mt=-8
+        </Box>
+      </Box>
+    </Box>
+  </template>
+  <Box w={32} h={16} bg="fuchsia-300" />
+  <Box mt={-8} bg="fuchsia-500">
+    mt=-8
   </Box>
-</template>
-<Box p={8}>p-8</Box>
+</>
 ```
 
 ## Responsive
 
-To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `py={{ md: 8 }}` to an element would apply the `py={8}` utility at medium screen sizes and above.
+To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `my={{ md: 8 }}` to an element would apply the `my={8}` utility at medium screen sizes and above.
 
 ```jsx
-<Box py={{ md: 8 }} />
+<Box my={{ md: 8 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
@@ -114,7 +233,7 @@ For more information about xstyled's responsive design features, check out [Resp
 
 ### Spacing scale
 
-f you'd like to customize your values for space between, margin, margin, all at once, use the `theme.space` section of your theme.
+f you'd like to customize your values for margin, padding, space between, all at once, use the `theme.space` section of your theme.
 
 <!-- @TODO support diff -->
 

@@ -299,7 +299,7 @@ function LiveEditor() {
   )
 }
 
-const PREVIEW_REGEXP = /<template preview>([\s\S]*)<\/template>/m
+const PREVIEW_REGEXP = /<>\s*<template preview>(?<preview>[\s\S]*)<\/template>(?<code>[\s\S]*)\s*<\/>/m
 
 export function Code({
   children,
@@ -314,8 +314,7 @@ export function Code({
     const rawCode = children.trim()
     const previewMatches = rawCode.match(PREVIEW_REGEXP)
     if (!previewMatches) throw new Error('Preview template not found')
-    const preview = previewMatches[1]
-    const code = rawCode.replace(previewMatches[0], '').trim()
+    const { preview, code } = previewMatches.groups
     return (
       <>
         <LiveProvider
@@ -334,26 +333,10 @@ export function Code({
           <LiveError />
         </LiveProvider>
         <EditorContainer style={editorStyle}>
-          <RawHighlight code={code} language={lang} />
-          {/* <EnhancedHighlight
-            {...defaultProps}
-            code={code}
+          <RawHighlight
+            code={code.replace(/\n  /g, '\n').trim()}
             language={lang}
-            theme={prismTheme}
-            Prism={Prism}
-          >
-            {({ className, style, tokens, getLineProps, getTokenProps }) => (
-              <pre className={className} style={style}>
-                {tokens.map((line, i) => (
-                  <div {...getLineProps({ line, key: i })}>
-                    {line.map((token, key) => (
-                      <span {...getTokenProps({ token, key })} />
-                    ))}
-                  </div>
-                ))}
-              </pre>
-            )}
-          </EnhancedHighlight> */}
+          />
         </EditorContainer>
       </>
     )
@@ -379,25 +362,6 @@ export function Code({
   return (
     <EditorContainer style={editorStyle}>
       <RawHighlight code={children} language={lang} />
-      {/* <Highlight
-        {...defaultProps}
-        code={children.trim()}
-        language={lang}
-        theme={prismTheme}
-        Prism={Prism}
-      >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className} style={style}>
-            {tokens.map((line, i) => (
-              <div {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-        )}
-      </Highlight> */}
     </EditorContainer>
   )
 }
