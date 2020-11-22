@@ -7,6 +7,7 @@ import { flexboxes, FlexBoxesProps } from './flexboxes'
 import { grids, GridsProps } from './grids'
 import { positioning, PositioningProps } from './positioning'
 import { shadows, ShadowsProps } from './shadows'
+import { sizing, SizingProps } from './sizing'
 import { space, SpaceProps } from './space'
 import { svg, SvgProps } from './svg'
 import { typography, TypographyProps } from './typography'
@@ -20,6 +21,7 @@ export * from './grids'
 export * from './layout'
 export * from './positioning'
 export * from './shadows'
+export * from './sizing'
 export * from './space'
 export * from './svg'
 export * from './typography'
@@ -33,6 +35,7 @@ export type SystemProps<T = {}> = BackgroundsProps<T> &
   LayoutProps<T> &
   PositioningProps<T> &
   ShadowsProps<T> &
+  SizingProps<T> &
   SpaceProps<T> &
   SvgProps<T> &
   TypographyProps<T> &
@@ -46,6 +49,7 @@ export const system = compose<SystemProps>(
   layout,
   positioning,
   shadows,
+  sizing,
   space,
   svg,
   typography,
