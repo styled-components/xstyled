@@ -1,0 +1,223 @@
+---
+section: Sizing
+title: Height
+---
+
+# Height
+
+Utilities for setting the height of an element
+
+| React props      | CSS Properties     |
+| ---------------- | ------------------ |
+| `height=[value]` | `height: [value];` |
+| `h=[value]`      | `height: [value];` |
+
+## Auto
+
+Use `h="auto"` to let the browser calculate and select the height for the element. You can use it to unset a specific height:
+
+```jsx
+<Box h={{ xs: 24, md: 'auto' }} />
+```
+
+## Screen Height
+
+Use `h="100vh"` to make an element span the entire height of the viewport.
+
+```jsx
+<Box h="100vh" w={12} />
+```
+
+## Scaled Height
+
+All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scale `1`, you have to specify `1s`.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      display="flex"
+      justifyContent="space-around"
+      alignItems="flex-end"
+      mx="auto"
+    >
+      {['1s', 8, 12, 16, 24].map(v => (
+        <Box
+          key={v}
+          spaceY={4}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        >
+          <Box
+            h={v}
+            w={8}
+            borderRadius="md"
+            bg="light-blue-500"
+            color="white"
+            fontSize="2xl"
+            fontWeight="extrabold"
+          />
+          <Box as="p" fontSize="sm" color="light-blue-600" textAlign="center">
+            h={v}
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box>
+    <Box h="1s" />
+    <Box h={8} />
+    <Box h={12} />
+    <Box h={16} />
+    <Box h={24} />
+  </Box>
+</>
+```
+
+## Fixed Height
+
+Any valid value is accepted in height, numbers are converted to `px`, other units have to be specified.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      display="flex"
+      justifyContent="space-around"
+      alignItems="flex-end"
+      mx="auto"
+    >
+      {[123, '12px', '4rem', '3ex'].map(v => (
+        <Box
+          key={v}
+          spaceY={4}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        >
+          <Box
+            w={8}
+            h={v}
+            borderRadius="md"
+            bg="emerald-500"
+            color="white"
+            fontSize="2xl"
+            fontWeight="extrabold"
+          />
+          <Box as="p" fontSize="sm" color="emerald-600" textAlign="center">
+            h={v}
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box>
+    <Box w={123} />
+    <Box w="12px" />
+    <Box w="4rem" />
+    <Box w="3ex" />
+  </Box>
+</>
+```
+
+## Fluid Height
+
+Values from `0` to `1` are converted into percentages. As a fraction or a number, both are an expression. Of course specifying `[value]%` is also possible.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      spaceX={6}
+      display="flex"
+      justifyContent="space-around"
+      alignItems="flex-end"
+      mx="auto"
+    >
+      {[
+        [
+          ['1/2', 1 / 2],
+          ['1/2', 1 / 2],
+        ],
+        [
+          ['2/5', 2 / 5],
+          ['3/5', 3 / 5],
+        ],
+        [
+          ['0.2', 0.2],
+          ['0.8', 0.8],
+        ],
+        [
+          ['calc(50% - 40px)', 'calc(50% - 40px)'],
+          ['calc(50% + 40px)', 'calc(50% + 40px)'],
+        ],
+      ].map((v, i) => (
+        <Box
+          key={i}
+          borderRadius="md"
+          overflow="hidden"
+          color="white"
+          fontFamily="mono"
+          h={48}
+        >
+          <Box h={v[0][1]} px={2} py={4} bg="rose-400" textAlign="center">
+            h={v[0][0]}
+          </Box>
+          <Box h={v[1][1]} px={2} py={4} bg="rose-500" textAlign="center">
+            h={v[1][0]}
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box display="flex" h={48}>
+    <Box h={1 / 2}>h=1/2</Box>
+    <Box h={1 / 2}>h=1/2</Box>
+  </Box>
+  <Box display="flex" h={48}>
+    <Box h={2 / 5}>h=2/5</Box>
+    <Box h={3 / 5}>h=3/5</Box>
+  </Box>
+  <Box display="flex" h={48}>
+    <Box h={0.2}>h=0.2</Box>
+    <Box h={0.8}>h=0.8</Box>
+  </Box>
+  <Box display="flex" h={48}>
+    <Box h="calc(50% - 40px)">h=calc(50% - 40px)</Box>
+    <Box h="calc(50% + 40px)">h=calc(50% + 40px)</Box>
+  </Box>
+</>
+```
+
+## Responsive
+
+To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `h={{ md: 1 }}` to an element would apply the `w={1}` utility at medium screen sizes and above.
+
+```jsx
+<Box h={{ xs: 1 / 2, md: 1 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Sizes scale
+
+f you'd like to customize your values for width, height, min-width, min-height, max-width, max-height, all at once, use the `theme.sizes` section of your theme.
+
+<!-- @TODO support diff -->
+
+```diffjs
+  // theme.js
+  export const theme = {
+    sizes: {
++     sm: '8px',
++     md: '16px',
++     lg: '24px',
++     xl: '48px',
+    },
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).

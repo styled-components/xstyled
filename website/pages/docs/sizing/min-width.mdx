@@ -1,34 +1,17 @@
 ---
 section: Sizing
-title: Width
+title: Min-Width
 ---
 
-# Width
+# Min-Width
 
-Utilities for setting the width of an element
+Utilities for setting the minimum width of an element
 
-| React props     | CSS Properties    |
-| --------------- | ----------------- |
-| `width=[value]` | `width: [value];` |
-| `w=[value]`     | `width: [value];` |
+| React props        | CSS Properties        |
+| ------------------ | --------------------- |
+| `minWidth=[value]` | `min-width: [value];` |
 
-## Auto
-
-Use `w="auto"` to let the browser calculate and select the width for the element. You can use it to unset a specific width:
-
-```jsx
-<Box w={{ xs: 24, md: 'auto' }} />
-```
-
-## Screen Width
-
-Use `w="100vw"` to make an element span the entire width of the viewport.
-
-```jsx
-<Box h={12} w="100vw" />
-```
-
-## Scaled Width
+## Scaled Min-Width
 
 All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scale `1`, you have to specify `1s`.
 
@@ -45,11 +28,11 @@ All values specified in the `sizes` theme section are automatically applied. Not
             w={24}
             textAlign="right"
           >
-            w={v}
+            minWidth={v}
           </Box>
           <Box
             h={8}
-            w={v}
+            minWidth={v}
             borderRadius="md"
             bg="light-blue-500"
             color="white"
@@ -61,16 +44,16 @@ All values specified in the `sizes` theme section are automatically applied. Not
     </Box>
   </template>
   <Box>
-    <Box w="1s" />
-    <Box w={8} />
-    <Box w={12} />
-    <Box w={16} />
-    <Box w={24} />
+    <Box minWidth="1s" w={0} />
+    <Box minWidth={8} w={0} />
+    <Box minWidth={12} w={0} />
+    <Box minWidth={16} w={0} />
+    <Box minWidth={24} w={0} />
   </Box>
 </>
 ```
 
-## Fixed Width
+## Fixed Min-Width
 
 Any valid value is accepted in width, numbers are converted to `px`, other units have to be specified.
 
@@ -87,11 +70,11 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
             w={24}
             textAlign="right"
           >
-            w={v}
+            minWidth={v}
           </Box>
           <Box
             h={8}
-            w={v}
+            minWidth={v}
             borderRadius="md"
             bg="emerald-500"
             color="white"
@@ -103,15 +86,15 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
     </Box>
   </template>
   <Box>
-    <Box w={123} />
-    <Box w="12px" />
-    <Box w="4rem" />
-    <Box w="3ex" />
+    <Box minWidth={123} w={0} />
+    <Box minWidth="12px" w={0} />
+    <Box minWidth="4rem" w={0} />
+    <Box minWidth="3ex" w={0} />
   </Box>
 </>
 ```
 
-## Fluid Width
+## Fluid Min-Width
 
 Values from `0` to `1` are converted into percentages. As a fraction or a number, both are an expression. Of course specifying `[value]%` is also possible.
 
@@ -120,66 +103,51 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
   <template preview>
     <Box spaceY={6}>
       {[
-        [
-          ['1/2', 1 / 2],
-          ['1/2', 1 / 2],
-        ],
-        [
-          ['2/5', 2 / 5],
-          ['3/5', 3 / 5],
-        ],
-        [
-          ['0.2', 0.2],
-          ['0.8', 0.8],
-        ],
-        [
-          ['calc(50% - 40px)', 'calc(50% - 40px)'],
-          ['calc(50% + 40px)', 'calc(50% + 40px)'],
-        ],
+        [['1/2', 0.5], 0.1],
+        [['0.5', 0.5], 0.7],
       ].map((v, i) => (
         <Box
           key={i}
           display="flex"
-          borderRadius="md"
           overflow="hidden"
+          borderRadius="md"
           color="white"
           fontFamily="mono"
+          bg="gray-200"
         >
           <Box w={v[0][1]} px={2} py={4} bg="rose-400" textAlign="center">
-            w={v[0][0]}
+            minWidth={v[0][0]}
           </Box>
-          <Box w={v[1][1]} px={2} py={4} bg="rose-500" textAlign="center">
-            w={v[1][0]}
-          </Box>
+          {v[1] > v[0][1] && (
+            <Box
+              w={v[1] - v[0][1]}
+              px={2}
+              py={4}
+              bg="rose-500"
+              textAlign="center"
+            >
+              {`0.2`}
+            </Box>
+          )}
         </Box>
       ))}
     </Box>
   </template>
-  <Box display="flex">
-    <Box w={1 / 2}>w=1/2</Box>
-    <Box w={1 / 2}>w=1/2</Box>
+  <Box minWidth={1 / 2} w={0.1}>
+    minWidth=1/2
   </Box>
-  <Box display="flex">
-    <Box w={2 / 5}>w=2/5</Box>
-    <Box w={3 / 5}>w=3/5</Box>
-  </Box>
-  <Box display="flex">
-    <Box w={0.2}>w=0.2</Box>
-    <Box w={0.8}>w=0.8</Box>
-  </Box>
-  <Box display="flex">
-    <Box w="calc(50% - 40px)">w=calc(50% - 40px)</Box>
-    <Box w="calc(50% + 40px)">w=calc(50% + 40px)</Box>
+  <Box minWidth={0.5} w={0.7}>
+    minWidth=0.5
   </Box>
 </>
 ```
 
 ## Responsive
 
-To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `w={{ md: 1 }}` to an element would apply the `w={1}` utility at medium screen sizes and above.
+To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `minWidth={{ md: 1 }}` to an element would apply the `minWidth={1}` utility at medium screen sizes and above.
 
 ```jsx
-<Box w={{ xs: 1 / 2, md: 1 }} />
+<Box minWidth={{ xs: 1 / 2, md: 1 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

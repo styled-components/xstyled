@@ -1,0 +1,191 @@
+---
+section: Sizing
+title: Max-Width
+---
+
+# Max-Width
+
+Utilities for setting the maximum width of an element
+
+| React props        | CSS Properties        |
+| ------------------ | --------------------- |
+| `maxWidth=[value]` | `max-width: [value];` |
+
+## Scaled Max-Width
+
+All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scale `1`, you have to specify `1s`.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
+      {['1s', 8, 12, 16, 24].map(v => (
+        <Box key={v} display="flex" alignItems="center" spaceX={4}>
+          <Box
+            as="p"
+            fontSize="sm"
+            color="light-blue-600"
+            w={24}
+            textAlign="right"
+          >
+            maxWidth={v}
+          </Box>
+          <Box
+            w={32}
+            bg="gray-200"
+            borderRadius="md"
+            display="flex"
+            alignItems="flex-end"
+          >
+            <Box
+              h={8}
+              maxWidth={v}
+              w={1}
+              borderRadius="md"
+              bg="light-blue-500"
+              color="white"
+              fontSize="2xl"
+              fontWeight="extrabold"
+            />
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box>
+    <Box maxWidth="1s" w={32} />
+    <Box maxWidth={8} w={32} />
+    <Box maxWidth={12} w={32} />
+    <Box maxWidth={16} w={32} />
+    <Box maxWidth={24} w={32} />
+  </Box>
+</>
+```
+
+## Fixed Max-Width
+
+Any valid value is accepted in width, numbers are converted to `px`, other units have to be specified.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
+      {[110, '12px', '4rem', '3ex'].map(v => (
+        <Box key={v} display="flex" alignItems="center" spaceX={4}>
+          <Box
+            as="p"
+            fontSize="sm"
+            color="emerald-600"
+            w={24}
+            textAlign="right"
+          >
+            maxWidth={v}
+          </Box>
+          <Box
+            w={32}
+            bg="gray-200"
+            borderRadius="md"
+            display="flex"
+            alignItems="flex-end"
+          >
+            <Box
+              h={8}
+              maxWidth={v}
+              w={1}
+              borderRadius="md"
+              bg="emerald-500"
+              color="white"
+              fontSize="2xl"
+              fontWeight="extrabold"
+            />
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box>
+    <Box maxWidth={110} w={32} />
+    <Box maxWidth="12px" w={32} />
+    <Box maxWidth="4rem" w={32} />
+    <Box maxWidth="3ex" w={32} />
+  </Box>
+</>
+```
+
+## Fluid Max-Width
+
+Values from `0` to `1` are converted into percentages. As a fraction or a number, both are an expression. Of course specifying `[value]%` is also possible.
+
+```jsx preview
+<>
+  <template preview>
+    <Box spaceY={6}>
+      <Box
+        display="flex"
+        overflow="hidden"
+        borderRadius="md"
+        color="white"
+        fontFamily="mono"
+        bg="gray-200"
+      >
+        <Box w={0.3} px={2} py={4} bg="rose-500" textAlign="center">
+          0.3
+        </Box>
+      </Box>
+      <Box
+        display="flex"
+        overflow="hidden"
+        borderRadius="md"
+        color="white"
+        fontFamily="mono"
+        bg="gray-200"
+      >
+        <Box w={0.5} px={2} py={4} bg="rose-500" textAlign="center">
+          0.5
+        </Box>
+        <Box w={0.2} px={2} py={4} bg="gray-400" textAlign="center">
+          0.2
+        </Box>
+      </Box>
+    </Box>
+  </template>
+  <Box maxWidth={1 / 2} w={0.3}>
+    maxWidth=1/2
+  </Box>
+  <Box maxWidth={0.5} w={0.7}>
+    maxWidth=0.5
+  </Box>
+</>
+```
+
+## Responsive
+
+To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `maxWidth={{ md: 1 }}` to an element would apply the `maxWidth={1}` utility at medium screen sizes and above.
+
+```jsx
+<Box maxWidth={{ xs: 1 / 2, md: 1 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Sizes scale
+
+f you'd like to customize your values for width, height, min-width, min-height, max-width, max-height, all at once, use the `theme.sizes` section of your theme.
+
+<!-- @TODO support diff -->
+
+```diffjs
+  // theme.js
+  export const theme = {
+    sizes: {
++     sm: '8px',
++     md: '16px',
++     lg: '24px',
++     xl: '48px',
+    },
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).
