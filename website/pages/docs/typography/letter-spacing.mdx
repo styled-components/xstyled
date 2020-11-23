@@ -1,0 +1,83 @@
+---
+section: Typography
+title: Letter Spacing
+---
+
+# Letter Spacing
+
+Utilities for controlling the tracking (letter spacing) of an element.
+
+| React props             | CSS Properties            |
+| ----------------------- | ------------------------- |
+| `letterSpacing=[value]` | `letterSpacing: [value];` |
+
+## Usage
+
+Control the letter spacing of an element using the `letterSpacing={size}` utilities.
+
+```jsx preview
+<>
+  <template preview>
+    <Box spaceY={4}>
+      {['tighter', 'tight', 'normal', 'wide', 'wider', 'widest'].map(
+        letterSpacing => (
+          <Box key={letterSpacing} as="dl" color="violet-600" overflow="hidden">
+            <Box
+              as="dt"
+              w={16}
+              flexShrink={0}
+              fontSize="sm"
+              opacity={0.5}
+              fontFamily="mono"
+              mb={1}
+            >
+              {letterSpacing}
+            </Box>
+            <Box as="dd" fontSize="xl" letterSpacing={letterSpacing} m={0}>
+              Computers have lots of memory but no imagination.
+            </Box>
+          </Box>
+        ),
+      )}
+    </Box>
+  </template>
+  <Box letterSpacing="tighter">Computers have lots ...</Box>
+  <Box letterSpacing="tight">Computers have lots ...</Box>
+  <Box letterSpacing="normal">Computers have lots ...</Box>
+  <Box letterSpacing="wide">Computers have lots ...</Box>
+  <Box letterSpacing="wider">Computers have lots ...</Box>
+  <Box letterSpacing="widest">Computers have lots ...</Box>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `letterSpacing={{ md: "wide" }}` to an element would apply the `letterSpacing="wide"` utility at medium screen sizes and above.
+
+```jsx
+<Box letterSpacing={{ md: 'wide' }}>{/* ... */}</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Letter Spacings
+
+If you'd like to customize your values for letter spacings, use the `theme.letterSpacings` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    fontSizes: {
++     tightest: '-.075em',
+      tighter: '-.05em',
+-     tight: '-.025em',
+      normal: '0',
+-     wide: '.025em',
+      wider: '.05em',
+-     widest: '.1em',
++     widest: '.25em',
+    },
+  }
+```

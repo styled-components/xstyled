@@ -122,10 +122,10 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
     </Box>
   </template>
   <Box>
-    <Box maxHeight={110} h="999px" />
-    <Box maxHeight="12px" h="999px" />
-    <Box maxHeight="4rem" h="999px" />
-    <Box maxHeight="3ex" h="999px" />
+    <Box maxHeight={110} h={32} />
+    <Box maxHeight="12px" h={32} />
+    <Box maxHeight="4rem" h={32} />
+    <Box maxHeight="3ex" h={32} />
   </Box>
 </>
 ```
@@ -226,8 +226,6 @@ For more information about xstyled's responsive design features, check out [Resp
 ### Sizes scale
 
 f you'd like to customize your values for width, height, min-width, min-height, max-width, max-height, all at once, use the `theme.sizes` section of your theme.
-
-<!-- @TODO support diff -->
 
 ```diffjs
   // theme.js

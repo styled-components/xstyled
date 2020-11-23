@@ -1,0 +1,117 @@
+---
+section: Typography
+title: Font Family
+---
+
+# Font Family
+
+Utilities for controlling the font family of an element.
+
+| React props          | CSS Properties         |
+| -------------------- | ---------------------- |
+| `fontFamily=[value]` | `fontFamily: [value];` |
+
+## Sans-serif
+
+Use `fontFamily="sans"` to apply a web safe sans-serif font family:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      as="p"
+      fontFamily="sans"
+      fontSize="xl"
+      color="light-blue-600"
+      textAlign="center"
+    >
+      Computers have lots of memory but no imagination.
+    </Box>
+  </template>
+  <Box as="p" fontFamily="sans">
+    Computers have lots of memory but no imagination.
+  </Box>
+</>
+```
+
+## Serif
+
+Use `fontFamily="serif"` to apply a web safe serif font family:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      as="p"
+      fontFamily="serif"
+      fontSize="xl"
+      color="emerald-600"
+      textAlign="center"
+    >
+      Computers have lots of memory but no imagination.
+    </Box>
+  </template>
+  <Box as="p" fontFamily="serif">
+    Computers have lots of memory but no imagination.
+  </Box>
+</>
+```
+
+## Monospaced
+
+Use `fontFamily="mono"` to apply a web safe monospaced font family:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      as="p"
+      fontFamily="mono"
+      fontSize="xl"
+      color="indigo-600"
+      textAlign="center"
+    >
+      Computers have lots of memory but no imagination.
+    </Box>
+  </template>
+  <Box as="p" fontFamily="mono">
+    Computers have lots of memory but no imagination.
+  </Box>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `fontFamily={{ md: "sans" }}` to an element would apply the `fontFamily="sans"` utility at medium screen sizes and above.
+
+```jsx
+<Box fontFamily={{ xs: 'serif', md: 'sans' }}>{/* ... */}</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Font Families
+
+If you'd like to customize your values for font families, use the `theme.fonts` section of your theme.
+
+<!-- @TODO support diff -->
+
+```diffjs
+  // theme.js
+  export const theme = {
+    fonts: {
++     display: 'Oswald, ...',
++     body: 'Open Sans, ...',
+    },
+  }
+```
+
+Fonts have to be specified exacly like you specify them in [CSS property `font-family`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family).
+
+Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).
+
+### Use custom Web Fonts
+
+@TODO

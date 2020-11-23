@@ -1,0 +1,69 @@
+---
+section: Typography
+title: Font Style
+---
+
+# Font Style
+
+Utilities for controlling the font family of an element.
+
+| React props         | CSS Properties        |
+| ------------------- | --------------------- |
+| `fontStyle=[value]` | `fontStyle: [value];` |
+
+## Italics
+
+Use `fontStyle="italic"` to make text italic.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      as="p"
+      fontFamily="sans"
+      fontSize="xl"
+      fontStyle="italic"
+      color="light-blue-600"
+      textAlign="center"
+    >
+      Computers have lots of memory but no imagination.
+    </Box>
+  </template>
+  <Box as="p" fontStyle="italic">
+    Computers have lots of memory but no imagination.
+  </Box>
+</>
+```
+
+## Undo italics
+
+Use the `fontSize="normal"` utility to display text normally. This is typically used to reset italic text at different breakpoints.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      as="p"
+      fontFamily="sans"
+      fontSize="xl"
+      color="green-600"
+      textAlign="center"
+    >
+      Computers have lots of memory but no imagination.
+    </Box>
+  </template>
+  <Box as="p" fontStyle="normal">
+    Computers have lots of memory but no imagination.
+  </Box>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `fontStyle={{ md: "italic" }}` to an element would apply the `fontStyle="italic"` utility at medium screen sizes and above.
+
+```jsx
+<Box fontStyle={{ md: 'italic' }}>{/* ... */}</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

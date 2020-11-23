@@ -1,0 +1,103 @@
+---
+section: Typography
+title: Font Weight
+---
+
+# Font Weight
+
+Utilities for controlling the font weight of an element.
+
+| React props          | CSS Properties         |
+| -------------------- | ---------------------- |
+| `fontWeight=[value]` | `fontWeight: [value];` |
+
+## Usage
+
+Control the font weight of an element using the `fontWeight={weight}` utilities.
+
+```jsx preview
+<>
+  <template preview>
+    <>
+      {[
+        'hairline',
+        'thin',
+        'light',
+        'normal',
+        'medium',
+        'semibold',
+        'bold',
+        'extrabold',
+        'black',
+      ].map(weight => (
+        <Box
+          key={weight}
+          as="dl"
+          display="flex"
+          alignItems="baseline"
+          color="violet-600"
+          overflow="hidden"
+        >
+          <Box
+            as="dt"
+            w={16}
+            flexShrink={0}
+            fontSize="sm"
+            opacity={0.5}
+            fontFamily="mono"
+          >
+            {weight}
+          </Box>
+          <Box as="dd" fontSize="xl" fontWeight={weight}>
+            Computers have lots of memory but no imagination.
+          </Box>
+        </Box>
+      ))}
+    </>
+  </template>
+  <Box fontWeight="hairline">Computers have lots ...</Box>
+  <Box fontWeight="thin">Computers have lots ...</Box>
+  <Box fontWeight="light">Computers have lots ...</Box>
+  <Box fontWeight="normal">Computers have lots ...</Box>
+  <Box fontWeight="medium">Computers have lots ...</Box>
+  <Box fontWeight="semibold">Computers have lots ...</Box>
+  <Box fontWeight="bold">Computers have lots ...</Box>
+  <Box fontWeight="extrabold">Computers have lots ...</Box>
+  <Box fontWeight="black">Computers have lots ...</Box>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `fontWeight={{ md: "bold" }}` to an element would apply the `fontWeight="bold"` utility at medium screen sizes and above.
+
+```jsx
+<Box fontWeight={{ xs: 'thin', md: 'bold' }}>{/* ... */}</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Font Weights
+
+If you'd like to customize your values for font weights, use the `theme.fontWeights` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    fontSizes: {
+-     hairline: 100,
++     'extra-light': 100,
+-     thin: 200,
+      light: 300,
+      normal: 400,
+      medium: 500,
++     semibold: 600,
+      bold: 700,
+-     extrabold: 800,
++     'extra-bold': 800,
+      black: 900,
+    },
+  }
+```
