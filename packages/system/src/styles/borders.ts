@@ -32,7 +32,7 @@ export const getBorderStyle = themeGetter({
   key: 'borderStyles',
 })
 
-// Style
+// Border
 
 export interface BorderProps<T = {}> {
   border?: SystemProperty<BorderGetter<T> | CSS.Property.Border, T>
@@ -148,6 +148,48 @@ export const borderStyle = style<BorderStyleProps>({
   themeGet: getBorderStyle,
 })
 
+// Outline
+
+export interface OutlineProps<T = {}> {
+  outline?: SystemProperty<BorderGetter<T> | CSS.Property.Outline, T>
+}
+export const outline = style<OutlineProps>({
+  prop: 'outline',
+  themeGet: getBorder,
+})
+
+export interface OutlineColorProps<T = {}> {
+  outlineColor?: SystemProperty<ColorGetter | CSS.Property.OutlineColor, T>
+}
+export const outlineColor = style<OutlineColorProps>({
+  prop: 'outlineColor',
+  themeGet: getColor,
+})
+
+export interface OutlineWidthProps<T = {}> {
+  outlineWidth?: SystemProperty<
+    BorderWidthGetter<T> | CSS.Property.OutlineWidth,
+    T
+  >
+}
+export const outlineWidth = style<OutlineWidthProps>({
+  prop: 'outlineWidth',
+  themeGet: getBorderWidth,
+})
+
+export interface OutlineStyleProps<T = {}> {
+  outlineStyle?: SystemProperty<
+    BorderStyleGetter<T> | CSS.Property.OutlineStyle,
+    T
+  >
+}
+export const outlineStyle = style<OutlineStyleProps>({
+  prop: 'outlineStyle',
+  themeGet: getBorderStyle,
+})
+
+// Radius
+
 export interface BorderRadiusProps<T = {}> {
   borderRadius?: SystemProperty<RadiusGetter<T> | CSS.Property.BorderRadius, T>
 }
@@ -168,7 +210,11 @@ export type BordersProps<T = {}> = BorderProps<T> &
   BorderColorProps<T> &
   BorderWidthProps<T> &
   BorderStyleProps<T> &
-  BorderRadiusProps<T>
+  BorderRadiusProps<T> &
+  OutlineProps<T> &
+  OutlineColorProps<T> &
+  OutlineWidthProps<T> &
+  OutlineStyleProps<T>
 export const borders = compose<BordersProps>(
   border,
   borderTop,
@@ -183,4 +229,8 @@ export const borders = compose<BordersProps>(
   borderWidth,
   borderStyle,
   borderRadius,
+  outline,
+  outlineColor,
+  outlineWidth,
+  outlineStyle,
 )
