@@ -1,0 +1,88 @@
+---
+section: Typography
+title: Text Overflow
+---
+
+# Text Overflow
+
+Utilities for controlling text overflow in an element.
+
+| React props            | CSS Properties           |
+| ---------------------- | ------------------------ |
+| `textOverflow=[value]` | `textOverflow: [value];` |
+
+## Overflow Ellipsis
+
+Use `textOverflow="ellipsis"` to truncate overflowing text with an ellipsis (`…`) if needed.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      as="p"
+      textOverflow="ellipsis"
+      overflow="hidden"
+      maxWidth="xs"
+      px={6}
+      py={4}
+      mx="auto"
+      bg="emerald-200"
+      color="emerald-600"
+      fontWeight="medium"
+      borderRadius="lg"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Blanditiisitaquequodpraesentiumexplicaboincidunt? Dolores beatae nam at
+      sed dolorum ratione dolorem nisi velit cum.
+    </Box>
+  </template>
+  <Box as="p" textOverflow="ellipsis" overflow="hidden">
+    ...
+  </Box>
+</>
+```
+
+## Overflow Clip
+
+Use `textOverflow="clip"` to truncate the text at the limit of the content area.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      as="p"
+      textOverflow="clip"
+      overflow="hidden"
+      maxWidth="xs"
+      px={6}
+      py={4}
+      mx="auto"
+      bg="light-blue-200"
+      color="light-blue-600"
+      fontWeight="medium"
+      borderRadius="lg"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Blanditiisitaquequodpraesentiumexplicaboincidunt? Dolores beatae nam at
+      sed dolorum ratione dolorem nisi velit cum.
+    </Box>
+  </template>
+  <Box as="p" textOverflow="clip" overflow="hidden">
+    ...
+  </Box>
+</>
+```
+
+## Truncate
+
+@ TODO
+
+## Responsive
+
+To control the text overflow of an element at a specific breakpoint, use responsive object notation. For example, adding the property `textOverflow={{ md: "clip" }}` to an element would apply the `textOverflow="clip"` utility at medium screen sizes and above.
+
+```jsx
+<Box textOverflow={{ md: 'clip' }}>{/* ... */}</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
