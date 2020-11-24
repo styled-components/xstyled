@@ -18,9 +18,9 @@ To create custom lists, use the `listStyleType={type}` utilities.
 ```jsx preview
 <>
   <template preview>
-    <Box spaceY={4}>
+    <Box spaceY={8}>
       {['disc', 'decimal', 'circle', 'square', 'none'].map(listStyleType => (
-        <Box key={listStyleType} as="dl" color="violet-600" overflow="hidden">
+        <Box key={listStyleType} as="dl" color="pink-600" overflow="hidden">
           <Box
             as="dt"
             w={16}
@@ -33,7 +33,7 @@ To create custom lists, use the `listStyleType={type}` utilities.
             listStyleType={listStyleType}
           </Box>
           <Box as="dd" fontSize="xl" m={0}>
-            <Box as="ul" listStyleType={listStyleType}>
+            <Box as="ul" my={0} listStyleType={listStyleType}>
               <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
               <li>
                 Assumenda, quia temporibus eveniet a libero incidunt suscipit

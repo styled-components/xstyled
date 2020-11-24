@@ -18,7 +18,7 @@ Control the position of the markers in a list using the `listStylePosition="insi
 ```jsx preview
 <>
   <template preview>
-    <Box spaceY={4}>
+    <Box spaceY={8}>
       {['inside', 'outside'].map(listStylePosition => (
         <Box
           key={listStylePosition}
@@ -44,6 +44,7 @@ Control the position of the markers in a list using the `listStylePosition="insi
               listStylePosition={listStylePosition}
               borderRadius="md"
               p={0}
+              my={0}
               ml={6}
             >
               <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
