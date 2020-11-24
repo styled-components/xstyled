@@ -1,0 +1,76 @@
+---
+section: Typography
+title: List Style Type
+---
+
+# List Style Type
+
+Utilities for controlling the style of a list.
+
+| React props             | CSS Properties            |
+| ----------------------- | ------------------------- |
+| `listStyleType=[value]` | `listStyleType: [value];` |
+
+## Usage
+
+To create custom lists, use the `listStyleType={type}` utilities.
+
+```jsx preview
+<>
+  <template preview>
+    <Box spaceY={4}>
+      {['disc', 'decimal', 'circle', 'square', 'none'].map(listStyleType => (
+        <Box key={listStyleType} as="dl" color="violet-600" overflow="hidden">
+          <Box
+            as="dt"
+            w={16}
+            flexShrink={0}
+            fontSize="sm"
+            opacity={0.5}
+            fontFamily="mono"
+            mb={1}
+          >
+            listStyleType={listStyleType}
+          </Box>
+          <Box as="dd" fontSize="xl" m={0}>
+            <Box as="ul" listStyleType={listStyleType}>
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
+              <li>
+                Assumenda, quia temporibus eveniet a libero incidunt suscipit
+              </li>
+              <li>
+                Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+              </li>
+            </Box>
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box as="ul" listStyleType="disc">
+    <li>Lorem ipsum ...</li>
+  </Box>
+  <Box as="ul" listStyleType="decimal">
+    <li>Lorem ipsum ...</li>
+  </Box>
+  <Box as="ul" listStyleType="circle">
+    <li>Lorem ipsum ...</li>
+  </Box>
+  <Box as="ul" listStyleType="square">
+    <li>Lorem ipsum ...</li>
+  </Box>
+  <Box as="ul" listStyleType="none">
+    <li>Lorem ipsum ...</li>
+  </Box>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `listStyleType={{ md: "disc" }}` to an element would apply the `listStyleType="disc"` utility at medium screen sizes and above.
+
+```jsx
+<Box listStyleType={{ md: 'disc' }}>{/* ... */}</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

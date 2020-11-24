@@ -1,0 +1,138 @@
+---
+section: Typography
+title: Line Height
+---
+
+# Line Height
+
+Utilities for controlling the leading (line height) of an element.
+
+| React props          | CSS Properties         |
+| -------------------- | ---------------------- |
+| `lineHeight=[value]` | `lineHeight: [value];` |
+
+## Relative line heights
+
+Use the `"none"`, `"tight"`, `"snug"`, `"normal"`, `"relaxed"`, and `"loose"` utilities to give an element a relative line-height based on its current font-size.
+
+```jsx preview
+<>
+  <template preview>
+    <Box spaceY={4}>
+      {['none', 'tight', 'snug', 'normal', 'relaxed', 'loose'].map(
+        lineHeight => (
+          <Box key={lineHeight} as="dl" color="violet-600" overflow="hidden">
+            <Box
+              as="dt"
+              w={16}
+              flexShrink={0}
+              fontSize="sm"
+              opacity={0.5}
+              fontFamily="mono"
+              mb={1}
+            >
+              lineHeight={lineHeight}
+            </Box>
+            <Box as="dd" fontSize="xl" lineHeight={lineHeight} m={0}>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Assumenda, quia temporibus eveniet a libero incidunt suscipit
+              laborum, rerum accusantium modi quidem, ipsam illum quis sed
+              voluptatum quae eum fugit earum.
+            </Box>
+          </Box>
+        ),
+      )}
+    </Box>
+  </template>
+  <Box lineHeight="none">Lorem ipsum ...</Box>
+  <Box lineHeight="tight">Lorem ipsum ...</Box>
+  <Box lineHeight="snug">Lorem ipsum ...</Box>
+  <Box lineHeight="normal">Lorem ipsum ...</Box>
+  <Box lineHeight="relaxed">Lorem ipsum ...</Box>
+  <Box lineHeight="loose">Lorem ipsum ...</Box>
+</>
+```
+
+## Fixed line-heights
+
+Use the `lineHeight={size}` utilities to give an element a fixed line-height, irrespective of the current font-size. These are useful when you need very precise control over an element's final size.
+
+```jsx preview
+<>
+  <template preview>
+    <Box spaceY={4}>
+      {[3, 4, 5, 6, 7, 8, 9, 10, '3rem', '20px'].map(lineHeight => (
+        <Box key={lineHeight} as="dl" color="violet-600" overflow="hidden">
+          <Box
+            as="dt"
+            w={16}
+            flexShrink={0}
+            fontSize="sm"
+            opacity={0.5}
+            fontFamily="mono"
+            mb={1}
+          >
+            lineHeight={lineHeight}
+          </Box>
+          <Box as="dd" fontSize="xl" lineHeight={lineHeight} m={0}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+            quia temporibus eveniet a libero incidunt suscipit laborum, rerum
+            accusantium modi quidem, ipsam illum quis sed voluptatum quae eum
+            fugit earum.
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box lineHeight={3}>Lorem ipsum ...</Box>
+  <Box lineHeight={4}>Lorem ipsum ...</Box>
+  <Box lineHeight={5}>Lorem ipsum ...</Box>
+  <Box lineHeight={6}>Lorem ipsum ...</Box>
+  <Box lineHeight={7}>Lorem ipsum ...</Box>
+  <Box lineHeight={8}>Lorem ipsum ...</Box>
+  <Box lineHeight={9}>Lorem ipsum ...</Box>
+  <Box lineHeight={10}>Lorem ipsum ...</Box>
+  <Box lineHeight="3rem">Lorem ipsum ...</Box>
+  <Box lineHeight="20px">Lorem ipsum ...</Box>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `lineHeight={{ md: "relaxed" }}` to an element would apply the `lineHeight="relaxed"` utility at medium screen sizes and above.
+
+```jsx
+<Box lineHeight={{ md: 'relaxed' }}>{/* ... */}</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Line Heights
+
+If you'd like to customize your values for letter spacings, use the `theme.lineHeights` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    lineHeights: {
+      none: 1,
+      tight: 1.25,
+      snug: 1.375,
+      normal: 1.5,
+      relaxed: 1.625,
+-     loose: 2,
++     'extra-loose': 3,
+      3: '.75rem',
+      4: '1rem',
+      5: '1.25rem',
+      6: '1.5rem',
+      7: '1.75rem',
+      8: '2rem',
+      9: '2.25rem',
+      10: '2.5rem',
++     12: '3rem',
+    },
+  }
+```
