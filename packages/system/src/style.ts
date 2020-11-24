@@ -49,6 +49,7 @@ const states = {
   focusVisible: '&:focus-visible',
   active: '&:active',
   disabled: '&:disabled',
+  placeholder: '&::placeholder',
 }
 const stateNames = Object.keys(states) as (keyof typeof states)[]
 
