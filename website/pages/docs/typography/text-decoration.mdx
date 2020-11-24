@@ -1,0 +1,73 @@
+---
+section: Typography
+title: Text Decoration
+---
+
+# Text Decoration
+
+Utilities for controlling the decoration of text.
+
+| React props              | CSS Properties             |
+| ------------------------ | -------------------------- |
+| `textDecoration=[value]` | `textDecoration: [value];` |
+
+## Underline
+
+Use the `textDecoration="underline"` utility to underline text.
+
+```jsx preview
+<>
+  <template preview>
+    <Box as="p" textDecoration="underline" fontSize="xl" color="emerald-600">
+      Computers have lots of memory but no imagination.
+    </Box>
+  </template>
+  <Box as="p" textDecoration="underline">
+    Computers have lots of memory but no imagination.
+  </Box>
+</>
+```
+
+## Line Through
+
+Use the `textDecoration="line-through"` utility to strike out text.
+
+```jsx preview
+<>
+  <template preview>
+    <Box as="p" textDecoration="line-through" fontSize="xl" color="red-600">
+      Computers have lots of memory but no imagination.
+    </Box>
+  </template>
+  <Box as="p" textDecoration="line-through">
+    Computers have lots of memory but no imagination.
+  </Box>
+</>
+```
+
+## No underline
+
+Use the `textDecoration="none"` utility to strike out text.
+
+```jsx preview
+<>
+  <template preview>
+    <Box as="p" textDecoration="none" fontSize="xl" color="red-600">
+      Computers have lots of memory but no imagination.
+    </Box>
+  </template>
+  <Box as="p" textDecoration="none">
+    Computers have lots of memory but no imagination.
+  </Box>
+</>
+```
+
+## Responsive
+
+To control the text decoration of an element at a specific breakpoint, use responsive object notation. For example, adding the property `textDecoration={{ md: "underline" }}` to an element would apply the `textDecoration="underline"` utility at medium screen sizes and above.
+
+```jsx
+<Box textDecoration={{ md: 'underline' }}>{/* ... */}</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
