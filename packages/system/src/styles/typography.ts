@@ -133,6 +133,13 @@ export const verticalAlign = style({
   prop: 'verticalAlign',
 })
 
+export interface ListStyleTypeProps<T = {}> {
+  listStyleType?: SystemProperty<CSS.Property.ListStyleType, T>
+}
+export const listStyleType = style({
+  prop: 'listStyleType',
+})
+
 export type TypographyProps<T = {}> = FontFamilyProps<T> &
   FontSizeProps<T> &
   FontStyleProps<T> &
@@ -142,7 +149,8 @@ export type TypographyProps<T = {}> = FontFamilyProps<T> &
   LetterSpacingProps<T> &
   ColorProps<T> &
   TextTransformProps<T> &
-  VerticalAlignProps<T>
+  VerticalAlignProps<T> &
+  ListStyleTypeProps
 export const typography = compose<TypographyProps>(
   fontFamily,
   fontSize,
@@ -154,4 +162,5 @@ export const typography = compose<TypographyProps>(
   color,
   textTransform,
   verticalAlign,
+  listStyleType,
 )
