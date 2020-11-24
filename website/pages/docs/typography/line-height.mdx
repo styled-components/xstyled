@@ -21,7 +21,12 @@ Use the `"none"`, `"tight"`, `"snug"`, `"normal"`, `"relaxed"`, and `"loose"` ut
     <Box spaceY={8}>
       {['none', 'tight', 'snug', 'normal', 'relaxed', 'loose'].map(
         lineHeight => (
-          <Box key={lineHeight} as="dl" color="violet-600" overflow="hidden">
+          <Box
+            key={lineHeight}
+            as="dl"
+            color="light-blue-600"
+            overflow="hidden"
+          >
             <Box
               as="dt"
               w={16}
@@ -62,7 +67,7 @@ Use the `lineHeight={size}` utilities to give an element a fixed line-height, ir
   <template preview>
     <Box spaceY={8}>
       {[3, 4, 5, 6, 7, 8, 9, 10, '3rem', '20px'].map(lineHeight => (
-        <Box key={lineHeight} as="dl" color="violet-600" overflow="hidden">
+        <Box key={lineHeight} as="dl" color="emerald-600" overflow="hidden">
           <Box
             as="dt"
             w={16}
