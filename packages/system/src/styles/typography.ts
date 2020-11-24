@@ -55,7 +55,7 @@ export const getFontSize = themeGetter({
   compose: getPx,
 })
 
-// Styles
+// Font properties
 
 export interface FontFamilyProps<T = {}> {
   fontFamily?: SystemProperty<FontGetter<T> | CSS.Property.FontFamily, T>
@@ -96,13 +96,6 @@ export const fontStyle = style<FontStyleProps>({
   prop: 'fontStyle',
 })
 
-export interface TextAlignProps<T = {}> {
-  textAlign?: SystemProperty<CSS.Property.TextAlign, T>
-}
-export const textAlign = style<TextAlignProps>({
-  prop: 'textAlign',
-})
-
 export interface LetterSpacingProps<T = {}> {
   letterSpacing?: SystemProperty<CSS.Property.LetterSpacing, T>
 }
@@ -110,6 +103,8 @@ export const letterSpacing = style<LetterSpacingProps>({
   prop: 'letterSpacing',
   themeGet: getLetterSpacing,
 })
+
+// Color
 
 export interface ColorProps<T = {}> {
   color?: SystemProperty<ColorGetter<T> | CSS.Property.Color, T>
@@ -119,11 +114,33 @@ export const color = style<ColorProps>({
   themeGet: getColor,
 })
 
+// Text Transform
+
 export interface TextTransformProps<T = {}> {
   textTransform?: SystemProperty<CSS.Property.TextTransform, T>
 }
 export const textTransform = style<TextTransformProps>({
   prop: 'textTransform',
+})
+
+// Text Decoration
+
+export interface TextDecorationProps<T = {}> {
+  textDecoration?: SystemProperty<CSS.Property.TextDecoration, T>
+}
+export const textDecoration = style<TextDecorationProps>({
+  prop: 'textDecoration',
+})
+
+// @TODO add text decoration variants
+
+// Align
+
+export interface TextAlignProps<T = {}> {
+  textAlign?: SystemProperty<CSS.Property.TextAlign, T>
+}
+export const textAlign = style<TextAlignProps>({
+  prop: 'textAlign',
 })
 
 export interface VerticalAlignProps<T = {}> {
@@ -132,6 +149,8 @@ export interface VerticalAlignProps<T = {}> {
 export const verticalAlign = style({
   prop: 'verticalAlign',
 })
+
+// List
 
 export interface ListStyleTypeProps<T = {}> {
   listStyleType?: SystemProperty<CSS.Property.ListStyleType, T>
@@ -156,6 +175,7 @@ export type TypographyProps<T = {}> = FontFamilyProps<T> &
   LetterSpacingProps<T> &
   ColorProps<T> &
   TextTransformProps<T> &
+  TextDecorationProps<T> &
   VerticalAlignProps<T> &
   ListStyleTypeProps<T> &
   ListStylePositionProps<T>
@@ -169,6 +189,7 @@ export const typography = compose<TypographyProps>(
   letterSpacing,
   color,
   textTransform,
+  textDecoration,
   verticalAlign,
   listStyleType,
   listStylePosition,
