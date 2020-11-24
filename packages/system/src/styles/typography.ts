@@ -150,6 +150,15 @@ export const verticalAlign = style({
   prop: 'verticalAlign',
 })
 
+// Overflow
+
+export interface TextOverflowProps<T = {}> {
+  textOverflow?: SystemProperty<CSS.Property.TextOverflow, T>
+}
+export const textOverflow = style<TextOverflowProps>({
+  prop: 'textOverflow',
+})
+
 // List
 
 export interface ListStyleTypeProps<T = {}> {
@@ -177,6 +186,7 @@ export type TypographyProps<T = {}> = FontFamilyProps<T> &
   TextTransformProps<T> &
   TextDecorationProps<T> &
   VerticalAlignProps<T> &
+  TextOverflowProps<T> &
   ListStyleTypeProps<T> &
   ListStylePositionProps<T>
 export const typography = compose<TypographyProps>(
@@ -191,6 +201,7 @@ export const typography = compose<TypographyProps>(
   textTransform,
   textDecoration,
   verticalAlign,
+  textOverflow,
   listStyleType,
   listStylePosition,
 )
