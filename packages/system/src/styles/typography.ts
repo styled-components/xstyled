@@ -140,6 +140,13 @@ export const listStyleType = style({
   prop: 'listStyleType',
 })
 
+export interface ListStylePositionProps<T = {}> {
+  listStylePosition?: SystemProperty<CSS.Property.ListStylePosition, T>
+}
+export const listStylePosition = style({
+  prop: 'listStylePosition',
+})
+
 export type TypographyProps<T = {}> = FontFamilyProps<T> &
   FontSizeProps<T> &
   FontStyleProps<T> &
@@ -150,7 +157,8 @@ export type TypographyProps<T = {}> = FontFamilyProps<T> &
   ColorProps<T> &
   TextTransformProps<T> &
   VerticalAlignProps<T> &
-  ListStyleTypeProps
+  ListStyleTypeProps<T> &
+  ListStylePositionProps<T>
 export const typography = compose<TypographyProps>(
   fontFamily,
   fontSize,
@@ -163,4 +171,5 @@ export const typography = compose<TypographyProps>(
   textTransform,
   verticalAlign,
   listStyleType,
+  listStylePosition,
 )
