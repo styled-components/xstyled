@@ -7,9 +7,9 @@ title: Border Style
 
 Utilities for controlling the style of an element's borders.
 
-| React props           | CSS Properties          |
-| --------------------- | ----------------------- |
-| `borderStyle=[value]` | `borderStyle: [value];` |
+| React props           | CSS Properties           |
+| --------------------- | ------------------------ |
+| `borderStyle=[value]` | `border-style: [value];` |
 
 ## Usage
 
@@ -38,10 +38,11 @@ Use `borderStyle={style}` to control an element's border style.
       ))}
     </Box>
   </template>
-  <Box borderWidth={3} borderStyle="solid" borderColor="light-blue-500" />
-  <Box borderWidth={3} borderStyle="solid" borderColor="light-blue-500" />
-  <Box borderWidth={3} borderStyle="solid" borderColor="light-blue-500" />
-  <Box borderWidth={3} borderStyle="solid" borderColor="light-blue-500" />
+  <Box borderWidth={3} borderStyle="solid" />
+  <Box borderWidth={3} borderStyle="dashed" />
+  <Box borderWidth={3} borderStyle="dotted" />
+  <Box borderWidth={3} borderStyle="double" />
+  <Box borderWidth={3} borderStyle="none" />
 </>
 ```
 
