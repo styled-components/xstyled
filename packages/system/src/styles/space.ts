@@ -247,7 +247,7 @@ export const spaceX = createStyleGenerator<SpaceXProps>(
 export interface SpaceXReverseProps<T = {}> {
   spaceXReverse?: SystemProperty<boolean, T>
 }
-export const spaceXReverse = createStyleGenerator<SpaceXProps>(
+export const spaceXReverse = createStyleGenerator<SpaceXReverseProps>(
   props => {
     if (!props.spaceXReverse) return null
     return {
@@ -262,7 +262,7 @@ export const spaceXReverse = createStyleGenerator<SpaceXProps>(
 export interface SpaceYReverseProps<T = {}> {
   spaceYReverse?: SystemProperty<boolean, T>
 }
-export const spaceYReverse = createStyleGenerator<SpaceYProps>(
+export const spaceYReverse = createStyleGenerator<SpaceYReverseProps>(
   props => {
     if (!props.spaceYReverse) return null
     return {
