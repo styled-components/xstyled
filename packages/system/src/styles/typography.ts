@@ -150,6 +150,15 @@ export const verticalAlign = style({
   prop: 'verticalAlign',
 })
 
+// WhiteSpace
+
+export interface WhiteSpaceProps<T = {}> {
+  whiteSpace?: SystemProperty<CSS.Property.WhiteSpace, T>
+}
+export const whiteSpace = style<WhiteSpaceProps>({
+  prop: 'whiteSpace',
+})
+
 // Overflow
 
 export interface TextOverflowProps<T = {}> {
@@ -186,6 +195,7 @@ export type TypographyProps<T = {}> = FontFamilyProps<T> &
   TextTransformProps<T> &
   TextDecorationProps<T> &
   VerticalAlignProps<T> &
+  WhiteSpaceProps<T> &
   TextOverflowProps<T> &
   ListStyleTypeProps<T> &
   ListStylePositionProps<T>
@@ -201,6 +211,7 @@ export const typography = compose<TypographyProps>(
   textTransform,
   textDecoration,
   verticalAlign,
+  whiteSpace,
   textOverflow,
   listStyleType,
   listStylePosition,
