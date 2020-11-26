@@ -400,4 +400,7 @@ export const defaultTheme = {
   borderWidths: {
     default: 1,
   },
+  borders: {
+    default: '1px solid transparent',
+  },
 }
