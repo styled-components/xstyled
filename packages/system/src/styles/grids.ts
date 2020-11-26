@@ -3,27 +3,27 @@ import { SystemProperty } from '../types'
 import { style, compose } from '../style'
 import { getSpace, SpaceGetter } from './space'
 
-export interface GridGapProps<T = {}> {
-  gridGap?: SystemProperty<SpaceGetter<T> | CSS.Property.GridGap, T>
+export interface GapProps<T = {}> {
+  gap?: SystemProperty<SpaceGetter<T> | CSS.Property.Gap, T>
 }
-export const gridGap = style<GridGapProps>({
-  prop: 'gridGap',
+export const gap = style<GapProps>({
+  prop: 'gap',
   themeGet: getSpace,
 })
 
-export interface GridColumnGapProps<T = {}> {
-  gridColumnGap?: SystemProperty<SpaceGetter<T> | CSS.Property.GridColumnGap, T>
+export interface ColumnGapProps<T = {}> {
+  columnGap?: SystemProperty<SpaceGetter<T> | CSS.Property.ColumnGap, T>
 }
-export const gridColumnGap = style<GridColumnGapProps>({
-  prop: 'gridColumnGap',
+export const columnGap = style<ColumnGapProps>({
+  prop: 'columnGap',
   themeGet: getSpace,
 })
 
-export interface GridRowGapProps<T = {}> {
-  gridRowGap?: SystemProperty<SpaceGetter<T> | CSS.Property.GridRowGap, T>
+export interface RowGapProps<T = {}> {
+  rowGap?: SystemProperty<SpaceGetter<T> | CSS.Property.RowGap, T>
 }
-export const gridRowGap = style<GridRowGapProps>({
-  prop: 'gridRowGap',
+export const rowGap = style<RowGapProps>({
+  prop: 'rowGap',
   themeGet: getSpace,
 })
 
@@ -80,9 +80,9 @@ export interface GridAreaProps<T = {}> {
 }
 export const gridArea = style<GridAreaProps>({ prop: 'gridArea' })
 
-export type GridsProps<T = {}> = GridGapProps<T> &
-  GridColumnGapProps<T> &
-  GridRowGapProps<T> &
+export type GridsProps<T = {}> = GapProps<T> &
+  ColumnGapProps<T> &
+  RowGapProps<T> &
   GridColumnProps<T> &
   GridRowProps<T> &
   GridAutoFlowProps<T> &
@@ -93,9 +93,9 @@ export type GridsProps<T = {}> = GridGapProps<T> &
   GridTemplateAreasProps<T> &
   GridAreaProps<T>
 export const grids = compose<GridsProps>(
-  gridGap,
-  gridColumnGap,
-  gridRowGap,
+  gap,
+  columnGap,
+  rowGap,
   gridColumn,
   gridRow,
   gridAutoFlow,
