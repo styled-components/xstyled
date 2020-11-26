@@ -59,6 +59,7 @@ export interface GridTemplateColumnsProps<T = {}> {
 }
 export const gridTemplateColumns = style<GridTemplateColumnsProps>({
   prop: 'gridTemplateColumns',
+  key: 'gridTemplateColumns',
 })
 
 export interface GridTemplateRowsProps<T = {}> {
@@ -66,6 +67,7 @@ export interface GridTemplateRowsProps<T = {}> {
 }
 export const gridTemplateRows = style<GridTemplateRowsProps>({
   prop: 'gridTemplateRows',
+  key: 'gridTemplateColumns',
 })
 
 export interface GridTemplateAreasProps<T = {}> {
