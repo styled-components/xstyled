@@ -35,6 +35,7 @@ export const getRadius = themeGetter({
   name: 'radius',
   key: 'radii',
   compose: getPx,
+  shorthand: true,
 })
 
 export type TransitionGetter<T = {}> = VariantsType<
