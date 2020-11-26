@@ -15,6 +15,13 @@ describe('#style', () => {
       ).toBe('d')
     })
 
+    it('uses default value when `true`', () => {
+      const scope = themeGetter<{ scope: { default: string } }, 'scope'>({
+        key: 'scope',
+      })
+      expect(scope(true)({ theme: { scope: { default: 'foo' } } })).toBe('foo')
+    })
+
     it('supports shorthand', () => {
       const scope = themeGetter({ key: 'scope', shorthand: true })
       expect(scope('1 value 2')({ theme: { scope: { value: 'foo' } } })).toBe(

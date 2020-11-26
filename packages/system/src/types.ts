@@ -88,6 +88,8 @@ export type VariantsType<
   ? number | (TBaseType & {})
   : TVariants extends Array<any>
   ? number | (TBaseType & {})
+  : TVariants extends { default: any }
+  ? keyof TVariants | (TBaseType & {}) | true
   : TVariants extends Variants
   ? keyof TVariants | (TBaseType & {})
   : TBaseType & {}

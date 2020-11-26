@@ -85,9 +85,12 @@ const SPACES = /\s+/
 export const themeGetter = <
   TTheme,
   Key extends string,
-  TDefaultVariants,
-  TThemeProperty extends ExtractThemeProperty<TTheme, Key>,
-  TVariants extends TThemeProperty extends Variants
+  TDefaultVariants = {},
+  TThemeProperty extends ExtractThemeProperty<
+    TTheme,
+    Key
+  > = ExtractThemeProperty<TTheme, Key>,
+  TVariants = TThemeProperty extends Variants
     ? TThemeProperty
     : TDefaultVariants,
   TBaseType = number | string
@@ -111,15 +114,18 @@ export const themeGetter = <
     props: Props,
   ) => {
     let res = value
-    if (!string(value) && !num(value)) return res
+    if (!string(value) && !num(value) && value !== true) return res
     const cache = getCacheNamespace(props.theme, `__themeGetter${id}`)
     if (cache.has(value)) return cache.get(value)
 
-    const getValue = (value: string | number) => {
+    const getValue = (value: VariantsType<TVariants, TBaseType>) => {
       let res = value
       let variants = is(key) ? getThemeValue(props, key) : null
       variants = is(variants) ? variants : defaultVariants
-      res = is(variants) ? getThemeValue(props, value, variants) : null
+      res = is(variants)
+        ? // @ts-ignore
+          getThemeValue(props, value === true ? 'default' : value, variants)
+        : null
       res = is(res) ? res : value
       const transform =
         (name && props.theme && props.theme.transformers
