@@ -1,0 +1,85 @@
+---
+section: Borders
+title: Border Color
+---
+
+# Border Color
+
+Utilities for controlling the color of an element's borders.
+
+| React props           | CSS Properties          |
+| --------------------- | ----------------------- |
+| `borderColor=[value]` | `borderColor: [value];` |
+
+## All sides
+
+Use `borderColor={color}` utilities to set the border color for all sides of an element.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" alignItems="center" justifyContent="center">
+      <Box
+        as="input"
+        placeholder="Your email"
+        p={3}
+        border={2}
+        borderColor="red-600"
+        focusOutline="0"
+        borderRadius="md"
+      />
+    </Box>
+  </template>
+  <Box as="input" border={2} borderColor="red-600" />
+</>
+```
+
+## Individual sides
+
+Use `borderColor={color}` utilities to set the border color for invidiual sides of an element.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      as="input"
+      placeholder="Your email"
+      p={3}
+      border={2}
+      borderColor="indigo-500 emerald-500 purple-500 red-500"
+      focusOutline="0"
+      borderRadius="md"
+    />
+  </template>
+  <Box border={2} borderColor="indigo-500 emerald-500 purple-500 red-500" />
+</>
+```
+
+## Responsive
+
+To control the border color of an element at a specific breakpoint, use responsive object notation. For example, adding the property `borderColor={{ md: 'red-500' }}` to an element would apply the `borderColor="red-500` utility at medium screen sizes and above.
+
+```jsx
+<Box borderColor={{ md: 'red-500' }}>{/* ... */}</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Colors
+
+If you'd like to customize your values for all colors, use the `theme.colors` section of your theme.
+
+```diffjs
+  // theme.js
+  import { th } from '@xstyled/styled-components'
+
+  export const theme = {
+    colors: {
+      // ...
++     'deep-blue': '#00008b',
++     'primary': th.color('red-600'),
+    },
+  }
+```
