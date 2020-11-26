@@ -22,6 +22,7 @@ export const getBorderWidth = themeGetter({
   name: 'borderWidth',
   key: 'borderWidths',
   compose: getPx,
+  shorthand: true,
 })
 
 export type BorderStyleGetter<T = {}> = VariantsType<

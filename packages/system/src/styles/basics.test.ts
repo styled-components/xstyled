@@ -4,6 +4,7 @@ describe('#getPx', () => {
   it('supports various kind of units', () => {
     const props = {}
     expect(getPx(1)(props)).toBe('1px')
+    expect(getPx('1')(props)).toBe('1px')
     expect(getPx('1px')(props)).toBe('1px')
     expect(getPx('1em')(props)).toBe('1em')
     expect(getPx('1%')(props)).toBe('1%')

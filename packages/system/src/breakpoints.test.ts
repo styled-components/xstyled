@@ -36,7 +36,7 @@ describe('#up', () => {
   it('applies style up to breakpoint', () => {
     expect(up('xs', 'xs')({})).toBe('xs')
     expect(up('sm', 'sm')({})).toEqual([
-      '@media (min-width: 576px) {',
+      '@media (min-width: 640px) {',
       'sm',
       '}',
     ])
@@ -46,12 +46,12 @@ describe('#up', () => {
       '}',
     ])
     expect(up('lg', 'lg')({})).toEqual([
-      '@media (min-width: 992px) {',
+      '@media (min-width: 1024px) {',
       'lg',
       '}',
     ])
     expect(up('xl', 'xl')({})).toEqual([
-      '@media (min-width: 1200px) {',
+      '@media (min-width: 1280px) {',
       'xl',
       '}',
     ])
@@ -61,12 +61,12 @@ describe('#up', () => {
 describe('#down', () => {
   it('applies style down to breakpoint', () => {
     expect(down('xl', 'xl')({})).toEqual([
-      '@media (max-width: 1199.98px) {',
+      '@media (max-width: 1279.98px) {',
       'xl',
       '}',
     ])
     expect(down('lg', 'lg')({})).toEqual([
-      '@media (max-width: 991.98px) {',
+      '@media (max-width: 1023.98px) {',
       'lg',
       '}',
     ])
@@ -76,7 +76,7 @@ describe('#down', () => {
       '}',
     ])
     expect(down('sm', 'sm')({})).toEqual([
-      '@media (max-width: 575.98px) {',
+      '@media (max-width: 639.98px) {',
       'sm',
       '}',
     ])
@@ -88,7 +88,7 @@ describe('#between', () => {
   it('applies style between breakpoints', () => {
     expect(between('xs', 'xs', 'xs-xs')({})).toBe('xs-xs')
     expect(between('xs', 'sm', 'xs-sm')({})).toEqual([
-      '@media (max-width: 575.98px) {',
+      '@media (max-width: 639.98px) {',
       'xs-sm',
       '}',
     ])
@@ -98,42 +98,42 @@ describe('#between', () => {
       '}',
     ])
     expect(between('xs', 'lg', 'xs-lg')({})).toEqual([
-      '@media (max-width: 991.98px) {',
+      '@media (max-width: 1023.98px) {',
       'xs-lg',
       '}',
     ])
     expect(between('xs', 'xl', 'xs-xl')({})).toEqual([
-      '@media (max-width: 1199.98px) {',
+      '@media (max-width: 1279.98px) {',
       'xs-xl',
       '}',
     ])
     expect(between('sm', 'md', 'sm-md')({})).toEqual([
-      '@media (min-width: 576px) and (max-width: 767.98px) {',
+      '@media (min-width: 640px) and (max-width: 767.98px) {',
       'sm-md',
       '}',
     ])
     expect(between('sm', 'lg', 'sm-lg')({})).toEqual([
-      '@media (min-width: 576px) and (max-width: 991.98px) {',
+      '@media (min-width: 640px) and (max-width: 1023.98px) {',
       'sm-lg',
       '}',
     ])
     expect(between('sm', 'xl', 'sm-xl')({})).toEqual([
-      '@media (min-width: 576px) and (max-width: 1199.98px) {',
+      '@media (min-width: 640px) and (max-width: 1279.98px) {',
       'sm-xl',
       '}',
     ])
     expect(between('md', 'lg', 'md-lg')({})).toEqual([
-      '@media (min-width: 768px) and (max-width: 991.98px) {',
+      '@media (min-width: 768px) and (max-width: 1023.98px) {',
       'md-lg',
       '}',
     ])
     expect(between('md', 'xl', 'md-xl')({})).toEqual([
-      '@media (min-width: 768px) and (max-width: 1199.98px) {',
+      '@media (min-width: 768px) and (max-width: 1279.98px) {',
       'md-xl',
       '}',
     ])
     expect(between('lg', 'xl', 'lg-xl')({})).toEqual([
-      '@media (min-width: 992px) and (max-width: 1199.98px) {',
+      '@media (min-width: 1024px) and (max-width: 1279.98px) {',
       'lg-xl',
       '}',
     ])

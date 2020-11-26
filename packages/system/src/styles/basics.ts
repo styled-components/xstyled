@@ -17,7 +17,8 @@ export const getPx = themeGetter({
   name: 'px',
   transform: (value: number | string, { props }) => {
     const rootFontSize = props?.theme?.settings?.rootFontSize ?? undefined
-    return px(rpx(value, { rootFontSize }))
+    const num = Number(value)
+    return px(rpx(Number.isNaN(num) ? value : num, { rootFontSize }))
   },
 })
 

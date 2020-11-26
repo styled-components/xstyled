@@ -81,6 +81,7 @@ function getCacheNamespace(theme: Theme, namespace: string) {
 }
 
 let themeGetterId = 0
+const SPACES = /\s+/
 export const themeGetter = <
   TTheme,
   Key extends string,
@@ -96,12 +97,14 @@ export const themeGetter = <
   key,
   defaultVariants,
   compose,
+  shorthand,
 }: {
   name?: string
   key?: Key
   transform?: TransformValue<TVariants, TBaseType>
   defaultVariants?: TDefaultVariants
   compose?: ThemeGetter<any, any>
+  shorthand?: boolean
 }): ThemeGetter<TVariants, TBaseType> => {
   const id = themeGetterId++
   const getter = (value: VariantsType<TVariants, TBaseType>) => (
@@ -111,22 +114,35 @@ export const themeGetter = <
     if (!string(value) && !num(value)) return res
     const cache = getCacheNamespace(props.theme, `__themeGetter${id}`)
     if (cache.has(value)) return cache.get(value)
-    let variants = is(key) ? getThemeValue(props, key) : null
-    variants = is(variants) ? variants : defaultVariants
-    res = is(variants) ? getThemeValue(props, value, variants) : null
-    res = is(res) ? res : value
-    const transform =
-      (name && props.theme && props.theme.transformers
-        ? props.theme.transformers[name]
-        : null) || defaultTransform
-    if (transform) {
-      res = transform(res, {
-        rawValue: value,
-        variants,
-        props,
-      })
+
+    const getValue = (value: string | number) => {
+      let res = value
+      let variants = is(key) ? getThemeValue(props, key) : null
+      variants = is(variants) ? variants : defaultVariants
+      res = is(variants) ? getThemeValue(props, value, variants) : null
+      res = is(res) ? res : value
+      const transform =
+        (name && props.theme && props.theme.transformers
+          ? props.theme.transformers[name]
+          : null) || defaultTransform
+      if (transform) {
+        res = transform(res, {
+          rawValue: value,
+          variants,
+          props,
+        })
+      }
+      return compose ? compose(res)(props) : res
     }
-    res = compose ? compose(res)(props) : res
+
+    if (shorthand && string(value)) {
+      const values = value.split(SPACES)
+      // @ts-ignore
+      res = values.map((value: string) => getValue(value)).join(' ')
+    } else {
+      res = getValue(value)
+    }
+
     cache.set(value, res)
     return res
   }
