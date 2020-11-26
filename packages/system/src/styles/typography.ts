@@ -184,6 +184,9 @@ export const listStylePosition = style({
   prop: 'listStylePosition',
 })
 
+// @TODO add word-break
+// @TODO add overflow-wrap
+
 export type TypographyProps<T = {}> = FontFamilyProps<T> &
   FontSizeProps<T> &
   FontStyleProps<T> &
