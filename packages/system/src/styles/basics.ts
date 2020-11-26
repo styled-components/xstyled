@@ -54,19 +54,10 @@ export const opacity = style<OpacityProps>({
   prop: 'opacity',
 })
 
-export interface OverflowProps<T = {}> {
-  overflow?: SystemProperty<CSS.Property.Overflow, T>
-}
-export const overflow = style<OverflowProps>({
-  prop: 'overflow',
-})
-
 export interface TransitionProps<T = {}> {
   transition?: SystemProperty<TransitionGetter<T> | CSS.Property.Transition, T>
 }
 export const transition = style({ prop: 'transition', themeGet: getTransition })
 
-export type BasicsProps<T = {}> = OpacityProps<T> &
-  OverflowProps<T> &
-  TransitionProps<T>
-export const basics = compose<BasicsProps>(opacity, overflow, transition)
+export type BasicsProps<T = {}> = OpacityProps<T> & TransitionProps<T>
+export const basics = compose<BasicsProps>(opacity, transition)
