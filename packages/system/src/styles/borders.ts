@@ -50,82 +50,6 @@ export const border = style<BorderProps>({
   themeGet: getBorder,
 })
 
-export interface BorderTopProps<T = {}> {
-  borderTop?: SystemProperty<BorderGetter<T> | CSS.Property.BorderTop, T>
-}
-export const borderTop = style<BorderTopProps>({
-  prop: 'borderTop',
-  themeGet: getBorder,
-})
-
-export interface BorderTopColorProps<T = {}> {
-  borderTopColor?: SystemProperty<
-    ColorGetter<T> | CSS.Property.BorderTopColor,
-    T
-  >
-}
-export const borderTopColor = style<BorderTopColorProps>({
-  prop: 'borderTopColor',
-  themeGet: getColor,
-})
-
-export interface BorderRightProps<T = {}> {
-  borderRight?: SystemProperty<BorderGetter<T> | CSS.Property.BorderRight, T>
-}
-export const borderRight = style<BorderRightProps>({
-  prop: 'borderRight',
-  themeGet: getBorder,
-})
-
-export interface BorderRightColorProps<T = {}> {
-  borderRightColor?: SystemProperty<
-    ColorGetter<T> | CSS.Property.BorderRightColor,
-    T
-  >
-}
-export const borderRightColor = style<BorderRightColorProps>({
-  prop: 'borderRightColor',
-  themeGet: getColor,
-})
-
-export interface BorderBottomProps<T = {}> {
-  borderBottom?: SystemProperty<BorderGetter<T> | CSS.Property.BorderBottom, T>
-}
-export const borderBottom = style<BorderBottomProps>({
-  prop: 'borderBottom',
-  themeGet: getBorder,
-})
-
-export interface BorderBottomColorProps<T = {}> {
-  borderBottomColor?: SystemProperty<
-    ColorGetter<T> | CSS.Property.BorderBottomColor,
-    T
-  >
-}
-export const borderBottomColor = style<BorderBottomColorProps>({
-  prop: 'borderBottomColor',
-  themeGet: getColor,
-})
-
-export interface BorderLeftProps<T = {}> {
-  borderLeft?: SystemProperty<BorderGetter<T> | CSS.Property.BorderLeft, T>
-}
-export const borderLeft = style<BorderLeftProps>({
-  prop: 'borderLeft',
-  themeGet: getBorder,
-})
-
-export interface BorderLeftColorProps<T = {}> {
-  borderLeftColor?: SystemProperty<
-    ColorGetter | CSS.Property.BorderLeftColor,
-    T
-  >
-}
-export const borderLeftColor = style<BorderLeftColorProps>({
-  prop: 'borderLeftColor',
-  themeGet: getColor,
-})
-
 export interface BorderColorProps<T = {}> {
   borderColor?: SystemProperty<ColorGetter | CSS.Property.BorderColor, T>
 }
@@ -273,14 +197,6 @@ export const divideYReverse = createStyleGenerator<DivideYReverseProps>(
 )
 
 export type BordersProps<T = {}> = BorderProps<T> &
-  BorderTopProps<T> &
-  BorderTopColorProps<T> &
-  BorderRightProps<T> &
-  BorderRightColorProps<T> &
-  BorderBottomProps<T> &
-  BorderBottomColorProps<T> &
-  BorderLeftProps<T> &
-  BorderLeftColorProps<T> &
   BorderColorProps<T> &
   BorderWidthProps<T> &
   BorderStyleProps<T> &
@@ -295,14 +211,6 @@ export type BordersProps<T = {}> = BorderProps<T> &
   DivideYReverseProps<T>
 export const borders = compose<BordersProps>(
   border,
-  borderTop,
-  borderTopColor,
-  borderRight,
-  borderRightColor,
-  borderBottom,
-  borderBottomColor,
-  borderLeft,
-  borderLeftColor,
   borderColor,
   borderWidth,
   borderStyle,
