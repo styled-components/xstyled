@@ -34,6 +34,38 @@ const space = {
   96: '24rem',
 }
 
+const timingFunctions = {
+  'ease-in': 'cubic-bezier(0.4, 0, 1, 1)',
+  'ease-out': 'cubic-bezier(0, 0, 0.2, 1)',
+  'ease-in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
+}
+
+const transitionProperties = {
+  default: [
+    'background-color',
+    'border-color',
+    'color',
+    'fill',
+    'stroke',
+    'opacity',
+    'box-shadow',
+    'transform',
+  ],
+  colors: ['background-color', 'border-color', 'color', 'fill', 'stroke'],
+  opacity: ['opacity'],
+  shadow: ['box-shadow'],
+  transform: ['transform'],
+}
+
+const transitions: { [key: string]: string } = Object.keys(
+  transitionProperties,
+).reduce((obj, key) => {
+  obj[key] = transitionProperties[key as keyof typeof transitionProperties]
+    .map(property => `${property} ${timingFunctions['ease-in-out']} 150ms`)
+    .join(',')
+  return obj
+}, {} as { [key: string]: string })
+
 export const defaultTheme = {
   colors: {
     'rose-50': '#fff1f2',
@@ -403,4 +435,7 @@ export const defaultTheme = {
   borders: {
     default: '1px solid transparent',
   },
+  transitions,
+  transitionProperties,
+  timingFunctions,
 }
