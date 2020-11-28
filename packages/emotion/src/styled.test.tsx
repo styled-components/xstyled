@@ -8,7 +8,7 @@ afterEach(cleanup)
 
 describe('#Box', () => {
   it('creates system based components', () => {
-    const { container } = render(<Box m={2} p={1} />)
+    const { container } = render(<Box m={8} p={4} />)
     expect(container.firstChild).toHaveStyle(`
     margin: 8px;
     padding: 4px;
@@ -16,7 +16,16 @@ describe('#Box', () => {
   })
 
   it('supports "as" prop', () => {
-    const { container } = render(<Box as="a" m={2} p={1} />)
+    const { container } = render(<Box as="a" m={8} p={4} />)
+    expect(container.firstChild!.nodeName).toBe('A')
+    expect(container.firstChild).toHaveStyle(`
+      margin: 8px;
+      padding: 4px;
+    `)
+  })
+
+  it('supports "as" shorthand', () => {
+    const { container } = render(<Box.a m={8} p={4} />)
     expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle(`
       margin: 8px;
@@ -28,8 +37,8 @@ describe('#Box', () => {
 describe('#styled', () => {
   it('transforms rules', () => {
     const Dummy = styled.div`
-      margin: 2;
-      padding: 1;
+      margin: 8;
+      padding: 4;
       margin-top: 2px;
     `
     const { container } = render(<Dummy />)
@@ -45,11 +54,11 @@ describe('#styled', () => {
     }
     const Dummy = styled.div<DummyProps>`
       color: red;
-      ${(p) => css`
+      ${p => css`
         margin: ${p.margin};
       `}
     `
-    const { container } = render(<Dummy margin={2} />)
+    const { container } = render(<Dummy margin={8} />)
     expect(container.firstChild).toHaveStyle(`
       color: red;
       margin: 8px;
@@ -113,7 +122,7 @@ describe('#styled', () => {
 
   it('works with css as object', () => {
     const Dummy = styled.div({
-      margin: '2',
+      margin: '8',
     })
     const { container } = render(<Dummy />)
     expect(container.firstChild).toHaveStyle('margin: 8px;')
@@ -124,7 +133,7 @@ describe('#styled', () => {
       ${() => [
         'color: red;',
         css`
-          margin: 1;
+          margin: 4;
         `,
       ]}
     `
@@ -144,21 +153,21 @@ describe('#styled.xxx', () => {
 describe('#styled.xxxBox', () => {
   it('supports box tags', () => {
     const Dummy = styled.box``
-    const { container } = render(<Dummy m={1} />)
+    const { container } = render(<Dummy m={4} />)
     expect(container.firstChild!.nodeName).toBe('DIV')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
   })
 
   it('supports xxxBox tags', () => {
     const Dummy = styled.headerBox``
-    const { container } = render(<Dummy m={1} />)
+    const { container } = render(<Dummy m={4} />)
     expect(container.firstChild!.nodeName).toBe('HEADER')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
   })
 
   it("doesn't forward attributes", () => {
     const Dummy = styled.box``
-    const { container } = render(<Dummy margin={1} />)
+    const { container } = render(<Dummy margin={4} />)
     expect(container.firstChild!.nodeName).toBe('DIV')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
     expect(container.firstChild).not.toHaveAttribute('margin')
@@ -168,7 +177,7 @@ describe('#styled.xxxBox', () => {
     const Dummy = styled.divBox``
     // This is not supported by emotion
     // @ts-expect-error
-    const { container } = render(<Dummy as="a" margin={1} href="ok" />)
+    const { container } = render(<Dummy as="a" margin={4} href="ok" />)
     expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
     expect(container.firstChild).not.toHaveAttribute('margin')

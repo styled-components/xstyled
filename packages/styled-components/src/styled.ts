@@ -4,6 +4,7 @@ import scStyled, {
   StyledConfig,
   ThemedBaseStyledInterface,
   DefaultTheme,
+  StyledComponent,
 } from 'styled-components'
 import { createBox } from '@xstyled/core'
 import { SystemProps } from '@xstyled/system'
@@ -42,14 +43,40 @@ export const styled = <XStyledInterface>(
   ((component: any) => getCreateStyle(scStyled(component)))
 )
 
-export const Box = styled('div').withConfig({
+type JSXElementKeys = keyof JSX.IntrinsicElements
+
+type BoxFactories = {
+  [Key in JSXElementKeys]: StyledComponent<
+    Key,
+    DefaultTheme,
+    SystemProps<DefaultTheme>,
+    never
+  >
+}
+
+type Box = StyledComponent<
+  'div',
+  DefaultTheme,
+  SystemProps<DefaultTheme>,
+  never
+> &
+  BoxFactories
+
+// @ts-ignore
+export const Box: Box = styled('div').withConfig({
   shouldForwardProp: (prop, defaultValidatorFn) =>
     !createBox.meta.props.includes(prop) && defaultValidatorFn(prop),
 })<SystemProps<DefaultTheme>>(createBox)
 
+Object.keys(scStyled).forEach(key => {
+  // @ts-ignore
+  Box[key] = Box.withComponent(key)
+})
+
+// @ts-ignore
 styled.box = styled(Box)
 
-Object.keys(scStyled).forEach((key) => {
+Object.keys(scStyled).forEach(key => {
   // @ts-ignore
   styled[key] = styled(key)
   // @ts-ignore
