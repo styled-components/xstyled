@@ -1,4 +1,5 @@
 import { compose } from '../style'
+import { animations, AnimationsProps } from './animations'
 import { backgrounds, BackgroundsProps } from './backgrounds'
 import { borders, BordersProps } from './borders'
 import { effects, EffectsProps } from './effects'
@@ -14,6 +15,7 @@ import { transitions, TransitionsProps } from './transitions'
 import { typography, TypographyProps } from './typography'
 import { xgrids, XGridsProps } from './xgrids'
 
+export * from './animations'
 export * from './backgrounds'
 export * from './borders'
 export * from './colors'
@@ -31,7 +33,8 @@ export * from './typography'
 export * from './units'
 export * from './xgrids'
 
-export type SystemProps<T = {}> = BackgroundsProps<T> &
+export type SystemProps<T = {}> = AnimationsProps<T> &
+  BackgroundsProps<T> &
   BordersProps<T> &
   EffectsProps<T> &
   FlexBoxesProps<T> &
@@ -46,6 +49,7 @@ export type SystemProps<T = {}> = BackgroundsProps<T> &
   TypographyProps<T> &
   XGridsProps<T>
 export const system = compose<SystemProps>(
+  animations,
   backgrounds,
   borders,
   effects,
