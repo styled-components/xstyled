@@ -9,6 +9,8 @@ export const unit = (unit: string) => <
 ): string | null =>
   (num(value) && value !== 0 ? `${value}${unit}` : value) as string | null
 
+export const ms = unit('ms')
+
 export const px = unit('px')
 
 interface PxToRemOptions {
