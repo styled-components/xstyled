@@ -1,5 +1,6 @@
 import * as CSS from 'csstype'
 import { style, themeGetter, compose } from '../style'
+import { getDuration } from './units'
 import { SystemProperty, VariantsType, ExtractThemeProperty } from '../types'
 
 export type TransitionGetter<T = {}> = VariantsType<
@@ -45,7 +46,10 @@ export const transitionProperty = style({
 export interface TransitionDurationProps<T = {}> {
   transitionDuration?: SystemProperty<CSS.Property.TransitionDuration, T>
 }
-export const transitionDuration = style({ prop: 'transitionDuration' })
+export const transitionDuration = style({
+  prop: 'transitionDuration',
+  themeGet: getDuration,
+})
 
 export interface TransitionTimingFunctionProps<T = {}> {
   transitionTimingFunction?: SystemProperty<
@@ -58,14 +62,24 @@ export const transitionTimingFunction = style({
   themeGet: getTimingFunction,
 })
 
+export interface TransitionDelayProps<T = {}> {
+  transitionDelay?: SystemProperty<CSS.Property.TransitionDelay, T>
+}
+export const transitionDelay = style({
+  prop: 'transitionDelay',
+  themeGet: getDuration,
+})
+
 export type TransitionsProps<T = {}> = TransitionProps<T> &
   TransitionPropertyProps<T> &
   TransitionDurationProps<T> &
-  TransitionTimingFunctionProps<T>
+  TransitionTimingFunctionProps<T> &
+  TransitionDelayProps<T>
 
 export const transitions = compose<TransitionsProps>(
   transition,
   transitionProperty,
   transitionDuration,
   transitionTimingFunction,
+  transitionDelay,
 )
