@@ -48,17 +48,10 @@ export const getTransition = themeGetter({
 
 // Style
 
-export interface OpacityProps<T = {}> {
-  opacity?: SystemProperty<CSS.Property.Opacity, T>
-}
-export const opacity = style<OpacityProps>({
-  prop: 'opacity',
-})
-
 export interface TransitionProps<T = {}> {
   transition?: SystemProperty<TransitionGetter<T> | CSS.Property.Transition, T>
 }
 export const transition = style({ prop: 'transition', themeGet: getTransition })
 
-export type BasicsProps<T = {}> = OpacityProps<T> & TransitionProps<T>
-export const basics = compose<BasicsProps>(opacity, transition)
+export type BasicsProps<T = {}> = TransitionProps<T>
+export const basics = compose<BasicsProps>(transition)

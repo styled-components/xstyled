@@ -2,11 +2,11 @@ import { compose } from '../style'
 import { backgrounds, BackgroundsProps } from './backgrounds'
 import { basics, BasicsProps } from './basics'
 import { borders, BordersProps } from './borders'
-import { layout, LayoutProps } from './layout'
+import { effects, EffectsProps } from './effects'
 import { flexboxes, FlexBoxesProps } from './flexboxes'
 import { grids, GridsProps } from './grids'
+import { layout, LayoutProps } from './layout'
 import { positioning, PositioningProps } from './positioning'
-import { shadows, ShadowsProps } from './shadows'
 import { sizing, SizingProps } from './sizing'
 import { space, SpaceProps } from './space'
 import { svg, SvgProps } from './svg'
@@ -17,11 +17,11 @@ import { xgrids, XGridsProps } from './xgrids'
 export * from './backgrounds'
 export * from './basics'
 export * from './borders'
+export * from './effects'
 export * from './flexboxes'
 export * from './grids'
 export * from './layout'
 export * from './positioning'
-export * from './shadows'
 export * from './sizing'
 export * from './space'
 export * from './svg'
@@ -32,11 +32,11 @@ export * from './xgrids'
 export type SystemProps<T = {}> = BackgroundsProps<T> &
   BasicsProps<T> &
   BordersProps<T> &
+  EffectsProps<T> &
   FlexBoxesProps<T> &
   GridsProps<T> &
   LayoutProps<T> &
   PositioningProps<T> &
-  ShadowsProps<T> &
   SizingProps<T> &
   SpaceProps<T> &
   SvgProps<T> &
@@ -47,11 +47,11 @@ export const system = compose<SystemProps>(
   backgrounds,
   basics,
   borders,
+  effects,
   flexboxes,
   grids,
   layout,
   positioning,
-  shadows,
   sizing,
   space,
   svg,
