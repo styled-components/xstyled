@@ -21,5 +21,5 @@ export const stroke = style<StrokeProps>({
   themeGet: getColor,
 })
 
-export type SvgProps<T = {}> = Fill<T> & StrokeProps<T>
+export type SvgProps<T = {}> = FillProps<T> & StrokeProps<T>
 export const svg = compose<SvgProps>(fill, stroke)

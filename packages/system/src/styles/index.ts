@@ -10,6 +10,7 @@ import { shadows, ShadowsProps } from './shadows'
 import { sizing, SizingProps } from './sizing'
 import { space, SpaceProps } from './space'
 import { svg, SvgProps } from './svg'
+import { tables, TablesProps } from './tables'
 import { typography, TypographyProps } from './typography'
 import { xgrids, XGridsProps } from './xgrids'
 
@@ -24,6 +25,7 @@ export * from './shadows'
 export * from './sizing'
 export * from './space'
 export * from './svg'
+export * from './tables'
 export * from './typography'
 export * from './xgrids'
 
@@ -38,6 +40,7 @@ export type SystemProps<T = {}> = BackgroundsProps<T> &
   SizingProps<T> &
   SpaceProps<T> &
   SvgProps<T> &
+  TablesProps<T> &
   TypographyProps<T> &
   XGridsProps<T>
 export const system = compose<SystemProps>(
@@ -52,6 +55,7 @@ export const system = compose<SystemProps>(
   sizing,
   space,
   svg,
+  tables,
   typography,
   xgrids,
 )
