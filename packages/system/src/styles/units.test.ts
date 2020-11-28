@@ -1,4 +1,4 @@
-import { getPx } from './basics'
+import { getPx } from './units'
 
 describe('#getPx', () => {
   it('supports various kind of units', () => {

@@ -7,7 +7,8 @@ import {
 } from '../types'
 import { style, compose, themeGetter } from '../style'
 import { rpx } from '../unit'
-import { getColor, ColorGetter, getPx } from './basics'
+import { getPx } from './units'
+import { getColor, ColorGetter } from './colors'
 
 // Getters
 

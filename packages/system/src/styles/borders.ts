@@ -2,7 +2,8 @@ import * as CSS from 'csstype'
 import { num } from '@xstyled/util'
 import { style, themeGetter, compose, createStyleGenerator } from '../style'
 import { px } from '../unit'
-import { getColor, ColorGetter, getRadius, RadiusGetter, getPx } from './basics'
+import { getColor, ColorGetter } from './colors'
+import { getPx } from './units'
 import { ExtractThemeProperty, SystemProperty, VariantsType } from '../types'
 
 // Getters
@@ -121,6 +122,16 @@ export const outlineStyle = style<OutlineStyleProps>({
 })
 
 // Radius
+
+export type RadiusGetter<T = {}> = VariantsType<
+  ExtractThemeProperty<T, 'radii'>
+>
+export const getRadius = themeGetter({
+  name: 'radius',
+  key: 'radii',
+  compose: getPx,
+  shorthand: true,
+})
 
 export interface BorderRadiusProps<T = {}> {
   borderRadius?: SystemProperty<RadiusGetter<T> | CSS.Property.BorderRadius, T>

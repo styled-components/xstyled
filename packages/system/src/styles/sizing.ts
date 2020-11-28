@@ -1,6 +1,6 @@
 import * as CSS from 'csstype'
 import { style, themeGetter, compose } from '../style'
-import { getPercent } from './basics'
+import { getPercent } from './units'
 import { SystemProperty, VariantsType, ExtractThemeProperty } from '../types'
 
 // Getters

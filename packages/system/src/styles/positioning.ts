@@ -1,6 +1,6 @@
 import * as CSS from 'csstype'
 import { style, themeGetter, compose } from '../style'
-import { getPx } from './basics'
+import { getPx } from './units'
 import { SystemProperty, VariantsType, ExtractThemeProperty } from '../types'
 
 // Getters

@@ -1,6 +1,6 @@
 import * as CSS from 'csstype'
 import { style, compose } from '../style'
-import { getPercent } from './basics'
+import { getPercent } from './units'
 import { display, DisplayProps } from './layout'
 import { SystemProperty } from '../types'
 

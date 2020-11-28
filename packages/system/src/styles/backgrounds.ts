@@ -1,6 +1,6 @@
 import * as CSS from 'csstype'
 import { style, compose } from '../style'
-import { getColor, ColorGetter } from './basics'
+import { getColor, ColorGetter } from './colors'
 import { SystemProperty } from '../types'
 
 export interface BackgroundProps<T = {}> {

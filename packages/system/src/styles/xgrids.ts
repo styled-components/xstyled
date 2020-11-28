@@ -1,7 +1,7 @@
 import { SystemProperty } from '../types'
 import { obj } from '@xstyled/util'
 import { createStyleGenerator, reduceBreakpoints, compose } from '../style'
-import { getPercent } from './basics'
+import { getPercent } from './units'
 import { Props } from '../types'
 
 export interface RowProps<T = {}> {
@@ -46,7 +46,7 @@ export interface ColProps<T = {}> {
   col?: SystemProperty<true | 'auto' | string | number, T>
 }
 export const col = createStyleGenerator<ColProps>(
-  (props) => {
+  props => {
     const value = props.col
     const common = {
       boxSizing: 'border-box',

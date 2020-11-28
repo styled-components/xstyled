@@ -1,7 +1,7 @@
 import * as CSS from 'csstype'
 import { is, string, negative, getThemeValue } from '@xstyled/util'
 import { style, themeGetter, compose, createStyleGenerator } from '../style'
-import { getPx } from './basics'
+import { getPx } from './units'
 import { ExtractThemeProperty, VariantsType, SystemProperty } from '../types'
 
 function toNegative(value: string | number) {
