@@ -29,6 +29,13 @@ describe('#style', () => {
       )
     })
 
+    it('supports array', () => {
+      const scope = themeGetter({ key: 'scope' })
+      expect(
+        scope('value')({ theme: { scope: { value: ['foo', 'bar'] } } }),
+      ).toBe('foo,bar')
+    })
+
     it('uses defaultVariants', () => {
       const scope = themeGetter({
         key: 'scope',
