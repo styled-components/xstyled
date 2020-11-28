@@ -1,0 +1,85 @@
+---
+section: Transitions
+title: Transition Property
+---
+
+# Transition Property
+
+Utilities for controlling which CSS properties transition.
+
+| React props                  | CSS Properties                  |
+| ---------------------------- | ------------------------------- |
+| `transitionProperty=[value]` | `transition-property: [value];` |
+
+## Usage
+
+Use `transitionProperty={property}` utilities to specify which properties should transition when they change.
+
+```jsx preview
+<>
+  <template preview>
+    <Box textAlign="center">
+      <Box
+        as="button"
+        fontWeight="medium"
+        transition
+        transitionDuration={500}
+        color="white"
+        bg="blue-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </Box>
+    </Box>
+  </template>
+  <Box
+    as="button"
+    transition
+    transitionProperty="background-color"
+    transitionDuration={500}
+    color="white"
+    bg="blue-600"
+    hoverBg="red-600"
+    py={3}
+    px={6}
+    borderRadius="md"
+  >
+    Hover me
+  </Box>
+</>
+```
+
+## Responsive
+
+To change which properties of an element transition at a specific breakpoint, use responsive object notation. For example, adding the property `transitionProperty={{ md: "all" }}` to an element would apply the `transitionProperty="all"` utility at medium screen sizes and above.
+
+```jsx
+<Box transitionProperty={{ md: 'all' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Transition Properties
+
+If you'd like to customize your values for transition properties, use the `theme.transitionProperties` section of your theme.
+
+```diffjs
+  // theme.js
+
+  export const theme = {
+    transitionProperties: {
+      // ...
+      colors: ['background-color', 'border-color', 'color', 'fill', 'stroke'],
+      opacity: ['opacity'],
+      shadow: ['box-shadow'],
+      transform: ['transform'],
++     dialogs: ['box-shadow', 'transform'],
+    },
+  }
+```

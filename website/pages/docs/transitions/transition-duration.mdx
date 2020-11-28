@@ -1,0 +1,89 @@
+---
+section: Transitions
+title: Transition Duration
+---
+
+# Transition Duration
+
+Utilities for controlling the duration of CSS transitions.
+
+| React props                  | CSS Properties                  |
+| ---------------------------- | ------------------------------- |
+| `transitionDuration=[value]` | `transition-duration: [value];` |
+
+## Usage
+
+Use `transitionDuration={duration}` utilities to control an element's transition-duration.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" justifyContent="space-around" alignItems="center">
+      <Box
+        as="button"
+        fontWeight="medium"
+        transition
+        transitionDuration={150}
+        color="white"
+        bg="fuchsia-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </Box>
+      <Box
+        as="button"
+        fontWeight="medium"
+        transition
+        transitionDuration={300}
+        color="white"
+        bg="fuchsia-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </Box>
+      <Box
+        as="button"
+        fontWeight="medium"
+        transition
+        transitionDuration={700}
+        color="white"
+        bg="fuchsia-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </Box>
+    </Box>
+  </template>
+  <Box transition transitionDuration={150}>
+    Hover me
+  </Box>
+  <Box transition transitionDuration={300}>
+    Hover me
+  </Box>
+  <Box transition transitionDuration={700}>
+    Hover me
+  </Box>
+</>
+```
+
+## Responsive
+
+To control an element's transition-duration at a specific breakpoint, use responsive object notation. For example, adding the property `transitionDuration={{ md: 300 }}` to an element would apply the `transitionDuration={300}` utility at medium screen sizes and above.
+
+```jsx
+<Box transitionDuration={{ md: 300 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

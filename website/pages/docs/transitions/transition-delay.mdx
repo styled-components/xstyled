@@ -1,0 +1,92 @@
+---
+section: Transitions
+title: Transition Delay
+---
+
+# Transition Delay
+
+Utilities for controlling the delay of CSS transitions.
+
+| React props               | CSS Properties               |
+| ------------------------- | ---------------------------- |
+| `transitionDelay=[value]` | `transition-delay: [value];` |
+
+## Usage
+
+Use `transitionDelay={duration}` utilities to control an element's transition-delay.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" justifyContent="space-around" alignItems="center">
+      <Box
+        as="button"
+        fontWeight="medium"
+        transition
+        transitionDuration={500}
+        transitionDelay={150}
+        color="white"
+        bg="amber-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </Box>
+      <Box
+        as="button"
+        fontWeight="medium"
+        transition
+        transitionDuration={500}
+        transitionDelay={300}
+        color="white"
+        bg="amber-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </Box>
+      <Box
+        as="button"
+        fontWeight="medium"
+        transition
+        transitionDuration={500}
+        transitionDelay={700}
+        color="white"
+        bg="amber-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </Box>
+    </Box>
+  </template>
+  <Box transition transitionDelay={150}>
+    Hover me
+  </Box>
+  <Box transition transitionDelay={300}>
+    Hover me
+  </Box>
+  <Box transition transitionDelay={700}>
+    Hover me
+  </Box>
+</>
+```
+
+## Responsive
+
+To control an element's transition-delay at a specific breakpoint, use responsive object notation. For example, adding the property `transitionDelay={{ md: 300 }}` to an element would apply the `transitionDelay={300}` utility at medium screen sizes and above.
+
+```jsx
+<Box transitionDelay={{ md: 300 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
