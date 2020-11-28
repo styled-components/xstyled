@@ -128,7 +128,6 @@ export const themeGetter = <
           getThemeValue(props, value === true ? 'default' : value, variants)
         : null
       // @ts-ignore
-      res = hasVariants && Array.isArray(res) ? res.join(',') : res
       res = is(res) ? res : value
       const transform =
         (name && props.theme && props.theme.transformers

@@ -2,7 +2,7 @@ import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import { ThemeProvider, keyframes } from 'styled-components'
-import styled, { css, Box } from '.'
+import styled, { css, Box, defaultTheme } from '.'
 
 afterEach(cleanup)
 
