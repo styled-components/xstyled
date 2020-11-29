@@ -1,0 +1,302 @@
+---
+section: Animations
+title: Animation
+---
+
+# Animation
+
+Utilities for animating elements with CSS animations.
+
+| React props         | CSS Properties        |
+| ------------------- | --------------------- |
+| `animation=[value]` | `animation: [value];` |
+
+## Spin
+
+Add the `animation="spin"` utility to add a linear spin animation to elements like loading indicators.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" justifyContent="space-around">
+      <Box as="span" display="inline-flex" borderRadius="md" boxShadow="sm">
+        <Box
+          as="button"
+          type="button"
+          display="inline-flex"
+          alignItems="center"
+          px={4}
+          py={2}
+          border
+          borderColor="transparent"
+          lineHeight={6}
+          fontWeight="medium"
+          borderRadius="md"
+          color="white"
+          bg="rose-600"
+          disabled
+        >
+          <Box
+            as="svg"
+            animation="spin"
+            ml={-1}
+            mr={3}
+            h={5}
+            w={5}
+            color="white"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <Box
+              as="circle"
+              opacity={0.25}
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            />
+            <Box
+              as="path"
+              opacity={0.75}
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            />
+          </Box>
+          Processing
+        </Box>
+      </Box>
+    </Box>
+  </template>
+  <Box as="button" type="button" bg="rose-600" disabled>
+    <Box as="svg" viewBox="0 0 24 24" animation="spin">
+      {/* ... */}
+    </Box>
+    Processing
+  </Box>
+</>
+```
+
+## Ping
+
+Add the `animation="ping"` utility to make an element scale and fade like a radar ping or ripple of water — useful for things like notification badges.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" justifyContent="space-around">
+      <Box as="span" display="inline-flex" borderRadius="md" boxShadow="sm">
+        <Box
+          as="button"
+          type="button"
+          display="inline-flex"
+          alignItems="center"
+          position="relative"
+          px={4}
+          py={2}
+          border
+          borderColor="purple-400"
+          focusBorderColor="purple-300"
+          transition
+          lineHeight={6}
+          fontWeight="medium"
+          borderRadius="md"
+          color="purple-800"
+          bg="white"
+        >
+          <Box
+            as="span"
+            display="flex"
+            w={3}
+            h={3}
+            position="absolute"
+            top={0}
+            right={0}
+            mt={-1}
+            mr={-1}
+          >
+            <Box
+              as="span"
+              animation="ping"
+              position="absolute"
+              display="inline-flex"
+              w={1}
+              h={1}
+              borderRadius="full"
+              bg="purple-400"
+              opacity={0.75}
+            />
+            <Box
+              as="span"
+              position="relative"
+              display="inline-flex"
+              borderRadius="full"
+              h={3}
+              w={3}
+              bg="purple-500"
+            />
+          </Box>
+          Transactions
+        </Box>
+      </Box>
+    </Box>
+  </template>
+  <Box as="span" display="flex" w={3} h={3}>
+    <Box
+      as="span"
+      animation="ping"
+      position="absolute"
+      display="inline-flex"
+      w={1}
+      h={1}
+      borderRadius="full"
+      bg="purple-400"
+      opacity={0.75}
+    />
+    <Box
+      as="span"
+      position="relative"
+      display="inline-flex"
+      borderRadius="full"
+      h={3}
+      w={3}
+      bg="purple-500"
+    />
+  </Box>
+</>
+```
+
+## Pulse
+
+Add the `animation="pulse"` utility to make an element gently fade in and out — useful for things like skeleton loaders.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      border
+      borderColor="light-blue-300"
+      boxShadow
+      borderRadius="md"
+      p={4}
+      maxWidth="sm"
+      w={1}
+      mx="auto"
+    >
+      <Box animation="pulse" display="flex" spaceX={4}>
+        <Box borderRadius="full" bg="light-blue-400" w={12} h={12} />
+        <Box flex="1" spaceY={4} py={1}>
+          <Box h={4} bg="light-blue-400" borderRadius w={3 / 4} />
+          <Box spaceY={2}>
+            <Box h={4} bg="light-blue-400" borderRadius />
+            <Box h={4} bg="light-blue-400" borderRadius w={5 / 6} />
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  </template>
+  <Box
+    border
+    borderColor="light-blue-300"
+    boxShadow
+    borderRadius="md"
+    p={4}
+    maxWidth="sm"
+    w={1}
+    mx="auto"
+  >
+    <Box animation="pulse" display="flex" spaceX={4}>
+      <Box borderRadius="full" bg="light-blue-400" w={12} h={12} />
+      <Box flex="1" spaceY={4} py={1}>
+        <Box h={4} bg="light-blue-400" borderRadius w={3 / 4} />
+        <Box spaceY={2}>
+          <Box h={4} bg="light-blue-400" borderRadius />
+          <Box h={4} bg="light-blue-400" borderRadius w={5 / 6} />
+        </Box>
+      </Box>
+    </Box>
+  </Box>
+</>
+```
+
+## Bounce
+
+Add the `animation="bounce"` utility to make an element bounce up and down — useful for things like "scroll down" indicators.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" justifyContent="center" my={5}>
+      <Box
+        as="svg"
+        animation="bounce"
+        w={6}
+        h={6}
+        color="amber-900"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </Box>
+    </Box>
+  </template>
+  <Box as="svg" animation="bounce" w={6} h={6}>
+    {/* ... */}
+  </Box>
+</>
+```
+
+## Prefers-reduced-motion
+
+You can conditionally apply animations and transitions using the `motionSafe` and `motionReduce` variants:
+
+```js
+<Box as="button" type="button" bg="indigo-600" disabled>
+  <Box
+    as="svg"
+    motionSafeAnimation="spin"
+    h={5}
+    w={5}
+    mr={3}
+    viewBox="0 0 24 24"
+  >
+    {/* ... */}
+  </Box>
+  Processing
+</Box>
+```
+
+## Responsive
+
+To change or disable an animation at a specific breakpoint, use responsive object notation. For example, adding the property `animation={{ md: "spin" }}` to an element would apply the `animation="spin"` utility at medium screen sizes and above.
+
+```jsx
+<Box animation={{ md: 'spin' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Animations
+
+Animations by their very nature tend to be highly project-specific. **The animations we include by default are best thought of as helpful examples**, and you're encouraged to customize your animations to better suit your needs.
+
+By default xstyled provides utilities for four different example animations. You change, add, or remove these by customizing the animation section of your theme configuration.
+
+Note that **animations `keyframes` have to be declared globally**. Default animations provided by xstyled are declared in [preflight](/@TODO-link) and are prefixed by `x-`.
+
+```diffjs
+  // theme.js
+
+  export const theme = {
+    animations: {
+      // ...
+     'spin-slow': 'x-spin 3s linear infinite',
+    },
+  }
+```

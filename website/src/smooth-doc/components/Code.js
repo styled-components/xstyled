@@ -5,6 +5,7 @@ import styled, {
   Box,
   ThemeProvider,
   defaultTheme,
+  Preflight,
 } from '@xstyled/styled-components'
 import Editor from 'react-simple-code-editor'
 import Prism from 'prismjs/components/prism-core'
@@ -325,6 +326,7 @@ export function Code({
           theme={prismTheme}
           noInline={noInline}
         >
+          <Preflight />
           <Preview>
             <ThemeProvider theme={defaultTheme}>
               <LivePreview />
