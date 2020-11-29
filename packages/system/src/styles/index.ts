@@ -5,6 +5,7 @@ import { borders, BordersProps } from './borders'
 import { effects, EffectsProps } from './effects'
 import { flexboxes, FlexBoxesProps } from './flexboxes'
 import { grids, GridsProps } from './grids'
+import { interactivity, InteractivityProps } from './interactivity'
 import { layout, LayoutProps } from './layout'
 import { positioning, PositioningProps } from './positioning'
 import { sizing, SizingProps } from './sizing'
@@ -22,6 +23,7 @@ export * from './colors'
 export * from './effects'
 export * from './flexboxes'
 export * from './grids'
+export * from './interactivity'
 export * from './layout'
 export * from './positioning'
 export * from './sizing'
@@ -39,6 +41,7 @@ export type SystemProps<T = {}> = AnimationsProps<T> &
   EffectsProps<T> &
   FlexBoxesProps<T> &
   GridsProps<T> &
+  InteractivityProps<T> &
   LayoutProps<T> &
   PositioningProps<T> &
   SizingProps<T> &
@@ -55,6 +58,7 @@ export const system = compose<SystemProps>(
   effects,
   flexboxes,
   grids,
+  interactivity,
   layout,
   positioning,
   sizing,
