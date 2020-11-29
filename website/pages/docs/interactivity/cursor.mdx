@@ -1,0 +1,183 @@
+---
+section: Interactivity
+title: Cursor
+---
+
+# Cursor
+
+Utilities for controlling the cursor style when hovering over an element.
+
+| React props      | CSS Properties     |
+| ---------------- | ------------------ |
+| `cursor=[value]` | `cursor: [value];` |
+
+## Auto
+
+Use `cursor="auto"` to allow the browser to change the cursor based on the current content (e.g. automatically change to `text` cursor when hovering over text).
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      cursor="auto"
+      maxWidth="xs"
+      p={2}
+      bg="rose-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </Box>
+  </template>
+  <Box cursor="auto">Hover over this text</Box>
+</>
+```
+
+## Default
+
+Use `cursor="default"` to change the mouse cursor to always use the platform-dependent default cursor (usually an arrow).
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      cursor="default"
+      maxWidth="xs"
+      p={2}
+      bg="amber-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </Box>
+  </template>
+  <Box cursor="default">Hover over this text</Box>
+</>
+```
+
+## Pointer
+
+Use `cursor="pointer"` to change the mouse cursor to indicate an interactive element (usually a pointing hand).
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      cursor="pointer"
+      maxWidth="xs"
+      p={2}
+      bg="purple-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </Box>
+  </template>
+  <Box cursor="pointer">Hover over this text</Box>
+</>
+```
+
+## Wait
+
+Use `cursor="wait"` to change the mouse cursor to indicate something is happening in the background (usually an hourglass or watch).
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      cursor="wait"
+      maxWidth="xs"
+      p={2}
+      bg="emerald-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </Box>
+  </template>
+  <Box cursor="wait">Hover over this text</Box>
+</>
+```
+
+## Text
+
+Use `cursor="text"` to change the mouse cursor to indicate the text can be selected (usually an I-beam shape).
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      cursor="text"
+      maxWidth="xs"
+      p={2}
+      bg="fuchsia-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </Box>
+  </template>
+  <Box cursor="text">Hover over this text</Box>
+</>
+```
+
+## Move
+
+Use `cursor="move"` to change the mouse cursor to indicate something that can be moved.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      cursor="move"
+      maxWidth="xs"
+      p={2}
+      bg="indigo-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </Box>
+  </template>
+  <Box cursor="move">Hover over this text</Box>
+</>
+```
+
+## Not allowed
+
+Use `cursor="not-allowed"` to change the mouse cursor to indicate something can not be interacted with or clicked.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      cursor="not-allowed"
+      maxWidth="xs"
+      p={2}
+      bg="light-blue-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </Box>
+  </template>
+  <Box cursor="not-allowed">Hover over this text</Box>
+</>
+```
+
+## Responsive
+
+To control cursor style at a specific breakpoint, use responsive object notation. For example, adding the property `cursor={{ md: "pointer" }}` to an element would apply the `cursor="pointer"` utility at medium screen sizes and above.
+
+```jsx
+<Box cursor={{ md: 'pointer' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

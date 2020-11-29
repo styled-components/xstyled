@@ -1,0 +1,62 @@
+---
+section: Interactivity
+title: Appearance
+---
+
+# Appearance
+
+Utilities for suppressing native form control styling.
+
+| React props          | CSS Properties         |
+| -------------------- | ---------------------- |
+| `appearance=[value]` | `appearance: [value];` |
+
+## Usage
+
+Use `appearance="none"` to reset any browser specific styling on an element. This utility is often used when creating custom form components.
+
+```jsx preview
+<>
+  <template preview>
+    <Box maxWidth="sm" mx="auto" bg="amber-100" p={3}>
+      <Box display="flex" my={4}>
+        <Box as="select" w={16}>
+          <option>Yes</option>
+          <option>No</option>
+          <option>Maybe</option>
+        </Box>
+        <Box mx={4}>Default browser styles applied</Box>
+      </Box>
+      <Box display="flex" my={4}>
+        <Box as="select" appearance="none" w={16}>
+          <option>Yes</option>
+          <option>No</option>
+          <option>Maybe</option>
+        </Box>
+        <Box mx={4}>Default styles removed</Box>
+      </Box>
+    </Box>
+  </template>
+  <Box as="select">
+    <option>Yes</option>
+    <option>No</option>
+    <option>Maybe</option>
+  </Box>
+
+  <Box as="select" appearance="none">
+    <option>Yes</option>
+    <option>No</option>
+    <option>Maybe</option>
+  </Box>
+</>
+```
+
+## Responsive
+
+To control an element's appearance at a specific breakpoint, use responsive object notation. For example, adding the property `appearance={{ md: "none" }}` to an element would apply the `appearance="none"` utility at medium screen sizes and above.
+
+```jsx
+<Box appearance={{ md: 'none' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

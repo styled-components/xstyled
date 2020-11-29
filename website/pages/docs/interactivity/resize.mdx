@@ -1,0 +1,79 @@
+---
+section: Interactivity
+title: Resize
+---
+
+# Resize
+
+Utilities for controlling how an element can be resized.
+
+| React props      | CSS Properties     |
+| ---------------- | ------------------ |
+| `resize=[value]` | `resize: [value];` |
+
+## Resize in all directions
+
+Use `resize="both"` to make an element horizontally and vertically resizable.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      as="textarea"
+      resize="both"
+      border
+      borderColor="gray-300"
+      borderRadius
+    />
+  </template>
+  <Box as="textarea" resize="both" />
+</>
+```
+
+## Resize vertically
+
+Use `resize="vertical"` to make an element vertically resizable.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      as="textarea"
+      resize="vertical"
+      border
+      borderColor="gray-300"
+      borderRadius
+    />
+  </template>
+  <Box as="textarea" resize="vertical" />
+</>
+```
+
+## Resize horizontally
+
+Use `resize="horizontal"` to make an element horizontally resizable.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      as="textarea"
+      resize="horizontal"
+      border
+      borderColor="gray-300"
+      borderRadius
+    />
+  </template>
+  <Box as="textarea" resize="horizontal" />
+</>
+```
+
+## Responsive
+
+To control resize at a specific breakpoint, use responsive object notation. For example, adding the property `resize={{ md: "both" }}` to an element would apply the `resize="both"` utility at medium screen sizes and above.
+
+```jsx
+<Box resize={{ md: 'both' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
