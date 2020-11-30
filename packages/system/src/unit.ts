@@ -10,8 +10,8 @@ export const unit = (unit: string) => <
   (num(value) && value !== 0 ? `${value}${unit}` : value) as string | null
 
 export const ms = unit('ms')
-
 export const px = unit('px')
+export const deg = unit('deg')
 
 interface PxToRemOptions {
   rootFontSize?: number

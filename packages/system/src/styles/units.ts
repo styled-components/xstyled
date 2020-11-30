@@ -1,5 +1,5 @@
 import { themeGetter } from '../style'
-import { px, ms, rpx, percent } from '../unit'
+import { px, ms, deg, rpx, percent } from '../unit'
 
 export const getPx = themeGetter({
   name: 'px',
@@ -15,6 +15,14 @@ export const getDuration = themeGetter({
   transform: (value: number | string) => {
     const num = Number(value)
     return ms(Number.isNaN(num) ? value : num)
+  },
+})
+
+export const getAngle = themeGetter({
+  name: 'angle',
+  transform: (value: number | string) => {
+    const num = Number(value)
+    return deg(Number.isNaN(num) ? value : num)
   },
 })
 
