@@ -12,6 +12,7 @@ import { sizing, SizingProps } from './sizing'
 import { space, SpaceProps } from './space'
 import { svg, SvgProps } from './svg'
 import { tables, TablesProps } from './tables'
+import { transforms, TransformsProps } from './transforms'
 import { transitions, TransitionsProps } from './transitions'
 import { typography, TypographyProps } from './typography'
 import { xgrids, XGridsProps } from './xgrids'
@@ -30,6 +31,7 @@ export * from './sizing'
 export * from './space'
 export * from './svg'
 export * from './tables'
+export * from './transforms'
 export * from './transitions'
 export * from './typography'
 export * from './units'
@@ -48,6 +50,7 @@ export type SystemProps<T = {}> = AnimationsProps<T> &
   SpaceProps<T> &
   SvgProps<T> &
   TablesProps<T> &
+  TransformsProps<T> &
   TransitionsProps<T> &
   TypographyProps<T> &
   XGridsProps<T>
@@ -65,6 +68,7 @@ export const system = compose<SystemProps>(
   space,
   svg,
   tables,
+  transforms,
   transitions,
   typography,
   xgrids,
