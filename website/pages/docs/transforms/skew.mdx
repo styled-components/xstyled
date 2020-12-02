@@ -1,0 +1,59 @@
+---
+section: Transforms
+title: Skew
+---
+
+# Skew
+
+Utilities for skewing elements with transform.
+
+| React props     | CSS Properties         |
+| --------------- | ---------------------- |
+| `skewX=[value]` | `--x-skew-x: [value];` |
+| `skewY=[value]` | `--x-skew-y: [value];` |
+
+## Usage
+
+Skew an element by first enabling transforms with the `transform` utility, then specifying the skew angle using the `skewX={angle}` and `skewY={angle}` utilities.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      display="flex"
+      flexDirection={{ xs: 'column', md: 'row' }}
+      justifyContent="space-around"
+      spaceY={{ xs: 0, md: 12 }}
+      spaceY={{ xs: 12, md: 0 }}
+      my={10}
+    >
+      {[0, 3, 6, 12].map(angle => (
+        <Box key={angle} w={16} h={16} bg="red-400">
+          <Box
+            as="img"
+            h={16}
+            w={16}
+            transform
+            skewY={angle}
+            src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+          />
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box as="img" transform skewY={0} />
+  <Box as="img" transform skewY={3} />
+  <Box as="img" transform skewY={6} />
+  <Box as="img" transform skewY={12} />
+</>
+```
+
+## Responsive
+
+To control the skew of an element at a specific breakpoint, use responsive object notation. For example, adding the property `skewX={{ md: 3 }}` to an element would apply the `skewX={3}` utility at medium screen sizes and above.
+
+```jsx
+<Box transform skewX={{ md: 3 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

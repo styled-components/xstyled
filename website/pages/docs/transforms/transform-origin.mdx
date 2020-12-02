@@ -1,0 +1,59 @@
+---
+section: Transforms
+title: Transform Origin
+---
+
+# Transform Origin
+
+Utilities for specifying the origin for an element's transformations.
+
+| React props               | CSS Properties               |
+| ------------------------- | ---------------------------- |
+| `transformOrigin=[value]` | `transform-origin: [value];` |
+
+## Usage
+
+Specify an element's transform origin using the `transformOrigin={keyword}` utilities.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      display="flex"
+      flexDirection={{ xs: 'column', md: 'row' }}
+      justifyContent="space-around"
+      spaceY={{ xs: 0, md: 12 }}
+      spaceY={{ xs: 12, md: 0 }}
+      my={10}
+    >
+      {['center', 'top left', 'bottom right', 'left'].map(keyword => (
+        <Box key={keyword} w={16} h={16} bg="light-blue-400">
+          <Box
+            as="img"
+            h={16}
+            w={16}
+            transform
+            transformOrigin={keyword}
+            rotate={45}
+            src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+          />
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box as="img" transform transformOrigin="center" rotate={45} />
+  <Box as="img" transform transformOrigin="top left" rotate={45} />
+  <Box as="img" transform transformOrigin="bottom right" rotate={45} />
+  <Box as="img" transform transformOrigin="left" rotate={45} />
+</>
+```
+
+## Responsive
+
+To control the transform-origin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `transformOrigin={{ md: "top" }}` to an element would apply the `transformOrigin="top"` utility at medium screen sizes and above.
+
+```jsx
+<Box transform rotate={45} transformOrigin={{ md: 'top' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

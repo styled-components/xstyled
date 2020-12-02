@@ -1,0 +1,99 @@
+---
+section: Transforms
+title: Transform
+---
+
+# Transform
+
+Utilities for controlling transform behaviour.
+
+| React props         | CSS Properties                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `transform={true}`  | `--x-translate-x: 0;`<br />`--x-translate-y: 0;`<br />`--x-rotate: 0;`<br />`--x-skew-x: 0;`<br />`--x-skew-y: 0;`<br />`--x-scale-x: 0;`<br />`--x-scale-y: 0;`<br />`transform: translate3d(var(--x-translate-x), var(--x-translate-y), 0) rotate(var(--x-rotate)) skewX(var(--x-skew-x)) skewY(var(--x-skew-y)) scaleX(var(--x-scale-x)) scaleY(var(--x-scale-y));` |
+| `transform=[value]` | `transform: [value];`                                                                                                                                                                                                                                                                                                                                                  |
+
+## Transform
+
+To enable transformations you have to add the `transform` utility.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      display="flex"
+      flexDirection={{ xs: 'column', md: 'row' }}
+      justifyContent="space-around"
+      spaceY={{ xs: 0, md: 12 }}
+      spaceY={{ xs: 12, md: 0 }}
+    >
+      <Box w={16} h={16} bg="amber-400">
+        <Box
+          as="img"
+          h={16}
+          w={16}
+          transform
+          rotate={45}
+          src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+        />
+      </Box>
+      <Box w={16} h={16} bg="amber-400">
+        <Box
+          as="img"
+          h={16}
+          w={16}
+          transform
+          skewY={12}
+          src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+        />
+      </Box>
+      <Box w={16} h={16} bg="amber-400">
+        <Box
+          as="img"
+          h={16}
+          w={16}
+          transform
+          scale={0.5}
+          src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+        />
+      </Box>
+      <Box w={16} h={16} bg="amber-400">
+        <Box
+          as="img"
+          h={16}
+          w={16}
+          transform
+          translateX={4}
+          translateY={4}
+          src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+        />
+      </Box>
+      <Box w={16} h={16} bg="amber-400">
+        <Box
+          as="img"
+          h={16}
+          w={16}
+          transform="scale(1.5, 0.5) skew(30deg, 20deg)"
+          src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+        />
+      </Box>
+    </Box>
+  </template>
+  <Box as="img" transform rotate={45} />
+  <Box as="img" transform skewY={12} />
+  <Box as="img" transform scale={0.5} />
+  <Box as="img" transform translateX={4} translateY={4} />
+  <Box as="img" transform="scale(1.5, 0.5) skew(30deg, 20deg)" />
+</>
+```
+
+> Note that because xstyled implements transforms using [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), the transform utilities are not supported in older browsers like IE11. If you need transforms for your project and need to support older browsers, specify explicit transformation (ex: `transform="rotate(45deg)").
+
+## Responsive
+
+To use transforms at a specific breakpoint, use responsive object notation. For example, adding the property `transform={{ md: true }}` to an element would apply the `transform={true}` utility at medium screen sizes and above.
+
+```jsx
+<Box transform={{ md: true }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
