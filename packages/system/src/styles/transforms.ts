@@ -1,3 +1,4 @@
+import * as CSS from 'csstype'
 import { compose, createStyleGenerator, themeGetter, style } from '../style'
 import { SystemProperty } from '../types'
 import { ExtractThemeProperty, VariantsType } from '../types'
@@ -34,6 +35,13 @@ export const transform = createStyleGenerator<TransformProps>(
   },
   ['transform'],
 )
+
+export interface TransformOriginProps<T = {}> {
+  transformOrigin?: SystemProperty<CSS.Property.TransformOrigin, T>
+}
+export const transformOrigin = style({
+  prop: 'transformOrigin',
+})
 
 export interface TranslateXProps<T = {}> {
   translateX?: SystemProperty<number | string, T>
@@ -108,6 +116,7 @@ export const scaleY = style({
 })
 
 export type TransformsProps<T = {}> = TransformProps<T> &
+  TransformOriginProps<T> &
   TranslateXProps<T> &
   TranslateYProps<T> &
   RotateProps<T> &
@@ -118,6 +127,7 @@ export type TransformsProps<T = {}> = TransformProps<T> &
   ScaleYProps<T>
 export const transforms = compose<TransformsProps>(
   transform,
+  transformOrigin,
   translateX,
   translateY,
   rotate,
