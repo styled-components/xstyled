@@ -1,0 +1,134 @@
+---
+section: Flexbox
+title: Flex Wrap
+---
+
+# Flex Wrap
+
+Utilities for controlling how flex items wrap.
+
+| React props        | CSS Properties        |
+| ------------------ | --------------------- |
+| `flexWrap=[value]` | `flex-wrap: [value];` |
+
+## Don't wrap
+
+Use `flexWrap="nowrap"` to prevent flex items from wrapping, causing inflexible items to overflow the container if necessary:
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" flexWrap="nowrap" spaceX={4} overflow="hidden">
+      {[1, 2, 3].map(value => (
+        <Box
+          key={value}
+          w={2 / 5}
+          py={1}
+          flex="none"
+          borderRadius="md"
+          bg="emerald-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box display="flex" flexWrap="nowrap">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </Box>
+</>
+```
+
+## Wrap normally
+
+Use `flexWrap="wrap"` to allow flex items to wrap:
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" flexWrap="wrap" m={-2} overflow="hidden">
+      {[1, 2, 3].map(value => (
+        <Box
+          key={value}
+          w={2 / 5}
+          m={2}
+          py={1}
+          flex="none"
+          borderRadius="md"
+          bg="light-blue-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box display="flex" flexWrap="wrap">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </Box>
+</>
+```
+
+## Wrap reverse
+
+Use `flexWrap="wrap-reverse"` to wrap flex items in the reverse direction:
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" flexWrap="wrap-reverse" m={-2} overflow="hidden">
+      {[1, 2, 3].map(value => (
+        <Box
+          key={value}
+          w={2 / 5}
+          m={2}
+          py={1}
+          flex="none"
+          borderRadius="md"
+          bg="violet-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box display="flex" flexWrap="wrap-reverse">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </Box>
+</>
+```
+
+## Responsive
+
+To control how flex items wrap at a specific breakpoint, use responsive object notation. For example, adding the property `flexWrap={{ md: 'wrap-reverse' }}` to an element would apply the `flexWrap="wrap-reverse"` utility at medium screen sizes and above.
+
+```jsx
+<Box display="flex" flexWrap={{ md: 'wrap-reverse' }}>
+  {/* ... */}
+</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

@@ -1,0 +1,83 @@
+---
+section: Flexbox
+title: Order
+---
+
+# Order
+
+Utilities for controlling the order of flex items.
+
+| React props     | CSS Properties    |
+| --------------- | ----------------- |
+| `order=[value]` | `order: [value];` |
+
+## Usage
+
+Use `order={order}` to render flex items in a different order than they appear in the DOM.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" justifyContent="space-between" spaceX={4}>
+      <Box
+        w={16}
+        h={16}
+        order={3}
+        borderRadius="md"
+        bg="light-blue-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        1
+      </Box>
+      <Box
+        w={16}
+        h={16}
+        borderRadius="md"
+        bg="light-blue-300"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        2
+      </Box>
+      <Box
+        w={16}
+        h={16}
+        borderRadius="md"
+        bg="light-blue-300"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        3
+      </Box>
+    </Box>
+  </template>
+  <Box display="flex" justifyContent="space-between">
+    <Box order={3}>1</Box>
+    <div>2</div>
+    <div>3</div>
+  </Box>
+</>
+```
+
+## Responsive
+
+To apply a order utility only at a specific breakpoint, use responsive object notation. For example, adding the property `order={{ md: 10 }}` to an element would apply the `order={10}` utility at medium screen sizes and above.
+
+```jsx
+<Box order={{ md: 10 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

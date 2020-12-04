@@ -1,0 +1,148 @@
+---
+section: Flexbox
+title: Flex Grow
+---
+
+# Flex Grow
+
+Utilities for controlling how flex items grow.
+
+| React props        | CSS Properties        |
+| ------------------ | --------------------- |
+| `flexGrow=[value]` | `flex-grow: [value];` |
+
+## Grow
+
+Use `flexGrow={1}` to allow a flex item to grow to fill any available space:
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" spaceX={3}>
+      <Box
+        flex="none"
+        h={16}
+        px={5}
+        borderRadius="md"
+        bg="red-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        ~
+      </Box>
+      <Box
+        flexGrow={1}
+        h={16}
+        px={5}
+        borderRadius="md"
+        bg="red-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        1
+      </Box>
+      <Box
+        flex="none"
+        h={16}
+        px={5}
+        borderRadius="md"
+        bg="red-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        ~
+      </Box>
+    </Box>
+  </template>
+  <Box display="flex">
+    <Box flex="none">{/* This item will not grow */}</Box>
+    <Box flexGrow={1}>{/* This item will grow */}</Box>
+    <Box flex="none">{/* This item will not grow */}</Box>
+  </Box>
+</>
+```
+
+## Don't grow
+
+Use `flexGrow={0}` to prevent a flex item from growing:
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" spaceX={3}>
+      <Box
+        flexGrow={1}
+        h={16}
+        px={5}
+        borderRadius="md"
+        bg="emerald-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        1
+      </Box>
+      <Box
+        flexGrow={0}
+        h={16}
+        px={5}
+        borderRadius="md"
+        bg="emerald-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        0
+      </Box>
+      <Box
+        flexGrow={1}
+        h={16}
+        px={5}
+        borderRadius="md"
+        bg="emerald-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        1
+      </Box>
+    </Box>
+  </template>
+  <Box display="flex">
+    <Box flexGrow={1}>{/* This item will grow */}</Box>
+    <Box flexGrow={0}>{/* This item will not grow */}</Box>
+    <Box flexGrow={1}>{/* This item will grow */}</Box>
+  </Box>
+</>
+```
+
+## Responsive
+
+To control how a flex item grows at a specific breakpoint, use responsive object notation. For example, adding the property `flexGrow={{ md: 1 }}` to an element would apply the `flexGrow={1}` utility at medium screen sizes and above.
+
+```jsx
+<Box flexGrow={{ md: 1 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

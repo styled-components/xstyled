@@ -1,0 +1,166 @@
+---
+section: Flexbox
+title: Flex Shrink
+---
+
+# Flex Shrink
+
+Utilities for controlling how flex items shrink.
+
+| React props          | CSS Properties          |
+| -------------------- | ----------------------- |
+| `flexShrink=[value]` | `flex-shrink: [value];` |
+
+## Shrink
+
+Use `flexShrink={1}` to allow a flex item to shrink if needed:
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" spaceX={3} w={250} mx="auto">
+      <Box
+        flexGrow={1}
+        h={16}
+        w={16}
+        px={5}
+        borderRadius="md"
+        bg="orange-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        ~
+      </Box>
+      <Box
+        flexShrink={1}
+        h={16}
+        w={900}
+        px={5}
+        borderRadius="md"
+        bg="orange-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        ~
+      </Box>
+      <Box
+        flexGrow={1}
+        h={16}
+        w={16}
+        px={5}
+        borderRadius="md"
+        bg="orange-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        ~
+      </Box>
+    </Box>
+  </template>
+  <Box display="flex">
+    <Box flexGrow={1} w={16}>
+      {/* This item will grow or shrink as needed */}
+    </Box>
+    <Box flexShrink={1} w={900}>
+      {/* This item will shrink */}
+    </Box>
+    <Box flexGrow={1} w={16}>
+      {/* This item will grow or shrink as needed */}
+    </Box>
+  </Box>
+</>
+```
+
+## Don't shrink
+
+Use `flexShrink={0}` to prevent a flex item from shrinking:
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" spaceX={3} mx="auto">
+      <Box
+        flexGrow={1}
+        h={16}
+        w={16}
+        px={5}
+        borderRadius="md"
+        bg="light-blue-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        ~
+      </Box>
+      <Box
+        flexShrink={0}
+        h={16}
+        w={32}
+        px={5}
+        borderRadius="md"
+        bg="light-blue-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        ~
+      </Box>
+      <Box
+        flexGrow={1}
+        h={16}
+        w={16}
+        px={5}
+        borderRadius="md"
+        bg="light-blue-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        ~
+      </Box>
+    </Box>
+  </template>
+  <Box display="flex">
+    <Box flexGrow={1} w={16}>
+      {/* This item will grow or shrink as needed */}
+    </Box>
+    <Box flexShrink={0} w={32}>
+      {/* This item will not shrink below its initial size */}
+    </Box>
+    <Box flexGrow={1} w={16}>
+      {/* This item will grow or shrink as needed */}
+    </Box>
+  </Box>
+</>
+```
+
+## Responsive
+
+To control how a flex item shrinks at a specific breakpoint, use responsive object notation. For example, adding the property `flexShrink={{ md: 0 }}` to an element would apply the `flexShrink={0}` utility at medium screen sizes and above.
+
+```jsx
+<Box flexShrink={{ md: 0 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
