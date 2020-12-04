@@ -3,7 +3,8 @@ import { animations, AnimationsProps } from './animations'
 import { backgrounds, BackgroundsProps } from './backgrounds'
 import { borders, BordersProps } from './borders'
 import { effects, EffectsProps } from './effects'
-import { flexboxes, FlexBoxesProps } from './flexboxes'
+import { flexboxGrids, FlexboxGridsProps } from './flexbox-grids'
+import { flexboxes, FlexboxesProps } from './flexboxes'
 import { grids, GridsProps } from './grids'
 import { interactivity, InteractivityProps } from './interactivity'
 import { layout, LayoutProps } from './layout'
@@ -15,7 +16,6 @@ import { tables, TablesProps } from './tables'
 import { transforms, TransformsProps } from './transforms'
 import { transitions, TransitionsProps } from './transitions'
 import { typography, TypographyProps } from './typography'
-import { xgrids, XGridsProps } from './xgrids'
 
 export * from './animations'
 export * from './backgrounds'
@@ -23,6 +23,7 @@ export * from './borders'
 export * from './colors'
 export * from './effects'
 export * from './flexboxes'
+export * from './flexbox-grids'
 export * from './grids'
 export * from './interactivity'
 export * from './layout'
@@ -35,13 +36,13 @@ export * from './transforms'
 export * from './transitions'
 export * from './typography'
 export * from './units'
-export * from './xgrids'
 
 export type SystemProps<T = {}> = AnimationsProps<T> &
   BackgroundsProps<T> &
   BordersProps<T> &
   EffectsProps<T> &
-  FlexBoxesProps<T> &
+  FlexboxGridsProps<T> &
+  FlexboxesProps<T> &
   GridsProps<T> &
   InteractivityProps<T> &
   LayoutProps<T> &
@@ -52,13 +53,13 @@ export type SystemProps<T = {}> = AnimationsProps<T> &
   TablesProps<T> &
   TransformsProps<T> &
   TransitionsProps<T> &
-  TypographyProps<T> &
-  XGridsProps<T>
+  TypographyProps<T>
 export const system = compose<SystemProps>(
   animations,
   backgrounds,
   borders,
   effects,
+  flexboxGrids,
   flexboxes,
   grids,
   interactivity,
@@ -71,5 +72,4 @@ export const system = compose<SystemProps>(
   transforms,
   transitions,
   typography,
-  xgrids,
 )

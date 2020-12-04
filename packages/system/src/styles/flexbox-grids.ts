@@ -77,5 +77,5 @@ export const col = createStyleGenerator<ColProps>(
   ['col'],
 )
 
-export type XGridsProps<T = {}> = RowProps<T> & ColProps<T>
-export const xgrids = compose<XGridsProps>(row, col)
+export type FlexboxGridsProps<T = {}> = RowProps<T> & ColProps<T>
+export const flexboxGrids = compose<FlexboxGridsProps>(row, col)

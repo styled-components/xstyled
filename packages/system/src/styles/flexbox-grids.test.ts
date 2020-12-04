@@ -1,8 +1,8 @@
-import { xgrids } from './xgrids'
+import { flexboxGrids } from './flexbox-grids'
 
-describe('#xgrids', () => {
+describe('#flexboxGrids', () => {
   it('supports row', () => {
-    expect(xgrids({ row: true })).toEqual({
+    expect(flexboxGrids({ row: true })).toEqual({
       boxSizing: 'border-box',
       flexGrow: 1,
       flexWrap: 'wrap',
@@ -11,7 +11,7 @@ describe('#xgrids', () => {
   })
 
   it('supports col', () => {
-    expect(xgrids({ col: 0.2 })).toEqual({
+    expect(flexboxGrids({ col: 0.2 })).toEqual({
       boxSizing: 'border-box',
       flexBasis: 0,
       flexGrow: 1,
@@ -19,7 +19,7 @@ describe('#xgrids', () => {
       flex: '0 0 20%',
     })
 
-    expect(xgrids({ col: 4 / 12 })).toEqual({
+    expect(flexboxGrids({ col: 4 / 12 })).toEqual({
       boxSizing: 'border-box',
       flexBasis: 0,
       flexGrow: 1,
@@ -27,14 +27,14 @@ describe('#xgrids', () => {
       flex: '0 0 33.3333%',
     })
 
-    expect(xgrids({ col: true })).toEqual({
+    expect(flexboxGrids({ col: true })).toEqual({
       boxSizing: 'border-box',
       flexBasis: 0,
       flexGrow: 1,
       maxWidth: '100%',
     })
 
-    expect(xgrids({ col: 'auto' })).toEqual({
+    expect(flexboxGrids({ col: 'auto' })).toEqual({
       boxSizing: 'border-box',
       flexBasis: 0,
       flexGrow: 1,
@@ -43,7 +43,7 @@ describe('#xgrids', () => {
       width: 'auto',
     })
 
-    expect(xgrids({ col: { xs: 0.2, md: 20 } })).toEqual({
+    expect(flexboxGrids({ col: { xs: 0.2, md: 20 } })).toEqual({
       boxSizing: 'border-box',
       flexBasis: 0,
       flexGrow: 1,

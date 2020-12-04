@@ -96,7 +96,7 @@ export const order = style<OrderProps>({
   prop: 'order',
 })
 
-export type FlexBoxesProps<T = {}> = DisplayProps<T> &
+export type FlexboxesProps<T = {}> = DisplayProps<T> &
   AlignItemsProps<T> &
   JustifyContentProps<T> &
   JustifyItemsProps<T> &
@@ -109,7 +109,7 @@ export type FlexBoxesProps<T = {}> = DisplayProps<T> &
   JustifySelfProps<T> &
   AlignSelfProps<T> &
   OrderProps<T>
-export const flexboxes = compose<FlexBoxesProps>(
+export const flexboxes = compose<FlexboxesProps>(
   display,
   alignItems,
   alignContent,
