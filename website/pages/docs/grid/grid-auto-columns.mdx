@@ -1,0 +1,36 @@
+---
+section: Grid
+title: Grid Auto Columns
+---
+
+# Grid Auto Columns
+
+Utilities for controlling the size of implicitly-created grid columns.
+
+| React props               | CSS Properties                |
+| ------------------------- | ----------------------------- |
+| `gridAutoColumns=[value]` | `grid-auto-columns: [value];` |
+
+## Usage
+
+Use the `gridAutoColumns={size}` utilities to control the size implicitly-created grid columns.
+
+```jsx
+<Box display="grid" gridAutoFlow="columns" gridAutoColumns="max-content">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</Box>
+```
+
+## Responsive
+
+To control the grid-auto-columns property at a specific breakpoint, use responsive object notation. For example, adding the property `gridAutoColumns={{ md: "max-content" }}` to an element would apply the `gridAutoColumns="max-content"` utility at medium screen sizes and above.
+
+```jsx
+<Box display="grid" gridAutoColumns={{ md: 'max-content' }}>
+  {/* ... */}
+</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

@@ -1,0 +1,114 @@
+---
+section: Grid
+title: Gap
+---
+
+# Gap
+
+Utilities for controlling gutters between grid rows and columns.
+
+| React props         | CSS Properties         |
+| ------------------- | ---------------------- |
+| `gap=[value]`       | `gap: [value];`        |
+| `rowGap=[value]`    | `row-gap: [value];`    |
+| `columnGap=[value]` | `column-gap: [value];` |
+
+## Usage
+
+Use `gap={space}` to change the gap between both rows and columns in grid layouts.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="grid" gap={4} gridTemplateColumns={2}>
+      {Array.from({ length: 4 }, (_, index) => index + 1).map(value => (
+        <Box
+          key={value}
+          h={12}
+          borderRadius="md"
+          bg="amber-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box display="grid" gap={4} gridTemplateColumns={2}>
+    <div>1</div>
+    {/* ... */}
+    <div>4</div>
+  </Box>
+</>
+```
+
+## Changing row and column gaps independently
+
+Use `rowGap={size}` and `columnGap={size}` to change the gap between rows and columns independently.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="grid" columnGap={8} rowGap={4} gridTemplateColumns={3}>
+      {Array.from({ length: 6 }, (_, index) => index + 1).map(value => (
+        <Box
+          key={value}
+          h={12}
+          borderRadius="md"
+          bg="emerald-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box display="grid" columnGap={8} rowGap={4} gridTemplateColumns={3}>
+    <div>1</div>
+    {/* ... */}
+    <div>6</div>
+  </Box>
+</>
+```
+
+## Responsive
+
+To control the gap at a specific breakpoint, use responsive object notation. For example, adding the property `gap={{ md: 2 }}` to an element would apply the `gap={2}` utility at medium screen sizes and above.
+
+```jsx
+<Box display="grid" gap={{ md: 2 }}>
+  {/* ... */}
+</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Spacing scale
+
+If you'd like to customize your values for margin, padding, space between, all at once, use the `theme.space` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    space: {
++     sm: '8px',
++     md: '16px',
++     lg: '24px',
++     xl: '48px',
+    },
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).

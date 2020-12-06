@@ -1,0 +1,140 @@
+---
+section: Grid
+title: Grid Column Start / End
+---
+
+# Grid Column Start / End
+
+Utilities for controlling how elements are sized and placed across grid columns.
+
+| React props          | CSS Properties          |
+| -------------------- | ----------------------- |
+| `gridColumn=[value]` | `grid-column: [value];` |
+
+## Spanning columns
+
+Use the `gridColumn="span n / span n"` utilities to make an element span _n_ columns.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="grid" gridTemplateColumns={3} gap={4}>
+      {Array.from({ length: 7 }, (_, index) => index + 1).map(value => (
+        <Box
+          key={value}
+          h={12}
+          borderRadius="md"
+          bg={value === 4 || value === 7 ? 'violet-500' : 'violet-400'}
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+          gridColumn={value === 4 || value === 7 ? 'span 2 / span 2' : ''}
+        >
+          {value}
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box display="grid" gridTemplateColumns={3} gap={4}>
+    <Box>1</Box>
+    <Box>2</Box>
+    <Box>3</Box>
+    <Box gridColumn="span 2 / span 2">4</Box>
+    <Box>5</Box>
+    <Box>6</Box>
+    <Box gridColumn="span 2 / span 2">7</Box>
+  </Box>
+</>
+```
+
+## Starting and ending lines
+
+Use the `gridColumn="n"` (start) and `gridColumn="auto / n"` (end) utilities to make an element start or end at the nth grid line. These can also be combined with the `gridColumn="n / span x"` (start) and `gridColumn="span x / n"` (end) utilities to span a specific number of columns.
+
+Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-column grid would start at line 1 and end at line 7.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="grid" gridTemplateColumns={6} gap={4}>
+      <Box
+        h={12}
+        borderRadius="md"
+        bg="emerald-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        gridColumn="2 / span 4"
+      >
+        1
+      </Box>
+      <Box
+        h={12}
+        borderRadius="md"
+        bg="emerald-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        gridColumn="1 / 3"
+      >
+        2
+      </Box>
+      <Box
+        h={12}
+        borderRadius="md"
+        bg="emerald-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        gridColumn="span 2 / 7"
+      >
+        3
+      </Box>
+      <Box
+        h={12}
+        borderRadius="md"
+        bg="emerald-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        gridColumn="1 / 7"
+      >
+        4
+      </Box>
+    </Box>
+  </template>
+  <Box display="grid" gridTemplateColumns={6} gap={4}>
+    <Box gridColumn="2 / span 4">1</Box>
+    <Box gridColumn="1 / 3">2</Box>
+    <Box gridColumn="span 2 / 7">3</Box>
+    <Box gridColumn="1 / 7">4</Box>
+  </Box>
+</>
+```
+
+## Responsive
+
+To control the column placement of an element at a specific breakpoint, use responsive object notation. For example, adding the property `gridColumn={{ md: "span 2 / span 2" }}` to an element would apply the `gridColumn="span 2 / span 2"` utility at medium screen sizes and above.
+
+```jsx
+<Box display="grid" gridColumn={{ md: 'span 2 / span 2' }}>
+  {/* ... */}
+</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

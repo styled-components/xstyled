@@ -1,0 +1,36 @@
+---
+section: Grid
+title: Grid Auto Rows
+---
+
+# Grid Auto Rows
+
+Utilities for controlling the size of implicitly-created grid rows.
+
+| React props            | CSS Properties             |
+| ---------------------- | -------------------------- |
+| `gridAutoRows=[value]` | `grid-auto-rows: [value];` |
+
+## Usage
+
+Use the `gridAutoRows={size}` utilities to control the size implicitly-created grid rows.
+
+```jsx
+<Box display="grid" gridAutoFlow="rows" gridAutoRows="max-content">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</Box>
+```
+
+## Responsive
+
+To control the grid-auto-rows property at a specific breakpoint, use responsive object notation. For example, adding the property `gridAutoRows={{ md: "max-content" }}` to an element would apply the `gridAutoRows="max-content"` utility at medium screen sizes and above.
+
+```jsx
+<Box display="grid" gridAutoRows={{ md: 'max-content' }}>
+  {/* ... */}
+</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
