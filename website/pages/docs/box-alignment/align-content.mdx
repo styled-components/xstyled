@@ -1,0 +1,244 @@
+---
+section: Box Alignment
+title: Align Content
+---
+
+# Align Content
+
+Utilities for controlling how rows are positioned in multi-row flex and grid containers.
+
+| React props            | CSS Properties            |
+| ---------------------- | ------------------------- |
+| `alignContent=[value]` | `align-content: [value];` |
+
+## Start
+
+Use `alignContent="flex-start"` to pack rows in a container against the start of the cross axis:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      h={48}
+      display="flex"
+      flexWrap="wrap"
+      alignContent="flex-start"
+      bg="red-100"
+      borderRadius="md"
+    >
+      {Array.from({ length: 5 }, (_, index) => index + 1).map(value => (
+        <Box key={value} w={1 / 3} p={2}>
+          <Box
+            p={2}
+            borderRadius="md"
+            bg="red-500"
+            color="white"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            fontSize="2xl"
+            fontWeight="extrabold"
+          >
+            {value}
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box h={48} display="flex" flexWrap="wrap" alignContent="flex-start">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+  </Box>
+</>
+```
+
+## Center
+
+Use `alignContent="center"` to pack rows in a container in the center of the cross axis:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      h={48}
+      display="flex"
+      flexWrap="wrap"
+      alignContent="center"
+      bg="blue-100"
+      borderRadius="md"
+    >
+      {Array.from({ length: 5 }, (_, index) => index + 1).map(value => (
+        <Box key={value} w={1 / 3} p={2}>
+          <Box
+            p={2}
+            borderRadius="md"
+            bg="blue-500"
+            color="white"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            fontSize="2xl"
+            fontWeight="extrabold"
+          >
+            {value}
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box h={48} display="flex" flexWrap="wrap" alignContent="center">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+  </Box>
+</>
+```
+
+## End
+
+Use `alignContent="flex-end"` to pack rows in a container against the end of the cross axis:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      h={48}
+      display="flex"
+      flexWrap="wrap"
+      alignContent="flex-end"
+      bg="emerald-100"
+      borderRadius="md"
+    >
+      {Array.from({ length: 5 }, (_, index) => index + 1).map(value => (
+        <Box key={value} w={1 / 3} p={2}>
+          <Box
+            p={2}
+            borderRadius="md"
+            bg="emerald-500"
+            color="white"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            fontSize="2xl"
+            fontWeight="extrabold"
+          >
+            {value}
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box h={48} display="flex" flexWrap="wrap" alignContent="flex-end">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+  </Box>
+</>
+```
+
+## Space between
+
+Use `alignContent="space-between"` to distribute rows in a container such that there is an equal amount of space between each line:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      h={48}
+      display="flex"
+      flexWrap="wrap"
+      alignContent="space-between"
+      bg="amber-100"
+      borderRadius="md"
+    >
+      {Array.from({ length: 5 }, (_, index) => index + 1).map(value => (
+        <Box key={value} w={1 / 3} p={2}>
+          <Box
+            p={2}
+            borderRadius="md"
+            bg="amber-500"
+            color="white"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            fontSize="2xl"
+            fontWeight="extrabold"
+          >
+            {value}
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box h={48} display="flex" flexWrap="wrap" alignContent="space-between">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+  </Box>
+</>
+```
+
+## Space around
+
+Use `alignContent="space-around"` to distribute rows in a container such that there is an equal amount of space around each line:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      h={48}
+      display="flex"
+      flexWrap="wrap"
+      alignContent="space-around"
+      bg="light-blue-100"
+      borderRadius="md"
+    >
+      {Array.from({ length: 5 }, (_, index) => index + 1).map(value => (
+        <Box key={value} w={1 / 3} p={2}>
+          <Box
+            p={2}
+            borderRadius="md"
+            bg="light-blue-500"
+            color="white"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            fontSize="2xl"
+            fontWeight="extrabold"
+          >
+            {value}
+          </Box>
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box h={48} display="flex" flexWrap="wrap" alignContent="space-around">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+  </Box>
+</>
+```
+
+## Responsive
+
+To control the alignment of flex content at a specific breakpoint, use responsive object notation. For example, adding the property `alignContent={{ md: "center" }}` to an element would apply the `alignContent="center` utility at medium screen sizes and above.
+
+```jsx
+<Box display="grid" alignContent={{ md: 'center' }}>
+  {/* ... */}
+</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

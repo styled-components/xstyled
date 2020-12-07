@@ -1,0 +1,320 @@
+---
+section: Box Alignment
+title: Align Self
+---
+
+# Align Self
+
+Utilities for controlling how an individual flex or grid item is positioned along its container's cross axis.
+
+| React props         | CSS Properties         |
+| ------------------- | ---------------------- |
+| `alignSelf=[value]` | `align-self: [value];` |
+
+## Auto
+
+Use `alignSelf="auto"` to align an item based on the value of the container's `align-items` property:
+
+```jsx preview
+<>
+  <template preview>
+    <Box h={24} display="flex" alignItems="stretch" spaceX={2}>
+      <Box
+        flex="1 1 0"
+        borderRadius="md"
+        bg="emerald-300"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        1
+      </Box>
+      <Box
+        alignSelf="auto"
+        flex="1 1 0"
+        borderRadius="md"
+        bg="emerald-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        2
+      </Box>
+      <Box
+        flex="1 1 0"
+        borderRadius="md"
+        bg="emerald-300"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        3
+      </Box>
+    </Box>
+  </template>
+  <Box display="flex" alignItems="stretch">
+    <div>1</div>
+    <Box alignSelf="auto">2</Box>
+    <div>3</div>
+  </Box>
+</>
+```
+
+## Start
+
+Use `alignSelf="flex-start"` to align an item to the start of the container's cross axis, despite the container's `align-items` value:
+
+```jsx preview
+<>
+  <template preview>
+    <Box h={24} display="flex" alignItems="stretch" spaceX={2}>
+      <Box
+        flex="1 1 0"
+        borderRadius="md"
+        bg="amber-300"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        1
+      </Box>
+      <Box
+        alignSelf="start"
+        py={3}
+        flex="1 1 0"
+        borderRadius="md"
+        bg="amber-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        2
+      </Box>
+      <Box
+        flex="1 1 0"
+        borderRadius="md"
+        bg="amber-300"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        3
+      </Box>
+    </Box>
+  </template>
+  <Box display="flex" alignItems="stretch">
+    <div>1</div>
+    <Box alignSelf="flex-start">2</Box>
+    <div>3</div>
+  </Box>
+</>
+```
+
+## Center
+
+Use `alignSelf="center"` to align an item along the center of the container's cross axis, despite the container's `align-items` value:
+
+```jsx preview
+<>
+  <template preview>
+    <Box h={24} display="flex" alignItems="stretch" spaceX={2}>
+      <Box
+        flex="1 1 0"
+        borderRadius="md"
+        bg="light-blue-300"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        1
+      </Box>
+      <Box
+        alignSelf="center"
+        py={3}
+        flex="1 1 0"
+        borderRadius="md"
+        bg="light-blue-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        2
+      </Box>
+      <Box
+        flex="1 1 0"
+        borderRadius="md"
+        bg="light-blue-300"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        3
+      </Box>
+    </Box>
+  </template>
+  <Box display="flex" alignItems="stretch">
+    <div>1</div>
+    <Box alignSelf="center">2</Box>
+    <div>3</div>
+  </Box>
+</>
+```
+
+## End
+
+Use `alignSelf="flex-end"` to align an item to the end of the container's cross axis, despite the container's `align-items` value:
+
+```jsx preview
+<>
+  <template preview>
+    <Box h={24} display="flex" alignItems="stretch" spaceX={2}>
+      <Box
+        flex="1 1 0"
+        borderRadius="md"
+        bg="red-300"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        1
+      </Box>
+      <Box
+        alignSelf="flex-end"
+        py={3}
+        flex="1 1 0"
+        borderRadius="md"
+        bg="red-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        2
+      </Box>
+      <Box
+        flex="1 1 0"
+        borderRadius="md"
+        bg="red-300"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        3
+      </Box>
+    </Box>
+  </template>
+  <Box display="flex" alignItems="stretch">
+    <div>1</div>
+    <Box alignSelf="flex-end">2</Box>
+    <div>3</div>
+  </Box>
+</>
+```
+
+## Stretch
+
+Use `alignSelf="stretch"` to stretch an item to fill the container's cross axis, despite the container's `align-items` value:
+
+```jsx preview
+<>
+  <template preview>
+    <Box h={24} display="flex" alignItems="flex-start" spaceX={2}>
+      <Box
+        py={3}
+        flex="1 1 0"
+        borderRadius="md"
+        bg="fuchsia-300"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        1
+      </Box>
+      <Box
+        alignSelf="stretch"
+        py={3}
+        flex="1 1 0"
+        borderRadius="md"
+        bg="fuchsia-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        2
+      </Box>
+      <Box
+        py={3}
+        flex="1 1 0"
+        borderRadius="md"
+        bg="fuchsia-300"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        3
+      </Box>
+    </Box>
+  </template>
+  <Box display="flex" alignItems="flex-start">
+    <div>1</div>
+    <Box alignSelf="stretch">2</Box>
+    <div>3</div>
+  </Box>
+</>
+```
+
+## Responsive
+
+To control the alignment of flex items at a specific breakpoint, use responsive object notation. For example, adding the property `alignSelf={{ md: "center" }}` to an element would apply the `alignSelf="center` utility at medium screen sizes and above.
+
+```jsx
+<Box display="grid" alignSelf={{ md: 'center' }}>
+  {/* ... */}
+</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

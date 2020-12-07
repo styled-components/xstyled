@@ -1,0 +1,222 @@
+---
+section: Box Alignment
+title: Justify Items
+---
+
+# Justify Items
+
+Utilities for controlling how grid items are aligned along their inline axis.
+
+| React props            | CSS Properties            |
+| ---------------------- | ------------------------- |
+| `justifyItems=[value]` | `justify-items: [value];` |
+
+## Auto
+
+Use `justifyItems="auto"` to justify grid items automatically on their inline axis:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      display="grid"
+      gridTemplateColumns={3}
+      gap={4}
+      justifyItems="auto"
+      h={32}
+    >
+      {Array.from({ length: 6 }, (_, index) => index + 1).map(value => (
+        <Box
+          key={value}
+          borderRadius="md"
+          bg="emerald-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box display="grid" justifyItems="auto">
+    <div>1</div>
+    {/* ... */}
+    <div>6</div>
+  </Box>
+</>
+```
+
+## Start
+
+Use `justifyItems="start"` to justify grid items against the start of their inline axis:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      display="grid"
+      gridTemplateColumns={3}
+      gap={4}
+      justifyItems="start"
+      h={32}
+    >
+      {Array.from({ length: 6 }, (_, index) => index + 1).map(value => (
+        <Box
+          key={value}
+          w={16}
+          borderRadius="md"
+          bg="light-blue-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box display="grid" justifyItems="start">
+    <div>1</div>
+    {/* ... */}
+    <div>6</div>
+  </Box>
+</>
+```
+
+## End
+
+Use `justifyItems="end"` to justify grid items against the end of their inline axis:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      display="grid"
+      gridTemplateColumns={3}
+      gap={4}
+      justifyItems="end"
+      h={32}
+    >
+      {Array.from({ length: 6 }, (_, index) => index + 1).map(value => (
+        <Box
+          key={value}
+          w={16}
+          borderRadius="md"
+          bg="amber-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box display="grid" justifyItems="end">
+    <div>1</div>
+    {/* ... */}
+    <div>6</div>
+  </Box>
+</>
+```
+
+## Center
+
+Use `justifyItems="center"` to justify grid items against the center of their inline axis:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      display="grid"
+      gridTemplateColumns={3}
+      gap={4}
+      justifyItems="center"
+      h={32}
+    >
+      {Array.from({ length: 6 }, (_, index) => index + 1).map(value => (
+        <Box
+          key={value}
+          w={16}
+          borderRadius="md"
+          bg="amber-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box display="grid" justifyItems="center">
+    <div>1</div>
+    {/* ... */}
+    <div>6</div>
+  </Box>
+</>
+```
+
+## Stretch
+
+Use `justifyItems="stretch"` to stretch items along their inline axis:
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      display="grid"
+      gridTemplateColumns={3}
+      gap={4}
+      justifyItems="stretch"
+      h={32}
+    >
+      {Array.from({ length: 6 }, (_, index) => index + 1).map(value => (
+        <Box
+          key={value}
+          borderRadius="md"
+          bg="purple-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </Box>
+      ))}
+    </Box>
+  </template>
+  <Box display="grid" justifyItems="stretch">
+    <div>1</div>
+    {/* ... */}
+    <div>6</div>
+  </Box>
+</>
+```
+
+## Responsive
+
+To justify grid items along their inline axis at a specific breakpoint, use responsive object notation. For example, adding the property `justifyItems={{ md: "center" }}` to an element would apply the `justifyItems="center` utility at medium screen sizes and above.
+
+```jsx
+<Box display="grid" justifyItems={{ md: 'center' }}>
+  {/* ... */}
+</Box>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
