@@ -17576,10 +17576,10 @@ smart-buffer@^4.1.0:
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-4.1.0.tgz#91605c25d91652f4661ea69ccf45f1b331ca21ba"
   integrity sha512-iVICrxOzCynf/SNaBQCw34eM9jROU/s5rzIhpOvzhzuYHfJR/DhZfDkXiZSgKXfgv26HT3Yni3AV/DGw0cGnnw==
 
-smooth-doc@^5.0.7:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/smooth-doc/-/smooth-doc-5.2.1.tgz#6938d4aa38a5090209939bd77c3173b1ccbaa1ac"
-  integrity sha512-vuMGAemZbPs1Zxv5Ht2QH2jng+vz9F77oQmuHU2Rkvh7IeQcFEYHZLk72SZyRI29uaPQGNMVQ0nQmqA4xquZcQ==
+smooth-doc@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/smooth-doc/-/smooth-doc-5.3.0.tgz#2256fcf2e98358a4ea54e293c4c3b6baa7af0d44"
+  integrity sha512-Ux6Q0t73lxRtF8R/q4R5kmh8aWXQsxr2pQd6ht0Mi1MJKly9sw2G0ISfhDl+he97/Zw6+oHxVie1fOvE38b7ig==
   dependencies:
     "@mdx-js/mdx" "^1.6.19"
     "@mdx-js/react" "^1.6.19"
