@@ -387,7 +387,7 @@ export function Code({
         </LiveProvider>
         <Pre>
           <RawHighlight
-            code={code.replace(/\n\s+/g, '\n').trim()}
+            code={code.replace(/\n\s{2}/g, '\n').trim()}
             language={lang}
           />
         </Pre>
