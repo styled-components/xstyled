@@ -15,7 +15,23 @@ describe('#style', () => {
       ).toBe('d')
     })
 
-    it('uses default value when `true`', () => {
+    it('supports second arg default', () => {
+      const scope = themeGetter<{ scope: {} }, 'scope'>({
+        key: 'scope',
+      })
+      expect(scope('no-value', 'this-one')({ theme: { scope: {} } })).toBe(
+        'this-one',
+      )
+    })
+
+    it('uses first as default without second arg', () => {
+      const scope = themeGetter<{ scope: {} }, 'scope'>({
+        key: 'scope',
+      })
+      expect(scope('no-value')({ theme: { scope: {} } })).toBe('no-value')
+    })
+
+    it('uses "default" value in theme when `true`', () => {
       const scope = themeGetter<{ scope: { default: string } }, 'scope'>({
         key: 'scope',
       })
@@ -49,7 +65,7 @@ describe('#style', () => {
     it('supports transform func', () => {
       const scope = themeGetter({
         key: 'scope',
-        transform: x => (typeof x === 'number' ? x + 1 : x),
+        transform: (x) => (typeof x === 'number' ? x + 1 : x),
       })
       const theme = { scope: [1] }
       expect(scope(10)({ theme })).toBe(11)
@@ -60,7 +76,7 @@ describe('#style', () => {
       const scope = themeGetter({
         key: 'scope',
         name: 'getter',
-        transform: x => (typeof x === 'number' ? x + 1 : x),
+        transform: (x) => (typeof x === 'number' ? x + 1 : x),
       })
       const theme = {
         scope: [1],

@@ -61,7 +61,9 @@ export interface TransformValue<TVariants, TBaseType> {
 }
 
 export interface ThemeGetter<TVariants, TBaseType> {
-  (value: VariantsType<TVariants, TBaseType>): (props: Props) => any
+  (value: VariantsType<TVariants, TBaseType>, defaultValue?: any): (
+    props: Props,
+  ) => any
   meta: {
     name?: string
     transform?: TransformValue<TVariants, TBaseType>

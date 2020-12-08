@@ -1,4 +1,4 @@
-import { is, warn, getThemeValue } from '@xstyled/util'
+import { is, getThemeValue } from '@xstyled/util'
 import {
   getColor,
   getPx,
@@ -21,14 +21,17 @@ import {
 import { Props, ThemeGetter } from './types'
 
 interface ThemeGet {
-  (path: string): (props: Props) => any
+  (path: string, defaultValue?: any): (props: Props) => any
   [key: string]: ThemeGetter<any, any>
 }
 
-export const th = <ThemeGet>((path: string) => (props: Props) => {
+export const th = <ThemeGet>((path: string, defaultValue?: string) => (
+  props: Props,
+) => {
   const value = getThemeValue(props, path)
-  warn(is(value), `value "${path}" not found in theme`)
-  return value
+  if (is(value)) return value
+  if (is(defaultValue)) return defaultValue
+  return path
 })
 ;[
   getColor,

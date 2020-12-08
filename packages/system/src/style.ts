@@ -110,32 +110,38 @@ export const themeGetter = <
   shorthand?: boolean
 }): ThemeGetter<TVariants, TBaseType> => {
   const id = themeGetterId++
-  const getter = (value: VariantsType<TVariants, TBaseType>) => (
-    props: Props,
-  ) => {
+  const getter = (
+    value: VariantsType<TVariants, TBaseType>,
+    defaultValue?: any,
+  ) => (props: Props) => {
     let res = value
     if (!string(value) && !num(value) && value !== true) return res
+    const cacheKey = `${value}-${defaultValue}`
     const cache = getCacheNamespace(props.theme, `__themeGetter${id}`)
-    if (cache.has(value)) return cache.get(value)
+    if (cache.has(cacheKey)) return cache.get(cacheKey)
 
     const getValue = (value: VariantsType<TVariants, TBaseType>) => {
-      let res = value
+      const localDefaultValue = is(defaultValue) ? defaultValue : value
+      let res: any = value
       let variants = is(key) ? getThemeValue(props, key) : null
       variants = is(variants) ? variants : defaultVariants
-      const hasVariants = is(variants)
-      res = hasVariants
-        ? // @ts-ignore
-          getThemeValue(props, value === true ? 'default' : value, variants)
-        : null
-      // @ts-ignore
-      res = is(res) ? res : value
+      if (is(variants)) {
+        // @ts-ignore
+        res = getThemeValue(props, value === true ? 'default' : value, variants)
+        res = Array.isArray(res) ? res.join(',') : res
+      }
+      let rawValue: any = value
+      if (!is(res)) {
+        rawValue = localDefaultValue
+        res = localDefaultValue
+      }
       const transform =
         (name && props.theme && props.theme.transformers
           ? props.theme.transformers[name]
           : null) || defaultTransform
       if (transform) {
         res = transform(res, {
-          rawValue: value,
+          rawValue,
           variants,
           props,
         })
@@ -151,7 +157,7 @@ export const themeGetter = <
       res = getValue(value)
     }
 
-    cache.set(value, res)
+    cache.set(cacheKey, res)
     return res
   }
   getter.meta = { name, transform: defaultTransform }
@@ -246,7 +252,7 @@ function getStyleFactory(
       return reduceBreakpoints(
         props,
         value,
-        breakpointValue =>
+        (breakpointValue) =>
           styleFromValue(
             cssProperties,
             breakpointValue,
@@ -308,7 +314,7 @@ export function compose<T>(
   ...generators: StyleGenerator<any>[]
 ): StyleGenerator<T> {
   let flatGenerators: StyleGenerator[] = []
-  generators.forEach(gen => {
+  generators.forEach((gen) => {
     warn(Boolean(gen), `Undefined generator in "compose" method`)
     if (!gen) return
     if (gen.meta.generators) {
@@ -361,7 +367,7 @@ export function style<TProps extends object>({
         : [cssProperty]
       : prop
 
-    const generators = prop.map(prop =>
+    const generators = prop.map((prop) =>
       style({ prop, cssProperty: cssProperties, key, transform, themeGet }),
     )
 

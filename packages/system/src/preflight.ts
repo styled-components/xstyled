@@ -1,3 +1,5 @@
+import { th } from './th'
+
 export const createPreflight = ({
   createGlobalStyle,
 }: {
@@ -62,7 +64,7 @@ export const createPreflight = ({
     ::after {
       border-width: 0;
       border-style: solid;
-      border-color: theme('borderColor.default', currentColor);
+      border-color: ${th.color('default-border-color', 'currentColor')};
     }
 
     /* Default outline on buttons */
