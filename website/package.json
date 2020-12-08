@@ -11,7 +11,7 @@
     "prismjs": "^1.22.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "smooth-doc": "^5.3.0"
+    "smooth-doc": "^5.4.0"
   },
   "devDependencies": {
     "gatsby": "^2.24.55",

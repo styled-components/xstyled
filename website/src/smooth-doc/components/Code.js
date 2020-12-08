@@ -1,7 +1,9 @@
-import React, { useContext, useState } from 'react'
+import React, { Fragment, useContext, useState } from 'react'
 import styled, {
   useTheme,
   th,
+  up,
+  css,
   Box,
   ThemeProvider,
   defaultTheme,
@@ -20,32 +22,79 @@ import 'prismjs/plugins/diff-highlight/prism-diff-highlight.css'
 import { LiveProvider, LiveError, LivePreview, LiveContext } from 'react-live'
 import { mdx } from '@mdx-js/react'
 
-const EditorContainer = styled.div`
-  padding: 3 0;
+const Pre = styled.pre`
   font-size: 15;
   line-height: 1.45;
   word-break: normal;
+  overflow: auto;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  margin: 3 -3;
+  background-color: editor-background;
+  color: editor-on;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  hyphens: none;
+  padding: 4 0;
+  border-left: ${th.space(4)} solid transparent;
+  border-right: ${th.space(4)} solid transparent;
+
   textarea {
     &:focus {
       outline: none;
     }
   }
+
+  ${up(
+    'sm',
+    css`
+      border-radius: editor;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      margin: 3 -2;
+    `,
+  )}
 `
 
 const Preview = styled.div`
-  padding: 3 4;
-  margin: 3 0 0;
-  border: 1;
+  padding: preview-padding-y preview-padding-x;
+  margin: 3 -3 -3;
+  border-top: 1;
   border-color: editor-border;
   border-image: initial;
-  border-radius: editor;
+
   white-space: normal;
   font-family: base;
+  overflow: hidden;
+
   background-color: background;
   color: on-background;
-  & + ${EditorContainer} {
-    margin-top: 2;
-  }
+
+  ${up(
+    'sm',
+    css`
+      border-right: 1;
+      border-left: 1;
+      border-radius: editor;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-color: editor-border;
+      margin-left: -2;
+      margin-right: -2;
+    `,
+  )}
+`
+
+const PreviewBg = styled.div`
+  padding: 10;
+  overflow: hidden;
+  background-color: ${(p) => th.color(`${p.$color || 'cool-gray'}-50`)(p)};
 `
 
 const globalModules = {
@@ -286,8 +335,8 @@ function LiveEditor() {
     <Editor
       value={code}
       padding={10}
-      highlight={code => <RawHighlight code={code} language={language} />}
-      onValueChange={code => {
+      highlight={(code) => <RawHighlight code={code} language={language} />}
+      onValueChange={(code) => {
         setCode(code)
         onChange(code)
       }}
@@ -308,7 +357,7 @@ export function Code({
   preview,
   live,
   noInline,
-  editorStyle,
+  color,
 }) {
   const prismTheme = usePrismTheme()
   if (preview) {
@@ -320,7 +369,7 @@ export function Code({
       <>
         <LiveProvider
           code={preview}
-          transformCode={code => `/* @jsx mdx */ ${importToRequire(code)}`}
+          transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
           scope={{ mdx, require: req, Box }}
           language={lang}
           theme={prismTheme}
@@ -329,17 +378,19 @@ export function Code({
           <Preflight />
           <Preview>
             <ThemeProvider theme={defaultTheme}>
-              <LivePreview />
+              <PreviewBg $color={color}>
+                <LivePreview />
+              </PreviewBg>
             </ThemeProvider>
           </Preview>
           <LiveError />
         </LiveProvider>
-        <EditorContainer style={editorStyle}>
+        <Pre>
           <RawHighlight
-            code={code.replace(/\n  /g, '\n').trim()}
+            code={code.replace(/\n\s+/g, '\n').trim()}
             language={lang}
           />
-        </EditorContainer>
+        </Pre>
       </>
     )
   }
@@ -347,23 +398,23 @@ export function Code({
     return (
       <LiveProvider
         code={children.trim()}
-        transformCode={code => `/* @jsx mdx */ ${importToRequire(code)}`}
+        transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
         scope={{ mdx, require: req }}
         language={lang}
         theme={prismTheme}
         noInline={noInline}
       >
         <Preview as={LivePreview} />
-        <EditorContainer style={editorStyle}>
+        <Pre>
           <LiveEditor />
-        </EditorContainer>
+        </Pre>
         <LiveError />
       </LiveProvider>
     )
   }
   return (
-    <EditorContainer style={editorStyle}>
+    <Pre>
       <RawHighlight code={children} language={lang} />
-    </EditorContainer>
+    </Pre>
   )
 }
