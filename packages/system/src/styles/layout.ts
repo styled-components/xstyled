@@ -146,6 +146,13 @@ export const overscrollBehavior = style<OverscrollBehaviorProps>({
   prop: 'overscrollBehavior',
 })
 
+export interface ObjectFitProps<T = {}> {
+  objectFit?: SystemProperty<CSS.Property.ObjectFit, T>
+}
+export const objectFit = style<ObjectFitProps>({
+  prop: 'objectFit',
+})
+
 export type LayoutProps<T = {}> = DisplayProps<T> &
   BoxSizingProps<T> &
   ContainerProps<T> &
@@ -159,7 +166,8 @@ export type LayoutProps<T = {}> = DisplayProps<T> &
   BottomProps<T> &
   LeftProps<T> &
   VisibilityProps<T> &
-  OverscrollBehaviorProps<T>
+  OverscrollBehaviorProps<T> &
+  ObjectFitProps<T>
 export const layout = compose<LayoutProps>(
   boxSizing,
   display,
@@ -175,4 +183,5 @@ export const layout = compose<LayoutProps>(
   left,
   visibility,
   overscrollBehavior,
+  objectFit,
 )
