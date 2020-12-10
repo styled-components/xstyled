@@ -8,7 +8,6 @@ import { flexboxes, FlexboxesProps } from './flexboxes'
 import { grids, GridsProps } from './grids'
 import { interactivity, InteractivityProps } from './interactivity'
 import { layout, LayoutProps } from './layout'
-import { positioning, PositioningProps } from './positioning'
 import { sizing, SizingProps } from './sizing'
 import { space, SpaceProps } from './space'
 import { svg, SvgProps } from './svg'
@@ -27,7 +26,6 @@ export * from './flexbox-grids'
 export * from './grids'
 export * from './interactivity'
 export * from './layout'
-export * from './positioning'
 export * from './sizing'
 export * from './space'
 export * from './svg'
@@ -46,7 +44,6 @@ export type SystemProps<T = {}> = AnimationsProps<T> &
   GridsProps<T> &
   InteractivityProps<T> &
   LayoutProps<T> &
-  PositioningProps<T> &
   SizingProps<T> &
   SpaceProps<T> &
   SvgProps<T> &
@@ -64,7 +61,6 @@ export const system = compose<SystemProps>(
   grids,
   interactivity,
   layout,
-  positioning,
   sizing,
   space,
   svg,

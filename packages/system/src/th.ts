@@ -7,6 +7,7 @@ import {
   getBorder,
   getBorderWidth,
   getBorderStyle,
+  getBorderColor,
   getShadow,
   getSize,
   getZIndex,
@@ -17,6 +18,13 @@ import {
   getFontWeight,
   getLetterSpacing,
   getTransition,
+  getInset,
+  getAngle,
+  getAnimation,
+  getDuration,
+  getTimingFunction,
+  getTransform,
+  getTransitionProperty,
 } from './styles/index'
 import { Props, ThemeGetter } from './types'
 
@@ -41,6 +49,7 @@ export const th = <ThemeGet>((path: string, defaultValue?: string) => (
   getBorder,
   getBorderWidth,
   getBorderStyle,
+  getBorderColor,
   getShadow,
   getSize,
   getZIndex,
@@ -51,6 +60,13 @@ export const th = <ThemeGet>((path: string, defaultValue?: string) => (
   getFontWeight,
   getLetterSpacing,
   getTransition,
+  getInset,
+  getAngle,
+  getAnimation,
+  getDuration,
+  getTimingFunction,
+  getTransform,
+  getTransitionProperty,
 ].forEach((themeGetter) => {
   if (themeGetter.meta.name) {
     th[themeGetter.meta.name] = themeGetter

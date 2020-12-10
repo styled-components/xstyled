@@ -1,4 +1,5 @@
-import { num, string } from '@xstyled/util'
+import { is, num, string, negative, getThemeValue } from '@xstyled/util'
+import { TransformValue } from './types'
 
 const round = (value: number) => Math.round(value * 10 ** 4) / 10 ** 4
 
@@ -34,3 +35,26 @@ export const rpx = <T>(value: T, options?: PxToRemOptions) => {
 
 export const percent = (n: string | number) =>
   num(n) && n !== 0 && n >= -1 && n <= 1 ? `${round(n * 100)}%` : n
+
+function toNegative(value: string | number) {
+  if (string(value)) return `-${value}`
+  return value * -1
+}
+
+export const transformNegative: TransformValue<any, any> = (
+  _,
+  { rawValue, variants, props },
+) => {
+  if (string(rawValue)) {
+    const neg = rawValue.startsWith('-')
+    const absoluteValue = neg ? rawValue.substr(1) : rawValue
+    const variantValue = getThemeValue(props, absoluteValue, variants)
+    const value = is(variantValue) ? variantValue : absoluteValue
+    return neg ? toNegative(value) : value
+  }
+  const abs = Math.abs(rawValue)
+  const neg = negative(rawValue)
+  // @ts-ignore
+  const value = is(variants && variants[abs]) ? variants[abs] : abs
+  return neg ? toNegative(value) : value
+}

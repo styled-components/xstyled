@@ -1,4 +1,4 @@
-import { container } from './layout'
+import { container, getInset } from './layout'
 
 describe('#container', () => {
   it('works with `true`', () => {
@@ -23,5 +23,35 @@ describe('#container', () => {
         '@media (min-width: 1536px)': { maxWidth: 1536 },
       },
     })
+  })
+})
+
+describe('#getInset', () => {
+  it('gets a value and transforms it according to spec.', () => {
+    const props = {}
+    expect(getInset(1)(props)).toEqual('1px')
+    expect(getInset(2)(props)).toEqual('2px')
+    expect(getInset(-2)(props)).toEqual('-2px')
+    expect(getInset(10)(props)).toEqual('10px')
+    expect(getInset(-10)(props)).toEqual('-10px')
+    expect(getInset('50%')(props)).toEqual('50%')
+  })
+
+  it('gets value from the theme', () => {
+    const props = { theme: { inset: [0, 10, 20, 30, 40] } }
+    expect(getInset(1)(props)).toEqual('10px')
+    expect(getInset(2)(props)).toEqual('20px')
+    expect(getInset(-2)(props)).toEqual('-20px')
+    expect(getInset(10)(props)).toEqual('10px')
+    expect(getInset(-10)(props)).toEqual('-10px')
+    expect(getInset('50%')(props)).toEqual('50%')
+  })
+
+  it('gets objects value from the theme', () => {
+    const props = { theme: { inset: { md: 10 } } }
+    expect(getInset('md')(props)).toEqual('10px')
+    expect(getInset('-md')(props)).toEqual('-10px')
+    expect(getInset('-10')(props)).toEqual('-10px')
+    expect(getInset('-10px')(props)).toEqual('-10px')
   })
 })

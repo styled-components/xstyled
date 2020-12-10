@@ -5,9 +5,12 @@ import {
   compose,
   createStyleGenerator,
   reduceBreakpoints,
+  themeGetter,
 } from '../style'
+import { transformNegative } from '../unit'
+import { getPx } from './units'
 import { getBreakpoints } from '../media'
-import { SystemProperty } from '../types'
+import { SystemProperty, VariantsType, ExtractThemeProperty } from '../types'
 
 export interface DisplayProps<T = {}> {
   display?: SystemProperty<CSS.Property.Display, T>
@@ -69,12 +72,78 @@ export const overflowY = style<OverflowYProps>({
   prop: 'overflowY',
 })
 
+export type ZIndexGetter<T = {}> = VariantsType<
+  ExtractThemeProperty<T, 'zIndices'>
+>
+export const getZIndex = themeGetter({
+  name: 'zIndex',
+  key: 'zIndices',
+})
+
+export interface ZIndexProps<T = {}> {
+  zIndex?: SystemProperty<ZIndexGetter<T> | CSS.Property.ZIndex, T>
+}
+export const zIndex = style<ZIndexProps>({
+  prop: 'zIndex',
+  themeGet: getZIndex,
+})
+
+export interface PositionProps<T = {}> {
+  position?: SystemProperty<CSS.Property.Position, T>
+}
+export const position = style<PositionProps>({ prop: 'position' })
+
+export const getInset = themeGetter({
+  name: 'inset',
+  key: 'inset',
+  compose: getPx,
+  transform: transformNegative,
+})
+
+export interface TopProps<T = {}> {
+  top?: SystemProperty<CSS.Property.Top, T>
+}
+export const top = style<TopProps>({
+  prop: 'top',
+  themeGet: getInset,
+})
+
+export interface RightProps<T = {}> {
+  right?: SystemProperty<CSS.Property.Right, T>
+}
+export const right = style<RightProps>({
+  prop: 'right',
+  themeGet: getInset,
+})
+
+export interface BottomProps<T = {}> {
+  bottom?: SystemProperty<CSS.Property.Bottom, T>
+}
+export const bottom = style<BottomProps>({
+  prop: 'bottom',
+  themeGet: getInset,
+})
+
+export interface LeftProps<T = {}> {
+  left?: SystemProperty<CSS.Property.Left, T>
+}
+export const left = style<LeftProps>({
+  prop: 'left',
+  themeGet: getInset,
+})
+
 export type LayoutProps<T = {}> = DisplayProps<T> &
   BoxSizingProps<T> &
   ContainerProps<T> &
   OverflowProps<T> &
   OverflowXProps<T> &
-  OverflowYProps<T>
+  OverflowYProps<T> &
+  PositionProps<T> &
+  ZIndexProps<T> &
+  TopProps<T> &
+  RightProps<T> &
+  BottomProps<T> &
+  LeftProps<T>
 export const layout = compose<LayoutProps>(
   boxSizing,
   display,
@@ -82,4 +151,10 @@ export const layout = compose<LayoutProps>(
   overflow,
   overflowX,
   overflowY,
+  position,
+  zIndex,
+  top,
+  right,
+  bottom,
+  left,
 )

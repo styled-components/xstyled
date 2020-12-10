@@ -1,13 +1,8 @@
 import * as CSS from 'csstype'
-import { is, string, negative, getThemeValue } from '@xstyled/util'
 import { style, themeGetter, compose, createStyleGenerator } from '../style'
 import { getPx } from './units'
+import { transformNegative } from '../unit'
 import { ExtractThemeProperty, VariantsType, SystemProperty } from '../types'
-
-function toNegative(value: string | number) {
-  if (string(value)) return `-${value}`
-  return value * -1
-}
 
 // Getters
 export type SpaceGetter<T = {}> = VariantsType<ExtractThemeProperty<T, 'space'>>
@@ -15,20 +10,7 @@ export const getSpace = themeGetter({
   name: 'space',
   key: 'space',
   compose: getPx,
-  transform: (_, { rawValue, variants, props }) => {
-    if (string(rawValue)) {
-      const neg = rawValue.startsWith('-')
-      const absoluteValue = neg ? rawValue.substr(1) : rawValue
-      const variantValue = getThemeValue(props, absoluteValue, variants)
-      const value = is(variantValue) ? variantValue : absoluteValue
-      return neg ? toNegative(value) : value
-    }
-    const abs = Math.abs(rawValue)
-    const neg = negative(rawValue)
-    // @ts-ignore
-    const value = is(variants && variants[abs]) ? variants[abs] : abs
-    return neg ? toNegative(value) : value
-  },
+  transform: transformNegative,
 })
 
 // Styles
@@ -214,7 +196,7 @@ export interface SpaceYProps<T = {}> {
   spaceY?: SystemProperty<SpaceGetter<T>, T>
 }
 export const spaceY = createStyleGenerator<SpaceYProps>(
-  props => {
+  (props) => {
     const value = getSpace(props.spaceY)(props)
     return {
       '& > :not([hidden]) ~ :not([hidden])': {
@@ -231,7 +213,7 @@ export interface SpaceXProps<T = {}> {
   spaceX?: SystemProperty<SpaceGetter<T>, T>
 }
 export const spaceX = createStyleGenerator<SpaceXProps>(
-  props => {
+  (props) => {
     const value = getSpace(props.spaceX)(props)
     return {
       '& > :not([hidden]) ~ :not([hidden])': {
@@ -248,7 +230,7 @@ export interface SpaceXReverseProps<T = {}> {
   spaceXReverse?: SystemProperty<boolean, T>
 }
 export const spaceXReverse = createStyleGenerator<SpaceXReverseProps>(
-  props => {
+  (props) => {
     if (!props.spaceXReverse) return null
     return {
       '& > :not([hidden]) ~ :not([hidden])': {
@@ -263,7 +245,7 @@ export interface SpaceYReverseProps<T = {}> {
   spaceYReverse?: SystemProperty<boolean, T>
 }
 export const spaceYReverse = createStyleGenerator<SpaceYReverseProps>(
-  props => {
+  (props) => {
     if (!props.spaceYReverse) return null
     return {
       '& > :not([hidden]) ~ :not([hidden])': {
