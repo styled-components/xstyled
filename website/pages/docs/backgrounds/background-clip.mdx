@@ -1,0 +1,150 @@
+---
+section: Backgrounds
+title: Bakground Clip
+---
+
+# Bakground Clip
+
+Utilities for controlling the bounding box of an element's background.
+
+| React props              | CSS Properties              |
+| ------------------------ | --------------------------- |
+| `backgroundClip=[value]` | `background-clip: [value];` |
+
+## Usage
+
+Use the `backgroundClip={keyword}` utilities to control the bounding box of an element's background.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="grid" gridTemplateColumns={{ xs: 1, lg: 3 }} gap={2}>
+      <Box
+        backgroundClip="border-box"
+        p={6}
+        borderRadius="md"
+        bg="indigo-600"
+        border={4}
+        borderColor="indigo-300"
+        borderStyle="dashed"
+        fontWeight="extrabold"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Box as="span" py={2}>
+          border-box
+        </Box>
+      </Box>
+      <Box
+        backgroundClip="padding-box"
+        p={6}
+        borderRadius="md"
+        bg="indigo-600"
+        border={4}
+        borderColor="indigo-300"
+        borderStyle="dashed"
+        fontWeight="extrabold"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Box as="span" py={2}>
+          padding-box
+        </Box>
+      </Box>
+      <Box
+        backgroundClip="content-box"
+        p={6}
+        borderRadius="md"
+        bg="indigo-600"
+        border={4}
+        borderColor="indigo-300"
+        borderStyle="dashed"
+        fontWeight="extrabold"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Box as="span" py={2}>
+          content-box
+        </Box>
+      </Box>
+    </Box>
+  </template>
+  <Box
+    backgroundClip="border-box"
+    p={6}
+    bg="indigo-600"
+    border={4}
+    borderColor="indigo-300"
+    borderStyle="dashed"
+  />
+  <Box
+    backgroundClip="padding-box"
+    p={6}
+    bg="indigo-600"
+    border={4}
+    borderColor="indigo-300"
+    borderStyle="dashed"
+  />
+  <Box
+    backgroundClip="content-box"
+    p={6}
+    bg="indigo-600"
+    border={4}
+    borderColor="indigo-300"
+    borderStyle="dashed"
+  />
+</>
+```
+
+## Cropping to text
+
+Use `backgroundClip="text"` to crop an element's background to match the shape of the text. Useful for effects where you want a background image to be visible through the text.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      textAlign="center"
+      lineHeight={0}
+      letterSpacing="tight"
+      fontSize="5xl"
+      fontWeight="extrabold"
+    >
+      <Box
+        as="span"
+        backgroundClip="text"
+        color="transparent"
+        backgroundImage="linear-gradient(to right, #4ade80, #3b82f6)"
+      >
+        Hello world
+      </Box>
+    </Box>
+  </template>
+  <Box fontSize="5xl" fontWeight="extrabold">
+    <Box
+      as="span"
+      backgroundClip="text"
+      color="transparent"
+      backgroundImage="linear-gradient(to right, #4ade80, #3b82f6)"
+    >
+      Hello world
+    </Box>
+  </Box>
+</>
+```
+
+## Responsive
+
+To control the background attachment of an element at a specific breakpoint, use responsive object notation. For example, adding the property `backgroundAttachment={{ md: "scroll" }}` to an element would apply the `backgroundAttachment="scroll"` utility at medium screen sizes and above.
+
+```jsx
+<Box backgroundAttachment={{ md: 'scroll' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

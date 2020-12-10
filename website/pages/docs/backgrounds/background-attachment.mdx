@@ -1,0 +1,91 @@
+---
+section: Backgrounds
+title: Bakground Attachment
+---
+
+# Bakground Attachment
+
+Utilities for controlling how a background image behaves when scrolling.
+
+| React props                    | CSS Properties                    |
+| ------------------------------ | --------------------------------- |
+| `backgroundAttachment=[value]` | `background-attachment: [value];` |
+
+## Fixed
+
+Use `backgroundAttachment="fixed"` to fix the background image relative to the viewport.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      w={1}
+      h={48}
+      backgroundAttachment="fixed"
+      backgroundSize="contain"
+      backgroundPosition="center"
+      overflowY="scroll"
+      backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&h=800&q=80')"
+    >
+      <Box class="h-64" />
+    </Box>
+  </template>
+  <Box backgroundAttachment="fixed" backgroundImage="url(...)" />
+</>
+```
+
+## Local
+
+Use `backgroundAttachment="local"` to scroll the background image with the container and the viewport.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      w={1}
+      h={72}
+      backgroundAttachment="local"
+      backgroundSize="cover"
+      backgroundPosition="center"
+      overflowY="scroll"
+      backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&h=800&q=80')"
+    >
+      <Box h={96} />
+    </Box>
+  </template>
+  <Box backgroundAttachment="local" backgroundImage="url(...)" />
+</>
+```
+
+## Local
+
+Use `backgroundAttachment="scroll"` to scroll the background image with the viewport, but not with the container.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      w={1}
+      h={72}
+      backgroundAttachment="scroll"
+      backgroundSize="cover"
+      backgroundPosition="center"
+      overflowY="scroll"
+      backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&h=800&q=80')"
+    >
+      <Box h={96} />
+    </Box>
+  </template>
+  <Box backgroundAttachment="scroll" backgroundImage="url(...)" />
+</>
+```
+
+## Responsive
+
+To control the background attachment of an element at a specific breakpoint, use responsive object notation. For example, adding the property `backgroundAttachment={{ md: "scroll" }}` to an element would apply the `backgroundAttachment="scroll"` utility at medium screen sizes and above.
+
+```jsx
+<Box backgroundAttachment={{ md: 'scroll' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

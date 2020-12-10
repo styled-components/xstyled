@@ -1,0 +1,89 @@
+---
+section: Backgrounds
+title: Bakground Color
+---
+
+# Bakground Color
+
+Utilities for controlling an element's background color.
+
+| React props               | CSS Properties               |
+| ------------------------- | ---------------------------- |
+| `backgroundColor=[value]` | `background-color: [value];` |
+| `bg=[value]`              | `background-color: [value];` |
+
+## Usage
+
+Control the background color of an element using the `bg={color}` or `backgroundColor={color}` utitlies.
+
+```jsx preview
+<>
+  <template preview>
+    <Box textAlign="center">
+      <Box
+        as="button"
+        type="button"
+        py={2}
+        px={4}
+        transition
+        bg="emerald-500"
+        hoverBg="emerald-800"
+        color="white"
+        fontWeight="semibold"
+        borderRadius="lg"
+        boxShadow="md"
+        focusOutline="none"
+        tabindex="-1"
+      >
+        Click me
+      </Box>
+    </Box>
+  </template>
+  <Box as="button" bg="emerald-500" hoverBg="emerald-800">
+    Button
+  </Box>
+</>
+```
+
+## Usage
+
+Control the background color of an element using the `bg={color}` or `backgroundColor={color}` utitlies.
+
+```jsx preview
+<>
+  <template preview>
+    <Box textAlign="center">
+      <Box
+        as="button"
+        type="button"
+        py={2}
+        px={4}
+        transition
+        bg="emerald-500"
+        hoverBg="emerald-800"
+        color="white"
+        fontWeight="semibold"
+        borderRadius="lg"
+        boxShadow="md"
+        focusOutline="none"
+        tabindex="-1"
+      >
+        Click me
+      </Box>
+    </Box>
+  </template>
+  <Box as="button" bg="emerald-500" hoverBg="emerald-800">
+    Button
+  </Box>
+</>
+```
+
+## Responsive
+
+To control the background color of an element at a specific breakpoint, use responsive object notation. For example, adding the property `bg={{ md: "red-500" }}` to an element would apply the `bg="red-500"` utility at medium screen sizes and above.
+
+```jsx
+<Box bg={{ md: 'red-500' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

@@ -1,0 +1,284 @@
+---
+section: Backgrounds
+title: Bakground Position
+---
+
+# Bakground Position
+
+Utilities for controlling the position of an element's background image.
+
+| React props                  | CSS Properties                  |
+| ---------------------------- | ------------------------------- |
+| `backgroundPosition=[value]` | `background-position: [value];` |
+
+## Usage
+
+Use the`backgroundPosition={side}` utilities to control the position of an element's background image.
+
+```jsx preview
+<>
+  <template preview>
+    <div>
+      <Box display="flex" justifyContent="space-around" mb={8}>
+        <Box flex="1 1 0">
+          <Box
+            as="p"
+            textAlign="center"
+            fontSize="sm"
+            color="light-blue-600"
+            fontWeight="medium"
+            mb={1}
+          >
+            left top
+          </Box>
+          <Box
+            mx="auto"
+            bg="light-blue-300"
+            borderRadius="md"
+            w={24}
+            h={24}
+            backgroundRepeat="no-repeat"
+            backgroundImage="url('https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=64&h=64&q=80')"
+            backgroundPosition="left top"
+          />
+        </Box>
+        <Box flex="1 1 0">
+          <Box
+            as="p"
+            textAlign="center"
+            fontSize="sm"
+            color="light-blue-600"
+            fontWeight="medium"
+            mb={1}
+          >
+            top
+          </Box>
+          <Box
+            mx="auto"
+            bg="light-blue-300"
+            borderRadius="md"
+            w={24}
+            h={24}
+            backgroundRepeat="no-repeat"
+            backgroundImage="url('https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=64&h=64&q=80')"
+            backgroundPosition="top"
+          />
+        </Box>
+        <Box flex="1 1 0">
+          <Box
+            as="p"
+            textAlign="center"
+            fontSize="sm"
+            color="light-blue-600"
+            fontWeight="medium"
+            mb={1}
+          >
+            right top
+          </Box>
+          <Box
+            mx="auto"
+            bg="light-blue-300"
+            borderRadius="md"
+            w={24}
+            h={24}
+            backgroundRepeat="no-repeat"
+            backgroundImage="url('https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=64&h=64&q=80')"
+            backgroundPosition="right top"
+          />
+        </Box>
+      </Box>
+      <Box display="flex" justifyContent="space-around" mb={8}>
+        <Box flex="1 1 0">
+          <Box
+            as="p"
+            textAlign="center"
+            fontSize="sm"
+            color="light-blue-600"
+            fontWeight="medium"
+            mb={1}
+          >
+            left
+          </Box>
+          <Box
+            mx="auto"
+            bg="light-blue-300"
+            borderRadius="md"
+            w={24}
+            h={24}
+            backgroundRepeat="no-repeat"
+            backgroundImage="url('https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=64&h=64&q=80')"
+            backgroundPosition="left"
+          />
+        </Box>
+        <Box flex="1 1 0">
+          <Box
+            as="p"
+            textAlign="center"
+            fontSize="sm"
+            color="light-blue-600"
+            fontWeight="medium"
+            mb={1}
+          >
+            center
+          </Box>
+          <Box
+            mx="auto"
+            bg="light-blue-300"
+            borderRadius="md"
+            w={24}
+            h={24}
+            backgroundRepeat="no-repeat"
+            backgroundImage="url('https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=64&h=64&q=80')"
+            backgroundPosition="center"
+          />
+        </Box>
+        <Box flex="1 1 0">
+          <Box
+            as="p"
+            textAlign="center"
+            fontSize="sm"
+            color="light-blue-600"
+            fontWeight="medium"
+            mb={1}
+          >
+            right
+          </Box>
+          <Box
+            mx="auto"
+            bg="light-blue-300"
+            borderRadius="md"
+            w={24}
+            h={24}
+            backgroundRepeat="no-repeat"
+            backgroundImage="url('https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=64&h=64&q=80')"
+            backgroundPosition="right"
+          />
+        </Box>
+      </Box>
+      <Box display="flex" justifyContent="space-around">
+        <Box flex="1 1 0">
+          <Box
+            as="p"
+            textAlign="center"
+            fontSize="sm"
+            color="light-blue-600"
+            fontWeight="medium"
+            mb={1}
+          >
+            left bottom
+          </Box>
+          <Box
+            mx="auto"
+            bg="light-blue-300"
+            borderRadius="md"
+            w={24}
+            h={24}
+            backgroundRepeat="no-repeat"
+            backgroundImage="url('https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=64&h=64&q=80')"
+            backgroundPosition="left bottom"
+          />
+        </Box>
+        <Box flex="1 1 0">
+          <Box
+            as="p"
+            textAlign="center"
+            fontSize="sm"
+            color="light-blue-600"
+            fontWeight="medium"
+            mb={1}
+          >
+            bottom
+          </Box>
+          <Box
+            mx="auto"
+            bg="light-blue-300"
+            borderRadius="md"
+            w={24}
+            h={24}
+            backgroundRepeat="no-repeat"
+            backgroundImage="url('https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=64&h=64&q=80')"
+            backgroundPosition="bottom"
+          />
+        </Box>
+        <Box flex="1 1 0">
+          <Box
+            as="p"
+            textAlign="center"
+            fontSize="sm"
+            color="light-blue-600"
+            fontWeight="medium"
+            mb={1}
+          >
+            right bottom
+          </Box>
+          <Box
+            mx="auto"
+            bg="light-blue-300"
+            borderRadius="md"
+            w={24}
+            h={24}
+            backgroundRepeat="no-repeat"
+            backgroundImage="url('https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=64&h=64&q=80')"
+            backgroundPosition="right bottom"
+          />
+        </Box>
+      </Box>
+    </div>
+  </template>
+  <Box
+    backgroundRepeat="no-repeat"
+    backgroundPosition="left top"
+    backgroundImage="url(...)"
+  />
+  <Box
+    backgroundRepeat="no-repeat"
+    backgroundPosition="top"
+    backgroundImage="url(...)"
+  />
+  <Box
+    backgroundRepeat="no-repeat"
+    backgroundPosition="right top"
+    backgroundImage="url(...)"
+  />
+  <Box
+    backgroundRepeat="no-repeat"
+    backgroundPosition="left"
+    backgroundImage="url(...)"
+  />
+  <Box
+    backgroundRepeat="no-repeat"
+    backgroundPosition="center"
+    backgroundImage="url(...)"
+  />
+  <Box
+    backgroundRepeat="no-repeat"
+    backgroundPosition="right"
+    backgroundImage="url(...)"
+  />
+  <Box
+    backgroundRepeat="no-repeat"
+    backgroundPosition="left bottom"
+    backgroundImage="url(...)"
+  />
+  <Box
+    backgroundRepeat="no-repeat"
+    backgroundPosition="bottom"
+    backgroundImage="url(...)"
+  />
+  <Box
+    backgroundRepeat="no-repeat"
+    backgroundPosition="right bottom"
+    backgroundImage="url(...)"
+  />
+</>
+```
+
+## Responsive
+
+To control the position of an element's background image at a specific breakpoint, use responsive object notation. For example, adding the property `backgroundPosition={{ md: "right" }}` to an element would apply the `backgroundPosition="right"` utility at medium screen sizes and above.
+
+```jsx
+<Box backgroundPosition={{ md: 'right' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
