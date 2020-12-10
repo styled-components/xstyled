@@ -139,6 +139,13 @@ export const visibility = style<VisibilityProps>({
   prop: 'visibility',
 })
 
+export interface OverscrollBehaviorProps<T = {}> {
+  overscrollBehavior?: SystemProperty<CSS.Property.OverscrollBehavior, T>
+}
+export const overscrollBehavior = style<OverscrollBehaviorProps>({
+  prop: 'overscrollBehavior',
+})
+
 export type LayoutProps<T = {}> = DisplayProps<T> &
   BoxSizingProps<T> &
   ContainerProps<T> &
@@ -151,7 +158,8 @@ export type LayoutProps<T = {}> = DisplayProps<T> &
   RightProps<T> &
   BottomProps<T> &
   LeftProps<T> &
-  VisibilityProps<T>
+  VisibilityProps<T> &
+  OverscrollBehaviorProps<T>
 export const layout = compose<LayoutProps>(
   boxSizing,
   display,
@@ -166,4 +174,5 @@ export const layout = compose<LayoutProps>(
   bottom,
   left,
   visibility,
+  overscrollBehavior,
 )
