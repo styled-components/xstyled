@@ -49,12 +49,29 @@ export const backgroundRepeat = style<BackgroundRepeatProps>({
   prop: 'backgroundRepeat',
 })
 
+export interface BackgroundAttachmentProps<T = {}> {
+  backgroundAttachment?: SystemProperty<CSS.Property.BackgroundAttachment, T>
+}
+export const backgroundAttachment = style<BackgroundAttachmentProps>({
+  prop: 'backgroundAttachment',
+})
+
+export interface BackgroundClipProps<T = {}> {
+  backgroundClip?: SystemProperty<CSS.Property.BackgroundClip, T>
+}
+export const backgroundClip = style<BackgroundClipProps>({
+  prop: 'backgroundClip',
+  cssProperty: ['backgroundClip', '-webkitBackgroundClip'],
+})
+
 export type BackgroundsProps<T = {}> = BackgroundProps<T> &
   BackgroundColorProps<T> &
   BackgroundImageProps<T> &
   BackgroundSizeProps<T> &
   BackgroundPositionProps<T> &
-  BackgroundRepeatProps<T>
+  BackgroundRepeatProps<T> &
+  BackgroundAttachmentProps<T> &
+  BackgroundClipProps<T>
 export const backgrounds = compose<BackgroundsProps>(
   background,
   backgroundColor,
@@ -62,4 +79,6 @@ export const backgrounds = compose<BackgroundsProps>(
   backgroundSize,
   backgroundPosition,
   backgroundRepeat,
+  backgroundAttachment,
+  backgroundClip,
 )
