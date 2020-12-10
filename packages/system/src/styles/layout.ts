@@ -132,6 +132,13 @@ export const left = style<LeftProps>({
   themeGet: getInset,
 })
 
+export interface VisibilityProps<T = {}> {
+  visibility?: SystemProperty<CSS.Property.Visibility, T>
+}
+export const visibility = style<VisibilityProps>({
+  prop: 'visibility',
+})
+
 export type LayoutProps<T = {}> = DisplayProps<T> &
   BoxSizingProps<T> &
   ContainerProps<T> &
@@ -143,7 +150,8 @@ export type LayoutProps<T = {}> = DisplayProps<T> &
   TopProps<T> &
   RightProps<T> &
   BottomProps<T> &
-  LeftProps<T>
+  LeftProps<T> &
+  VisibilityProps<T>
 export const layout = compose<LayoutProps>(
   boxSizing,
   display,
@@ -157,4 +165,5 @@ export const layout = compose<LayoutProps>(
   right,
   bottom,
   left,
+  visibility,
 )
