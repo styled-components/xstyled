@@ -1,0 +1,144 @@
+---
+section: Layout
+title: Visibility
+---
+
+# Visibility
+
+Utilities for controlling the visibility of an element.
+
+| React props          | CSS Properties         |
+| -------------------- | ---------------------- |
+| `visibility=[value]` | `visibility: [value];` |
+
+## Invisible
+
+Use `visibility="hidden"` to hide an element, but still maintain its place in the DOM, affecting the layout of other elements (compare with `display=none` from the [display documentation](@TODO-link)).
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" justifyContent="center" spaceX={4}>
+      <Box
+        borderRadius="md"
+        bg="indigo-500"
+        w={32}
+        h={16}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="white"
+        fontSize="3xl"
+        fontWeight="extrabold"
+      >
+        1
+      </Box>
+      <Box
+        visibility="hidden"
+        borderRadius="md"
+        bg="indigo-500"
+        w={32}
+        h={16}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="white"
+        fontSize="3xl"
+        fontWeight="extrabold"
+      >
+        2
+      </Box>
+      <Box
+        borderRadius="md"
+        bg="indigo-500"
+        w={32}
+        h={16}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="white"
+        fontSize="3xl"
+        fontWeight="extrabold"
+      >
+        3
+      </Box>
+    </Box>
+  </template>
+  <Box display="flex" justifyContent="center" spaceX={4}>
+    <Box>1</Box>
+    <Box visibility="hidden">2</Box>
+    <Box>3</Box>
+  </Box>
+</>
+```
+
+## Visible
+
+Use `visibility="visible"` to make an element visible. This is mostly useful for undoing the `visibility="hidden"` utility at different screen sizes.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="flex" justifyContent="center" spaceX={4}>
+      <Box
+        borderRadius="md"
+        bg="amber-500"
+        w={32}
+        h={16}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="white"
+        fontSize="3xl"
+        fontWeight="extrabold"
+      >
+        1
+      </Box>
+      <Box
+        visibility="visible"
+        borderRadius="md"
+        bg="amber-500"
+        w={32}
+        h={16}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="white"
+        fontSize="3xl"
+        fontWeight="extrabold"
+      >
+        2
+      </Box>
+      <Box
+        borderRadius="md"
+        bg="amber-500"
+        w={32}
+        h={16}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="white"
+        fontSize="3xl"
+        fontWeight="extrabold"
+      >
+        3
+      </Box>
+    </Box>
+  </template>
+  <Box display="flex" justifyContent="center" spaceX={4}>
+    <Box>1</Box>
+    <Box visibility="visible">2</Box>
+    <Box>3</Box>
+  </Box>
+</>
+```
+
+## Responsive
+
+To apply a visibility utility only at a specific breakpoint, use responsive object notation. For example, adding the property `visiblity={{ md: "hidden" }}` to an element would apply the `visiblity="hidden"` utility at medium screen sizes and above.
+
+```jsx
+<Box visiblity={{ md: 'hidden' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

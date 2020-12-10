@@ -1,0 +1,118 @@
+---
+section: Layout
+title: Object Fit
+---
+
+# Object Fit
+
+Utilities for controlling how a replaced element's content should be resized.
+
+| React props         | CSS Properties         |
+| ------------------- | ---------------------- |
+| `objectFit=[value]` | `object-fit: [value];` |
+
+## Contain
+
+Resize an element's content to stay contained within its container using `objectFit="contain"`.
+
+```jsx preview
+<>
+  <template preview>
+    <Box bg="rose-300" borderRadius="md" overflow="hidden">
+      <Box
+        as="img"
+        h={48}
+        w={1}
+        objectFit="contain"
+        src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+        alt=""
+      />
+    </Box>
+  </template>
+  <Box bg="rose-300">
+    <Box as="img" objectFit="contain" h={48} w="100%" />
+  </Box>
+</>
+```
+
+## Cover
+
+Resize an element's content to cover its container using `objectFit="cover"`.
+
+```jsx preview
+<>
+  <template preview>
+    <Box bg="indigo-300" borderRadius="md" overflow="hidden">
+      <Box
+        as="img"
+        h={48}
+        w={1}
+        objectFit="cover"
+        src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+        alt=""
+      />
+    </Box>
+  </template>
+  <Box bg="rose-300">
+    <Box as="img" objectFit="cover" h={48} w="100%" />
+  </Box>
+</>
+```
+
+## Fill
+
+Stretch an element's content to fit its container using `objectFit="fill"`.
+
+```jsx preview
+<>
+  <template preview>
+    <Box bg="indigo-300" borderRadius="md" overflow="hidden">
+      <Box
+        as="img"
+        h={48}
+        w={1}
+        objectFit="fill"
+        src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+        alt=""
+      />
+    </Box>
+  </template>
+  <Box bg="indigo-300">
+    <Box as="img" objectFit="fill" h={48} w="100%" />
+  </Box>
+</>
+```
+
+## Fill
+
+Display an element's content at its original size ignoring the container size using`objectFit="none"`.
+
+```jsx preview
+<>
+  <template preview>
+    <Box bg="amber-300" borderRadius="md" overflow="hidden">
+      <Box
+        as="img"
+        h={48}
+        w={1}
+        objectFit="none"
+        src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+        alt=""
+      />
+    </Box>
+  </template>
+  <Box bg="amber-300">
+    <Box as="img" objectFit="none" h={48} w="100%" />
+  </Box>
+</>
+```
+
+## Responsive
+
+To control how a replaced element's content should be resized only at a specific breakpoint, use responsive object notation. For example, adding the property `objectFit={{ md: "contain" }}` to an element would apply the `objectFit="contain"` utility at medium screen sizes and above.
+
+```jsx
+<Box objectFit={{ md: 'contain' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

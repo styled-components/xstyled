@@ -1,0 +1,298 @@
+---
+section: Layout
+title: Top / Right / Bottom / Left
+---
+
+# Top / Right / Bottom / Left
+
+Utilities for controlling the placement of positioned elements.
+
+| React props      | CSS Properties     |
+| ---------------- | ------------------ |
+| `top=[value]`    | `top: [value];`    |
+| `right=[value]`  | `right: [value];`  |
+| `bottom=[value]` | `bottom: [value];` |
+| `left=[value]`   | `left: [value];`   |
+
+## Usage
+
+Use the `{top|right|bottom|left}={value}` utilities to anchor absolutely positioned elements against any of the edges of the nearest positioned parent.
+
+Combined with xstyled's padding and margin utilities, you'll probably find that these are all you need to precisely control absolutely positioned elements.
+
+```jsx preview
+<>
+  <template preview>
+    <Box display="grid" gridTemplateColumns={{ xs: 2, sm: 3, md: 4 }} gap={4}>
+      {/* Span top edge */}
+      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
+        <Box
+          top={0}
+          right={0}
+          left={0}
+          h={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          1
+        </Box>
+      </Box>
+
+      {/* Span right edge */}
+      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
+        <Box
+          top={0}
+          right={0}
+          bottom={0}
+          w={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          2
+        </Box>
+      </Box>
+
+      {/* Span bottom edge */}
+      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
+        <Box
+          right={0}
+          bottom={0}
+          left={0}
+          h={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          3
+        </Box>
+      </Box>
+
+      {/* Span left edge */}
+      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
+        <Box
+          top={0}
+          bottom={0}
+          left={0}
+          w={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          4
+        </Box>
+      </Box>
+
+      {/* Fill entire parent */}
+      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
+        <Box
+          top={0}
+          right={0}
+          bottom={0}
+          left={0}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          5
+        </Box>
+      </Box>
+
+      {/* Pin to top left corner */}
+      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
+        <Box
+          top={0}
+          left={0}
+          h={16}
+          w={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          6
+        </Box>
+      </Box>
+
+      {/* Pin to top right corner */}
+      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
+        <Box
+          top={0}
+          right={0}
+          h={16}
+          w={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          7
+        </Box>
+      </Box>
+
+      {/* Pin to bottom right corner */}
+      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
+        <Box
+          right={0}
+          bottom={0}
+          h={16}
+          w={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          8
+        </Box>
+      </Box>
+
+      {/* Pin to bottom left corner */}
+      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
+        <Box
+          bottom={0}
+          left={0}
+          h={16}
+          w={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          9
+        </Box>
+      </Box>
+    </Box>
+  </template>
+  {/* Span top edge */}
+  <Box position="relative" h={32} w={32}>
+    <Box top={0} right={0} left={0} h={16}>
+      1
+    </Box>
+  </Box>
+
+  {/* Span right edge */}
+  <Box position="relative" h={32} w={32}>
+    <Box top={0} right={0} bottom={0} w={16}>
+      2
+    </Box>
+  </Box>
+
+  {/* Span bottom edge */}
+  <Box position="relative" h={32} w={32}>
+    <Box right={0} bottom={0} left={0} h={16}>
+      2
+    </Box>
+  </Box>
+
+  {/* Span left edge */}
+  <Box position="relative" h={32} w={32}>
+    <Box top={0} bottom={0} left={0} w={16}>
+      3
+    </Box>
+  </Box>
+
+  {/* Fill entire parent */}
+  <Box position="relative" h={32} w={32}>
+    <Box top={0} right={0} bottom={0} left={0}>
+      4
+    </Box>
+  </Box>
+
+  {/* Pin to top left corner */}
+  <Box position="relative" h={32} w={32}>
+    <Box top={0} left={0} h={16} w={16}>
+      5
+    </Box>
+  </Box>
+
+  {/* Pin to top right corner */}
+  <Box position="relative" h={32} w={32}>
+    <Box top={0} right={0} h={16} w={16}>
+      6
+    </Box>
+  </Box>
+
+  {/* Pin to bottom right corner */}
+  <Box position="relative" h={32} w={32}>
+    <Box right={0} bottom={0} h={16} w={16}>
+      6
+    </Box>
+  </Box>
+
+  {/* Pin to bottom left corner */}
+  <Box position="relative" h={32} w={32}>
+    <Box bottom={0} left={0} h={16} w={16}>
+      6
+    </Box>
+  </Box>
+</>
+```
+
+## Responsive
+
+To position an element only at a specific breakpoint, use responsive object notation. For example, adding the property `top={{ md: 10 }}` to an element would apply the `top=10` utility at medium screen sizes and above.
+
+```jsx
+<Box top={{ md: 10 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Inset scale
+
+If you'd like to customize your values for `top`, `right`, `bottom`, `left`, all at once, use the `theme.inset` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    inset: {
++     sm: '8px',
+    },
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).

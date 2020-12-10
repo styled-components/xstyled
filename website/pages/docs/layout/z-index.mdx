@@ -1,0 +1,168 @@
+---
+section: Layout
+title: Z-Index
+---
+
+# Z-Index
+
+Utilities for controlling the stack order of an element.
+
+| React props      | CSS Properties      |
+| ---------------- | ------------------- |
+| `zIndex=[value]` | `z-index: [value];` |
+
+## Usage
+
+Control the stack order (or three-dimensional positioning) of an element in xstyled, regardless of order it has been displayed, using the `zIndex={index}` utilities.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      display="flex"
+      justifyContent="center"
+      position="relative"
+      h={28}
+      textAlign="center"
+      transform
+      translateX={12}
+    >
+      <Box
+        zIndex={40}
+        position="relative"
+        w={20}
+        h={20}
+        bg="fuchsia-500"
+        borderWidth="0 1 0"
+        borderColor="fuchsia-600"
+        borderRadius="md"
+        boxShadow="md"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        color="white"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        5
+      </Box>
+      <Box
+        zIndex={30}
+        position="relative"
+        left={-6}
+        top={4}
+        w={20}
+        h={20}
+        bg="fuchsia-500"
+        borderWidth="0 1 0"
+        borderColor="fuchsia-600"
+        borderRadius="md"
+        boxShadow="md"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        color="white"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        4
+      </Box>
+      <Box
+        zIndex={20}
+        position="relative"
+        left={-12}
+        top={8}
+        w={20}
+        h={20}
+        bg="fuchsia-500"
+        borderWidth="0 1 0"
+        borderColor="fuchsia-600"
+        borderRadius="md"
+        boxShadow="md"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        color="white"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        3
+      </Box>
+      <Box
+        zIndex={10}
+        position="relative"
+        left={-18}
+        top={12}
+        w={20}
+        h={20}
+        bg="fuchsia-500"
+        borderWidth="0 1 0"
+        borderColor="fuchsia-600"
+        borderRadius="md"
+        boxShadow="md"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        color="white"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        2
+      </Box>
+      <Box
+        zIndex={0}
+        position="relative"
+        left={-24}
+        top={16}
+        w={20}
+        h={20}
+        bg="fuchsia-500"
+        borderWidth="0 1 0"
+        borderColor="fuchsia-600"
+        borderRadius="md"
+        boxShadow="md"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        color="white"
+        fontSize="2xl"
+      >
+        1
+      </Box>
+    </Box>
+  </template>
+  <Box zIndex={40}>5</Box>
+  <Box zIndex={30}>4</Box>
+  <Box zIndex={20}>3</Box>
+  <Box zIndex={10}>2</Box>
+  <Box zIndex={0}>1</Box>
+</>
+```
+
+## Responsive
+
+To apply a visibility utility only at a specific breakpoint, use responsive object notation. For example, adding the property `visiblity={{ md: "hidden" }}` to an element would apply the `visiblity="hidden"` utility at medium screen sizes and above.
+
+```jsx
+<Box visiblity={{ md: 'hidden' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Z-Indices
+
+If you'd like to customize your values for `zIndex`, use the `theme.zIndices` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    zIndices: {
++     dialog: 200,
++     tooltip: 300,
+    },
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).
