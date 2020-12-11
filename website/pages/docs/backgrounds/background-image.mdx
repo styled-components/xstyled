@@ -1,0 +1,42 @@
+---
+section: Backgrounds
+title: Bakground Image
+---
+
+# Bakground Image
+
+Utilities for controlling an element's background image.
+
+| React props               | CSS Properties               |
+| ------------------------- | ---------------------------- |
+| `backgroundImage=[value]` | `background-image: [value];` |
+
+## Image
+
+Use `backgroundImage="url(...)"` to display an image.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      bg="amber-300"
+      h={48}
+      backgroundSize="cover"
+      backgroundRepeat="no-repeat"
+      backgroundPosition="center"
+      backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&h=800&q=80');"
+    />
+  </template>
+  <Box backgroundImage="url(...)" />
+</>
+```
+
+## Responsive
+
+To control background image at a specific breakpoint, use responsive object notation. For example, adding the property `backgroundImage={{ md: "url(...)" }}` to an element would apply the `backgroundImage="url(...)"` utility at medium screen sizes and above.
+
+```jsx
+<Box backgroundImage={{ md: 'url(...)' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
