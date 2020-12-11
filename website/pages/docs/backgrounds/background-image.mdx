@@ -31,6 +31,30 @@ Use `backgroundImage="url(...)"` to display an image.
 </>
 ```
 
+## Linear Gradient
+
+To give an element a linear gradient background, use one of the `backgroundImage="gradient-to-{direction}"` utilities, in combination with the [gradient color stop](@TODO-link) utilities.
+
+```jsx preview
+<>
+  <template preview>
+    <Box
+      h={24}
+      backgroundImage="gradient-to-r"
+      gradientFrom="orange-400"
+      gradientVia="red-500"
+      gradientTo="pink-500"
+    />
+  </template>
+  <Box
+    backgroundImage="gradient-to-r"
+    gradientFrom="orange-400"
+    gradientVia="red-500"
+    gradientTo="pink-500"
+  />
+</>
+```
+
 ## Responsive
 
 To control background image at a specific breakpoint, use responsive object notation. For example, adding the property `backgroundImage={{ md: "url(...)" }}` to an element would apply the `backgroundImage="url(...)"` utility at medium screen sizes and above.
