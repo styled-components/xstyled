@@ -43,3 +43,11 @@ describe('#divideYReverse', () => {
     })
   })
 })
+
+describe('#borderColor', () => {
+  it('works as expected', () => {
+    expect(borders({ borderColor: 'red' })).toEqual({
+      borderColor: 'red',
+    })
+  })
+})
