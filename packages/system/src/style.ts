@@ -345,11 +345,12 @@ type Mixin = (
 
 type CSSProperty = string | string[] | Mixin
 
-const getMixinFromCSSProperties = (properties?: string[]): Mixin => (
+const getMixinFromCSSProperties = (properties?: string | string[]): Mixin => (
   _,
   { value },
 ) => {
   if (!string(value) && !num(value)) return null
+  if (string(properties)) return { [properties]: value }
   const style: Styles = {}
   for (const key in properties) {
     style[properties[(key as unknown) as number]] = value
@@ -359,7 +360,6 @@ const getMixinFromCSSProperties = (properties?: string[]): Mixin => (
 
 const getMixinFromCSSProperty = (cssProperty: CSSProperty): Mixin => {
   if (func(cssProperty)) return cssProperty
-  if (string(cssProperty)) return getMixinFromCSSProperties([cssProperty])
   return getMixinFromCSSProperties(cssProperty)
 }
 
