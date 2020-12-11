@@ -1,5 +1,5 @@
 import * as CSS from 'csstype'
-import { compose, createStyleGenerator, themeGetter, style } from '../style'
+import { compose, themeGetter, style } from '../style'
 import { SystemProperty } from '../types'
 import { ExtractThemeProperty, VariantsType } from '../types'
 import { getAngle } from './units'
@@ -16,9 +16,11 @@ export const getTransform = themeGetter({
 export interface TransformProps<T = {}> {
   transform?: SystemProperty<boolean, T>
 }
-export const transform = createStyleGenerator<TransformProps>(
-  props => {
-    if (props.transform === true) {
+export const transform = style<TransformProps>({
+  prop: 'transform',
+  themeGet: getTransform,
+  cssProperty: (_, { value }) => {
+    if (value === true) {
       return {
         '--x-translate-x': 0,
         '--x-translate-y': 0,
@@ -31,10 +33,9 @@ export const transform = createStyleGenerator<TransformProps>(
           'translate3d(var(--x-translate-x), var(--x-translate-y), 0) rotate(var(--x-rotate)) skewX(var(--x-skew-x)) skewY(var(--x-skew-y)) scaleX(var(--x-scale-x)) scaleY(var(--x-scale-y))',
       }
     }
-    return { transform: getTransform(props.transform)(props) }
+    return { transform: value }
   },
-  ['transform'],
-)
+})
 
 export interface TransformOriginProps<T = {}> {
   transformOrigin?: SystemProperty<CSS.Property.TransformOrigin, T>
@@ -94,7 +95,7 @@ export interface ScaleProps<T = {}> {
 export const scale = style({
   prop: 'scale',
   cssProperty: ['--x-scale-x', '--x-scale-y'],
-  transform: v => String(v),
+  transform: (v) => String(v),
 })
 
 export interface ScaleXProps<T = {}> {
@@ -103,7 +104,7 @@ export interface ScaleXProps<T = {}> {
 export const scaleX = style({
   prop: 'scaleX',
   cssProperty: '--x-scale-x',
-  transform: v => String(v),
+  transform: (v) => String(v),
 })
 
 export interface ScaleYProps<T = {}> {
@@ -112,7 +113,7 @@ export interface ScaleYProps<T = {}> {
 export const scaleY = style({
   prop: 'scaleY',
   cssProperty: '--x-scale-y',
-  transform: v => String(v),
+  transform: (v) => String(v),
 })
 
 export type TransformsProps<T = {}> = TransformProps<T> &

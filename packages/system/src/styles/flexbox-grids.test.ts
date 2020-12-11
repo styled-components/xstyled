@@ -8,6 +8,15 @@ describe('#flexboxGrids', () => {
       flexWrap: 'wrap',
       display: 'flex',
     })
+
+    expect(flexboxGrids({ row: { md: true } })).toEqual({
+      '@media (min-width: 768px)': {
+        boxSizing: 'border-box',
+        flexGrow: 1,
+        flexWrap: 'wrap',
+        display: 'flex',
+      },
+    })
   })
 
   it('supports col', () => {

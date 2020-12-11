@@ -1,6 +1,6 @@
 import * as CSS from 'csstype'
 import { num } from '@xstyled/util'
-import { style, themeGetter, compose, createStyleGenerator } from '../style'
+import { style, themeGetter, compose } from '../style'
 import { px } from '../unit'
 import { getColor, ColorGetter } from './colors'
 import { getPx } from './units'
@@ -146,66 +146,56 @@ export const borderRadius = style<BorderRadiusProps>({
 export interface DivideYProps<T = {}> {
   divideY?: SystemProperty<BorderWidthGetter<T>, T>
 }
-export const divideY = createStyleGenerator<DivideYProps>(
-  props => {
-    const value = getBorderWidth(props.divideY)(props)
-    return {
-      '& > :not([hidden]) ~ :not([hidden])': {
-        '--x-divide-y-reverse': 0,
-        borderTopWidth: `calc(${value} * calc(1 - var(--x-divide-y-reverse)))`,
-        borderBottomWidth: `calc(${value} * var(--x-divide-y-reverse))`,
-      },
-    }
-  },
-  ['divideY'],
-)
+export const divideY = style<DivideYProps>({
+  prop: 'divideY',
+  themeGet: getBorderWidth,
+  cssProperty: (_, { value }) => ({
+    '& > :not([hidden]) ~ :not([hidden])': {
+      '--x-divide-y-reverse': 0,
+      borderTopWidth: `calc(${value} * calc(1 - var(--x-divide-y-reverse)))`,
+      borderBottomWidth: `calc(${value} * var(--x-divide-y-reverse))`,
+    },
+  }),
+})
 
 export interface DivideXProps<T = {}> {
   divideX?: SystemProperty<BorderWidthGetter<T>, T>
 }
-export const divideX = createStyleGenerator<DivideXProps>(
-  props => {
-    const value = getBorderWidth(props.divideX)(props)
-    return {
-      '& > :not([hidden]) ~ :not([hidden])': {
-        '--x-divide-x-reverse': 0,
-        borderRightWidth: `calc(${value} * var(--x-divide-x-reverse))`,
-        borderLeftWidth: `calc(${value} * calc(1 - var(--x-divide-x-reverse)))`,
-      },
-    }
-  },
-  ['divideX'],
-)
+export const divideX = style<DivideXProps>({
+  prop: 'divideX',
+  themeGet: getBorderWidth,
+  cssProperty: (_, { value }) => ({
+    '& > :not([hidden]) ~ :not([hidden])': {
+      '--x-divide-x-reverse': 0,
+      borderRightWidth: `calc(${value} * var(--x-divide-x-reverse))`,
+      borderLeftWidth: `calc(${value} * calc(1 - var(--x-divide-x-reverse)))`,
+    },
+  }),
+})
 
 export interface DivideXReverseProps<T = {}> {
   divideXReverse?: SystemProperty<boolean, T>
 }
-export const divideXReverse = createStyleGenerator<DivideXReverseProps>(
-  props => {
-    if (!props.divideXReverse) return null
-    return {
-      '& > :not([hidden]) ~ :not([hidden])': {
-        '--x-divide-x-reverse': '1',
-      },
-    }
-  },
-  ['divideXReverse'],
-)
+export const divideXReverse = style<DivideXReverseProps>({
+  prop: 'divideXReverse',
+  cssProperty: () => ({
+    '& > :not([hidden]) ~ :not([hidden])': {
+      '--x-divide-x-reverse': '1',
+    },
+  }),
+})
 
 export interface DivideYReverseProps<T = {}> {
   divideYReverse?: SystemProperty<boolean, T>
 }
-export const divideYReverse = createStyleGenerator<DivideYReverseProps>(
-  props => {
-    if (!props.divideYReverse) return null
-    return {
-      '& > :not([hidden]) ~ :not([hidden])': {
-        '--x-divide-y-reverse': '1',
-      },
-    }
-  },
-  ['divideYReverse'],
-)
+export const divideYReverse = style<DivideYReverseProps>({
+  prop: 'divideYReverse',
+  cssProperty: () => ({
+    '& > :not([hidden]) ~ :not([hidden])': {
+      '--x-divide-y-reverse': '1',
+    },
+  }),
+})
 
 export type BordersProps<T = {}> = BorderProps<T> &
   BorderColorProps<T> &

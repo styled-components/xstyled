@@ -2,6 +2,7 @@
 import {
   is,
   num,
+  func,
   string,
   obj,
   getThemeValue,
@@ -164,25 +165,6 @@ export const themeGetter = <
   return getter
 }
 
-function styleFromValue(
-  cssProperties: string[],
-  value: any,
-  props: Props,
-  themeGet: ThemeGetter<any, any>,
-  cache: ThemeCache,
-) {
-  if (obj(value)) return null
-  if (cache.has(value)) return cache.get(value)
-  const computedValue = themeGet(value)(props)
-  if (!string(computedValue) && !num(computedValue)) return null
-  const style: { [key: string]: string | number } = {}
-  for (const key in cssProperties) {
-    style[cssProperties[key]] = computedValue
-  }
-  cache.set(value, style)
-  return style
-}
-
 export function createStyleGenerator<TProps>(
   getStyle: StyleGetter,
   props: string[],
@@ -238,9 +220,24 @@ export function reduceBreakpoints(
   return styles
 }
 
+function styleFromValue(
+  mixin: Mixin,
+  value: any,
+  props: Props,
+  themeGet: ThemeGetter<any, any>,
+  cache: ThemeCache,
+) {
+  if (obj(value)) return null
+  if (cache.has(value)) return cache.get(value)
+  const computedValue = themeGet(value)(props)
+  const style = mixin(props, { value: computedValue })
+  cache.set(value, style)
+  return style
+}
+
 function getStyleFactory(
   prop: string,
-  cssProperties: string[],
+  mixin: Mixin,
   themeGet: ThemeGetter<any, any>,
 ): StyleGetter {
   return function getStyle(props: Props) {
@@ -253,18 +250,12 @@ function getStyleFactory(
         props,
         value,
         (breakpointValue) =>
-          styleFromValue(
-            cssProperties,
-            breakpointValue,
-            props,
-            themeGet,
-            cache,
-          ),
+          styleFromValue(mixin, breakpointValue, props, themeGet, cache),
         cache,
       )
     }
 
-    return styleFromValue(cssProperties, value, props, themeGet, cache)
+    return styleFromValue(mixin, value, props, themeGet, cache)
   }
 }
 
@@ -347,6 +338,31 @@ export function compose<T>(
   return createStyleGenerator(getStyle, props, generators)
 }
 
+type Mixin = (
+  props: Props,
+  { value }: { value: any },
+) => Styles | null | undefined
+
+type CSSProperty = string | string[] | Mixin
+
+const getMixinFromCSSProperties = (properties?: string[]): Mixin => (
+  _,
+  { value },
+) => {
+  if (!string(value) && !num(value)) return null
+  const style: Styles = {}
+  for (const key in properties) {
+    style[properties[(key as unknown) as number]] = value
+  }
+  return style
+}
+
+const getMixinFromCSSProperty = (cssProperty: CSSProperty): Mixin => {
+  if (func(cssProperty)) return cssProperty
+  if (string(cssProperty)) return getMixinFromCSSProperties([cssProperty])
+  return getMixinFromCSSProperties(cssProperty)
+}
+
 export function style<TProps extends object>({
   prop,
   cssProperty,
@@ -355,31 +371,25 @@ export function style<TProps extends object>({
   themeGet,
 }: {
   prop: string | string[]
-  cssProperty?: string | string[]
+  cssProperty?: CSSProperty
   key?: string
   transform?: TransformValue<any, any>
   themeGet?: ThemeGetter<any, any>
 }): StyleGenerator<TProps> {
   if (Array.isArray(prop)) {
-    const cssProperties = cssProperty
-      ? Array.isArray(cssProperty)
-        ? cssProperty
-        : [cssProperty]
-      : prop
+    const mixin = cssProperty
+      ? getMixinFromCSSProperty(cssProperty)
+      : cssProperty
 
     const generators = prop.map((prop) =>
-      style({ prop, cssProperty: cssProperties, key, transform, themeGet }),
+      style({ prop, cssProperty: mixin, key, transform, themeGet }),
     )
 
     // @ts-ignore
     return compose(...generators)
   }
 
-  const cssProperties = cssProperty
-    ? Array.isArray(cssProperty)
-      ? cssProperty
-      : [cssProperty]
-    : [prop]
+  const mixin = getMixinFromCSSProperty(cssProperty || [prop])
 
   themeGet = themeGet || themeGetter({ key, transform })
 
@@ -390,12 +400,12 @@ export function style<TProps extends object>({
     const stateProp = `${stateName}${capitalizedProp}`
     const getStyle = getStateStyleFactory(
       stateName,
-      getStyleFactory(stateProp, cssProperties, themeGet),
+      getStyleFactory(stateProp, mixin, themeGet),
     )
     const generator = createStyleGenerator<TProps>(getStyle, [stateProp])
     generators.push(generator)
   }
-  const getStyle = getStyleFactory(prop, cssProperties, themeGet)
+  const getStyle = getStyleFactory(prop, mixin, themeGet)
   const generator = createStyleGenerator<TProps>(getStyle, [prop])
   generators.push(generator)
   // @ts-ignore

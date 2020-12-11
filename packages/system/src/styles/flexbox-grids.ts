@@ -1,21 +1,26 @@
 import { SystemProperty } from '../types'
 import { obj } from '@xstyled/util'
-import { createStyleGenerator, reduceBreakpoints, compose } from '../style'
+import {
+  style,
+  createStyleGenerator,
+  reduceBreakpoints,
+  compose,
+} from '../style'
 import { getPercent } from './units'
 import { Props } from '../types'
 
 export interface RowProps<T = {}> {
   row?: SystemProperty<boolean, T>
 }
-export const row = createStyleGenerator<RowProps>(
-  () => ({
+export const row = style<RowProps>({
+  prop: 'row',
+  cssProperty: () => ({
     boxSizing: 'border-box',
     flexGrow: 1,
     flexWrap: 'wrap',
     display: 'flex',
   }),
-  ['row'],
-)
+})
 
 function getColStyle(props: Props, size: any) {
   if (size === true) {
@@ -46,7 +51,7 @@ export interface ColProps<T = {}> {
   col?: SystemProperty<true | 'auto' | string | number, T>
 }
 export const col = createStyleGenerator<ColProps>(
-  props => {
+  (props) => {
     const value = props.col
     const common = {
       boxSizing: 'border-box',

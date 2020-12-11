@@ -505,10 +505,37 @@ describe('#space', () => {
         "placeholderPy",
         "py",
         "spaceX",
+        "motionSafeSpaceY",
+        "motionReduceSpaceY",
+        "firstSpaceY",
+        "lastSpaceY",
+        "oddSpaceY",
+        "evenSpaceY",
+        "visitedSpaceY",
+        "checkedSpaceY",
+        "focusWithinSpaceY",
+        "hoverSpaceY",
+        "focusSpaceY",
+        "focusVisibleSpaceY",
+        "activeSpaceY",
+        "disabledSpaceY",
+        "placeholderSpaceY",
         "spaceY",
         "spaceXReverse",
         "spaceYReverse",
       ]
     `)
+  })
+})
+
+describe('#spaceY', () => {
+  it('works as expected', () => {
+    expect(space({ spaceY: 1 })).toEqual({
+      '& > :not([hidden]) ~ :not([hidden])': {
+        '--x-space-y-reverse': 0,
+        marginTop: 'calc(1px * calc(1 - var(--x-space-y-reverse)))',
+        marginBottom: 'calc(1px * var(--x-space-y-reverse))',
+      },
+    })
   })
 })
