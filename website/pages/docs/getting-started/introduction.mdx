@@ -1,0 +1,33 @@
+---
+section: Getting Started
+title: Introduction
+---
+
+# Introduction
+
+xstyled is a CSS in JS framework built for React. It makes it easy to consistent design system and scale it over time.
+
+## CSS in JS
+
+CSS in JS allows you to write CSS directly in JavaScript. Writing CSS in JS has several advantages:
+
+- **Local Scoping**: In CSS in JS, classnames are auto-generated, it means you can't clash with other libraries.
+- **Encapsulation**: Style is defined directly in components. Two benefits from this: maintenance is easier and it ensures the separation of concern, your style is private to your component.
+- **Portability**: Since components have their own styled, they can easily be shared or reused in other projects.
+- **Dynamic**: JavaScript makes your CSS dynamic, you can apply complex color tranformations, interact with user, creates complex animation on the fly... It is really a game changer.
+
+[Emotion](https://emotion.sh/) and [styled-components](https://styled-components.com/) are the two main CSS in JS library for React. xstyled is built on top of them, the library is the core of xstyled, but you don't have to know specifity, just pick one and start coding.
+
+## Story
+
+In 2018, I created a web agency. We started to work on several projects. But in every project, we were doing the same thing, the same components, again and again. So I created a library called [Smooth UI](https://github.com/smooth-code/smooth-ui/). The goal was simple, provide a set of base components.
+
+After a year of Smooth UI, I figured out that base components was not enough. I wanted to be able to reuse some low level utilities to create original components quickly in every projects. Every project is different, re-using a component from a project to another is difficult. However reusing libraries and utilities is possible. So I give to Smooth UI a system, a base component with utility props inspired from [styled-system](https://styled-system.com/).
+
+The system becomes bigger and bigger, so I decided to isolate it in a library. First, I [tried to contribute](https://github.com/styled-system/styled-system/pull/479) but I had different vision from Brent Jackson. xstyled was born!
+
+I introduced xstyled on many project during a year and more, every time it was well received and a boost of productivity for teams.
+
+In 2020, I discovered [Tailwind](https://tailwindcss.com/), I was impressed by the quality of the project. The documentation, the utilities, everything was good. It reminds me a lot xstyled, in fact xstyled v1 was very closed to Tailwind but documentation was a disaster... The core of xstyled was good enough to scale and to become a Tailwind like framework for CSS in JS world. So I decided to work on a v2.
+
+xstyled v2 is the outcome of several years of experience on dozen of projects to optimize performance and productivity.

@@ -1,0 +1,80 @@
+---
+section: Getting Started
+title: Installation
+---
+
+# Installation
+
+Learn how to get xstyled up and running in your project.
+
+## Using styled-components
+
+[styled-components](https://styled-components.com/) is a good default choice if you don't know about CSS in JS libraries.
+
+### Install styled-components and xstyled via npm
+
+```
+npm install styled-components @xstyled/styled-components
+```
+
+### Setup theme
+
+```js
+// App.js
+import { defaultTheme, ThemeProvider } from '@xstyled/styled-components'
+
+const theme = {
+  ...defaultTheme,
+  // Customize your theme here
+}
+
+export default function App() {
+  return <ThemeProvider theme={theme}>{/* ... */}</ThemeProvider>
+}
+```
+
+### Write your first component
+
+```js
+import { Box } from '@xstyled/styled-components'
+
+function Button(props) {
+  return <Box as="button" bg="blue-500" {...props} />
+}
+```
+
+## Using Emotion
+
+[Emotion](https://emotion.sh/) is as good as [styled-components](https://styled-components.com/), using it is also a good choice!
+
+### Install emotion and xstyled via npm
+
+```
+npm install @emotion/core @emotion/react @emotion/styled @xstyled/emotion
+```
+
+### Setup theme
+
+```js
+// App.js
+import { defaultTheme, ThemeProvider } from '@xstyled/emotion'
+
+const theme = {
+  ...defaultTheme,
+  // Customize your theme here
+}
+
+export default function App() {
+  return <ThemeProvider theme={theme}>{/* ... */}</ThemeProvider>
+}
+```
+
+### Write your first component
+
+```js
+import { Box } from '@xstyled/emotion'
+
+function Button(props) {
+  return <Box as="button" bg="blue-500" {...props} />
+}
+```

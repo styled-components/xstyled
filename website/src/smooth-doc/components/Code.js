@@ -55,8 +55,11 @@ const Pre = styled.pre`
     'sm',
     css`
       border-radius: editor;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+
+      &[data-preview='true'] {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
       margin: 3 -2;
     `,
   )}
@@ -370,7 +373,7 @@ export function Code({
         <LiveProvider
           code={preview}
           transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
-          scope={{ mdx, require: req, Box }}
+          scope={{ mdx, require: req, Box, x: Box }}
           language={lang}
           theme={prismTheme}
           noInline={noInline}
@@ -385,7 +388,7 @@ export function Code({
           </Preview>
           <LiveError />
         </LiveProvider>
-        <Pre>
+        <Pre data-preview>
           <RawHighlight
             code={code.replace(/\n\s{2}/g, '\n').trim()}
             language={lang}

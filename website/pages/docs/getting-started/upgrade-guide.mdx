@@ -1,0 +1,92 @@
+---
+section: Getting Started
+title: Upgrade Guide
+---
+
+# Upgrade Guide
+
+Upgrading from xstyled v1.x to v2.0.
+
+xstyled v2 is the new major version since v1 of xstyled released in May 2019.
+
+We know that xstyled is in the core of your project and that the migration could be difficult. For that purpose, we minimized the number of changes between the two versions, there is only few breaking changes.
+
+## New philosophy
+
+The v2 of xstyled favoured the usage of the `Box` component instead of the `styled` approach. Even if the `styled` approach is always supported, it is better to use `Box` as much as possible!
+
+Remember class Components and Hooks in React? It is the same thing for `Box` and `styled`. There is no plan of deprecation, no need to convert all your code but it is better to use `Box` if you can in future.
+
+## Breaking changes
+
+### Emotion v11
+
+xstyled v2 works with Emotion v11, if you use xstyled v1 with Emotion, please read [the migrate guide from Emotion v10 to Emotion v11](https://emotion.sh/docs/migrating-to-emotion-10#incremental-migration) first.
+
+### No more default `space`
+
+xstyled v1 had default `space` built-in, in v2 `space` are now located in default theme and are slightly different from v1. Two options:
+
+#### You have customized `space` in your theme
+
+Good news! You don't have to do anything, just keep your them in v2
+
+#### You have not customized `space` in your theme
+
+You have to specify old `space` in your theme:
+
+```js
+const theme = {
+  space: [0, 4, 8, 16, 24, 48, 96, 144, 192, 240],
+}
+```
+
+> If you were not using any theme, read [customize theme documentation](@TODO-link) to learn how to create a theme.
+
+### No more `size` utility
+
+`size` utility is gone in xstyled v2. The name of property was confusing and not really useful.
+
+> If you use it, replace it by `with` + `height` or create your own `size` utility:
+
+```js
+import { style, getSize } from '@xstyled/...'
+
+const size = style({
+  prop: 'size',
+  cssProperty: ['width', 'height'],
+  themeGet: getSize,
+})
+```
+
+### `gridGap` becomes `gap`
+
+To follow the [new specification](https://developer.mozilla.org/en-US/docs/Web/CSS/gap), `gridGap` becomes `gap`.
+
+> If you use `gridGap` in your project, replace it by `gap`.
+
+### No more `border{direction}` and `border{direction}Color` utilities
+
+Since xstyled v2 now supports shorthand in properties, `border{direction}` and `border{direction}Color` are gone in favor of `border="{top} {right} {bottom} {left}"` and `borderColor="{top} {right} {bottom} {left}"`.
+
+> If you use `borderTop`, `borderRight`, `borderBottom`, `borderLeft`, replace it by `border="{top} {right} {bottom} {left}"`.
+
+> If you use `borderTopColor`, `borderRightColor`, `borderBottomColor`, `borderLeftColor`, replace it by `borderColor="{top} {right} {bottom} {left}"`.
+
+### Utilities groups reorganization
+
+xstyled v2 exposes lot of new utilities, to be more consistent, utilities groups have been completely changed.
+
+> If you use utility groups like `backgrounds`, `basics`, `borders`, `flexboxes`, `grids`, `layout`, `positioning`, `shadows`, `space`, `svg`, `typography` or `xgrids`. Then you have to pick new groups of utilities or single utilities. Follow [Custom Box guide](@TODO-link) to learn how to do it.
+
+### New breakpoints
+
+xstyled v2 now uses the same breakpoints as Tailwind, it was using Bootstrap's one but landscape have changed and those from Tailwind are actually more realist.
+
+> If you use breakpoints and does not define them, you could want to use previous one:
+
+```js
+const theme = {
+  breakpoints: { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
+}
+```

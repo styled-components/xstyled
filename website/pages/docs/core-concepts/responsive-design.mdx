@@ -1,0 +1,27 @@
+---
+section: Core Concepts
+title: Responsive Design
+---
+
+# Responsive Design
+
+Create adaptive user interfaces using responsive utilities.
+
+Every xstyled's utilities can be applied conditionnaly at different breakpoints, it makes it easy to build complex responsive interfaces.
+
+There are five breakpoints by default, inspired by common device resolutions:
+
+| Breakpoint prefix | Minimum width    | CSS                                  |
+| ----------------- | ---------------- | ------------------------------------ |
+| `_` or `xs`       | No minimum width | `{ ... }`                            |
+| `sm`              | `640px;`         | `@media (min-width: 640px) { ... }`  |
+| `md`              | `768px;`         | `@media (min-width: 768px) { ... }`  |
+| `lg`              | `1024px;`        | `@media (min-width: 1024px) { ... }` |
+| `xl`              | `1280px;`        | `@media (min-width: 1280px) { ... }` |
+| `2xl`             | `1536px;`        | `@media (min-width: 1536px) { ... }` |
+
+Every props accepts an object syntax to define a value for each breakpoints:
+
+```js
+<x.img class="w-16 md:w-32 lg:w-48" src="...">
+```

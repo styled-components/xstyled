@@ -19,9 +19,8 @@ Control the background color of an element using the `bg={color}` or `background
 ```jsx preview
 <>
   <template preview>
-    <Box textAlign="center">
-      <Box
-        as="button"
+    <x.div textAlign="center">
+      <x.button
         type="button"
         py={2}
         px={4}
@@ -36,12 +35,12 @@ Control the background color of an element using the `bg={color}` or `background
         tabindex="-1"
       >
         Click me
-      </Box>
-    </Box>
+      </x.button>
+    </x.div>
   </template>
-  <Box as="button" bg="emerald-500" hoverBg="emerald-800">
+  <x.button bg="emerald-500" hoverBg="emerald-800">
     Button
-  </Box>
+  </x.button>
 </>
 ```
 
@@ -52,9 +51,8 @@ Control the background color of an element using the `bg={color}` or `background
 ```jsx preview
 <>
   <template preview>
-    <Box textAlign="center">
-      <Box
-        as="button"
+    <x.div textAlign="center">
+      <x.button
         type="button"
         py={2}
         px={4}
@@ -69,12 +67,12 @@ Control the background color of an element using the `bg={color}` or `background
         tabindex="-1"
       >
         Click me
-      </Box>
-    </Box>
+      </x.button>
+    </x.div>
   </template>
-  <Box as="button" bg="emerald-500" hoverBg="emerald-800">
+  <x.button bg="emerald-500" hoverBg="emerald-800">
     Button
-  </Box>
+  </x.button>
 </>
 ```
 
@@ -83,7 +81,26 @@ Control the background color of an element using the `bg={color}` or `background
 To control the background color of an element at a specific breakpoint, use responsive object notation. For example, adding the property `bg={{ md: "red-500" }}` to an element would apply the `bg="red-500"` utility at medium screen sizes and above.
 
 ```jsx
-<Box bg={{ md: 'red-500' }} />
+<x.button bg={{ md: 'red-500' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+
+## Customizing
+
+### Colors
+
+If you'd like to customize your values for all colors, use the `theme.colors` section of your theme.
+
+```diffjs
+  // theme.js
+  import { th } from '@xstyled/styled-components'
+
+  export const theme = {
+    colors: {
+      // ...
++     'deep-blue': '#00008b',
++     'primary': th.color('red-600'),
+    },
+  }
+```
