@@ -8,6 +8,7 @@ export interface Breakpoints {
 }
 
 const DEFAULT_BREAKPOINTS: Breakpoints = {
+  _: 0,
   xs: 0,
   sm: 640,
   md: 768,
