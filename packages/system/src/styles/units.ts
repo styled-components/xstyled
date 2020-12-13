@@ -1,15 +1,17 @@
 import { themeGetter } from '../style'
 import { px, ms, deg, rpx, percent } from '../unit'
 
+export type PxGetter = number | string
 export const getPx = themeGetter({
   name: 'px',
-  transform: (value: number | string, { props }) => {
+  transform: (value: PxGetter, { props }) => {
     const rootFontSize = props?.theme?.settings?.rootFontSize ?? undefined
     const num = Number(value)
     return px(rpx(Number.isNaN(num) ? value : num, { rootFontSize }))
   },
 })
 
+export type DurationGetter = number | string
 export const getDuration = themeGetter({
   name: 'duration',
   transform: (value: number | string) => {
@@ -18,6 +20,7 @@ export const getDuration = themeGetter({
   },
 })
 
+export type AngleGetter = number | string
 export const getAngle = themeGetter({
   name: 'angle',
   transform: (value: number | string) => {
@@ -26,6 +29,7 @@ export const getAngle = themeGetter({
   },
 })
 
+export type PercentGetter = number | string
 export const getPercent = themeGetter({
   name: 'percent',
   transform: percent,
