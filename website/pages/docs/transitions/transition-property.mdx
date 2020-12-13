@@ -7,26 +7,25 @@ title: Transition Property
 
 Utilities for controlling which CSS properties transition.
 
-| React props                  | CSS Properties                  |
-| ---------------------------- | ------------------------------- |
-| `transitionProperty=[value]` | `transition-property: [value];` |
+| React props                    | CSS Properties                    |
+| ------------------------------ | --------------------------------- |
+| `transitionProperty={keyword}` | `transition-property: {keyword};` |
 
 ## Usage
 
-Use `transitionProperty={property}` utilities to specify which properties should transition when they change.
+Use `transitionProperty={keyword}` utilities to specify which properties should transition when they change.
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box textAlign="center">
-      <Box
-        as="button"
+    <x.div textAlign="center">
+      <x.button
         fontWeight="medium"
         transition
         transitionDuration={500}
         transitionProperty="background-color"
         color="white"
-        bg="blue-600"
+        bg="indigo-600"
         hoverBg="red-600"
         py={3}
         px={6}
@@ -34,23 +33,22 @@ Use `transitionProperty={property}` utilities to specify which properties should
         border={0}
       >
         Hover me
-      </Box>
-    </Box>
+      </x.button>
+    </x.div>
   </template>
-  <Box
-    as="button"
+  <x.button
     transition
     transitionProperty="background-color"
     transitionDuration={500}
     color="white"
-    bg="blue-600"
+    bg="indigo-600"
     hoverBg="red-600"
     py={3}
     px={6}
     borderRadius="md"
   >
     Hover me
-  </Box>
+  </x.button>
 </>
 ```
 
@@ -59,28 +57,54 @@ Use `transitionProperty={property}` utilities to specify which properties should
 To change which properties of an element transition at a specific breakpoint, use responsive object notation. For example, adding the property `transitionProperty={{ md: "all" }}` to an element would apply the `transitionProperty="all"` utility at medium screen sizes and above.
 
 ```jsx
-<Box transitionProperty={{ md: 'all' }} />
+<x.div transitionProperty={{ md: 'all' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
 
 ## Customizing
 
-### Transition Properties
+import CustomizeTransitionProperties from '../../../partials/customizing/transition-properties.mdx'
 
-If you'd like to customize your values for transition properties, use the `theme.transitionProperties` section of your theme.
+<CustomizeTransitionProperties />
 
-```diffjs
-  // theme.js
+## Styled bindings
 
-  export const theme = {
-    transitionProperties: {
-      // ...
-      colors: ['background-color', 'border-color', 'color', 'fill', 'stroke'],
-      opacity: ['opacity'],
-      shadow: ['box-shadow'],
-      transform: ['transform'],
-+     dialogs: ['box-shadow', 'transform'],
-    },
-  }
+### Automatic
+
+Using xstyled's `styled`, all transition properties defined are automatically binded to `transition-property` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Button = styled.button`
+  transition-property: default;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](@TODO-link).
+
+### Manual
+
+It is possible to manually bind a transition property using `th.transitionProperty` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Button = styled.button`
+  transition: ${th.transitionProperty('default')} 400ms;
+`
+```
+
+## Hooks
+
+Get a transition property in any component using `useTransitionProperty` hook:
+
+```js
+import { useTransitionProperty } from '@xstyled/...'
+
+function Butto() {
+  const transitionProperty = useTransitionProperty('default')
+}
 ```

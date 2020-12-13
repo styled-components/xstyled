@@ -55,6 +55,29 @@ Use `borderColor={color}` utilities to set the border color for invidiual sides 
 </>
 ```
 
+## Changing opacity
+
+Use [color opacity variants](@TODO-link) to choose another opacity.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <Box display="flex" alignItems="center" justifyContent="center">
+      <Box
+        as="input"
+        placeholder="Your email"
+        p={3}
+        border={2}
+        borderColor="indigo-600-a50"
+        focusOutline="0"
+        borderRadius="md"
+      />
+    </Box>
+  </template>
+  <Box as="input" border={2} borderColor="indigo-600-a50" />
+</>
+```
+
 ## Responsive
 
 To control the border color of an element at a specific breakpoint, use responsive object notation. For example, adding the property `borderColor={{ md: 'red-500' }}` to an element would apply the `borderColor="red-500` utility at medium screen sizes and above.

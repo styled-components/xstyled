@@ -9,7 +9,7 @@ Utilities for controlling the text color of an element.
 
 | React props     | CSS Properties    |
 | --------------- | ----------------- |
-| `color=[value]` | `color: [value];` |
+| `color={color}` | `color: {color};` |
 
 ## Usage
 
@@ -19,31 +19,36 @@ Control the text color of an element using the `color={color}` utilities.
 <>
   <template preview>
     <Box spaceY={8}>
-      {['red-500', 'emerald-700', '#f59e0b', 'rgba(76, 29, 149, 0.6)'].map(
-        color => (
-          <Box key={color} as="dl" color="gray-500" overflow="hidden">
-            <Box
-              as="dt"
-              flexShrink={0}
-              fontSize="sm"
-              opacity={0.8}
-              fontFamily="mono"
-              mb={1}
-            >
-              color={color}
-            </Box>
-            <Box as="dd" fontSize="xl" m={0}>
-              <Box color={color}>
-                Computers have lots of memory but no imagination.
-              </Box>
+      {[
+        'red-500',
+        'emerald-700',
+        'light-blue-700-a50',
+        '#f59e0b',
+        'rgba(76, 29, 149, 0.6)',
+      ].map((color) => (
+        <Box key={color} as="dl" color="gray-500" overflow="hidden">
+          <Box
+            as="dt"
+            flexShrink={0}
+            fontSize="sm"
+            opacity={0.8}
+            fontFamily="mono"
+            mb={1}
+          >
+            color={color}
+          </Box>
+          <Box as="dd" fontSize="xl" m={0}>
+            <Box color={color}>
+              Computers have lots of memory but no imagination.
             </Box>
           </Box>
-        ),
-      )}
+        </Box>
+      ))}
     </Box>
   </template>
   <Box color="red-500">Computers have ...</Box>
   <Box color="emerald-700">Computers have ...</Box>
+  <Box color="light-blue-700-a50">Computers have ...</Box>
   <Box color="#f59e0b">Computers have ...</Box>
   <Box color="rgba(4, 120, 87, 0.5)">Computers have ...</Box>
 </>

@@ -7,9 +7,9 @@ title: Transition Duration
 
 Utilities for controlling the duration of CSS transitions.
 
-| React props                  | CSS Properties                  |
-| ---------------------------- | ------------------------------- |
-| `transitionDuration=[value]` | `transition-duration: [value];` |
+| React props                     | CSS Properties                     |
+| ------------------------------- | ---------------------------------- |
+| `transitionDuration={duration}` | `transition-duration: {duration};` |
 
 ## Usage
 
@@ -18,9 +18,8 @@ Use `transitionDuration={duration}` utilities to control an element's transition
 ```jsx preview
 <>
   <template preview>
-    <Box display="flex" justifyContent="space-around" alignItems="center">
-      <Box
-        as="button"
+    <x.div display="flex" justifyContent="space-around" alignItems="center">
+      <x.button
         fontWeight="medium"
         transition
         transitionDuration={150}
@@ -33,9 +32,8 @@ Use `transitionDuration={duration}` utilities to control an element's transition
         border={0}
       >
         Hover me
-      </Box>
-      <Box
-        as="button"
+      </x.button>
+      <x.button
         fontWeight="medium"
         transition
         transitionDuration={300}
@@ -48,9 +46,8 @@ Use `transitionDuration={duration}` utilities to control an element's transition
         border={0}
       >
         Hover me
-      </Box>
-      <Box
-        as="button"
+      </x.button>
+      <x.button
         fontWeight="medium"
         transition
         transitionDuration={700}
@@ -63,18 +60,18 @@ Use `transitionDuration={duration}` utilities to control an element's transition
         border={0}
       >
         Hover me
-      </Box>
-    </Box>
+      </x.button>
+    </x.div>
   </template>
-  <Box transition transitionDuration={150}>
+  <x.button transition transitionDuration={150}>
     Hover me
-  </Box>
-  <Box transition transitionDuration={300}>
+  </x.button>
+  <x.button transition transitionDuration={300}>
     Hover me
-  </Box>
-  <Box transition transitionDuration={700}>
+  </x.button>
+  <x.button transition transitionDuration={700}>
     Hover me
-  </Box>
+  </x.button>
 </>
 ```
 
@@ -83,7 +80,7 @@ Use `transitionDuration={duration}` utilities to control an element's transition
 To control an element's transition-duration at a specific breakpoint, use responsive object notation. For example, adding the property `transitionDuration={{ md: 300 }}` to an element would apply the `transitionDuration={300}` utility at medium screen sizes and above.
 
 ```jsx
-<Box transitionDuration={{ md: 300 }} />
+<x.div transitionDuration={{ md: 300 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

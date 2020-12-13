@@ -7,18 +7,18 @@ title: User Select
 
 Utilities for controlling whether the user can select text in an element.
 
-| React props          | CSS Properties          |
-| -------------------- | ----------------------- |
-| `userSelect=[value]` | `user-select: [value];` |
+| React props            | CSS Properties            |
+| ---------------------- | ------------------------- |
+| `userSelect={keyword}` | `user-select: {keyword};` |
 
 ## Disable selecting text
 
 Use `userSelect="none"` to prevent selecting text in an element and its children.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box
+    <x.div
       mx="auto"
       maxWidth="sm"
       bg="amber-200"
@@ -28,9 +28,9 @@ Use `userSelect="none"` to prevent selecting text in an element and its children
       color="gray-500"
     >
       This text is not selectable
-    </Box>
+    </x.div>
   </template>
-  <Box userSelect="none">This text is not selectable</Box>
+  <x.div userSelect="none">This text is not selectable</x.div>
 </>
 ```
 
@@ -38,10 +38,10 @@ Use `userSelect="none"` to prevent selecting text in an element and its children
 
 Use `userSelect="text"` to allow selecting text in an element and its children.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
+    <x.div
       mx="auto"
       maxWidth="sm"
       bg="emerald-200"
@@ -51,9 +51,9 @@ Use `userSelect="text"` to allow selecting text in an element and its children.
       color="gray-500"
     >
       This text is selectable
-    </Box>
+    </x.div>
   </template>
-  <Box userSelect="text">This text is selectable</Box>
+  <x.div userSelect="text">This text is selectable</x.div>
 </>
 ```
 
@@ -61,10 +61,10 @@ Use `userSelect="text"` to allow selecting text in an element and its children.
 
 Use `userSelect="all"` to automatically select all the text in an element when a user clicks.
 
-```jsx preview
+```jsx preview color=fuchsia
 <>
   <template preview>
-    <Box
+    <x.div
       mx="auto"
       maxWidth="sm"
       bg="fuchsia-200"
@@ -74,9 +74,9 @@ Use `userSelect="all"` to automatically select all the text in an element when a
       color="gray-500"
     >
       Click anywhere in this text to select it all
-    </Box>
+    </x.div>
   </template>
-  <Box userSelect="all">Click anywhere in this text to select it all</Box>
+  <x.div userSelect="all">Click anywhere in this text to select it all</x.div>
 </>
 ```
 
@@ -84,10 +84,10 @@ Use `userSelect="all"` to automatically select all the text in an element when a
 
 Use `userSelect="auto"` to use the default browser behavior for selecting text. Useful for undoing other utility like `userSelect="none"` at different breakpoints.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
+    <x.div
       mx="auto"
       maxWidth="sm"
       bg="light-blue-200"
@@ -97,9 +97,9 @@ Use `userSelect="auto"` to use the default browser behavior for selecting text. 
       color="gray-500"
     >
       This text is selectable
-    </Box>
+    </x.div>
   </template>
-  <Box userSelect="auto">This text is selectable</Box>
+  <x.div userSelect="auto">This text is selectable</x.div>
 </>
 ```
 
@@ -108,7 +108,7 @@ Use `userSelect="auto"` to use the default browser behavior for selecting text. 
 To control user text selection at a specific breakpoint, use responsive object notation. For example, adding the property `userSelect={{ md: "none" }}` to an element would apply the `userSelect="none"` utility at medium screen sizes and above.
 
 ```jsx
-<Box userSelect={{ md: 'none' }} />
+<x.div userSelect={{ md: 'none' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

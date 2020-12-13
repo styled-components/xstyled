@@ -9,14 +9,14 @@ Utilities for controlling an element's padding.
 
 | React props       | CSS Properties                                          |
 | ----------------- | ------------------------------------------------------- |
-| `padding=[value]` | `padding: [value];`                                     |
-| `p=[value]`       | `padding: [value];`                                     |
-| `pt=[value]`      | `padding-top: [value];`                                 |
-| `pr=[value]`      | `padding-right: [value];`                               |
-| `pb=[value]`      | `padding-bottom: [value];`                              |
-| `pl=[value]`      | `padding-left: [value];`                                |
-| `py=[value]`      | `padding-top: [value];`<br />`padding-bottom: [value];` |
-| `px=[value]`      | `padding-right: [value];`<br />`padding-left: [value];` |
+| `padding={space}` | `padding: {space};`                                     |
+| `p={space}`       | `padding: {space};`                                     |
+| `pt={space}`      | `padding-top: {space};`                                 |
+| `pr={space}`      | `padding-right: {space};`                               |
+| `pb={space}`      | `padding-bottom: {space};`                              |
+| `pl={space}`      | `padding-left: {space};`                                |
+| `py={space}`      | `padding-top: {space};`<br />`padding-bottom: {space};` |
+| `px={space}`      | `padding-right: {space};`<br />`padding-left: {space};` |
 
 ## Add padding to a single side
 
@@ -24,10 +24,10 @@ Control the padding on one side of an element using the `p{t|r|b|l}={size}` util
 
 For example, `pt={6}` would add `1.5rem` of padding to the top of an element, `pr={4}` would add `1rem` of padding to the right of an element, `pb={8}` would add `2rem` of padding to the bottom of an element, and `pl={2}` would add `0.5rem` of padding to the left of an element.
 
-```jsx preview
+```jsx preview color=rose
 <>
   <template preview>
-    <Box
+    <x.div
       display="flex"
       flexWrap="wrap"
       alignItems="flex-start"
@@ -36,8 +36,8 @@ For example, `pt={6}` would add `1.5rem` of padding to the top of an element, `p
       fontFamily="mono"
       mx={-5}
     >
-      <Box mx={5} bg="rose-300" borderRadius="md" overflow="hidden" pt={6}>
-        <Box
+      <x.div mx={5} bg="rose-300" borderRadius="md" overflow="hidden" pt={6}>
+        <x.div
           bg="rose-500"
           display="flex"
           alignItems="center"
@@ -46,9 +46,9 @@ For example, `pt={6}` would add `1.5rem` of padding to the top of an element, `p
           px={4}
         >
           pt=6
-        </Box>
-      </Box>
-      <Box
+        </x.div>
+      </x.div>
+      <x.div
         mx={5}
         bg="rose-300"
         borderRadius="md"
@@ -56,7 +56,7 @@ For example, `pt={6}` would add `1.5rem` of padding to the top of an element, `p
         pr={4}
         mt={6}
       >
-        <Box
+        <x.div
           bg="rose-500"
           display="flex"
           alignItems="center"
@@ -65,9 +65,9 @@ For example, `pt={6}` would add `1.5rem` of padding to the top of an element, `p
           px={4}
         >
           pr=4
-        </Box>
-      </Box>
-      <Box
+        </x.div>
+      </x.div>
+      <x.div
         mx={5}
         bg="rose-300"
         borderRadius="md"
@@ -75,7 +75,7 @@ For example, `pt={6}` would add `1.5rem` of padding to the top of an element, `p
         pb={8}
         mt={6}
       >
-        <Box
+        <x.div
           bg="rose-500"
           display="flex"
           alignItems="center"
@@ -84,9 +84,9 @@ For example, `pt={6}` would add `1.5rem` of padding to the top of an element, `p
           px={4}
         >
           pb=8
-        </Box>
-      </Box>
-      <Box
+        </x.div>
+      </x.div>
+      <x.div
         mx={5}
         bg="rose-300"
         borderRadius="md"
@@ -94,7 +94,7 @@ For example, `pt={6}` would add `1.5rem` of padding to the top of an element, `p
         pl={2}
         mt={6}
       >
-        <Box
+        <x.div
           bg="rose-500"
           display="flex"
           alignItems="center"
@@ -103,14 +103,14 @@ For example, `pt={6}` would add `1.5rem` of padding to the top of an element, `p
           px={4}
         >
           pl=2
-        </Box>
-      </Box>
-    </Box>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box pt={6}>pt=6</Box>
-  <Box pr={4}>pr=4</Box>
-  <Box pb={8}>pb=8</Box>
-  <Box pl={2}>pl=2</Box>
+  <x.div pt={6}>pt=6</x.div>
+  <x.div pr={4}>pr=4</x.div>
+  <x.div pb={8}>pb=8</x.div>
+  <x.div pl={2}>pl=2</x.div>
 </>
 ```
 
@@ -118,18 +118,23 @@ For example, `pt={6}` would add `1.5rem` of padding to the top of an element, `p
 
 Control the horizontal padding of an element using the `px={size}` utilities.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box display="flex" justifyContent="center" color="white" fontFamily="mono">
-      <Box bg="emerald-300" borderRadius="md" overflow="hidden" px={8}>
-        <Box bg="emerald-500" py={3} px={4}>
+    <x.div
+      display="flex"
+      justifyContent="center"
+      color="white"
+      fontFamily="mono"
+    >
+      <x.div bg="emerald-300" borderRadius="md" overflow="hidden" px={8}>
+        <x.div bg="emerald-500" py={3} px={4}>
           px=8
-        </Box>
-      </Box>
-    </Box>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box px={8}>px=8</Box>
+  <x.div px={8}>px=8</x.div>
 </>
 ```
 
@@ -137,18 +142,23 @@ Control the horizontal padding of an element using the `px={size}` utilities.
 
 Control the vertical padding of an element using the `py={size}` utilities.
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box display="flex" justifyContent="center" color="white" fontFamily="mono">
-      <Box bg="indigo-300" borderRadius="md" overflow="hidden" py={8}>
-        <Box bg="indigo-500" py={3} px={4}>
+    <x.div
+      display="flex"
+      justifyContent="center"
+      color="white"
+      fontFamily="mono"
+    >
+      <x.div bg="indigo-300" borderRadius="md" overflow="hidden" py={8}>
+        <x.div bg="indigo-500" py={3} px={4}>
           py=8
-        </Box>
-      </Box>
-    </Box>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box py={8}>py=8</Box>
+  <x.div py={8}>py=8</x.div>
 </>
 ```
 
@@ -156,18 +166,23 @@ Control the vertical padding of an element using the `py={size}` utilities.
 
 Control the padding on all sides of an element using the `p={size}` utilities.
 
-```jsx preview
+```jsx preview color=fuchsia
 <>
   <template preview>
-    <Box display="flex" justifyContent="center" color="white" fontFamily="mono">
-      <Box bg="fuchsia-300" borderRadius="md" overflow="hidden" p={8}>
-        <Box bg="fuchsia-500" py={3} px={4}>
+    <x.div
+      display="flex"
+      justifyContent="center"
+      color="white"
+      fontFamily="mono"
+    >
+      <x.div bg="fuchsia-300" borderRadius="md" overflow="hidden" p={8}>
+        <x.div bg="fuchsia-500" py={3} px={4}>
           p=8
-        </Box>
-      </Box>
-    </Box>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box p={8}>p=8</Box>
+  <x.div p={8}>p=8</x.div>
 </>
 ```
 
@@ -176,27 +191,16 @@ Control the padding on all sides of an element using the `p={size}` utilities.
 To control the padding of an element at a specific breakpoint, use responsive object notation. For example, adding the property `py={{ md: 8 }}` to an element would apply the `py={8}` utility at medium screen sizes and above.
 
 ```jsx
-<Box py={{ md: 8 }} />
+<x.div py={{ md: 8 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
 
+import CustomizeSpace from '../../../partials/customizing/space.mdx'
+import PaddingMargin from '../../../partials/padding-margin.mdx'
+
 ## Customizing
 
-### Spacing scale
+<CustomizeSpace />
 
-If you'd like to customize your values for padding, margin, space between, all at once, use the `theme.space` section of your theme.
-
-```diffjs
-  // theme.js
-  export const theme = {
-    space: {
-+     sm: '8px',
-+     md: '16px',
-+     lg: '24px',
-+     xl: '48px',
-    },
-  }
-```
-
-Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).
+<PaddingMargin />

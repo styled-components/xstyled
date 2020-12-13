@@ -7,26 +7,26 @@ title: Justify Items
 
 Utilities for controlling how grid items are aligned along their inline axis.
 
-| React props            | CSS Properties            |
-| ---------------------- | ------------------------- |
-| `justifyItems=[value]` | `justify-items: [value];` |
+| React props              | CSS Properties              |
+| ------------------------ | --------------------------- |
+| `justifyItems={keyword}` | `justify-items: {keyword};` |
 
 ## Auto
 
 Use `justifyItems="auto"` to justify grid items automatically on their inline axis:
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
+    <x.div
       display="grid"
       gridTemplateColumns={3}
       gap={4}
       justifyItems="auto"
       h={32}
     >
-      {Array.from({ length: 6 }, (_, index) => index + 1).map(value => (
-        <Box
+      {Array.from({ length: 6 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           borderRadius="md"
           bg="emerald-500"
@@ -38,15 +38,15 @@ Use `justifyItems="auto"` to justify grid items automatically on their inline ax
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="grid" justifyItems="auto">
+  <x.div display="grid" justifyItems="auto">
     <div>1</div>
     {/* ... */}
     <div>6</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -54,18 +54,18 @@ Use `justifyItems="auto"` to justify grid items automatically on their inline ax
 
 Use `justifyItems="start"` to justify grid items against the start of their inline axis:
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
+    <x.div
       display="grid"
       gridTemplateColumns={3}
       gap={4}
       justifyItems="start"
       h={32}
     >
-      {Array.from({ length: 6 }, (_, index) => index + 1).map(value => (
-        <Box
+      {Array.from({ length: 6 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           w={16}
           borderRadius="md"
@@ -78,15 +78,15 @@ Use `justifyItems="start"` to justify grid items against the start of their inli
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="grid" justifyItems="start">
+  <x.div display="grid" justifyItems="start">
     <div>1</div>
     {/* ... */}
     <div>6</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -94,18 +94,18 @@ Use `justifyItems="start"` to justify grid items against the start of their inli
 
 Use `justifyItems="end"` to justify grid items against the end of their inline axis:
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box
+    <x.div
       display="grid"
       gridTemplateColumns={3}
       gap={4}
       justifyItems="end"
       h={32}
     >
-      {Array.from({ length: 6 }, (_, index) => index + 1).map(value => (
-        <Box
+      {Array.from({ length: 6 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           w={16}
           borderRadius="md"
@@ -118,15 +118,15 @@ Use `justifyItems="end"` to justify grid items against the end of their inline a
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="grid" justifyItems="end">
+  <x.div display="grid" justifyItems="end">
     <div>1</div>
     {/* ... */}
     <div>6</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -134,22 +134,22 @@ Use `justifyItems="end"` to justify grid items against the end of their inline a
 
 Use `justifyItems="center"` to justify grid items against the center of their inline axis:
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box
+    <x.div
       display="grid"
       gridTemplateColumns={3}
       gap={4}
       justifyItems="center"
       h={32}
     >
-      {Array.from({ length: 6 }, (_, index) => index + 1).map(value => (
-        <Box
+      {Array.from({ length: 6 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           w={16}
           borderRadius="md"
-          bg="amber-500"
+          bg="red-500"
           color="white"
           display="flex"
           alignItems="center"
@@ -158,15 +158,15 @@ Use `justifyItems="center"` to justify grid items against the center of their in
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="grid" justifyItems="center">
+  <x.div display="grid" justifyItems="center">
     <div>1</div>
     {/* ... */}
     <div>6</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -174,18 +174,18 @@ Use `justifyItems="center"` to justify grid items against the center of their in
 
 Use `justifyItems="stretch"` to stretch items along their inline axis:
 
-```jsx preview
+```jsx preview color=purple
 <>
   <template preview>
-    <Box
+    <x.div
       display="grid"
       gridTemplateColumns={3}
       gap={4}
       justifyItems="stretch"
       h={32}
     >
-      {Array.from({ length: 6 }, (_, index) => index + 1).map(value => (
-        <Box
+      {Array.from({ length: 6 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           borderRadius="md"
           bg="purple-500"
@@ -197,15 +197,15 @@ Use `justifyItems="stretch"` to stretch items along their inline axis:
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="grid" justifyItems="stretch">
+  <x.div display="grid" justifyItems="stretch">
     <div>1</div>
     {/* ... */}
     <div>6</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -214,9 +214,9 @@ Use `justifyItems="stretch"` to stretch items along their inline axis:
 To justify grid items along their inline axis at a specific breakpoint, use responsive object notation. For example, adding the property `justifyItems={{ md: "center" }}` to an element would apply the `justifyItems="center` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="grid" justifyItems={{ md: 'center' }}>
+<x.div display="grid" justifyItems={{ md: 'center' }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

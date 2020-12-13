@@ -9,46 +9,45 @@ Utilities for controlling transitions.
 
 | React props          | CSS Properties         |
 | -------------------- | ---------------------- |
-| `transition=[value]` | `transition: [value];` |
+| `transition={value}` | `transition: {value};` |
 
 ## Usage
 
-Use `transition={transition}` to specify transitions.
+Use `transition={value}` to specify transitions.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box textAlign="center">
-      <Box
+    <x.div textAlign="center">
+      <x.div
         as="button"
         fontWeight="medium"
         transition
         transitionDuration={500}
         color="white"
-        bg="blue-600"
-        hoverBg="red-600"
+        bg="amber-600"
+        hoverBg="orange-600"
         py={3}
         px={6}
         borderRadius="md"
         border={0}
       >
         Hover me
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box
-    as="button"
+  <x.button
     transition
     transitionDuration={500}
     color="white"
     bg="blue-600"
-    hoverBg="red-600"
+    hoverBg="orange-600"
     py={3}
     px={6}
     borderRadius="md"
   >
     Hover me
-  </Box>
+  </x.button>
 </>
 ```
 
@@ -57,9 +56,9 @@ Use `transition={transition}` to specify transitions.
 You can conditionally apply animations and transitions using the `motionSafe` and `motionReduce` variants:
 
 ```jsx
-<Box as="button" hoverColor="red" transition motionReduceTransition="none">
+<x.button hoverColor="red" transition motionReduceTransition="none">
   Hover me
-</Box>
+</x.button>
 ```
 
 ## Responsive
@@ -67,22 +66,54 @@ You can conditionally apply animations and transitions using the `motionSafe` an
 To control the transitions on an element at a specific breakpoint, use responsive object notation. For example, adding the property `transition={{ md: "all" }}` to an element would apply the `transition="all"` utility at medium screen sizes and above.
 
 ```jsx
-<Box transition={{ md: 'all' }} />
+<x.div transition={{ md: 'all' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
 
-### Transitions
+## Customizing
 
-If you'd like to customize your values for transitions, use the `theme.transitions` section of your theme.
+import CustomizeTransitions from '../../../partials/customizing/transitions.mdx'
 
-```diffjs
-  // theme.js
+<CustomizeTransitions />
 
-  export const theme = {
-    transitions: {
-      // ...
-+     light: 'color 300ms ease-in-out'
-    },
-  }
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all transitions defined are automatically binded to `transition` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Button = styled.button`
+  transition: default;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](@TODO-link).
+
+### Manual
+
+It is possible to manually bind a transition using `th.transition` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Button = styled.button`
+  transition: ${th.transition('default')};
+`
+```
+
+## Hooks
+
+Get a transition in any component using `useTransition` hook:
+
+```js
+import { useTransition } from '@xstyled/...'
+
+function Button() {
+  const transition = useTransition('default')
+}
 ```

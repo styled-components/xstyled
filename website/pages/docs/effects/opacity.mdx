@@ -7,26 +7,26 @@ title: Opacity
 
 Utilities for controlling the opacity of an element.
 
-| React props       | CSS Properties      |
-| ----------------- | ------------------- |
-| `opacity=[value]` | `opacity: [value];` |
+| React props      | CSS Properties     |
+| ---------------- | ------------------ |
+| `opacity={ratio` | `opacity: {ratio;` |
 
 ## Usage
 
-Control the opacity of an element using the `opacity={opacity}` utilities.
+Control the opacity of an element using the `opacity={ratio}` utilities.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box
+    <x.div
       display="grid"
       gap={5}
       gridTemplateColumns={{ sm: 2, lg: 5 }}
       p={3}
       bg="amber-100"
     >
-      {[1, 0.75, 0.5, 0.25, 0].map(opacity => (
-        <Box
+      {[1, 0.75, 0.5, 0.25, 0].map((opacity) => (
+        <x.div
           p={6}
           bg="amber-500"
           color="white"
@@ -39,15 +39,15 @@ Control the opacity of an element using the `opacity={opacity}` utilities.
           opacity={opacity}
         >
           {opacity}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box opacity={1} />
-  <Box opacity={0.75} />
-  <Box opacity={0.5} />
-  <Box opacity={0.25} />
-  <Box opacity={0} />
+  <x.div opacity={1} />
+  <x.div opacity={0.75} />
+  <x.div opacity={0.5} />
+  <x.div opacity={0.25} />
+  <x.div opacity={0} />
 </>
 ```
 
@@ -56,7 +56,7 @@ Control the opacity of an element using the `opacity={opacity}` utilities.
 To control the opacity of an element at a specific breakpoint, use responsive object notation. For example, adding the property `opacity={{ md: 0.5 }}` to an element would apply the `opacity={0.5}` utility at medium screen sizes and above.
 
 ```jsx
-<Box opacity={{ md: 0.5 }} />
+<x.div opacity={{ md: 0.5 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

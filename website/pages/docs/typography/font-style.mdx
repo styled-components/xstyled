@@ -7,19 +7,18 @@ title: Font Style
 
 Utilities for controlling the font family of an element.
 
-| React props         | CSS Properties        |
-| ------------------- | --------------------- |
-| `fontStyle=[value]` | `fontStyle: [value];` |
+| React props         | CSS Properties         |
+| ------------------- | ---------------------- |
+| `fontStyle={style}` | `font-style: {style};` |
 
 ## Italics
 
 Use `fontStyle="italic"` to make text italic.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
-      as="p"
+    <x.p
       fontFamily="sans"
       fontSize="xl"
       fontStyle="italic"
@@ -27,11 +26,11 @@ Use `fontStyle="italic"` to make text italic.
       textAlign="center"
     >
       Computers have lots of memory but no imagination.
-    </Box>
+    </x.p>
   </template>
-  <Box as="p" fontStyle="italic">
+  <x.p fontStyle="italic">
     Computers have lots of memory but no imagination.
-  </Box>
+  </x.p>
 </>
 ```
 
@@ -39,22 +38,16 @@ Use `fontStyle="italic"` to make text italic.
 
 Use the `fontSize="normal"` utility to display text normally. This is typically used to reset italic text at different breakpoints.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
-      as="p"
-      fontFamily="sans"
-      fontSize="xl"
-      color="green-600"
-      textAlign="center"
-    >
+    <x.p fontFamily="sans" fontSize="xl" color="emerald-600" textAlign="center">
       Computers have lots of memory but no imagination.
-    </Box>
+    </x.p>
   </template>
-  <Box as="p" fontStyle="normal">
+  <x.p fontStyle="normal">
     Computers have lots of memory but no imagination.
-  </Box>
+  </x.p>
 </>
 ```
 
@@ -63,7 +56,7 @@ Use the `fontSize="normal"` utility to display text normally. This is typically 
 To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `fontStyle={{ md: "italic" }}` to an element would apply the `fontStyle="italic"` utility at medium screen sizes and above.
 
 ```jsx
-<Box fontStyle={{ md: 'italic' }}>{/* ... */}</Box>
+<x.p fontStyle={{ md: 'italic' }}>{/* ... */}</x.p>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

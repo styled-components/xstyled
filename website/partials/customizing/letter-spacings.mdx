@@ -1,0 +1,35 @@
+### Letter Spacings
+
+If you'd like to customize your values for letter spacings, use the `theme.letterSpacings` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    letterSpacings: {
++     tightest: '-.075em',
+      tighter: '-.05em',
+-     tight: '-.025em',
+      normal: '0',
+-     wide: '.025em',
+      wider: '.05em',
+-     widest: '.1em',
++     widest: '.25em',
+    },
+  }
+```
+
+If you don't want to customize it, a set of `letterSpacings` is already defined in default theme:
+
+```js
+const defaultTheme = {
+  // ...
+  letterSpacings: {
+    tighter: '-0.05em',
+    tight: '-0.025em',
+    normal: '0em',
+    wide: '0.025em',
+    wider: '0.05em',
+    widest: '0.1em',
+  },
+}
+```

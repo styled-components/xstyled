@@ -7,18 +7,18 @@ title: Cursor
 
 Utilities for controlling the cursor style when hovering over an element.
 
-| React props      | CSS Properties     |
-| ---------------- | ------------------ |
-| `cursor=[value]` | `cursor: [value];` |
+| React props        | CSS Properties       |
+| ------------------ | -------------------- |
+| `cursor={keyword}` | `cursor: {keyword};` |
 
 ## Auto
 
 Use `cursor="auto"` to allow the browser to change the cursor based on the current content (e.g. automatically change to `text` cursor when hovering over text).
 
-```jsx preview
+```jsx preview color=rose
 <>
   <template preview>
-    <Box
+    <x.div
       cursor="auto"
       maxWidth="xs"
       p={2}
@@ -28,9 +28,9 @@ Use `cursor="auto"` to allow the browser to change the cursor based on the curre
       color="gray-600"
     >
       Hover over this text
-    </Box>
+    </x.div>
   </template>
-  <Box cursor="auto">Hover over this text</Box>
+  <x.div cursor="auto">Hover over this text</x.div>
 </>
 ```
 
@@ -38,10 +38,10 @@ Use `cursor="auto"` to allow the browser to change the cursor based on the curre
 
 Use `cursor="default"` to change the mouse cursor to always use the platform-dependent default cursor (usually an arrow).
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box
+    <x.div
       cursor="default"
       maxWidth="xs"
       p={2}
@@ -51,9 +51,9 @@ Use `cursor="default"` to change the mouse cursor to always use the platform-dep
       color="gray-600"
     >
       Hover over this text
-    </Box>
+    </x.div>
   </template>
-  <Box cursor="default">Hover over this text</Box>
+  <x.div cursor="default">Hover over this text</x.div>
 </>
 ```
 
@@ -61,10 +61,10 @@ Use `cursor="default"` to change the mouse cursor to always use the platform-dep
 
 Use `cursor="pointer"` to change the mouse cursor to indicate an interactive element (usually a pointing hand).
 
-```jsx preview
+```jsx preview color=purple
 <>
   <template preview>
-    <Box
+    <x.div
       cursor="pointer"
       maxWidth="xs"
       p={2}
@@ -74,9 +74,9 @@ Use `cursor="pointer"` to change the mouse cursor to indicate an interactive ele
       color="gray-600"
     >
       Hover over this text
-    </Box>
+    </x.div>
   </template>
-  <Box cursor="pointer">Hover over this text</Box>
+  <x.div cursor="pointer">Hover over this text</x.div>
 </>
 ```
 
@@ -84,10 +84,10 @@ Use `cursor="pointer"` to change the mouse cursor to indicate an interactive ele
 
 Use `cursor="wait"` to change the mouse cursor to indicate something is happening in the background (usually an hourglass or watch).
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
+    <x.div
       cursor="wait"
       maxWidth="xs"
       p={2}
@@ -97,9 +97,9 @@ Use `cursor="wait"` to change the mouse cursor to indicate something is happenin
       color="gray-600"
     >
       Hover over this text
-    </Box>
+    </x.div>
   </template>
-  <Box cursor="wait">Hover over this text</Box>
+  <x.div cursor="wait">Hover over this text</x.div>
 </>
 ```
 
@@ -107,10 +107,10 @@ Use `cursor="wait"` to change the mouse cursor to indicate something is happenin
 
 Use `cursor="text"` to change the mouse cursor to indicate the text can be selected (usually an I-beam shape).
 
-```jsx preview
+```jsx preview color=fuchsia
 <>
   <template preview>
-    <Box
+    <x.div
       cursor="text"
       maxWidth="xs"
       p={2}
@@ -120,9 +120,9 @@ Use `cursor="text"` to change the mouse cursor to indicate the text can be selec
       color="gray-600"
     >
       Hover over this text
-    </Box>
+    </x.div>
   </template>
-  <Box cursor="text">Hover over this text</Box>
+  <x.div cursor="text">Hover over this text</x.div>
 </>
 ```
 
@@ -130,10 +130,10 @@ Use `cursor="text"` to change the mouse cursor to indicate the text can be selec
 
 Use `cursor="move"` to change the mouse cursor to indicate something that can be moved.
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box
+    <x.div
       cursor="move"
       maxWidth="xs"
       p={2}
@@ -143,9 +143,9 @@ Use `cursor="move"` to change the mouse cursor to indicate something that can be
       color="gray-600"
     >
       Hover over this text
-    </Box>
+    </x.div>
   </template>
-  <Box cursor="move">Hover over this text</Box>
+  <x.div cursor="move">Hover over this text</x.div>
 </>
 ```
 
@@ -153,10 +153,10 @@ Use `cursor="move"` to change the mouse cursor to indicate something that can be
 
 Use `cursor="not-allowed"` to change the mouse cursor to indicate something can not be interacted with or clicked.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
+    <x.div
       cursor="not-allowed"
       maxWidth="xs"
       p={2}
@@ -166,9 +166,9 @@ Use `cursor="not-allowed"` to change the mouse cursor to indicate something can 
       color="gray-600"
     >
       Hover over this text
-    </Box>
+    </x.div>
   </template>
-  <Box cursor="not-allowed">Hover over this text</Box>
+  <x.div cursor="not-allowed">Hover over this text</x.div>
 </>
 ```
 
@@ -177,7 +177,7 @@ Use `cursor="not-allowed"` to change the mouse cursor to indicate something can 
 To control cursor style at a specific breakpoint, use responsive object notation. For example, adding the property `cursor={{ md: "pointer" }}` to an element would apply the `cursor="pointer"` utility at medium screen sizes and above.
 
 ```jsx
-<Box cursor={{ md: 'pointer' }} />
+<x.div cursor={{ md: 'pointer' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

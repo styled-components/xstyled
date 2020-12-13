@@ -7,20 +7,20 @@ title: Justify Content
 
 Utilities for controlling how flex and grid items are positioned along a container's main axis.
 
-| React props              | CSS Properties              |
-| ------------------------ | --------------------------- |
-| `justifyContent=[value]` | `justify-content: [value];` |
+| React props                | CSS Properties                |
+| -------------------------- | ----------------------------- |
+| `justifyContent={keyword}` | `justify-content: {keyword};` |
 
 ## Start
 
 Use `justifyContent="flex-start"` to justify items against the start of the container's main axis:
 
-```jsx preview
+```jsx preview color=fuchsia
 <>
   <template preview>
-    <Box display="flex" justifyContent="flex-start" spaceX={4}>
-      {Array.from({ length: 3 }, (_, index) => index + 1).map(value => (
-        <Box
+    <x.div display="flex" justifyContent="flex-start" spaceX={4}>
+      {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           h={16}
           w={16}
@@ -34,15 +34,15 @@ Use `justifyContent="flex-start"` to justify items against the start of the cont
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" justifyContent="flex-start">
+  <x.div display="flex" justifyContent="flex-start">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -50,17 +50,17 @@ Use `justifyContent="flex-start"` to justify items against the start of the cont
 
 Use `justifyContent="center"` to justify items along the center of the container's main axis:
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box display="flex" justifyContent="center" spaceX={4}>
-      {Array.from({ length: 3 }, (_, index) => index + 1).map(value => (
-        <Box
+    <x.div display="flex" justifyContent="center" spaceX={4}>
+      {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           h={16}
           w={16}
           borderRadius="md"
-          bg="blue-500"
+          bg="indigo-500"
           color="white"
           display="flex"
           alignItems="center"
@@ -69,15 +69,15 @@ Use `justifyContent="center"` to justify items along the center of the container
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" justifyContent="center">
+  <x.div display="flex" justifyContent="center">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -85,12 +85,12 @@ Use `justifyContent="center"` to justify items along the center of the container
 
 Use `justifyContent="flex-end"` to justify items against the end of the container's main axis:
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box display="flex" justifyContent="flex-end" spaceX={4}>
-      {Array.from({ length: 3 }, (_, index) => index + 1).map(value => (
-        <Box
+    <x.div display="flex" justifyContent="flex-end" spaceX={4}>
+      {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           h={16}
           w={16}
@@ -104,15 +104,15 @@ Use `justifyContent="flex-end"` to justify items against the end of the containe
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" justifyContent="flex-end">
+  <x.div display="flex" justifyContent="flex-end">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -120,12 +120,12 @@ Use `justifyContent="flex-end"` to justify items against the end of the containe
 
 Use `justifyContent="space-between"` to justify items along the container's main axis such that there is an equal amount of space between each item:
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box display="flex" justifyContent="space-between">
-      {Array.from({ length: 3 }, (_, index) => index + 1).map(value => (
-        <Box
+    <x.div display="flex" justifyContent="space-between">
+      {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           h={16}
           w={16}
@@ -139,15 +139,15 @@ Use `justifyContent="space-between"` to justify items along the container's main
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" justifyContent="space-between">
+  <x.div display="flex" justifyContent="space-between">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -155,12 +155,12 @@ Use `justifyContent="space-between"` to justify items along the container's main
 
 Use `justifyContent="space-around"` to justify items along the container's main axis such that there is an equal amount of space on each side of each item:
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box display="flex" justifyContent="space-around">
-      {Array.from({ length: 3 }, (_, index) => index + 1).map(value => (
-        <Box
+    <x.div display="flex" justifyContent="space-around">
+      {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           h={16}
           w={16}
@@ -174,15 +174,15 @@ Use `justifyContent="space-around"` to justify items along the container's main 
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" justifyContent="space-around">
+  <x.div display="flex" justifyContent="space-around">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -190,12 +190,12 @@ Use `justifyContent="space-around"` to justify items along the container's main 
 
 Use `justifyContent="space-evenly"` to justify items along the container's main axis such that there is an equal amount of space around each item, but also accounting for the doubling of space you would normally see between each item when using `justifyContent="space-around"`:
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box display="flex" justifyContent="space-evenly">
-      {Array.from({ length: 3 }, (_, index) => index + 1).map(value => (
-        <Box
+    <x.div display="flex" justifyContent="space-evenly">
+      {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           h={16}
           w={16}
@@ -209,15 +209,15 @@ Use `justifyContent="space-evenly"` to justify items along the container's main 
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" justifyContent="space-evenly">
+  <x.div display="flex" justifyContent="space-evenly">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -226,9 +226,9 @@ Use `justifyContent="space-evenly"` to justify items along the container's main 
 To justify flex items at a specific breakpoint, use responsive object notation. For example, adding the property `justifyContent={{ md: "center" }}` to an element would apply the `justifyContent="center` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="grid" justifyContent={{ md: 'center' }}>
+<x.div display="grid" justifyContent={{ md: 'center' }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

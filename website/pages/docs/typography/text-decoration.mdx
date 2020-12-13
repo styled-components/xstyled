@@ -7,24 +7,24 @@ title: Text Decoration
 
 Utilities for controlling the decoration of text.
 
-| React props              | CSS Properties             |
-| ------------------------ | -------------------------- |
-| `textDecoration=[value]` | `textDecoration: [value];` |
+| React props                   | CSS Properties                   |
+| ----------------------------- | -------------------------------- |
+| `textDecoration={decoration}` | `text-decoration: {decoration};` |
 
 ## Underline
 
 Use the `textDecoration="underline"` utility to underline text.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box as="p" textDecoration="underline" fontSize="xl" color="emerald-600">
+    <x.p textDecoration="underline" fontSize="xl" color="emerald-600">
       Computers have lots of memory but no imagination.
-    </Box>
+    </x.p>
   </template>
-  <Box as="p" textDecoration="underline">
+  <x.p textDecoration="underline">
     Computers have lots of memory but no imagination.
-  </Box>
+  </x.p>
 </>
 ```
 
@@ -32,16 +32,16 @@ Use the `textDecoration="underline"` utility to underline text.
 
 Use the `textDecoration="line-through"` utility to strike out text.
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box as="p" textDecoration="line-through" fontSize="xl" color="red-600">
+    <x.p textDecoration="line-through" fontSize="xl" color="red-600">
       Computers have lots of memory but no imagination.
-    </Box>
+    </x.p>
   </template>
-  <Box as="p" textDecoration="line-through">
+  <x.p textDecoration="line-through">
     Computers have lots of memory but no imagination.
-  </Box>
+  </x.p>
 </>
 ```
 
@@ -49,16 +49,16 @@ Use the `textDecoration="line-through"` utility to strike out text.
 
 Use the `textDecoration="none"` utility to strike out text.
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box as="p" textDecoration="none" fontSize="xl" color="red-600">
+    <x.p textDecoration="none" fontSize="xl" color="indigo-600">
       Computers have lots of memory but no imagination.
-    </Box>
+    </x.p>
   </template>
-  <Box as="p" textDecoration="none">
+  <x.p textDecoration="none">
     Computers have lots of memory but no imagination.
-  </Box>
+  </x.p>
 </>
 ```
 
@@ -67,7 +67,7 @@ Use the `textDecoration="none"` utility to strike out text.
 To control the text decoration of an element at a specific breakpoint, use responsive object notation. For example, adding the property `textDecoration={{ md: "underline" }}` to an element would apply the `textDecoration="underline"` utility at medium screen sizes and above.
 
 ```jsx
-<Box textDecoration={{ md: 'underline' }}>{/* ... */}</Box>
+<x.div textDecoration={{ md: 'underline' }}>{/* ... */}</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

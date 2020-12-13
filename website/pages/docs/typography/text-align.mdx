@@ -7,9 +7,9 @@ title: Text Alignment
 
 Utilities for controlling the alignment of text.
 
-| React props         | CSS Properties        |
-| ------------------- | --------------------- |
-| `textAlign=[value]` | `textAlign: [value];` |
+| React props             | CSS Properties             |
+| ----------------------- | -------------------------- |
+| `textAlign={alignment}` | `text-align: {alignment};` |
 
 ## Usage
 
@@ -18,15 +18,15 @@ Control the text alignment of an element using the `textAlign="left"`, `textAlig
 ```jsx preview
 <>
   <template preview>
-    <Box spaceY={8}>
+    <x.div spaceY={8}>
       {[
         ['left', 'purple'],
         ['center', 'rose'],
         ['right', 'emerald'],
         ['justify', 'amber'],
       ].map(([textAlign, color]) => (
-        <Box key={textAlign} as="dl" color={`${color}-600`} overflow="hidden">
-          <Box
+        <x.div key={textAlign} as="dl" color={`${color}-600`} overflow="hidden">
+          <x.div
             as="dt"
             w={16}
             flexShrink={0}
@@ -36,9 +36,9 @@ Control the text alignment of an element using the `textAlign="left"`, `textAlig
             mb={1}
           >
             textAlign={textAlign}
-          </Box>
-          <Box as="dd" fontSize="xl" m={0}>
-            <Box
+          </x.div>
+          <x.div as="dd" fontSize="xl" m={0}>
+            <x.div
               textAlign={textAlign}
               fontFamily="flow"
               fontSize="3xl"
@@ -49,24 +49,16 @@ Control the text alignment of an element using the `textAlign="left"`, `textAlig
               fugit, enim molestiae praesentium eveniet, recusandae et error
               beatae facilis ex harum consequuntur, quia pariatur non. Doloribus
               illo, ullam blanditiis ab.
-            </Box>
-          </Box>
-        </Box>
+            </x.div>
+          </x.div>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box as="p" textAlign="left">
-    Lorem ipsum ...
-  </Box>
-  <Box as="p" textAlign="center">
-    Lorem ipsum ...
-  </Box>
-  <Box as="p" textAlign="right">
-    Lorem ipsum ...
-  </Box>
-  <Box as="p" textAlign="justify">
-    Lorem ipsum ...
-  </Box>
+  <x.p textAlign="left">Lorem ipsum ...</x.p>
+  <x.p textAlign="center">Lorem ipsum ...</x.p>
+  <x.p textAlign="right">Lorem ipsum ...</x.p>
+  <x.p textAlign="justify">Lorem ipsum ...</x.p>
 </>
 ```
 
@@ -75,7 +67,7 @@ Control the text alignment of an element using the `textAlign="left"`, `textAlig
 To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `textAlign={{ md: "justify" }}` to an element would apply the `textAlign="justify"` utility at medium screen sizes and above.
 
 ```jsx
-<Box textAlign={{ md: 'justify' }}>{/* ... */}</Box>
+<x.div textAlign={{ md: 'justify' }}>{/* ... */}</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

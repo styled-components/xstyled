@@ -7,18 +7,18 @@ title: Align Items
 
 Utilities for controlling how flex and grid items are positioned along a container's cross axis.
 
-| React props          | CSS Properties          |
-| -------------------- | ----------------------- |
-| `alignItems=[value]` | `align-items: [value];` |
+| React props            | CSS Properties            |
+| ---------------------- | ------------------------- |
+| `alignItems={keyword}` | `align-items: {keyword};` |
 
 ## Stretch
 
 Use `alignItems="stretch"` to stretch items to fill the container's cross axis:
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
+    <x.div
       h={48}
       display="flex"
       alignItems="stretch"
@@ -27,7 +27,7 @@ Use `alignItems="stretch"` to stretch items to fill the container's cross axis:
       p={4}
       spaceX={4}
     >
-      <Box
+      <x.div
         py={4}
         flex="1 1 0"
         borderRadius="md"
@@ -40,8 +40,8 @@ Use `alignItems="stretch"` to stretch items to fill the container's cross axis:
         fontWeight="extrabold"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         py={12}
         flex="1 1 0"
         borderRadius="md"
@@ -54,8 +54,8 @@ Use `alignItems="stretch"` to stretch items to fill the container's cross axis:
         fontWeight="extrabold"
       >
         2
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         py={8}
         flex="1 1 0"
         borderRadius="md"
@@ -68,14 +68,14 @@ Use `alignItems="stretch"` to stretch items to fill the container's cross axis:
         fontWeight="extrabold"
       >
         3
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex" alignItems="stretch">
-    <Box py={4}>1</Box>
-    <Box py={12}>2</Box>
-    <Box py={8}>3</Box>
-  </Box>
+  <x.div display="flex" alignItems="stretch">
+    <x.div py={4}>1</x.div>
+    <x.div py={12}>2</x.div>
+    <x.div py={8}>3</x.div>
+  </x.div>
 </>
 ```
 
@@ -83,10 +83,10 @@ Use `alignItems="stretch"` to stretch items to fill the container's cross axis:
 
 Use `alignItems="start"` to align items to the start of the container's cross axis:
 
-```jsx preview
+```jsx preview color=fuchsia
 <>
   <template preview>
-    <Box
+    <x.div
       h={48}
       display="flex"
       alignItems="flex-start"
@@ -95,7 +95,7 @@ Use `alignItems="start"` to align items to the start of the container's cross ax
       p={4}
       spaceX={4}
     >
-      <Box
+      <x.div
         h={12}
         flex="1 1 0"
         borderRadius="md"
@@ -108,8 +108,8 @@ Use `alignItems="start"` to align items to the start of the container's cross ax
         fontWeight="extrabold"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         h={24}
         flex="1 1 0"
         borderRadius="md"
@@ -122,8 +122,8 @@ Use `alignItems="start"` to align items to the start of the container's cross ax
         fontWeight="extrabold"
       >
         2
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         h={16}
         flex="1 1 0"
         borderRadius="md"
@@ -136,14 +136,14 @@ Use `alignItems="start"` to align items to the start of the container's cross ax
         fontWeight="extrabold"
       >
         3
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex" alignItems="flex-start">
-    <Box h={12}>1</Box>
-    <Box h={24}>2</Box>
-    <Box h={16}>3</Box>
-  </Box>
+  <x.div display="flex" alignItems="flex-start">
+    <x.div h={12}>1</x.div>
+    <x.div h={24}>2</x.div>
+    <x.div h={16}>3</x.div>
+  </x.div>
 </>
 ```
 
@@ -151,10 +151,10 @@ Use `alignItems="start"` to align items to the start of the container's cross ax
 
 Use `alignItems="center"` to align items along the center of the container's cross axis:
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box
+    <x.div
       h={48}
       display="flex"
       alignItems="center"
@@ -163,7 +163,7 @@ Use `alignItems="center"` to align items along the center of the container's cro
       p={4}
       spaceX={4}
     >
-      <Box
+      <x.div
         h={12}
         flex="1 1 0"
         borderRadius="md"
@@ -176,8 +176,8 @@ Use `alignItems="center"` to align items along the center of the container's cro
         fontWeight="extrabold"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         h={24}
         flex="1 1 0"
         borderRadius="md"
@@ -190,8 +190,8 @@ Use `alignItems="center"` to align items along the center of the container's cro
         fontWeight="extrabold"
       >
         2
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         h={16}
         flex="1 1 0"
         borderRadius="md"
@@ -204,14 +204,14 @@ Use `alignItems="center"` to align items along the center of the container's cro
         fontWeight="extrabold"
       >
         3
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex" alignItems="flex-center">
-    <Box h={12}>1</Box>
-    <Box h={24}>2</Box>
-    <Box h={16}>3</Box>
-  </Box>
+  <x.div display="flex" alignItems="flex-center">
+    <x.div h={12}>1</x.div>
+    <x.div h={24}>2</x.div>
+    <x.div h={16}>3</x.div>
+  </x.div>
 </>
 ```
 
@@ -219,10 +219,10 @@ Use `alignItems="center"` to align items along the center of the container's cro
 
 Use `alignItems="flex-end"` to align items to the end of the container's cross axis:
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box
+    <x.div
       h={48}
       display="flex"
       alignItems="flex-end"
@@ -231,7 +231,7 @@ Use `alignItems="flex-end"` to align items to the end of the container's cross a
       p={4}
       spaceX={4}
     >
-      <Box
+      <x.div
         h={12}
         flex="1 1 0"
         borderRadius="md"
@@ -244,8 +244,8 @@ Use `alignItems="flex-end"` to align items to the end of the container's cross a
         fontWeight="extrabold"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         h={24}
         flex="1 1 0"
         borderRadius="md"
@@ -258,8 +258,8 @@ Use `alignItems="flex-end"` to align items to the end of the container's cross a
         fontWeight="extrabold"
       >
         2
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         h={16}
         flex="1 1 0"
         borderRadius="md"
@@ -272,14 +272,14 @@ Use `alignItems="flex-end"` to align items to the end of the container's cross a
         fontWeight="extrabold"
       >
         3
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex" alignItems="flex-end">
-    <Box h={12}>1</Box>
-    <Box h={24}>2</Box>
-    <Box h={16}>3</Box>
-  </Box>
+  <x.div display="flex" alignItems="flex-end">
+    <x.div h={12}>1</x.div>
+    <x.div h={24}>2</x.div>
+    <x.div h={16}>3</x.div>
+  </x.div>
 </>
 ```
 
@@ -287,10 +287,10 @@ Use `alignItems="flex-end"` to align items to the end of the container's cross a
 
 Use `alignItems="baseline"` to align items along the container's cross axis such that all of their baselines align:
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
+    <x.div
       h={48}
       display="flex"
       alignItems="baseline"
@@ -299,7 +299,7 @@ Use `alignItems="baseline"` to align items along the container's cross axis such
       p={4}
       spaceX={4}
     >
-      <Box
+      <x.div
         h={12}
         flex="1 1 0"
         borderRadius="md"
@@ -312,8 +312,8 @@ Use `alignItems="baseline"` to align items along the container's cross axis such
         fontWeight="extrabold"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         h={24}
         flex="1 1 0"
         borderRadius="md"
@@ -326,8 +326,8 @@ Use `alignItems="baseline"` to align items along the container's cross axis such
         fontWeight="extrabold"
       >
         2
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         h={16}
         flex="1 1 0"
         borderRadius="md"
@@ -340,14 +340,14 @@ Use `alignItems="baseline"` to align items along the container's cross axis such
         fontWeight="extrabold"
       >
         3
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex" alignItems="baseline">
-    <Box h={12}>1</Box>
-    <Box h={24}>2</Box>
-    <Box h={16}>3</Box>
-  </Box>
+  <x.div display="flex" alignItems="baseline">
+    <x.div h={12}>1</x.div>
+    <x.div h={24}>2</x.div>
+    <x.div h={16}>3</x.div>
+  </x.div>
 </>
 ```
 
@@ -356,9 +356,9 @@ Use `alignItems="baseline"` to align items along the container's cross axis such
 To control the alignment of flex items at a specific breakpoint, use responsive object notation. For example, adding the property `alignItems={{ md: "center" }}` to an element would apply the `alignItems="center` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="grid" alignItems={{ md: 'center' }}>
+<x.div display="grid" alignItems={{ md: 'center' }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

@@ -1,0 +1,40 @@
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all spacing scales defined are automatically binded to all margins, paddings and gap attributes:
+
+```js
+import styled from '@xstyled/...'
+
+const Card = styled.button`
+  margin: 3;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](@TODO-link).
+
+### Manual
+
+It is possible to manually bind a spacing scale using `th.space` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Card = styled.button`
+  margin: calc(2px + ${th.space(3)});
+`
+```
+
+## Hooks
+
+Get a spacing scale in any component using `useSpace` hook:
+
+```js
+import { useSpace } from '@xstyled/...'
+
+function Card() {
+  const space = useSpace(3)
+}
+```

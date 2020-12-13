@@ -7,22 +7,21 @@ title: List Style Type
 
 Utilities for controlling the style of a list.
 
-| React props             | CSS Properties            |
-| ----------------------- | ------------------------- |
-| `listStyleType=[value]` | `listStyleType: [value];` |
+| React props            | CSS Properties             |
+| ---------------------- | -------------------------- |
+| `listStyleType={type}` | `list-style-type: {type};` |
 
 ## Usage
 
 To create custom lists, use the `listStyleType={type}` utilities.
 
-```jsx preview
+```jsx preview color=pink
 <>
   <template preview>
-    <Box spaceY={8}>
-      {['disc', 'decimal', 'circle', 'square', 'none'].map(listStyleType => (
-        <Box key={listStyleType} as="dl" color="pink-600" overflow="hidden">
-          <Box
-            as="dt"
+    <x.div spaceY={8}>
+      {['disc', 'decimal', 'circle', 'square', 'none'].map((listStyleType) => (
+        <x.dl key={listStyleType} color="pink-600" overflow="hidden">
+          <x.dt
             w={16}
             flexShrink={0}
             fontSize="sm"
@@ -31,9 +30,9 @@ To create custom lists, use the `listStyleType={type}` utilities.
             mb={1}
           >
             listStyleType={listStyleType}
-          </Box>
-          <Box as="dd" fontSize="xl" m={0}>
-            <Box as="ul" my={0} listStyleType={listStyleType}>
+          </x.dt>
+          <x.dd fontSize="xl" m={0}>
+            <x.ul my={0} listStyleType={listStyleType}>
               <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
               <li>
                 Assumenda, quia temporibus eveniet a libero incidunt suscipit
@@ -41,27 +40,27 @@ To create custom lists, use the `listStyleType={type}` utilities.
               <li>
                 Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
               </li>
-            </Box>
-          </Box>
-        </Box>
+            </x.ul>
+          </x.dd>
+        </x.dl>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box as="ul" listStyleType="disc">
+  <x.ul listStyleType="disc">
     <li>Lorem ipsum ...</li>
-  </Box>
-  <Box as="ul" listStyleType="decimal">
+  </x.ul>
+  <x.ul listStyleType="decimal">
     <li>Lorem ipsum ...</li>
-  </Box>
-  <Box as="ul" listStyleType="circle">
+  </x.ul>
+  <x.ul listStyleType="circle">
     <li>Lorem ipsum ...</li>
-  </Box>
-  <Box as="ul" listStyleType="square">
+  </x.ul>
+  <x.ul listStyleType="square">
     <li>Lorem ipsum ...</li>
-  </Box>
-  <Box as="ul" listStyleType="none">
+  </x.ul>
+  <x.ul listStyleType="none">
     <li>Lorem ipsum ...</li>
-  </Box>
+  </x.ul>
 </>
 ```
 

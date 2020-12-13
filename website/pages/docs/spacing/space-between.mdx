@@ -9,20 +9,20 @@ Utilities for controlling the space between child elements.
 
 | React props      | CSS Properties                                                                                                                                                   |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `spaceX=[value]` | `--x-space-x-reverse: 0;`<br />`margin-right: calc([value] * var(--x-space-x-reverse));`<br />`margin-left: calc([value] * calc(1 - var(--x-space-x-reverse)));` |
+| `spaceX={space}` | `--x-space-x-reverse: 0;`<br />`margin-right: calc({space} * var(--x-space-x-reverse));`<br />`margin-left: calc({space} * calc(1 - var(--x-space-x-reverse)));` |
 | `spaceXReverse`  | `--x-space-x-reverse: 1;`                                                                                                                                        |
-| `spaceY=[value]` | `--x-space-y-reverse: 0;`<br />`margin-top: calc([value] * calc(1 - var(--x-space-y-reverse)));`<br />`margin-bottom: calc([value] * var(--x-space-y-reverse));` |
+| `spaceY={space}` | `--x-space-y-reverse: 0;`<br />`margin-top: calc({space} * calc(1 - var(--x-space-y-reverse)));`<br />`margin-bottom: calc({space} * var(--x-space-y-reverse));` |
 | `spaceYReverse`  | `--x-space-y-reverse: 1;`                                                                                                                                        |
 
 ## Add horizontal space between children
 
-Control the horizontal space between elements using the `spaceX={amount}` utilities.
+Control the horizontal space between elements using the `spaceX={space}` utilities.
 
 ```jsx preview
 <>
   <template preview>
-    <Box display="flex">
-      <Box
+    <x.div display="flex">
+      <x.div
         width={16}
         height={16}
         color="white"
@@ -35,9 +35,9 @@ Control the horizontal space between elements using the `spaceX={amount}` utilit
         justifyContent="center"
       >
         1
-      </Box>
-      <Box width={4} height={16} borderRadius="md" bg="fuchsia-200" />
-      <Box
+      </x.div>
+      <x.div width={4} height={16} borderRadius="md" bg="fuchsia-200" />
+      <x.div
         width={16}
         height={16}
         color="white"
@@ -50,9 +50,9 @@ Control the horizontal space between elements using the `spaceX={amount}` utilit
         justifyContent="center"
       >
         2
-      </Box>
-      <Box width={4} height={16} borderRadius="md" bg="fuchsia-200" />
-      <Box
+      </x.div>
+      <x.div width={4} height={16} borderRadius="md" bg="fuchsia-200" />
+      <x.div
         width={16}
         height={16}
         color="white"
@@ -65,26 +65,26 @@ Control the horizontal space between elements using the `spaceX={amount}` utilit
         justifyContent="center"
       >
         3
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex" spaceX={4}>
+  <x.div display="flex" spaceX={4}>
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
 ## Add vertical space between children
 
-Control the vertical space between elements using the `spaceY={amount}` utilities.
+Control the vertical space between elements using the `spaceY={space}` utilities.
 
 ```jsx preview
 <>
   <template preview>
     <div>
-      <Box
+      <x.div
         height={16}
         color="white"
         bg="blue-500"
@@ -96,9 +96,9 @@ Control the vertical space between elements using the `spaceY={amount}` utilitie
         justifyContent="center"
       >
         1
-      </Box>
-      <Box height={4} borderRadius="md" bg="blue-200" />
-      <Box
+      </x.div>
+      <x.div height={4} borderRadius="md" bg="blue-200" />
+      <x.div
         height={16}
         color="white"
         bg="blue-500"
@@ -110,9 +110,9 @@ Control the vertical space between elements using the `spaceY={amount}` utilitie
         justifyContent="center"
       >
         2
-      </Box>
-      <Box height={4} borderRadius="md" bg="blue-200" />
-      <Box
+      </x.div>
+      <x.div height={4} borderRadius="md" bg="blue-200" />
+      <x.div
         height={16}
         color="white"
         bg="blue-500"
@@ -124,14 +124,14 @@ Control the vertical space between elements using the `spaceY={amount}` utilitie
         justifyContent="center"
       >
         3
-      </Box>
+      </x.div>
     </div>
   </template>
-  <Box spaceY={4}>
+  <x.div spaceY={4}>
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -143,8 +143,8 @@ If your elements are in reverse order (using say `flexDirection="row-reverse"` o
 <>
   <template preview>
     <>
-      <Box display="flex" flexDirection="row-reverse">
-        <Box
+      <x.div display="flex" flexDirection="row-reverse">
+        <x.div
           width={16}
           height={16}
           color="white"
@@ -157,9 +157,9 @@ If your elements are in reverse order (using say `flexDirection="row-reverse"` o
           justifyContent="center"
         >
           1
-        </Box>
-        <Box width={4} height={16} borderRadius="md" bg="fuchsia-200" />
-        <Box
+        </x.div>
+        <x.div width={4} height={16} borderRadius="md" bg="fuchsia-200" />
+        <x.div
           width={16}
           height={16}
           color="white"
@@ -172,9 +172,9 @@ If your elements are in reverse order (using say `flexDirection="row-reverse"` o
           justifyContent="center"
         >
           2
-        </Box>
-        <Box width={4} height={16} borderRadius="md" bg="fuchsia-200" />
-        <Box
+        </x.div>
+        <x.div width={4} height={16} borderRadius="md" bg="fuchsia-200" />
+        <x.div
           width={16}
           height={16}
           color="white"
@@ -187,15 +187,15 @@ If your elements are in reverse order (using say `flexDirection="row-reverse"` o
           justifyContent="center"
         >
           3
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
     </>
   </template>
-  <Box display="flex" spaceX={4} spaceXReverse>
+  <x.div display="flex" spaceX={4} spaceXReverse>
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -204,31 +204,17 @@ If your elements are in reverse order (using say `flexDirection="row-reverse"` o
 To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `spaceX={{ md: 8 }}` to an element would apply the `spaceX={8}` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="flex" spaceX={{ xs: 2, md: 4 }}>
+<x.div display="flex" spaceX={{ xs: 2, md: 4 }}>
   <div>1</div>
   <div>2</div>
   <div>3</div>
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
 
 ## Customizing
 
-### Spacing scale
+import CustomizeSpace from '../../../partials/customizing/space.mdx'
 
-If you'd like to customize your values for space between, padding, margin, all at once, use the `theme.space` section of your theme.
-
-```diffjs
-  // theme.js
-  export const theme = {
-    space: {
-+     sm: '8px',
-+     md: '16px',
-+     lg: '24px',
-+     xl: '48px',
-    },
-  }
-```
-
-Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).
+<CustomizeSpace />

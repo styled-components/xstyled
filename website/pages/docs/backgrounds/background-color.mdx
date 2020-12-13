@@ -1,32 +1,31 @@
 ---
 section: Backgrounds
-title: Bakground Color
+title: Background Color
 ---
 
-# Bakground Color
+# Background Color
 
 Utilities for controlling an element's background color.
 
 | React props               | CSS Properties               |
 | ------------------------- | ---------------------------- |
-| `backgroundColor=[value]` | `background-color: [value];` |
-| `bg=[value]`              | `background-color: [value];` |
+| `backgroundColor={color}` | `background-color: {color};` |
+| `bg={color}`              | `background-color: {color};` |
 
 ## Usage
 
 Control the background color of an element using the `bg={color}` or `backgroundColor={color}` utitlies.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
     <x.div textAlign="center">
       <x.button
         type="button"
-        py={2}
+        py={3}
         px={4}
         transition
         bg="emerald-500"
-        hoverBg="emerald-800"
         color="white"
         fontWeight="semibold"
         borderRadius="lg"
@@ -38,27 +37,103 @@ Control the background color of an element using the `bg={color}` or `background
       </x.button>
     </x.div>
   </template>
-  <x.button bg="emerald-500" hoverBg="emerald-800">
-    Button
-  </x.button>
+  <x.button bg="emerald-500">Button</x.button>
 </>
 ```
 
-## Usage
+### Changing opacity
 
-Control the background color of an element using the `bg={color}` or `backgroundColor={color}` utitlies.
+Use [color opacity variants](@TODO-link) to choose another opacity.
 
-```jsx preview
+```jsx preview color=purple
+<>
+  <template preview>
+    <x.div display="grid" gridTemplateColumns={{ _: 2, sm: 5 }} gap={2}>
+      <x.div
+        bg="purple-600-a100"
+        h={16}
+        borderRadius="md"
+        fontWeight="extrabold"
+        color="white"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        100%
+      </x.div>
+      <x.div
+        bg="purple-600-a75"
+        h={16}
+        borderRadius="md"
+        fontWeight="extrabold"
+        color="white"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        75%
+      </x.div>
+      <x.div
+        bg="purple-600-a50"
+        h={16}
+        borderRadius="md"
+        fontWeight="extrabold"
+        color="white"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        50%
+      </x.div>
+      <x.div
+        bg="purple-600-a25"
+        h={16}
+        borderRadius="md"
+        fontWeight="extrabold"
+        color="white"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        25%
+      </x.div>
+      <x.div
+        bg="purple-600-a0"
+        h={16}
+        borderRadius="md"
+        fontWeight="extrabold"
+        color="white"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        0%
+      </x.div>
+    </x.div>
+  </template>
+  <x.div bg="purple-600-a100"></x.div>
+  <x.div bg="purple-600-a75"></x.div>
+  <x.div bg="purple-600-a50"></x.div>
+  <x.div bg="purple-600-a25"></x.div>
+  <x.div bg="purple-600-a0"></x.div>
+</>
+```
+
+## Hover
+
+Control the hover background color of an element using the `hoverBg={color}` or `hoverBackgroundColor={color}` utitlies.
+
+```jsx preview color=indigo
 <>
   <template preview>
     <x.div textAlign="center">
       <x.button
         type="button"
-        py={2}
+        py={3}
         px={4}
         transition
-        bg="emerald-500"
-        hoverBg="emerald-800"
+        bg="indigo-500"
+        hoverBg="indigo-800"
         color="white"
         fontWeight="semibold"
         borderRadius="lg"
@@ -70,7 +145,7 @@ Control the background color of an element using the `bg={color}` or `background
       </x.button>
     </x.div>
   </template>
-  <x.button bg="emerald-500" hoverBg="emerald-800">
+  <x.button bg="indigo-500" hoverBg="indigo-800">
     Button
   </x.button>
 </>
@@ -88,19 +163,6 @@ For more information about xstyled's responsive design features, check out [Resp
 
 ## Customizing
 
-### Colors
+import CustomizeColors from '../../../partials/customizing/colors.mdx'
 
-If you'd like to customize your values for all colors, use the `theme.colors` section of your theme.
-
-```diffjs
-  // theme.js
-  import { th } from '@xstyled/styled-components'
-
-  export const theme = {
-    colors: {
-      // ...
-+     'deep-blue': '#00008b',
-+     'primary': th.color('red-600'),
-    },
-  }
-```
+<CustomizeColors />

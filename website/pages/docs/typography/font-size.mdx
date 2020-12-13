@@ -7,23 +7,25 @@ title: Font Size
 
 Utilities for controlling the font size of an element.
 
-| React props        | CSS Properties       |
-| ------------------ | -------------------- |
-| `fontSize=[value]` | `fontSize: [value];` |
+| React props       | CSS Properties       |
+| ----------------- | -------------------- |
+| `fontSize={size}` | `font-size: {size};` |
 
 ## Usage
 
-Control the font size of an element using the `fontSize={size}` utilities.
+Control the font size of an element using the `fontSize={size}` utility.
 
-```jsx preview
+```jsx preview color=violet
 <>
   <template preview>
     <>
       {[
-        'sm',
         'xs',
+        '14px',
+        'sm',
         'base',
         'lg',
+        '1.2rem',
         'xl',
         '2xl',
         '3xl',
@@ -33,17 +35,15 @@ Control the font size of an element using the `fontSize={size}` utilities.
         '7xl',
         '8xl',
         '9xl',
-      ].map(size => (
-        <Box
+      ].map((size) => (
+        <x.dl
           key={size}
-          as="dl"
           display="flex"
           alignItems="baseline"
           color="violet-600"
           overflow="hidden"
         >
-          <Box
-            as="dt"
+          <x.dt
             w={16}
             flexShrink={0}
             fontSize="sm"
@@ -51,27 +51,29 @@ Control the font size of an element using the `fontSize={size}` utilities.
             fontFamily="mono"
           >
             {size}
-          </Box>
-          <Box as="dd" fontSize={size} fontWeight="medium">
+          </x.dt>
+          <x.dd fontSize={size} fontWeight="medium">
             Computers have lots of memory but no imagination.
-          </Box>
-        </Box>
+          </x.dd>
+        </x.dl>
       ))}
     </>
   </template>
-  <Box fontSize="xs">Computers have lots ...</Box>
-  <Box fontSize="sm">Computers have lots ...</Box>
-  <Box fontSize="base">Computers have lots ...</Box>
-  <Box fontSize="lg">Computers have lots ...</Box>
-  <Box fontSize="xl">Computers have lots ...</Box>
-  <Box fontSize="2xl">Computers have lots ...</Box>
-  <Box fontSize="3xl">Computers have lots ...</Box>
-  <Box fontSize="4xl">Computers have lots ...</Box>
-  <Box fontSize="5xl">Computers have lots ...</Box>
-  <Box fontSize="6xl">Computers have lots ...</Box>
-  <Box fontSize="7xl">Computers have lots ...</Box>
-  <Box fontSize="8xl">Computers have lots ...</Box>
-  <Box fontSize="9xl">Computers have lots ...</Box>
+  <x.p fontSize="xs">Computers have lots ...</x.p>
+  <x.p fontSize="14px">Computers have lots ...</x.p>
+  <x.p fontSize="sm">Computers have lots ...</x.p>
+  <x.p fontSize="base">Computers have lots ...</x.p>
+  <x.p fontSize="lg">Computers have lots ...</x.p>
+  <x.p fontSize="1.2rem">Computers have lots ...</x.p>
+  <x.p fontSize="xl">Computers have lots ...</x.p>
+  <x.p fontSize="2xl">Computers have lots ...</x.p>
+  <x.p fontSize="3xl">Computers have lots ...</x.p>
+  <x.p fontSize="4xl">Computers have lots ...</x.p>
+  <x.p fontSize="5xl">Computers have lots ...</x.p>
+  <x.p fontSize="6xl">Computers have lots ...</x.p>
+  <x.p fontSize="7xl">Computers have lots ...</x.p>
+  <x.p fontSize="8xl">Computers have lots ...</x.p>
+  <x.p fontSize="9xl">Computers have lots ...</x.p>
 </>
 ```
 
@@ -80,33 +82,54 @@ Control the font size of an element using the `fontSize={size}` utilities.
 To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `fontSize={{ md: "xl" }}` to an element would apply the `fontSize="xl"` utility at medium screen sizes and above.
 
 ```jsx
-<Box fontSize={{ xs: 'sm', md: 'xl' }}>{/* ... */}</Box>
+<x.p fontSize={{ xs: 'sm', md: 'xl' }}>{/* ... */}</x.p>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
 
 ## Customizing
 
-### Font Sizes
+import CustomizeFontSizes from '../../../partials/customizing/font-sizes.mdx'
 
-If you'd like to customize your values for font sizes, use the `theme.fontSizes` section of your theme.
+<CustomizeFontSizes />
 
-```diffjs
-  // theme.js
-  export const theme = {
-    fontSizes: {
--     'xs': '.75rem',
--     'sm': '.875rem',
-+     'tiny': '.875rem',
-      'base': '1rem',
-      'lg': '1.125rem',
-      'xl': '1.25rem',
-      '2xl': '1.5rem',
--     '3xl': '1.875rem',
--     '4xl': '2.25rem',
-      '5xl': '3rem',
-      '6xl': '4rem',
-+     '7xl': '5rem',
-    },
-  }
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all font sizes defined are automatically binded to `font-size` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Title = styled.h4`
+  font-size: 2xl;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](@TODO-link).
+
+### Manual
+
+It is possible to manually bind a font size using `th.fontSize` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Title = styled.h4`
+  font: ${th.fontSize('xl')};
+`
+```
+
+## Hooks
+
+Get a font size in any component using `useFontSize` hook:
+
+```js
+import { useFontSize } from '@xstyled/...'
+
+function Title() {
+  const fontSize = useFontSize('xl')
+}
 ```

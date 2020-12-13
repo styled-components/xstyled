@@ -7,27 +7,21 @@ title: List Style Position
 
 Utilities for controlling the position of bullets/numbers in lists.
 
-| React props                 | CSS Properties                |
-| --------------------------- | ----------------------------- |
-| `listStylePosition=[value]` | `listStylePosition: [value];` |
+| React props                    | CSS Properties                     |
+| ------------------------------ | ---------------------------------- |
+| `listStylePosition={position}` | `list-style-position: {position};` |
 
 ## Usage
 
 Control the position of the markers in a list using the `listStylePosition="inside"` and `listStylePosition="outside"` utilities.
 
-```jsx preview
+```jsx preview color=violet
 <>
   <template preview>
-    <Box spaceY={8}>
-      {['inside', 'outside'].map(listStylePosition => (
-        <Box
-          key={listStylePosition}
-          as="dl"
-          color="violet-600"
-          overflow="hidden"
-        >
-          <Box
-            as="dt"
+    <x.div spaceY={8}>
+      {['inside', 'outside'].map((listStylePosition) => (
+        <x.dl key={listStylePosition} color="violet-600" overflow="hidden">
+          <x.dt
             w={16}
             flexShrink={0}
             fontSize="sm"
@@ -36,10 +30,9 @@ Control the position of the markers in a list using the `listStylePosition="insi
             mb={1}
           >
             listStylePosition={listStylePosition}
-          </Box>
-          <Box as="dd" fontSize="xl" m={0}>
-            <Box
-              as="ul"
+          </x.dt>
+          <x.dd fontSize="xl" m={0}>
+            <x.ul
               bg="violet-100"
               listStylePosition={listStylePosition}
               borderRadius="md"
@@ -54,18 +47,18 @@ Control the position of the markers in a list using the `listStylePosition="insi
               <li>
                 Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
               </li>
-            </Box>
-          </Box>
-        </Box>
+            </x.ul>
+          </x.dd>
+        </x.dl>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box as="ul" listStylePosition="inside">
+  <x.ul listStylePosition="inside">
     <li>Lorem ipsum ...</li>
-  </Box>
-  <Box as="ul" listStylePosition="outside">
+  </x.div>
+  <x.ul listStylePosition="outside">
     <li>Lorem ipsum ...</li>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -74,7 +67,7 @@ Control the position of the markers in a list using the `listStylePosition="insi
 To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `listStylePosition={{ md: "inside" }}` to an element would apply the `listStylePosition="inside"` utility at medium screen sizes and above.
 
 ```jsx
-<Box listStylePosition={{ md: 'inside' }}>{/* ... */}</Box>
+<x.ul listStylePosition={{ md: 'inside' }}>{/* ... */}</x.ul>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
