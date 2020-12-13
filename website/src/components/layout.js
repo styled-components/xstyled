@@ -46,6 +46,7 @@ export default function Layout({ children }) {
           '@xstyled/system': xstyledSystem,
         }}
       />
+      <xstyledSc.Preflight />
       {children}
     </>
   )

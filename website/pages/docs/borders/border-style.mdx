@@ -1,6 +1,7 @@
 ---
 section: Borders
 title: Border Style
+slug: /docs/border-style/
 ---
 
 # Border Style
@@ -15,12 +16,12 @@ Utilities for controlling the style of an element's borders.
 
 Use `borderStyle={style}` to control an element's border style.
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 5 }}>
-      {['solid', 'dashed', 'dotted', 'double', 'none'].map(borderStyle => (
-        <Box
+    <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 5 }}>
+      {['solid', 'dashed', 'dotted', 'double', 'none'].map((borderStyle) => (
+        <x.div
           p={6}
           bg="red-300"
           color="white"
@@ -34,15 +35,15 @@ Use `borderStyle={style}` to control an element's border style.
           borderWidth={3}
         >
           {borderStyle}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box borderWidth={3} borderStyle="solid" />
-  <Box borderWidth={3} borderStyle="dashed" />
-  <Box borderWidth={3} borderStyle="dotted" />
-  <Box borderWidth={3} borderStyle="double" />
-  <Box borderWidth={3} borderStyle="none" />
+  <x.div borderWidth={3} borderStyle="solid" />
+  <x.div borderWidth={3} borderStyle="dashed" />
+  <x.div borderWidth={3} borderStyle="dotted" />
+  <x.div borderWidth={3} borderStyle="double" />
+  <x.div borderWidth={3} borderStyle="none" />
 </>
 ```
 
@@ -51,7 +52,7 @@ Use `borderStyle={style}` to control an element's border style.
 To control the border style of an element at a specific breakpoint, use responsive object notation. For example, adding the property `borderStyle={{ md: 'solid' }}` to an element would apply the `borderStyle="solid` utility at medium screen sizes and above.
 
 ```jsx
-<Box borderStyle={{ md: 'solid' }}>{/* ... */}</Box>
+<x.div borderStyle={{ md: 'solid' }}>{/* ... */}</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

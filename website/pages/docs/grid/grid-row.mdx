@@ -1,6 +1,7 @@
 ---
 section: Grid
 title: Grid Row Start / End
+slug: /docs/grid-row/
 ---
 
 # Grid Row Start / End
@@ -15,17 +16,17 @@ Utilities for controlling how elements are sized and placed across grid rows.
 
 Use the `gridRow="span n / span n"` utilities to make an element span _n_ rows.
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box
+    <x.div
       display="grid"
       gridTemplateRows={3}
       gridAutoFlow="column"
       gap={4}
       h={64}
     >
-      <Box
+      <x.div
         borderRadius="md"
         bg="red-500"
         color="white"
@@ -37,8 +38,8 @@ Use the `gridRow="span n / span n"` utilities to make an element span _n_ rows.
         gridRow="span 3 / span 3"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         borderRadius="md"
         bg="red-400"
         color="white"
@@ -50,8 +51,8 @@ Use the `gridRow="span n / span n"` utilities to make an element span _n_ rows.
         gridColumn="span 2 / span 2"
       >
         2
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         borderRadius="md"
         bg="red-500"
         color="white"
@@ -64,16 +65,16 @@ Use the `gridRow="span n / span n"` utilities to make an element span _n_ rows.
         gridRow="span 2 / span 2"
       >
         3
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="grid" gridTemplateColumns={3} gap={4}>
-    <Box gridRow="span 3 / span 3">1</Box>
-    <Box gridColumn="span 2 / span 2">2</Box>
-    <Box gridColumn="span 2 / span 2" gridRow="span 2 / span 2">
+  <x.div display="grid" gridTemplateColumns={3} gap={4}>
+    <x.div gridRow="span 3 / span 3">1</x.div>
+    <x.div gridColumn="span 2 / span 2">2</x.div>
+    <x.div gridColumn="span 2 / span 2" gridRow="span 2 / span 2">
       3
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 </>
 ```
 
@@ -83,17 +84,17 @@ Use the `gridRow="n"` (start) and `gridRow="auto / n"` (end) utilities to make a
 
 Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-column grid would start at line 1 and end at line 7.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
+    <x.div
       display="grid"
       gridTemplateRows={3}
       gridAutoFlow="column"
       gap={4}
       h={64}
     >
-      <Box
+      <x.div
         borderRadius="md"
         bg="emerald-500"
         color="white"
@@ -105,8 +106,8 @@ Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-colum
         gridRow="2 / span 2"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         borderRadius="md"
         bg="emerald-500"
         color="white"
@@ -118,8 +119,8 @@ Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-colum
         gridRow="span 2 / 3"
       >
         2
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         borderRadius="md"
         bg="emerald-500"
         color="white"
@@ -131,14 +132,14 @@ Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-colum
         gridRow="1 / 4"
       >
         3
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="grid" gridTemplateRows={3} gridAutoFlow="column" gap={4}>
-    <Box gridRow="2 / span 2">1</Box>
-    <Box gridRow="span 2 / 3">2</Box>
-    <Box gridRow="1 / 4">3</Box>
-  </Box>
+  <x.div display="grid" gridTemplateRows={3} gridAutoFlow="column" gap={4}>
+    <x.div gridRow="2 / span 2">1</x.div>
+    <x.div gridRow="span 2 / 3">2</x.div>
+    <x.div gridRow="1 / 4">3</x.div>
+  </x.div>
 </>
 ```
 
@@ -147,9 +148,9 @@ Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-colum
 To control the row placement of an element at a specific breakpoint, use responsive object notation. For example, adding the property `gridRow={{ md: "span 2 / span 2" }}` to an element would apply the `gridRow="span 2 / span 2"` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="grid" gridRow={{ md: 'span 2 / span 2' }}>
+<x.div display="grid" gridRow={{ md: 'span 2 / span 2' }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

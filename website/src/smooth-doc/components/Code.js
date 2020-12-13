@@ -7,7 +7,6 @@ import styled, {
   Box,
   ThemeProvider,
   defaultTheme,
-  Preflight,
 } from '@xstyled/styled-components'
 import Editor from 'react-simple-code-editor'
 import Prism from 'prismjs/components/prism-core'
@@ -378,12 +377,17 @@ export function Code({
           theme={prismTheme}
           noInline={noInline}
         >
-          <Preflight />
           <Preview>
             <ThemeProvider theme={defaultTheme}>
-              <PreviewBg $color={color}>
+              <Box
+                p={5}
+                overflow="hidden"
+                backgroundImage="gradient-to-r"
+                gradientFrom={color ? `${color}-50` : 'cool-gray-50'}
+                gradientTo={color ? `${color}-100` : 'cool-gray-100'}
+              >
                 <LivePreview />
-              </PreviewBg>
+              </Box>
             </ThemeProvider>
           </Preview>
           <LiveError />

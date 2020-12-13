@@ -1,6 +1,7 @@
 ---
 section: Grid
 title: Grid Template Areas
+slug: /docs/grid-template-areas/
 ---
 
 # Grid Template Areas
@@ -16,16 +17,16 @@ Utilities for specifying the template areas in a grid layout.
 
 Use the `gridTemplateAreas={value}` utilities to specify area positions in grids.
 
-```jsx preview
+```jsx preview color=fuchsia
 <>
   <template preview>
-    <Box
+    <x.div
       display="grid"
       gridTemplateColumns={3}
       gap={4}
       gridTemplateAreas='"a a a" "b b c"'
     >
-      <Box
+      <x.div
         gridArea="a"
         h={12}
         borderRadius="md"
@@ -38,8 +39,8 @@ Use the `gridTemplateAreas={value}` utilities to specify area positions in grids
         fontWeight="extrabold"
       >
         A
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         gridArea="b"
         h={12}
         borderRadius="md"
@@ -52,8 +53,8 @@ Use the `gridTemplateAreas={value}` utilities to specify area positions in grids
         fontWeight="extrabold"
       >
         B
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         gridArea="c"
         h={12}
         borderRadius="md"
@@ -66,18 +67,18 @@ Use the `gridTemplateAreas={value}` utilities to specify area positions in grids
         fontWeight="extrabold"
       >
         C
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box
+  <x.div
     display="grid"
     gridTemplateColumns={3}
     gridTemplateAreas='"a a a" "b b c"'
   >
-    <Box gridArea="a">A</Box>
-    <Box gridArea="b">B</Box>
-    <Box gridArea="c">C</Box>
-  </Box>
+    <x.div gridArea="a">A</x.div>
+    <x.div gridArea="b">B</x.div>
+    <x.div gridArea="c">C</x.div>
+  </x.div>
 </>
 ```
 
@@ -86,9 +87,9 @@ Use the `gridTemplateAreas={value}` utilities to specify area positions in grids
 To control the grid template areas at a specific breakpoint, use responsive object notation. For example, adding the property `gridTemplateAreas={{ md: '"header header"' }}` to an element would apply the `gridTemplateAreas='"header header"'` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="grid" gridTemplateAreas={{ md: '"header header"' }}>
+<x.div display="grid" gridTemplateAreas={{ md: '"header header"' }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

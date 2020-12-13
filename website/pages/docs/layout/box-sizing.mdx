@@ -1,15 +1,16 @@
 ---
 section: Layout
 title: Box Sizing
+slug: /docs/box-sizing/
 ---
 
 # Box Sizing
 
 Utilities for controlling how the browser should calculate an element's total size.
 
-| React props         | CSS Properties         |
-| ------------------- | ---------------------- |
-| `boxSizing=[value]` | `box-sizing: [value];` |
+| React props           | CSS Properties           |
+| --------------------- | ------------------------ |
+| `boxSizing={keyword}` | `box-sizing: {keyword};` |
 
 ## Include borders and padding
 
@@ -19,11 +20,11 @@ This means a 100px × 100px element with a 2px border and 4px of padding on all 
 
 xstyled makes this the default for all elements in our [preflight base styles](@TODO-link).
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box display="flex" alignItems="center" justifyContent="center">
-      <Box
+    <x.div display="flex" alignItems="center" justifyContent="center">
+      <x.div
         boxSizing="border-box"
         h={32}
         w={32}
@@ -33,13 +34,13 @@ xstyled makes this the default for all elements in our [preflight base styles](@
         bg="light-blue-200"
         borderRadius="md"
       >
-        <Box h={1} w={1} bg="light-blue-400" />
-      </Box>
-    </Box>
+        <x.div h={1} w={1} bg="light-blue-400" />
+      </x.div>
+    </x.div>
   </template>
-  <Box boxSizing="border-box" h={32} w={32} p={4} border={4}>
+  <x.div boxSizing="border-box" h={32} w={32} p={4} border={4}>
     {/* ... */}
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -49,11 +50,11 @@ Use `boxSizing="content-box"` to set an element's `box-sizing` to `content-box`,
 
 This means a 100px × 100px element with a 2px border and 4px of padding on all sides will actually be rendered as 112px × 112px, with an internal content area of 100px × 100px.
 
-```jsx preview
+```jsx preview color=rose
 <>
   <template preview>
-    <Box display="flex" alignItems="center" justifyContent="center">
-      <Box
+    <x.div display="flex" alignItems="center" justifyContent="center">
+      <x.div
         boxSizing="content-box"
         h={32}
         w={32}
@@ -63,13 +64,13 @@ This means a 100px × 100px element with a 2px border and 4px of padding on all 
         bg="rose-200"
         borderRadius="md"
       >
-        <Box h={1} w={1} bg="rose-400" />
-      </Box>
-    </Box>
+        <x.div h={1} w={1} bg="rose-400" />
+      </x.div>
+    </x.div>
   </template>
-  <Box boxSizing="content-box" h={32} w={32} p={4} border={4}>
+  <x.div boxSizing="content-box" h={32} w={32} p={4} border={4}>
     {/* ... */}
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -78,7 +79,7 @@ This means a 100px × 100px element with a 2px border and 4px of padding on all 
 To control the box-sizing at a specific breakpoint, use responsive object notation. For example, adding the property `boxSizing={{ md: "content-box" }}` to an element would apply the `boxSizing="content-box"` utility at medium screen sizes and above.
 
 ```jsx
-<Box boxSizing={{ md: 'content-box' }} />
+<x.div boxSizing={{ md: 'content-box' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

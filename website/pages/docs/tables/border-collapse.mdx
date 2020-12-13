@@ -1,6 +1,7 @@
 ---
 section: Tables
 title: Border Collapse
+slug: /docs/border-collapse/
 ---
 
 # Border Collapse
@@ -18,18 +19,16 @@ Use `borderCollapse="separate"` to force each cell to display its own separate b
 ```jsx preview color=emerald
 <>
   <template preview>
-    <x.div
-      as="table"
+    <x.table
       w={1}
       borderCollapse="separate"
       border
       borderColor="green-800"
       fontFamily="Flow"
     >
-      <x.div as="thead" bg="emerald-200">
+      <x.thead bg="emerald-200">
         <tr>
-          <x.div
-            as="th"
+          <x.th
             border
             borderColor="green-600"
             color="emerald-800"
@@ -38,9 +37,8 @@ Use `borderCollapse="separate"` to force each cell to display its own separate b
             py={2}
           >
             State
-          </x.div>
-          <x.div
-            as="th"
+          </x.th>
+          <x.th
             border
             borderColor="green-600"
             color="emerald-800"
@@ -49,13 +47,12 @@ Use `borderCollapse="separate"` to force each cell to display its own separate b
             py={2}
           >
             City
-          </x.div>
+          </x.th>
         </tr>
-      </x.div>
+      </x.thead>
       <tbody>
         <tr>
-          <x.div
-            as="td"
+          <x.td
             border
             borderColor="green-600"
             color="emerald-400"
@@ -63,9 +60,8 @@ Use `borderCollapse="separate"` to force each cell to display its own separate b
             py={2}
           >
             Indiana
-          </x.div>
-          <x.div
-            as="td"
+          </x.td>
+          <x.td
             border
             borderColor="green-600"
             color="emerald-400"
@@ -73,11 +69,10 @@ Use `borderCollapse="separate"` to force each cell to display its own separate b
             py={2}
           >
             Indianapolis
-          </x.div>
+          </x.td>
         </tr>
         <tr>
-          <x.div
-            as="td"
+          <x.td
             border
             borderColor="green-600"
             color="emerald-400"
@@ -85,9 +80,8 @@ Use `borderCollapse="separate"` to force each cell to display its own separate b
             py={2}
           >
             Ohio
-          </x.div>
-          <x.div
-            as="td"
+          </x.td>
+          <x.td
             border
             borderColor="green-600"
             color="emerald-400"
@@ -95,11 +89,10 @@ Use `borderCollapse="separate"` to force each cell to display its own separate b
             py={2}
           >
             Columbus
-          </x.div>
+          </x.td>
         </tr>
         <tr>
-          <x.div
-            as="td"
+          <x.td
             border
             borderColor="green-600"
             color="emerald-400"
@@ -107,9 +100,8 @@ Use `borderCollapse="separate"` to force each cell to display its own separate b
             py={2}
           >
             Michigan
-          </x.div>
-          <x.div
-            as="td"
+          </x.td>
+          <x.td
             border
             borderColor="green-600"
             color="emerald-400"
@@ -117,46 +109,46 @@ Use `borderCollapse="separate"` to force each cell to display its own separate b
             py={2}
           >
             Detroit
-          </x.div>
+          </x.td>
         </tr>
       </tbody>
-    </x.div>
+    </x.table>
   </template>
-  <x.div as="table" borderCollapse="separate" border borderColor="green-800">
+  <x.table borderCollapse="separate" border borderColor="green-800">
     <thead>
       <tr>
-        <x.div as="th" border borderColor="green-600">
+        <x.th border borderColor="green-600">
           State
-        </x.div>
-        <x.div as="th" border borderColor="green-600">
+        </x.th>
+        <x.th border borderColor="green-600">
           City
-        </x.div>
+        </x.th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <x.div as="td" border borderColor="green-600">
+        <x.td border borderColor="green-600">
           Indiana
-        </x.div>
-        <x.div as="td" border borderColor="green-600">
+        </x.td>
+        <x.td border borderColor="green-600">
           Indianapolis
-        </x.div>
+        </x.td>
       </tr>
       <tr>
-        <x.div as="td" border borderColor="green-600">
+        <x.td border borderColor="green-600">
           Ohio
-        </x.div>
-        <x.div as="td" border borderColor="green-600">
+        </x.td>
+        <x.td border borderColor="green-600">
           Columbus
-        </x.div>
+        </x.td>
       </tr>
       <tr>
-        <x.div as="td" border borderColor="green-600">
+        <x.td border borderColor="green-600">
           Michigan
-        </x.div>
-        <x.div as="td" border borderColor="green-600">
+        </x.td>
+        <x.td border borderColor="green-600">
           Detroit
-        </x.div>
+        </x.td>
       </tr>
     </tbody>
   </x.div>
@@ -167,21 +159,19 @@ Use `borderCollapse="separate"` to force each cell to display its own separate b
 
 Use `borderCollapse="collapse"` to combine adjacent cell borders into a single border when possible. Note that this includes collapsing borders on the top-level `<table>` tag.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <x.div
-      as="table"
+    <x.table
       w={1}
       borderCollapse="collapse"
       border
       borderColor="green-800"
       fontFamily="Flow"
     >
-      <x.div as="thead" bg="emerald-200">
+      <x.thead bg="emerald-200">
         <tr>
-          <x.div
-            as="th"
+          <x.th
             border
             borderColor="green-600"
             color="emerald-800"
@@ -190,9 +180,8 @@ Use `borderCollapse="collapse"` to combine adjacent cell borders into a single b
             py={2}
           >
             State
-          </x.div>
-          <x.div
-            as="th"
+          </x.th>
+          <x.th
             border
             borderColor="green-600"
             color="emerald-800"
@@ -201,13 +190,12 @@ Use `borderCollapse="collapse"` to combine adjacent cell borders into a single b
             py={2}
           >
             City
-          </x.div>
+          </x.th>
         </tr>
-      </x.div>
+      </x.thead>
       <tbody>
         <tr>
-          <x.div
-            as="td"
+          <x.td
             border
             borderColor="green-600"
             color="emerald-400"
@@ -215,9 +203,8 @@ Use `borderCollapse="collapse"` to combine adjacent cell borders into a single b
             py={2}
           >
             Indiana
-          </x.div>
-          <x.div
-            as="td"
+          </x.td>
+          <x.td
             border
             borderColor="green-600"
             color="emerald-400"
@@ -225,11 +212,10 @@ Use `borderCollapse="collapse"` to combine adjacent cell borders into a single b
             py={2}
           >
             Indianapolis
-          </x.div>
+          </x.td>
         </tr>
         <tr>
-          <x.div
-            as="td"
+          <x.td
             border
             borderColor="green-600"
             color="emerald-400"
@@ -237,9 +223,8 @@ Use `borderCollapse="collapse"` to combine adjacent cell borders into a single b
             py={2}
           >
             Ohio
-          </x.div>
-          <x.div
-            as="td"
+          </x.td>
+          <x.td
             border
             borderColor="green-600"
             color="emerald-400"
@@ -247,11 +232,10 @@ Use `borderCollapse="collapse"` to combine adjacent cell borders into a single b
             py={2}
           >
             Columbus
-          </x.div>
+          </x.td>
         </tr>
         <tr>
-          <x.div
-            as="td"
+          <x.td
             border
             borderColor="green-600"
             color="emerald-400"
@@ -259,9 +243,8 @@ Use `borderCollapse="collapse"` to combine adjacent cell borders into a single b
             py={2}
           >
             Michigan
-          </x.div>
-          <x.div
-            as="td"
+          </x.td>
+          <x.td
             border
             borderColor="green-600"
             color="emerald-400"
@@ -269,10 +252,10 @@ Use `borderCollapse="collapse"` to combine adjacent cell borders into a single b
             py={2}
           >
             Detroit
-          </x.div>
+          </x.td>
         </tr>
       </tbody>
-    </x.div>
+    </x.table>
   </template>
   <x.table borderCollapse="collapse" border borderColor="green-800">
     <thead>

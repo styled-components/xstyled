@@ -1,6 +1,7 @@
 ---
 section: Sizing
 title: Min-Height
+slug: /docs/min-height/
 ---
 
 # Min-Height
@@ -15,24 +16,24 @@ Utilities for setting the minimum height of an element
 
 All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scale `1`, you have to specify `1s`.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
+    <x.div
       display="flex"
       justifyContent="space-around"
       alignItems="flex-end"
       mx="auto"
     >
-      {['1s', 8, 12, 16, 24].map(v => (
-        <Box
+      {['1s', 8, 12, 16, 24].map((v) => (
+        <x.div
           key={v}
           spaceY={4}
           display="flex"
           flexDirection="column"
           alignItems="center"
         >
-          <Box
+          <x.div
             minHeight={v}
             w={8}
             borderRadius="md"
@@ -41,20 +42,20 @@ All values specified in the `sizes` theme section are automatically applied. Not
             fontSize="2xl"
             fontWeight="extrabold"
           />
-          <Box as="p" fontSize="sm" color="light-blue-600" textAlign="center">
+          <x.p fontSize="sm" color="light-blue-600" textAlign="center">
             minHeight={v}
-          </Box>
-        </Box>
+          </x.p>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box>
-    <Box minHeight="1s" h={0} />
-    <Box minHeight={8} h={0} />
-    <Box minHeight={12} h={0} />
-    <Box minHeight={16} h={0} />
-    <Box minHeight={24} h={0} />
-  </Box>
+  <x.div>
+    <x.div minHeight="1s" h={0} />
+    <x.div minHeight={8} h={0} />
+    <x.div minHeight={12} h={0} />
+    <x.div minHeight={16} h={0} />
+    <x.div minHeight={24} h={0} />
+  </x.div>
 </>
 ```
 
@@ -62,24 +63,24 @@ All values specified in the `sizes` theme section are automatically applied. Not
 
 Any valid value is accepted in width, numbers are converted to `px`, other units have to be specified.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
+    <x.div
       display="flex"
       justifyContent="space-around"
       alignItems="flex-end"
       mx="auto"
     >
-      {[123, '12px', '4rem', '3ex'].map(v => (
-        <Box
+      {[123, '12px', '4rem', '3ex'].map((v) => (
+        <x.div
           key={v}
           spaceY={4}
           display="flex"
           flexDirection="column"
           alignItems="center"
         >
-          <Box
+          <x.div
             w={8}
             minHeight={v}
             borderRadius="md"
@@ -88,19 +89,19 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
             fontSize="2xl"
             fontWeight="extrabold"
           />
-          <Box as="p" fontSize="sm" color="emerald-600" textAlign="center">
+          <x.p fontSize="sm" color="emerald-600" textAlign="center">
             minHeight={v}
-          </Box>
-        </Box>
+          </x.p>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box>
-    <Box minHeight={123} h={0} />
-    <Box minHeight="12px" h={0} />
-    <Box minHeight="4rem" h={0} />
-    <Box minHeight="3ex" h={0} />
-  </Box>
+  <x.div>
+    <x.div minHeight={123} h={0} />
+    <x.div minHeight="12px" h={0} />
+    <x.div minHeight="4rem" h={0} />
+    <x.div minHeight="3ex" h={0} />
+  </x.div>
 </>
 ```
 
@@ -108,10 +109,10 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
 
 Values from `0` to `1` are converted into percentages. As a fraction or a number, both are an expression. Of course specifying `[value]%` is also possible.
 
-```jsx preview
+```jsx preview color=rose
 <>
   <template preview>
-    <Box
+    <x.div
       display="flex"
       justifyContent="space-around"
       alignItems="flex-end"
@@ -121,7 +122,7 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
         [['1/2', 0.5], 0.1],
         [['0.5', 0.5], 0.7],
       ].map((v, i) => (
-        <Box
+        <x.div
           key={i}
           overflow="hidden"
           borderRadius="md"
@@ -131,10 +132,10 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
           display="flex"
           flexDirection="column"
           justifyContent="flex-end"
-          bg="gray-200"
+          bg="cool-gray-300"
         >
           {v[1] > v[0][1] && (
-            <Box
+            <x.div
               h={v[1] - v[0][1]}
               px={2}
               py={4}
@@ -144,9 +145,9 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
               justifyContent="center"
             >
               {`0.2`}
-            </Box>
+            </x.div>
           )}
-          <Box
+          <x.div
             h={v[0][1]}
             px={2}
             py={4}
@@ -156,17 +157,17 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
             justifyContent="center"
           >
             minHeight={v[0][0]}
-          </Box>
-        </Box>
+          </x.div>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box minHeight={1 / 2} w={0.1}>
+  <x.div minHeight={1 / 2} w={0.1}>
     minHeight=1/2
-  </Box>
-  <Box minHeight={0.5} w={0.7}>
+  </x.div>
+  <x.div minHeight={0.5} w={0.7}>
     minHeight=0.5
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -175,7 +176,7 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
 To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `minHeight={{ md: 1 }}` to an element would apply the `minHeight={1}` utility at medium screen sizes and above.
 
 ```jsx
-<Box minHeight={{ xs: 1 / 2, md: 1 }} />
+<x.div minHeight={{ xs: 1 / 2, md: 1 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

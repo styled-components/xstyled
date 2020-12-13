@@ -1,6 +1,7 @@
 ---
 section: Grid
 title: Grid Column Start / End
+slug: /docs/grid-column/
 ---
 
 # Grid Column Start / End
@@ -15,12 +16,12 @@ Utilities for controlling how elements are sized and placed across grid columns.
 
 Use the `gridColumn="span n / span n"` utilities to make an element span _n_ columns.
 
-```jsx preview
+```jsx preview color=violet
 <>
   <template preview>
-    <Box display="grid" gridTemplateColumns={3} gap={4}>
-      {Array.from({ length: 7 }, (_, index) => index + 1).map(value => (
-        <Box
+    <x.div display="grid" gridTemplateColumns={3} gap={4}>
+      {Array.from({ length: 7 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           h={12}
           borderRadius="md"
@@ -34,19 +35,19 @@ Use the `gridColumn="span n / span n"` utilities to make an element span _n_ col
           gridColumn={value === 4 || value === 7 ? 'span 2 / span 2' : ''}
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="grid" gridTemplateColumns={3} gap={4}>
-    <Box>1</Box>
-    <Box>2</Box>
-    <Box>3</Box>
-    <Box gridColumn="span 2 / span 2">4</Box>
-    <Box>5</Box>
-    <Box>6</Box>
-    <Box gridColumn="span 2 / span 2">7</Box>
-  </Box>
+  <x.div display="grid" gridTemplateColumns={3} gap={4}>
+    <x.div>1</x.div>
+    <x.div>2</x.div>
+    <x.div>3</x.div>
+    <x.div gridColumn="span 2 / span 2">4</x.div>
+    <x.div>5</x.div>
+    <x.div>6</x.div>
+    <x.div gridColumn="span 2 / span 2">7</x.div>
+  </x.div>
 </>
 ```
 
@@ -56,11 +57,11 @@ Use the `gridColumn="n"` (start) and `gridColumn="auto / n"` (end) utilities to 
 
 Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-column grid would start at line 1 and end at line 7.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box display="grid" gridTemplateColumns={6} gap={4}>
-      <Box
+    <x.div display="grid" gridTemplateColumns={6} gap={4}>
+      <x.div
         h={12}
         borderRadius="md"
         bg="emerald-500"
@@ -73,8 +74,8 @@ Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-colum
         gridColumn="2 / span 4"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         h={12}
         borderRadius="md"
         bg="emerald-500"
@@ -87,8 +88,8 @@ Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-colum
         gridColumn="1 / 3"
       >
         2
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         h={12}
         borderRadius="md"
         bg="emerald-500"
@@ -101,8 +102,8 @@ Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-colum
         gridColumn="span 2 / 7"
       >
         3
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         h={12}
         borderRadius="md"
         bg="emerald-500"
@@ -115,15 +116,15 @@ Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-colum
         gridColumn="1 / 7"
       >
         4
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="grid" gridTemplateColumns={6} gap={4}>
-    <Box gridColumn="2 / span 4">1</Box>
-    <Box gridColumn="1 / 3">2</Box>
-    <Box gridColumn="span 2 / 7">3</Box>
-    <Box gridColumn="1 / 7">4</Box>
-  </Box>
+  <x.div display="grid" gridTemplateColumns={6} gap={4}>
+    <x.div gridColumn="2 / span 4">1</x.div>
+    <x.div gridColumn="1 / 3">2</x.div>
+    <x.div gridColumn="span 2 / 7">3</x.div>
+    <x.div gridColumn="1 / 7">4</x.div>
+  </x.div>
 </>
 ```
 
@@ -132,9 +133,9 @@ Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-colum
 To control the column placement of an element at a specific breakpoint, use responsive object notation. For example, adding the property `gridColumn={{ md: "span 2 / span 2" }}` to an element would apply the `gridColumn="span 2 / span 2"` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="grid" gridColumn={{ md: 'span 2 / span 2' }}>
+<x.div display="grid" gridColumn={{ md: 'span 2 / span 2' }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

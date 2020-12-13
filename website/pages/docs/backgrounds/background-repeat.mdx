@@ -1,9 +1,10 @@
 ---
 section: Backgrounds
-title: Bakground Repeat
+title: Background Repeat
+slug: /docs/background-repeat/
 ---
 
-# Bakground Repeat
+# Background Repeat
 
 Utilities for controlling the repetition of an element's background image.
 
@@ -15,17 +16,17 @@ Utilities for controlling the repetition of an element's background image.
 
 Use `backgroundRepeat="repeat"` to repeat the background image both vertically and horizontally.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
+    <x.div
       bg="emerald-300"
       h={96}
       backgroundRepeat="repeat"
       backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=200&h=200&q=80');"
     />
   </template>
-  <Box backgroundRepeat="repeat" backgroundImage="url(...)" />
+  <x.div backgroundRepeat="repeat" backgroundImage="url(...)" />
 </>
 ```
 
@@ -33,10 +34,10 @@ Use `backgroundRepeat="repeat"` to repeat the background image both vertically a
 
 Use `backgroundRepeat="no-repeat"` when you don't want to repeat the background image.
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box
+    <x.div
       bg="red-300"
       h={96}
       backgroundRepeat="no-repeat"
@@ -44,7 +45,7 @@ Use `backgroundRepeat="no-repeat"` when you don't want to repeat the background 
       backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=200&h=200&q=80');"
     />
   </template>
-  <Box backgroundRepeat="no-repeat" backgroundImage="url(...)" />
+  <x.div backgroundRepeat="no-repeat" backgroundImage="url(...)" />
 </>
 ```
 
@@ -52,10 +53,10 @@ Use `backgroundRepeat="no-repeat"` when you don't want to repeat the background 
 
 Use `backgroundRepeat="repeat-x"` to repeat the background image only horizontally.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box
+    <x.div
       bg="amber-300"
       h={96}
       backgroundRepeat="repeat-x"
@@ -63,7 +64,7 @@ Use `backgroundRepeat="repeat-x"` to repeat the background image only horizontal
       backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=200&h=200&q=80');"
     />
   </template>
-  <Box backgroundRepeat="repeat-x" backgroundImage="url(...)" />
+  <x.div backgroundRepeat="repeat-x" backgroundImage="url(...)" />
 </>
 ```
 
@@ -71,10 +72,10 @@ Use `backgroundRepeat="repeat-x"` to repeat the background image only horizontal
 
 Use `backgroundRepeat="repeat-y"` to repeat the background image only vertically.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
+    <x.div
       bg="light-blue-300"
       h={96}
       backgroundRepeat="repeat-y"
@@ -82,7 +83,7 @@ Use `backgroundRepeat="repeat-y"` to repeat the background image only vertically
       backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=200&h=200&q=80');"
     />
   </template>
-  <Box backgroundRepeat="repeat-y" backgroundImage="url(...)" />
+  <x.div backgroundRepeat="repeat-y" backgroundImage="url(...)" />
 </>
 ```
 
@@ -91,7 +92,7 @@ Use `backgroundRepeat="repeat-y"` to repeat the background image only vertically
 To control the repetition of an element's background image at a specific breakpoint, use responsive object notation. For example, adding the property `backgroundRepeat={{ md: "no-repeat" }}` to an element would apply the `backgroundRepeat="no-repeat"` utility at medium screen sizes and above.
 
 ```jsx
-<Box backgroundRepeat={{ md: 'no-repeat' }} />
+<x.div backgroundRepeat={{ md: 'no-repeat' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

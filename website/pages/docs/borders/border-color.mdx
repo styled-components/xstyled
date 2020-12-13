@@ -1,6 +1,7 @@
 ---
 section: Borders
 title: Border Color
+slug: /docs/border-color/
 ---
 
 # Border Color
@@ -15,12 +16,11 @@ Utilities for controlling the color of an element's borders.
 
 Use `borderColor={color}` utilities to set the border color for all sides of an element.
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box display="flex" alignItems="center" justifyContent="center">
-      <Box
-        as="input"
+    <x.div display="flex" alignItems="center" justifyContent="center">
+      <x.input
         placeholder="Your email"
         p={3}
         border={2}
@@ -28,9 +28,9 @@ Use `borderColor={color}` utilities to set the border color for all sides of an 
         focusOutline="0"
         borderRadius="md"
       />
-    </Box>
+    </x.div>
   </template>
-  <Box as="input" border={2} borderColor="red-600" />
+  <x.input border={2} borderColor="red-600" />
 </>
 ```
 
@@ -38,11 +38,10 @@ Use `borderColor={color}` utilities to set the border color for all sides of an 
 
 Use `borderColor={color}` utilities to set the border color for invidiual sides of an element.
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box
-      as="input"
+    <x.input
       placeholder="Your email"
       p={3}
       border={2}
@@ -51,7 +50,7 @@ Use `borderColor={color}` utilities to set the border color for invidiual sides 
       borderRadius="md"
     />
   </template>
-  <Box border={2} borderColor="indigo-500 emerald-500 purple-500 red-500" />
+  <x.input border={2} borderColor="indigo-500 emerald-500 purple-500 red-500" />
 </>
 ```
 
@@ -62,9 +61,8 @@ Use [color opacity variants](@TODO-link) to choose another opacity.
 ```jsx preview color=indigo
 <>
   <template preview>
-    <Box display="flex" alignItems="center" justifyContent="center">
-      <Box
-        as="input"
+    <x.div display="flex" alignItems="center" justifyContent="center">
+      <x.input
         placeholder="Your email"
         p={3}
         border={2}
@@ -72,9 +70,9 @@ Use [color opacity variants](@TODO-link) to choose another opacity.
         focusOutline="0"
         borderRadius="md"
       />
-    </Box>
+    </x.div>
   </template>
-  <Box as="input" border={2} borderColor="indigo-600-a50" />
+  <x.input border={2} borderColor="indigo-600-a50" />
 </>
 ```
 
@@ -83,26 +81,13 @@ Use [color opacity variants](@TODO-link) to choose another opacity.
 To control the border color of an element at a specific breakpoint, use responsive object notation. For example, adding the property `borderColor={{ md: 'red-500' }}` to an element would apply the `borderColor="red-500` utility at medium screen sizes and above.
 
 ```jsx
-<Box borderColor={{ md: 'red-500' }}>{/* ... */}</Box>
+<x.div borderColor={{ md: 'red-500' }}>{/* ... */}</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
 
 ## Customizing
 
-### Colors
+import CustomizeColors from '../../../partials/customizing/colors.mdx'
 
-If you'd like to customize your values for all colors, use the `theme.colors` section of your theme.
-
-```diffjs
-  // theme.js
-  import { th } from '@xstyled/styled-components'
-
-  export const theme = {
-    colors: {
-      // ...
-+     'deep-blue': '#00008b',
-+     'primary': th.color('red-600'),
-    },
-  }
-```
+<CustomizeColors />

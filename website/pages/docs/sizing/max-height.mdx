@@ -1,6 +1,7 @@
 ---
 section: Sizing
 title: Max-Height
+slug: /docs/max-height/
 ---
 
 # Max-Height
@@ -15,17 +16,17 @@ Utilities for setting the maximum height of an element
 
 All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scale `1`, you have to specify `1s`.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
+    <x.div
       display="flex"
       justifyContent="space-around"
       alignItems="flex-end"
       mx="auto"
     >
-      {['1s', 8, 12, 16, 24].map(v => (
-        <Box
+      {['1s', 8, 12, 16, 24].map((v) => (
+        <x.div
           key={v}
           display="flex"
           flexDirection="column"
@@ -33,14 +34,14 @@ All values specified in the `sizes` theme section are automatically applied. Not
           position="relative"
           spaceY={4}
         >
-          <Box
+          <x.div
             h={32}
-            bg="gray-200"
+            bg="cool-gray-300"
             borderRadius="md"
             display="flex"
             alignItems="flex-end"
           >
-            <Box
+            <x.div
               w={8}
               maxHeight={v}
               h={32}
@@ -50,21 +51,21 @@ All values specified in the `sizes` theme section are automatically applied. Not
               fontSize="2xl"
               fontWeight="extrabold"
             />
-          </Box>
-          <Box as="p" fontSize="sm" color="light-blue-600" textAlign="right">
+          </x.div>
+          <x.p fontSize="sm" color="light-blue-600" textAlign="right">
             maxHeight={v}
-          </Box>
-        </Box>
+          </x.p>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box>
-    <Box maxHeight="1s" h={32} />
-    <Box maxHeight={8} h={32} />
-    <Box maxHeight={12} h={32} />
-    <Box maxHeight={16} h={32} />
-    <Box maxHeight={24} h={32} />
-  </Box>
+  <x.div>
+    <x.div maxHeight="1s" h={32} />
+    <x.div maxHeight={8} h={32} />
+    <x.div maxHeight={12} h={32} />
+    <x.div maxHeight={16} h={32} />
+    <x.div maxHeight={24} h={32} />
+  </x.div>
 </>
 ```
 
@@ -72,17 +73,17 @@ All values specified in the `sizes` theme section are automatically applied. Not
 
 Any valid value is accepted in width, numbers are converted to `px`, other units have to be specified.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
+    <x.div
       display="flex"
       justifyContent="space-around"
       alignItems="flex-end"
       mx="auto"
     >
-      {[110, '12px', '4rem', '3ex'].map(v => (
-        <Box
+      {[110, '12px', '4rem', '3ex'].map((v) => (
+        <x.div
           key={v}
           display="flex"
           flexDirection="column"
@@ -90,14 +91,14 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
           position="relative"
           spaceY={4}
         >
-          <Box
+          <x.div
             h={32}
-            bg="gray-200"
+            bg="cool-gray-300"
             borderRadius="md"
             display="flex"
             alignItems="flex-end"
           >
-            <Box
+            <x.div
               w={8}
               maxHeight={v}
               h={32}
@@ -107,26 +108,20 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
               fontSize="2xl"
               fontWeight="extrabold"
             />
-          </Box>
-          <Box
-            as="p"
-            fontSize="sm"
-            color="emerald-600"
-            w={24}
-            textAlign="right"
-          >
+          </x.div>
+          <x.p fontSize="sm" color="emerald-600" w={24} textAlign="right">
             maxHeight={v}
-          </Box>
-        </Box>
+          </x.p>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box>
-    <Box maxHeight={110} h={32} />
-    <Box maxHeight="12px" h={32} />
-    <Box maxHeight="4rem" h={32} />
-    <Box maxHeight="3ex" h={32} />
-  </Box>
+  <x.div>
+    <x.div maxHeight={110} h={32} />
+    <x.div maxHeight="12px" h={32} />
+    <x.div maxHeight="4rem" h={32} />
+    <x.div maxHeight="3ex" h={32} />
+  </x.div>
 </>
 ```
 
@@ -134,16 +129,16 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
 
 Values from `0` to `1` are converted into percentages. As a fraction or a number, both are an expression. Of course specifying `[value]%` is also possible.
 
-```jsx preview
+```jsx preview color=rose
 <>
   <template preview>
-    <Box
+    <x.div
       display="flex"
       justifyContent="space-around"
       alignItems="flex-end"
       mx="auto"
     >
-      <Box
+      <x.div
         overflow="hidden"
         borderRadius="md"
         color="white"
@@ -152,9 +147,9 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
         display="flex"
         flexDirection="column"
         justifyContent="flex-end"
-        bg="gray-200"
+        bg="cool-gray-300"
       >
-        <Box
+        <x.div
           h={0.3}
           px={2}
           py={4}
@@ -164,9 +159,9 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
           justifyContent="center"
         >
           0.3
-        </Box>
-      </Box>
-      <Box
+        </x.div>
+      </x.div>
+      <x.div
         overflow="hidden"
         borderRadius="md"
         color="white"
@@ -175,20 +170,21 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
         display="flex"
         flexDirection="column"
         justifyContent="flex-end"
-        bg="gray-200"
+        bg="cool-gray-300"
       >
-        <Box
+        <x.div
           h={0.2}
           px={2}
           py={4}
-          bg="gray-400"
+          bg="cool-gray-300"
           display="flex"
           alignItems="center"
           justifyContent="center"
+          color="rose-500"
         >
           0.2
-        </Box>
-        <Box
+        </x.div>
+        <x.div
           h={0.5}
           px={2}
           py={4}
@@ -198,16 +194,16 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
           justifyContent="center"
         >
           0.5
-        </Box>
-      </Box>
-    </Box>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box maxHeight={1 / 2} h={0.3}>
+  <x.div maxHeight={1 / 2} h={0.3}>
     maxHeight=1/2
-  </Box>
-  <Box maxHeight={0.5} h={0.7}>
+  </x.div>
+  <x.div maxHeight={0.5} h={0.7}>
     maxHeight=0.5
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -216,7 +212,7 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
 To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `maxHeight={{ md: 1 }}` to an element would apply the `maxHeight={1}` utility at medium screen sizes and above.
 
 ```jsx
-<Box maxHeight={{ xs: 1 / 2, md: 1 }} />
+<x.div maxHeight={{ xs: 1 / 2, md: 1 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

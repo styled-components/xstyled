@@ -1,6 +1,7 @@
 ---
 section: Borders
 title: Border Width
+slug: /docs/border-width/
 ---
 
 # Border Width
@@ -15,12 +16,12 @@ Utilities for controlling the width of an element's borders.
 
 Use `borderWidth={size}` utilities to set the border width for all sides of an element.
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 5 }}>
-      {[0, 'default', 2, 4, 8].map(borderWidth => (
-        <Box
+    <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 5 }}>
+      {[0, 'default', 2, 4, 8].map((borderWidth) => (
+        <x.div
           p={6}
           bg="indigo-300"
           color="white"
@@ -34,15 +35,15 @@ Use `borderWidth={size}` utilities to set the border width for all sides of an e
           borderWidth={borderWidth}
         >
           {borderWidth}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box borderWidth={0} borderStyle="solid" borderColor="indigo-600" />
-  <Box borderWidth borderStyle="solid" borderColor="indigo-600" />
-  <Box borderWidth={2} borderStyle="solid" borderColor="indigo-600" />
-  <Box borderWidth={4} borderStyle="solid" borderColor="indigo-600" />
-  <Box borderWidth={8} borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth={0} borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth={2} borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth={4} borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth={8} borderStyle="solid" borderColor="indigo-600" />
 </>
 ```
 
@@ -50,12 +51,12 @@ Use `borderWidth={size}` utilities to set the border width for all sides of an e
 
 Use `borderWidth={size}` utilities to set the border width for one side of an element.
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 5 }}>
-      {['2 0 0 0', '0 2 0 0', '0 0 2 0', '0 0 0 2'].map(borderWidth => (
-        <Box
+    <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 5 }}>
+      {['2 0 0 0', '0 2 0 0', '0 0 2 0', '0 0 0 2'].map((borderWidth) => (
+        <x.div
           p={6}
           bg="red-300"
           color="white"
@@ -69,14 +70,14 @@ Use `borderWidth={size}` utilities to set the border width for one side of an el
           borderWidth={borderWidth}
         >
           {borderWidth}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box borderWidth="2 0 0 0" borderStyle="solid" borderColor="indigo-600" />
-  <Box borderWidth="0 2 0 0" borderStyle="solid" borderColor="indigo-600" />
-  <Box borderWidth="0 0 2 0" borderStyle="solid" borderColor="indigo-600" />
-  <Box borderWidth="0 0 0 2" borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth="2 0 0 0" borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth="0 2 0 0" borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth="0 0 2 0" borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth="0 0 0 2" borderStyle="solid" borderColor="indigo-600" />
 </>
 ```
 
@@ -93,7 +94,7 @@ Learn more in the [Divide Width](/@TODO) and [Divide Color](/@TODO) documentatio
 To control the border width of an element at a specific breakpoint, use responsive object notation. For example, adding the property `borderWidth={{ md: 2 }}` to an element would apply the `borderWidth={2}` utility at medium screen sizes and above.
 
 ```jsx
-<Box borderWidth={{ md: 2 }}>{/* ... */}</Box>
+<x.div borderWidth={{ md: 2 }}>{/* ... */}</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

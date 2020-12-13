@@ -1,6 +1,7 @@
 ---
 section: Layout
 title: Z-Index
+slug: /docs/z-index/
 ---
 
 # Z-Index
@@ -15,10 +16,10 @@ Utilities for controlling the stack order of an element.
 
 Control the stack order (or three-dimensional positioning) of an element in xstyled, regardless of order it has been displayed, using the `zIndex={index}` utilities.
 
-```jsx preview
+```jsx preview color=fuchsia
 <>
   <template preview>
-    <Box
+    <x.div
       display="flex"
       justifyContent="center"
       position="relative"
@@ -27,7 +28,7 @@ Control the stack order (or three-dimensional positioning) of an element in xsty
       transform
       translateX={12}
     >
-      <Box
+      <x.div
         zIndex={40}
         position="relative"
         w={20}
@@ -45,8 +46,8 @@ Control the stack order (or three-dimensional positioning) of an element in xsty
         fontWeight="extrabold"
       >
         5
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         zIndex={30}
         position="relative"
         left={-6}
@@ -66,8 +67,8 @@ Control the stack order (or three-dimensional positioning) of an element in xsty
         fontWeight="extrabold"
       >
         4
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         zIndex={20}
         position="relative"
         left={-12}
@@ -87,8 +88,8 @@ Control the stack order (or three-dimensional positioning) of an element in xsty
         fontWeight="extrabold"
       >
         3
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         zIndex={10}
         position="relative"
         left={-18}
@@ -108,8 +109,8 @@ Control the stack order (or three-dimensional positioning) of an element in xsty
         fontWeight="extrabold"
       >
         2
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         zIndex={0}
         position="relative"
         left={-24}
@@ -128,14 +129,14 @@ Control the stack order (or three-dimensional positioning) of an element in xsty
         fontSize="2xl"
       >
         1
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box zIndex={40}>5</Box>
-  <Box zIndex={30}>4</Box>
-  <Box zIndex={20}>3</Box>
-  <Box zIndex={10}>2</Box>
-  <Box zIndex={0}>1</Box>
+  <x.div zIndex={40}>5</x.div>
+  <x.div zIndex={30}>4</x.div>
+  <x.div zIndex={20}>3</x.div>
+  <x.div zIndex={10}>2</x.div>
+  <x.div zIndex={0}>1</x.div>
 </>
 ```
 
@@ -144,7 +145,7 @@ Control the stack order (or three-dimensional positioning) of an element in xsty
 To apply a visibility utility only at a specific breakpoint, use responsive object notation. For example, adding the property `visiblity={{ md: "hidden" }}` to an element would apply the `visiblity="hidden"` utility at medium screen sizes and above.
 
 ```jsx
-<Box visiblity={{ md: 'hidden' }} />
+<x.div visiblity={{ md: 'hidden' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

@@ -1,6 +1,7 @@
 ---
 section: Layout
 title: Container
+slug: /docs/container/
 ---
 
 # Container
@@ -25,17 +26,17 @@ Note that unlike containers you might have used in other frameworks, **xstyled's
 To center a container, use the `mx="auto"` utility:
 
 ```jsx
-<Box container mx="auto">
+<x.div container mx="auto">
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 To add horizontal padding, use the `px={size}` utility:
 
 ```jsx
-<Box container mx="auto" px={4}>
+<x.div container mx="auto" px={4}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 ## Responsive
@@ -43,10 +44,10 @@ To add horizontal padding, use the `px={size}` utility:
 Use `container={breakpoints}` to make something behave like a container at only a certain breakpoint and up:
 
 ```jsx
-<Box container={{ md: true }}>
+<x.div container={{ md: true }}>
   {/* Full-width fluid until the `lg` breakpoint, then lock to container */}
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

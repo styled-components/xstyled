@@ -1,6 +1,7 @@
 ---
 section: Layout
 title: Visibility
+slug: /docs/visibility/
 ---
 
 # Visibility
@@ -15,11 +16,11 @@ Utilities for controlling the visibility of an element.
 
 Use `visibility="hidden"` to hide an element, but still maintain its place in the DOM, affecting the layout of other elements (compare with `display=none` from the [display documentation](@TODO-link)).
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box display="flex" justifyContent="center" spaceX={4}>
-      <Box
+    <x.div display="flex" justifyContent="center" spaceX={4}>
+      <x.div
         borderRadius="md"
         bg="indigo-500"
         w={32}
@@ -32,8 +33,8 @@ Use `visibility="hidden"` to hide an element, but still maintain its place in th
         fontWeight="extrabold"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         visibility="hidden"
         borderRadius="md"
         bg="indigo-500"
@@ -47,8 +48,8 @@ Use `visibility="hidden"` to hide an element, but still maintain its place in th
         fontWeight="extrabold"
       >
         2
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         borderRadius="md"
         bg="indigo-500"
         w={32}
@@ -61,14 +62,14 @@ Use `visibility="hidden"` to hide an element, but still maintain its place in th
         fontWeight="extrabold"
       >
         3
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex" justifyContent="center" spaceX={4}>
-    <Box>1</Box>
-    <Box visibility="hidden">2</Box>
-    <Box>3</Box>
-  </Box>
+  <x.div display="flex" justifyContent="center" spaceX={4}>
+    <x.div>1</x.div>
+    <x.div visibility="hidden">2</x.div>
+    <x.div>3</x.div>
+  </x.div>
 </>
 ```
 
@@ -76,11 +77,11 @@ Use `visibility="hidden"` to hide an element, but still maintain its place in th
 
 Use `visibility="visible"` to make an element visible. This is mostly useful for undoing the `visibility="hidden"` utility at different screen sizes.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box display="flex" justifyContent="center" spaceX={4}>
-      <Box
+    <x.div display="flex" justifyContent="center" spaceX={4}>
+      <x.div
         borderRadius="md"
         bg="amber-500"
         w={32}
@@ -93,8 +94,8 @@ Use `visibility="visible"` to make an element visible. This is mostly useful for
         fontWeight="extrabold"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         visibility="visible"
         borderRadius="md"
         bg="amber-500"
@@ -108,8 +109,8 @@ Use `visibility="visible"` to make an element visible. This is mostly useful for
         fontWeight="extrabold"
       >
         2
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         borderRadius="md"
         bg="amber-500"
         w={32}
@@ -122,14 +123,14 @@ Use `visibility="visible"` to make an element visible. This is mostly useful for
         fontWeight="extrabold"
       >
         3
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex" justifyContent="center" spaceX={4}>
-    <Box>1</Box>
-    <Box visibility="visible">2</Box>
-    <Box>3</Box>
-  </Box>
+  <x.div display="flex" justifyContent="center" spaceX={4}>
+    <x.div>1</x.div>
+    <x.div visibility="visible">2</x.div>
+    <x.div>3</x.div>
+  </x.div>
 </>
 ```
 
@@ -138,7 +139,7 @@ Use `visibility="visible"` to make an element visible. This is mostly useful for
 To apply a visibility utility only at a specific breakpoint, use responsive object notation. For example, adding the property `visiblity={{ md: "hidden" }}` to an element would apply the `visiblity="hidden"` utility at medium screen sizes and above.
 
 ```jsx
-<Box visiblity={{ md: 'hidden' }} />
+<x.div visiblity={{ md: 'hidden' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

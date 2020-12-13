@@ -1,6 +1,7 @@
 ---
 section: Animations
 title: Animation
+slug: /docs/animation/
 ---
 
 # Animation
@@ -19,9 +20,8 @@ Add the `animation="spin"` utility to add a linear spin animation to elements li
 <>
   <template preview>
     <x.div display="flex" justifyContent="space-around">
-      <x.div as="span" display="inline-flex" borderRadius="md" boxShadow="sm">
-        <x.div
-          as="button"
+      <x.span display="inline-flex" borderRadius="md" boxShadow="sm">
+        <x.button
           type="button"
           display="inline-flex"
           alignItems="center"
@@ -36,8 +36,7 @@ Add the `animation="spin"` utility to add a linear spin animation to elements li
           bg="rose-600"
           disabled
         >
-          <x.div
-            as="svg"
+          <x.svg
             animation="spin"
             ml={-1}
             mr={3}
@@ -47,8 +46,7 @@ Add the `animation="spin"` utility to add a linear spin animation to elements li
             fill="none"
             viewBox="0 0 24 24"
           >
-            <x.div
-              as="circle"
+            <x.circle
               opacity={0.25}
               cx="12"
               cy="12"
@@ -56,16 +54,15 @@ Add the `animation="spin"` utility to add a linear spin animation to elements li
               stroke="currentColor"
               strokeWidth="4"
             />
-            <x.div
-              as="path"
+            <x.path
               opacity={0.75}
               fill="currentColor"
               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
             />
-          </x.div>
+          </x.svg>
           Processing
-        </x.div>
-      </x.div>
+        </x.button>
+      </x.span>
     </x.div>
   </template>
   <x.button type="button" bg="rose-600" disabled>
@@ -85,9 +82,8 @@ Add the `animation="ping"` utility to make an element scale and fade like a rada
 <>
   <template preview>
     <x.div display="flex" justifyContent="space-around">
-      <x.div as="span" display="inline-flex" borderRadius="md" boxShadow="sm">
-        <x.div
-          as="button"
+      <x.span display="inline-flex" borderRadius="md" boxShadow="sm">
+        <x.button
           type="button"
           display="inline-flex"
           alignItems="center"
@@ -104,8 +100,7 @@ Add the `animation="ping"` utility to make an element scale and fade like a rada
           color="purple-800"
           bg="white"
         >
-          <x.div
-            as="span"
+          <x.span
             display="flex"
             w={3}
             h={3}
@@ -115,8 +110,7 @@ Add the `animation="ping"` utility to make an element scale and fade like a rada
             mt={-1}
             mr={-1}
           >
-            <x.div
-              as="span"
+            <x.span
               animation="ping"
               position="absolute"
               display="inline-flex"
@@ -126,8 +120,7 @@ Add the `animation="ping"` utility to make an element scale and fade like a rada
               bg="purple-400"
               opacity={0.75}
             />
-            <x.div
-              as="span"
+            <x.span
               position="relative"
               display="inline-flex"
               borderRadius="full"
@@ -135,10 +128,10 @@ Add the `animation="ping"` utility to make an element scale and fade like a rada
               w={3}
               bg="purple-500"
             />
-          </x.div>
+          </x.span>
           Transactions
-        </x.div>
-      </x.div>
+        </x.button>
+      </x.span>
     </x.div>
   </template>
   <x.span display="flex" w={3} h={3}>

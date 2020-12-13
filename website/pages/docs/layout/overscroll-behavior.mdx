@@ -1,6 +1,7 @@
 ---
 section: Layout
 title: Overscroll Behavior
+slug: /docs/overscroll-behavior/
 ---
 
 # Overscroll Behavior
@@ -15,10 +16,10 @@ Utilities for controlling how the browser behaves when reaching the boundary of 
 
 Use `overscrollBehavior="auto"` to make it possible for the user to continue scrolling a parent scroll area when they reach the boundary of the primary scroll area.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
+    <x.div
       overscrollBehavior="auto"
       overflow="auto"
       h={32}
@@ -49,9 +50,9 @@ Use `overscrollBehavior="auto"` to make it possible for the user to continue scr
         tempor massa eget, malesuada mauris. Quisque fringilla consequat metus,
         luctus scelerisque leo fringilla vel.
       </p>
-    </Box>
+    </x.div>
   </template>
-  <Box overscrollBehavior="auto">Lorem ipsum dolor sit amet...</Box>
+  <x.div overscrollBehavior="auto">Lorem ipsum dolor sit amet...</x.div>
 </>
 ```
 
@@ -59,10 +60,10 @@ Use `overscrollBehavior="auto"` to make it possible for the user to continue scr
 
 Use `overscrollBehavior="contain"` to prevent scrolling in the target area from triggering scrolling in the parent element, but preserve "bounce" effects when scrolling past the end of the container in operating systems that support it.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
+    <x.div
       overscrollBehavior="contain"
       overflow="auto"
       h={32}
@@ -93,9 +94,9 @@ Use `overscrollBehavior="contain"` to prevent scrolling in the target area from 
         tempor massa eget, malesuada mauris. Quisque fringilla consequat metus,
         luctus scelerisque leo fringilla vel.
       </p>
-    </Box>
+    </x.div>
   </template>
-  <Box overscrollBehavior="contain">Lorem ipsum dolor sit amet...</Box>
+  <x.div overscrollBehavior="contain">Lorem ipsum dolor sit amet...</x.div>
 </>
 ```
 
@@ -103,10 +104,10 @@ Use `overscrollBehavior="contain"` to prevent scrolling in the target area from 
 
 Use `overscrollBehavior="none"` to prevent scrolling in the target area from triggering scrolling in the parent element, and also prevent "bounce" effects when scrolling past the end of the container.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box
+    <x.div
       overscrollBehavior="none"
       overflow="auto"
       h={32}
@@ -137,9 +138,9 @@ Use `overscrollBehavior="none"` to prevent scrolling in the target area from tri
         tempor massa eget, malesuada mauris. Quisque fringilla consequat metus,
         luctus scelerisque leo fringilla vel.
       </p>
-    </Box>
+    </x.div>
   </template>
-  <Box overscrollBehavior="none">Lorem ipsum dolor sit amet...</Box>
+  <x.div overscrollBehavior="none">Lorem ipsum dolor sit amet...</x.div>
 </>
 ```
 
@@ -148,7 +149,7 @@ Use `overscrollBehavior="none"` to prevent scrolling in the target area from tri
 To control the overscroll-behavior property at a specific breakpoint, use responsive object notation. For example, adding the property `overscrollBehavior={{ md: "contain" }}` to an element would apply the `overscrollBehavior="contain"` utility at medium screen sizes and above.
 
 ```jsx
-<Box overscrollBehavior={{ md: 'contain' }} />
+<x.div overscrollBehavior={{ md: 'contain' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

@@ -1,6 +1,7 @@
 ---
 section: Grid
 title: Grid Template Rows
+slug: /docs/grid-template-rows/
 ---
 
 # Grid Template Rows
@@ -15,12 +16,12 @@ Utilities for specifying the rows in a grid layout.
 
 Use the `gridTemplateRows={value}` utilities to create grids with n equally sized rows.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box display="grid" gridTemplateRows={3} gridAutoFlow="column" gap={4}>
-      {Array.from({ length: 9 }, (_, index) => index + 1).map(value => (
-        <Box
+    <x.div display="grid" gridTemplateRows={3} gridAutoFlow="column" gap={4}>
+      {Array.from({ length: 9 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           h={12}
           borderRadius="md"
@@ -33,15 +34,15 @@ Use the `gridTemplateRows={value}` utilities to create grids with n equally size
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="grid" gridTemplateRows={3} gridAutoFlow="column" gap={4}>
+  <x.div display="grid" gridTemplateRows={3} gridAutoFlow="column" gap={4}>
     <div>1</div>
     {/* ... */}
     <div>9</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -50,9 +51,9 @@ Use the `gridTemplateRows={value}` utilities to create grids with n equally size
 To control the columns of a grid at a specific breakpoint, use responsive object notation. For example, adding the property `gridTemplateRows={{ md: 2 }}` to an element would apply the `gridTemplateRows={2}` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="grid" gridTemplateRows={{ md: 2 }}>
+<x.div display="grid" gridTemplateRows={{ md: 2 }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

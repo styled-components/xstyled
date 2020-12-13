@@ -1,6 +1,7 @@
 ---
 section: Sizing
 title: Height
+slug: /docs/height/
 ---
 
 # Height
@@ -17,7 +18,7 @@ Utilities for setting the height of an element
 Use `h="auto"` to let the browser calculate and select the height for the element. You can use it to unset a specific height:
 
 ```jsx
-<Box h={{ xs: 24, md: 'auto' }} />
+<x.div h={{ xs: 24, md: 'auto' }} />
 ```
 
 ## Screen Height
@@ -25,31 +26,31 @@ Use `h="auto"` to let the browser calculate and select the height for the elemen
 Use `h="100vh"` to make an element span the entire height of the viewport.
 
 ```jsx
-<Box h="100vh" w={12} />
+<x.div h="100vh" w={12} />
 ```
 
 ## Scaled Height
 
 All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scale `1`, you have to specify `1s`.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
+    <x.div
       display="flex"
       justifyContent="space-around"
       alignItems="flex-end"
       mx="auto"
     >
-      {['1s', 8, 12, 16, 24].map(v => (
-        <Box
+      {['1s', 8, 12, 16, 24].map((v) => (
+        <x.div
           key={v}
           spaceY={4}
           display="flex"
           flexDirection="column"
           alignItems="center"
         >
-          <Box
+          <x.div
             h={v}
             w={8}
             borderRadius="md"
@@ -58,20 +59,20 @@ All values specified in the `sizes` theme section are automatically applied. Not
             fontSize="2xl"
             fontWeight="extrabold"
           />
-          <Box as="p" fontSize="sm" color="light-blue-600" textAlign="center">
+          <x.p fontSize="sm" color="light-blue-600" textAlign="center">
             h={v}
-          </Box>
-        </Box>
+          </x.p>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box>
-    <Box h="1s" />
-    <Box h={8} />
-    <Box h={12} />
-    <Box h={16} />
-    <Box h={24} />
-  </Box>
+  <x.div>
+    <x.div h="1s" />
+    <x.div h={8} />
+    <x.div h={12} />
+    <x.div h={16} />
+    <x.div h={24} />
+  </x.div>
 </>
 ```
 
@@ -79,24 +80,24 @@ All values specified in the `sizes` theme section are automatically applied. Not
 
 Any valid value is accepted in height, numbers are converted to `px`, other units have to be specified.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
+    <x.div
       display="flex"
       justifyContent="space-around"
       alignItems="flex-end"
       mx="auto"
     >
-      {[123, '12px', '4rem', '3ex'].map(v => (
-        <Box
+      {[123, '12px', '4rem', '3ex'].map((v) => (
+        <x.div
           key={v}
           spaceY={4}
           display="flex"
           flexDirection="column"
           alignItems="center"
         >
-          <Box
+          <x.div
             w={8}
             h={v}
             borderRadius="md"
@@ -105,19 +106,19 @@ Any valid value is accepted in height, numbers are converted to `px`, other unit
             fontSize="2xl"
             fontWeight="extrabold"
           />
-          <Box as="p" fontSize="sm" color="emerald-600" textAlign="center">
+          <x.p fontSize="sm" color="emerald-600" textAlign="center">
             h={v}
-          </Box>
-        </Box>
+          </x.p>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box>
-    <Box w={123} />
-    <Box w="12px" />
-    <Box w="4rem" />
-    <Box w="3ex" />
-  </Box>
+  <x.div>
+    <x.div w={123} />
+    <x.div w="12px" />
+    <x.div w="4rem" />
+    <x.div w="3ex" />
+  </x.div>
 </>
 ```
 
@@ -125,10 +126,10 @@ Any valid value is accepted in height, numbers are converted to `px`, other unit
 
 Values from `0` to `1` are converted into percentages. As a fraction or a number, both are an expression. Of course specifying `[value]%` is also possible.
 
-```jsx preview
+```jsx preview color=rose
 <>
   <template preview>
-    <Box
+    <x.div
       spaceX={6}
       display="flex"
       justifyContent="space-around"
@@ -153,7 +154,7 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
           ['calc(50% + 40px)', 'calc(50% + 40px)'],
         ],
       ].map((v, i) => (
-        <Box
+        <x.div
           key={i}
           borderRadius="md"
           overflow="hidden"
@@ -161,32 +162,32 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
           fontFamily="mono"
           h={48}
         >
-          <Box h={v[0][1]} px={2} py={4} bg="rose-400" textAlign="center">
+          <x.div h={v[0][1]} px={2} py={4} bg="rose-400" textAlign="center">
             h={v[0][0]}
-          </Box>
-          <Box h={v[1][1]} px={2} py={4} bg="rose-500" textAlign="center">
+          </x.div>
+          <x.div h={v[1][1]} px={2} py={4} bg="rose-500" textAlign="center">
             h={v[1][0]}
-          </Box>
-        </Box>
+          </x.div>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" h={48}>
-    <Box h={1 / 2}>h=1/2</Box>
-    <Box h={1 / 2}>h=1/2</Box>
-  </Box>
-  <Box display="flex" h={48}>
-    <Box h={2 / 5}>h=2/5</Box>
-    <Box h={3 / 5}>h=3/5</Box>
-  </Box>
-  <Box display="flex" h={48}>
-    <Box h={0.2}>h=0.2</Box>
-    <Box h={0.8}>h=0.8</Box>
-  </Box>
-  <Box display="flex" h={48}>
-    <Box h="calc(50% - 40px)">h=calc(50% - 40px)</Box>
-    <Box h="calc(50% + 40px)">h=calc(50% + 40px)</Box>
-  </Box>
+  <x.div display="flex" h={48}>
+    <x.div h={1 / 2}>h=1/2</x.div>
+    <x.div h={1 / 2}>h=1/2</x.div>
+  </x.div>
+  <x.div display="flex" h={48}>
+    <x.div h={2 / 5}>h=2/5</x.div>
+    <x.div h={3 / 5}>h=3/5</x.div>
+  </x.div>
+  <x.div display="flex" h={48}>
+    <x.div h={0.2}>h=0.2</x.div>
+    <x.div h={0.8}>h=0.8</x.div>
+  </x.div>
+  <x.div display="flex" h={48}>
+    <x.div h="calc(50% - 40px)">h=calc(50% - 40px)</x.div>
+    <x.div h="calc(50% + 40px)">h=calc(50% + 40px)</x.div>
+  </x.div>
 </>
 ```
 
@@ -195,7 +196,7 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
 To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `h={{ md: 1 }}` to an element would apply the `w={1}` utility at medium screen sizes and above.
 
 ```jsx
-<Box h={{ xs: 1 / 2, md: 1 }} />
+<x.div h={{ xs: 1 / 2, md: 1 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

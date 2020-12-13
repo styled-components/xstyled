@@ -1,6 +1,7 @@
 ---
 section: Layout
 title: Object Fit
+slug: /docs/object-fit/
 ---
 
 # Object Fit
@@ -15,23 +16,22 @@ Utilities for controlling how a replaced element's content should be resized.
 
 Resize an element's content to stay contained within its container using `objectFit="contain"`.
 
-```jsx preview
+```jsx preview color=rose
 <>
   <template preview>
-    <Box bg="rose-300" borderRadius="md" overflow="hidden">
-      <Box
-        as="img"
+    <x.div bg="rose-300" borderRadius="md" overflow="hidden">
+      <x.img
         h={48}
         w={1}
         objectFit="contain"
         src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
         alt=""
       />
-    </Box>
+    </x.div>
   </template>
-  <Box bg="rose-300">
-    <Box as="img" objectFit="contain" h={48} w="100%" />
-  </Box>
+  <x.div bg="rose-300">
+    <x.img objectFit="contain" h={48} w="100%" />
+  </x.div>
 </>
 ```
 
@@ -39,23 +39,22 @@ Resize an element's content to stay contained within its container using `object
 
 Resize an element's content to cover its container using `objectFit="cover"`.
 
-```jsx preview
+```jsx preview color=rose
 <>
   <template preview>
-    <Box bg="indigo-300" borderRadius="md" overflow="hidden">
-      <Box
-        as="img"
+    <x.div bg="indigo-300" borderRadius="md" overflow="hidden">
+      <x.img
         h={48}
         w={1}
         objectFit="cover"
         src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
         alt=""
       />
-    </Box>
+    </x.div>
   </template>
-  <Box bg="rose-300">
-    <Box as="img" objectFit="cover" h={48} w="100%" />
-  </Box>
+  <x.div bg="rose-300">
+    <x.img objectFit="cover" h={48} w="100%" />
+  </x.div>
 </>
 ```
 
@@ -63,23 +62,22 @@ Resize an element's content to cover its container using `objectFit="cover"`.
 
 Stretch an element's content to fit its container using `objectFit="fill"`.
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box bg="indigo-300" borderRadius="md" overflow="hidden">
-      <Box
-        as="img"
+    <x.div bg="indigo-300" borderRadius="md" overflow="hidden">
+      <x.img
         h={48}
         w={1}
         objectFit="fill"
         src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
         alt=""
       />
-    </Box>
+    </x.div>
   </template>
-  <Box bg="indigo-300">
-    <Box as="img" objectFit="fill" h={48} w="100%" />
-  </Box>
+  <x.div bg="indigo-300">
+    <x.img objectFit="fill" h={48} w="100%" />
+  </x.div>
 </>
 ```
 
@@ -87,23 +85,22 @@ Stretch an element's content to fit its container using `objectFit="fill"`.
 
 Display an element's content at its original size ignoring the container size using`objectFit="none"`.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box bg="amber-300" borderRadius="md" overflow="hidden">
-      <Box
-        as="img"
+    <x.div bg="amber-300" borderRadius="md" overflow="hidden">
+      <x.img
         h={48}
         w={1}
         objectFit="none"
         src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
         alt=""
       />
-    </Box>
+    </x.div>
   </template>
-  <Box bg="amber-300">
-    <Box as="img" objectFit="none" h={48} w="100%" />
-  </Box>
+  <x.div bg="amber-300">
+    <x.img objectFit="none" h={48} w="100%" />
+  </x.div>
 </>
 ```
 
@@ -112,7 +109,7 @@ Display an element's content at its original size ignoring the container size us
 To control how a replaced element's content should be resized only at a specific breakpoint, use responsive object notation. For example, adding the property `objectFit={{ md: "contain" }}` to an element would apply the `objectFit="contain"` utility at medium screen sizes and above.
 
 ```jsx
-<Box objectFit={{ md: 'contain' }} />
+<x.div objectFit={{ md: 'contain' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

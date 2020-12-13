@@ -1,6 +1,7 @@
 ---
 section: Effects
 title: Opacity
+slug: /docs/opacity/
 ---
 
 # Opacity
@@ -18,13 +19,7 @@ Control the opacity of an element using the `opacity={ratio}` utilities.
 ```jsx preview color=amber
 <>
   <template preview>
-    <x.div
-      display="grid"
-      gap={5}
-      gridTemplateColumns={{ sm: 2, lg: 5 }}
-      p={3}
-      bg="amber-100"
-    >
+    <x.div display="grid" gap={5} gridTemplateColumns={{ sm: 2, lg: 5 }} p={3}>
       {[1, 0.75, 0.5, 0.25, 0].map((opacity) => (
         <x.div
           p={6}

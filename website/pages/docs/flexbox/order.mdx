@@ -1,6 +1,7 @@
 ---
 section: Flexbox
 title: Order
+slug: /docs/order/
 ---
 
 # Order
@@ -15,11 +16,11 @@ Utilities for controlling the order of flex items.
 
 Use `order={order}` to render flex items in a different order than they appear in the DOM.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box display="flex" justifyContent="space-between" spaceX={4}>
-      <Box
+    <x.div display="flex" justifyContent="space-between" spaceX={4}>
+      <x.div
         w={16}
         h={16}
         order={3}
@@ -33,8 +34,8 @@ Use `order={order}` to render flex items in a different order than they appear i
         fontWeight="extrabold"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         w={16}
         h={16}
         borderRadius="md"
@@ -47,8 +48,8 @@ Use `order={order}` to render flex items in a different order than they appear i
         fontWeight="extrabold"
       >
         2
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         w={16}
         h={16}
         borderRadius="md"
@@ -61,14 +62,14 @@ Use `order={order}` to render flex items in a different order than they appear i
         fontWeight="extrabold"
       >
         3
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex" justifyContent="space-between">
-    <Box order={3}>1</Box>
+  <x.div display="flex" justifyContent="space-between">
+    <x.div order={3}>1</x.div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -77,7 +78,7 @@ Use `order={order}` to render flex items in a different order than they appear i
 To apply a order utility only at a specific breakpoint, use responsive object notation. For example, adding the property `order={{ md: 10 }}` to an element would apply the `order={10}` utility at medium screen sizes and above.
 
 ```jsx
-<Box order={{ md: 10 }} />
+<x.div order={{ md: 10 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

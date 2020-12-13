@@ -1,6 +1,7 @@
 ---
 section: Sizing
 title: Min-Width
+slug: /docs/min-width/
 ---
 
 # Min-Width
@@ -15,22 +16,16 @@ Utilities for setting the minimum width of an element
 
 All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scale `1`, you have to specify `1s`.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
-      {['1s', 8, 12, 16, 24].map(v => (
-        <Box key={v} display="flex" alignItems="center" spaceX={4}>
-          <Box
-            as="p"
-            fontSize="sm"
-            color="light-blue-600"
-            w={24}
-            textAlign="right"
-          >
+    <x.div display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
+      {['1s', 8, 12, 16, 24].map((v) => (
+        <x.div key={v} display="flex" alignItems="center" spaceX={4}>
+          <x.p fontSize="sm" color="light-blue-600" w={24} textAlign="right">
             minWidth={v}
-          </Box>
-          <Box
+          </x.p>
+          <x.div
             h={8}
             minWidth={v}
             borderRadius="md"
@@ -39,17 +34,17 @@ All values specified in the `sizes` theme section are automatically applied. Not
             fontSize="2xl"
             fontWeight="extrabold"
           />
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box>
-    <Box minWidth="1s" w={0} />
-    <Box minWidth={8} w={0} />
-    <Box minWidth={12} w={0} />
-    <Box minWidth={16} w={0} />
-    <Box minWidth={24} w={0} />
-  </Box>
+  <x.div>
+    <x.div minWidth="1s" w={0} />
+    <x.div minWidth={8} w={0} />
+    <x.div minWidth={12} w={0} />
+    <x.div minWidth={16} w={0} />
+    <x.div minWidth={24} w={0} />
+  </x.div>
 </>
 ```
 
@@ -57,22 +52,16 @@ All values specified in the `sizes` theme section are automatically applied. Not
 
 Any valid value is accepted in width, numbers are converted to `px`, other units have to be specified.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
-      {[123, '12px', '4rem', '3ex'].map(v => (
-        <Box key={v} display="flex" alignItems="center" spaceX={4}>
-          <Box
-            as="p"
-            fontSize="sm"
-            color="emerald-600"
-            w={24}
-            textAlign="right"
-          >
+    <x.div display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
+      {[123, '12px', '4rem', '3ex'].map((v) => (
+        <x.div key={v} display="flex" alignItems="center" spaceX={4}>
+          <x.p fontSize="sm" color="emerald-600" w={24} textAlign="right">
             minWidth={v}
-          </Box>
-          <Box
+          </x.p>
+          <x.div
             h={8}
             minWidth={v}
             borderRadius="md"
@@ -81,16 +70,16 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
             fontSize="2xl"
             fontWeight="extrabold"
           />
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box>
-    <Box minWidth={123} w={0} />
-    <Box minWidth="12px" w={0} />
-    <Box minWidth="4rem" w={0} />
-    <Box minWidth="3ex" w={0} />
-  </Box>
+  <x.div>
+    <x.div minWidth={123} w={0} />
+    <x.div minWidth="12px" w={0} />
+    <x.div minWidth="4rem" w={0} />
+    <x.div minWidth="3ex" w={0} />
+  </x.div>
 </>
 ```
 
@@ -98,28 +87,28 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
 
 Values from `0` to `1` are converted into percentages. As a fraction or a number, both are an expression. Of course specifying `[value]%` is also possible.
 
-```jsx preview
+```jsx preview color=rose
 <>
   <template preview>
-    <Box spaceY={6}>
+    <x.div spaceY={6}>
       {[
         [['1/2', 0.5], 0.1],
         [['0.5', 0.5], 0.7],
       ].map((v, i) => (
-        <Box
+        <x.div
           key={i}
           display="flex"
           overflow="hidden"
           borderRadius="md"
           color="white"
           fontFamily="mono"
-          bg="gray-200"
+          bg="cool-gray-300"
         >
-          <Box w={v[0][1]} px={2} py={4} bg="rose-400" textAlign="center">
+          <x.div w={v[0][1]} px={2} py={4} bg="rose-400" textAlign="center">
             minWidth={v[0][0]}
-          </Box>
+          </x.div>
           {v[1] > v[0][1] && (
-            <Box
+            <x.div
               w={v[1] - v[0][1]}
               px={2}
               py={4}
@@ -127,18 +116,18 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
               textAlign="center"
             >
               {`0.2`}
-            </Box>
+            </x.div>
           )}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box minWidth={1 / 2} w={0.1}>
+  <x.div minWidth={1 / 2} w={0.1}>
     minWidth=1/2
-  </Box>
-  <Box minWidth={0.5} w={0.7}>
+  </x.div>
+  <x.div minWidth={0.5} w={0.7}>
     minWidth=0.5
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -147,7 +136,7 @@ Values from `0` to `1` are converted into percentages. As a fraction or a number
 To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `minWidth={{ md: 1 }}` to an element would apply the `minWidth={1}` utility at medium screen sizes and above.
 
 ```jsx
-<Box minWidth={{ xs: 1 / 2, md: 1 }} />
+<x.div minWidth={{ xs: 1 / 2, md: 1 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

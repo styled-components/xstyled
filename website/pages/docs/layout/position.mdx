@@ -1,6 +1,7 @@
 ---
 section: Layout
 title: Position
+slug: /docs/position/
 ---
 
 # Position
@@ -17,11 +18,11 @@ Use `position="static"` to position an element according to the normal flow of t
 
 Any offsets will be ignored and the element will not act as a position reference for absolutely positioned children.
 
-```jsx preview
+```jsx preview color=fuchsia
 <>
   <template preview>
-    <Box position="relative" bg="fuchsia-200" p={6}>
-      <Box
+    <x.div position="relative" bg="fuchsia-200" p={6}>
+      <x.div
         position="static"
         h={32}
         bg="fuchsia-300"
@@ -30,7 +31,7 @@ Any offsets will be ignored and the element will not act as a position reference
         fontWeight="medium"
       >
         <p>Static parent</p>
-        <Box
+        <x.div
           position="absolute"
           bottom={0}
           left={0}
@@ -39,16 +40,16 @@ Any offsets will be ignored and the element will not act as a position reference
           color="fuchsia-50"
         >
           <p>Absolute child</p>
-        </Box>
-      </Box>
-    </Box>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box position="static">
+  <x.div position="static">
     <p>Static parent</p>
-    <Box position="absolute" bottom={0} left={0}>
+    <x.div position="absolute" bottom={0} left={0}>
       <p>Absolute child</p>
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 </>
 ```
 
@@ -58,11 +59,11 @@ Use `position="relative"` to position an element according to the normal flow of
 
 Offsets are calculated relative to the element's normal position and the element will act as a position reference for absolutely positioned children.
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box position="relative" bg="red-200" p={6}>
-      <Box
+    <x.div position="relative" bg="red-200" p={6}>
+      <x.div
         position="relative"
         h={32}
         bg="red-300"
@@ -71,7 +72,7 @@ Offsets are calculated relative to the element's normal position and the element
         fontWeight="medium"
       >
         <p>Relative parent</p>
-        <Box
+        <x.div
           position="absolute"
           bottom={0}
           left={0}
@@ -80,16 +81,16 @@ Offsets are calculated relative to the element's normal position and the element
           color="red-50"
         >
           <p>Absolute child</p>
-        </Box>
-      </Box>
-    </Box>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box position="relative">
+  <x.div position="relative">
     <p>Static parent</p>
-    <Box position="absolute" bottom={0} left={0}>
+    <x.div position="absolute" bottom={0} left={0}>
       <p>Absolute child</p>
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 </>
 ```
 
@@ -99,15 +100,15 @@ Use `position="absolute"` to position an element outside of the normal flow of t
 
 Offsets are calculated relative to the nearest parent that has a position other than `position="static"`, and the element will act as a position reference for other absolutely positioned children.
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box spaceY={6}>
+    <x.div spaceY={6}>
       <div>
-        <Box as="p" fontSize="sm" color="indigo-900" mb={2}>
+        <x.p fontSize="sm" color="indigo-900" mb={2}>
           With static positioning
-        </Box>
-        <Box
+        </x.p>
+        <x.div
           position="relative"
           bg="indigo-200"
           px={6}
@@ -115,14 +116,12 @@ Offsets are calculated relative to the nearest parent that has a position other 
           pb={6}
           fontWeight="medium"
         >
-          <Box as="p" mb={2} color="indigo-600">
+          <x.p mb={2} color="indigo-600">
             Relative parent
-          </Box>
-          <Box position="static" bg="indigo-300" p={4} color="indigo-700">
-            <Box as="p" mb={2}>
-              Static parent
-            </Box>
-            <Box
+          </x.p>
+          <x.div position="static" bg="indigo-300" p={4} color="indigo-700">
+            <x.p mb={2}>Static parent</x.p>
+            <x.div
               position="static"
               bottom={0}
               left={0}
@@ -132,24 +131,24 @@ Offsets are calculated relative to the nearest parent that has a position other 
               display="inline-block"
             >
               <p>Static child</p>
-            </Box>
-            <Box
+            </x.div>
+            <x.div
               bg="indigo-200"
               p={4}
               color="indigo-600"
               display="inline-block"
             >
               <p>Static sibling</p>
-            </Box>
-          </Box>
-        </Box>
+            </x.div>
+          </x.div>
+        </x.div>
       </div>
 
       <div>
-        <Box as="p" fontSize="sm" color="indigo-900" mb={2}>
+        <x.p fontSize="sm" color="indigo-900" mb={2}>
           With absolute positioning
-        </Box>
-        <Box
+        </x.p>
+        <x.div
           position="relative"
           bg="indigo-200"
           px={6}
@@ -157,14 +156,12 @@ Offsets are calculated relative to the nearest parent that has a position other 
           pb={6}
           fontWeight="medium"
         >
-          <Box as="p" mb={2} color="indigo-600">
+          <x.p mb={2} color="indigo-600">
             Relative parent
-          </Box>
-          <Box position="static" bg="indigo-300" p={4} color="indigo-700">
-            <Box as="p" mb={2}>
-              Static parent
-            </Box>
-            <Box
+          </x.p>
+          <x.div position="static" bg="indigo-300" p={4} color="indigo-700">
+            <x.p mb={2}>Static parent</x.p>
+            <x.div
               position="absolute"
               top={0}
               right={0}
@@ -174,36 +171,36 @@ Offsets are calculated relative to the nearest parent that has a position other 
               display="inline-block"
             >
               <p>Absolute child</p>
-            </Box>
-            <Box
+            </x.div>
+            <x.div
               bg="indigo-200"
               p={4}
               color="indigo-600"
               display="inline-block"
             >
               <p>Static sibling</p>
-            </Box>
-          </Box>
-        </Box>
+            </x.div>
+          </x.div>
+        </x.div>
       </div>
-    </Box>
+    </x.div>
   </template>
-  <Box position="static">
+  <x.div position="static">
     {/* Static parent */}
-    <Box position="static">
+    <x.div position="static">
       <p>Static child</p>
-    </Box>
-    <Box display="inline-block">
+    </x.div>
+    <x.div display="inline-block">
       <p>Static sibling</p>
-    </Box>
+    </x.div>
     {/* Static parent */}
-    <Box position="absolute">
+    <x.div position="absolute">
       <p>Absolute child</p>
-    </Box>
-    <Box display="inline-block">
+    </x.div>
+    <x.div display="inline-block">
       <p>Static sibling</p>
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 </>
 ```
 
@@ -213,13 +210,13 @@ Use `position="fixed"` to position an element relative to the browser window.
 
 Offsets are calculated relative to the viewport and the element will act as a position reference for absolutely positioned children.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box overflow="hidden" maxWidth="md" mx="auto" my={4} borderRadius="xl">
-      <Box borderRadius="xl 0 0" bg="amber-200" display="flex" px={4} py={3}>
-        <Box mr={6}>
-          <Box
+    <x.div overflow="hidden" maxWidth="md" mx="auto" my={4} borderRadius="xl">
+      <x.div borderRadius="xl 0 0" bg="amber-200" display="flex" px={4} py={3}>
+        <x.div mr={6}>
+          <x.div
             display="inline-block"
             borderRadius="full"
             bg="amber-400"
@@ -227,7 +224,7 @@ Offsets are calculated relative to the viewport and the element will act as a po
             w={3}
             mr={1}
           />
-          <Box
+          <x.div
             display="inline-block"
             borderRadius="full"
             bg="amber-400"
@@ -235,17 +232,17 @@ Offsets are calculated relative to the viewport and the element will act as a po
             w={3}
             mr={1}
           />
-          <Box
+          <x.div
             display="inline-block"
             borderRadius="full"
             bg="amber-400"
             h={3}
             w={3}
           />
-        </Box>
-        <Box flex="1 1 0" bg="amber-100" borderRadius mr={4} />
-      </Box>
-      <Box
+        </x.div>
+        <x.div flex="1 1 0" bg="amber-100" borderRadius mr={4} />
+      </x.div>
+      <x.div
         position="relative"
         bg="amber-100"
         color="amber-600"
@@ -254,7 +251,7 @@ Offsets are calculated relative to the viewport and the element will act as a po
       >
         {/* Hey fellow nerd! Yes, we're using position absolute instead of position fixed in the demo; it's the best way we could come up with to demonstrate how position fixed works without totally jacking up the layout of the entire documentation site. Forgive us! 😄 */}
 
-        <Box
+        <x.div
           position="absolute"
           left={0}
           right={0}
@@ -266,8 +263,8 @@ Offsets are calculated relative to the viewport and the element will act as a po
           py={3}
         >
           Fixed child
-        </Box>
-        <Box
+        </x.div>
+        <x.div
           position="absolute"
           top={0}
           right={0}
@@ -280,9 +277,7 @@ Offsets are calculated relative to the viewport and the element will act as a po
           spaceY={4}
           fontFamily="Flow"
         >
-          <Box as="p" fontFamily="sans">
-            Scroll me!
-          </Box>
+          <x.p fontFamily="sans">Scroll me!</x.p>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
             odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla
@@ -359,12 +354,12 @@ Offsets are calculated relative to the viewport and the element will act as a po
             facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a
             tellus consequat imperdiet. Vestibulum sapien. Proin quam.{' '}
           </p>
-        </Box>
-      </Box>
-    </Box>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
   <div>
-    <Box position="fixed">Fixed child</div>
+    <x.div position="fixed">Fixed child</div>
     Scroll me! Lorem ipsum...
   </div>
 </>
@@ -376,12 +371,12 @@ Use `position="sticky"` to position an element as `relative` until it crosses a 
 
 Offsets are calculated relative to the element's normal position and the element will act as a position reference for absolutely positioned children.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box h={64} overflow="auto">
+    <x.div h={64} overflow="auto">
       <div>
-        <Box
+        <x.div
           position="sticky"
           top={0}
           bg="emerald-200"
@@ -392,8 +387,8 @@ Offsets are calculated relative to the element's normal position and the element
           borderRadius="md"
         >
           Sticky Heading 1
-        </Box>
-        <Box as="p" py={4} fontWeight="medium" color="emerald-500">
+        </x.div>
+        <x.p py={4} fontWeight="medium" color="emerald-500">
           Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at
           interdum magna augue eget diam. Vestibulum ante ipsum primis in
           faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia
@@ -403,10 +398,10 @@ Offsets are calculated relative to the element's normal position and the element
           augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices
           enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar
           ullamcorper. Nulla facilisi.{' '}
-        </Box>
+        </x.p>
       </div>
       <div>
-        <Box
+        <x.div
           position="sticky"
           top={0}
           bg="emerald-200"
@@ -417,8 +412,8 @@ Offsets are calculated relative to the element's normal position and the element
           borderRadius="md"
         >
           Sticky Heading 2
-        </Box>
-        <Box as="p" py={4} fontWeight="medium" color="emerald-500">
+        </x.div>
+        <x.p py={4} fontWeight="medium" color="emerald-500">
           Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a
           tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis
           tristique, dignissim in, ultrices sit amet, augue. Proin sodales
@@ -427,10 +422,10 @@ Offsets are calculated relative to the element's normal position and the element
           porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci.
           Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum
           non, convallis id, sagittis at, neque.{' '}
-        </Box>
+        </x.p>
       </div>
       <div>
-        <Box
+        <x.div
           position="sticky"
           top={0}
           bg="emerald-200"
@@ -441,8 +436,8 @@ Offsets are calculated relative to the element's normal position and the element
           borderRadius="md"
         >
           Sticky Heading 3
-        </Box>
-        <Box as="p" py={4} fontWeight="medium" color="emerald-500">
+        </x.div>
+        <x.p py={4} fontWeight="medium" color="emerald-500">
           Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula.
           Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis
           lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit
@@ -450,10 +445,10 @@ Offsets are calculated relative to the element's normal position and the element
           Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh
           elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec
           tellus sed augue semper porta. Mauris massa.{' '}
-        </Box>
+        </x.p>
       </div>
       <div>
-        <Box
+        <x.div
           position="sticky"
           top={0}
           bg="emerald-200"
@@ -464,8 +459,8 @@ Offsets are calculated relative to the element's normal position and the element
           borderRadius="md"
         >
           Sticky Heading 4
-        </Box>
-        <Box as="p" py={4} fontWeight="medium" color="emerald-500">
+        </x.div>
+        <x.p py={4} fontWeight="medium" color="emerald-500">
           Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at
           interdum magna augue eget diam. Vestibulum ante ipsum primis in
           faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia
@@ -475,10 +470,10 @@ Offsets are calculated relative to the element's normal position and the element
           augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices
           enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar
           ullamcorper. Nulla facilisi.{' '}
-        </Box>
+        </x.p>
       </div>
       <div>
-        <Box
+        <x.div
           position="sticky"
           top={0}
           bg="emerald-200"
@@ -489,8 +484,8 @@ Offsets are calculated relative to the element's normal position and the element
           borderRadius="md"
         >
           Sticky Heading 5
-        </Box>
-        <Box as="p" py={4} fontWeight="medium" color="emerald-500">
+        </x.div>
+        <x.p py={4} fontWeight="medium" color="emerald-500">
           Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a
           tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis
           tristique, dignissim in, ultrices sit amet, augue. Proin sodales
@@ -499,10 +494,10 @@ Offsets are calculated relative to the element's normal position and the element
           porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci.
           Ut eu diam at pede suscipit sodales. Aenean lectus elit, fermentum
           non, convallis id, sagittis at, neque.{' '}
-        </Box>
+        </x.p>
       </div>
       <div>
-        <Box
+        <x.div
           position="sticky"
           top={0}
           bg="emerald-200"
@@ -513,8 +508,8 @@ Offsets are calculated relative to the element's normal position and the element
           borderRadius="md"
         >
           Sticky Heading 6
-        </Box>
-        <Box as="p" py={4} fontWeight="medium" color="emerald-500">
+        </x.div>
+        <x.p py={4} fontWeight="medium" color="emerald-500">
           Nullam mauris orci, aliquet et, iaculis et, viverra vitae, ligula.
           Nulla ut felis in purus aliquam imperdiet. Maecenas aliquet mollis
           lectus. Vivamus consectetuer risus et tortor. Lorem ipsum dolor sit
@@ -522,33 +517,27 @@ Offsets are calculated relative to the element's normal position and the element
           Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh
           elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec
           tellus sed augue semper porta. Mauris massa.{' '}
-        </Box>
+        </x.p>
       </div>
-    </Box>
+    </x.div>
   </template>
   <div>
-    <Box position="sticky" top={0}>
+    <x.div position="sticky" top={0}>
       Sticky Heading 1
-    </Box>
-    <Box as="p" py={4}>
-      Quisque cursus...
-    </Box>
+    </x.div>
+    <x.p py={4}>Quisque cursus...</x.p>
   </div>
   <div>
-    <Box position="sticky" top={0}>
+    <x.div position="sticky" top={0}>
       Sticky Heading 2
-    </Box>
-    <Box as="p" py={4}>
-      Integer lacinia...
-    </Box>
+    </x.div>
+    <x.p py={4}>Integer lacinia...</x.p>
   </div>
   <div>
-    <Box position="sticky" top={0}>
+    <x.div position="sticky" top={0}>
       Sticky Heading 3
-    </Box>
-    <Box as="p" py={4}>
-      Nullam mauris...
-    </Box>
+    </x.div>
+    <x.p py={4}>Nullam mauris...</x.p>
   </div>
 </>
 ```
@@ -558,7 +547,7 @@ Offsets are calculated relative to the element's normal position and the element
 To change how an element is positioned only at a specific breakpoint, use responsive object notation. For example, adding the property `position={{ md: "absolute" }}` to an element would apply the `position="absolute"` utility at medium screen sizes and above.
 
 ```jsx
-<Box position={{ md: 'absolute' }} />
+<x.div position={{ md: 'absolute' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

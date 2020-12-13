@@ -1,9 +1,10 @@
 ---
 section: Backgrounds
-title: Bakground Clip
+title: Background Clip
+slug: /docs/background-clip/
 ---
 
-# Bakground Clip
+# Background Clip
 
 Utilities for controlling the bounding box of an element's background.
 
@@ -15,11 +16,11 @@ Utilities for controlling the bounding box of an element's background.
 
 Use the `backgroundClip={keyword}` utilities to control the bounding box of an element's background.
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box display="grid" gridTemplateColumns={{ _: 1, lg: 3 }} gap={2}>
-      <Box
+    <x.div display="grid" gridTemplateColumns={{ _: 1, lg: 3 }} gap={2}>
+      <x.div
         backgroundClip="border-box"
         p={6}
         borderRadius="md"
@@ -33,11 +34,9 @@ Use the `backgroundClip={keyword}` utilities to control the bounding box of an e
         alignItems="center"
         justifyContent="center"
       >
-        <Box as="span" py={2}>
-          border-box
-        </Box>
-      </Box>
-      <Box
+        <x.span py={2}>border-box</x.span>
+      </x.div>
+      <x.div
         backgroundClip="padding-box"
         p={6}
         borderRadius="md"
@@ -51,11 +50,9 @@ Use the `backgroundClip={keyword}` utilities to control the bounding box of an e
         alignItems="center"
         justifyContent="center"
       >
-        <Box as="span" py={2}>
-          padding-box
-        </Box>
-      </Box>
-      <Box
+        <x.span py={2}>padding-box</x.span>
+      </x.div>
+      <x.div
         backgroundClip="content-box"
         p={6}
         borderRadius="md"
@@ -69,13 +66,11 @@ Use the `backgroundClip={keyword}` utilities to control the bounding box of an e
         alignItems="center"
         justifyContent="center"
       >
-        <Box as="span" py={2}>
-          content-box
-        </Box>
-      </Box>
-    </Box>
+        <x.span py={2}>content-box</x.span>
+      </x.div>
+    </x.div>
   </template>
-  <Box
+  <x.div
     backgroundClip="border-box"
     p={6}
     bg="indigo-600"
@@ -83,7 +78,7 @@ Use the `backgroundClip={keyword}` utilities to control the bounding box of an e
     borderColor="indigo-300"
     borderStyle="dashed"
   />
-  <Box
+  <x.div
     backgroundClip="padding-box"
     p={6}
     bg="indigo-600"
@@ -91,7 +86,7 @@ Use the `backgroundClip={keyword}` utilities to control the bounding box of an e
     borderColor="indigo-300"
     borderStyle="dashed"
   />
-  <Box
+  <x.div
     backgroundClip="content-box"
     p={6}
     bg="indigo-600"
@@ -106,36 +101,34 @@ Use the `backgroundClip={keyword}` utilities to control the bounding box of an e
 
 Use `backgroundClip="text"` to crop an element's background to match the shape of the text. Useful for effects where you want a background image to be visible through the text.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
+    <x.div
       textAlign="center"
       lineHeight={0}
       letterSpacing="tight"
       fontSize="5xl"
       fontWeight="extrabold"
     >
-      <Box
-        as="span"
+      <x.span
         backgroundClip="text"
         color="transparent"
         backgroundImage="linear-gradient(to right, #4ade80, #3b82f6)"
       >
         Hello world
-      </Box>
-    </Box>
+      </x.span>
+    </x.div>
   </template>
-  <Box fontSize="5xl" fontWeight="extrabold">
-    <Box
-      as="span"
+  <x.div fontSize="5xl" fontWeight="extrabold">
+    <x.span
       backgroundClip="text"
       color="transparent"
       backgroundImage="linear-gradient(to right, #4ade80, #3b82f6)"
     >
       Hello world
-    </Box>
-  </Box>
+    </x.span>
+  </x.div>
 </>
 ```
 
@@ -144,7 +137,7 @@ Use `backgroundClip="text"` to crop an element's background to match the shape o
 To control the background attachment of an element at a specific breakpoint, use responsive object notation. For example, adding the property `backgroundAttachment={{ md: "scroll" }}` to an element would apply the `backgroundAttachment="scroll"` utility at medium screen sizes and above.
 
 ```jsx
-<Box backgroundAttachment={{ md: 'scroll' }} />
+<x.div backgroundAttachment={{ md: 'scroll' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

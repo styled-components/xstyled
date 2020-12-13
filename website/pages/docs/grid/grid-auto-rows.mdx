@@ -1,6 +1,7 @@
 ---
 section: Grid
 title: Grid Auto Rows
+slug: /docs/grid-auto-rows/
 ---
 
 # Grid Auto Rows
@@ -16,11 +17,11 @@ Utilities for controlling the size of implicitly-created grid rows.
 Use the `gridAutoRows={size}` utilities to control the size implicitly-created grid rows.
 
 ```jsx
-<Box display="grid" gridAutoFlow="rows" gridAutoRows="max-content">
+<x.div display="grid" gridAutoFlow="rows" gridAutoRows="max-content">
   <div>1</div>
   <div>2</div>
   <div>3</div>
-</Box>
+</x.div>
 ```
 
 ## Responsive
@@ -28,9 +29,9 @@ Use the `gridAutoRows={size}` utilities to control the size implicitly-created g
 To control the grid-auto-rows property at a specific breakpoint, use responsive object notation. For example, adding the property `gridAutoRows={{ md: "max-content" }}` to an element would apply the `gridAutoRows="max-content"` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="grid" gridAutoRows={{ md: 'max-content' }}>
+<x.div display="grid" gridAutoRows={{ md: 'max-content' }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

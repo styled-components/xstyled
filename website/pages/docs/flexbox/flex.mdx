@@ -1,6 +1,7 @@
 ---
 section: Flexbox
 title: Flex
+slug: /docs/flex/
 ---
 
 # Flex
@@ -15,15 +16,15 @@ Utilities for controlling how flex items both grow and shrink.
 
 Use `flex="0 1 auto"` to allow a flex item to shrink but not grow, taking into account its initial size:
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
     <div>
-      <Box as="p" fontSize="sm" color="indigo-600">
+      <x.p fontSize="sm" color="indigo-600">
         Items don't grow when there's extra space
-      </Box>
-      <Box mt={2} display="flex" spaceX={4}>
-        <Box
+      </x.p>
+      <x.div mt={2} display="flex" spaceX={4}>
+        <x.div
           flex="0 1 auto"
           borderRadius="md"
           bg="indigo-500"
@@ -36,8 +37,8 @@ Use `flex="0 1 auto"` to allow a flex item to shrink but not grow, taking into a
           px={6}
         >
           Short
-        </Box>
-        <Box
+        </x.div>
+        <x.div
           flex="0 1 auto"
           borderRadius="md"
           bg="indigo-500"
@@ -50,14 +51,14 @@ Use `flex="0 1 auto"` to allow a flex item to shrink but not grow, taking into a
           px={6}
         >
           Medium length
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
 
-      <Box as="p" mt={8} fontSize="sm" color="indigo-600">
+      <x.p mt={8} fontSize="sm" color="indigo-600">
         Items shrink if possible when needed
-      </Box>
-      <Box mt={2} display="flex" spaceX={4}>
-        <Box
+      </x.p>
+      <x.div mt={2} display="flex" spaceX={4}>
+        <x.div
           flex="0 1 auto"
           borderRadius="md"
           bg="indigo-500"
@@ -70,8 +71,8 @@ Use `flex="0 1 auto"` to allow a flex item to shrink but not grow, taking into a
           px={6}
         >
           Short
-        </Box>
-        <Box
+        </x.div>
+        <x.div
           flex="0 1 auto"
           borderRadius="md"
           bg="indigo-500"
@@ -84,8 +85,8 @@ Use `flex="0 1 auto"` to allow a flex item to shrink but not grow, taking into a
           px={6}
         >
           Medium length
-        </Box>
-        <Box
+        </x.div>
+        <x.div
           flex="0 1 auto"
           borderRadius="md"
           bg="indigo-500"
@@ -99,15 +100,15 @@ Use `flex="0 1 auto"` to allow a flex item to shrink but not grow, taking into a
         >
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ad
           labore ipsam, aut rem quo repellat esse tempore id, quidem
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
     </div>
   </template>
-  <Box display="flex">
-    <Box flex="0 1 auto">{/* Won't grow, but will shrink if needed */}</Box>
-    <Box flex="0 1 auto">{/* Won't grow, but will shrink if needed */}</Box>
-    <Box flex="0 1 auto">{/* Won't grow, but will shrink if needed */}</Box>
-  </Box>
+  <x.div display="flex">
+    <x.div flex="0 1 auto">{/* Won't grow, but will shrink if needed */}</x.div>
+    <x.div flex="0 1 auto">{/* Won't grow, but will shrink if needed */}</x.div>
+    <x.div flex="0 1 auto">{/* Won't grow, but will shrink if needed */}</x.div>
+  </x.div>
 </>
 ```
 
@@ -115,15 +116,15 @@ Use `flex="0 1 auto"` to allow a flex item to shrink but not grow, taking into a
 
 Use `flex="1 1 0"` to allow a flex item to shrink but not grow, taking into account its initial size:
 
-```jsx preview
+```jsx preview color=fuchsia
 <>
   <template preview>
     <div>
-      <Box as="p" fontSize="sm" color="fuchsia-600">
+      <x.p fontSize="sm" color="fuchsia-600">
         Default behaviour
-      </Box>
-      <Box mt={2} display="flex" spaceX={4}>
-        <Box
+      </x.p>
+      <x.div mt={2} display="flex" spaceX={4}>
+        <x.div
           borderRadius="md"
           bg="fuchsia-500"
           color="white"
@@ -135,8 +136,8 @@ Use `flex="1 1 0"` to allow a flex item to shrink but not grow, taking into acco
           px={6}
         >
           Short
-        </Box>
-        <Box
+        </x.div>
+        <x.div
           borderRadius="md"
           bg="fuchsia-500"
           color="white"
@@ -148,8 +149,8 @@ Use `flex="1 1 0"` to allow a flex item to shrink but not grow, taking into acco
           px={6}
         >
           Medium length
-        </Box>
-        <Box
+        </x.div>
+        <x.div
           borderRadius="md"
           bg="fuchsia-500"
           color="white"
@@ -161,14 +162,14 @@ Use `flex="1 1 0"` to allow a flex item to shrink but not grow, taking into acco
           px={6}
         >
           Significantly larger amount of content
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
 
-      <Box as="p" mt={8} fontSize="sm" color="fuchsia-600">
+      <x.p mt={8} fontSize="sm" color="fuchsia-600">
         With "1 1 0"
-      </Box>
-      <Box mt={2} display="flex" spaceX={4}>
-        <Box
+      </x.p>
+      <x.div mt={2} display="flex" spaceX={4}>
+        <x.div
           flex="1 1 0"
           borderRadius="md"
           bg="fuchsia-500"
@@ -181,8 +182,8 @@ Use `flex="1 1 0"` to allow a flex item to shrink but not grow, taking into acco
           px={6}
         >
           Short
-        </Box>
-        <Box
+        </x.div>
+        <x.div
           flex="1 1 0"
           borderRadius="md"
           bg="fuchsia-500"
@@ -195,8 +196,8 @@ Use `flex="1 1 0"` to allow a flex item to shrink but not grow, taking into acco
           px={6}
         >
           Medium length
-        </Box>
-        <Box
+        </x.div>
+        <x.div
           flex="1 1 0"
           borderRadius="md"
           bg="fuchsia-500"
@@ -209,21 +210,21 @@ Use `flex="1 1 0"` to allow a flex item to shrink but not grow, taking into acco
           px={6}
         >
           Significantly larger amount of content
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
     </div>
   </template>
-  <Box display="flex">
-    <Box flex="1 1 0">
+  <x.div display="flex">
+    <x.div flex="1 1 0">
       {/* Will grow and shrink as needed without taking initial size into account */}
-    </Box>
-    <Box flex="1 1 0">
+    </x.div>
+    <x.div flex="1 1 0">
       {/* Will grow and shrink as needed without taking initial size into account */}
-    </Box>
-    <Box flex="1 1 0">
+    </x.div>
+    <x.div flex="1 1 0">
       {/* Will grow and shrink as needed without taking initial size into account */}
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 </>
 ```
 
@@ -232,9 +233,9 @@ Use `flex="1 1 0"` to allow a flex item to shrink but not grow, taking into acco
 To control how flex items wrap at a specific breakpoint, use responsive object notation. For example, adding the property `flexWrap={{ md: 'wrap-reverse' }}` to an element would apply the `flexWrap="wrap-reverse"` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="flex" flexWrap={{ md: 'wrap-reverse' }}>
+<x.div display="flex" flexWrap={{ md: 'wrap-reverse' }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

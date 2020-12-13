@@ -1,6 +1,7 @@
 ---
 section: Flexbox
 title: Flex Shrink
+slug: /docs/flex-shrink/
 ---
 
 # Flex Shrink
@@ -15,11 +16,11 @@ Utilities for controlling how flex items shrink.
 
 Use `flexShrink={1}` to allow a flex item to shrink if needed:
 
-```jsx preview
+```jsx preview color=orange
 <>
   <template preview>
-    <Box display="flex" spaceX={3} w={250} mx="auto">
-      <Box
+    <x.div display="flex" spaceX={3} w={250} mx="auto">
+      <x.div
         flexGrow={1}
         h={16}
         w={16}
@@ -34,8 +35,8 @@ Use `flexShrink={1}` to allow a flex item to shrink if needed:
         fontWeight="extrabold"
       >
         ~
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         flexShrink={1}
         h={16}
         w={900}
@@ -50,8 +51,8 @@ Use `flexShrink={1}` to allow a flex item to shrink if needed:
         fontWeight="extrabold"
       >
         ~
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         flexGrow={1}
         h={16}
         w={16}
@@ -66,20 +67,20 @@ Use `flexShrink={1}` to allow a flex item to shrink if needed:
         fontWeight="extrabold"
       >
         ~
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex">
-    <Box flexGrow={1} w={16}>
+  <x.div display="flex">
+    <x.div flexGrow={1} w={16}>
       {/* This item will grow or shrink as needed */}
-    </Box>
-    <Box flexShrink={1} w={900}>
+    </x.div>
+    <x.div flexShrink={1} w={900}>
       {/* This item will shrink */}
-    </Box>
-    <Box flexGrow={1} w={16}>
+    </x.div>
+    <x.div flexGrow={1} w={16}>
       {/* This item will grow or shrink as needed */}
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 </>
 ```
 
@@ -87,11 +88,11 @@ Use `flexShrink={1}` to allow a flex item to shrink if needed:
 
 Use `flexShrink={0}` to prevent a flex item from shrinking:
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box display="flex" spaceX={3} mx="auto">
-      <Box
+    <x.div display="flex" spaceX={3} mx="auto">
+      <x.div
         flexGrow={1}
         h={16}
         w={16}
@@ -106,8 +107,8 @@ Use `flexShrink={0}` to prevent a flex item from shrinking:
         fontWeight="extrabold"
       >
         ~
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         flexShrink={0}
         h={16}
         w={32}
@@ -122,8 +123,8 @@ Use `flexShrink={0}` to prevent a flex item from shrinking:
         fontWeight="extrabold"
       >
         ~
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         flexGrow={1}
         h={16}
         w={16}
@@ -138,20 +139,20 @@ Use `flexShrink={0}` to prevent a flex item from shrinking:
         fontWeight="extrabold"
       >
         ~
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex">
-    <Box flexGrow={1} w={16}>
+  <x.div display="flex">
+    <x.div flexGrow={1} w={16}>
       {/* This item will grow or shrink as needed */}
-    </Box>
-    <Box flexShrink={0} w={32}>
+    </x.div>
+    <x.div flexShrink={0} w={32}>
       {/* This item will not shrink below its initial size */}
-    </Box>
-    <Box flexGrow={1} w={16}>
+    </x.div>
+    <x.div flexGrow={1} w={16}>
       {/* This item will grow or shrink as needed */}
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 </>
 ```
 
@@ -160,7 +161,7 @@ Use `flexShrink={0}` to prevent a flex item from shrinking:
 To control how a flex item shrinks at a specific breakpoint, use responsive object notation. For example, adding the property `flexShrink={{ md: 0 }}` to an element would apply the `flexShrink={0}` utility at medium screen sizes and above.
 
 ```jsx
-<Box flexShrink={{ md: 0 }} />
+<x.div flexShrink={{ md: 0 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

@@ -1,6 +1,7 @@
 ---
 section: Flexbox
 title: Flex Grow
+slug: /docs/flex-grow/
 ---
 
 # Flex Grow
@@ -15,11 +16,11 @@ Utilities for controlling how flex items grow.
 
 Use `flexGrow={1}` to allow a flex item to grow to fill any available space:
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box display="flex" spaceX={3}>
-      <Box
+    <x.div display="flex" spaceX={3}>
+      <x.div
         flex="none"
         h={16}
         px={5}
@@ -33,8 +34,8 @@ Use `flexGrow={1}` to allow a flex item to grow to fill any available space:
         fontWeight="extrabold"
       >
         ~
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         flexGrow={1}
         h={16}
         px={5}
@@ -48,8 +49,8 @@ Use `flexGrow={1}` to allow a flex item to grow to fill any available space:
         fontWeight="extrabold"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         flex="none"
         h={16}
         px={5}
@@ -63,14 +64,14 @@ Use `flexGrow={1}` to allow a flex item to grow to fill any available space:
         fontWeight="extrabold"
       >
         ~
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex">
-    <Box flex="none">{/* This item will not grow */}</Box>
-    <Box flexGrow={1}>{/* This item will grow */}</Box>
-    <Box flex="none">{/* This item will not grow */}</Box>
-  </Box>
+  <x.div display="flex">
+    <x.div flex="none">{/* This item will not grow */}</x.div>
+    <x.div flexGrow={1}>{/* This item will grow */}</x.div>
+    <x.div flex="none">{/* This item will not grow */}</x.div>
+  </x.div>
 </>
 ```
 
@@ -78,11 +79,11 @@ Use `flexGrow={1}` to allow a flex item to grow to fill any available space:
 
 Use `flexGrow={0}` to prevent a flex item from growing:
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box display="flex" spaceX={3}>
-      <Box
+    <x.div display="flex" spaceX={3}>
+      <x.div
         flexGrow={1}
         h={16}
         px={5}
@@ -96,8 +97,8 @@ Use `flexGrow={0}` to prevent a flex item from growing:
         fontWeight="extrabold"
       >
         1
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         flexGrow={0}
         h={16}
         px={5}
@@ -111,8 +112,8 @@ Use `flexGrow={0}` to prevent a flex item from growing:
         fontWeight="extrabold"
       >
         0
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         flexGrow={1}
         h={16}
         px={5}
@@ -126,14 +127,14 @@ Use `flexGrow={0}` to prevent a flex item from growing:
         fontWeight="extrabold"
       >
         1
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box display="flex">
-    <Box flexGrow={1}>{/* This item will grow */}</Box>
-    <Box flexGrow={0}>{/* This item will not grow */}</Box>
-    <Box flexGrow={1}>{/* This item will grow */}</Box>
-  </Box>
+  <x.div display="flex">
+    <x.div flexGrow={1}>{/* This item will grow */}</x.div>
+    <x.div flexGrow={0}>{/* This item will not grow */}</x.div>
+    <x.div flexGrow={1}>{/* This item will grow */}</x.div>
+  </x.div>
 </>
 ```
 
@@ -142,7 +143,7 @@ Use `flexGrow={0}` to prevent a flex item from growing:
 To control how a flex item grows at a specific breakpoint, use responsive object notation. For example, adding the property `flexGrow={{ md: 1 }}` to an element would apply the `flexGrow={1}` utility at medium screen sizes and above.
 
 ```jsx
-<Box flexGrow={{ md: 1 }} />
+<x.div flexGrow={{ md: 1 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

@@ -1,6 +1,7 @@
 ---
 section: Backgrounds
 title: Gradient Color Stops
+slug: /docs/gradient-color-stops/
 ---
 
 # Gradient Color Stops
@@ -20,9 +21,9 @@ Set the starting color of a gradient using the `gradientFrom={color}` utilities.
 ```jsx preview
 <>
   <template preview>
-    <Box h={24} backgroundImage="gradient-to-r" gradientFrom="red-500" />
+    <x.div h={24} backgroundImage="gradient-to-r" gradientFrom="red-500" />
   </template>
-  <Box backgroundImage="gradient-to-r" gradientFrom="red-500" />
+  <x.div backgroundImage="gradient-to-r" gradientFrom="red-500" />
 </>
 ```
 
@@ -35,14 +36,14 @@ Set the ending color of a gradient using the `gradientTo={color}` utilities.
 ```jsx preview
 <>
   <template preview>
-    <Box
+    <x.div
       h={24}
       backgroundImage="gradient-to-r"
       gradientFrom="teal-400"
       gradientTo="blue-500"
     />
   </template>
-  <Box
+  <x.div
     backgroundImage="gradient-to-r"
     gradientFrom="teal-400"
     gradientTo="blue-500"
@@ -59,7 +60,7 @@ Add a middle color to a gradient using the `gradientVia={color}` utilities.
 ```jsx preview
 <>
   <template preview>
-    <Box
+    <x.div
       h={24}
       backgroundImage="gradient-to-r"
       gradientFrom="purple-400"
@@ -67,7 +68,7 @@ Add a middle color to a gradient using the `gradientVia={color}` utilities.
       gradientTo="red-500"
     />
   </template>
-  <Box
+  <x.div
     backgroundImage="gradient-to-r"
     gradientFrom="purple-400"
     gradientVia="pink-500"
@@ -83,26 +84,13 @@ Gradients with a `gradientFrom={color}` and `gradientVia={color}` will fade out 
 To control the gradient color stops of an element at a specific breakpoint, use responsive object notation. For example, adding the property `gradientForm={{ md: "red-500" }}` to an element would apply the `gradientForm="red-500"` utility at medium screen sizes and above.
 
 ```jsx
-<Box gradientForm={{ md: 'red-500' }} />
+<x.div gradientForm={{ md: 'red-500' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
 
 ## Customizing
 
-### Colors
+import CustomizeColors from '../../../partials/customizing/colors.mdx'
 
-If you'd like to customize your values for all colors, use the `theme.colors` section of your theme.
-
-```diffjs
-  // theme.js
-  import { th } from '@xstyled/styled-components'
-
-  export const theme = {
-    colors: {
-      // ...
-+     'deep-blue': '#00008b',
-+     'primary': th.color('red-600'),
-    },
-  }
-```
+<CustomizeColors />

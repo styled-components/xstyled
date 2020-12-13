@@ -1,6 +1,7 @@
 ---
 section: Typography
 title: Text Color
+slug: /docs/text-color/
 ---
 
 # Text Color
@@ -18,7 +19,7 @@ Control the text color of an element using the `color={color}` utilities.
 ```jsx preview
 <>
   <template preview>
-    <Box spaceY={8}>
+    <x.div spaceY={8}>
       {[
         'red-500',
         'emerald-700',
@@ -26,9 +27,8 @@ Control the text color of an element using the `color={color}` utilities.
         '#f59e0b',
         'rgba(76, 29, 149, 0.6)',
       ].map((color) => (
-        <Box key={color} as="dl" color="gray-500" overflow="hidden">
-          <Box
-            as="dt"
+        <x.dl key={color} color="cool-gray-500" overflow="hidden">
+          <x.dt
             flexShrink={0}
             fontSize="sm"
             opacity={0.8}
@@ -36,21 +36,21 @@ Control the text color of an element using the `color={color}` utilities.
             mb={1}
           >
             color={color}
-          </Box>
-          <Box as="dd" fontSize="xl" m={0}>
-            <Box color={color}>
+          </x.dt>
+          <x.dd fontSize="xl" m={0}>
+            <x.div color={color}>
               Computers have lots of memory but no imagination.
-            </Box>
-          </Box>
-        </Box>
+            </x.div>
+          </x.dd>
+        </x.dl>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box color="red-500">Computers have ...</Box>
-  <Box color="emerald-700">Computers have ...</Box>
-  <Box color="light-blue-700-a50">Computers have ...</Box>
-  <Box color="#f59e0b">Computers have ...</Box>
-  <Box color="rgba(4, 120, 87, 0.5)">Computers have ...</Box>
+  <x.div color="red-500">Computers have ...</x.div>
+  <x.div color="emerald-700">Computers have ...</x.div>
+  <x.div color="light-blue-700-a50">Computers have ...</x.div>
+  <x.div color="#f59e0b">Computers have ...</x.div>
+  <x.div color="rgba(4, 120, 87, 0.5)">Computers have ...</x.div>
 </>
 ```
 
@@ -61,13 +61,13 @@ To control the text color of an element on hover, use `hoverColor={color}` utili
 ```jsx preview
 <>
   <template preview>
-    <Box color="red-400" hoverColor="red-800">
+    <x.div color="red-400" hoverColor="red-800">
       Computers have lots of memory but no imagination.
-    </Box>
+    </x.div>
   </template>
-  <Box color="red-400" hoverColor="red-800">
+  <x.div color="red-400" hoverColor="red-800">
     Computers have lots of memory but no imagination.
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -78,8 +78,7 @@ To control the text color of an element on hover, use `focusColor={color}` utili
 ```jsx preview
 <>
   <template preview>
-    <Box
-      as="input"
+    <x.input
       defaultValue="Something"
       color="red-600"
       focusColor="red-800"
@@ -90,12 +89,7 @@ To control the text color of an element on hover, use `focusColor={color}` utili
       focusOutline="none"
     />
   </template>
-  <Box
-    as="input"
-    defaultValue="Something"
-    color="red-600"
-    focusColor="red-800"
-  />
+  <x.input defaultValue="Something" color="red-600" focusColor="red-800" />
 </>
 ```
 
@@ -106,8 +100,7 @@ To control the placeholder color of an element, use `placeholderColor={color}` u
 ```jsx preview
 <>
   <template preview>
-    <Box
-      as="input"
+    <x.input
       placeholder="Type something..."
       color="red-600"
       placeholderColor="red-300"
@@ -118,8 +111,7 @@ To control the placeholder color of an element, use `placeholderColor={color}` u
       focusOutline="none"
     />
   </template>
-  <Box
-    as="input"
+  <x.input
     placeholder="Type something..."
     color="red-600"
     placeholderColor="red-300"
@@ -132,26 +124,13 @@ To control the placeholder color of an element, use `placeholderColor={color}` u
 To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `color={{ md: "red-600" }}` to an element would apply the `color="red-600"` utility at medium screen sizes and above.
 
 ```jsx
-<Box color={{ md: 'red-600' }}>{/* ... */}</Box>
+<x.div color={{ md: 'red-600' }}>{/* ... */}</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
 
 ## Customizing
 
-### Colors
+import CustomizeColors from '../../../partials/customizing/colors.mdx'
 
-If you'd like to customize your values for all colors, use the `theme.colors` section of your theme.
-
-```diffjs
-  // theme.js
-  import { th } from '@xstyled/styled-components'
-
-  export const theme = {
-    colors: {
-      // ...
-+     'deep-blue': '#00008b',
-+     'primary': th.color('red-600'),
-    },
-  }
-```
+<CustomizeColors />

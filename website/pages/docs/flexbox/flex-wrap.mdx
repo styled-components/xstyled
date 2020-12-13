@@ -1,6 +1,7 @@
 ---
 section: Flexbox
 title: Flex Wrap
+slug: /docs/flex-wrap/
 ---
 
 # Flex Wrap
@@ -15,12 +16,12 @@ Utilities for controlling how flex items wrap.
 
 Use `flexWrap="nowrap"` to prevent flex items from wrapping, causing inflexible items to overflow the container if necessary:
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box display="flex" flexWrap="nowrap" spaceX={4} overflow="hidden">
-      {[1, 2, 3].map(value => (
-        <Box
+    <x.div display="flex" flexWrap="nowrap" spaceX={4} overflow="hidden">
+      {[1, 2, 3].map((value) => (
+        <x.div
           key={value}
           w={2 / 5}
           py={1}
@@ -35,15 +36,15 @@ Use `flexWrap="nowrap"` to prevent flex items from wrapping, causing inflexible 
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" flexWrap="nowrap">
+  <x.div display="flex" flexWrap="nowrap">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -51,12 +52,12 @@ Use `flexWrap="nowrap"` to prevent flex items from wrapping, causing inflexible 
 
 Use `flexWrap="wrap"` to allow flex items to wrap:
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box display="flex" flexWrap="wrap" m={-2} overflow="hidden">
-      {[1, 2, 3].map(value => (
-        <Box
+    <x.div display="flex" flexWrap="wrap" m={-2} overflow="hidden">
+      {[1, 2, 3].map((value) => (
+        <x.div
           key={value}
           w={2 / 5}
           m={2}
@@ -72,15 +73,15 @@ Use `flexWrap="wrap"` to allow flex items to wrap:
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" flexWrap="wrap">
+  <x.div display="flex" flexWrap="wrap">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -88,12 +89,12 @@ Use `flexWrap="wrap"` to allow flex items to wrap:
 
 Use `flexWrap="wrap-reverse"` to wrap flex items in the reverse direction:
 
-```jsx preview
+```jsx preview color=violet
 <>
   <template preview>
-    <Box display="flex" flexWrap="wrap-reverse" m={-2} overflow="hidden">
-      {[1, 2, 3].map(value => (
-        <Box
+    <x.div display="flex" flexWrap="wrap-reverse" m={-2} overflow="hidden">
+      {[1, 2, 3].map((value) => (
+        <x.div
           key={value}
           w={2 / 5}
           m={2}
@@ -109,15 +110,15 @@ Use `flexWrap="wrap-reverse"` to wrap flex items in the reverse direction:
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" flexWrap="wrap-reverse">
+  <x.div display="flex" flexWrap="wrap-reverse">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -126,9 +127,9 @@ Use `flexWrap="wrap-reverse"` to wrap flex items in the reverse direction:
 To control how flex items wrap at a specific breakpoint, use responsive object notation. For example, adding the property `flexWrap={{ md: 'wrap-reverse' }}` to an element would apply the `flexWrap="wrap-reverse"` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="flex" flexWrap={{ md: 'wrap-reverse' }}>
+<x.div display="flex" flexWrap={{ md: 'wrap-reverse' }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

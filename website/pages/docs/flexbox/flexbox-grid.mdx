@@ -1,6 +1,7 @@
 ---
 section: Flexbox
 title: Grid System
+slug: /docs/flexbox-grid/
 ---
 
 # Flexbox Grid System
@@ -20,42 +21,42 @@ xstyled's grid system uses two properties `row` and `col`, and of course all sys
 
 **New to or unfamiliar with flexbox?** [Read this CSS Tricks flexbox guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background) for background, terminology, guidelines, and code snippets.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box mx={2} color="white" fontWeight="extrabold">
-      <Box row mx={-2} bg="emerald-200" borderRadius="md">
-        <Box col px={2}>
-          <Box bg="emerald-500" py={2} textAlign="center" borderRadius="md">
+    <x.div mx={2} color="white" fontWeight="extrabold">
+      <x.div row mx={-2} bg="emerald-200" borderRadius="md">
+        <x.div col px={2}>
+          <x.div bg="emerald-500" py={2} textAlign="center" borderRadius="md">
             col
-          </Box>
-        </Box>
-        <Box col px={2}>
-          <Box bg="emerald-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col px={2}>
+          <x.div bg="emerald-500" py={2} textAlign="center" borderRadius="md">
             col
-          </Box>
-        </Box>
-        <Box col px={2}>
-          <Box bg="emerald-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col px={2}>
+          <x.div bg="emerald-500" py={2} textAlign="center" borderRadius="md">
             col
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box mx={2}>
-    <Box row mx={-2}>
-      <Box col px={2}>
+  <x.div mx={2}>
+    <x.div row mx={-2}>
+      <x.div col px={2}>
         col
-      </Box>
-      <Box col px={2}>
+      </x.div>
+      <x.div col px={2}>
         col
-      </Box>
-      <Box col px={2}>
+      </x.div>
+      <x.div col px={2}>
         col
-      </Box>
-    </Box>
-  </Box>
+      </x.div>
+    </x.div>
+  </x.div>
 </>
 ```
 
@@ -85,34 +86,49 @@ Be aware of the limitations and [bugs around flexbox](https://github.com/philipw
 
 In the following example, the middle column will take `50%` of the available space.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box mx={2} color="white" fontWeight="extrabold">
-      <Box row>
-        <Box col>
-          <Box bg="light-blue-400" py={2} textAlign="center" borderRadius="md">
+    <x.div mx={2} color="white" fontWeight="extrabold">
+      <x.div row>
+        <x.div col>
+          <x.div
+            bg="light-blue-400"
+            py={2}
+            textAlign="center"
+            borderRadius="md"
+          >
             col
-          </Box>
-        </Box>
-        <Box col={1 / 2}>
-          <Box bg="light-blue-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col={1 / 2}>
+          <x.div
+            bg="light-blue-500"
+            py={2}
+            textAlign="center"
+            borderRadius="md"
+          >
             {`col={1 / 2}`}
-          </Box>
-        </Box>
-        <Box col>
-          <Box bg="light-blue-400" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col>
+          <x.div
+            bg="light-blue-400"
+            py={2}
+            textAlign="center"
+            borderRadius="md"
+          >
             col
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col>col</Box>
-    <Box col={1 / 2}>{`col={1 / 2}`}</Box>
-    <Box col>col</Box>
-  </Box>
+  <x.div row>
+    <x.div col>col</x.div>
+    <x.div col={1 / 2}>{`col={1 / 2}`}</x.div>
+    <x.div col>col</x.div>
+  </x.div>
 </>
 ```
 
@@ -122,93 +138,93 @@ In the following example, the middle column will take `50%` of the available spa
 
 For example, here are two grid layouts that apply to every device and viewport, from `xs` to `xl`. Add any number of unit-less props for each breakpoint you need and every column will be the same width.
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box mx={2} color="white" fontWeight="extrabold" spaceY={2}>
-      <Box row>
-        <Box col>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md">
+    <x.div mx={2} color="white" fontWeight="extrabold" spaceY={2}>
+      <x.div row>
+        <x.div col>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md">
             1 of 2
-          </Box>
-        </Box>
-        <Box col>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md">
             2 of 2
-          </Box>
-        </Box>
-      </Box>
-      <Box row>
-        <Box col>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+      </x.div>
+      <x.div row>
+        <x.div col>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md">
             1 of 3
-          </Box>
-        </Box>
-        <Box col>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md">
             2 of 3
-          </Box>
-        </Box>
-        <Box col>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md">
             3 of 3
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col>1 of 2</Box>
-    <Box col>2 of 2</Box>
-  </Box>
-  <Box row>
-    <Box col>1 of 3</Box>
-    <Box col>2 of 3</Box>
-    <Box col>3 of 3</Box>
-  </Box>
+  <x.div row>
+    <x.div col>1 of 2</x.div>
+    <x.div col>2 of 2</x.div>
+  </x.div>
+  <x.div row>
+    <x.div col>1 of 3</x.div>
+    <x.div col>2 of 3</x.div>
+    <x.div col>3 of 3</x.div>
+  </x.div>
 </>
 ```
 
 ### Equal-width multi row
 
-Create equal-width columns that span multiple rows by inserting a `<Box w={1} />` where you want the columns to break to a new line.
+Create equal-width columns that span multiple rows by inserting a `<x.div w={1} />` where you want the columns to break to a new line.
 
-```jsx preview
+```jsx preview color=orange
 <>
   <template preview>
-    <Box mx={2} color="white" fontWeight="extrabold">
-      <Box row>
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md">
+    <x.div mx={2} color="white" fontWeight="extrabold">
+      <x.div row>
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md">
             col
-          </Box>
-        </Box>
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md">
             col
-          </Box>
-        </Box>
-        <Box w={1} h={2} />
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div w={1} h={2} />
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md">
             col
-          </Box>
-        </Box>
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md">
             col
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col>col</Box>
-    <Box col>col</Box>
-    <Box w={1} />
-    <Box col>col</Box>
-    <Box col>col</Box>
-  </Box>
+  <x.div row>
+    <x.div col>col</x.div>
+    <x.div col>col</x.div>
+    <x.div w={1} />
+    <x.div col>col</x.div>
+    <x.div col>col</x.div>
+  </x.div>
 </>
 ```
 
@@ -216,56 +232,56 @@ Create equal-width columns that span multiple rows by inserting a `<Box w={1} />
 
 Auto-layout for flexbox grid columns also means you can set the width of one column and have the sibling columns automatically resize around it.
 
-```jsx preview
+```jsx preview color=blue
 <>
   <template preview>
-    <Box mx={2} color="white" fontWeight="extrabold" spaceY={2}>
-      <Box row>
-        <Box col>
-          <Box bg="blue-400" py={2} textAlign="center" borderRadius="md">
+    <x.div mx={2} color="white" fontWeight="extrabold" spaceY={2}>
+      <x.div row>
+        <x.div col>
+          <x.div bg="blue-400" py={2} textAlign="center" borderRadius="md">
             1 of 3
-          </Box>
-        </Box>
-        <Box col={1 / 2}>
-          <Box bg="blue-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col={1 / 2}>
+          <x.div bg="blue-500" py={2} textAlign="center" borderRadius="md">
             2 of 3 (wider)
-          </Box>
-        </Box>
-        <Box col>
-          <Box bg="blue-400" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col>
+          <x.div bg="blue-400" py={2} textAlign="center" borderRadius="md">
             3 of 3
-          </Box>
-        </Box>
-      </Box>
-      <Box row>
-        <Box col>
-          <Box bg="blue-400" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+      </x.div>
+      <x.div row>
+        <x.div col>
+          <x.div bg="blue-400" py={2} textAlign="center" borderRadius="md">
             1 of 3
-          </Box>
-        </Box>
-        <Box col={2 / 3}>
-          <Box bg="blue-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col={2 / 3}>
+          <x.div bg="blue-500" py={2} textAlign="center" borderRadius="md">
             2 of 3 (wider)
-          </Box>
-        </Box>
-        <Box col>
-          <Box bg="blue-400" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col>
+          <x.div bg="blue-400" py={2} textAlign="center" borderRadius="md">
             3 of 3
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col>1 of 3</Box>
-    <Box col={1 / 2}>2 of 3 (wider)</Box>
-    <Box col>3 of 3</Box>
-  </Box>
-  <Box row>
-    <Box col>1 of 3</Box>
-    <Box col={2 / 3}>2 of 3 (wider)</Box>
-    <Box col>3 of 3</Box>
-  </Box>
+  <x.div row>
+    <x.div col>1 of 3</x.div>
+    <x.div col={1 / 2}>2 of 3 (wider)</x.div>
+    <x.div col>3 of 3</x.div>
+  </x.div>
+  <x.div row>
+    <x.div col>1 of 3</x.div>
+    <x.div col={2 / 3}>2 of 3 (wider)</x.div>
+    <x.div col>3 of 3</x.div>
+  </x.div>
 </>
 ```
 
@@ -273,18 +289,18 @@ Auto-layout for flexbox grid columns also means you can set the width of one col
 
 Use "auto" to size columns based on the natural width of their content.
 
-```jsx preview
+```jsx preview color=fuchsia
 <>
   <template preview>
-    <Box mx={2} color="white" fontWeight="extrabold" spaceY={2}>
-      <Box row>
-        <Box col>
-          <Box bg="fuchsia-400" py={2} textAlign="center" borderRadius="md">
+    <x.div mx={2} color="white" fontWeight="extrabold" spaceY={2}>
+      <x.div row>
+        <x.div col>
+          <x.div bg="fuchsia-400" py={2} textAlign="center" borderRadius="md">
             1 of 3
-          </Box>
-        </Box>
-        <Box col="auto">
-          <Box
+          </x.div>
+        </x.div>
+        <x.div col="auto">
+          <x.div
             bg="fuchsia-500"
             py={2}
             textAlign="center"
@@ -292,21 +308,21 @@ Use "auto" to size columns based on the natural width of their content.
             px={2}
           >
             Variable width content
-          </Box>
-        </Box>
-        <Box col>
-          <Box bg="fuchsia-400" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col>
+          <x.div bg="fuchsia-400" py={2} textAlign="center" borderRadius="md">
             3 of 3
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col>1 of 3</Box>
-    <Box col="auto">Variable width content</Box>
-    <Box col>3 of 3</Box>
-  </Box>
+  <x.div row>
+    <x.div col>1 of 3</x.div>
+    <x.div col="auto">Variable width content</x.div>
+    <x.div col>3 of 3</x.div>
+  </x.div>
 </>
 ```
 
@@ -318,56 +334,56 @@ xstyled's grid includes five tiers of predefined classes for building complex re
 
 For grids that are the same from the smallest of devices to the largest, use the object notation. Specify a number value when you need a particularly sized column; otherwise, feel free to put the prop without a value (true).
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box mx={2} color="white" fontWeight="extrabold" spaceY={2}>
-      <Box row>
-        <Box col>
-          <Box bg="emerald-500" py={2} textAlign="center" borderRadius="md">
+    <x.div mx={2} color="white" fontWeight="extrabold" spaceY={2}>
+      <x.div row>
+        <x.div col>
+          <x.div bg="emerald-500" py={2} textAlign="center" borderRadius="md">
             -
-          </Box>
-        </Box>
-        <Box col>
-          <Box bg="emerald-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col>
+          <x.div bg="emerald-500" py={2} textAlign="center" borderRadius="md">
             -
-          </Box>
-        </Box>
-        <Box col>
-          <Box bg="emerald-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col>
+          <x.div bg="emerald-500" py={2} textAlign="center" borderRadius="md">
             -
-          </Box>
-        </Box>
-        <Box col>
-          <Box bg="emerald-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col>
+          <x.div bg="emerald-500" py={2} textAlign="center" borderRadius="md">
             -
-          </Box>
-        </Box>
-      </Box>
-      <Box row>
-        <Box col={2 / 3}>
-          <Box bg="emerald-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+      </x.div>
+      <x.div row>
+        <x.div col={2 / 3}>
+          <x.div bg="emerald-500" py={2} textAlign="center" borderRadius="md">
             2 / 3
-          </Box>
-        </Box>
-        <Box col={1 / 3}>
-          <Box bg="emerald-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col={1 / 3}>
+          <x.div bg="emerald-500" py={2} textAlign="center" borderRadius="md">
             1 / 3
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col>-</Box>
-    <Box col>-</Box>
-    <Box col>-</Box>
-    <Box col>-</Box>
-  </Box>
-  <Box row>
-    <Box col={2 / 3}>2 / 3</Box>
-    <Box col={1 / 3}>1 / 3</Box>
-  </Box>
+  <x.div row>
+    <x.div col>-</x.div>
+    <x.div col>-</x.div>
+    <x.div col>-</x.div>
+    <x.div col>-</x.div>
+  </x.div>
+  <x.div row>
+    <x.div col={2 / 3}>2 / 3</x.div>
+    <x.div col={1 / 3}>1 / 3</x.div>
+  </x.div>
 </>
 ```
 
@@ -375,50 +391,50 @@ For grids that are the same from the smallest of devices to the largest, use the
 
 Using a single set of `sm` props, you can create a basic grid system that starts out stacked before becoming horizontal with at the small breakpoint (`sm`).
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box mx={2} color="white" fontWeight="extrabold" spaceY={2}>
-      <Box row>
-        <Box col={{ xs: 1, sm: 2 / 3 }}>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md">
+    <x.div mx={2} color="white" fontWeight="extrabold" spaceY={2}>
+      <x.div row>
+        <x.div col={{ xs: 1, sm: 2 / 3 }}>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md">
             {`{ xs: 1, sm: 2 / 3 }`}
-          </Box>
-        </Box>
-        <Box col={{ xs: 1, sm: 1 / 3 }}>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col={{ xs: 1, sm: 1 / 3 }}>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md">
             {`{ xs: 1, sm: 1 / 3 }`}
-          </Box>
-        </Box>
-      </Box>
-      <Box row>
-        <Box col={{ xs: 1, sm: true }}>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+      </x.div>
+      <x.div row>
+        <x.div col={{ xs: 1, sm: true }}>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md">
             {`{ xs: 1, sm: true }`}
-          </Box>
-        </Box>
-        <Box col={{ xs: 1, sm: true }}>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col={{ xs: 1, sm: true }}>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md">
             {`{ xs: 1, sm: true }`}
-          </Box>
-        </Box>
-        <Box col={{ xs: 1, sm: true }}>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col={{ xs: 1, sm: true }}>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md">
             {`{ xs: 1, sm: true }`}
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col={{ xs: 1, sm: 2 / 3 }}>{`{ xs: 1, sm: 2 / 3 }`}</Box>
-    <Box col={{ xs: 1, sm: 1 / 3 }}>{`{ xs: 1, sm: 1 / 3 }`}</Box>
-  </Box>
-  <Box row>
-    <Box col={{ xs: 1, sm: true }}>{`{ xs: 1, sm: true }`}</Box>
-    <Box col={{ xs: 1, sm: true }}>{`{ xs: 1, sm: true }`}</Box>
-    <Box col={{ xs: 1, sm: true }}>{`{ xs: 1, sm: true }`}</Box>
-  </Box>
+  <x.div row>
+    <x.div col={{ xs: 1, sm: 2 / 3 }}>{`{ xs: 1, sm: 2 / 3 }`}</x.div>
+    <x.div col={{ xs: 1, sm: 1 / 3 }}>{`{ xs: 1, sm: 1 / 3 }`}</x.div>
+  </x.div>
+  <x.div row>
+    <x.div col={{ xs: 1, sm: true }}>{`{ xs: 1, sm: true }`}</x.div>
+    <x.div col={{ xs: 1, sm: true }}>{`{ xs: 1, sm: true }`}</x.div>
+    <x.div col={{ xs: 1, sm: true }}>{`{ xs: 1, sm: true }`}</x.div>
+  </x.div>
 </>
 ```
 
@@ -426,69 +442,69 @@ Using a single set of `sm` props, you can create a basic grid system that starts
 
 Don’t want your columns to simply stack in some grid tiers? Use a combination of different props for each tier as needed. See the example below for a better idea of how it all works.
 
-```jsx preview
+```jsx preview color=violet
 <>
   <template preview>
-    <Box mx={2} color="white" fontWeight="extrabold" spaceY={2}>
-      <Box row>
-        <Box col={{ xs: 1, md: 2 / 3 }}>
-          <Box bg="violet-500" py={2} textAlign="center" borderRadius="md">
+    <x.div mx={2} color="white" fontWeight="extrabold" spaceY={2}>
+      <x.div row>
+        <x.div col={{ xs: 1, md: 2 / 3 }}>
+          <x.div bg="violet-500" py={2} textAlign="center" borderRadius="md">
             {`{ xs: 1, md: 2 / 3 }`}
-          </Box>
-        </Box>
-        <Box col={{ xs: 1 / 2, md: 1 / 3 }}>
-          <Box bg="violet-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col={{ xs: 1 / 2, md: 1 / 3 }}>
+          <x.div bg="violet-500" py={2} textAlign="center" borderRadius="md">
             {`{ xs: 1 / 2, md: 1 / 3 }`}
-          </Box>
-        </Box>
-      </Box>
-      <Box row>
-        <Box col={{ xs: 1 / 2, md: 1 / 3 }}>
-          <Box bg="violet-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+      </x.div>
+      <x.div row>
+        <x.div col={{ xs: 1 / 2, md: 1 / 3 }}>
+          <x.div bg="violet-500" py={2} textAlign="center" borderRadius="md">
             {`{ xs: 1 / 2, md: 1 / 3 }`}
-          </Box>
-        </Box>
-        <Box col={{ xs: 1 / 2, md: 1 / 3 }}>
-          <Box bg="violet-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col={{ xs: 1 / 2, md: 1 / 3 }}>
+          <x.div bg="violet-500" py={2} textAlign="center" borderRadius="md">
             {`{ xs: 1 / 2, md: 1 / 3 }`}
-          </Box>
-        </Box>
-        <Box col={{ xs: 1 / 2, md: 1 / 3 }}>
-          <Box bg="violet-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col={{ xs: 1 / 2, md: 1 / 3 }}>
+          <x.div bg="violet-500" py={2} textAlign="center" borderRadius="md">
             {`{ xs: 1 / 2, md: 1 / 3 }`}
-          </Box>
-        </Box>
-      </Box>
-      <Box row bg="violet-200" borderRadius="md">
-        <Box col={1 / 2}>
-          <Box bg="violet-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+      </x.div>
+      <x.div row bg="violet-200" borderRadius="md">
+        <x.div col={1 / 2}>
+          <x.div bg="violet-500" py={2} textAlign="center" borderRadius="md">
             1 / 2
-          </Box>
-        </Box>
-        <Box col={1 / 2}>
-          <Box bg="violet-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col={1 / 2}>
+          <x.div bg="violet-500" py={2} textAlign="center" borderRadius="md">
             1 / 2
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
   {/* Stack the columns on mobile by making one full-width and the other half-width */}
-  <Box row>
-    <Box col={{ xs: 1, md: 2 / 3 }}>{`{ xs: 1, md: 2 / 3 }`}</Box>
-    <Box col={{ xs: 1 / 2, md: 1 / 3 }}>{`{ xs: 1 / 2, md: 1 / 3 }`}</Box>
-  </Box>
+  <x.div row>
+    <x.div col={{ xs: 1, md: 2 / 3 }}>{`{ xs: 1, md: 2 / 3 }`}</x.div>
+    <x.div col={{ xs: 1 / 2, md: 1 / 3 }}>{`{ xs: 1 / 2, md: 1 / 3 }`}</x.div>
+  </x.div>
   {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
-  <Box row>
-    <Box col={{ xs: 1 / 2, md: 1 / 3 }}>{`{ xs: 1 / 2, md: 1 / 3 }`}</Box>
-    <Box col={{ xs: 1 / 2, md: 1 / 3 }}>{`{ xs: 1 / 2, md: 1 / 3 }`}</Box>
-    <Box col={{ xs: 1 / 2, md: 1 / 3 }}>{`{ xs: 1 / 2, md: 1 / 3 }`}</Box>
-  </Box>
+  <x.div row>
+    <x.div col={{ xs: 1 / 2, md: 1 / 3 }}>{`{ xs: 1 / 2, md: 1 / 3 }`}</x.div>
+    <x.div col={{ xs: 1 / 2, md: 1 / 3 }}>{`{ xs: 1 / 2, md: 1 / 3 }`}</x.div>
+    <x.div col={{ xs: 1 / 2, md: 1 / 3 }}>{`{ xs: 1 / 2, md: 1 / 3 }`}</x.div>
+  </x.div>
   {/* Columns are always 50% wide, on mobile and desktop */}
-  <Box row>
-    <Box col={1 / 2}>{`1 / 2`}</Box>
-    <Box col={1 / 2}>{`1 / 2`}</Box>
-  </Box>
+  <x.div row>
+    <x.div col={1 / 2}>{`1 / 2`}</x.div>
+    <x.div col={1 / 2}>{`1 / 2`}</x.div>
+  </x.div>
 </>
 ```
 
@@ -498,24 +514,24 @@ Don’t want your columns to simply stack in some grid tiers? Use a combination 
 
 To add gutters, add a container with a horizontal padding (`px`), a `row` with a negative horizontal margin (`mx`) and `col`s with a horizontal padding (`px`).
 
-```jsx preview
+```jsx preview color=lime
 <>
   <template preview>
-    <Box color="white" fontWeight="extrabold">
-      <Box row bg="lime-200" borderRadius="md" mx={-2}>
-        <Box col px={2}>
-          <Box bg="lime-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col px={2}>
-          <Box bg="lime-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-    </Box>
+    <x.div color="white" fontWeight="extrabold">
+      <x.div row bg="lime-200" borderRadius="md" mx={-2}>
+        <x.div col px={2}>
+          <x.div bg="lime-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col px={2}>
+          <x.div bg="lime-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row mx={-2}>
-    <Box col px={2} />
-    <Box col px={2} />
-  </Box>
+  <x.div row mx={-2}>
+    <x.div col px={2} />
+    <x.div col px={2} />
+  </x.div>
 </>
 ```
 
@@ -523,38 +539,38 @@ To add gutters, add a container with a horizontal padding (`px`), a `row` with a
 
 To set vertical and horizontal gutters, use `p` instead of `px` and `m` instead of `mx`.
 
-```jsx preview
+```jsx preview color=teal
 <>
   <template preview>
-    <Box
+    <x.div
       color="white"
       fontWeight="extrabold"
       bg="teal-200"
       overflow="hidden"
       borderRadius="md"
     >
-      <Box row borderRadius="md" m={-2}>
-        <Box col={1 / 2} p={2}>
-          <Box bg="teal-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={1 / 2} p={2}>
-          <Box bg="teal-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={1 / 2} p={2}>
-          <Box bg="teal-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={1 / 2} p={2}>
-          <Box bg="teal-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-    </Box>
+      <x.div row borderRadius="md" m={-2}>
+        <x.div col={1 / 2} p={2}>
+          <x.div bg="teal-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={1 / 2} p={2}>
+          <x.div bg="teal-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={1 / 2} p={2}>
+          <x.div bg="teal-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={1 / 2} p={2}>
+          <x.div bg="teal-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row m={-2}>
-    <Box col={1 / 2} p={2} />
-    <Box col={1 / 2} p={2} />
-    <Box col={1 / 2} p={2} />
-    <Box col={1 / 2} p={2} />
-  </Box>
+  <x.div row m={-2}>
+    <x.div col={1 / 2} p={2} />
+    <x.div col={1 / 2} p={2} />
+    <x.div col={1 / 2} p={2} />
+    <x.div col={1 / 2} p={2} />
+  </x.div>
 </>
 ```
 
@@ -562,38 +578,38 @@ To set vertical and horizontal gutters, use `p` instead of `px` and `m` instead 
 
 To add external gutter, remove negative margin on the container.
 
-```jsx preview
+```jsx preview color=rose
 <>
   <template preview>
-    <Box
+    <x.div
       color="white"
       fontWeight="extrabold"
       bg="rose-200"
       overflow="hidden"
       borderRadius="md"
     >
-      <Box row borderRadius="md">
-        <Box col={1 / 2} p={2}>
-          <Box bg="rose-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={1 / 2} p={2}>
-          <Box bg="rose-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={1 / 2} p={2}>
-          <Box bg="rose-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={1 / 2} p={2}>
-          <Box bg="rose-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-    </Box>
+      <x.div row borderRadius="md">
+        <x.div col={1 / 2} p={2}>
+          <x.div bg="rose-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={1 / 2} p={2}>
+          <x.div bg="rose-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={1 / 2} p={2}>
+          <x.div bg="rose-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={1 / 2} p={2}>
+          <x.div bg="rose-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col={1 / 2} p={2} />
-    <Box col={1 / 2} p={2} />
-    <Box col={1 / 2} p={2} />
-    <Box col={1 / 2} p={2} />
-  </Box>
+  <x.div row>
+    <x.div col={1 / 2} p={2} />
+    <x.div col={1 / 2} p={2} />
+    <x.div col={1 / 2} p={2} />
+    <x.div col={1 / 2} p={2} />
+  </x.div>
 </>
 ```
 
@@ -603,34 +619,34 @@ Gutters can be responsively adjusted by breakpoint-specific padding and negative
 
 Here’s an example of customizing the grid at the large (`lg`) breakpoint and above. We’ve increased the `col` padding with `px={{ lg: 5 }}`, counteracted that with `mx={{ lg: -5 }}` on the parent `row` and then adjusted the container wrapper with `px={{ lg: 5 }}`.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box
+    <x.div
       color="white"
       fontWeight="extrabold"
       bg="amber-200"
       overflow="hidden"
       borderRadius="md"
     >
-      <Box row mx={{ lg: -2 }} borderRadius="md">
-        <Box col py={3} px={{ lg: 2 }}>
-          <Box bg="amber-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col py={3} px={{ lg: 2 }}>
-          <Box bg="amber-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-    </Box>
+      <x.div row mx={{ lg: -2 }} borderRadius="md">
+        <x.div col py={3} px={{ lg: 2 }}>
+          <x.div bg="amber-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col py={3} px={{ lg: 2 }}>
+          <x.div bg="amber-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row mx={{ lg: -2 }}>
-    <Box col py={3} px={{ lg: 2 }}>
+  <x.div row mx={{ lg: -2 }}>
+    <x.div col py={3} px={{ lg: 2 }}>
       Custom column padding
-    </Box>
-    <Box col py={3} px={{ lg: 2 }}>
+    </x.div>
+    <x.div col py={3} px={{ lg: 2 }}>
       Custom column padding
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 </>
 ```
 
@@ -642,10 +658,10 @@ Use flexbox alignment utilities to vertically and horizontally align columns.
 
 Use `justifyContent` to set the horizontal alignment.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
+    <x.div
       color="white"
       fontWeight="extrabold"
       bg="light-blue-200"
@@ -654,118 +670,118 @@ Use `justifyContent` to set the horizontal alignment.
       spaceY={2}
       borderRadius="md"
     >
-      <Box row justifyContent="flex-start">
-        <Box col={1 / 3}>
-          <Box
+      <x.div row justifyContent="flex-start">
+        <x.div col={1 / 3}>
+          <x.div
             bg="light-blue-500"
             py={2}
             textAlign="center"
             borderRadius="md"
           />
-        </Box>
-        <Box col={1 / 3}>
-          <Box
+        </x.div>
+        <x.div col={1 / 3}>
+          <x.div
             bg="light-blue-500"
             py={2}
             textAlign="center"
             borderRadius="md"
           />
-        </Box>
-      </Box>
-      <Box row justifyContent="center">
-        <Box col={1 / 3}>
-          <Box
+        </x.div>
+      </x.div>
+      <x.div row justifyContent="center">
+        <x.div col={1 / 3}>
+          <x.div
             bg="light-blue-500"
             py={2}
             textAlign="center"
             borderRadius="md"
           />
-        </Box>
-        <Box col={1 / 3}>
-          <Box
+        </x.div>
+        <x.div col={1 / 3}>
+          <x.div
             bg="light-blue-500"
             py={2}
             textAlign="center"
             borderRadius="md"
           />
-        </Box>
-      </Box>
-      <Box row justifyContent="flex-end">
-        <Box col={1 / 3}>
-          <Box
+        </x.div>
+      </x.div>
+      <x.div row justifyContent="flex-end">
+        <x.div col={1 / 3}>
+          <x.div
             bg="light-blue-500"
             py={2}
             textAlign="center"
             borderRadius="md"
           />
-        </Box>
-        <Box col={1 / 3}>
-          <Box
+        </x.div>
+        <x.div col={1 / 3}>
+          <x.div
             bg="light-blue-500"
             py={2}
             textAlign="center"
             borderRadius="md"
           />
-        </Box>
-      </Box>
-      <Box row justifyContent="space-around">
-        <Box col={1 / 3}>
-          <Box
+        </x.div>
+      </x.div>
+      <x.div row justifyContent="space-around">
+        <x.div col={1 / 3}>
+          <x.div
             bg="light-blue-500"
             py={2}
             textAlign="center"
             borderRadius="md"
           />
-        </Box>
-        <Box col={1 / 3}>
-          <Box
+        </x.div>
+        <x.div col={1 / 3}>
+          <x.div
             bg="light-blue-500"
             py={2}
             textAlign="center"
             borderRadius="md"
           />
-        </Box>
-      </Box>
-      <Box row justifyContent="space-between">
-        <Box col={1 / 3}>
-          <Box
+        </x.div>
+      </x.div>
+      <x.div row justifyContent="space-between">
+        <x.div col={1 / 3}>
+          <x.div
             bg="light-blue-500"
             py={2}
             textAlign="center"
             borderRadius="md"
           />
-        </Box>
-        <Box col={1 / 3}>
-          <Box
+        </x.div>
+        <x.div col={1 / 3}>
+          <x.div
             bg="light-blue-500"
             py={2}
             textAlign="center"
             borderRadius="md"
           />
-        </Box>
-      </Box>
-    </Box>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row justifyContent="flex-start">
-    <Box col={1 / 3} />
-    <Box col={1 / 3} />
-  </Box>
-  <Box row justifyContent="center">
-    <Box col={1 / 3} />
-    <Box col={1 / 3} />
-  </Box>
-  <Box row justifyContent="flex-end">
-    <Box col={1 / 3} />
-    <Box col={1 / 3} />
-  </Box>
-  <Box row justifyContent="space-around">
-    <Box col={1 / 3} />
-    <Box col={1 / 3} />
-  </Box>
-  <Box row justifyContent="space-between">
-    <Box col={1 / 3} />
-    <Box col={1 / 3} />
-  </Box>
+  <x.div row justifyContent="flex-start">
+    <x.div col={1 / 3} />
+    <x.div col={1 / 3} />
+  </x.div>
+  <x.div row justifyContent="center">
+    <x.div col={1 / 3} />
+    <x.div col={1 / 3} />
+  </x.div>
+  <x.div row justifyContent="flex-end">
+    <x.div col={1 / 3} />
+    <x.div col={1 / 3} />
+  </x.div>
+  <x.div row justifyContent="space-around">
+    <x.div col={1 / 3} />
+    <x.div col={1 / 3} />
+  </x.div>
+  <x.div row justifyContent="space-between">
+    <x.div col={1 / 3} />
+    <x.div col={1 / 3} />
+  </x.div>
 </>
 ```
 
@@ -773,84 +789,84 @@ Use `justifyContent` to set the horizontal alignment.
 
 Use `alignItems` to set the vertical alignment.
 
-```jsx preview
+```jsx preview color=orange
 <>
   <template preview>
-    <Box
+    <x.div
       color="white"
       fontWeight="extrabold"
       overflow="hidden"
       p={2}
       spaceY={2}
     >
-      <Box
+      <x.div
         row
         alignItems="flex-start"
         height={100}
         bg="orange-200"
         borderRadius="md"
       >
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-      <Box
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+      <x.div
         row
         alignItems="center"
         height={100}
         bg="orange-200"
         borderRadius="md"
       >
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-      <Box
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+      <x.div
         row
         alignItems="flex-end"
         height={100}
         bg="orange-200"
         borderRadius="md"
       >
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col>
-          <Box bg="orange-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-    </Box>
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col>
+          <x.div bg="orange-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row alignItems="flex-start" height={100}>
-    <Box col>One of three columns</Box>
-    <Box col>One of three columns</Box>
-    <Box col>One of three columns</Box>
-  </Box>
-  <Box row alignItems="center" height={100}>
-    <Box col>One of three columns</Box>
-    <Box col>One of three columns</Box>
-    <Box col>One of three columns</Box>
-  </Box>
-  <Box row alignItems="flex-end" height={100}>
-    <Box col>One of three columns</Box>
-    <Box col>One of three columns</Box>
-    <Box col>One of three columns</Box>
-  </Box>
+  <x.div row alignItems="flex-start" height={100}>
+    <x.div col>One of three columns</x.div>
+    <x.div col>One of three columns</x.div>
+    <x.div col>One of three columns</x.div>
+  </x.div>
+  <x.div row alignItems="center" height={100}>
+    <x.div col>One of three columns</x.div>
+    <x.div col>One of three columns</x.div>
+    <x.div col>One of three columns</x.div>
+  </x.div>
+  <x.div row alignItems="flex-end" height={100}>
+    <x.div col>One of three columns</x.div>
+    <x.div col>One of three columns</x.div>
+    <x.div col>One of three columns</x.div>
+  </x.div>
 </>
 ```
 
@@ -858,34 +874,34 @@ Use `alignItems` to set the vertical alignment.
 
 If the sum of `col`s weight that are placed within a single `row` is superior to 1, each group of extra columns will, as one unit, wrap onto a new line.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
+    <x.div
       color="white"
       fontWeight="extrabold"
       overflow="hidden"
       p={2}
       spaceY={2}
     >
-      <Box row alignItems="flex-start" bg="emerald-200" borderRadius="md">
-        <Box col={3 / 4} py={2}>
-          <Box bg="emerald-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={1 / 3} py={2}>
-          <Box bg="emerald-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={1 / 2} py={2}>
-          <Box bg="emerald-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-    </Box>
+      <x.div row alignItems="flex-start" bg="emerald-200" borderRadius="md">
+        <x.div col={3 / 4} py={2}>
+          <x.div bg="emerald-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={1 / 3} py={2}>
+          <x.div bg="emerald-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={1 / 2} py={2}>
+          <x.div bg="emerald-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col={3 / 4} />
-    <Box col={1 / 3} />
-    <Box col={1 / 2} />
-  </Box>
+  <x.div row>
+    <x.div col={3 / 4} />
+    <x.div col={1 / 3} />
+    <x.div col={1 / 2} />
+  </x.div>
 </>
 ```
 
@@ -893,41 +909,41 @@ If the sum of `col`s weight that are placed within a single `row` is superior to
 
 Breaking columns to a new line in flexbox requires a small hack: add an element with `width: 100%` wherever you want to wrap your columns to a new line. Normally this is accomplished with multiple `row`, but not every implementation method can account for this.
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box
+    <x.div
       color="white"
       fontWeight="extrabold"
       overflow="hidden"
       p={2}
       spaceY={2}
     >
-      <Box row alignItems="flex-start" bg="red-200" borderRadius="md">
-        <Box col={{ xs: 1 / 2, sm: 1 / 4 }} py={2}>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={{ xs: 1 / 2, sm: 1 / 4 }} py={2}>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box w={1} />
-        <Box col={{ xs: 1 / 2, sm: 1 / 4 }} py={2}>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={{ xs: 1 / 2, sm: 1 / 4 }} py={2}>
-          <Box bg="red-500" py={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-    </Box>
+      <x.div row alignItems="flex-start" bg="red-200" borderRadius="md">
+        <x.div col={{ xs: 1 / 2, sm: 1 / 4 }} py={2}>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={{ xs: 1 / 2, sm: 1 / 4 }} py={2}>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div w={1} />
+        <x.div col={{ xs: 1 / 2, sm: 1 / 4 }} py={2}>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={{ xs: 1 / 2, sm: 1 / 4 }} py={2}>
+          <x.div bg="red-500" py={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col={{ xs: 1 / 2, sm: 1 / 4 }} />
-    <Box col={{ xs: 1 / 2, sm: 1 / 4 }} />
+  <x.div row>
+    <x.div col={{ xs: 1 / 2, sm: 1 / 4 }} />
+    <x.div col={{ xs: 1 / 2, sm: 1 / 4 }} />
     {/* Force next columns to break to new line */}
-    <Box w={1} />
-    <Box col={{ xs: 1 / 2, sm: 1 / 4 }} />
-    <Box col={{ xs: 1 / 2, sm: 1 / 4 }} />
-  </Box>
+    <x.div w={1} />
+    <x.div col={{ xs: 1 / 2, sm: 1 / 4 }} />
+    <x.div col={{ xs: 1 / 2, sm: 1 / 4 }} />
+  </x.div>
 </>
 ```
 
@@ -937,38 +953,38 @@ Breaking columns to a new line in flexbox requires a small hack: add an element 
 
 Use `order` prop for controlling the visual order of your content. Like all utilities, it supports responsive, you can use `order={{ sm: 2 }}`.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box color="white" fontWeight="extrabold" overflow="hidden" p={2}>
-      <Box row bg="amber-200" borderRadius="md">
-        <Box col>
-          <Box bg="amber-500" py={2} textAlign="center" borderRadius="md">
+    <x.div color="white" fontWeight="extrabold" overflow="hidden" p={2}>
+      <x.div row bg="amber-200" borderRadius="md">
+        <x.div col>
+          <x.div bg="amber-500" py={2} textAlign="center" borderRadius="md">
             First, but unordered
-          </Box>
-        </Box>
-        <Box col order={2}>
-          <Box bg="amber-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col order={2}>
+          <x.div bg="amber-500" py={2} textAlign="center" borderRadius="md">
             Second, but last
-          </Box>
-        </Box>
-        <Box col order={1}>
-          <Box bg="amber-500" py={2} textAlign="center" borderRadius="md">
+          </x.div>
+        </x.div>
+        <x.div col order={1}>
+          <x.div bg="amber-500" py={2} textAlign="center" borderRadius="md">
             Third, but first
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col>First, but unordered</Box>
-    <Box col order={2}>
+  <x.div row>
+    <x.div col>First, but unordered</x.div>
+    <x.div col order={2}>
       Second, but last
-    </Box>
-    <Box col order={1}>
+    </x.div>
+    <x.div col order={1}>
       Third, but first
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 </>
 ```
 
@@ -976,103 +992,103 @@ Use `order` prop for controlling the visual order of your content. Like all util
 
 You can move columns by applying `margin-left` (`ml`) on them.
 
-```jsx preview
+```jsx preview color=blue
 <>
   <template preview>
-    <Box
+    <x.div
       color="white"
       fontWeight="extrabold"
       overflow="hidden"
       p={2}
       spaceY={2}
     >
-      <Box row bg="blue-200" borderRadius="md">
-        <Box col={1 / 3}>
-          <Box bg="blue-500" p={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={1 / 3} ml="33.333%">
-          <Box bg="blue-500" p={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-      <Box row bg="blue-200" borderRadius="md">
-        <Box col={1 / 4} ml="25%">
-          <Box bg="blue-500" p={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={1 / 4} ml="25%">
-          <Box bg="blue-500" p={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-      <Box row bg="blue-200" borderRadius="md">
-        <Box ol={1 / 2} ml="25%">
-          <Box bg="blue-500" p={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-    </Box>
+      <x.div row bg="blue-200" borderRadius="md">
+        <x.div col={1 / 3}>
+          <x.div bg="blue-500" p={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={1 / 3} ml="33.333%">
+          <x.div bg="blue-500" p={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+      <x.div row bg="blue-200" borderRadius="md">
+        <x.div col={1 / 4} ml="25%">
+          <x.div bg="blue-500" p={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={1 / 4} ml="25%">
+          <x.div bg="blue-500" p={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+      <x.div row bg="blue-200" borderRadius="md">
+        <x.div ol={1 / 2} ml="25%">
+          <x.div bg="blue-500" p={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col={1 / 3} />
-    <Box col={1 / 3} ml="33.333%" />
-  </Box>
-  <Box row>
-    <Box col={1 / 4} ml="25%" />
-    <Box col={1 / 4} ml="25%" />
-  </Box>
-  <Box row>
-    <Box col={1 / 2} ml="25%" />
-  </Box>
+  <x.div row>
+    <x.div col={1 / 3} />
+    <x.div col={1 / 3} ml="33.333%" />
+  </x.div>
+  <x.div row>
+    <x.div col={1 / 4} ml="25%" />
+    <x.div col={1 / 4} ml="25%" />
+  </x.div>
+  <x.div row>
+    <x.div col={1 / 2} ml="25%" />
+  </x.div>
 </>
 ```
 
 You can also set `margin` to `auto` to force sibling columns away from one another.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box
+    <x.div
       color="white"
       fontWeight="extrabold"
       overflow="hidden"
       p={2}
       spaceY={2}
     >
-      <Box row bg="amber-200" borderRadius="md">
-        <Box col={1 / 3}>
-          <Box bg="amber-500" p={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={1 / 3} ml="auto">
-          <Box bg="amber-500" p={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-      <Box row bg="amber-200" borderRadius="md">
-        <Box col={1 / 4} ml={{ md: 'auto' }}>
-          <Box bg="amber-500" p={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col={1 / 4} ml={{ md: 'auto' }}>
-          <Box bg="amber-500" p={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-      <Box row bg="amber-200" borderRadius="md">
-        <Box col="auto" mr="auto">
-          <Box bg="amber-500" p={2} textAlign="center" borderRadius="md" />
-        </Box>
-        <Box col="auto">
-          <Box bg="amber-500" p={2} textAlign="center" borderRadius="md" />
-        </Box>
-      </Box>
-    </Box>
+      <x.div row bg="amber-200" borderRadius="md">
+        <x.div col={1 / 3}>
+          <x.div bg="amber-500" p={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={1 / 3} ml="auto">
+          <x.div bg="amber-500" p={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+      <x.div row bg="amber-200" borderRadius="md">
+        <x.div col={1 / 4} ml={{ md: 'auto' }}>
+          <x.div bg="amber-500" p={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col={1 / 4} ml={{ md: 'auto' }}>
+          <x.div bg="amber-500" p={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+      <x.div row bg="amber-200" borderRadius="md">
+        <x.div col="auto" mr="auto">
+          <x.div bg="amber-500" p={2} textAlign="center" borderRadius="md" />
+        </x.div>
+        <x.div col="auto">
+          <x.div bg="amber-500" p={2} textAlign="center" borderRadius="md" />
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col={1 / 3} />
-    <Box col={1 / 3} ml="auto" />
-  </Box>
-  <Box row>
-    <Box col={1 / 4} ml={{ md: 'auto' }} />
-    <Box col={1 / 4} ml={{ md: 'auto' }} />
-  </Box>
-  <Box row>
-    <Box col="auto" mr="auto" />
-    <Box col="auto" />
-  </Box>
+  <x.div row>
+    <x.div col={1 / 3} />
+    <x.div col={1 / 3} ml="auto" />
+  </x.div>
+  <x.div row>
+    <x.div col={1 / 4} ml={{ md: 'auto' }} />
+    <x.div col={1 / 4} ml={{ md: 'auto' }} />
+  </x.div>
+  <x.div row>
+    <x.div col="auto" mr="auto" />
+    <x.div col="auto" />
+  </x.div>
 </>
 ```
 
@@ -1080,39 +1096,39 @@ You can also set `margin` to `auto` to force sibling columns away from one anoth
 
 To nest a grid, specify a `col` as a `row`.
 
-```jsx preview
+```jsx preview color=lime
 <>
   <template preview>
-    <Box
+    <x.div
       color="white"
       fontWeight="extrabold"
       overflow="hidden"
       p={2}
       spaceY={2}
     >
-      <Box row bg="lime-200" borderRadius="md">
-        <Box col={3 / 4} row>
+      <x.div row bg="lime-200" borderRadius="md">
+        <x.div col={3 / 4} row>
           {/* {`Level 1: col={3 / 4}`} */}
-          <Box col={2 / 3}>
-            <Box bg="lime-500" p={2} textAlign="center" borderRadius="md">
+          <x.div col={2 / 3}>
+            <x.div bg="lime-500" p={2} textAlign="center" borderRadius="md">
               {`col={2 / 3}`}
-            </Box>
-          </Box>
-          <Box col={1 / 3}>
-            <Box bg="lime-500" p={2} textAlign="center" borderRadius="md">
+            </x.div>
+          </x.div>
+          <x.div col={1 / 3}>
+            <x.div bg="lime-500" p={2} textAlign="center" borderRadius="md">
               {`col={1 / 3}`}
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+            </x.div>
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
-  <Box row>
-    <Box col={3 / 4} row>
+  <x.div row>
+    <x.div col={3 / 4} row>
       {/* {`Level 1: col={3 / 4}`} */}
-      <Box col={2 / 3}>{`col={2 / 3}`}</Box>
-      <Box col={1 / 3}>{`col={1 / 3}`}</Box>
-    </Box>
-  </Box>
+      <x.div col={2 / 3}>{`col={2 / 3}`}</x.div>
+      <x.div col={1 / 3}>{`col={1 / 3}`}</x.div>
+    </x.div>
+  </x.div>
 </>
 ```

@@ -1,6 +1,7 @@
 ---
 section: Transforms
 title: Skew
+slug: /docs/skew/
 ---
 
 # Skew
@@ -28,12 +29,13 @@ Skew an element by first enabling transforms with the `transform` utility, then 
       my={10}
     >
       {[0, 3, 6, 12].map((angle) => (
-        <x.div key={angle} w={24} h={24} bg="amber-300">
+        <x.div key={angle} w={24} h={24} bg="amber-300" borderRadius="md">
           <x.img
             h={24}
             w={24}
             transform
             skewY={angle}
+            borderRadius="md"
             src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
           />
         </x.div>

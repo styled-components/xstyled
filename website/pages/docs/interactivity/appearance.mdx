@@ -1,6 +1,7 @@
 ---
 section: Interactivity
 title: Appearance
+slug: /docs/apperance/
 ---
 
 # Appearance
@@ -20,19 +21,19 @@ Use `appearance="none"` to reset any browser specific styling on an element. Thi
   <template preview>
     <x.div maxWidth="sm" mx="auto" p={3}>
       <x.div display="flex" my={4}>
-        <x.div as="select" w={16}>
+        <x.select w={16}>
           <option>Yes</option>
           <option>No</option>
           <option>Maybe</option>
-        </x.div>
+        </x.select>
         <x.div mx={4}>Default browser styles applied</x.div>
       </x.div>
       <x.div display="flex" my={4}>
-        <x.div as="select" appearance="none" w={16}>
+        <x.select appearance="none" w={16}>
           <option>Yes</option>
           <option>No</option>
           <option>Maybe</option>
-        </x.div>
+        </x.select>
         <x.div mx={4}>Default styles removed</x.div>
       </x.div>
     </x.div>

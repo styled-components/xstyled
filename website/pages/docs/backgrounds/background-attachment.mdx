@@ -1,9 +1,10 @@
 ---
 section: Backgrounds
-title: Bakground Attachment
+title: Background Attachment
+slug: /docs/background-attachment/
 ---
 
-# Bakground Attachment
+# Background Attachment
 
 Utilities for controlling how a background image behaves when scrolling.
 
@@ -15,10 +16,10 @@ Utilities for controlling how a background image behaves when scrolling.
 
 Use `backgroundAttachment="fixed"` to fix the background image relative to the viewport.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
+    <x.div
       w={1}
       h={48}
       backgroundAttachment="fixed"
@@ -27,10 +28,10 @@ Use `backgroundAttachment="fixed"` to fix the background image relative to the v
       overflowY="scroll"
       backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&h=800&q=80')"
     >
-      <Box class="h-64" />
-    </Box>
+      <x.div h={64} />
+    </x.div>
   </template>
-  <Box backgroundAttachment="fixed" backgroundImage="url(...)" />
+  <x.div backgroundAttachment="fixed" backgroundImage="url(...)" />
 </>
 ```
 
@@ -38,10 +39,10 @@ Use `backgroundAttachment="fixed"` to fix the background image relative to the v
 
 Use `backgroundAttachment="local"` to scroll the background image with the container and the viewport.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box
+    <x.div
       w={1}
       h={72}
       backgroundAttachment="local"
@@ -50,21 +51,21 @@ Use `backgroundAttachment="local"` to scroll the background image with the conta
       overflowY="scroll"
       backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&h=800&q=80')"
     >
-      <Box h={96} />
-    </Box>
+      <x.div h={96} />
+    </x.div>
   </template>
-  <Box backgroundAttachment="local" backgroundImage="url(...)" />
+  <x.div backgroundAttachment="local" backgroundImage="url(...)" />
 </>
 ```
 
-## Local
+## Scroll
 
 Use `backgroundAttachment="scroll"` to scroll the background image with the viewport, but not with the container.
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box
+    <x.div
       w={1}
       h={72}
       backgroundAttachment="scroll"
@@ -73,10 +74,10 @@ Use `backgroundAttachment="scroll"` to scroll the background image with the view
       overflowY="scroll"
       backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&h=800&q=80')"
     >
-      <Box h={96} />
-    </Box>
+      <x.div h={96} />
+    </x.div>
   </template>
-  <Box backgroundAttachment="scroll" backgroundImage="url(...)" />
+  <x.div backgroundAttachment="scroll" backgroundImage="url(...)" />
 </>
 ```
 
@@ -85,7 +86,7 @@ Use `backgroundAttachment="scroll"` to scroll the background image with the view
 To control the background attachment of an element at a specific breakpoint, use responsive object notation. For example, adding the property `backgroundAttachment={{ md: "scroll" }}` to an element would apply the `backgroundAttachment="scroll"` utility at medium screen sizes and above.
 
 ```jsx
-<Box backgroundAttachment={{ md: 'scroll' }} />
+<x.div backgroundAttachment={{ md: 'scroll' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

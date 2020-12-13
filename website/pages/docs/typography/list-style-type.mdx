@@ -1,6 +1,7 @@
 ---
 section: Typography
 title: List Style Type
+slug: /docs/list-style-type/
 ---
 
 # List Style Type
@@ -20,7 +21,7 @@ To create custom lists, use the `listStyleType={type}` utilities.
   <template preview>
     <x.div spaceY={8}>
       {['disc', 'decimal', 'circle', 'square', 'none'].map((listStyleType) => (
-        <x.dl key={listStyleType} color="pink-600" overflow="hidden">
+        <x.dl key={listStyleType} color="pink-700" overflow="hidden">
           <x.dt
             w={16}
             flexShrink={0}
@@ -69,7 +70,7 @@ To create custom lists, use the `listStyleType={type}` utilities.
 To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `listStyleType={{ md: "disc" }}` to an element would apply the `listStyleType="disc"` utility at medium screen sizes and above.
 
 ```jsx
-<Box listStyleType={{ md: 'disc' }}>{/* ... */}</Box>
+<x.div listStyleType={{ md: 'disc' }}>{/* ... */}</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

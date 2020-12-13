@@ -1,6 +1,7 @@
 ---
 section: Layout
 title: Top / Right / Bottom / Left
+slug: /docs/top-right-bottom-left/
 ---
 
 # Top / Right / Bottom / Left
@@ -20,13 +21,19 @@ Use the `{top|right|bottom|left}={value}` utilities to anchor absolutely positio
 
 Combined with xstyled's padding and margin utilities, you'll probably find that these are all you need to precisely control absolutely positioned elements.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box display="grid" gridTemplateColumns={{ xs: 2, sm: 3, md: 4 }} gap={4}>
+    <x.div display="grid" gridTemplateColumns={{ xs: 2, sm: 3, md: 4 }} gap={4}>
       {/* Span top edge */}
-      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
-        <Box
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
           top={0}
           right={0}
           left={0}
@@ -41,12 +48,18 @@ Combined with xstyled's padding and margin utilities, you'll probably find that 
           borderRadius="md"
         >
           1
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
 
       {/* Span right edge */}
-      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
-        <Box
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
           top={0}
           right={0}
           bottom={0}
@@ -61,12 +74,18 @@ Combined with xstyled's padding and margin utilities, you'll probably find that 
           borderRadius="md"
         >
           2
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
 
       {/* Span bottom edge */}
-      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
-        <Box
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
           right={0}
           bottom={0}
           left={0}
@@ -81,12 +100,18 @@ Combined with xstyled's padding and margin utilities, you'll probably find that 
           borderRadius="md"
         >
           3
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
 
       {/* Span left edge */}
-      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
-        <Box
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
           top={0}
           bottom={0}
           left={0}
@@ -101,12 +126,18 @@ Combined with xstyled's padding and margin utilities, you'll probably find that 
           borderRadius="md"
         >
           4
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
 
       {/* Fill entire parent */}
-      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
-        <Box
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
           top={0}
           right={0}
           bottom={0}
@@ -121,12 +152,18 @@ Combined with xstyled's padding and margin utilities, you'll probably find that 
           borderRadius="md"
         >
           5
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
 
       {/* Pin to top left corner */}
-      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
-        <Box
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
           top={0}
           left={0}
           h={16}
@@ -141,12 +178,18 @@ Combined with xstyled's padding and margin utilities, you'll probably find that 
           borderRadius="md"
         >
           6
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
 
       {/* Pin to top right corner */}
-      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
-        <Box
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
           top={0}
           right={0}
           h={16}
@@ -161,12 +204,18 @@ Combined with xstyled's padding and margin utilities, you'll probably find that 
           borderRadius="md"
         >
           7
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
 
       {/* Pin to bottom right corner */}
-      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
-        <Box
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
           right={0}
           bottom={0}
           h={16}
@@ -181,12 +230,18 @@ Combined with xstyled's padding and margin utilities, you'll probably find that 
           borderRadius="md"
         >
           8
-        </Box>
-      </Box>
+        </x.div>
+      </x.div>
 
       {/* Pin to bottom left corner */}
-      <Box position="relative" h={32} w={32} bg="emerald-300" borderRadius="md">
-        <Box
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
           bottom={0}
           left={0}
           h={16}
@@ -201,72 +256,72 @@ Combined with xstyled's padding and margin utilities, you'll probably find that 
           borderRadius="md"
         >
           9
-        </Box>
-      </Box>
-    </Box>
+        </x.div>
+      </x.div>
+    </x.div>
   </template>
   {/* Span top edge */}
-  <Box position="relative" h={32} w={32}>
-    <Box top={0} right={0} left={0} h={16}>
+  <x.div position="relative" h={32} w={32}>
+    <x.div top={0} right={0} left={0} h={16}>
       1
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 
   {/* Span right edge */}
-  <Box position="relative" h={32} w={32}>
-    <Box top={0} right={0} bottom={0} w={16}>
+  <x.div position="relative" h={32} w={32}>
+    <x.div top={0} right={0} bottom={0} w={16}>
       2
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 
   {/* Span bottom edge */}
-  <Box position="relative" h={32} w={32}>
-    <Box right={0} bottom={0} left={0} h={16}>
+  <x.div position="relative" h={32} w={32}>
+    <x.div right={0} bottom={0} left={0} h={16}>
       2
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 
   {/* Span left edge */}
-  <Box position="relative" h={32} w={32}>
-    <Box top={0} bottom={0} left={0} w={16}>
+  <x.div position="relative" h={32} w={32}>
+    <x.div top={0} bottom={0} left={0} w={16}>
       3
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 
   {/* Fill entire parent */}
-  <Box position="relative" h={32} w={32}>
-    <Box top={0} right={0} bottom={0} left={0}>
+  <x.div position="relative" h={32} w={32}>
+    <x.div top={0} right={0} bottom={0} left={0}>
       4
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 
   {/* Pin to top left corner */}
-  <Box position="relative" h={32} w={32}>
-    <Box top={0} left={0} h={16} w={16}>
+  <x.div position="relative" h={32} w={32}>
+    <x.div top={0} left={0} h={16} w={16}>
       5
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 
   {/* Pin to top right corner */}
-  <Box position="relative" h={32} w={32}>
-    <Box top={0} right={0} h={16} w={16}>
+  <x.div position="relative" h={32} w={32}>
+    <x.div top={0} right={0} h={16} w={16}>
       6
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 
   {/* Pin to bottom right corner */}
-  <Box position="relative" h={32} w={32}>
-    <Box right={0} bottom={0} h={16} w={16}>
+  <x.div position="relative" h={32} w={32}>
+    <x.div right={0} bottom={0} h={16} w={16}>
       6
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 
   {/* Pin to bottom left corner */}
-  <Box position="relative" h={32} w={32}>
-    <Box bottom={0} left={0} h={16} w={16}>
+  <x.div position="relative" h={32} w={32}>
+    <x.div bottom={0} left={0} h={16} w={16}>
       6
-    </Box>
-  </Box>
+    </x.div>
+  </x.div>
 </>
 ```
 
@@ -275,7 +330,7 @@ Combined with xstyled's padding and margin utilities, you'll probably find that 
 To position an element only at a specific breakpoint, use responsive object notation. For example, adding the property `top={{ md: 10 }}` to an element would apply the `top=10` utility at medium screen sizes and above.
 
 ```jsx
-<Box top={{ md: 10 }} />
+<x.div top={{ md: 10 }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

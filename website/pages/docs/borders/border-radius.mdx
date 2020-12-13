@@ -1,6 +1,7 @@
 ---
 section: Borders
 title: Border Radius
+slug: /docs/border-radius/
 ---
 
 # Border Radius
@@ -15,11 +16,11 @@ Utilities for controlling the border radius of an element.
 
 Use `borderRadius={radius}` utility to apply different border radius sizes to an element.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 4 }}>
-      <Box
+    <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 4 }}>
+      <x.div
         p={6}
         bg="light-blue-500"
         color="white"
@@ -31,8 +32,8 @@ Use `borderRadius={radius}` utility to apply different border radius sizes to an
         borderRadius="sm"
       >
         sm
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         p={6}
         bg="light-blue-500"
         color="white"
@@ -44,8 +45,8 @@ Use `borderRadius={radius}` utility to apply different border radius sizes to an
         borderRadius
       >
         default
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         p={6}
         bg="light-blue-500"
         color="white"
@@ -57,8 +58,8 @@ Use `borderRadius={radius}` utility to apply different border radius sizes to an
         borderRadius="md"
       >
         md
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         p={6}
         bg="light-blue-500"
         color="white"
@@ -70,13 +71,13 @@ Use `borderRadius={radius}` utility to apply different border radius sizes to an
         borderRadius="lg"
       >
         lg
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box borderRadius="sm" />
-  <Box borderRadius />
-  <Box borderRadius="md" />
-  <Box borderRadius="lg" />
+  <x.div borderRadius="sm" />
+  <x.div borderRadius />
+  <x.div borderRadius="md" />
+  <x.div borderRadius="lg" />
 </>
 ```
 
@@ -84,11 +85,16 @@ Use `borderRadius={radius}` utility to apply different border radius sizes to an
 
 Use `borderRadius="full"` utility to create pills and circles.
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box display="flex" justifyContent="center" alignItems="center" spaceX={6}>
-      <Box
+    <x.div
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      spaceX={6}
+    >
+      <x.div
         bg="indigo-500"
         px={6}
         py={3}
@@ -98,8 +104,8 @@ Use `borderRadius="full"` utility to create pills and circles.
         borderRadius="full"
       >
         Pill Shape
-      </Box>
-      <Box
+      </x.div>
+      <x.div
         bg="indigo-500"
         h={24}
         w={24}
@@ -112,13 +118,13 @@ Use `borderRadius="full"` utility to create pills and circles.
         borderRadius="full"
       >
         Circle
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box borderRadius="full" py={3} px={6}>
+  <x.div borderRadius="full" py={3} px={6}>
     Pill Shape
-  </Box>
-  <Box
+  </x.div>
+  <x.div
     borderRadius="full"
     h={24}
     w={24}
@@ -127,7 +133,7 @@ Use `borderRadius="full"` utility to create pills and circles.
     justifyContent="center"
   >
     Circle
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -137,11 +143,11 @@ Use `borderRadius="none"` to remove an existing border radius from an element.
 
 This is most commonly used to remove a border radius that was applied at a smaller breakpoint.
 
-```jsx preview
+```jsx preview color=rose
 <>
   <template preview>
-    <Box display="flex" justifyContent="center" alignItems="center">
-      <Box
+    <x.div display="flex" justifyContent="center" alignItems="center">
+      <x.div
         bg="rose-500"
         p={6}
         color="white"
@@ -150,10 +156,10 @@ This is most commonly used to remove a border radius that was applied at a small
         borderRadius="none"
       >
         none
-      </Box>
-    </Box>
+      </x.div>
+    </x.div>
   </template>
-  <Box borderRadius="none">none</Box>
+  <x.div borderRadius="none">none</x.div>
 </>
 ```
 
@@ -161,13 +167,13 @@ This is most commonly used to remove a border radius that was applied at a small
 
 Use `borderRadius` shorthands to only round one side an element.
 
-```jsx preview
+```jsx preview color=indigo
 <>
   <template preview>
-    <Box display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 4 }}>
+    <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 4 }}>
       {['lg lg 0 0', '0 lg lg 0', '0 0 lg lg', 'lg 0 0 lg'].map(
-        borderRadius => (
-          <Box
+        (borderRadius) => (
+          <x.div
             key={borderRadius}
             p={6}
             bg="indigo-500"
@@ -180,15 +186,15 @@ Use `borderRadius` shorthands to only round one side an element.
             borderRadius={borderRadius}
           >
             {borderRadius}
-          </Box>
+          </x.div>
         ),
       )}
-    </Box>
+    </x.div>
   </template>
-  <Box borderRadius="lg lg 0 0" />
-  <Box borderRadius="0 lg lg 0" />
-  <Box borderRadius="0 0 lg lg" />
-  <Box borderRadius="lg 0 0 lg" />
+  <x.div borderRadius="lg lg 0 0" />
+  <x.div borderRadius="0 lg lg 0" />
+  <x.div borderRadius="0 0 lg lg" />
+  <x.div borderRadius="lg 0 0 lg" />
 </>
 ```
 
@@ -196,12 +202,12 @@ Use `borderRadius` shorthands to only round one side an element.
 
 Use `borderRadius` shorthands to only round one corner an element.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 4 }}>
-      {['lg 0 0 0', '0 lg 0 0', '0 0 lg 0', '0 0 0 lg'].map(borderRadius => (
-        <Box
+    <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 4 }}>
+      {['lg 0 0 0', '0 lg 0 0', '0 0 lg 0', '0 0 0 lg'].map((borderRadius) => (
+        <x.div
           key={borderRadius}
           p={6}
           bg="amber-500"
@@ -214,14 +220,14 @@ Use `borderRadius` shorthands to only round one corner an element.
           borderRadius={borderRadius}
         >
           {borderRadius}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box borderRadius="lg 0 0 0" />
-  <Box borderRadius="0 lg 0 0" />
-  <Box borderRadius="0 0 lg 0" />
-  <Box borderRadius="0 0 0 lg" />
+  <x.div borderRadius="lg 0 0 0" />
+  <x.div borderRadius="0 lg 0 0" />
+  <x.div borderRadius="0 0 lg 0" />
+  <x.div borderRadius="0 0 0 lg" />
 </>
 ```
 
@@ -230,7 +236,7 @@ Use `borderRadius` shorthands to only round one corner an element.
 To control the border radius of an element at a specific breakpoint, use responsive object notation. For example, adding the property `borderRadius={{ md: "lg" }}` to an element would apply the `borderRadius="lg"` utility at medium screen sizes and above.
 
 ```jsx
-<Box borderRadius={{ md: 'lg' }}>{/* ... */}</Box>
+<x.div borderRadius={{ md: 'lg' }}>{/* ... */}</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

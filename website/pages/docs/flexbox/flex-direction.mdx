@@ -1,6 +1,7 @@
 ---
 section: Flexbox
 title: Flex Direction
+slug: /docs/flex-direction/
 ---
 
 # Flex Direction
@@ -15,12 +16,12 @@ Utilities for controlling the direction of flex items.
 
 Use `flexDirection="row"` to position flex items horizontally in the same direction as text:
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box display="flex" flexDirection="row" spaceX={4}>
-      {[1, 2, 3].map(value => (
-        <Box
+    <x.div display="flex" flexDirection="row" spaceX={4}>
+      {[1, 2, 3].map((value) => (
+        <x.div
           key={value}
           w={16}
           h={16}
@@ -34,15 +35,15 @@ Use `flexDirection="row"` to position flex items horizontally in the same direct
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" flexDirection="row">
+  <x.div display="flex" flexDirection="row">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -50,12 +51,12 @@ Use `flexDirection="row"` to position flex items horizontally in the same direct
 
 Use `flexDirection="row-reverse"` to position flex items horizontally in the opposite direction:
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box display="flex" flexDirection="row-reverse" spaceX={4} spaceXReverse>
-      {[1, 2, 3].map(value => (
-        <Box
+    <x.div display="flex" flexDirection="row-reverse" spaceX={4} spaceXReverse>
+      {[1, 2, 3].map((value) => (
+        <x.div
           key={value}
           w={16}
           h={16}
@@ -69,15 +70,15 @@ Use `flexDirection="row-reverse"` to position flex items horizontally in the opp
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" flexDirection="row-reverse">
+  <x.div display="flex" flexDirection="row-reverse">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -85,12 +86,12 @@ Use `flexDirection="row-reverse"` to position flex items horizontally in the opp
 
 Use `flexDirection="column"` to position flex items vertically:
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box display="flex" flexDirection="column" spaceY={4}>
-      {[1, 2, 3].map(value => (
-        <Box
+    <x.div display="flex" flexDirection="column" spaceY={4}>
+      {[1, 2, 3].map((value) => (
+        <x.div
           key={value}
           h={16}
           borderRadius="md"
@@ -103,15 +104,15 @@ Use `flexDirection="column"` to position flex items vertically:
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" flexDirection="column">
+  <x.div display="flex" flexDirection="column">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -119,12 +120,17 @@ Use `flexDirection="column"` to position flex items vertically:
 
 Use `flexDirection="column-reverse"` to position flex items vertically in the opposite direction:
 
-```jsx preview
+```jsx preview color=red
 <>
   <template preview>
-    <Box display="flex" flexDirection="column-reverse" spaceY={4} spaceYReverse>
-      {[1, 2, 3].map(value => (
-        <Box
+    <x.div
+      display="flex"
+      flexDirection="column-reverse"
+      spaceY={4}
+      spaceYReverse
+    >
+      {[1, 2, 3].map((value) => (
+        <x.div
           key={value}
           h={16}
           borderRadius="md"
@@ -137,15 +143,15 @@ Use `flexDirection="column-reverse"` to position flex items vertically in the op
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="flex" flexDirection="column-reverse">
+  <x.div display="flex" flexDirection="column-reverse">
     <div>1</div>
     <div>2</div>
     <div>3</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -154,9 +160,9 @@ Use `flexDirection="column-reverse"` to position flex items vertically in the op
 To apply a flex direction utility only at a specific breakpoint, use responsive object notation. For example, adding the property `flexDirection={{ xs: 'column', md: 'row' }}` to an element would apply the `flexDirection="column"` by default and the `flexDirection="row"` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="flex" flexDirection={{ xs: 'column', md: 'row' }}>
+<x.div display="flex" flexDirection={{ xs: 'column', md: 'row' }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

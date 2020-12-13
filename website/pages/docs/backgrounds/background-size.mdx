@@ -1,9 +1,10 @@
 ---
 section: Backgrounds
-title: Bakground Size
+title: Background Size
+slug: /docs/background-size/
 ---
 
-# Bakground Size
+# Background Size
 
 Utilities for controlling the background size of an element's background image.
 
@@ -15,10 +16,10 @@ Utilities for controlling the background size of an element's background image.
 
 Use `backgroundSize="auto"` to display the background image at its default size.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box
+    <x.div
       bg="amber-300"
       h={48}
       backgroundSize="auto"
@@ -27,7 +28,7 @@ Use `backgroundSize="auto"` to display the background image at its default size.
       backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=200&h=200&q=80');"
     />
   </template>
-  <Box
+  <x.div
     backgroundSize="auto"
     backgroundRepeat="no-repeat"
     backgroundPosition="center"
@@ -40,10 +41,10 @@ Use `backgroundSize="auto"` to display the background image at its default size.
 
 Use `backgroundSize="cover"` to scale the background image until it fills the background layer.
 
-```jsx preview
+```jsx preview color=light-blue
 <>
   <template preview>
-    <Box
+    <x.div
       bg="light-blue-300"
       h={48}
       backgroundSize="cover"
@@ -52,7 +53,7 @@ Use `backgroundSize="cover"` to scale the background image until it fills the ba
       backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=200&h=200&q=80');"
     />
   </template>
-  <Box
+  <x.div
     backgroundSize="cover"
     backgroundRepeat="no-repeat"
     backgroundPosition="center"
@@ -65,11 +66,11 @@ Use `backgroundSize="cover"` to scale the background image until it fills the ba
 
 Use `backgroundSize="contain"` to scale the background image to the outer edges without cropping or stretching.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box
-      bg="light-blue-300"
+    <x.div
+      bg="emerald-300"
       h={48}
       backgroundSize="contain"
       backgroundRepeat="no-repeat"
@@ -77,7 +78,7 @@ Use `backgroundSize="contain"` to scale the background image to the outer edges 
       backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=200&h=200&q=80');"
     />
   </template>
-  <Box
+  <x.div
     backgroundSize="contain"
     backgroundRepeat="no-repeat"
     backgroundPosition="center"
@@ -91,7 +92,7 @@ Use `backgroundSize="contain"` to scale the background image to the outer edges 
 To control the size of an element's background image at a specific breakpoint, use responsive object notation. For example, adding the property `backgroundSize={{ md: "cover" }}` to an element would apply the `backgroundSize="cover"` utility at medium screen sizes and above.
 
 ```jsx
-<Box backgroundSize={{ md: 'cover' }} />
+<x.div backgroundSize={{ md: 'cover' }} />
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

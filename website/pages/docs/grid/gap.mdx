@@ -1,6 +1,7 @@
 ---
 section: Grid
 title: Gap
+slug: /docs/gap/
 ---
 
 # Gap
@@ -17,12 +18,12 @@ Utilities for controlling gutters between grid rows and columns.
 
 Use `gap={space}` to change the gap between both rows and columns in grid layouts.
 
-```jsx preview
+```jsx preview color=amber
 <>
   <template preview>
-    <Box display="grid" gap={4} gridTemplateColumns={2}>
-      {Array.from({ length: 4 }, (_, index) => index + 1).map(value => (
-        <Box
+    <x.div display="grid" gap={4} gridTemplateColumns={2}>
+      {Array.from({ length: 4 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           h={12}
           borderRadius="md"
@@ -35,15 +36,15 @@ Use `gap={space}` to change the gap between both rows and columns in grid layout
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="grid" gap={4} gridTemplateColumns={2}>
+  <x.div display="grid" gap={4} gridTemplateColumns={2}>
     <div>1</div>
     {/* ... */}
     <div>4</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -51,12 +52,12 @@ Use `gap={space}` to change the gap between both rows and columns in grid layout
 
 Use `rowGap={size}` and `columnGap={size}` to change the gap between rows and columns independently.
 
-```jsx preview
+```jsx preview color=emerald
 <>
   <template preview>
-    <Box display="grid" columnGap={8} rowGap={4} gridTemplateColumns={3}>
-      {Array.from({ length: 6 }, (_, index) => index + 1).map(value => (
-        <Box
+    <x.div display="grid" columnGap={8} rowGap={4} gridTemplateColumns={3}>
+      {Array.from({ length: 6 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           h={12}
           borderRadius="md"
@@ -69,15 +70,15 @@ Use `rowGap={size}` and `columnGap={size}` to change the gap between rows and co
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box display="grid" columnGap={8} rowGap={4} gridTemplateColumns={3}>
+  <x.div display="grid" columnGap={8} rowGap={4} gridTemplateColumns={3}>
     <div>1</div>
     {/* ... */}
     <div>6</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -86,29 +87,15 @@ Use `rowGap={size}` and `columnGap={size}` to change the gap between rows and co
 To control the gap at a specific breakpoint, use responsive object notation. For example, adding the property `gap={{ md: 2 }}` to an element would apply the `gap={2}` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="grid" gap={{ md: 2 }}>
+<x.div display="grid" gap={{ md: 2 }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
 
 ## Customizing
 
-### Spacing scale
+import CustomizeSpace from '../../../partials/customizing/space.mdx'
 
-If you'd like to customize your values for margin, padding, space between, all at once, use the `theme.space` section of your theme.
-
-```diffjs
-  // theme.js
-  export const theme = {
-    space: {
-+     sm: '8px',
-+     md: '16px',
-+     lg: '24px',
-+     xl: '48px',
-    },
-  }
-```
-
-Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).
+<CustomizeSpace />

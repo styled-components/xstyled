@@ -1,6 +1,7 @@
 ---
 section: Interactivity
 title: Pointer Events
+slug: /docs/pointer-events/
 ---
 
 # Pointer Events
@@ -21,16 +22,15 @@ Use `pointerEvents="none"` to make an element ignore pointer events. The pointer
 <>
   <template preview>
     <x.div maxWidth="sm">
-      <x.div as="p" color="gray-700">
+      <x.p color="gray-700">
         Try clicking the caret icon to open the dropdown
-      </x.div>
+      </x.p>
 
-      <x.div as="p" mt={4} fontSize="sm" color="gray-600">
+      <x.p mt={4} fontSize="sm" color="gray-600">
         pointerEvents="auto" (event captured)
-      </x.div>
+      </x.p>
       <x.div mt={1} position="relative">
-        <x.div
-          as="select"
+        <x.select
           display="block"
           appearance="none"
           w={1}
@@ -49,7 +49,7 @@ Use `pointerEvents="none"` to make an element ignore pointer events. The pointer
           <option>Indiana</option>
           <option>Michigan</option>
           <option>Ohio</option>
-        </x.div>
+        </x.select>
         <x.div
           position="absolute"
           right={0}
@@ -63,18 +63,17 @@ Use `pointerEvents="none"` to make an element ignore pointer events. The pointer
           borderRadius="0 default default 0"
           pointerEvents="auto"
         >
-          <x.div as="svg" fill="currentcolor" h={4} w={4} viewBox="0 0 20 20">
+          <x.svg fill="currentcolor" h={4} w={4} viewBox="0 0 20 20">
             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-          </x.div>
+          </x.svg>
         </x.div>
       </x.div>
 
-      <x.div as="p" mt={4} fontSize="sm" color="gray-600">
+      <x.p mt={4} fontSize="sm" color="gray-600">
         pointerEvents="none" (event passes through)
-      </x.div>
+      </x.p>
       <x.div mt={1} position="relative">
-        <x.div
-          as="select"
+        <x.select
           display="block"
           appearance="none"
           w={1}
@@ -93,7 +92,7 @@ Use `pointerEvents="none"` to make an element ignore pointer events. The pointer
           <option>Indiana</option>
           <option>Michigan</option>
           <option>Ohio</option>
-        </x.div>
+        </x.select>
         <x.div
           position="absolute"
           right={0}
@@ -107,9 +106,9 @@ Use `pointerEvents="none"` to make an element ignore pointer events. The pointer
           borderRadius="0 default default 0"
           pointerEvents="none"
         >
-          <x.div as="svg" fill="currentcolor" h={4} w={4} viewBox="0 0 20 20">
+          <x.svg fill="currentcolor" h={4} w={4} viewBox="0 0 20 20">
             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-          </x.div>
+          </x.svg>
         </x.div>
       </x.div>
     </x.div>

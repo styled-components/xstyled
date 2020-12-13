@@ -1,6 +1,7 @@
 ---
 section: Grid
 title: Grid Auto Flow
+slug: /docs/grid-auto-flow/
 ---
 
 # Grid Auto Flow
@@ -15,18 +16,18 @@ Utilities for controlling how elements in a grid are auto-placed.
 
 Use the `gridAutoFlow={keyword}` utilities to control how the auto-placement algorithm works for a grid layout.
 
-```jsx preview
+```jsx preview color=fuchsia
 <>
   <template preview>
-    <Box
+    <x.div
       display="grid"
       gridAutoFlow="column"
       gridTemplateColumns={3}
       gridTemplateRows={3}
       gap={4}
     >
-      {Array.from({ length: 9 }, (_, index) => index + 1).map(value => (
-        <Box
+      {Array.from({ length: 9 }, (_, index) => index + 1).map((value) => (
+        <x.div
           key={value}
           h={12}
           borderRadius="md"
@@ -39,11 +40,11 @@ Use the `gridAutoFlow={keyword}` utilities to control how the auto-placement alg
           fontWeight="extrabold"
         >
           {value}
-        </Box>
+        </x.div>
       ))}
-    </Box>
+    </x.div>
   </template>
-  <Box
+  <x.div
     display="grid"
     gridAutoFlow="column"
     gridTemplateColumns={3}
@@ -53,7 +54,7 @@ Use the `gridAutoFlow={keyword}` utilities to control how the auto-placement alg
     <div>1</div>
     {/* ... */}
     <div>9</div>
-  </Box>
+  </x.div>
 </>
 ```
 
@@ -62,9 +63,9 @@ Use the `gridAutoFlow={keyword}` utilities to control how the auto-placement alg
 To control the grid-auto-flow property at a specific breakpoint, use responsive object notation. For example, adding the property `gridAutoFlow={{ md: "column" }}` to an element would apply the `gridAutoFlow="column"` utility at medium screen sizes and above.
 
 ```jsx
-<Box display="grid" gridAutoFlow={{ md: 'column' }}>
+<x.div display="grid" gridAutoFlow={{ md: 'column' }}>
   {/* ... */}
-</Box>
+</x.div>
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.

@@ -1,6 +1,7 @@
 ---
 section: Transforms
 title: Transform Origin
+slug: /docs/transform-origin/
 ---
 
 # Transform Origin
@@ -27,13 +28,20 @@ Specify an element's transform origin using the `transformOrigin={value}` utilit
       my={10}
     >
       {['center', 'top left', 'bottom right', 'left'].map((keyword) => (
-        <x.div key={keyword} w={20} h={20} bg="light-blue-300">
+        <x.div
+          key={keyword}
+          w={20}
+          h={20}
+          bg="light-blue-300"
+          borderRadius="md"
+        >
           <x.img
             h={20}
             w={20}
             transform
             transformOrigin={keyword}
             rotate={45}
+            borderRadius="md"
             src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
           />
         </x.div>
