@@ -310,14 +310,32 @@ const colors = {
   'blue-gray-900': '#0f172a',
 }
 
+const alphaVariants = [
+  0,
+  5,
+  10,
+  20,
+  25,
+  30,
+  40,
+  50,
+  60,
+  70,
+  75,
+  80,
+  90,
+  95,
+  100,
+]
+
 export const generateHexAlphaVariants = (colors: { [key: string]: string }) =>
   Object.keys(colors).reduce(
     (obj, key) => {
-      for (let i = 1; i < 10; i++) {
-        obj[`${key}-a${i}0`] = `${colors[key]}${Math.round(
-          (i / 10) * 255,
+      alphaVariants.forEach((i) => {
+        obj[`${key}-a${i}`] = `${colors[key]}${Math.round(
+          (i / 100) * 255,
         ).toString(16)}`
-      }
+      })
       return obj
     },
     { ...colors },
@@ -330,6 +348,7 @@ export const defaultTheme = {
     ...space,
     1: undefined,
     '1s': space[1],
+    full: '100%',
     xs: '20rem',
     sm: '24rem',
     md: '28rem',
@@ -365,7 +384,6 @@ export const defaultTheme = {
     '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
     inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
     outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
-    none: 'none',
   },
   fontSizes: {
     xs: '0.75rem',
