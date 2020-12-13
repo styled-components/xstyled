@@ -41,7 +41,7 @@ export interface BackgroundImageProps<T = {}> {
 export const backgroundImage = style<BackgroundImageProps>({
   prop: 'backgroundImage',
   cssProperty: (_, { value }) => ({
-    background: gradientBackgrounds[value] || value,
+    backgroundImage: gradientBackgrounds[value] || value,
   }),
 })
 
