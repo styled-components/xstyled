@@ -1,0 +1,79 @@
+---
+section: Borders
+title: Divide Style
+---
+
+# Divide Style
+
+Utilities for controlling the border style between elements.
+
+| React props                 | CSS Properties                 |
+| --------------------------- | ------------------------------ |
+| `divideStyle={borderStyle}` | `border-style: {borderStyle};` |
+
+## Usage
+
+Control the border style between elements using the `divideStyle={borderStyle}` utility.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateColumns={1}
+      divideY={4}
+      divideStyle="dashed"
+      divideColor="amber-500"
+    >
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="amber-600"
+        py={3}
+      >
+        1
+      </x.div>
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="amber-600"
+        py={3}
+      >
+        2
+      </x.div>
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="amber-600"
+        py={3}
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div
+    display="grid"
+    gridTemplateColumns={1}
+    divideY={4}
+    divideStyle="dashed"
+    divideColor="amber-500"
+  >
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the border style between elements at a specific breakpoint, use responsive object notation. For example, adding the property `divideStyle={{ md: "dashed" }}` to an element would apply the `divideStyle="dashed"` utility at medium screen sizes and above.
+
+```jsx
+<x.div divideStyle={{ md: 'dashed' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
