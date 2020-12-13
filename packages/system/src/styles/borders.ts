@@ -231,6 +231,44 @@ export const divideStyle = style<DivideStyleProps>({
   }),
 })
 
+export type RightWidthGetter<T = {}> = VariantsType<
+  ExtractThemeProperty<T, 'ringWidths'>
+>
+export const getRingWidth = themeGetter({
+  name: 'ringWidth',
+  key: 'ringWidths',
+  compose: getPx,
+})
+
+export interface RingProps<T = {}> {
+  ring?: SystemProperty<BorderWidthGetter, T>
+}
+export const ring = style<RingProps>({
+  prop: 'ring',
+  themeGet: getRingWidth,
+  cssProperty: (_, { value }) => ({
+    '--x-ring-shadow': `var(--x-ring-inset, /*!*/ /*!*/) 0 0 0 ${value} var(--x-ring-color)`,
+    boxShadow: 'var(--x-ring-shadow, 0 0 #0000), var(--x-shadow, 0 0 #0000)',
+  }),
+})
+
+export interface RingInsetProps<T = {}> {
+  ringInset?: SystemProperty<boolean, T>
+}
+export const ringInset = style<RingInsetProps>({
+  prop: 'ringInset',
+  cssProperty: () => ({ '--x-ring-inset': 'inset' }),
+})
+
+export interface RingColorProps<T = {}> {
+  ringColor?: SystemProperty<ColorGetter, T>
+}
+export const ringColor = style<RingColorProps>({
+  prop: 'ringColor',
+  themeGet: getColor,
+  cssProperty: (_, { value }) => ({ '--x-ring-color': value }),
+})
+
 export type BordersProps<T = {}> = BorderProps<T> &
   BorderColorProps<T> &
   BorderWidthProps<T> &
@@ -245,7 +283,10 @@ export type BordersProps<T = {}> = BorderProps<T> &
   DivideXReverseProps<T> &
   DivideYReverseProps<T> &
   DivideColorProps<T> &
-  DivideStyleProps<T>
+  DivideStyleProps<T> &
+  RingProps<T> &
+  RingInsetProps<T> &
+  RingColorProps<T>
 export const borders = compose<BordersProps>(
   border,
   borderColor,
@@ -262,4 +303,7 @@ export const borders = compose<BordersProps>(
   divideYReverse,
   divideColor,
   divideStyle,
+  ring,
+  ringInset,
+  ringColor,
 )

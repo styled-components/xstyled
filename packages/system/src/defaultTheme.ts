@@ -432,6 +432,9 @@ export const defaultTheme = {
   borderWidths: {
     default: 1,
   },
+  ringWidths: {
+    default: 3,
+  },
   borders: {
     default: '1px solid transparent',
   },

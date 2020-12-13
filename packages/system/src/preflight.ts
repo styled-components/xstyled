@@ -67,6 +67,10 @@ export const createPreflight = ({
       border-color: ${th.color('default-border-color', 'currentColor')};
     }
 
+    * {
+      --x-ring-color: ${th.color('default-ring-color', 'rgba(59,130,246,0.5)')};
+    }
+
     /* Default outline on buttons */
     button:focus {
       outline: 1px dotted;

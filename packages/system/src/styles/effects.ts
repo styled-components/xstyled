@@ -28,6 +28,10 @@ export interface BoxShadowProps<T = {}> {
 export const boxShadow = style<BoxShadowProps>({
   prop: 'boxShadow',
   themeGet: getShadow,
+  cssProperty: (_, { value }) => ({
+    '--x-shadow': value,
+    boxShadow: 'var(--x-ring-shadow, 0 0 #0000), var(--x-shadow)',
+  }),
 })
 
 export interface TextShadowProps<T = {}> {
