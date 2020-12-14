@@ -14,7 +14,11 @@ import {
   getFontWeight,
   getLetterSpacing,
   getTransition,
-  getPx,
+  getInset,
+  getAnimation,
+  getTimingFunction,
+  getTransform,
+  getTransitionProperty,
 } from '@xstyled/system'
 
 const getNumber = (transform: Function) => (value: any) => {
@@ -36,7 +40,7 @@ const getMultiValues = (transform: Function) => (value: any) => {
     values.map((value: any) => transform(value)(p)).join(',')
 }
 
-const getNumberPx = getNumber(getPx)
+const getNumberInset = getNumber(getInset)
 
 const getNumberSpace = getNumber(getSpace)
 const getMultiNumberSpace = getMultiDimensions(getNumberSpace)
@@ -62,6 +66,7 @@ export const propGetters = {
   'padding-bottom': getNumberSpace,
   'padding-left': getNumberSpace,
   'padding-right': getNumberSpace,
+  gap: getMultiNumberSpace,
   'grid-gap': getMultiNumberSpace,
   'grid-row-gap': getNumberSpace,
   'grid-column-gap': getNumberSpace,
@@ -76,6 +81,7 @@ export const propGetters = {
   'border-left-color': getColor,
   'outline-color': getColor,
   fill: getColor,
+  stroke: getColor,
 
   // getRadius
   'border-radius': getMultiDimensions(getNumber(getRadius)),
@@ -140,9 +146,22 @@ export const propGetters = {
   // getTransition
   transition: getTransition,
 
-  // getPx
-  top: getNumberPx,
-  right: getNumberPx,
-  bottom: getNumberPx,
-  left: getNumberPx,
+  // getAnimation
+  animation: getAnimation,
+
+  // getInset
+  top: getNumberInset,
+  right: getNumberInset,
+  bottom: getNumberInset,
+  left: getNumberInset,
+
+  // getTimingFunction
+  'animation-timing-function': getTimingFunction,
+  'transition-timing-function': getTimingFunction,
+
+  // getTransform
+  transform: getTransform,
+
+  // getTransitionProperty
+  'transition-property': getTransitionProperty,
 }
