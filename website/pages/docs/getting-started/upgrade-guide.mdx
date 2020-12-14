@@ -14,9 +14,27 @@ We know that xstyled is in the core of your project and that the migration could
 
 ## New philosophy
 
-The v2 of xstyled favoured the usage of the `Box` component instead of the `styled` approach. Even if the `styled` approach is always supported, it is better to use `Box` as much as possible!
+The v2 of xstyled favoured the usage of the `x` instead of the `styled` approach. Even if the `x` approach is always supported, it is better to use `x` as much as possible!
 
-Remember class Components and Hooks in React? It is the same thing for `Box` and `styled`. There is no plan of deprecation, no need to convert all your code but it is better to use `Box` if you can in future.
+```js
+import { x } from '@xstyled/...'
+
+function Button() {
+  return (
+    <x.button
+      type="button"
+      color="white"
+      transition
+      bg="emerald-500"
+      hoverBg="emerald-800"
+    >
+      Upgrade
+    </x.button>
+  )
+}
+```
+
+Remember class Components and Hooks in React? It is the same thing for `x` and `styled`. There is no plan of deprecation, no need to convert all your code but it is better to use `x` if you can in future.
 
 ## Breaking changes
 

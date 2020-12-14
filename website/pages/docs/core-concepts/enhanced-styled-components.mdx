@@ -1,0 +1,285 @@
+---
+section: Core Concepts
+title: Enhanced Styled Components
+slug: /docs/enhanced-styled-components/
+---
+
+# Enhanced Styled Components
+
+How to use xstyled's styled components.
+
+## Automatic Theming
+
+xstyled's exposes a `styled` utilities similar to the one you have in styled-components or Emotion with a small addition, the Automatic Theming.
+
+Automatic Theming allows you to specify theme value as CSS value.
+
+```js
+import styled from '@xstyled/...'
+
+const Button = styled.button`
+  border-radius: md;
+  font-weight: semibold;
+  transition: default;
+  background-color: emerald-500;
+  color: #fff;
+`
+```
+
+Here's how the example above works:
+
+- `md` is replaced by `theme.radii.md`
+- `semibold` is replaced by `theme.fontWeights.semibold`
+- `default` is replaced by `theme.transitions.default`
+- `emerald-500` is replaced by `theme.colors['emerald-500']`
+- `text` is replaced by `theme.colors['#fff']`, that is not defined, so it uses `#fff` as value
+
+## Use another component
+
+The `as` prop let you replace the component originally defined:
+
+```js
+import styled from '@xstyled/...'
+
+const Button = styled.button`
+  border-radius: md;
+  font-weight: semibold;
+  transition: default;
+  background-color: emerald-500;
+  color: #fff;
+`
+
+function App() {
+  return (
+    <Button as="a" href="https://smooth-doc.com">
+      Smooth DOC
+    </Button>
+  )
+}
+```
+
+## Use theme getters
+
+Automatic Theming is nice but sometime you need to read a value directly. For composing properties like `box-shadow` that contains colors and dimensions.
+
+For that purpose, xstyled exports a `th` utility that let you get values from theme.
+
+### Get specific value
+
+`th` exposes all utilities to directly get the type of property you need:
+
+```js
+import { th } from '@xstyled/...'
+
+const Container = styled.div`
+  box-shadow: 0 0 3px ${th.color('primary', '#000')};
+`
+```
+
+The example above reads `theme.colors.primary` and use `#000` as default value if not defined.
+
+### Get abritrary value
+
+```js
+import { th } from '@xstyled/...'
+
+const Container = styled.div`
+  box-shadow: 0 0 3px ${th('primaryColor', '#000')};
+`
+```
+
+## Mapping
+
+All available theme getters are automatically binded to a theme section and to CSS properties.
+
+| Getter                  | Theme key              | Automatic CSS Properties                                                                                                                                                                                  |
+| ----------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `th.animation`          | `animations`           | `animation`                                                                                                                                                                                               |
+| `th.border`             | `borders`              | `border`, `border-top`, `border-right`, `border-bottom`, `border-left`                                                                                                                                    |
+| `th.borderStyle`        | `borderStyles`         | `border-style`, `border-top-style`, `border-right-style`, `border-bottom-style`, `border-left-style`, `outline-style`                                                                                     |
+| `th.borderWidth`        | `borderWidths`         | `border-width`, `border-top-width`, `border-right-width`, `border-bottom-width`, `border-left-width`, `outline-width`                                                                                     |
+| `th.color`              | `colors`               | `color`, `background-color`, `border-color`, `border-top-color`, `border-right-color`, `border-bottom-color`, `border-left-color`, `outline-color`, `fill`, `stroke`                                      |
+| `th.font`               | `fonts`                | `font-family`                                                                                                                                                                                             |
+| `th.fontSize`           | `fontSizes`            | `font-size`                                                                                                                                                                                               |
+| `th.fontWeight`         | `fontWeights`          | `font-weight`                                                                                                                                                                                             |
+| `th.inset`              | `inset`                | `top`, `right`, `bottom`, `left`                                                                                                                                                                          |
+| `th.letterSpacing`      | `letterSpacings`       | `letter-spacing`                                                                                                                                                                                          |
+| `th.lineHeight`         | `lineHeights`          | `line-height`                                                                                                                                                                                             |
+| `th.radius`             | `radii`                | `border-radius`, `border-top-left-radius`, `border-top-right-radius`, `border-bottom-right-radius`, `border-bottom-left-radius`                                                                           |
+| `th.shadow`             | `shadows`              | `box-shadow`, `text-shadow`                                                                                                                                                                               |
+| `th.size`               | `sizes`                | `width`, `height`, `max-width`, `max-height`, `min-width`, `min-height`                                                                                                                                   |
+| `th.space`              | `space`                | `margin`, `margin-top`, `margin-bottom`, `margin-left`, `margin-right`, `padding`, `padding-top`, `padding-bottom`, `padding-left`, `padding-right`, `gap`, `grid-gap`, `grid-row-gap`, `grid-column-gap` |
+| `th.timingFunctions`    | `timingFunctions`      | `animation-timing-function`, `transition-timing-function`                                                                                                                                                 |
+| `th.transform`          | `transforms`           | `transform`                                                                                                                                                                                               |
+| `th.transition`         | `transitions`          | `transition`                                                                                                                                                                                              |
+| `th.transitionProperty` | `transitionProperties` | `transition-property`                                                                                                                                                                                     |
+| `th.zIndex`             | `zIndices`             | `z-index`                                                                                                                                                                                                 |
+
+## Create declarative components using styled
+
+Sometimes it is convenient to mix styled components and declarative components. It is possible to do it by adding a `Box` suffix to `styled.tag`. Using `styled.buttonBox` instead of `styled.button` let you use any props utilities on the component:
+
+```js
+import styled from '@xstyled/...'
+
+const Button = styled.buttonBox`
+  border-radius: md;
+  font-weight: semibold;
+  transition: default;
+  background-color: emerald-500;
+  color: #fff;
+`
+
+function App() {
+  return <Button bg="red-500">Danger</Button>
+}
+```
+
+## Responsive utilities
+
+### breakpoints
+
+`breakpoints` lets you write style for each breakpoint.
+
+```js
+import { breakpoints } from '@xstyled/...'
+
+const Container = styled.div`
+  ${breakpoints({
+    xs: css`
+      /* All devices */
+    `,
+    md: css`
+     /* From md breakpoint */
+    `,
+    lg: css`
+     /* From lg breakpoint */
+    `
+  }}
+`
+```
+
+### up
+
+`up` lets you apply style from a breakpoint.
+
+```js
+import styled, { css, up } from '@xstyled/...'
+
+const Box = styled.div`
+  width: 200px;
+  height: 200px;
+  ${up(
+    'md',
+    css`
+      height: 300px;
+    `,
+  )}
+`
+```
+
+### down
+
+`down` lets you apply style up to a breakpoint.
+
+```js
+import styled, { css, down } from '@xstyled/...'
+
+const Box = styled.div`
+  width: 200px;
+  height: 200px;
+  ${down(
+    'md',
+    css`
+      height: 100px;
+    `,
+  )}
+`
+```
+
+### between
+
+`between` lets you apply style between two breakpoints.
+
+```js
+import styled, { css, between } from '@xstyled/...'
+
+const Box = styled.div`
+  width: 200px;
+  height: 200px;
+  ${between(
+    'md',
+    'lg',
+    css`
+      height: 300px;
+    `,
+  )}
+`
+```
+
+## Styled Components Rules
+
+For the magic to work, you must follow rules. If you don't follow them, automatic theme getter could not work as expected.
+
+### Only strings are transformed
+
+CSS as object already does magic on your properties, for example a `margin` is automatically converted in `px`. To avoid any problem of migration, xstyled magic only applies on string properties.
+
+```js
+import styled from '@xstyled/...'
+
+const Box = styled.div({
+  margin: 2, // '2px' (not transformed by xstyled)
+  marginTop: '2', // '8px' (transformed by styled)
+})
+```
+
+### `css` utility is required
+
+With xstyled, you need to explicitely transforms your CSS using `css` utility:
+
+**🚫 Not supported**
+
+```js
+import styled, { css } from '@xstyled/...'
+
+const Box = styled.div`
+  ${p => ({ margin: p.margin })}
+`
+```
+
+**✅ Supported**
+
+```js
+import styled, { css } from '@xstyled/...'
+
+const Box = styled.div`
+  ${p => css({ margin: p.margin })}
+`
+```
+
+### Don't use interpolation in the middle of a declaration
+
+xstyled analyze strings generated from `css` or `styled` and detects `prop: value;` pattern. Adding interpolation in the middle of a declaration is not supported.
+
+**🚫 Not supported**
+
+```js
+import styled from '@xstyled/...'
+
+const Box = styled.div`
+  margin: ${p => p.margin};
+`
+```
+
+If you need to access props, then returns a `css` expression that includes `prop: value;` pattern.
+
+**✅ Supported**
+
+```js
+const Box = styled.div`
+  ${p => css`
+    margin: ${p.margin};
+  `}
+`
+```
