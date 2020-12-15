@@ -106,6 +106,7 @@ Use `backgroundClip="text"` to crop an element's background to match the shape o
   <template preview>
     <x.div
       textAlign="center"
+      py={6}
       lineHeight={0}
       letterSpacing="tight"
       fontSize="5xl"
@@ -114,7 +115,9 @@ Use `backgroundClip="text"` to crop an element's background to match the shape o
       <x.span
         backgroundClip="text"
         color="transparent"
-        backgroundImage="linear-gradient(to right, #4ade80, #3b82f6)"
+        backgroundImage="gradient-to-r"
+        gradientFrom="emerald-500"
+        gradientTo="light-blue-500"
       >
         Hello world
       </x.span>
@@ -124,7 +127,9 @@ Use `backgroundClip="text"` to crop an element's background to match the shape o
     <x.span
       backgroundClip="text"
       color="transparent"
-      backgroundImage="linear-gradient(to right, #4ade80, #3b82f6)"
+      backgroundImage="gradient-to-r"
+      gradientFrom="emerald-500"
+      gradientTo="light-blue-500"
     >
       Hello world
     </x.span>

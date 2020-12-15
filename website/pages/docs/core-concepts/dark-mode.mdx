@@ -10,7 +10,7 @@ Add support for dark mode but also any number of other color modes.
 
 ## Getting started
 
-### 1. Defining colors
+### Defining colors
 
 To enable color modes in your application, the first thing to do is to make your theme color mode compatible.
 
@@ -38,7 +38,7 @@ The colors defined at the root of the `colors` object will be accessible as `def
 - `default`
 - `dark`
 
-### 2. Add ColorModeProvider
+### Add ColorModeProvider
 
 After your theme and color modes are ready, you have to add a `ColorModeProvider`, just after your `ThemeProvider`:
 
@@ -100,7 +100,7 @@ function Example(props) {
   return (
     <header>
       <button
-        onClick={(e) => {
+        onClick={e => {
           setColorMode(colorMode === 'default' ? 'dark' : 'default')
         }}
       >
@@ -261,7 +261,7 @@ Not using CSS custom properties cause the colors to flash on initial page load i
 
 ### Use another target
 
-By default, color modes is linked to `document.body`, but sometimes you may want to specify another target, more specific. To use another target, add `target` and `targetSelector` to `ColorModeProvider`:
+To make color mode works, a class is added to `document.body`. Sometimes you may want to specify another target, more specific. To do so, add `target` and `targetSelector` to `ColorModeProvider`:
 
 ```js
 import React from 'react'
