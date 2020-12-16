@@ -1,0 +1,58 @@
+---
+section: Core Concepts
+title: Adding base styles
+slug: /docs/adding-base-styles/
+---
+
+# Adding base styles
+
+Best practices for adding your own global base styles on top of xstyled.
+
+Even if xstyled aready includes a set of base style with [Preflight](/docs/preflight/), you could need to add more base styles in your project.
+
+## Create Global Styles
+
+xstyled offers a unified method for styled-components and Emotion to create global styles.
+
+```js
+import { createGlobalStyle } from '@xstyled/...'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    color: #333;
+  }
+`
+
+function App() {
+  return (
+    <>
+      <GlobalStyle />
+      {/* ... */}
+    </>
+  )
+}
+```
+
+## Automatic Theming
+
+Of course automatic theming described in [enhanced styled documentation](/docs/enhanced-styled-components/) also applied in `createGlobalStyle`:
+
+```js
+import { createGlobalStyle } from '@xstyled/...'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    /* Use theme.colors['text-color'] */
+    color: text-color;
+  }
+`
+
+function App() {
+  return (
+    <>
+      <GlobalStyle />
+      {/* ... */}
+    </>
+  )
+}
+```

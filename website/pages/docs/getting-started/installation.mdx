@@ -12,17 +12,23 @@ Learn how to get xstyled up and running in your project.
 
 [styled-components](https://styled-components.com/) is a good default choice if you don't know about CSS in JS libraries.
 
+If you already use styled-components on your project, then you should read [Migrate from styled-components guide](/docs/migrate-from-styled-components/).
+
 ### Install styled-components and xstyled via npm
 
 ```
 npm install styled-components @xstyled/styled-components
 ```
 
-### Setup theme
+### Setup `theme` and `Preflight`
 
 ```js
 // App.js
-import { defaultTheme, ThemeProvider } from '@xstyled/styled-components'
+import {
+  defaultTheme,
+  ThemeProvider,
+  Preflight,
+} from '@xstyled/styled-components'
 
 const theme = {
   ...defaultTheme,
@@ -30,14 +36,19 @@ const theme = {
 }
 
 export default function App() {
-  return <ThemeProvider theme={theme}>{/* ... */}</ThemeProvider>
+  return (
+    <ThemeProvider theme={theme}>
+      <Preflight />
+      {/* ... */}
+    </ThemeProvider>
+  )
 }
 ```
 
 ### Write your first component
 
 ```js
-import { Box } from '@xstyled/styled-components'
+import { x } from '@xstyled/styled-components'
 
 function Button(props) {
   return <x.button bg="blue-500" {...props} />
@@ -48,13 +59,15 @@ function Button(props) {
 
 [Emotion](https://emotion.sh/) is as good as [styled-components](https://styled-components.com/), using it is also a good choice!
 
+If you already use Emotion on your project, then you should read [Migrate from Emotion guide](/docs/migrate-from-emotion/).
+
 ### Install emotion and xstyled via npm
 
 ```
 npm install @emotion/core @emotion/react @emotion/styled @xstyled/emotion
 ```
 
-### Setup theme
+### Setup `theme` and `Preflight`
 
 ```js
 // App.js
@@ -66,14 +79,19 @@ const theme = {
 }
 
 export default function App() {
-  return <ThemeProvider theme={theme}>{/* ... */}</ThemeProvider>
+  return (
+    <ThemeProvider theme={theme}>
+      <Preflight />
+      {/* ... */}
+    </ThemeProvider>
+  )
 }
 ```
 
 ### Write your first component
 
 ```js
-import { Box } from '@xstyled/emotion'
+import { x } from '@xstyled/emotion'
 
 function Button(props) {
   return <x.button bg="blue-500" {...props} />

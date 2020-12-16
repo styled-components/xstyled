@@ -12,6 +12,7 @@ import Editor from 'react-simple-code-editor'
 import Prism from 'prismjs/components/prism-core'
 import 'prismjs/themes/prism-dark.css'
 import 'prismjs/components/prism-clike'
+import 'prismjs/components/prism-css'
 import 'prismjs/components/prism-markup'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-jsx'
@@ -96,7 +97,7 @@ const Preview = styled.div`
 const PreviewBg = styled.div`
   padding: 10;
   overflow: hidden;
-  background-color: ${(p) => th.color(`${p.$color || 'cool-gray'}-50`)(p)};
+  background-color: ${p => th.color(`${p.$color || 'cool-gray'}-50`)(p)};
 `
 
 const globalModules = {
@@ -337,8 +338,8 @@ function LiveEditor() {
     <Editor
       value={code}
       padding={10}
-      highlight={(code) => <RawHighlight code={code} language={language} />}
-      onValueChange={(code) => {
+      highlight={code => <RawHighlight code={code} language={language} />}
+      onValueChange={code => {
         setCode(code)
         onChange(code)
       }}
@@ -371,7 +372,7 @@ export function Code({
       <>
         <LiveProvider
           code={preview}
-          transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
+          transformCode={code => `/* @jsx mdx */ ${importToRequire(code)}`}
           scope={{ mdx, require: req, Box, x: Box }}
           language={lang}
           theme={prismTheme}
@@ -405,7 +406,7 @@ export function Code({
     return (
       <LiveProvider
         code={children.trim()}
-        transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
+        transformCode={code => `/* @jsx mdx */ ${importToRequire(code)}`}
         scope={{ mdx, require: req }}
         language={lang}
         theme={prismTheme}
