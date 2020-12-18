@@ -41,7 +41,7 @@ function toNegative(value: string | number) {
   return value * -1
 }
 
-export const transformNegative: TransformValue<any, any> = (
+export const transformNegative: TransformValue = (
   _,
   { rawValue, variants, props },
 ) => {

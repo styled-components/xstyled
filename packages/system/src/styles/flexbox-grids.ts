@@ -1,4 +1,4 @@
-import { SystemProperty } from '../types'
+import { SystemProp, ITheme, IProps, Theme } from '../types'
 import { obj } from '@xstyled/util'
 import {
   style,
@@ -7,12 +7,27 @@ import {
   compose,
 } from '../style'
 import { getPercent } from './units'
-import { Props } from '../types'
 
-export interface RowProps<T = {}> {
-  row?: SystemProperty<boolean, T>
+type RowProp<T> = SystemProp<boolean, T>
+export interface RowProps<T extends ITheme = Theme> {
+  row?: RowProp<T>
+  motionSafeRow?: RowProp<T>
+  motionReduceRow?: RowProp<T>
+  firstRow?: RowProp<T>
+  lastRow?: RowProp<T>
+  oddRow?: RowProp<T>
+  evenRow?: RowProp<T>
+  visitedRow?: RowProp<T>
+  checkedRow?: RowProp<T>
+  focusWithinRow?: RowProp<T>
+  hoverRow?: RowProp<T>
+  focusRow?: RowProp<T>
+  focusVisibleRow?: RowProp<T>
+  activeRow?: RowProp<T>
+  disabledRow?: RowProp<T>
+  placeholderRow?: RowProp<T>
 }
-export const row = style<RowProps>({
+export const row = style({
   prop: 'row',
   cssProperty: () => ({
     boxSizing: 'border-box',
@@ -22,7 +37,7 @@ export const row = style<RowProps>({
   }),
 })
 
-function getColStyle(props: Props, size: any) {
+function getColStyle(props: IProps, size: any) {
   if (size === true) {
     return {
       flexBasis: 0,
@@ -47,11 +62,27 @@ function getColStyle(props: Props, size: any) {
   }
 }
 
-export interface ColProps<T = {}> {
-  col?: SystemProperty<true | 'auto' | string | number, T>
+type ColProp<T> = SystemProp<true | 'auto' | string | number, T>
+export interface ColProps<T extends ITheme = Theme> {
+  col?: ColProp<T>
+  motionSafeCol?: ColProp<T>
+  motionReduceCol?: ColProp<T>
+  firstCol?: ColProp<T>
+  lastCol?: ColProp<T>
+  oddCol?: ColProp<T>
+  evenCol?: ColProp<T>
+  visitedCol?: ColProp<T>
+  checkedCol?: ColProp<T>
+  focusWithinCol?: ColProp<T>
+  hoverCol?: ColProp<T>
+  focusCol?: ColProp<T>
+  focusVisibleCol?: ColProp<T>
+  activeCol?: ColProp<T>
+  disabledCol?: ColProp<T>
+  placeholderCol?: ColProp<T>
 }
-export const col = createStyleGenerator<ColProps>(
-  (props) => {
+export const col = createStyleGenerator(
+  props => {
     const value = props.col
     const common = {
       boxSizing: 'border-box',
@@ -82,5 +113,6 @@ export const col = createStyleGenerator<ColProps>(
   ['col'],
 )
 
-export type FlexboxGridsProps<T = {}> = RowProps<T> & ColProps<T>
-export const flexboxGrids = compose<FlexboxGridsProps>(row, col)
+export type FlexboxGridsProps<T extends ITheme = Theme> = RowProps<T> &
+  ColProps<T>
+export const flexboxGrids = compose(row, col)

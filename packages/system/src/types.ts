@@ -1,84 +1,71 @@
-export type Variants = {
-  [key: string]: any
+import { DefaultBreakpoints } from './defaultBreakpoints'
+
+export interface Dictionary<T> {
+  [Key: string]: T
+}
+export type AnyDictionary = Dictionary<any>
+
+export interface IVariants {
+  [Key: string]: number
+  [Key: number]: number
+}
+export type ITheme = AnyDictionary
+export type IProps = AnyDictionary
+export type IStyles = AnyDictionary
+export type IPropsWithTheme<TTheme extends ITheme> = IProps & { theme: TTheme }
+
+export type Mixin = (
+  props: IProps,
+  { value }: { value: any },
+) => IStyles | null | undefined
+
+export interface StyleGetter {
+  (props: IProps): any
 }
 
-export interface Theme {
-  [key: string]: any
+export type Breakpoints<TTheme extends ITheme> = TTheme extends {
+  breakpoints: AnyDictionary
+}
+  ? TTheme['breakpoints']
+  : DefaultBreakpoints
+
+export type BreakpointsProps<TType, TTheme extends ITheme> = {
+  [P in keyof Breakpoints<TTheme>]?: TType
 }
 
-export interface Props {
-  [key: string]: any
-}
+export type SystemProp<TType, TTheme extends ITheme> =
+  | TType
+  | BreakpointsProps<TType, TTheme>
 
-export interface ThemeProps<T> {
-  theme: T
-}
-
-export type StyledProps<P, T> = P & ThemeProps<T>
-
-export interface DefaultThemeBreakpoints {
-  xs: 0
-  sm: 576
-  md: 768
-  lg: 992
-  xl: 1200
-}
-
-export type ThemeBreakpoints<TTheme extends Theme> = TTheme extends {
-  breakpoints: Variants
-}
-  ? ExtractThemeProperty<TTheme, 'breakpoints'>
-  : DefaultThemeBreakpoints
-
-export type BreakpointsProperties<PropType, TTheme extends Theme> = {
-  [P in keyof ThemeBreakpoints<TTheme>]?: PropType
-}
-
-// CSS
-
-export type SystemProperty<PropType, TTheme extends Theme> =
-  | PropType
-  | BreakpointsProperties<PropType, TTheme>
-
-export interface StyleGenerator<TProps = any> {
-  (props: Props): any
+export interface StyleGenerator {
+  (props: IProps): any
   meta: {
     props: string[]
-    getStyle: StyleGenerator<TProps>
+    getStyle: StyleGenerator
     generators?: StyleGenerator[]
   }
 }
 
-export interface TransformValue<TVariants, TBaseType> {
+export interface TransformValue<TValueType = any> {
   (
     value: string | number,
     options: {
-      rawValue: VariantsType<TVariants, TBaseType>
-      variants: TVariants
-      props: Props
+      rawValue: TValueType
+      variants: IVariants
+      props: IProps
     },
   ): string | number | null
 }
 
-export interface ThemeGetter<TVariants, TBaseType> {
-  (value: VariantsType<TVariants, TBaseType>, defaultValue?: any): (
-    props: Props,
-  ) => any
+export interface ThemeGetter<TValueType = any> {
+  (value: TValueType, defaultValue?: any): (props: IProps) => any
   meta: {
     name?: string
-    transform?: TransformValue<TVariants, TBaseType>
+    transform?: TransformValue<TValueType>
   }
 }
 
 // Theme
-
-/**
- * Extract theme property.
- */
-export type ExtractThemeProperty<
-  TTheme extends Theme,
-  Property extends string
-> = TTheme[Property]
 
 /**
  * Define a type from a variant.
@@ -92,13 +79,19 @@ export type VariantsType<
   ? number | (TBaseType & {})
   : TVariants extends { default: any }
   ? keyof TVariants | (TBaseType & {}) | true
-  : TVariants extends Variants
+  : TVariants extends AnyDictionary
   ? keyof TVariants | (TBaseType & {})
   : TBaseType & {}
 
-/**
- * Extract type from a theme getter.
- */
-export type ExtractThemeGetterType<
-  T extends (...args: any) => any
-> = Parameters<T>[0]
+export type FirstArg<T extends (...args: any) => any> = Parameters<T>[0]
+
+/* Theme exposed to be overriden */
+export interface Theme {}
+
+// Automatic State Props for TypeScript 4.1
+// For compatibility reason, we use static types instead
+// type StatePropName<TState extends string, TProp extends string> = `${TState}${Capitalize<TProp>}`
+// export type StatePropsOfProp<TStates extends string, TPropKey extends string, TPropType> = {
+//   [K in TStates as (StatePropName<string & K, TPropKey> | TPropKey)]: TPropType
+// }
+// export type SystemStateProps<TTheme, TPropKey extends string, TType> = StatePropsOfProp<DefaultStates, TPropKey, SystemProperty<TType, TTheme>>

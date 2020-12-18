@@ -11,7 +11,7 @@ export {
 
 export { css } from './css'
 export { createGlobalStyle } from './createGlobalStyle'
-export { Box, styled as default } from './styled'
+export { Box, Box as x, styled as default } from './styled'
 export * from './colorModes'
 export * from './theme'
 export * from './breakpoints'

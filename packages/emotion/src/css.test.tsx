@@ -2,11 +2,19 @@ import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import styled from '@emotion/styled'
-import { css } from './css'
+import { css, ThemeProvider } from '.'
 
 afterEach(cleanup)
 
 describe('#css', () => {
+  const SpaceTheme = ({ children }: { children: React.ReactNode }) => {
+    return (
+      <ThemeProvider theme={{ space: { 1: 4, 2: 8 } }}>
+        {children}
+      </ThemeProvider>
+    )
+  }
+
   it('transforms rules', () => {
     const Dummy = styled.div`
       ${css`
@@ -15,7 +23,11 @@ describe('#css', () => {
         margin-top: 2px;
       `}
     `
-    const { container } = render(<Dummy />)
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
     expect(container.firstChild).toHaveStyle(`
       margin: 2px 8px 8px 8px;
       padding: 4px;
@@ -28,7 +40,11 @@ describe('#css', () => {
         margin: 1 2;
       `}
     `
-    const { container } = render(<Dummy />)
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
     expect(container.firstChild).toHaveStyle('margin: 4px 8px;')
   })
 
@@ -39,7 +55,11 @@ describe('#css', () => {
         margin: 1 ${two};
       `}
     `
-    const { container } = render(<Dummy />)
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
     expect(container.firstChild).toHaveStyle('margin: 4px 8px;')
   })
 
@@ -51,7 +71,11 @@ describe('#css', () => {
         styles: 'margin: 1 2;label:x;',
       })}
     `
-    const { container } = render(<Dummy />)
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
     expect(container.firstChild).toHaveStyle('margin: 4px 8px;')
   })
 })

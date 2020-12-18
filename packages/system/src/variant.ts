@@ -1,5 +1,5 @@
 import { getThemeValue, merge, warn, is, assign } from '@xstyled/util'
-import { Props } from './types'
+import { IProps } from './types'
 
 export const variant = ({
   key = null,
@@ -11,7 +11,7 @@ export const variant = ({
   default?: string | null
   variants: { [key: string]: any }
   prop?: string
-}) => (props: Props) => {
+}) => (props: IProps) => {
   const themeVariants = is(key) ? getThemeValue(props, key) : null
   const computedVariants = merge(assign({}, variants), themeVariants)
   const value = props[prop] !== undefined ? props[prop] : defaultValue

@@ -1,3 +1,4 @@
+import { Theme, ITheme } from '../types'
 import { compose } from '../style'
 import { animations, AnimationsProps } from './animations'
 import { backgrounds, BackgroundsProps } from './backgrounds'
@@ -35,7 +36,7 @@ export * from './transitions'
 export * from './typography'
 export * from './units'
 
-export type SystemProps<T = {}> = AnimationsProps<T> &
+export type SystemProps<T extends ITheme = Theme> = AnimationsProps<T> &
   BackgroundsProps<T> &
   BordersProps<T> &
   EffectsProps<T> &
@@ -51,7 +52,7 @@ export type SystemProps<T = {}> = AnimationsProps<T> &
   TransformsProps<T> &
   TransitionsProps<T> &
   TypographyProps<T>
-export const system = compose<SystemProps>(
+export const system = compose(
   animations,
   backgrounds,
   borders,

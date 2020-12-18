@@ -176,7 +176,7 @@ describe('#th', () => {
         cssProp: 'font-size',
         expectations: [
           [0, 0],
-          [1, '12px'],
+          [1, '1px'],
           [40, '40px'],
           ['16rpx', '1rem'],
           ['-16rpx', '-1rem'],

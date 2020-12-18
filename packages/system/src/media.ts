@@ -1,26 +1,12 @@
 import { is, getThemeValue } from '@xstyled/util'
 import { px } from './unit'
-import { Props } from './types'
+import { IVariants, IProps } from './types'
+import { defaultBreakpoints } from './defaultBreakpoints'
 
-export interface Breakpoints {
-  [key: string]: number
-  [key: number]: number
-}
-
-const DEFAULT_BREAKPOINTS: Breakpoints = {
-  _: 0,
-  xs: 0,
-  sm: 640,
-  md: 768,
-  lg: 1024,
-  xl: 1280,
-  '2xl': 1536,
-}
-
-export function getBreakpoints(props: Props): Breakpoints {
-  const themeBreakpoints = getThemeValue(props, 'breakpoints')
+export function getBreakpoints(props: IProps): IVariants {
+  const themeBreakpoints = getThemeValue<IProps>(props, 'breakpoints')
   if (is(themeBreakpoints)) return themeBreakpoints
-  return DEFAULT_BREAKPOINTS
+  return defaultBreakpoints
 }
 
 export const mediaMinWidth = (value: string | null) =>
@@ -34,12 +20,9 @@ export const mediaBetweenWidth = (min: string | null, max: string | null) =>
  * Minimum breakpoint width.
  * Null for the smallest breakpoint.
  */
-export const getBreakpointMin = <
-  TBreakpoints extends Breakpoints,
-  K extends keyof TBreakpoints
->(
+export const getBreakpointMin = <TBreakpoints extends IVariants>(
   breakpoints: TBreakpoints,
-  key: K,
+  key: keyof TBreakpoints,
 ) => {
   const value = breakpoints[key]
   return value === 0 ? null : px(value)
@@ -53,9 +36,9 @@ export const getBreakpointMin = <
  * Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
  * See https://bugs.webkit.org/show_bug.cgi?id=178261
  */
-export const getBreakpointMax = (
-  breakpoints: Breakpoints,
-  key: string | number,
+export const getBreakpointMax = <TBreakpoints extends IVariants>(
+  breakpoints: TBreakpoints,
+  key: keyof TBreakpoints,
 ) => {
   const breakPoint = breakpoints[key]
   return breakPoint === 0 ? null : px(breakPoint - 0.02)

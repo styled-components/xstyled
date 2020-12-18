@@ -54,9 +54,7 @@ describe('#borderColor', () => {
 
 describe('#ring', () => {
   it('works as expected', () => {
-    expect(
-      borders({ ring: true, theme: { ringWidths: { default: 3 } } }),
-    ).toEqual({
+    expect(borders({ ring: 3 })).toEqual({
       '--x-ring-shadow':
         'var(--x-ring-inset, /*!*/ /*!*/) 0 0 0 3px var(--x-ring-color)',
       boxShadow: 'var(--x-ring-shadow, 0 0 #0000), var(--x-shadow, 0 0 #0000)',

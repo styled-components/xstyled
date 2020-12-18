@@ -2,13 +2,13 @@ import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import { ThemeProvider, keyframes } from 'styled-components'
-import styled, { css, Box } from '.'
+import styled, { css, x } from '.'
 
 afterEach(cleanup)
 
-describe('#Box', () => {
+describe('#x', () => {
   it('creates system based components', () => {
-    const { container } = render(<Box m={2} p={1} />)
+    const { container } = render(<x.div m={2} p={1} />)
     expect(container.firstChild).toHaveStyle(`
       margin: 2px;
       padding: 1px;  
@@ -16,7 +16,7 @@ describe('#Box', () => {
   })
 
   it('supports "as" prop', () => {
-    const { container } = render(<Box as="a" m={2} p={1} href="#" />)
+    const { container } = render(<x.div as="a" m={2} p={1} href="#" />)
     expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle(`
       margin: 2px;
@@ -26,9 +26,9 @@ describe('#Box', () => {
 
   it('supports "as" shorthand', () => {
     const { container } = render(
-      <Box.a m={2} p={1} href="#">
+      <x.a m={2} p={1} href="#">
         Hello
-      </Box.a>,
+      </x.a>,
     )
     expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle(`

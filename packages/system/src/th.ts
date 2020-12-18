@@ -27,15 +27,15 @@ import {
   getTransitionProperty,
   getZIndex,
 } from './styles/index'
-import { Props, ThemeGetter } from './types'
+import { IProps, ThemeGetter } from './types'
 
 interface ThemeGet {
-  (path: string, defaultValue?: any): (props: Props) => any
-  [key: string]: ThemeGetter<any, any>
+  (path: string, defaultValue?: any): (props: IProps) => any
+  [key: string]: ThemeGetter
 }
 
 export const th = <ThemeGet>((path: string, defaultValue?: string) => (
-  props: Props,
+  props: IProps,
 ) => {
   const value = getThemeValue(props, path)
   if (is(value)) return value

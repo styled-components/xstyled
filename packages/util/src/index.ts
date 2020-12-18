@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-
 const DEV = process.env.NODE_ENV !== 'production'
 
 /**
@@ -144,8 +143,8 @@ export function cascade(value: any, arg?: any): Exclude<any, Function> {
  * @param path
  * @param initial
  */
-export const getThemeValue = <Props extends { [key: string]: any }>(
-  props: Props,
+export const getThemeValue = <TProps extends { theme?: any }>(
+  props: TProps,
   path: Path,
   initial = props.theme,
 ) => cascade(get(initial, path), props)

@@ -12,54 +12,31 @@ import {
   assign,
 } from '@xstyled/util'
 import { getBreakpoints, getBreakpointMin, mediaMinWidth } from './media'
+import { defaultStates } from './defaultStates'
 import {
-  Props,
-  Theme,
-  Variants,
+  AnyDictionary,
+  IProps,
+  IStyles,
+  IVariants,
+  ITheme,
+  StyleGetter,
   ThemeGetter,
   TransformValue,
   StyleGenerator,
-  ExtractThemeProperty,
-  VariantsType,
+  Mixin,
 } from './types'
 
-interface Styles {
-  [key: string]: any
-}
-
-interface ThemeCache {
-  [key: string]: any
-}
-
-interface StyleGetter {
-  (props: Props): any
-}
-
-const states = {
-  motionSafe: '@media (prefers-reduced-motion: no-preference)',
-  motionReduce: '@media (prefers-reduced-motion: reduce)',
-  first: '&:first-child',
-  last: '&:last-child',
-  odd: '&:odd',
-  even: '&:even',
-  visited: '&:visited',
-  checked: '&:checked',
-  focusWithin: '&:focus-within',
-  hover: '&:hover',
-  focus: '&:focus',
-  focusVisible: '&:focus-visible',
-  active: '&:active',
-  disabled: '&:disabled',
-  placeholder: '&::placeholder',
-}
-const stateNames = Object.keys(states) as (keyof typeof states)[]
+const defaultStateKeys = Object.keys(
+  defaultStates,
+) as (keyof typeof defaultStates)[]
 
 const cacheSupported =
   typeof Map !== 'undefined' && typeof WeakMap !== 'undefined'
 
-const caches = cacheSupported ? new WeakMap<Theme, ThemeCache>() : null
+type ThemeCache = AnyDictionary
+const caches = cacheSupported ? new WeakMap<ITheme, ThemeCache>() : null
 
-function getThemeCache(theme: Theme) {
+function getThemeCache(theme: ITheme) {
   if (caches === null) return null
   if (caches.has(theme)) return caches.get(theme)
   const cache = {}
@@ -73,7 +50,7 @@ const noopCache = {
   get: () => {},
 }
 
-function getCacheNamespace(theme: Theme, namespace: string) {
+function getCacheNamespace(theme: ITheme, namespace: string) {
   if (!theme) return noopCache
   const cache = getThemeCache(theme)
   if (!cache || !theme) return noopCache
@@ -83,19 +60,7 @@ function getCacheNamespace(theme: Theme, namespace: string) {
 
 let themeGetterId = 0
 const SPACES = /\s+/
-export const themeGetter = <
-  TTheme,
-  Key extends string,
-  TDefaultVariants = {},
-  TThemeProperty extends ExtractThemeProperty<
-    TTheme,
-    Key
-  > = ExtractThemeProperty<TTheme, Key>,
-  TVariants = TThemeProperty extends Variants
-    ? TThemeProperty
-    : TDefaultVariants,
-  TBaseType = number | string
->({
+export const themeGetter = <TValueType>({
   name,
   transform: defaultTransform,
   key,
@@ -104,24 +69,21 @@ export const themeGetter = <
   shorthand,
 }: {
   name?: string
-  key?: Key
-  transform?: TransformValue<TVariants, TBaseType>
-  defaultVariants?: TDefaultVariants
-  compose?: ThemeGetter<any, any>
+  key?: string
+  transform?: TransformValue<TValueType>
+  defaultVariants?: IVariants
+  compose?: ThemeGetter
   shorthand?: boolean
-}): ThemeGetter<TVariants, TBaseType> => {
+}): ThemeGetter<TValueType> => {
   const id = themeGetterId++
-  const getter = (
-    value: VariantsType<TVariants, TBaseType>,
-    defaultValue?: any,
-  ) => (props: Props) => {
+  const getter = (value: any, defaultValue?: any) => (props: IProps) => {
     let res = value
     if (!string(value) && !num(value) && value !== true) return res
     const cacheKey = `${value}-${defaultValue}`
     const cache = getCacheNamespace(props.theme, `__themeGetter${id}`)
     if (cache.has(cacheKey)) return cache.get(cacheKey)
 
-    const getValue = (value: VariantsType<TVariants, TBaseType>) => {
+    const getValue = (value: any) => {
       const localDefaultValue = is(defaultValue) ? defaultValue : value
       let res: any = value
       let variants = is(key) ? getThemeValue(props, key) : null
@@ -165,12 +127,12 @@ export const themeGetter = <
   return getter
 }
 
-export function createStyleGenerator<TProps>(
+export function createStyleGenerator(
   getStyle: StyleGetter,
   props: string[],
   generators?: StyleGenerator[],
-): StyleGenerator<TProps> {
-  const generator = getStyle as StyleGenerator<TProps>
+): StyleGenerator {
+  const generator = (getStyle as unknown) as StyleGenerator
   generator.meta = {
     props,
     getStyle: generator,
@@ -179,7 +141,7 @@ export function createStyleGenerator<TProps>(
   return generator
 }
 
-function getMedias(props: Props) {
+function getMedias(props: IProps) {
   const breakpoints = getBreakpoints(props)
   const medias: { [key: string]: string | null } = {}
   for (const breakpoint in breakpoints) {
@@ -190,7 +152,7 @@ function getMedias(props: Props) {
   return medias
 }
 
-function getCachedMedias(props: Props, cache: ThemeCache) {
+function getCachedMedias(props: IProps, cache: ThemeCache) {
   if (cache.has('_medias')) {
     return cache.get('_medias')
   }
@@ -200,13 +162,13 @@ function getCachedMedias(props: Props, cache: ThemeCache) {
 }
 
 export function reduceBreakpoints(
-  props: Props,
+  props: IProps,
   values: { [key: string]: any },
-  getStyle: (value: any) => Styles | null = identity,
+  getStyle: (value: any) => IStyles | null = identity,
   cache?: ThemeCache,
 ) {
   const medias = cache ? getCachedMedias(props, cache) : getMedias(props)
-  let styles: Styles = {}
+  let styles: IStyles = {}
   for (const breakpoint in values) {
     const style = getStyle(values[breakpoint])
     if (style === null) continue
@@ -223,8 +185,8 @@ export function reduceBreakpoints(
 function styleFromValue(
   mixin: Mixin,
   value: any,
-  props: Props,
-  themeGet: ThemeGetter<any, any>,
+  props: IProps,
+  themeGet: ThemeGetter,
   cache: ThemeCache,
 ) {
   if (obj(value)) return null
@@ -238,9 +200,9 @@ function styleFromValue(
 function getStyleFactory(
   prop: string,
   mixin: Mixin,
-  themeGet: ThemeGetter<any, any>,
+  themeGet: ThemeGetter,
 ): StyleGetter {
-  return function getStyle(props: Props) {
+  return function getStyle(props: IProps) {
     const value = props[prop]
     if (!is(value)) return null
     const cache = getCacheNamespace(props.theme, prop)
@@ -249,7 +211,7 @@ function getStyleFactory(
       return reduceBreakpoints(
         props,
         value,
-        (breakpointValue) =>
+        breakpointValue =>
           styleFromValue(mixin, breakpointValue, props, themeGet, cache),
         cache,
       )
@@ -259,14 +221,14 @@ function getStyleFactory(
   }
 }
 
-function getStateStyleFactory(
-  stateName: keyof typeof states,
+function scopeStyleGetter(
+  selector: string,
   getStyle: StyleGetter,
 ): StyleGetter {
-  return (props: Props) => {
+  return (props: IProps) => {
     const result = getStyle(props)
     if (result === null) return result
-    return { [states[stateName]]: result }
+    return { [selector]: result }
   }
 }
 
@@ -284,7 +246,7 @@ function indexGeneratorsByProp(styles: StyleGenerator[]) {
   return index
 }
 
-function getMediaOrder(styles: { [key: string]: any }, props: Props) {
+function getMediaOrder(styles: { [key: string]: any }, props: IProps) {
   const medias: { [key: string]: any } = {}
   const breakpoints = getBreakpoints(props)
   const stylesProperties = Object.keys(styles)
@@ -301,11 +263,9 @@ function getMediaOrder(styles: { [key: string]: any }, props: Props) {
   return medias
 }
 
-export function compose<T>(
-  ...generators: StyleGenerator<any>[]
-): StyleGenerator<T> {
+export function compose(...generators: StyleGenerator[]): StyleGenerator {
   let flatGenerators: StyleGenerator[] = []
-  generators.forEach((gen) => {
+  generators.forEach(gen => {
     warn(Boolean(gen), `Undefined generator in "compose" method`)
     if (!gen) return
     if (gen.meta.generators) {
@@ -317,8 +277,8 @@ export function compose<T>(
 
   const generatorsByProp = indexGeneratorsByProp(flatGenerators)
 
-  function getStyle(props: Props) {
-    const styles: Styles = {}
+  function getStyle(props: IProps) {
+    const styles: IStyles = {}
     for (const key in props) {
       const generator = generatorsByProp[key]
       if (generator) {
@@ -338,11 +298,6 @@ export function compose<T>(
   return createStyleGenerator(getStyle, props, generators)
 }
 
-type Mixin = (
-  props: Props,
-  { value }: { value: any },
-) => Styles | null | undefined
-
 type CSSProperty = string | string[] | Mixin
 
 const getMixinFromCSSProperties = (properties?: string | string[]): Mixin => (
@@ -351,7 +306,7 @@ const getMixinFromCSSProperties = (properties?: string | string[]): Mixin => (
 ) => {
   if (!string(value) && !num(value)) return null
   if (string(properties)) return { [properties]: value }
-  const style: Styles = {}
+  const style: IStyles = {}
   for (const key in properties) {
     style[properties[(key as unknown) as number]] = value
   }
@@ -363,25 +318,27 @@ const getMixinFromCSSProperty = (cssProperty: CSSProperty): Mixin => {
   return getMixinFromCSSProperties(cssProperty)
 }
 
-export function style<TProps extends object>({
+export function style({
   prop,
   cssProperty,
   key,
   transform,
   themeGet,
+  states = defaultStates,
 }: {
   prop: string | string[]
   cssProperty?: CSSProperty
   key?: string
-  transform?: TransformValue<any, any>
-  themeGet?: ThemeGetter<any, any>
-}): StyleGenerator<TProps> {
+  transform?: TransformValue
+  themeGet?: ThemeGetter
+  states?: { [key: string]: string }
+}): StyleGenerator {
   if (Array.isArray(prop)) {
     const mixin = cssProperty
       ? getMixinFromCSSProperty(cssProperty)
       : cssProperty
 
-    const generators = prop.map((prop) =>
+    const generators = prop.map(prop =>
       style({ prop, cssProperty: mixin, key, transform, themeGet }),
     )
 
@@ -394,19 +351,21 @@ export function style<TProps extends object>({
   themeGet = themeGet || themeGetter({ key, transform })
 
   const capitalizedProp = prop.charAt(0).toUpperCase() + prop.slice(1)
-  const generators: StyleGenerator<TProps>[] = []
+  const generators: StyleGenerator[] = []
+  const stateNames =
+    states === defaultStates ? defaultStateKeys : Object.keys(states)
   for (let i = 0; i < stateNames.length; i++) {
     const stateName = stateNames[i]
     const stateProp = `${stateName}${capitalizedProp}`
-    const getStyle = getStateStyleFactory(
-      stateName,
+    const getStyle = scopeStyleGetter(
+      states[stateName],
       getStyleFactory(stateProp, mixin, themeGet),
     )
-    const generator = createStyleGenerator<TProps>(getStyle, [stateProp])
+    const generator = createStyleGenerator(getStyle, [stateProp])
     generators.push(generator)
   }
   const getStyle = getStyleFactory(prop, mixin, themeGet)
-  const generator = createStyleGenerator<TProps>(getStyle, [prop])
+  const generator = createStyleGenerator(getStyle, [prop])
   generators.push(generator)
   // @ts-ignore
   return compose(...generators)

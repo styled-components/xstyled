@@ -1,48 +1,128 @@
 import * as CSS from 'csstype'
 import { style, compose } from '../style'
-import { SystemProperty } from '../types'
+import { SystemProp, ITheme, Theme } from '../types'
 
-export interface AppearanceProps<T = {}> {
-  appearance?: SystemProperty<CSS.Property.Appearance, T>
+type AppearanceProp<T> = SystemProp<CSS.Property.Appearance, T>
+export interface AppearanceProps<T extends ITheme = Theme> {
+  appearance?: AppearanceProp<T>
+  motionSafeAppearance?: AppearanceProp<T>
+  motionReduceAppearance?: AppearanceProp<T>
+  firstAppearance?: AppearanceProp<T>
+  lastAppearance?: AppearanceProp<T>
+  oddAppearance?: AppearanceProp<T>
+  evenAppearance?: AppearanceProp<T>
+  visitedAppearance?: AppearanceProp<T>
+  checkedAppearance?: AppearanceProp<T>
+  focusWithinAppearance?: AppearanceProp<T>
+  hoverAppearance?: AppearanceProp<T>
+  focusAppearance?: AppearanceProp<T>
+  focusVisibleAppearance?: AppearanceProp<T>
+  activeAppearance?: AppearanceProp<T>
+  disabledAppearance?: AppearanceProp<T>
+  placeholderAppearance?: AppearanceProp<T>
 }
-export const appearance = style<AppearanceProps>({
+export const appearance = style({
   prop: 'appearance',
 })
 
-export interface CursorProps<T = {}> {
-  cursor?: SystemProperty<CSS.Property.Cursor, T>
+type CursorProp<T> = SystemProp<CSS.Property.Cursor, T>
+export interface CursorProps<T extends ITheme = Theme> {
+  cursor?: CursorProp<T>
+  motionSafeCursor?: CursorProp<T>
+  motionReduceCursor?: CursorProp<T>
+  firstCursor?: CursorProp<T>
+  lastCursor?: CursorProp<T>
+  oddCursor?: CursorProp<T>
+  evenCursor?: CursorProp<T>
+  visitedCursor?: CursorProp<T>
+  checkedCursor?: CursorProp<T>
+  focusWithinCursor?: CursorProp<T>
+  hoverCursor?: CursorProp<T>
+  focusCursor?: CursorProp<T>
+  focusVisibleCursor?: CursorProp<T>
+  activeCursor?: CursorProp<T>
+  disabledCursor?: CursorProp<T>
+  placeholderCursor?: CursorProp<T>
 }
-export const cursor = style<CursorProps>({
+export const cursor = style({
   prop: 'cursor',
 })
 
-export interface PointerEventsProps<T = {}> {
-  pointerEvents?: SystemProperty<CSS.Property.PointerEvents, T>
+type PointerEventsProp<T> = SystemProp<CSS.Property.PointerEvents, T>
+export interface PointerEventsProps<T extends ITheme = Theme> {
+  pointerEvents?: PointerEventsProp<T>
+  motionSafePointerEvents?: PointerEventsProp<T>
+  motionReducePointerEvents?: PointerEventsProp<T>
+  firstPointerEvents?: PointerEventsProp<T>
+  lastPointerEvents?: PointerEventsProp<T>
+  oddPointerEvents?: PointerEventsProp<T>
+  evenPointerEvents?: PointerEventsProp<T>
+  visitedPointerEvents?: PointerEventsProp<T>
+  checkedPointerEvents?: PointerEventsProp<T>
+  focusWithinPointerEvents?: PointerEventsProp<T>
+  hoverPointerEvents?: PointerEventsProp<T>
+  focusPointerEvents?: PointerEventsProp<T>
+  focusVisiblePointerEvents?: PointerEventsProp<T>
+  activePointerEvents?: PointerEventsProp<T>
+  disabledPointerEvents?: PointerEventsProp<T>
+  placeholderPointerEvents?: PointerEventsProp<T>
 }
-export const pointerEvents = style<PointerEventsProps>({
+export const pointerEvents = style({
   prop: 'pointerEvents',
 })
 
-export interface ResizeProps<T = {}> {
-  resize?: SystemProperty<CSS.Property.Resize, T>
+type ResizeProp<T> = SystemProp<CSS.Property.Resize, T>
+export interface ResizeProps<T extends ITheme = Theme> {
+  resize?: ResizeProp<T>
+  motionSafeResize?: ResizeProp<T>
+  motionReduceResize?: ResizeProp<T>
+  firstResize?: ResizeProp<T>
+  lastResize?: ResizeProp<T>
+  oddResize?: ResizeProp<T>
+  evenResize?: ResizeProp<T>
+  visitedResize?: ResizeProp<T>
+  checkedResize?: ResizeProp<T>
+  focusWithinResize?: ResizeProp<T>
+  hoverResize?: ResizeProp<T>
+  focusResize?: ResizeProp<T>
+  focusVisibleResize?: ResizeProp<T>
+  activeResize?: ResizeProp<T>
+  disabledResize?: ResizeProp<T>
+  placeholderResize?: ResizeProp<T>
 }
-export const resize = style<ResizeProps>({
+export const resize = style({
   prop: 'resize',
 })
 
-export interface UserSelectProps<T = {}> {
-  userSelect?: SystemProperty<CSS.Property.UserSelect, T>
+type UserSelectProp<T> = SystemProp<CSS.Property.UserSelect, T>
+export interface UserSelectProps<T extends ITheme = Theme> {
+  userSelect?: UserSelectProp<T>
+  motionSafeUserSelect?: UserSelectProp<T>
+  motionReduceUserSelect?: UserSelectProp<T>
+  firstUserSelect?: UserSelectProp<T>
+  lastUserSelect?: UserSelectProp<T>
+  oddUserSelect?: UserSelectProp<T>
+  evenUserSelect?: UserSelectProp<T>
+  visitedUserSelect?: UserSelectProp<T>
+  checkedUserSelect?: UserSelectProp<T>
+  focusWithinUserSelect?: UserSelectProp<T>
+  hoverUserSelect?: UserSelectProp<T>
+  focusUserSelect?: UserSelectProp<T>
+  focusVisibleUserSelect?: UserSelectProp<T>
+  activeUserSelect?: UserSelectProp<T>
+  disabledUserSelect?: UserSelectProp<T>
+  placeholderUserSelect?: UserSelectProp<T>
 }
-export const userSelect = style<UserSelectProps>({
+export const userSelect = style({
   prop: 'userSelect',
 })
 
-export type InteractivityProps<T = {}> = AppearanceProps<T> &
+export type InteractivityProps<T extends ITheme = Theme> = AppearanceProps<T> &
   CursorProps<T> &
   PointerEventsProps<T> &
   ResizeProps<T> &
   UserSelectProps<T>
-export const interactivity = compose<InteractivityProps>(
+export const interactivity = compose(
   appearance,
   cursor,
   pointerEvents,

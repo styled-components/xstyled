@@ -2,7 +2,7 @@ export { css } from './css'
 export { cx } from './cx'
 export { jsx } from './jsx'
 export { createGlobalStyle } from './createGlobalStyle'
-export { styled as default, Box } from './styled'
+export { styled as default, Box, Box as x } from './styled'
 export * from './colorModes'
 export {
   withEmotionCache,

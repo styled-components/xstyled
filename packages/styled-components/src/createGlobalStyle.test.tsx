@@ -1,9 +1,15 @@
 import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
-import { createGlobalStyle, css } from '.'
+import { createGlobalStyle, css, ThemeProvider } from '.'
 
 afterEach(cleanup)
+
+const SpaceTheme = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <ThemeProvider theme={{ space: { 1: 4, 2: 8 } }}>{children}</ThemeProvider>
+  )
+}
 
 describe('#createGlobalStyle', () => {
   it('injects global styles', () => {
@@ -14,8 +20,10 @@ describe('#createGlobalStyle', () => {
     `
     const { container } = render(
       <>
-        <GlobalStyle />
-        <div className="margin" />
+        <SpaceTheme>
+          <GlobalStyle />
+          <div className="margin" />
+        </SpaceTheme>
       </>,
     )
     expect(container.firstChild).toHaveStyle(`
@@ -26,7 +34,7 @@ describe('#createGlobalStyle', () => {
   it('supports css tag', () => {
     const style = css`
       .margin {
-        margin: ${3};
+        margin: 2;
       }
     `
     const GlobalStyle = createGlobalStyle`
@@ -34,12 +42,14 @@ describe('#createGlobalStyle', () => {
     `
     const { container } = render(
       <>
-        <GlobalStyle />
-        <div className="margin" />
+        <SpaceTheme>
+          <GlobalStyle />
+          <div className="margin" />
+        </SpaceTheme>
       </>,
     )
     expect(container.firstChild).toHaveStyle(`
-      margin: 16px;
+      margin: 8px;
     `)
   })
 })
