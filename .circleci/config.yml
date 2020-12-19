@@ -38,4 +38,4 @@ jobs:
 
       - run:
           name: Test
-          command: yarn test --ci --coverage && yarn codecov
+          command: yarn test --ci --coverage --runInBand && yarn codecov
