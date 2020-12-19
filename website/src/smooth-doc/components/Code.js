@@ -94,12 +94,6 @@ const Preview = styled.div`
   )}
 `
 
-const PreviewBg = styled.div`
-  padding: 10;
-  overflow: hidden;
-  background-color: ${p => th.color(`${p.$color || 'cool-gray'}-50`)(p)};
-`
-
 const globalModules = {
   react: 'React',
 }
