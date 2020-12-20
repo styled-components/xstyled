@@ -1,7 +1,6 @@
 export { compose, style, themeGetter, createStyleGenerator } from './style'
 export * from './styles/index'
 export * from './th'
-export * from './variant'
 export * from './breakpoints'
 export * from './types'
 export * from './transformers'
