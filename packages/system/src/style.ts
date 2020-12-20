@@ -192,7 +192,7 @@ function styleFromValue(
   if (obj(value)) return null
   if (cache.has(value)) return cache.get(value)
   const computedValue = themeGet(value)(props)
-  const style = mixin(props, { value: computedValue })
+  const style = mixin(computedValue)
   cache.set(value, style)
   return style
 }
@@ -300,10 +300,9 @@ export function compose(...generators: StyleGenerator[]): StyleGenerator {
 
 type CSSProperty = string | string[] | Mixin
 
-const getMixinFromCSSProperties = (properties?: string | string[]): Mixin => (
-  _,
-  { value },
-) => {
+const getMixinFromCSSProperties = (
+  properties?: string | string[],
+): Mixin => value => {
   if (!string(value) && !num(value)) return null
   if (string(properties)) return { [properties]: value }
   const style: IStyles = {}

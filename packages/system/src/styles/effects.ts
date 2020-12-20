@@ -57,7 +57,7 @@ export interface BoxShadowProps<T extends ITheme = Theme> {
 export const boxShadow = style({
   prop: 'boxShadow',
   themeGet: getShadow,
-  cssProperty: (_, { value }) => ({
+  cssProperty: value => ({
     '--x-shadow': value,
     boxShadow: 'var(--x-ring-shadow, 0 0 #0000), var(--x-shadow)',
   }),

@@ -35,7 +35,7 @@ export interface BackgroundProps<T extends ITheme = Theme> {
 }
 export const background = style({
   prop: 'background',
-  cssProperty: (_, { value }) => ({
+  cssProperty: value => ({
     background: gradientBackgrounds[value] || value,
   }),
 })
@@ -108,7 +108,7 @@ export interface BackgroundImageProps<T extends ITheme = Theme> {
 }
 export const backgroundImage = style({
   prop: 'backgroundImage',
-  cssProperty: (_, { value }) => ({
+  cssProperty: value => ({
     backgroundImage: gradientBackgrounds[value] || value,
   }),
 })
@@ -254,7 +254,7 @@ export interface GradientFromProps<T extends ITheme = Theme> {
 export const gradientFrom = style({
   prop: 'gradientFrom',
   themeGet: getColor,
-  cssProperty: (_, { value }) => {
+  cssProperty: value => {
     return {
       '--x-gradient-from': value,
       '--x-gradient-stops':
@@ -285,7 +285,7 @@ export interface GradientViaProps<T extends ITheme = Theme> {
 export const gradientVia = style({
   prop: 'gradientVia',
   themeGet: getColor,
-  cssProperty: (_, { value }) => ({
+  cssProperty: value => ({
     '--x-gradient-stops': `var(--x-gradient-from), ${value}, var(--x-gradient-to, transparent)`,
   }),
 })

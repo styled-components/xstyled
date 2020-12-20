@@ -29,6 +29,7 @@ export const createX = <TProps extends object>(generator: StyleGenerator) => {
     x[tag] = styled(tag, {
       shouldForwardProp: (prop: string) =>
         prop !== 'as' && !generator.meta.props.includes(prop),
+      // @ts-ignore
     })<TProps>(() => [`&&{`, generator, `}`])
   })
 

@@ -18,10 +18,7 @@ export type IProps = {
 export type IStyles = AnyDictionary
 export type IPropsWithTheme<TTheme extends ITheme> = IProps & { theme: TTheme }
 
-export type Mixin = (
-  props: IProps,
-  { value }: { value: any },
-) => IStyles | null | undefined
+export type Mixin = (value: any) => IStyles | null | undefined
 
 export interface StyleGetter {
   (props: IProps): any

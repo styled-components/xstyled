@@ -34,7 +34,7 @@ export interface TransformProps<T extends ITheme = Theme> {
 export const transform = style({
   prop: 'transform',
   themeGet: getTransform,
-  cssProperty: (_, { value }) => {
+  cssProperty: value => {
     if (value === true) {
       return {
         '--x-translate-x': 0,

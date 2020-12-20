@@ -576,7 +576,7 @@ export interface SpaceYProps<T extends ITheme = Theme> {
 export const spaceY = style({
   prop: 'spaceY',
   themeGet: getSpace,
-  cssProperty: (_, { value }) => ({
+  cssProperty: value => ({
     '& > :not([hidden]) ~ :not([hidden])': {
       '--x-space-y-reverse': 0,
       marginTop: `calc(${value} * calc(1 - var(--x-space-y-reverse)))`,
@@ -607,7 +607,7 @@ export interface SpaceXProps<T extends ITheme = Theme> {
 export const spaceX = style({
   prop: 'spaceX',
   themeGet: getSpace,
-  cssProperty: (_, { value }) => ({
+  cssProperty: value => ({
     '& > :not([hidden]) ~ :not([hidden])': {
       '--x-space-x-reverse': 0,
       marginRight: `calc(${value} * var(--x-space-x-reverse))`,
