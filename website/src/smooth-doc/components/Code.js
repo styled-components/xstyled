@@ -4,7 +4,7 @@ import styled, {
   th,
   up,
   css,
-  Box,
+  x,
   ThemeProvider,
   defaultTheme,
 } from '@xstyled/styled-components'
@@ -367,14 +367,14 @@ export function Code({
         <LiveProvider
           code={preview}
           transformCode={code => `/* @jsx mdx */ ${importToRequire(code)}`}
-          scope={{ mdx, require: req, Box, x: Box }}
+          scope={{ mdx, require: req, x }}
           language={lang}
           theme={prismTheme}
           noInline={noInline}
         >
           <Preview>
             <ThemeProvider theme={defaultTheme}>
-              <Box
+              <x.div
                 p={5}
                 overflow="hidden"
                 backgroundImage="gradient-to-r"
@@ -382,7 +382,7 @@ export function Code({
                 gradientTo={color ? `${color}-100` : 'cool-gray-100'}
               >
                 <LivePreview />
-              </Box>
+              </x.div>
             </ThemeProvider>
           </Preview>
           <LiveError />

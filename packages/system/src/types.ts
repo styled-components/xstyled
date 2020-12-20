@@ -11,8 +11,8 @@ export interface IVariants {
 }
 export type ITheme = AnyDictionary
 export type IProps = {
-  [Key: string]: number
-  [Key: number]: number
+  [Key: string]: any
+  [Key: number]: any
   theme?: any
 }
 export type IStyles = AnyDictionary
