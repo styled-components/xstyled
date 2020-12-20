@@ -10,7 +10,11 @@ export interface IVariants {
   [Key: number]: number
 }
 export type ITheme = AnyDictionary
-export type IProps = AnyDictionary
+export type IProps = {
+  [Key: string]: number
+  [Key: number]: number
+  theme?: any
+}
 export type IStyles = AnyDictionary
 export type IPropsWithTheme<TTheme extends ITheme> = IProps & { theme: TTheme }
 

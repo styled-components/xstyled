@@ -2,41 +2,9 @@ import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import { ThemeProvider, keyframes } from 'styled-components'
-import styled, { css, x } from '.'
+import styled, { css } from '.'
 
 afterEach(cleanup)
-
-describe('#x', () => {
-  it('creates system based components', () => {
-    const { container } = render(<x.div m={2} p={1} />)
-    expect(container.firstChild).toHaveStyle(`
-      margin: 2px;
-      padding: 1px;  
-    `)
-  })
-
-  it('supports "as" prop', () => {
-    const { container } = render(<x.div as="a" m={2} p={1} href="#" />)
-    expect(container.firstChild!.nodeName).toBe('A')
-    expect(container.firstChild).toHaveStyle(`
-      margin: 2px;
-      padding: 1px; 
-    `)
-  })
-
-  it('supports "as" shorthand', () => {
-    const { container } = render(
-      <x.a m={2} p={1} href="#">
-        Hello
-      </x.a>,
-    )
-    expect(container.firstChild!.nodeName).toBe('A')
-    expect(container.firstChild).toHaveStyle(`
-      margin: 2px;
-      padding: 1px; 
-    `)
-  })
-})
 
 describe('#styled', () => {
   it('transforms rules', () => {
@@ -204,9 +172,10 @@ describe('#styled.xxxBox', () => {
 
   it('does not forward props', () => {
     const Dummy = styled.divBox``
-    const { container } = render(<Dummy display="flex" />)
+    const { container } = render(<Dummy display="flex" data-foo="bar" />)
     expect(container.firstChild!.nodeName).toBe('DIV')
     expect(container.firstChild).toHaveStyle('display: flex;')
     expect(container.firstChild).not.toHaveAttribute('display')
+    expect(container.firstChild).toHaveAttribute('data-foo')
   })
 })

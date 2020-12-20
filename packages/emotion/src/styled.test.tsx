@@ -2,7 +2,7 @@ import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import { ThemeProvider } from '@emotion/react'
-import styled, { css, keyframes, x } from '.'
+import styled, { css, keyframes } from '.'
 
 afterEach(cleanup)
 
@@ -11,46 +11,6 @@ const SpaceTheme = ({ children }: { children: React.ReactNode }) => {
     <ThemeProvider theme={{ space: { 1: 4, 2: 8 } }}>{children}</ThemeProvider>
   )
 }
-
-describe('#x', () => {
-  it('creates system based components', () => {
-    const { container } = render(
-      <SpaceTheme>
-        <x.div m={2} p={1} />
-      </SpaceTheme>,
-    )
-    expect(container.firstChild).toHaveStyle(`
-    margin: 8px;
-    padding: 4px;
-    `)
-  })
-
-  it('supports "as" prop', () => {
-    const { container } = render(
-      <SpaceTheme>
-        <x.div as="a" m={2} p={1} />
-      </SpaceTheme>,
-    )
-    expect(container.firstChild!.nodeName).toBe('A')
-    expect(container.firstChild).toHaveStyle(`
-      margin: 8px;
-      padding: 4px;
-    `)
-  })
-
-  it('supports "as" shorthand', () => {
-    const { container } = render(
-      <SpaceTheme>
-        <x.a m={2} p={1} />
-      </SpaceTheme>,
-    )
-    expect(container.firstChild!.nodeName).toBe('A')
-    expect(container.firstChild).toHaveStyle(`
-      margin: 8px;
-      padding: 4px;
-    `)
-  })
-})
 
 describe('#styled', () => {
   it('transforms rules', () => {
