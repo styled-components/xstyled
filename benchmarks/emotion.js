@@ -1,4 +1,4 @@
-/* eslint-disable no-console, import/no-unresolved */
+/* eslint-disable no-console */
 const React = require('react')
 const Benchmark = require('benchmark')
 const xstyled = require('@xstyled/emotion')

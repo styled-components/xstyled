@@ -21,10 +21,16 @@ interface PxToRemOptions {
 const pxToRem = (value: number, { rootFontSize = 16 }: PxToRemOptions = {}) =>
   round(value / rootFontSize)
 
-export const remPx = <T>(value: T, options?: PxToRemOptions) =>
+export const remPx = <T>(
+  value: T,
+  options?: PxToRemOptions,
+): T | number | string =>
   num(value) && value !== 0 ? `${pxToRem(value, options)}rem` : value
 
-export const rpx = <T>(value: T, options?: PxToRemOptions) => {
+export const rpx = <T>(
+  value: T,
+  options?: PxToRemOptions,
+): T | number | string => {
   if (!string(value) || value.length < 4) return value
   const unit = value.slice(-3)
   if (unit !== 'rpx') return value
@@ -33,7 +39,7 @@ export const rpx = <T>(value: T, options?: PxToRemOptions) => {
   return `${pxToRem(n, options)}rem`
 }
 
-export const percent = (n: string | number) =>
+export const percent = (n: string | number): string | number =>
   num(n) && n !== 0 && n >= -1 && n <= 1 ? `${round(n * 100)}%` : n
 
 function toNegative(value: string | number) {
@@ -54,7 +60,6 @@ export const transformNegative: TransformValue = (
   }
   const abs = Math.abs(rawValue)
   const neg = negative(rawValue)
-  // @ts-ignore
   const value = is(variants && variants[abs]) ? variants[abs] : abs
   return neg ? toNegative(value) : value
 }

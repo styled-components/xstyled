@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 import { DefaultBreakpoints } from './defaultBreakpoints'
 
 export interface Dictionary<T> {

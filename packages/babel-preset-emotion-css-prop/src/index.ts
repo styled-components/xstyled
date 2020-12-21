@@ -1,3 +1,4 @@
+/* eslint-disable */
 // @ts-nocheck
 // see https://github.com/emotion-js/emotion/blob/master/packages/babel-preset-css-prop/src/index.js
 import jsx from '@babel/plugin-transform-react-jsx'
@@ -12,7 +13,7 @@ const pragmaName = '___xstyledEmotionJSX'
 // the same repo as babel-plugin-emotion
 
 export default (
-  api,
+  _: any,
   {
     pragma,
     sourceMap,
