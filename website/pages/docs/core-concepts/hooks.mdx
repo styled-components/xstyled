@@ -1,0 +1,144 @@
+---
+section: Core Concepts
+title: Hooks
+slug: /docs/hooks/
+---
+
+# Hooks
+
+React Hooks utility of xstyled.
+
+xstyled includes powerful Hooks to make it easy to use utilities outside `x` or `styled`.
+
+## Theme utilities
+
+### useTheme
+
+Get the current theme.
+
+```js
+import { useTheme } from '@xstyled/...'
+
+function Example() {
+  const theme = useTheme()
+  return <div style={{ color: theme.colors.primary }}>Primary</div>
+}
+```
+
+### useTh
+
+Get a value from theme.
+
+```js
+import { useTh } from '@xstyled/...'
+
+function Example() {
+  const primary = useTh('colors.primary')
+  return <div style={{ color: primary }}>Primary</div>
+}
+```
+
+### Theme getter Hooks
+
+All theme getters have their own hooks, for example, get a color using `useColor`:
+
+```js
+import { useColor } from '@xstyled/...'
+
+function Example() {
+  const primary = useColor('primary')
+  return <div style={{ color: primary }}>Primary</div>
+}
+```
+
+**Available getter hooks**
+
+| Hook                    | Theme key              |
+| ----------------------- | ---------------------- |
+| `useAnimation`          | `animations`           |
+| `useBorder`             | `borders`              |
+| `useBorderStyle`        | `borderStyles`         |
+| `useBorderWidth`        | `borderWidths`         |
+| `useColor`              | `colors`               |
+| `useFont`               | `fonts`                |
+| `useFontSize`           | `fontSizes`            |
+| `useFontWeight`         | `fontWeights`          |
+| `useInset`              | `inset`                |
+| `useLetterSpacing`      | `letterSpacings`       |
+| `useLineHeight`         | `lineHeights`          |
+| `useRadius`             | `radii`                |
+| `useShadow`             | `shadows`              |
+| `useSize`               | `sizes`                |
+| `useSpace`              | `space`                |
+| `useTimingFunctions`    | `timingFunctions`      |
+| `useTransform`          | `transforms`           |
+| `useTransition`         | `transitions`          |
+| `useTransitionProperty` | `transitionProperties` |
+| `useZIndex`             | `zIndices`             |
+
+## Responsive utilities
+
+## useBreakpoints
+
+Return breakpoints defined in the theme (or the default breakpoints).
+
+```js
+import { useBreakpoints } from '@xstyled/...'
+
+function Example() {
+  const breakpoints = useBreakpoints()
+  return <div style={{ maxWidth: breakpoints.md }} />
+}
+```
+
+## useViewportWidth
+
+Return the width of the viewport.
+
+```js
+import { useViewportWidth } from '@xstyled/...'
+
+function Example() {
+  const width = useViewportWidth()
+  return <div style={{ width }} />
+}
+```
+
+## useBreakpoint
+
+Return the current breakpoint (based on viewport width).
+
+```js
+import { useBreakpoint } from '@xstyled/...'
+
+function Example() {
+  const breakpoint = useBreakpoint()
+  return <div>We are on {breakpoint}</div>
+}
+```
+
+## useUp
+
+Return true if the viewport width is greater than the specified breakpoint.
+
+```js
+import { useUp } from '@xstyled/...'
+
+function Example() {
+  const upMd = useUp('md')
+  return upMd ? 'Desktop' : 'Mobile'
+}
+```
+
+## useDown
+
+Return true if the viewport width is lower than the specified breakpoint.
+
+```js
+import { useDown } from '@xstyled/...'
+
+function Example() {
+  const downMd = useDown('md')
+  return downMd ? 'Mobile' : 'Desktop'
+}
+```
