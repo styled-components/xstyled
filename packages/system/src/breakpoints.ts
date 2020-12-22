@@ -45,7 +45,7 @@ export const breakpoints = (values: AnyDictionary) => (props: IProps) => {
     const rules = values[key]
     const result = up(key, rules)(props)
     if (Array.isArray(result)) {
-      result.forEach(v => allRules.push(v))
+      result.forEach((v) => allRules.push(v))
     } else {
       allRules.push(result)
     }

@@ -82,7 +82,7 @@ export interface ColProps<T extends ITheme = Theme> {
   placeholderCol?: ColProp<T>
 }
 export const col = createStyleGenerator(
-  props => {
+  (props) => {
     const value = props.col
     const common = {
       boxSizing: 'border-box',

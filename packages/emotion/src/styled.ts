@@ -4,12 +4,12 @@ import emStyled, { CreateStyledComponent, CreateStyled } from '@emotion/styled'
 import { Theme } from '@emotion/react'
 import { SystemProps } from '@xstyled/system'
 import { css } from './css'
-import { BoxElements } from './types'
+import { BoxElements } from './BoxElements'
 import { x } from './x'
 
 function flattenArgs(arg: any, props: any): any {
   if (typeof arg === 'function') return flattenArgs(arg(props), props)
-  if (Array.isArray(arg)) return arg.map(arg => flattenArgs(arg, props))
+  if (Array.isArray(arg)) return arg.map((arg) => flattenArgs(arg, props))
   return arg
 }
 
@@ -39,7 +39,7 @@ export const styled: CreateXStyled = (component: any) => {
 
 styled.box = styled(x.div)
 
-Object.keys(emStyled).forEach(key => {
+Object.keys(emStyled).forEach((key) => {
   // @ts-ignore
   styled[key] = styled(key)
   // @ts-ignore

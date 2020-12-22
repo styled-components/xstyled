@@ -78,7 +78,7 @@ export interface ContainerProps<T extends ITheme = Theme> {
   placeholderContainer?: ContainerProp<T>
 }
 export const container = createStyleGenerator(
-  props => {
+  (props) => {
     if (!props.container) return null
     const breakpoints = getBreakpoints(props)
     let styles = reduceBreakpoints(

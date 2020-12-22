@@ -244,7 +244,7 @@ With xstyled, you need to explicitely transforms your CSS using `css` utility:
 import styled, { css } from '@xstyled/...'
 
 const Box = styled.div`
-  ${p => ({ margin: p.margin })}
+  ${(p) => ({ margin: p.margin })}
 `
 ```
 
@@ -254,7 +254,7 @@ const Box = styled.div`
 import styled, { css } from '@xstyled/...'
 
 const Box = styled.div`
-  ${p => css({ margin: p.margin })}
+  ${(p) => css({ margin: p.margin })}
 `
 ```
 
@@ -268,7 +268,7 @@ xstyled analyze strings generated from `css` or `styled` and detects `prop: valu
 import styled from '@xstyled/...'
 
 const Box = styled.div`
-  margin: ${p => p.margin};
+  margin: ${(p) => p.margin};
 `
 ```
 
@@ -278,7 +278,7 @@ If you need to access props, then returns a `css` expression that includes `prop
 
 ```js
 const Box = styled.div`
-  ${p => css`
+  ${(p) => css`
     margin: ${p.margin};
   `}
 `

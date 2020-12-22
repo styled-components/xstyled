@@ -36,7 +36,7 @@ describe('#styled', () => {
     }
     const Dummy = styled.div<DummyProps>`
       color: red;
-      ${p => css`
+      ${(p) => css`
         margin: ${p.margin};
       `}
     `

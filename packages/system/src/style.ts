@@ -211,7 +211,7 @@ function getStyleFactory(
       return reduceBreakpoints(
         props,
         value,
-        breakpointValue =>
+        (breakpointValue) =>
           styleFromValue(mixin, breakpointValue, props, themeGet, cache),
         cache,
       )
@@ -265,7 +265,7 @@ function getMediaOrder(styles: { [key: string]: any }, props: IProps) {
 
 export function compose(...generators: StyleGenerator[]): StyleGenerator {
   let flatGenerators: StyleGenerator[] = []
-  generators.forEach(gen => {
+  generators.forEach((gen) => {
     warn(Boolean(gen), `Undefined generator in "compose" method`)
     if (!gen) return
     if (gen.meta.generators) {
@@ -300,9 +300,9 @@ export function compose(...generators: StyleGenerator[]): StyleGenerator {
 
 type CSSProperty = string | string[] | Mixin
 
-const getMixinFromCSSProperties = (
-  properties?: string | string[],
-): Mixin => value => {
+const getMixinFromCSSProperties = (properties?: string | string[]): Mixin => (
+  value,
+) => {
   if (!string(value) && !num(value)) return null
   if (string(properties)) return { [properties]: value }
   const style: IStyles = {}
@@ -337,7 +337,7 @@ export function style({
       ? getMixinFromCSSProperty(cssProperty)
       : cssProperty
 
-    const generators = prop.map(prop =>
+    const generators = prop.map((prop) =>
       style({ prop, cssProperty: mixin, key, transform, themeGet }),
     )
 

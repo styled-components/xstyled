@@ -635,7 +635,7 @@ describe('styles', () => {
           const styleRules = Array.isArray(config.styleRule)
             ? config.styleRule
             : [config.styleRule]
-          styleRules.forEach(styleRule => {
+          styleRules.forEach((styleRule) => {
             expect(container.firstChild).toHaveStyle(
               `${styleRule}: ${expected};`,
             )
@@ -652,7 +652,7 @@ describe('styles', () => {
             ? config.styleRule
             : [config.styleRule]
 
-          styleRules.forEach(styleRule => {
+          styleRules.forEach((styleRule) => {
             expect(container.firstChild).toHaveStyle(
               `${styleRule}: ${expected};`,
               // @ts-ignore

@@ -45,7 +45,7 @@ export const styled = <XStyledInterface>(
 // @ts-ignore
 styled.box = styled(x.div)
 
-Object.keys(scStyled).forEach(key => {
+Object.keys(scStyled).forEach((key) => {
   // @ts-ignore
   styled[key] = styled(key)
   // @ts-ignore

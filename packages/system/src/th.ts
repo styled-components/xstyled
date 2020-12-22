@@ -69,7 +69,7 @@ export const th = <ThemeGet>((path: string, defaultValue?: string) => (
   getTransition,
   getTransitionProperty,
   getZIndex,
-].forEach(themeGetter => {
+].forEach((themeGetter) => {
   if (themeGetter.meta.name) {
     th[themeGetter.meta.name] = themeGetter
   }

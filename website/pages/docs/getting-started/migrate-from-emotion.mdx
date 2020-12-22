@@ -90,7 +90,7 @@ import { jsx } from '@emotion/react'
 const Button = ({ children }) => {
   return (
     <button
-      css={theme => ({
+      css={(theme) => ({
         padding: `${theme.space[2]} ${theme.space[4]}`,
         color: theme.colors.white,
         borderRadius: theme.radii.md,
@@ -231,7 +231,7 @@ import { jsx } from '@emotion/react'
 const Button = ({ children }) => {
   return (
     <button
-      css={theme => ({
+      css={(theme) => ({
         paddingTop: theme.space[1],
       })}
     >

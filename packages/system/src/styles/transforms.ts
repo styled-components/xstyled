@@ -34,7 +34,7 @@ export interface TransformProps<T extends ITheme = Theme> {
 export const transform = style({
   prop: 'transform',
   themeGet: getTransform,
-  cssProperty: value => {
+  cssProperty: (value) => {
     if (value === true) {
       return {
         '--x-translate-x': 0,
@@ -222,7 +222,7 @@ export interface ScaleProps<T extends ITheme = Theme> {
 export const scale = style({
   prop: 'scale',
   cssProperty: ['--x-scale-x', '--x-scale-y'],
-  transform: v => String(v),
+  transform: (v) => String(v),
 })
 
 type ScaleXProp<T> = SystemProp<number | string, T>
@@ -247,7 +247,7 @@ export interface ScaleXProps<T extends ITheme = Theme> {
 export const scaleX = style({
   prop: 'scaleX',
   cssProperty: '--x-scale-x',
-  transform: v => String(v),
+  transform: (v) => String(v),
 })
 
 type ScaleYProp<T> = SystemProp<number | string, T>
@@ -272,7 +272,7 @@ export interface ScaleYProps<T extends ITheme = Theme> {
 export const scaleY = style({
   prop: 'scaleY',
   cssProperty: '--x-scale-y',
-  transform: v => String(v),
+  transform: (v) => String(v),
 })
 
 export type TransformsProps<T extends ITheme = Theme> = TransformProps<T> &
