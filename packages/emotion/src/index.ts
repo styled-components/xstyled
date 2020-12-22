@@ -15,8 +15,7 @@ export {
   keyframes,
   ThemeProvider,
   withTheme,
-  useTheme,
 } from '@emotion/react'
 export * from './breakpoints'
+export * from './theme'
 export * from '@xstyled/system'
-export * from './types'

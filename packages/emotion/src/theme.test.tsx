@@ -1,7 +1,7 @@
 import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from '@emotion/react'
 import { useTheme, useFontSize } from '.'
 
 afterEach(cleanup)

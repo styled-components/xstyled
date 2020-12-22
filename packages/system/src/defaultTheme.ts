@@ -481,3 +481,5 @@ export const defaultTheme = {
     bounce: 'x-bounce 1s infinite',
   },
 }
+
+export type DefaultTheme = typeof defaultTheme

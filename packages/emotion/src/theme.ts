@@ -1,10 +1,8 @@
-import { useMemo, useContext } from 'react'
-import { ThemeContext } from 'styled-components'
+import { useMemo } from 'react'
+import { useTheme } from '@emotion/react'
 import { th } from '@xstyled/system'
 
-export const useTheme = () => {
-  return useContext(ThemeContext)
-}
+export { useTheme }
 
 const createUseGetter = (getter: Function) => (
   value: any,
