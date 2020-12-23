@@ -1,5 +1,15 @@
 import { space, getSpace } from './space'
 
+const screens = {
+  _: 0,
+  xs: 0,
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  '2xl': 1536,
+}
+
 describe('#getSpace', () => {
   it('gets a value and transforms it according to spec.', () => {
     const props = {}
@@ -38,7 +48,7 @@ describe('#space', () => {
     expect(space({ m: 10 })).toEqual({ margin: '10px' })
     expect(space({ m: -10 })).toEqual({ margin: '-10px' })
     expect(space({ m: '50%' })).toEqual({ margin: '50%' })
-    expect(space({ m: { md: '50%' } })).toEqual({
+    expect(space({ m: { md: '50%' }, theme: { screens } })).toEqual({
       '@media (min-width: 768px)': { margin: '50%' },
     })
   })
@@ -52,7 +62,7 @@ describe('#space', () => {
       marginLeft: '50%',
       marginRight: '50%',
     })
-    expect(space({ mx: { md: '50%' } })).toEqual({
+    expect(space({ mx: { md: '50%' }, theme: { screens } })).toEqual({
       '@media (min-width: 768px)': { marginLeft: '50%', marginRight: '50%' },
     })
   })
@@ -67,7 +77,7 @@ describe('#space', () => {
   it('should support p', () => {
     expect(space({ p: 10 })).toEqual({ padding: '10px' })
     expect(space({ p: '50%' })).toEqual({ padding: '50%' })
-    expect(space({ p: { md: '50%' } })).toEqual({
+    expect(space({ p: { md: '50%' }, theme: { screens } })).toEqual({
       '@media (min-width: 768px)': { padding: '50%' },
     })
   })
@@ -81,7 +91,7 @@ describe('#space', () => {
       paddingLeft: '50%',
       paddingRight: '50%',
     })
-    expect(space({ px: { md: '50%' } })).toEqual({
+    expect(space({ px: { md: '50%' }, theme: { screens } })).toEqual({
       '@media (min-width: 768px)': { paddingLeft: '50%', paddingRight: '50%' },
     })
   })
@@ -94,7 +104,9 @@ describe('#space', () => {
   })
 
   it('should merge everything', () => {
-    expect(space({ px: { md: '50%' }, mx: { md: 10 } })).toEqual({
+    expect(
+      space({ theme: { screens }, px: { md: '50%' }, mx: { md: 10 } }),
+    ).toEqual({
       '@media (min-width: 768px)': {
         paddingLeft: '50%',
         paddingRight: '50%',

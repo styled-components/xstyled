@@ -16,7 +16,12 @@ describe('#system', () => {
       spaceX: { sm: 4 },
     })
     const keys = Object.keys(res)
-    console.log(keys)
-    // expect(keys).toEqual(["@media (min-width: 640px)", "@media (min-width: 768px)", "@media (min-width: 1024px)"])
+    expect(keys).toEqual([
+      'display',
+      '@media (min-width: 640px)',
+      '@media (min-width: 1024px)',
+      '@media (min-width: 768px)',
+      '& > :not([hidden]) ~ :not([hidden])',
+    ])
   })
 })

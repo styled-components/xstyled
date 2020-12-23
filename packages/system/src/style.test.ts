@@ -97,14 +97,20 @@ describe('#style', () => {
     })
 
     it('works with states', () => {
+      const theme = { screens: { _: 0, md: 400 } }
       expect(fontFamily({ hoverFontFamily: 'title' })).toEqual({
         '&:hover': {
           fontFamily: 'title',
         },
       })
-      expect(fontFamily({ motionReduceFontFamily: { md: 'title' } })).toEqual({
+      expect(
+        fontFamily({
+          motionReduceFontFamily: { md: 'title' },
+          theme,
+        }),
+      ).toEqual({
         '@media (prefers-reduced-motion: reduce)': {
-          '@media (min-width: 768px)': { fontFamily: 'title' },
+          '@media (min-width: 400px)': { fontFamily: 'title' },
         },
       })
     })
@@ -114,11 +120,17 @@ describe('#style', () => {
     })
 
     it('works with breakpoints', () => {
-      expect(fontFamily({ fontFamily: { xs: 'title' } })).toEqual({
+      const theme = { screens: { _: 0, md: 400 } }
+      expect(
+        fontFamily({
+          fontFamily: { _: 'title' },
+          theme,
+        }),
+      ).toEqual({
         fontFamily: 'title',
       })
-      expect(fontFamily({ fontFamily: { md: 'title' } })).toEqual({
-        '@media (min-width: 768px)': {
+      expect(fontFamily({ fontFamily: { md: 'title' }, theme })).toEqual({
+        '@media (min-width: 400px)': {
           fontFamily: 'title',
         },
       })

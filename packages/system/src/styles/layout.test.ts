@@ -1,8 +1,20 @@
 import { container, getInset } from './layout'
 
+const theme = {
+  screens: {
+    _: 0,
+    xs: 0,
+    sm: 640,
+    md: 768,
+    lg: 1024,
+    xl: 1280,
+    '2xl': 1536,
+  },
+}
+
 describe('#container', () => {
   it('works with `true`', () => {
-    expect(container({ container: true })).toEqual({
+    expect(container({ container: true, theme })).toEqual({
       width: '100%',
       '@media (min-width: 640px)': { maxWidth: 640 },
       '@media (min-width: 768px)': { maxWidth: 768 },
@@ -13,7 +25,7 @@ describe('#container', () => {
   })
 
   it('works with breakpoints', () => {
-    expect(container({ container: { md: true } })).toEqual({
+    expect(container({ container: { md: true }, theme })).toEqual({
       width: '100%',
       '@media (min-width: 768px)': {
         '@media (min-width: 640px)': { maxWidth: 640 },

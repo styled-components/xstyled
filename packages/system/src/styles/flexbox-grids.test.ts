@@ -1,5 +1,17 @@
 import { flexboxGrids } from './flexbox-grids'
 
+const theme = {
+  screens: {
+    _: 0,
+    xs: 0,
+    sm: 640,
+    md: 768,
+    lg: 1024,
+    xl: 1280,
+    '2xl': 1536,
+  },
+}
+
 describe('#flexboxGrids', () => {
   it('supports row', () => {
     expect(flexboxGrids({ row: true })).toEqual({
@@ -9,7 +21,7 @@ describe('#flexboxGrids', () => {
       display: 'flex',
     })
 
-    expect(flexboxGrids({ row: { md: true } })).toEqual({
+    expect(flexboxGrids({ row: { md: true }, theme })).toEqual({
       '@media (min-width: 768px)': {
         boxSizing: 'border-box',
         flexGrow: 1,
@@ -52,7 +64,7 @@ describe('#flexboxGrids', () => {
       width: 'auto',
     })
 
-    expect(flexboxGrids({ col: { xs: 0.2, md: 20 } })).toEqual({
+    expect(flexboxGrids({ col: { xs: 0.2, md: 20 }, theme })).toEqual({
       boxSizing: 'border-box',
       flexBasis: 0,
       flexGrow: 1,
