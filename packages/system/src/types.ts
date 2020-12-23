@@ -1,7 +1,34 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
 export type IVariants = Record<string | number, string | number>
-export type ITheme = Record<string | number, unknown>
+export type ITheme = {
+  animations?: unknown
+  borders?: unknown
+  borderStyles?: unknown
+  borderWidths?: unknown
+  colors?: unknown
+  fonts?: unknown
+  fontSizes?: unknown
+  fontWeights?: unknown
+  gridTemplateColumns?: unknown
+  gridTemplateRows?: unknown
+  inset?: unknown
+  letterSpacings?: unknown
+  lineHeights?: unknown
+  radii?: unknown
+  ringWidths?: unknown
+  shadows?: unknown
+  screens?: unknown
+  settings?: unknown
+  sizes?: unknown
+  space?: unknown
+  timingFunctions?: unknown
+  transforms?: unknown
+  transitions?: unknown
+  transitionProperties?: unknown
+  transformers?: unknown
+  zIndices?: unknown
+}
 export type IProps = {
   [Key: string]: any
   [Key: number]: any

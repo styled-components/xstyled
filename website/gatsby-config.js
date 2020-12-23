@@ -16,6 +16,7 @@ module.exports = {
         sections: [
           'Getting Started',
           'Core Concepts',
+          'Customization',
           'Layout',
           'Flexbox',
           'Grid',
