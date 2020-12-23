@@ -8,7 +8,7 @@ import {
 } from '../style'
 import { getPercent } from './units'
 
-type RowProp<T> = SystemProp<boolean, T>
+type RowProp<T extends ITheme> = SystemProp<boolean, T>
 export interface RowProps<T extends ITheme = Theme> {
   row?: RowProp<T>
   motionSafeRow?: RowProp<T>
@@ -62,7 +62,7 @@ function getColStyle(props: IProps, size: any) {
   }
 }
 
-type ColProp<T> = SystemProp<true | 'auto' | string | number, T>
+type ColProp<T extends ITheme> = SystemProp<true | 'auto' | string | number, T>
 export interface ColProps<T extends ITheme = Theme> {
   col?: ColProp<T>
   motionSafeCol?: ColProp<T>

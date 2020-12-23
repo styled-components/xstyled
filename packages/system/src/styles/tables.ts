@@ -6,7 +6,7 @@ type BorderCollapseProp<T extends ITheme = Theme> = SystemProp<
   CSS.Property.BorderCollapse,
   T
 >
-export interface BorderCollapseProps<T = {}> {
+export interface BorderCollapseProps<T extends ITheme = Theme> {
   borderCollapse?: BorderCollapseProp<T>
   motionSafeBorderCollapse?: BorderCollapseProp<T>
   motionReduceBorderCollapse?: BorderCollapseProp<T>
@@ -32,7 +32,7 @@ type TableLayoutProp<T extends ITheme = Theme> = SystemProp<
   CSS.Property.TableLayout,
   T
 >
-export interface TableLayoutProps<T = {}> {
+export interface TableLayoutProps<T extends ITheme = Theme> {
   tableLayout?: TableLayoutProp<T>
   motionSafeTableLayout?: TableLayoutProp<T>
   motionReduceTableLayout?: TableLayoutProp<T>

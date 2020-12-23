@@ -14,7 +14,6 @@ import {
 import { getBreakpoints, getBreakpointMin, mediaMinWidth } from './media'
 import { defaultStates } from './defaultStates'
 import {
-  AnyDictionary,
   IProps,
   IStyles,
   IVariants,
@@ -33,7 +32,7 @@ const defaultStateKeys = Object.keys(
 const cacheSupported =
   typeof Map !== 'undefined' && typeof WeakMap !== 'undefined'
 
-type ThemeCache = AnyDictionary
+type ThemeCache = Record<string, any>
 const caches = cacheSupported ? new WeakMap<ITheme, ThemeCache>() : null
 
 function getThemeCache(theme: ITheme) {
@@ -246,21 +245,22 @@ function indexGeneratorsByProp(styles: StyleGenerator[]) {
   return index
 }
 
-function getMediaOrder(styles: { [key: string]: any }, props: IProps) {
-  const medias: { [key: string]: any } = {}
+function sortStyles(styles: Record<string | number, unknown>, props: IProps) {
   const breakpoints = getBreakpoints(props)
-  const stylesProperties = Object.keys(styles)
+
+  const breakpointsStyles: Record<string | number, unknown> = {}
 
   for (const key in breakpoints) {
-    const breakpoint = breakpoints[key]
-    const currentMediaKey = `@media (min-width: ${breakpoint}px)`
-    const isValid = stylesProperties.includes(currentMediaKey)
+    const min = getBreakpointMin(breakpoints, key)
+    const mediaMin = mediaMinWidth(min)
+    if (!mediaMin) continue
 
-    if (!isValid) continue
-    medias[currentMediaKey] = styles[currentMediaKey]
+    const style = styles[mediaMin]
+    if (!style) continue
+    breakpointsStyles[mediaMin] = style
   }
 
-  return medias
+  return assign(styles, breakpointsStyles)
 }
 
 export function compose(...generators: StyleGenerator[]): StyleGenerator {
@@ -287,7 +287,7 @@ export function compose(...generators: StyleGenerator[]): StyleGenerator {
       }
     }
 
-    return assign(getMediaOrder(styles, props), styles)
+    return sortStyles(styles, props)
   }
 
   const props = flatGenerators.reduce(

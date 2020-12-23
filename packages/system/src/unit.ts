@@ -3,12 +3,10 @@ import { TransformValue } from './types'
 
 const round = (value: number) => Math.round(value * 10 ** 4) / 10 ** 4
 
-export const unit = (unit: string) => <
-  T extends string | number | null | undefined
->(
+export const unit = (unit: string) => <T extends string | number | null>(
   value: T,
-): string | null =>
-  (num(value) && value !== 0 ? `${value}${unit}` : value) as string | null
+): string | number | null =>
+  num(value) && value !== 0 ? `${value}${unit}` : value
 
 export const ms = unit('ms')
 export const px = unit('px')

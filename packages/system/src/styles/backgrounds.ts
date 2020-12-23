@@ -14,7 +14,7 @@ const gradientBackgrounds: { [key: string]: string } = {
   'gradient-to-tl': 'linear-gradient(to top left, var(--x-gradient-stops))',
 }
 
-type BackgroundProp<T> = SystemProp<CSS.Property.Background, T>
+type BackgroundProp<T extends ITheme> = SystemProp<CSS.Property.Background, T>
 export interface BackgroundProps<T extends ITheme = Theme> {
   background?: BackgroundProp<T>
   motionSafeBackground?: BackgroundProp<T>
@@ -40,7 +40,7 @@ export const background = style({
   }),
 })
 
-type BackgroundColorProp<T> = SystemProp<
+type BackgroundColorProp<T extends ITheme> = SystemProp<
   ColorGetter<T> | CSS.Property.BackgroundColor,
   T
 >
@@ -87,7 +87,10 @@ export const backgroundColor = style({
   themeGet: getColor,
 })
 
-type BackgroundImageProp<T> = SystemProp<CSS.Property.BackgroundImage, T>
+type BackgroundImageProp<T extends ITheme> = SystemProp<
+  CSS.Property.BackgroundImage,
+  T
+>
 export interface BackgroundImageProps<T extends ITheme = Theme> {
   backgroundImage?: BackgroundImageProp<T>
   motionSafeBackgroundImage?: BackgroundImageProp<T>
@@ -113,7 +116,10 @@ export const backgroundImage = style({
   }),
 })
 
-type BackgroundSizeProp<T> = SystemProp<CSS.Property.BackgroundSize, T>
+type BackgroundSizeProp<T extends ITheme> = SystemProp<
+  CSS.Property.BackgroundSize,
+  T
+>
 export interface BackgroundSizeProps<T extends ITheme = Theme> {
   backgroundSize?: BackgroundSizeProp<T>
   motionSafeBackgroundSize?: BackgroundSizeProp<T>
@@ -136,7 +142,10 @@ export const backgroundSize = style({
   prop: 'backgroundSize',
 })
 
-type BackgroundPositionProp<T> = SystemProp<CSS.Property.BackgroundPosition, T>
+type BackgroundPositionProp<T extends ITheme> = SystemProp<
+  CSS.Property.BackgroundPosition,
+  T
+>
 export interface BackgroundPositionProps<T extends ITheme = Theme> {
   backgroundPosition?: BackgroundPositionProp<T>
   motionSafeBackgroundPosition?: BackgroundPositionProp<T>
@@ -159,7 +168,10 @@ export const backgroundPosition = style({
   prop: 'backgroundPosition',
 })
 
-type BackgroundRepeatProp<T> = SystemProp<CSS.Property.BackgroundRepeat, T>
+type BackgroundRepeatProp<T extends ITheme> = SystemProp<
+  CSS.Property.BackgroundRepeat,
+  T
+>
 export interface BackgroundRepeatProps<T extends ITheme = Theme> {
   backgroundRepeat?: BackgroundRepeatProp<T>
   motionSafeBackgroundRepeat?: BackgroundRepeatProp<T>
@@ -182,7 +194,7 @@ export const backgroundRepeat = style({
   prop: 'backgroundRepeat',
 })
 
-type BackgroundAttachmentProp<T> = SystemProp<
+type BackgroundAttachmentProp<T extends ITheme> = SystemProp<
   CSS.Property.BackgroundAttachment,
   T
 >
@@ -208,7 +220,10 @@ export const backgroundAttachment = style({
   prop: 'backgroundAttachment',
 })
 
-type BackgroundClipProp<T> = SystemProp<CSS.Property.BackgroundClip, T>
+type BackgroundClipProp<T extends ITheme> = SystemProp<
+  CSS.Property.BackgroundClip,
+  T
+>
 export interface BackgroundClipProps<T extends ITheme = Theme> {
   backgroundClip?: BackgroundClipProp<T>
   motionSafeBackgroundClip?: BackgroundClipProp<T>
@@ -232,7 +247,7 @@ export const backgroundClip = style({
   cssProperty: ['backgroundClip', '-webkitBackgroundClip'],
 })
 
-type GradientFromProp<T> = SystemProp<ColorGetter<T>, T>
+type GradientFromProp<T extends ITheme> = SystemProp<ColorGetter<T>, T>
 export interface GradientFromProps<T extends ITheme = Theme> {
   gradientFrom?: GradientFromProp<T>
   motionSafeGradientFrom?: GradientFromProp<T>
@@ -263,7 +278,7 @@ export const gradientFrom = style({
   },
 })
 
-type GradientViaProp<T> = SystemProp<ColorGetter<T>, T>
+type GradientViaProp<T extends ITheme> = SystemProp<ColorGetter<T>, T>
 export interface GradientViaProps<T extends ITheme = Theme> {
   gradientVia?: GradientViaProp<T>
   motionSafeGradientVia?: GradientViaProp<T>
@@ -290,7 +305,7 @@ export const gradientVia = style({
   }),
 })
 
-type GradientToProp<T> = SystemProp<ColorGetter<T>, T>
+type GradientToProp<T extends ITheme> = SystemProp<ColorGetter<T>, T>
 export interface GradientToProps<T extends ITheme = Theme> {
   gradientTo?: GradientToProp<T>
   motionSafeGradientTo?: GradientToProp<T>

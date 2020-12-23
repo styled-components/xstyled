@@ -16,7 +16,7 @@ describe('#style', () => {
     })
 
     it('supports second arg default', () => {
-      const scope = themeGetter<{ scope: {} }, 'scope'>({
+      const scope = themeGetter({
         key: 'scope',
       })
       expect(scope('no-value', 'this-one')({ theme: { scope: {} } })).toBe(
@@ -25,14 +25,14 @@ describe('#style', () => {
     })
 
     it('uses first as default without second arg', () => {
-      const scope = themeGetter<{ scope: {} }, 'scope'>({
+      const scope = themeGetter({
         key: 'scope',
       })
       expect(scope('no-value')({ theme: { scope: {} } })).toBe('no-value')
     })
 
     it('uses "default" value in theme when `true`', () => {
-      const scope = themeGetter<{ scope: { default: string } }, 'scope'>({
+      const scope = themeGetter({
         key: 'scope',
       })
       expect(scope(true)({ theme: { scope: { default: 'foo' } } })).toBe('foo')

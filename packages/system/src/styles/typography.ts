@@ -50,7 +50,10 @@ export const getFontSize = themeGetter<FontSizeGetter>({
 
 // Font properties
 
-type FontFamilyProp<T> = SystemProp<FontGetter<T> | CSS.Property.FontFamily, T>
+type FontFamilyProp<T extends ITheme> = SystemProp<
+  FontGetter<T> | CSS.Property.FontFamily,
+  T
+>
 export interface FontFamilyProps<T extends ITheme = Theme> {
   fontFamily?: FontFamilyProp<T>
   motionSafeFontFamily?: FontFamilyProp<T>
@@ -74,7 +77,10 @@ export const fontFamily = style({
   themeGet: getFont,
 })
 
-type FontSizeProp<T> = SystemProp<FontSizeGetter<T> | CSS.Property.FontSize, T>
+type FontSizeProp<T extends ITheme> = SystemProp<
+  FontSizeGetter<T> | CSS.Property.FontSize,
+  T
+>
 export interface FontSizeProps<T extends ITheme = Theme> {
   fontSize?: FontSizeProp<T>
   motionSafeFontSize?: FontSizeProp<T>
@@ -98,7 +104,7 @@ export const fontSize = style({
   themeGet: getFontSize,
 })
 
-type LineHeightProp<T> = SystemProp<
+type LineHeightProp<T extends ITheme> = SystemProp<
   LineHeightGetter<T> | CSS.Property.LineHeight,
   T
 >
@@ -125,7 +131,7 @@ export const lineHeight = style({
   themeGet: getLineHeight,
 })
 
-type FontWeightProp<T> = SystemProp<
+type FontWeightProp<T extends ITheme> = SystemProp<
   FontWeightGetter<T> | CSS.Property.FontWeight,
   T
 >
@@ -152,7 +158,7 @@ export const fontWeight = style({
   themeGet: getFontWeight,
 })
 
-type FontStyleProp<T> = SystemProp<CSS.Property.FontStyle, T>
+type FontStyleProp<T extends ITheme> = SystemProp<CSS.Property.FontStyle, T>
 export interface FontStyleProps<T extends ITheme = Theme> {
   fontStyle?: FontStyleProp<T>
   motionSafeFontStyle?: FontStyleProp<T>
@@ -175,7 +181,7 @@ export const fontStyle = style({
   prop: 'fontStyle',
 })
 
-type LetterSpacingProp<T> = SystemProp<
+type LetterSpacingProp<T extends ITheme> = SystemProp<
   LetterSpacingGetter<T> | CSS.Property.LetterSpacing,
   T
 >
@@ -204,7 +210,10 @@ export const letterSpacing = style({
 
 // Color
 
-type ColorProp<T> = SystemProp<ColorGetter<T> | CSS.Property.Color, T>
+type ColorProp<T extends ITheme> = SystemProp<
+  ColorGetter<T> | CSS.Property.Color,
+  T
+>
 export interface ColorProps<T extends ITheme = Theme> {
   color?: ColorProp<T>
   motionSafeColor?: ColorProp<T>
@@ -230,7 +239,10 @@ export const color = style({
 
 // Text Transform
 
-type TextTransformProp<T> = SystemProp<CSS.Property.TextTransform, T>
+type TextTransformProp<T extends ITheme> = SystemProp<
+  CSS.Property.TextTransform,
+  T
+>
 export interface TextTransformProps<T extends ITheme = Theme> {
   textTransform?: TextTransformProp<T>
   motionSafeTextTransform?: TextTransformProp<T>
@@ -255,7 +267,10 @@ export const textTransform = style({
 
 // Text Decoration
 
-type TextDecorationProp<T> = SystemProp<CSS.Property.TextDecoration, T>
+type TextDecorationProp<T extends ITheme> = SystemProp<
+  CSS.Property.TextDecoration,
+  T
+>
 export interface TextDecorationProps<T extends ITheme = Theme> {
   textDecoration?: TextDecorationProp<T>
   motionSafeTextDecoration?: TextDecorationProp<T>
@@ -282,7 +297,7 @@ export const textDecoration = style({
 
 // Align
 
-type TextAlignProp<T> = SystemProp<CSS.Property.TextAlign, T>
+type TextAlignProp<T extends ITheme> = SystemProp<CSS.Property.TextAlign, T>
 export interface TextAlignProps<T extends ITheme = Theme> {
   textAlign?: TextAlignProp<T>
   motionSafeTextAlign?: TextAlignProp<T>
@@ -305,7 +320,10 @@ export const textAlign = style({
   prop: 'textAlign',
 })
 
-type VerticalAlignProp<T> = SystemProp<CSS.Property.VerticalAlign, T>
+type VerticalAlignProp<T extends ITheme> = SystemProp<
+  CSS.Property.VerticalAlign,
+  T
+>
 export interface VerticalAlignProps<T extends ITheme = Theme> {
   verticalAlign?: VerticalAlignProp<T>
   motionSafeVerticalAlign?: VerticalAlignProp<T>
@@ -330,7 +348,7 @@ export const verticalAlign = style({
 
 // WhiteSpace
 
-type WhiteSpaceProp<T> = SystemProp<CSS.Property.WhiteSpace, T>
+type WhiteSpaceProp<T extends ITheme> = SystemProp<CSS.Property.WhiteSpace, T>
 export interface WhiteSpaceProps<T extends ITheme = Theme> {
   whiteSpace?: WhiteSpaceProp<T>
   motionSafeWhiteSpace?: WhiteSpaceProp<T>
@@ -355,7 +373,10 @@ export const whiteSpace = style({
 
 // Overflow
 
-type TextOverflowProp<T> = SystemProp<CSS.Property.TextOverflow, T>
+type TextOverflowProp<T extends ITheme> = SystemProp<
+  CSS.Property.TextOverflow,
+  T
+>
 export interface TextOverflowProps<T extends ITheme = Theme> {
   textOverflow?: TextOverflowProp<T>
   motionSafeTextOverflow?: TextOverflowProp<T>
@@ -380,7 +401,10 @@ export const textOverflow = style({
 
 // List
 
-type ListStyleTypeProp<T> = SystemProp<CSS.Property.ListStyleType, T>
+type ListStyleTypeProp<T extends ITheme> = SystemProp<
+  CSS.Property.ListStyleType,
+  T
+>
 export interface ListStyleTypeProps<T extends ITheme = Theme> {
   listStyleType?: ListStyleTypeProp<T>
   motionSafeListStyleType?: ListStyleTypeProp<T>
@@ -403,7 +427,10 @@ export const listStyleType = style({
   prop: 'listStyleType',
 })
 
-type ListStylePositionProp<T> = SystemProp<CSS.Property.ListStylePosition, T>
+type ListStylePositionProp<T extends ITheme> = SystemProp<
+  CSS.Property.ListStylePosition,
+  T
+>
 export interface ListStylePositionProps<T extends ITheme = Theme> {
   listStylePosition?: ListStylePositionProp<T>
   motionSafeListStylePosition?: ListStylePositionProp<T>

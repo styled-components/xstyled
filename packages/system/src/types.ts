@@ -1,22 +1,14 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
-import { DefaultBreakpoints } from './defaultBreakpoints'
 
-export interface Dictionary<T> {
-  [Key: string]: T
-}
-export type AnyDictionary = Dictionary<any>
-
-export interface IVariants {
-  [Key: string]: number
-  [Key: number]: number
-}
-export type ITheme = AnyDictionary
+export type IVariants = Record<string | number, string | number>
+export type ITheme = Record<string | number, unknown>
 export type IProps = {
   [Key: string]: any
   [Key: number]: any
   theme?: any
 }
-export type IStyles = AnyDictionary
+export type IStyles = Record<string, unknown>
+export type IBreakpoints = Record<string | number, number>
 export type IPropsWithTheme<TTheme extends ITheme> = IProps & { theme: TTheme }
 
 export type Mixin = (value: any) => IStyles | null | undefined
@@ -26,10 +18,10 @@ export interface StyleGetter {
 }
 
 export type Breakpoints<TTheme extends ITheme> = TTheme extends {
-  breakpoints: AnyDictionary
+  breakpoints: IBreakpoints
 }
-  ? TTheme['breakpoints']
-  : DefaultBreakpoints
+  ? TTheme['screens']
+  : Record<string, unknown>
 
 export type BreakpointsProps<TType, TTheme extends ITheme> = {
   [P in keyof Breakpoints<TTheme>]?: TType
@@ -81,14 +73,14 @@ export type VariantsType<
   ? number | (TBaseType & {})
   : TVariants extends { default: any }
   ? keyof TVariants | (TBaseType & {}) | true
-  : TVariants extends AnyDictionary
+  : TVariants extends IVariants
   ? keyof TVariants | (TBaseType & {})
   : TBaseType & {}
 
 export type FirstArg<T extends (...args: any) => any> = Parameters<T>[0]
 
 /* Theme exposed to be overriden */
-export interface Theme {}
+export interface Theme extends ITheme {}
 
 // Automatic State Props for TypeScript 4.1
 // For compatibility reason, we use static types instead

@@ -3,7 +3,10 @@ import { SystemProp, ITheme, Theme, VariantsType } from '../types'
 import { style, compose } from '../style'
 import { getSpace, SpaceGetter } from './space'
 
-type GapProp<T> = SystemProp<SpaceGetter<T> | CSS.Property.Gap, T>
+type GapProp<T extends ITheme> = SystemProp<
+  SpaceGetter<T> | CSS.Property.Gap,
+  T
+>
 export interface GapProps<T extends ITheme = Theme> {
   gap?: GapProp<T>
   motionSafeGap?: GapProp<T>
@@ -27,7 +30,10 @@ export const gap = style({
   themeGet: getSpace,
 })
 
-type ColumnGapProp<T> = SystemProp<SpaceGetter<T> | CSS.Property.ColumnGap, T>
+type ColumnGapProp<T extends ITheme> = SystemProp<
+  SpaceGetter<T> | CSS.Property.ColumnGap,
+  T
+>
 export interface ColumnGapProps<T extends ITheme = Theme> {
   columnGap?: ColumnGapProp<T>
   motionSafeColumnGap?: ColumnGapProp<T>
@@ -51,7 +57,10 @@ export const columnGap = style({
   themeGet: getSpace,
 })
 
-type RowGapProp<T> = SystemProp<SpaceGetter<T> | CSS.Property.RowGap, T>
+type RowGapProp<T extends ITheme> = SystemProp<
+  SpaceGetter<T> | CSS.Property.RowGap,
+  T
+>
 export interface RowGapProps<T extends ITheme = Theme> {
   rowGap?: RowGapProp<T>
   motionSafeRowGap?: RowGapProp<T>
@@ -75,7 +84,7 @@ export const rowGap = style({
   themeGet: getSpace,
 })
 
-type GridColumnProp<T> = SystemProp<CSS.Property.GridColumn, T>
+type GridColumnProp<T extends ITheme> = SystemProp<CSS.Property.GridColumn, T>
 export interface GridColumnProps<T extends ITheme = Theme> {
   gridColumn?: GridColumnProp<T>
   motionSafeGridColumn?: GridColumnProp<T>
@@ -96,7 +105,7 @@ export interface GridColumnProps<T extends ITheme = Theme> {
 }
 export const gridColumn = style({ prop: 'gridColumn' })
 
-type GridRowProp<T> = SystemProp<CSS.Property.GridRow, T>
+type GridRowProp<T extends ITheme> = SystemProp<CSS.Property.GridRow, T>
 export interface GridRowProps<T extends ITheme = Theme> {
   gridRow?: GridRowProp<T>
   motionSafeGridRow?: GridRowProp<T>
@@ -117,7 +126,10 @@ export interface GridRowProps<T extends ITheme = Theme> {
 }
 export const gridRow = style({ prop: 'gridRow' })
 
-type GridAutoFlowProp<T> = SystemProp<CSS.Property.GridAutoFlow, T>
+type GridAutoFlowProp<T extends ITheme> = SystemProp<
+  CSS.Property.GridAutoFlow,
+  T
+>
 export interface GridAutoFlowProps<T extends ITheme = Theme> {
   gridAutoFlow?: GridAutoFlowProp<T>
   motionSafeGridAutoFlow?: GridAutoFlowProp<T>
@@ -138,7 +150,10 @@ export interface GridAutoFlowProps<T extends ITheme = Theme> {
 }
 export const gridAutoFlow = style({ prop: 'gridAutoFlow' })
 
-type GridAutoColumnsProp<T> = SystemProp<CSS.Property.GridAutoColumns, T>
+type GridAutoColumnsProp<T extends ITheme> = SystemProp<
+  CSS.Property.GridAutoColumns,
+  T
+>
 export interface GridAutoColumnsProps<T extends ITheme = Theme> {
   gridAutoColumns?: GridAutoColumnsProp<T>
   motionSafeGridAutoColumns?: GridAutoColumnsProp<T>
@@ -161,7 +176,10 @@ export const gridAutoColumns = style({
   prop: 'gridAutoColumns',
 })
 
-type GridAutoRowsProp<T> = SystemProp<CSS.Property.GridAutoRows, T>
+type GridAutoRowsProp<T extends ITheme> = SystemProp<
+  CSS.Property.GridAutoRows,
+  T
+>
 export interface GridAutoRowsProps<T extends ITheme = Theme> {
   gridAutoRows?: GridAutoRowsProp<T>
   motionSafeGridAutoRows?: GridAutoRowsProp<T>
@@ -236,7 +254,10 @@ export const gridTemplateRows = style({
   key: 'gridTemplateRows',
 })
 
-type GridTemplateAreasProp<T> = SystemProp<CSS.Property.GridTemplateAreas, T>
+type GridTemplateAreasProp<T extends ITheme> = SystemProp<
+  CSS.Property.GridTemplateAreas,
+  T
+>
 export interface GridTemplateAreasProps<T extends ITheme = Theme> {
   gridTemplateAreas?: GridTemplateAreasProp<T>
   motionSafeGridTemplateAreas?: GridTemplateAreasProp<T>
@@ -259,7 +280,7 @@ export const gridTemplateAreas = style({
   prop: 'gridTemplateAreas',
 })
 
-type GridAreaProp<T> = SystemProp<CSS.Property.GridArea, T>
+type GridAreaProp<T extends ITheme> = SystemProp<CSS.Property.GridArea, T>
 export interface GridAreaProps<T extends ITheme = Theme> {
   gridTemplateAreas?: GridAreaProp<T>
   motionSafeGridArea?: GridAreaProp<T>

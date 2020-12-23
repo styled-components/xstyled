@@ -12,7 +12,7 @@ export const getShadow = themeGetter<ShadowGetter>({
 
 // Style
 
-type OpacityProp<T> = SystemProp<CSS.Property.Opacity, T>
+type OpacityProp<T extends ITheme> = SystemProp<CSS.Property.Opacity, T>
 export interface OpacityProps<T extends ITheme = Theme> {
   opacity?: OpacityProp<T>
   motionSafeOpacity?: OpacityProp<T>
@@ -35,7 +35,10 @@ export const opacity = style({
   prop: 'opacity',
 })
 
-type BoxShadowProp<T> = SystemProp<ShadowGetter<T> | CSS.Property.BoxShadow, T>
+type BoxShadowProp<T extends ITheme> = SystemProp<
+  ShadowGetter<T> | CSS.Property.BoxShadow,
+  T
+>
 export interface BoxShadowProps<T extends ITheme = Theme> {
   boxShadow?: BoxShadowProp<T>
   motionSafeBoxShadow?: BoxShadowProp<T>
@@ -63,7 +66,7 @@ export const boxShadow = style({
   }),
 })
 
-type TextShadowProp<T> = SystemProp<
+type TextShadowProp<T extends ITheme> = SystemProp<
   ShadowGetter<T> | CSS.Property.TextShadow,
   T
 >

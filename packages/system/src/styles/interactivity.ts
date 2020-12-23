@@ -2,7 +2,7 @@ import * as CSS from 'csstype'
 import { style, compose } from '../style'
 import { SystemProp, ITheme, Theme } from '../types'
 
-type AppearanceProp<T> = SystemProp<CSS.Property.Appearance, T>
+type AppearanceProp<T extends ITheme> = SystemProp<CSS.Property.Appearance, T>
 export interface AppearanceProps<T extends ITheme = Theme> {
   appearance?: AppearanceProp<T>
   motionSafeAppearance?: AppearanceProp<T>
@@ -25,7 +25,7 @@ export const appearance = style({
   prop: 'appearance',
 })
 
-type CursorProp<T> = SystemProp<CSS.Property.Cursor, T>
+type CursorProp<T extends ITheme> = SystemProp<CSS.Property.Cursor, T>
 export interface CursorProps<T extends ITheme = Theme> {
   cursor?: CursorProp<T>
   motionSafeCursor?: CursorProp<T>
@@ -48,7 +48,10 @@ export const cursor = style({
   prop: 'cursor',
 })
 
-type PointerEventsProp<T> = SystemProp<CSS.Property.PointerEvents, T>
+type PointerEventsProp<T extends ITheme> = SystemProp<
+  CSS.Property.PointerEvents,
+  T
+>
 export interface PointerEventsProps<T extends ITheme = Theme> {
   pointerEvents?: PointerEventsProp<T>
   motionSafePointerEvents?: PointerEventsProp<T>
@@ -71,7 +74,7 @@ export const pointerEvents = style({
   prop: 'pointerEvents',
 })
 
-type ResizeProp<T> = SystemProp<CSS.Property.Resize, T>
+type ResizeProp<T extends ITheme> = SystemProp<CSS.Property.Resize, T>
 export interface ResizeProps<T extends ITheme = Theme> {
   resize?: ResizeProp<T>
   motionSafeResize?: ResizeProp<T>
@@ -94,7 +97,7 @@ export const resize = style({
   prop: 'resize',
 })
 
-type UserSelectProp<T> = SystemProp<CSS.Property.UserSelect, T>
+type UserSelectProp<T extends ITheme> = SystemProp<CSS.Property.UserSelect, T>
 export interface UserSelectProps<T extends ITheme = Theme> {
   userSelect?: UserSelectProp<T>
   motionSafeUserSelect?: UserSelectProp<T>

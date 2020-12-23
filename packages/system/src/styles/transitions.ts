@@ -27,7 +27,7 @@ export const getTimingFunction = themeGetter<TimingFunctionGetter>({
   key: 'timingFunctions',
 })
 
-type TransitionProp<T> = SystemProp<
+type TransitionProp<T extends ITheme> = SystemProp<
   TransitionGetter<T> | CSS.Property.Transition,
   T
 >
@@ -51,7 +51,7 @@ export interface TransitionProps<T extends ITheme = Theme> {
 }
 export const transition = style({ prop: 'transition', themeGet: getTransition })
 
-type TransitionPropertyProp<T> = SystemProp<
+type TransitionPropertyProp<T extends ITheme> = SystemProp<
   TransitionPropertyGetter<T> | CSS.Property.TransitionProperty,
   T
 >
@@ -78,7 +78,7 @@ export const transitionProperty = style({
   themeGet: getTransitionProperty,
 })
 
-type TransitionDurationProp<T> = SystemProp<
+type TransitionDurationProp<T extends ITheme> = SystemProp<
   number | CSS.Property.TransitionDuration,
   T
 >
@@ -105,7 +105,7 @@ export const transitionDuration = style({
   themeGet: getDuration,
 })
 
-type TransitionTimingFunctionProp<T> = SystemProp<
+type TransitionTimingFunctionProp<T extends ITheme> = SystemProp<
   TimingFunctionGetter<T> | CSS.Property.TransitionTimingFunction,
   T
 >
@@ -132,7 +132,7 @@ export const transitionTimingFunction = style({
   themeGet: getTimingFunction,
 })
 
-type TransitionDelayProp<T> = SystemProp<
+type TransitionDelayProp<T extends ITheme> = SystemProp<
   number | CSS.Property.TransitionDelay,
   T
 >

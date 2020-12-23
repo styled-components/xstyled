@@ -15,8 +15,11 @@ export const getSpace = themeGetter<SpaceGetter>({
 
 // Styles
 
-type MarginProp<T> = SystemProp<CSS.Property.Margin | SpaceGetter<T>, T>
-export interface MarginProps<T = {}> {
+type MarginProp<T extends ITheme> = SystemProp<
+  CSS.Property.Margin | SpaceGetter<T>,
+  T
+>
+export interface MarginProps<T extends ITheme = Theme> {
   margin?: MarginProp<T>
   motionSafeMargin?: MarginProp<T>
   motionReduceMargin?: MarginProp<T>
@@ -56,8 +59,11 @@ export const margin = style({
   themeGet: getSpace,
 })
 
-type MarginTopProp<T> = SystemProp<CSS.Property.MarginTop | SpaceGetter<T>, T>
-export interface MarginTopProps<T = {}> {
+type MarginTopProp<T extends ITheme> = SystemProp<
+  CSS.Property.MarginTop | SpaceGetter<T>,
+  T
+>
+export interface MarginTopProps<T extends ITheme = Theme> {
   marginTop?: MarginTopProp<T>
   motionSafeMarginTop?: MarginTopProp<T>
   motionReduceMarginTop?: MarginTopProp<T>
@@ -97,11 +103,11 @@ export const marginTop = style({
   themeGet: getSpace,
 })
 
-type MarginRightProp<T> = SystemProp<
+type MarginRightProp<T extends ITheme> = SystemProp<
   CSS.Property.MarginRight | SpaceGetter<T>,
   T
 >
-export interface MarginRightProps<T = {}> {
+export interface MarginRightProps<T extends ITheme = Theme> {
   marginRight?: MarginRightProp<T>
   motionSafeMarginRight?: MarginRightProp<T>
   motionReduceMarginRight?: MarginRightProp<T>
@@ -141,11 +147,11 @@ export const marginRight = style({
   themeGet: getSpace,
 })
 
-type MarginBottomProp<T> = SystemProp<
+type MarginBottomProp<T extends ITheme> = SystemProp<
   CSS.Property.MarginBottom | SpaceGetter<T>,
   T
 >
-export interface MarginBottomProps<T = {}> {
+export interface MarginBottomProps<T extends ITheme = Theme> {
   marginBottom?: MarginBottomProp<T>
   motionSafeMarginBottom?: MarginBottomProp<T>
   motionReduceMarginBottom?: MarginBottomProp<T>
@@ -185,8 +191,11 @@ export const marginBottom = style({
   themeGet: getSpace,
 })
 
-type MarginLeftProp<T> = SystemProp<CSS.Property.MarginLeft | SpaceGetter<T>, T>
-export interface MarginLeftProps<T = {}> {
+type MarginLeftProp<T extends ITheme> = SystemProp<
+  CSS.Property.MarginLeft | SpaceGetter<T>,
+  T
+>
+export interface MarginLeftProps<T extends ITheme = Theme> {
   marginLeft?: MarginLeftProp<T>
   motionSafeMarginLeft?: MarginLeftProp<T>
   motionReduceMarginLeft?: MarginLeftProp<T>
@@ -226,27 +235,27 @@ export const marginLeft = style({
   themeGet: getSpace,
 })
 
-type MarginX<T> = SystemProp<
+type MarginXProp<T extends ITheme = Theme> = SystemProp<
   (CSS.Property.MarginLeft & CSS.Property.MarginRight) | SpaceGetter<T>,
   T
 >
 export interface MarginXProps<T extends ITheme = Theme> {
-  mx?: MarginX<T>
-  motionSafeMx?: MarginX<T>
-  motionReduceMx?: MarginX<T>
-  firstMx?: MarginX<T>
-  lastMx?: MarginX<T>
-  oddMx?: MarginX<T>
-  evenMx?: MarginX<T>
-  visitedMx?: MarginX<T>
-  checkedMx?: MarginX<T>
-  focusWithinMx?: MarginX<T>
-  hoverMx?: MarginX<T>
-  focusMx?: MarginX<T>
-  focusVisibleMx?: MarginX<T>
-  activeMx?: MarginX<T>
-  disabledMx?: MarginX<T>
-  placeholderMx?: MarginX<T>
+  mx?: MarginXProp<T>
+  motionSafeMx?: MarginXProp<T>
+  motionReduceMx?: MarginXProp<T>
+  firstMx?: MarginXProp<T>
+  lastMx?: MarginXProp<T>
+  oddMx?: MarginXProp<T>
+  evenMx?: MarginXProp<T>
+  visitedMx?: MarginXProp<T>
+  checkedMx?: MarginXProp<T>
+  focusWithinMx?: MarginXProp<T>
+  hoverMx?: MarginXProp<T>
+  focusMx?: MarginXProp<T>
+  focusVisibleMx?: MarginXProp<T>
+  activeMx?: MarginXProp<T>
+  disabledMx?: MarginXProp<T>
+  placeholderMx?: MarginXProp<T>
 }
 export const mx = style({
   prop: 'mx',
@@ -254,27 +263,27 @@ export const mx = style({
   themeGet: getSpace,
 })
 
-type MarginY<T> = SystemProp<
+type MarginYProp<T extends ITheme> = SystemProp<
   (CSS.Property.MarginTop & CSS.Property.MarginBottom) | SpaceGetter<T>,
   T
 >
 export interface MarginYProps<T extends ITheme = Theme> {
-  my?: MarginY<T>
-  motionSafeMy?: MarginY<T>
-  motionReduceMy?: MarginY<T>
-  firstMy?: MarginY<T>
-  lastMy?: MarginY<T>
-  oddMy?: MarginY<T>
-  evenMy?: MarginY<T>
-  visitedMy?: MarginY<T>
-  checkedMy?: MarginY<T>
-  focusWithinMy?: MarginY<T>
-  hoverMy?: MarginY<T>
-  focusMy?: MarginY<T>
-  focusVisibleMy?: MarginY<T>
-  activeMy?: MarginY<T>
-  disabledMy?: MarginY<T>
-  placeholderMy?: MarginY<T>
+  my?: MarginYProp<T>
+  motionSafeMy?: MarginYProp<T>
+  motionReduceMy?: MarginYProp<T>
+  firstMy?: MarginYProp<T>
+  lastMy?: MarginYProp<T>
+  oddMy?: MarginYProp<T>
+  evenMy?: MarginYProp<T>
+  visitedMy?: MarginYProp<T>
+  checkedMy?: MarginYProp<T>
+  focusWithinMy?: MarginYProp<T>
+  hoverMy?: MarginYProp<T>
+  focusMy?: MarginYProp<T>
+  focusVisibleMy?: MarginYProp<T>
+  activeMy?: MarginYProp<T>
+  disabledMy?: MarginYProp<T>
+  placeholderMy?: MarginYProp<T>
 }
 export const my = style({
   prop: 'my',
@@ -284,8 +293,11 @@ export const my = style({
 
 // Padding
 
-type PaddingProp<T> = SystemProp<CSS.Property.Padding | SpaceGetter<T>, T>
-export interface PaddingProps<T = {}> {
+type PaddingProp<T extends ITheme> = SystemProp<
+  CSS.Property.Padding | SpaceGetter<T>,
+  T
+>
+export interface PaddingProps<T extends ITheme = Theme> {
   padding?: PaddingProp<T>
   motionSafePadding?: PaddingProp<T>
   motionReducePadding?: PaddingProp<T>
@@ -325,8 +337,11 @@ export const padding = style({
   themeGet: getSpace,
 })
 
-type PaddingTopProp<T> = SystemProp<CSS.Property.PaddingTop | SpaceGetter<T>, T>
-export interface PaddingTopProps<T = {}> {
+type PaddingTopProp<T extends ITheme> = SystemProp<
+  CSS.Property.PaddingTop | SpaceGetter<T>,
+  T
+>
+export interface PaddingTopProps<T extends ITheme = Theme> {
   paddingTop?: PaddingTopProp<T>
   motionSafePaddingTop?: PaddingTopProp<T>
   motionReducePaddingTop?: PaddingTopProp<T>
@@ -366,11 +381,11 @@ export const paddingTop = style({
   themeGet: getSpace,
 })
 
-type PaddingRightProp<T> = SystemProp<
+type PaddingRightProp<T extends ITheme> = SystemProp<
   CSS.Property.PaddingRight | SpaceGetter<T>,
   T
 >
-export interface PaddingRightProps<T = {}> {
+export interface PaddingRightProps<T extends ITheme = Theme> {
   paddingRight?: PaddingRightProp<T>
   motionSafePaddingRight?: PaddingRightProp<T>
   motionReducePaddingRight?: PaddingRightProp<T>
@@ -410,11 +425,11 @@ export const paddingRight = style({
   themeGet: getSpace,
 })
 
-type PaddingBottomProp<T> = SystemProp<
+type PaddingBottomProp<T extends ITheme> = SystemProp<
   CSS.Property.PaddingBottom | SpaceGetter<T>,
   T
 >
-export interface PaddingBottomProps<T = {}> {
+export interface PaddingBottomProps<T extends ITheme = Theme> {
   paddingBottop?: PaddingBottomProp<T>
   motionSafePaddingBottop?: PaddingBottomProp<T>
   motionReducePaddingBottop?: PaddingBottomProp<T>
@@ -454,11 +469,11 @@ export const paddingBottom = style({
   themeGet: getSpace,
 })
 
-type PaddingLeftProp<T> = SystemProp<
+type PaddingLeftProp<T extends ITheme> = SystemProp<
   CSS.Property.PaddingLeft | SpaceGetter<T>,
   T
 >
-export interface PaddingLeftProps<T = {}> {
+export interface PaddingLeftProps<T extends ITheme = Theme> {
   paddingLeft?: PaddingLeftProp<T>
   motionSafePaddingLeft?: PaddingLeftProp<T>
   motionReducePaddingLeft?: PaddingLeftProp<T>
@@ -498,27 +513,27 @@ export const paddingLeft = style({
   themeGet: getSpace,
 })
 
-type PaddingX<T> = SystemProp<
+type PaddingXProp<T extends ITheme> = SystemProp<
   (CSS.Property.PaddingLeft & CSS.Property.PaddingRight) | SpaceGetter<T>,
   T
 >
 export interface PaddingXProps<T extends ITheme = Theme> {
-  px?: PaddingX<T>
-  motionSafePx?: PaddingX<T>
-  motionReducePx?: PaddingX<T>
-  firstPx?: PaddingX<T>
-  lastPx?: PaddingX<T>
-  oddPx?: PaddingX<T>
-  evenPx?: PaddingX<T>
-  visitedPx?: PaddingX<T>
-  checkedPx?: PaddingX<T>
-  focusWithinPx?: PaddingX<T>
-  hoverPx?: PaddingX<T>
-  focusPx?: PaddingX<T>
-  focusVisiblePx?: PaddingX<T>
-  activePx?: PaddingX<T>
-  disabledPx?: PaddingX<T>
-  placeholderPx?: PaddingX<T>
+  px?: PaddingXProp<T>
+  motionSafePx?: PaddingXProp<T>
+  motionReducePx?: PaddingXProp<T>
+  firstPx?: PaddingXProp<T>
+  lastPx?: PaddingXProp<T>
+  oddPx?: PaddingXProp<T>
+  evenPx?: PaddingXProp<T>
+  visitedPx?: PaddingXProp<T>
+  checkedPx?: PaddingXProp<T>
+  focusWithinPx?: PaddingXProp<T>
+  hoverPx?: PaddingXProp<T>
+  focusPx?: PaddingXProp<T>
+  focusVisiblePx?: PaddingXProp<T>
+  activePx?: PaddingXProp<T>
+  disabledPx?: PaddingXProp<T>
+  placeholderPx?: PaddingXProp<T>
 }
 export const px = style({
   prop: 'px',
@@ -526,27 +541,27 @@ export const px = style({
   themeGet: getSpace,
 })
 
-type PaddingY<T> = SystemProp<
+type PaddingYProp<T extends ITheme> = SystemProp<
   (CSS.Property.PaddingTop & CSS.Property.PaddingBottom) | SpaceGetter<T>,
   T
 >
 export interface PaddingYProps<T extends ITheme = Theme> {
-  py?: PaddingY<T>
-  motionSafePy?: PaddingY<T>
-  motionReducePy?: PaddingY<T>
-  firstPy?: PaddingY<T>
-  lastPy?: PaddingY<T>
-  oddPy?: PaddingY<T>
-  evenPy?: PaddingY<T>
-  visitedPy?: PaddingY<T>
-  checkedPy?: PaddingY<T>
-  focusWithinPy?: PaddingY<T>
-  hoverPy?: PaddingY<T>
-  focusPy?: PaddingY<T>
-  focusVisiblePy?: PaddingY<T>
-  activePy?: PaddingY<T>
-  disabledPy?: PaddingY<T>
-  placeholderPy?: PaddingY<T>
+  py?: PaddingYProp<T>
+  motionSafePy?: PaddingYProp<T>
+  motionReducePy?: PaddingYProp<T>
+  firstPy?: PaddingYProp<T>
+  lastPy?: PaddingYProp<T>
+  oddPy?: PaddingYProp<T>
+  evenPy?: PaddingYProp<T>
+  visitedPy?: PaddingYProp<T>
+  checkedPy?: PaddingYProp<T>
+  focusWithinPy?: PaddingYProp<T>
+  hoverPy?: PaddingYProp<T>
+  focusPy?: PaddingYProp<T>
+  focusVisiblePy?: PaddingYProp<T>
+  activePy?: PaddingYProp<T>
+  disabledPy?: PaddingYProp<T>
+  placeholderPy?: PaddingYProp<T>
 }
 export const py = style({
   prop: 'py',
@@ -554,7 +569,7 @@ export const py = style({
   themeGet: getSpace,
 })
 
-type SpaceYProp<T> = SystemProp<SpaceGetter<T>, T>
+type SpaceYProp<T extends ITheme> = SystemProp<SpaceGetter<T>, T>
 export interface SpaceYProps<T extends ITheme = Theme> {
   spaceY?: SpaceYProp<T>
   motionSafeSpaceY?: SpaceYProp<T>
@@ -585,7 +600,7 @@ export const spaceY = style({
   }),
 })
 
-type SpaceXProp<T> = SystemProp<SpaceGetter<T>, T>
+type SpaceXProp<T extends ITheme> = SystemProp<SpaceGetter<T>, T>
 export interface SpaceXProps<T extends ITheme = Theme> {
   spaceX?: SpaceXProp<T>
   motionSafeSpaceX?: SpaceXProp<T>
@@ -616,7 +631,7 @@ export const spaceX = style({
   }),
 })
 
-type SpaceXReverseProp<T> = SystemProp<boolean, T>
+type SpaceXReverseProp<T extends ITheme> = SystemProp<boolean, T>
 export interface SpaceXReverseProps<T extends ITheme = Theme> {
   spaceXReverse?: SpaceXReverseProp<T>
   motionSafeSpaceXReverse?: SpaceXReverseProp<T>
@@ -644,7 +659,7 @@ export const spaceXReverse = style({
   }),
 })
 
-type SpaceYReverseProp<T> = SystemProp<boolean, T>
+type SpaceYReverseProp<T extends ITheme> = SystemProp<boolean, T>
 export interface SpaceYReverseProps<T extends ITheme = Theme> {
   spaceYReverse?: SpaceYReverseProp<T>
   motionSafeSpaceYReverse?: SpaceYReverseProp<T>

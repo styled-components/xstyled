@@ -6,9 +6,9 @@ import {
   mediaMaxWidth,
   mediaBetweenWidth,
 } from './media'
-import { IProps, AnyDictionary } from './types'
+import { IProps } from './types'
 
-export const up = (key: string | number, rules: any) => (props: IProps) => {
+export const up = (key: string | number, rules: unknown) => (props: IProps) => {
   const breakpoints = getBreakpoints(props)
   const value = getBreakpointMin(breakpoints, key)
   if (value === null) return rules
@@ -36,7 +36,7 @@ export const between = (
   return [`${mediaBetweenWidth(min, max)} {`, rules, '}']
 }
 
-export const breakpoints = (values: AnyDictionary) => (props: IProps) => {
+export const breakpoints = (values: any) => (props: IProps) => {
   const allRules = []
   const keys = Object.keys(values)
   const keysLength = keys.length

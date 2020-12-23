@@ -12,7 +12,7 @@ export const getTransform = themeGetter<TransformGetter>({
   key: 'transforms',
 })
 
-type TransformProp<T> = SystemProp<boolean, T>
+type TransformProp<T extends ITheme> = SystemProp<boolean, T>
 export interface TransformProps<T extends ITheme = Theme> {
   transform?: TransformProp<T>
   motionSafeTransform?: TransformProp<T>
@@ -52,7 +52,10 @@ export const transform = style({
   },
 })
 
-type TransformOriginProp<T> = SystemProp<CSS.Property.TransformOrigin, T>
+type TransformOriginProp<T extends ITheme> = SystemProp<
+  CSS.Property.TransformOrigin,
+  T
+>
 export interface TransformOriginProps<T extends ITheme = Theme> {
   transformOrigin?: TransformOriginProp<T>
   motionSafeTransformOrigin?: TransformOriginProp<T>
@@ -75,7 +78,7 @@ export const transformOrigin = style({
   prop: 'transformOrigin',
 })
 
-type TranslateXProp<T> = SystemProp<number | string, T>
+type TranslateXProp<T extends ITheme> = SystemProp<number | string, T>
 export interface TranslateXProps<T extends ITheme = Theme> {
   translateX?: TranslateXProp<T>
   motionSafeTranslateX?: TranslateXProp<T>
@@ -100,7 +103,7 @@ export const translateX = style({
   themeGet: getSpace,
 })
 
-type TranslateYProp<T> = SystemProp<number | string, T>
+type TranslateYProp<T extends ITheme> = SystemProp<number | string, T>
 export interface TranslateYProps<T extends ITheme = Theme> {
   translateY?: TranslateYProp<T>
   motionSafeTranslateY?: TranslateYProp<T>
@@ -125,7 +128,7 @@ export const translateY = style({
   themeGet: getSpace,
 })
 
-type RotateProp<T> = SystemProp<number | string, T>
+type RotateProp<T extends ITheme> = SystemProp<number | string, T>
 export interface RotateProps<T extends ITheme = Theme> {
   rotate?: RotateProp<T>
   motionSafeRotate?: RotateProp<T>
@@ -150,7 +153,7 @@ export const rotate = style({
   themeGet: getAngle,
 })
 
-type SkewXProp<T> = SystemProp<number | string, T>
+type SkewXProp<T extends ITheme> = SystemProp<number | string, T>
 export interface SkewXProps<T extends ITheme = Theme> {
   skewX?: SkewXProp<T>
   motionSafeSkewX?: SkewXProp<T>
@@ -175,7 +178,7 @@ export const skewX = style({
   themeGet: getAngle,
 })
 
-type SkewYProp<T> = SystemProp<number | string, T>
+type SkewYProp<T extends ITheme> = SystemProp<number | string, T>
 export interface SkewYProps<T extends ITheme = Theme> {
   skewY?: SkewYProp<T>
   motionSafeSkewY?: SkewYProp<T>
@@ -200,7 +203,7 @@ export const skewY = style({
   themeGet: getAngle,
 })
 
-type ScaleProp<T> = SystemProp<number | string, T>
+type ScaleProp<T extends ITheme> = SystemProp<number | string, T>
 export interface ScaleProps<T extends ITheme = Theme> {
   scale?: ScaleProp<T>
   motionSafeScale?: ScaleProp<T>
@@ -225,7 +228,7 @@ export const scale = style({
   transform: (v) => String(v),
 })
 
-type ScaleXProp<T> = SystemProp<number | string, T>
+type ScaleXProp<T extends ITheme> = SystemProp<number | string, T>
 export interface ScaleXProps<T extends ITheme = Theme> {
   scaleX?: ScaleXProp<T>
   motionSafeScaleX?: ScaleXProp<T>
@@ -250,7 +253,7 @@ export const scaleX = style({
   transform: (v) => String(v),
 })
 
-type ScaleYProp<T> = SystemProp<number | string, T>
+type ScaleYProp<T extends ITheme> = SystemProp<number | string, T>
 export interface ScaleYProps<T extends ITheme = Theme> {
   scaleY?: ScaleYProp<T>
   motionSafeScaleY?: ScaleYProp<T>

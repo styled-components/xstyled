@@ -11,7 +11,7 @@ export const getAnimation = themeGetter<AnimationGetter>({
   key: 'animations',
 })
 
-type AnimationProp<T> = SystemProp<
+type AnimationProp<T extends ITheme> = SystemProp<
   AnimationGetter<T> | CSS.Property.Animation,
   T
 >

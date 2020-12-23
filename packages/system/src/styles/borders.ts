@@ -41,7 +41,10 @@ export const getBorderStyle = themeGetter<BorderStyleGetter>({
 
 // Border
 
-type BorderProp<T> = SystemProp<BorderGetter<T> | CSS.Property.Border, T>
+type BorderProp<T extends ITheme> = SystemProp<
+  BorderGetter<T> | CSS.Property.Border,
+  T
+>
 export interface BorderProps<T extends ITheme = Theme> {
   border?: BorderProp<T>
   motionSafeBorder?: BorderProp<T>
@@ -65,7 +68,7 @@ export const border = style({
   themeGet: getBorder,
 })
 
-type BorderColorProp<T> = SystemProp<
+type BorderColorProp<T extends ITheme> = SystemProp<
   ColorGetter<T> | CSS.Property.BorderColor,
   T
 >
@@ -92,7 +95,7 @@ export const borderColor = style({
   themeGet: getBorderColor,
 })
 
-type BorderWidthProp<T> = SystemProp<
+type BorderWidthProp<T extends ITheme> = SystemProp<
   BorderWidthGetter<T> | CSS.Property.BorderWidth,
   T
 >
@@ -119,7 +122,7 @@ export const borderWidth = style({
   themeGet: getBorderWidth,
 })
 
-type BorderStyleProp<T> = SystemProp<
+type BorderStyleProp<T extends ITheme> = SystemProp<
   BorderStyleGetter<T> | CSS.Property.BorderStyle,
   T
 >
@@ -148,7 +151,10 @@ export const borderStyle = style({
 
 // Outline
 
-type OutlineProp<T> = SystemProp<BorderGetter<T> | CSS.Property.Outline, T>
+type OutlineProp<T extends ITheme> = SystemProp<
+  BorderGetter<T> | CSS.Property.Outline,
+  T
+>
 export interface OutlineProps<T extends ITheme = Theme> {
   outline?: OutlineProp<T>
   motionSafeOutline?: OutlineProp<T>
@@ -172,7 +178,7 @@ export const outline = style({
   themeGet: getBorder,
 })
 
-type OutlineColorProp<T> = SystemProp<
+type OutlineColorProp<T extends ITheme> = SystemProp<
   ColorGetter<T> | CSS.Property.OutlineColor,
   T
 >
@@ -199,7 +205,7 @@ export const outlineColor = style({
   themeGet: getColor,
 })
 
-type OutlineWidthProp<T> = SystemProp<
+type OutlineWidthProp<T extends ITheme> = SystemProp<
   BorderWidthGetter<T> | CSS.Property.OutlineWidth,
   T
 >
@@ -226,7 +232,7 @@ export const outlineWidth = style({
   themeGet: getBorderWidth,
 })
 
-type OutlineStyleProp<T> = SystemProp<
+type OutlineStyleProp<T extends ITheme> = SystemProp<
   BorderStyleGetter<T> | CSS.Property.OutlineStyle,
   T
 >
@@ -263,7 +269,7 @@ export const getRadius = themeGetter({
   shorthand: true,
 })
 
-type BorderRadiusProp<T> = SystemProp<
+type BorderRadiusProp<T extends ITheme> = SystemProp<
   RadiusGetter<T> | CSS.Property.BorderRadius,
   T
 >
@@ -294,7 +300,7 @@ export const borderRadius = style({
 
 const divideSelector = `& > :not([hidden]) ~ :not([hidden])`
 
-type DivideYProp<T> = SystemProp<BorderWidthGetter<T>, T>
+type DivideYProp<T extends ITheme> = SystemProp<BorderWidthGetter<T>, T>
 export interface DivideYProps<T extends ITheme = Theme> {
   divideY?: DivideYProp<T>
   motionSafeDivideY?: DivideYProp<T>
@@ -328,7 +334,7 @@ export const divideY = style({
   },
 })
 
-type DivideXProp<T> = SystemProp<BorderWidthGetter<T>, T>
+type DivideXProp<T extends ITheme> = SystemProp<BorderWidthGetter<T>, T>
 export interface DivideXProps<T extends ITheme = Theme> {
   divideX?: DivideXProp<T>
   motionSafeDivideX?: DivideXProp<T>
@@ -362,7 +368,7 @@ export const divideX = style({
   },
 })
 
-type DivideXReverseProp<T> = SystemProp<boolean, T>
+type DivideXReverseProp<T extends ITheme> = SystemProp<boolean, T>
 export interface DivideXReverseProps<T extends ITheme = Theme> {
   divideXReverse?: DivideXReverseProp<T>
   motionSafeDivideXReverse?: DivideXReverseProp<T>
@@ -390,7 +396,7 @@ export const divideXReverse = style({
   }),
 })
 
-type DivideYReverseProp<T> = SystemProp<boolean, T>
+type DivideYReverseProp<T extends ITheme> = SystemProp<boolean, T>
 export interface DivideYReverseProps<T extends ITheme = Theme> {
   divideYReverse?: DivideYReverseProp<T>
   motionSafeDivideYReverse?: DivideYReverseProp<T>
@@ -418,7 +424,7 @@ export const divideYReverse = style({
   }),
 })
 
-type DivideColorProp<T> = SystemProp<
+type DivideColorProp<T extends ITheme> = SystemProp<
   ColorGetter<T> | CSS.Property.BorderColor,
   T
 >
@@ -450,7 +456,7 @@ export const divideColor = style({
   }),
 })
 
-type DivideStyleProp<T> = SystemProp<
+type DivideStyleProp<T extends ITheme> = SystemProp<
   BorderStyleGetter<T> | CSS.Property.BorderStyle,
   T
 >
@@ -491,7 +497,7 @@ export const getRingWidth = themeGetter({
   compose: getPx,
 })
 
-type RingProp<T> = SystemProp<RingWidthGetter<T>, T>
+type RingProp<T extends ITheme> = SystemProp<RingWidthGetter<T>, T>
 export interface RingProps<T extends ITheme = Theme> {
   ring?: RingProp<T>
   motionSafeRing?: RingProp<T>
@@ -519,7 +525,7 @@ export const ring = style({
   }),
 })
 
-type RingInsetProp<T> = SystemProp<boolean, T>
+type RingInsetProp<T extends ITheme> = SystemProp<boolean, T>
 export interface RingInsetProps<T extends ITheme = Theme> {
   ringInset?: RingInsetProp<T>
   motionSafeRingInset?: RingInsetProp<T>
@@ -543,7 +549,7 @@ export const ringInset = style({
   cssProperty: () => ({ '--x-ring-inset': 'inset' }),
 })
 
-type RingColorProp<T> = SystemProp<ColorGetter<T>, T>
+type RingColorProp<T extends ITheme> = SystemProp<ColorGetter<T>, T>
 export interface RingColorProps<T extends ITheme = Theme> {
   ringColor?: RingColorProp<T>
   motionSafeRingColor?: RingColorProp<T>
@@ -568,7 +574,7 @@ export const ringColor = style({
   cssProperty: (value) => ({ '--x-ring-color': value }),
 })
 
-export type BordersProps<T> = BorderProps<T> &
+export type BordersProps<T extends ITheme> = BorderProps<T> &
   BorderColorProps<T> &
   BorderWidthProps<T> &
   BorderStyleProps<T> &

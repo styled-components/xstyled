@@ -7,7 +7,7 @@ type FillProp<T extends ITheme = Theme> = SystemProp<
   ColorGetter<T> | CSS.Property.Fill,
   T
 >
-export interface FillProps<T = {}> {
+export interface FillProps<T extends ITheme = Theme> {
   fill?: FillProp<T>
   motionSafeFill?: FillProp<T>
   motionReduceFill?: FillProp<T>
@@ -34,7 +34,7 @@ type StrokeProp<T extends ITheme = Theme> = SystemProp<
   ColorGetter<T> | CSS.Property.Stroke,
   T
 >
-export interface StrokeProps<T = {}> {
+export interface StrokeProps<T extends ITheme = Theme> {
   stroke?: StrokeProp<T>
   motionSafeStroke?: StrokeProp<T>
   motionReduceStroke?: StrokeProp<T>

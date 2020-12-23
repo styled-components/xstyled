@@ -14,8 +14,11 @@ export const getSize = themeGetter({
 
 // Styles
 
-type WidthProp<T> = SystemProp<SizeGetter<T> | CSS.Property.Width, T>
-export interface WidthProps<T = {}> {
+type WidthProp<T extends ITheme> = SystemProp<
+  SizeGetter<T> | CSS.Property.Width,
+  T
+>
+export interface WidthProps<T extends ITheme = Theme> {
   width?: WidthProp<T>
   motionSafeWidth?: WidthProp<T>
   motionReduceWidth?: WidthProp<T>
@@ -55,8 +58,11 @@ export const width = style({
   themeGet: getSize,
 })
 
-type HeightProp<T> = SystemProp<SizeGetter<T> | CSS.Property.Height, T>
-export interface HeightProps<T = {}> {
+type HeightProp<T extends ITheme> = SystemProp<
+  SizeGetter<T> | CSS.Property.Height,
+  T
+>
+export interface HeightProps<T extends ITheme = Theme> {
   height?: HeightProp<T>
   motionSafeHeight?: HeightProp<T>
   motionReduceHeight?: HeightProp<T>
@@ -96,8 +102,11 @@ export const height = style({
   themeGet: getSize,
 })
 
-type MaxWidthProp<T> = SystemProp<SizeGetter<T> | CSS.Property.MaxWidth, T>
-export interface MaxWidthProps<T = {}> {
+type MaxWidthProp<T extends ITheme> = SystemProp<
+  SizeGetter<T> | CSS.Property.MaxWidth,
+  T
+>
+export interface MaxWidthProps<T extends ITheme = Theme> {
   maxWidth?: MaxWidthProp<T>
   motionSafeMaxWidth?: MaxWidthProp<T>
   motionReduceMaxWidth?: MaxWidthProp<T>
@@ -120,8 +129,11 @@ export const maxWidth = style({
   themeGet: getSize,
 })
 
-type MaxHeightProp<T> = SystemProp<SizeGetter<T> | CSS.Property.MaxHeight, T>
-export interface MaxHeightProps<T = {}> {
+type MaxHeightProp<T extends ITheme> = SystemProp<
+  SizeGetter<T> | CSS.Property.MaxHeight,
+  T
+>
+export interface MaxHeightProps<T extends ITheme = Theme> {
   maxHeight?: MaxHeightProp<T>
   motionSafeMaxHeight?: MaxHeightProp<T>
   motionReduceMaxHeight?: MaxHeightProp<T>
@@ -144,8 +156,11 @@ export const maxHeight = style({
   themeGet: getSize,
 })
 
-type MinWidthProp<T> = SystemProp<SizeGetter<T> | CSS.Property.MinWidth, T>
-export interface MinWidthProps<T = {}> {
+type MinWidthProp<T extends ITheme> = SystemProp<
+  SizeGetter<T> | CSS.Property.MinWidth,
+  T
+>
+export interface MinWidthProps<T extends ITheme = Theme> {
   minWidth?: MinWidthProp<T>
   motionSafeMinWidth?: MinWidthProp<T>
   motionReduceMinWidth?: MinWidthProp<T>
@@ -168,8 +183,11 @@ export const minWidth = style({
   themeGet: getSize,
 })
 
-type MinHeightProp<T> = SystemProp<SizeGetter<T> | CSS.Property.MinHeight, T>
-export interface MinHeightProps<T = {}> {
+type MinHeightProp<T extends ITheme> = SystemProp<
+  SizeGetter<T> | CSS.Property.MinHeight,
+  T
+>
+export interface MinHeightProps<T extends ITheme = Theme> {
   minHeight?: MinHeightProp<T>
   motionSafeMinHeight?: MinHeightProp<T>
   motionReduceMinHeight?: MinHeightProp<T>
