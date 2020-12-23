@@ -19,22 +19,6 @@ type WidthProp<T extends ITheme> = SystemProp<
   T
 >
 export interface WidthProps<T extends ITheme = Theme> {
-  width?: WidthProp<T>
-  motionSafeWidth?: WidthProp<T>
-  motionReduceWidth?: WidthProp<T>
-  firstWidth?: WidthProp<T>
-  lastWidth?: WidthProp<T>
-  oddWidth?: WidthProp<T>
-  evenWidth?: WidthProp<T>
-  visitedWidth?: WidthProp<T>
-  checkedWidth?: WidthProp<T>
-  focusWithinWidth?: WidthProp<T>
-  hoverWidth?: WidthProp<T>
-  focusWidth?: WidthProp<T>
-  focusVisibleWidth?: WidthProp<T>
-  activeWidth?: WidthProp<T>
-  disabledWidth?: WidthProp<T>
-  placeholderWidth?: WidthProp<T>
   w?: WidthProp<T>
   motionSafeW?: WidthProp<T>
   motionReduceW?: WidthProp<T>
@@ -53,7 +37,7 @@ export interface WidthProps<T extends ITheme = Theme> {
   placeholderW?: WidthProp<T>
 }
 export const width = style({
-  prop: ['width', 'w'],
+  prop: 'w',
   cssProperty: 'width',
   themeGet: getSize,
 })
@@ -63,22 +47,6 @@ type HeightProp<T extends ITheme> = SystemProp<
   T
 >
 export interface HeightProps<T extends ITheme = Theme> {
-  height?: HeightProp<T>
-  motionSafeHeight?: HeightProp<T>
-  motionReduceHeight?: HeightProp<T>
-  firstHeight?: HeightProp<T>
-  lastHeight?: HeightProp<T>
-  oddHeight?: HeightProp<T>
-  evenHeight?: HeightProp<T>
-  visitedHeight?: HeightProp<T>
-  checkedHeight?: HeightProp<T>
-  focusWithinHeight?: HeightProp<T>
-  hoverHeight?: HeightProp<T>
-  focusHeight?: HeightProp<T>
-  focusVisibleHeight?: HeightProp<T>
-  activeHeight?: HeightProp<T>
-  disabledHeight?: HeightProp<T>
-  placeholderHeight?: HeightProp<T>
   h?: HeightProp<T>
   motionSafeH?: HeightProp<T>
   motionReduceH?: HeightProp<T>
@@ -97,7 +65,7 @@ export interface HeightProps<T extends ITheme = Theme> {
   placeholderH?: HeightProp<T>
 }
 export const height = style({
-  prop: ['height', 'h'],
+  prop: 'h',
   cssProperty: 'height',
   themeGet: getSize,
 })

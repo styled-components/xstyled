@@ -125,8 +125,9 @@ describe('styles', () => {
       },
     ],
     [
-      'width',
+      'w',
       {
+        utility: 'width',
         styleRule: 'width',
         theme: {
           sizes: {
@@ -142,8 +143,9 @@ describe('styles', () => {
       },
     ],
     [
-      'height',
+      'h',
       {
+        utility: 'height',
         styleRule: 'height',
         theme: {
           sizes: {
