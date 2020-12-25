@@ -48,7 +48,7 @@ const Button = styled.button`
 ```jsx
 import { x } from '@xstyled/styled-components'
 
-const Button = (props) => (
+const Button = props => (
   <x.button
     py={2}
     px={4}
@@ -84,20 +84,20 @@ To follow a design system with styled-components, the common way is to use the t
 import styled from 'styled-components'
 
 const Button = styled.button`
-  padding: ${(p) => `${p.theme.space[2]} ${p.theme.space[4]}`};
-  color: ${(p) => p.theme.colors.white};
-  border-radius: ${(p) => p.theme.radii.md};
-  font-weight: ${(p) => p.theme.fontWeights.semibold};
-  transition: ${(p) => p.theme.transitions.default};
-  background-color: ${(p) => p.theme.colors['emerald-500']};
+  padding: ${p => `${p.theme.space[2]} ${p.theme.space[4]}`};
+  color: ${p => p.theme.colors.white};
+  border-radius: ${p => p.theme.radii.md};
+  font-weight: ${p => p.theme.fontWeights.semibold};
+  transition: ${p => p.theme.transitions.default};
+  background-color: ${p => p.theme.colors['emerald-500']};
 
   &:hover {
-    background-color: ${(p) => p.theme.colors['emerald-800']};
+    background-color: ${p => p.theme.colors['emerald-800']};
   }
 
   &:focus {
     outline: none;
-    box-shadow: ${(p) => p.theme.shadows['emerald-ring']};
+    box-shadow: ${p => p.theme.shadows['emerald-ring']};
   }
 `
 ```
@@ -202,3 +202,32 @@ function Example() {
   )
 }
 ```
+
+## Babel plugin
+
+You may want to use [styled-components Babel plugin](https://styled-components.com/docs/tooling#babel-plugin) to add support for server-side rendering, minification of styles, and a nicer debugging experience.
+
+You can use it out of the box, but you have to specify xstyled as `topLevelImportPaths`:
+
+```js
+// .babelrc
+{
+  "plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "topLevelImportPaths": [
+          "@xstyled/styled-components",
+          "@xstyled/styled-components/no-tags",
+          "@xstyled/styled-components/native",
+          "@xstyled/styled-components/primitives"
+        ],
+      }
+    ]
+  ]
+}
+```
+
+## Babel Macro
+
+Unfortunately Babel Macro is not yet supported by xstyled.
