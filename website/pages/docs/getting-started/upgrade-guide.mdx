@@ -49,13 +49,11 @@ xstyled v2 works with Emotion v11, if you use xstyled v1 with Emotion, please re
 
 xstyled v1 had default `space` built-in, in v2 `space` are now located in default theme and are slightly different from v1. Two options:
 
-#### You have customized `space` in your theme
+> If you have customized `space` in your theme.
 
 Good news! You don't have to do anything, just keep your them in v2
 
-#### You have not customized `space` in your theme
-
-You have to specify old `space` in your theme:
+> If you have not customized `space` in your theme, specify old `space` in your theme:
 
 ```js
 const theme = {
@@ -64,22 +62,6 @@ const theme = {
 ```
 
 > If you were not using any theme, read [customize theme documentation](/docs/theme/) to learn how to create a theme.
-
-### No more `size` utility
-
-`size` utility is gone in xstyled v2. The name of property was confusing and not really useful.
-
-> If you use it, replace it by `with` + `height` or create your own `size` utility:
-
-```js
-import { style, getSize } from '@xstyled/...'
-
-const size = style({
-  prop: 'size',
-  cssProperty: ['width', 'height'],
-  themeGet: getSize,
-})
-```
 
 ### `gridGap` becomes `gap`
 
@@ -101,14 +83,47 @@ xstyled v2 exposes lot of new utilities, to be more consistent, utilities groups
 
 > If you use utility groups like `backgrounds`, `basics`, `borders`, `flexboxes`, `grids`, `layout`, `positioning`, `shadows`, `space`, `svg`, `typography` or `xgrids`. Then you have to pick new groups of utilities or single utilities. Read [how to create utilities](/docs/adding-new-utilities/) to learn more about it.
 
-### New breakpoints
+### Breakpoints
 
-xstyled v2 now uses the same breakpoints as Tailwind, it was using Bootstrap's one but landscape have changed and those from Tailwind are actually more realist.
+xstyled v2 now uses the same breakpoints as Tailwind, it was using Bootstrap's one but landscape have changed and those from Tailwind are actually more realistic. Also, breakpoints are now read from `screens` theme key.
 
-> If you use breakpoints and does not define them, you could want to use previous one:
+> If you use breakpoints and does not define them, add previous ones:
 
 ```js
 const theme = {
-  breakpoints: { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
+  screens: { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
+}
+```
+
+> If you already use your own breakpoints:
+
+```diffjs
+  const theme = {
+-   breakpoints: { xs: 0, md: 800 },
++   screens: { xs: 0, md: 800 },
+  }
+```
+
+### No more `variant` utility
+
+`variant` utility was confusing and not really helpful, xstyled v2 encourages to use the `x.*` syntax, so it is no longer required.
+
+> If you want to add back `variant` utility:
+
+```js
+import { getThemeValue, merge, warn, is, assign } from '@xstyled/util'
+
+const variant = ({
+  key = null,
+  default: defaultValue,
+  variants = {},
+  prop = 'variant',
+}) => props => {
+  const themeVariants = is(key) ? getThemeValue(props, key) : null
+  const computedVariants = merge(assign({}, variants), themeVariants)
+  const value = props[prop] !== undefined ? props[prop] : defaultValue
+  const result = getThemeValue(props, value, computedVariants)
+  warn(is(result), `variant "${value}" not found`)
+  return result
 }
 ```
