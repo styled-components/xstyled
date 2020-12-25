@@ -2,15 +2,18 @@
 section: Sizing
 title: Max-Width
 slug: /docs/max-width/
+order: 2
 ---
 
 # Max-Width
 
 Utilities for setting the maximum width of an element
 
-| React props        | CSS Properties        |
-| ------------------ | --------------------- |
-| `maxWidth=[value]` | `max-width: [value];` |
+<carbon-ad />
+
+| React props       | CSS Properties       |
+| ----------------- | -------------------- |
+| `maxWidth={size}` | `max-width: {size};` |
 
 ## Scaled Max-Width
 
@@ -20,7 +23,7 @@ All values specified in the `sizes` theme section are automatically applied. Not
 <>
   <template preview>
     <x.div display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
-      {['1s', 8, 12, 16, 24].map((v) => (
+      {['1s', 8, 12, 16, 24].map(v => (
         <x.div key={v} display="flex" alignItems="center" spaceX={4}>
           <x.p fontSize="sm" color="light-blue-600" w={24} textAlign="right">
             maxWidth={v}
@@ -65,7 +68,7 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
 <>
   <template preview>
     <x.div display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
-      {[110, '12px', '4rem', '3ex'].map((v) => (
+      {[110, '12px', '4rem', '3ex'].map(v => (
         <x.div key={v} display="flex" alignItems="center" spaceX={4}>
           <x.p fontSize="sm" color="emerald-600" w={24} textAlign="right">
             maxWidth={v}
@@ -155,7 +158,7 @@ To control the margin of an element at a specific breakpoint, use responsive obj
 <x.div maxWidth={{ xs: 1 / 2, md: 1 }} />
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
 
 ## Customizing
 
@@ -175,4 +178,4 @@ f you'd like to customize your values for width, height, min-width, min-height, 
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).
+Learn more about customizing the default theme in the [theme customization documentation](/docs/theme/).

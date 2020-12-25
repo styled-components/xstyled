@@ -8,9 +8,11 @@ slug: /docs/border-color/
 
 Utilities for controlling the color of an element's borders.
 
+<carbon-ad />
+
 | React props           | CSS Properties           |
 | --------------------- | ------------------------ |
-| `borderColor=[value]` | `border-color: [value];` |
+| `borderColor={color}` | `border-color: {color};` |
 
 ## All sides
 
@@ -56,7 +58,7 @@ Use `borderColor={color}` utilities to set the border color for invidiual sides 
 
 ## Changing opacity
 
-Use [color opacity variants](@TODO-link) to choose another opacity.
+Use [color alpha variants](/docs/colors/) to choose another opacity.
 
 ```jsx preview color=indigo
 <>
@@ -84,7 +86,7 @@ To control the border color of an element at a specific breakpoint, use responsi
 <x.div borderColor={{ md: 'red-500' }}>{/* ... */}</x.div>
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
 
 ## Customizing
 

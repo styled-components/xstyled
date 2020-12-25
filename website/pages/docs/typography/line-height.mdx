@@ -8,6 +8,8 @@ slug: /docs/line-height/
 
 Utilities for controlling the leading (line height) of an element.
 
+<carbon-ad />
+
 | React props         | CSS Properties         |
 | ------------------- | ---------------------- |
 | `lineHeight={size}` | `line-height: {size};` |
@@ -21,7 +23,7 @@ Use the `"none"`, `"tight"`, `"snug"`, `"normal"`, `"relaxed"`, and `"loose"` ut
   <template preview>
     <x.div spaceY={8}>
       {['none', 'tight', 'snug', 'normal', 'relaxed', 'loose'].map(
-        (lineHeight) => (
+        lineHeight => (
           <x.dl key={lineHeight} color="light-blue-700" overflow="hidden">
             <x.dt
               w={16}
@@ -61,7 +63,7 @@ Use the `lineHeight={size}` utilities to give an element a fixed line-height, ir
 <>
   <template preview>
     <x.div spaceY={8}>
-      {[3, 4, 5, 6, 7, 8, 9, 10, '3rem', '20px'].map((lineHeight) => (
+      {[3, 4, 5, 6, 7, 8, 9, 10, '3rem', '20px'].map(lineHeight => (
         <x.dl key={lineHeight} color="emerald-700" overflow="hidden">
           <x.dt
             w={16}
@@ -104,7 +106,7 @@ To control the space between elements at a specific breakpoint, use responsive o
 <x.div lineHeight={{ md: 'relaxed' }}>{/* ... */}</x.div>
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
 
 ## Customizing
 
@@ -126,7 +128,7 @@ const Title = styled.h4`
 `
 ```
 
-To learn more about styled syntax, read [styled syntax documentation](@TODO-link).
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
 
 ### Manual
 

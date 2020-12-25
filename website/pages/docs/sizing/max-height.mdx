@@ -2,15 +2,18 @@
 section: Sizing
 title: Max-Height
 slug: /docs/max-height/
+order: 5
 ---
 
 # Max-Height
 
-Utilities for setting the maximum height of an element
+Utilities for setting the maximum height of an element.
 
-| React props         | CSS Properties         |
-| ------------------- | ---------------------- |
-| `maxHeight=[value]` | `max-height: [value];` |
+<carbon-ad />
+
+| React props        | CSS Properties        |
+| ------------------ | --------------------- |
+| `maxHeight={size}` | `max-height: {size};` |
 
 ## Scaled Max-Height
 
@@ -25,7 +28,7 @@ All values specified in the `sizes` theme section are automatically applied. Not
       alignItems="flex-end"
       mx="auto"
     >
-      {['1s', 8, 12, 16, 24].map((v) => (
+      {['1s', 8, 12, 16, 24].map(v => (
         <x.div
           key={v}
           display="flex"
@@ -82,7 +85,7 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
       alignItems="flex-end"
       mx="auto"
     >
-      {[110, '12px', '4rem', '3ex'].map((v) => (
+      {[110, '12px', '4rem', '3ex'].map(v => (
         <x.div
           key={v}
           display="flex"
@@ -215,7 +218,7 @@ To control the margin of an element at a specific breakpoint, use responsive obj
 <x.div maxHeight={{ xs: 1 / 2, md: 1 }} />
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
 
 ## Customizing
 
@@ -235,4 +238,4 @@ f you'd like to customize your values for width, height, min-width, min-height, 
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).
+Learn more about customizing the default theme in the [theme customization documentation](/docs/theme/).

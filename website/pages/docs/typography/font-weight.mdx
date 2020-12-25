@@ -8,6 +8,8 @@ slug: /docs/font-weight/
 
 Utilities for controlling the font weight of an element.
 
+<carbon-ad />
+
 | React props           | CSS Properties           |
 | --------------------- | ------------------------ |
 | `fontWeight={weight}` | `font-weight: {weight};` |
@@ -30,7 +32,7 @@ Control the font weight of an element using the `fontWeight={weight}` utilities.
         'bold',
         'extrabold',
         'black',
-      ].map((weight) => (
+      ].map(weight => (
         <x.dl
           key={weight}
           display="flex"
@@ -74,7 +76,7 @@ To control the space between elements at a specific breakpoint, use responsive o
 <x.div fontWeight={{ xs: 'thin', md: 'bold' }}>{/* ... */}</x.div>
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
 
 ## Customizing
 
@@ -96,7 +98,7 @@ const Title = styled.h4`
 `
 ```
 
-To learn more about styled syntax, read [styled syntax documentation](@TODO-link).
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
 
 ### Manual
 

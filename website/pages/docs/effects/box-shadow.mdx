@@ -8,6 +8,8 @@ slug: /docs/box-shadow/
 
 Utilities for controlling the box shadow of an element.
 
+<carbon-ad />
+
 | React props          | CSS Properties          |
 | -------------------- | ----------------------- |
 | `boxShadow={shadow}` | `box-shadow: {shadow};` |
@@ -20,7 +22,7 @@ Use the `boxShadow={shadow}` utilities to apply different sized outer box shadow
 <>
   <template preview>
     <x.div display="grid" gap={5} gridTemplateColumns={{ sm: 2, lg: 5 }} p={3}>
-      {['sm', 'default', 'md', 'lg', 'xl', '2xl'].map((boxShadow) => (
+      {['sm', 'default', 'md', 'lg', 'xl', '2xl'].map(boxShadow => (
         <x.div
           p={6}
           bg="white"
@@ -83,7 +85,7 @@ To control the margin of an element at a specific breakpoint, use responsive obj
 <x.div boxShadow={{ md: 'xl' }} />
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
 
 ## Customizing
 
@@ -100,7 +102,7 @@ If you'd like to customize your values for shadows, use the `theme.shadows` sect
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).
+Learn more about customizing the default theme in the [theme customization documentation](/docs/theme/).
 
 If you don't want to customize it, a set of `shadows` is already defined in default theme:
 
@@ -136,7 +138,7 @@ const Button = styled.button`
 `
 ```
 
-To learn more about styled syntax, read [styled syntax documentation](@TODO-link).
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
 
 ### Manual
 

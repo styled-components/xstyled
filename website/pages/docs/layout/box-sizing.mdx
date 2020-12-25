@@ -8,6 +8,8 @@ slug: /docs/box-sizing/
 
 Utilities for controlling how the browser should calculate an element's total size.
 
+<carbon-ad />
+
 | React props           | CSS Properties           |
 | --------------------- | ------------------------ |
 | `boxSizing={keyword}` | `box-sizing: {keyword};` |
@@ -18,7 +20,7 @@ Use `boxSizing="border-box"` to set an element's `box-sizing` to `border-box`, t
 
 This means a 100px × 100px element with a 2px border and 4px of padding on all sides will be rendered as 100px × 100px, with an internal content area of 88px × 88px.
 
-xstyled makes this the default for all elements in our [preflight base styles](@TODO-link).
+xstyled makes this the default for all elements in our [preflight base styles](/docs/preflight/).
 
 ```jsx preview color=light-blue
 <>
@@ -82,4 +84,4 @@ To control the box-sizing at a specific breakpoint, use responsive object notati
 <x.div boxSizing={{ md: 'content-box' }} />
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

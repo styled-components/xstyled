@@ -2,15 +2,18 @@
 section: Sizing
 title: Height
 slug: /docs/height/
+order: 4
 ---
 
 # Height
 
-Utilities for setting the height of an element
+Utilities for setting the height of an element.
 
-| React props | CSS Properties     |
-| ----------- | ------------------ |
-| `h=[value]` | `height: [value];` |
+<carbon-ad />
+
+| React props | CSS Properties    |
+| ----------- | ----------------- |
+| `h={size}`  | `height: {size};` |
 
 ## Auto
 
@@ -41,7 +44,7 @@ All values specified in the `sizes` theme section are automatically applied. Not
       alignItems="flex-end"
       mx="auto"
     >
-      {['1s', 8, 12, 16, 24].map((v) => (
+      {['1s', 8, 12, 16, 24].map(v => (
         <x.div
           key={v}
           spaceY={4}
@@ -88,7 +91,7 @@ Any valid value is accepted in height, numbers are converted to `px`, other unit
       alignItems="flex-end"
       mx="auto"
     >
-      {[123, '12px', '4rem', '3ex'].map((v) => (
+      {[123, '12px', '4rem', '3ex'].map(v => (
         <x.div
           key={v}
           spaceY={4}
@@ -198,7 +201,7 @@ To control the margin of an element at a specific breakpoint, use responsive obj
 <x.div h={{ xs: 1 / 2, md: 1 }} />
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
 
 ## Customizing
 
@@ -218,4 +221,4 @@ f you'd like to customize your values for width, height, min-width, min-height, 
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).
+Learn more about customizing the default theme in the [theme customization documentation](/docs/theme/).

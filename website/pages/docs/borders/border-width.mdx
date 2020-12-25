@@ -8,9 +8,11 @@ slug: /docs/border-width/
 
 Utilities for controlling the width of an element's borders.
 
-| React props           | CSS Properties           |
-| --------------------- | ------------------------ |
-| `borderWidth=[value]` | `border-width: [value];` |
+<carbon-ad />
+
+| React props          | CSS Properties          |
+| -------------------- | ----------------------- |
+| `borderWidth={size}` | `border-width: {size};` |
 
 ## All sides
 
@@ -20,7 +22,7 @@ Use `borderWidth={size}` utilities to set the border width for all sides of an e
 <>
   <template preview>
     <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 5 }}>
-      {[0, 'default', 2, 4, 8].map((borderWidth) => (
+      {[0, 'default', 2, 4, 8].map(borderWidth => (
         <x.div
           p={6}
           bg="indigo-300"
@@ -55,7 +57,7 @@ Use `borderWidth={size}` utilities to set the border width for one side of an el
 <>
   <template preview>
     <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 5 }}>
-      {['2 0 0 0', '0 2 0 0', '0 0 2 0', '0 0 0 2'].map((borderWidth) => (
+      {['2 0 0 0', '0 2 0 0', '0 0 2 0', '0 0 0 2'].map(borderWidth => (
         <x.div
           p={6}
           bg="red-300"
@@ -85,9 +87,45 @@ Use `borderWidth={size}` utilities to set the border width for one side of an el
 
 You can also add borders between child elements using the `divide{X,Y}={width}` and `divideColor={color}` utilities.
 
-@TODO
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div divideY divideColor="light-blue-400">
+      <x.div
+        p={4}
+        color="light-blue-800"
+        textAlign="center"
+        fontWeight="extrabold"
+      >
+        1
+      </x.div>
+      <x.div
+        p={4}
+        color="light-blue-800"
+        textAlign="center"
+        fontWeight="extrabold"
+      >
+        2
+      </x.div>
+      <x.div
+        p={4}
+        color="light-blue-800"
+        textAlign="center"
+        fontWeight="extrabold"
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div divideY divideColor="light-blue-400">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
 
-Learn more in the [Divide Width](/@TODO) and [Divide Color](/@TODO) documentation.
+Learn more in the [Divide Width](/docs/divide-width/) and [Divide Color](/docs/divide-color/) documentation.
 
 ## Responsive
 
@@ -97,7 +135,7 @@ To control the border width of an element at a specific breakpoint, use responsi
 <x.div borderWidth={{ md: 2 }}>{/* ... */}</x.div>
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
 
 ## Customizing
 

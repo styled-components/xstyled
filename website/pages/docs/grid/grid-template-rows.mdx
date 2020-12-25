@@ -8,9 +8,11 @@ slug: /docs/grid-template-rows/
 
 Utilities for specifying the rows in a grid layout.
 
+<carbon-ad />
+
 | React props                | CSS Properties                 |
 | -------------------------- | ------------------------------ |
-| `gridTemplateRows=[value]` | `grid-template-rows: [value];` |
+| `gridTemplateRows={value}` | `grid-template-rows: {value};` |
 
 ## Usage
 
@@ -20,7 +22,7 @@ Use the `gridTemplateRows={value}` utilities to create grids with n equally size
 <>
   <template preview>
     <x.div display="grid" gridTemplateRows={3} gridAutoFlow="column" gap={4}>
-      {Array.from({ length: 9 }, (_, index) => index + 1).map((value) => (
+      {Array.from({ length: 9 }, (_, index) => index + 1).map(value => (
         <x.div
           key={value}
           h={12}
@@ -56,7 +58,7 @@ To control the columns of a grid at a specific breakpoint, use responsive object
 </x.div>
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
 
 ## Customizing
 
@@ -73,4 +75,4 @@ If you'd like to customize your values for `gridTemplateRows`, use the `theme.gr
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).
+Learn more about customizing the default theme in the [theme customization documentation](/docs/theme/).

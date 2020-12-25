@@ -8,9 +8,11 @@ slug: /docs/background-image/
 
 Utilities for controlling an element's background image.
 
+<carbon-ad />
+
 | React props               | CSS Properties               |
 | ------------------------- | ---------------------------- |
-| `backgroundImage=[value]` | `background-image: [value];` |
+| `backgroundImage={image}` | `background-image: {image};` |
 
 ## Image
 
@@ -34,7 +36,7 @@ Use `backgroundImage="url(...)"` to display an image.
 
 ## Linear Gradient
 
-To give an element a linear gradient background, use one of the `backgroundImage="gradient-to-{direction}"` utilities, in combination with the [gradient color stop](@TODO-link) utilities.
+To give an element a linear gradient background, use one of the `backgroundImage="gradient-to-{direction}"` utilities, in combination with the [gradient color stop](/docs/gradient-color-stops/) utilities.
 
 ```jsx preview
 <>
@@ -64,4 +66,4 @@ To control background image at a specific breakpoint, use responsive object nota
 <x.div backgroundImage={{ md: 'url(...)' }} />
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

@@ -2,11 +2,14 @@
 section: Core Concepts
 title: Utility First
 slug: /docs/utility-first/
+order: 1
 ---
 
 # Utility First
 
 Building complex components using utility props.
+
+<carbon-ad />
 
 Traditionally when you use Emotion or styled-components, you write CSS, as object or as string but it is still CSS:
 
@@ -204,8 +207,8 @@ They are several benefits from this approach:
 By seeing this approach you may wonder why not using just inline styles. xstyled is close to inline style but it has several advantages over them:
 
 - **Designing with constraints** — Using inline styles, every value is a magic number. xstyled uses values the design system defined in your theme.
-- **Responsive design** — Unfortunately, media queries are not supported in inline styles. xstyled provides [responsive variants](@TODO-link) to build responsive interface.
-- **Hover, focus, and other states** — Inline styles can't target states like hover or focus, but xstyled [state props](@TODO-link) make it easy to style those.
+- **Responsive design** — Unfortunately, media queries are not supported in inline styles. xstyled provides [responsive variants](/docs/responsive-design/) to build responsive interface.
+- **Hover, focus, and other states** — Inline styles can't target states like hover or focus, but xstyled [state props](/docs/hover-focus-other-states/) make it easy to style those.
 
 ## Why not `css` props?
 

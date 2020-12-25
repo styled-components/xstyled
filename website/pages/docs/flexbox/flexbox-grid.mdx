@@ -8,12 +8,14 @@ slug: /docs/flexbox-grid/
 
 Utilities for creating flexbox grids.
 
+<carbon-ad />
+
 | React props   | CSS Properties                                                                             |
 | ------------- | ------------------------------------------------------------------------------------------ |
 | `row`         | `box-sizing: border-box;`<br />`flex-grow: 1;`<br/>`flex-wrap: wrap;`<br/>`display: flex;` |
 | `col`         | `flex-basis: 0;`<br />`flex-grow: 1;`<br />`max-width: 100%;`                              |
 | `col="auto"`  | `flex: 0 0 auto;`<br />`width: auto;`<br />`max-width: none;`                              |
-| `col=[ratio]` | `flex: 0 0 [percent];`<br />`max-width: [percent];`                                        |
+| `col={ratio}` | `flex: 0 0 {ratio * 100}%;`<br />`max-width: {ratio * 100}%;`                                        |
 
 ## How it works
 

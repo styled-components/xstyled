@@ -8,6 +8,8 @@ slug: /docs/font-size/
 
 Utilities for controlling the font size of an element.
 
+<carbon-ad />
+
 | React props       | CSS Properties       |
 | ----------------- | -------------------- |
 | `fontSize={size}` | `font-size: {size};` |
@@ -36,7 +38,7 @@ Control the font size of an element using the `fontSize={size}` utility.
         '7xl',
         '8xl',
         '9xl',
-      ].map((size) => (
+      ].map(size => (
         <x.dl
           key={size}
           display="flex"
@@ -86,7 +88,7 @@ To control the space between elements at a specific breakpoint, use responsive o
 <x.p fontSize={{ xs: 'sm', md: 'xl' }}>{/* ... */}</x.p>
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
 
 ## Customizing
 
@@ -108,7 +110,7 @@ const Title = styled.h4`
 `
 ```
 
-To learn more about styled syntax, read [styled syntax documentation](@TODO-link).
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
 
 ### Manual
 

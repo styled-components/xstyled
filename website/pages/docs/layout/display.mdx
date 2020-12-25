@@ -8,9 +8,11 @@ slug: /docs/display/
 
 Utilities for controlling the display box type of an element.
 
-| React props       | CSS Properties      |
-| ----------------- | ------------------- |
-| `display=[value]` | `display: [value];` |
+<carbon-ad />
+
+| React props         | CSS Properties        |
+| ------------------- | --------------------- |
+| `display={keyword}` | `display: {keyword};` |
 
 ## Block
 
@@ -342,7 +344,7 @@ Use `display="grid"` to create a grid container.
       gridTemplateColumns={3}
       gap={4}
     >
-      {Array.from({ length: 9 }, (_, index) => index + 1).map((value) => (
+      {Array.from({ length: 9 }, (_, index) => index + 1).map(value => (
         <x.div
           key={value}
           py={4}
@@ -381,7 +383,7 @@ Use `display="inline-grid"` to create an inline grid container.
         gridTemplateColumns={3}
         gap={4}
       >
-        {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        {Array.from({ length: 3 }, (_, index) => index + 1).map(value => (
           <x.div
             key={value}
             py={4}
@@ -406,7 +408,7 @@ Use `display="inline-grid"` to create an inline grid container.
         gridTemplateColumns={3}
         gap={4}
       >
-        {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        {Array.from({ length: 3 }, (_, index) => index + 1).map(value => (
           <x.div
             key={value}
             py={4}
@@ -616,7 +618,7 @@ Use `display="table"`, `display="table-caption"`, `display="table-cell"`, `displ
 
 ## None
 
-Use `display="none"` to set an element to `display: none` and remove it from the page layout (compare with `visibility="hidden"` from the [visibility documentation](@TODO-link)).
+Use `display="none"` to set an element to `display: none` and remove it from the page layout (compare with `visibility="hidden"` from the [visibility documentation](/docs/visibility/)).
 
 ```jsx preview color=amber
 <>
@@ -675,4 +677,4 @@ To control the display property of an element at a specific breakpoint, use resp
 <x.div display={{ md: 'none' }} />
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

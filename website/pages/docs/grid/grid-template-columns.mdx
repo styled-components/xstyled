@@ -8,9 +8,11 @@ slug: /docs/grid-template-columns/
 
 Utilities for specifying the columns in a grid layout.
 
+<carbon-ad />
+
 | React props                   | CSS Properties                    |
 | ----------------------------- | --------------------------------- |
-| `gridTemplateColumns=[value]` | `grid-template-columns: [value];` |
+| `gridTemplateColumns={value}` | `grid-template-columns: {value};` |
 
 ## Usage
 
@@ -20,7 +22,7 @@ Use the `gridTemplateColumns={value}` utilities to create grids with n equally s
 <>
   <template preview>
     <x.div display="grid" gridTemplateColumns={3} gap={4}>
-      {Array.from({ length: 9 }, (_, index) => index + 1).map((value) => (
+      {Array.from({ length: 9 }, (_, index) => index + 1).map(value => (
         <x.div
           key={value}
           h={12}
@@ -56,7 +58,7 @@ To control the columns of a grid at a specific breakpoint, use responsive object
 </x.div>
 ```
 
-For more information about xstyled's responsive design features, check out [Responsive Design](@TODO-link) documentation.
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
 
 ## Customizing
 
@@ -73,4 +75,4 @@ If you'd like to customize your values for `gridTemplateColumns`, use the `theme
   }
 ```
 
-Learn more about customizing the default theme in the [theme customization documentation](@TODO-link).
+Learn more about customizing the default theme in the [theme customization documentation](/docs/theme/).
