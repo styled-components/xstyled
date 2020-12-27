@@ -10,7 +10,7 @@ export const createX = <TProps extends object>(generator: StyleGenerator) => {
   type X<TProps extends object> = {
     extend<TExtendProps extends object>(
       ...generators: StyleGenerator[]
-    ): X<TExtendProps & TProps>
+    ): X<TExtendProps>
   } & {
     [Key in JSXElementKeys]: StyledComponent<Key, DefaultTheme, TProps, never>
   }
@@ -20,7 +20,7 @@ export const createX = <TProps extends object>(generator: StyleGenerator) => {
     extend: (...generators) => createX(compose(generator, ...generators)),
   }
 
-  tags.forEach((tag) => {
+  tags.forEach(tag => {
     // @ts-ignore
     x[tag] = styled(tag).withConfig({
       shouldForwardProp: (prop, defaultValidatorFn) => {

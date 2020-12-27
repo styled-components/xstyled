@@ -17,6 +17,7 @@
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "reset": "rm -rf dist && rm -rf node_modules/.cache",
     "watch": "tsdx watch",
     "build": "tsdx build",
     "prepublishOnly": "yarn build"

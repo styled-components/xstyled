@@ -63,12 +63,15 @@ const transitions: { [key: string]: string } = Object.keys(
   transitionProperties,
 ).reduce((obj, key) => {
   obj[key] = transitionProperties[key as keyof typeof transitionProperties]
-    .map((property) => `${property} ${timingFunctions['ease-in-out']} 150ms`)
+    .map(property => `${property} ${timingFunctions['ease-in-out']} 150ms`)
     .join(',')
   return obj
 }, {} as { [key: string]: string })
 
 const colors = {
+  black: '#000000',
+  white: '#ffffff',
+
   'blue-gray-50': '#f8fafc',
   'blue-gray-100': '#f1f5f9',
   'blue-gray-200': '#e2e8f0',
