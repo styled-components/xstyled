@@ -49,11 +49,13 @@ xstyled v2 works with Emotion v11, if you use xstyled v1 with Emotion, please re
 
 xstyled v1 had default `space` built-in, in v2 `space` are now located in default theme and are slightly different from v1. Two options:
 
-> If you have customized `space` in your theme.
+- **If you have customized `space` in your theme:**
 
-Good news! You don't have to do anything, just keep your them in v2
+Good news! You don't have to do anything, just keep your them in v2.
 
-> If you have not customized `space` in your theme, specify old `space` in your theme:
+- **If you have not customized `space` in your theme:**
+
+Use old `space` in your theme:
 
 ```js
 const theme = {
@@ -61,33 +63,41 @@ const theme = {
 }
 ```
 
-> If you were not using any theme, read [customize theme documentation](/docs/theme/) to learn how to create a theme.
+- **If you were not using any theme:**
+
+Read [customize theme documentation](/docs/theme/) to learn how to create a theme.
 
 ### `gridGap` becomes `gap`
 
 To follow the [new specification](https://developer.mozilla.org/en-US/docs/Web/CSS/gap), `gridGap` becomes `gap`.
 
-> If you use `gridGap` in your project, replace it by `gap`.
+- **If you use `gridGap` in your project:**
 
-### No more `border{direction}` and `border{direction}Color` utilities
+Replace it by `gap`.
 
-Since xstyled v2 now supports shorthand in properties, `border{direction}` and `border{direction}Color` are gone in favor of `border="{top} {right} {bottom} {left}"` and `borderColor="{top} {right} {bottom} {left}"`.
+### No more `forwardedAs`
 
-> If you use `borderTop`, `borderRight`, `borderBottom`, `borderLeft`, replace it by `border="{top} {right} {bottom} {left}"`.
+Everything is now simplified, you don't have to worry about `forwardedAs` any more, `as` works everywhere.
 
-> If you use `borderTopColor`, `borderRightColor`, `borderBottomColor`, `borderLeftColor`, replace it by `borderColor="{top} {right} {bottom} {left}"`.
+- **If you use `forwardedAs`:**
+
+- Replace it by `as`.
 
 ### Utilities groups reorganization
 
 xstyled v2 exposes lot of new utilities, to be more consistent, utilities groups have been completely changed.
 
-> If you use utility groups like `backgrounds`, `basics`, `borders`, `flexboxes`, `grids`, `layout`, `positioning`, `shadows`, `space`, `svg`, `typography` or `xgrids`. Then you have to pick new groups of utilities or single utilities. Read [how to create utilities](/docs/adding-new-utilities/) to learn more about it.
+- **If you use utility groups like `backgrounds`, `basics`, `borders`, `flexboxes`, `grids`, `layout`, `positioning`, `shadows`, `space`, `svg`, `typography` or `xgrids`:**
+
+You have to pick new groups of utilities or single utilities. Read [how to create utilities](/docs/adding-new-utilities/) to learn more about it.
 
 ### Breakpoints
 
 xstyled v2 now uses the same breakpoints as Tailwind, it was using Bootstrap's one but landscape have changed and those from Tailwind are actually more realistic. Also, breakpoints are now read from `screens` theme key.
 
-> If you use breakpoints and does not define them, add previous ones:
+- **If you use breakpoints and does not define them:**
+
+Add xstyled v1 breakpoints:
 
 ```js
 const theme = {
@@ -95,7 +105,9 @@ const theme = {
 }
 ```
 
-> If you already use your own breakpoints:
+- **If you already use your own breakpoints:**
+
+Migrate them to `screens`:
 
 ```diffjs
   const theme = {
@@ -108,7 +120,9 @@ const theme = {
 
 `variant` utility was confusing and not really helpful, xstyled v2 encourages to use the `x.*` syntax, so it is no longer required.
 
-> If you want to add back `variant` utility:
+- **If you want use `variant` utility and you want to get it back:**
+
+Add `variant` utility in your codebase:
 
 ```js
 import { getThemeValue, merge, warn, is, assign } from '@xstyled/util'

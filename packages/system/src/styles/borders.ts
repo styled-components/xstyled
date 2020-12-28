@@ -68,6 +68,114 @@ export const border = style({
   themeGet: getBorder,
 })
 
+type BorderTopProp<T extends ITheme> = SystemProp<
+  BorderGetter<T> | CSS.Property.Border,
+  T
+>
+export interface BorderTopProps<T extends ITheme = Theme> {
+  borderTop?: BorderTopProp<T>
+  motionSafeBorderTop?: BorderTopProp<T>
+  motionReduceBorderTop?: BorderTopProp<T>
+  firstBorderTop?: BorderTopProp<T>
+  lastBorderTop?: BorderTopProp<T>
+  oddBorderTop?: BorderTopProp<T>
+  evenBorderTop?: BorderTopProp<T>
+  visitedBorderTop?: BorderTopProp<T>
+  checkedBorderTop?: BorderTopProp<T>
+  focusWithinBorderTop?: BorderTopProp<T>
+  hoverBorderTop?: BorderTopProp<T>
+  focusBorderTop?: BorderTopProp<T>
+  focusVisibleBorderTop?: BorderTopProp<T>
+  activeBorderTop?: BorderTopProp<T>
+  disabledBorderTop?: BorderTopProp<T>
+  placeholderBorderTop?: BorderTopProp<T>
+}
+export const borderTop = style({
+  prop: 'borderTop',
+  themeGet: getBorder,
+})
+
+type BorderRightProp<T extends ITheme> = SystemProp<
+  BorderGetter<T> | CSS.Property.Border,
+  T
+>
+export interface BorderRightProps<T extends ITheme = Theme> {
+  borderRight?: BorderRightProp<T>
+  motionSafeBorderRight?: BorderRightProp<T>
+  motionReduceBorderRight?: BorderRightProp<T>
+  firstBorderRight?: BorderRightProp<T>
+  lastBorderRight?: BorderRightProp<T>
+  oddBorderRight?: BorderRightProp<T>
+  evenBorderRight?: BorderRightProp<T>
+  visitedBorderRight?: BorderRightProp<T>
+  checkedBorderRight?: BorderRightProp<T>
+  focusWithinBorderRight?: BorderRightProp<T>
+  hoverBorderRight?: BorderRightProp<T>
+  focusBorderRight?: BorderRightProp<T>
+  focusVisibleBorderRight?: BorderRightProp<T>
+  activeBorderRight?: BorderRightProp<T>
+  disabledBorderRight?: BorderRightProp<T>
+  placeholderBorderRight?: BorderRightProp<T>
+}
+export const borderRight = style({
+  prop: 'borderRight',
+  themeGet: getBorder,
+})
+
+type BorderBottomProp<T extends ITheme> = SystemProp<
+  BorderGetter<T> | CSS.Property.Border,
+  T
+>
+export interface BorderBottomProps<T extends ITheme = Theme> {
+  borderBottom?: BorderBottomProp<T>
+  motionSafeBorderBottom?: BorderBottomProp<T>
+  motionReduceBorderBottom?: BorderBottomProp<T>
+  firstBorderBottom?: BorderBottomProp<T>
+  lastBorderBottom?: BorderBottomProp<T>
+  oddBorderBottom?: BorderBottomProp<T>
+  evenBorderBottom?: BorderBottomProp<T>
+  visitedBorderBottom?: BorderBottomProp<T>
+  checkedBorderBottom?: BorderBottomProp<T>
+  focusWithinBorderBottom?: BorderBottomProp<T>
+  hoverBorderBottom?: BorderBottomProp<T>
+  focusBorderBottom?: BorderBottomProp<T>
+  focusVisibleBorderBottom?: BorderBottomProp<T>
+  activeBorderBottom?: BorderBottomProp<T>
+  disabledBorderBottom?: BorderBottomProp<T>
+  placeholderBorderBottom?: BorderBottomProp<T>
+}
+export const borderBottom = style({
+  prop: 'borderBottom',
+  themeGet: getBorder,
+})
+
+type BorderLeftProp<T extends ITheme> = SystemProp<
+  BorderGetter<T> | CSS.Property.Border,
+  T
+>
+export interface BorderLeftProps<T extends ITheme = Theme> {
+  borderLeft?: BorderLeftProp<T>
+  motionSafeBorderLeft?: BorderLeftProp<T>
+  motionReduceBorderLeft?: BorderLeftProp<T>
+  firstBorderLeft?: BorderLeftProp<T>
+  lastBorderLeft?: BorderLeftProp<T>
+  oddBorderLeft?: BorderLeftProp<T>
+  evenBorderLeft?: BorderLeftProp<T>
+  visitedBorderLeft?: BorderLeftProp<T>
+  checkedBorderLeft?: BorderLeftProp<T>
+  focusWithinBorderLeft?: BorderLeftProp<T>
+  hoverBorderLeft?: BorderLeftProp<T>
+  focusBorderLeft?: BorderLeftProp<T>
+  focusVisibleBorderLeft?: BorderLeftProp<T>
+  activeBorderLeft?: BorderLeftProp<T>
+  disabledBorderLeft?: BorderLeftProp<T>
+  placeholderBorderLeft?: BorderLeftProp<T>
+}
+export const borderLeft = style({
+  prop: 'borderLeft',
+  themeGet: getBorder,
+})
+
 type BorderColorProp<T extends ITheme> = SystemProp<
   ColorGetter<T> | CSS.Property.BorderColor,
   T
@@ -95,6 +203,114 @@ export const borderColor = style({
   themeGet: getBorderColor,
 })
 
+type BorderTopColorProp<T extends ITheme> = SystemProp<
+  ColorGetter<T> | CSS.Property.BorderColor,
+  T
+>
+export interface BorderTopColorProps<T extends ITheme = Theme> {
+  borderTopColor?: BorderColorProp<T>
+  motionSafeBorderTopColor?: BorderTopColorProp<T>
+  motionReduceBorderTopColor?: BorderTopColorProp<T>
+  firstBorderTopColor?: BorderTopColorProp<T>
+  lastBorderTopColor?: BorderTopColorProp<T>
+  oddBorderTopColor?: BorderTopColorProp<T>
+  evenBorderTopColor?: BorderTopColorProp<T>
+  visitedBorderTopColor?: BorderTopColorProp<T>
+  checkedBorderTopColor?: BorderTopColorProp<T>
+  focusWithinBorderTopColor?: BorderTopColorProp<T>
+  hoverBorderTopColor?: BorderTopColorProp<T>
+  focusBorderTopColor?: BorderTopColorProp<T>
+  focusVisibleBorderTopColor?: BorderTopColorProp<T>
+  activeBorderTopColor?: BorderTopColorProp<T>
+  disabledBorderTopColor?: BorderTopColorProp<T>
+  placeholderBorderTopColor?: BorderTopColorProp<T>
+}
+export const borderTopColor = style({
+  prop: 'borderTopColor',
+  themeGet: getBorderColor,
+})
+
+type BorderRightColorProp<T extends ITheme> = SystemProp<
+  ColorGetter<T> | CSS.Property.BorderColor,
+  T
+>
+export interface BorderRightColorProps<T extends ITheme = Theme> {
+  borderRightColor?: BorderColorProp<T>
+  motionSafeBorderRightColor?: BorderRightColorProp<T>
+  motionReduceBorderRightColor?: BorderRightColorProp<T>
+  firstBorderRightColor?: BorderRightColorProp<T>
+  lastBorderRightColor?: BorderRightColorProp<T>
+  oddBorderRightColor?: BorderRightColorProp<T>
+  evenBorderRightColor?: BorderRightColorProp<T>
+  visitedBorderRightColor?: BorderRightColorProp<T>
+  checkedBorderRightColor?: BorderRightColorProp<T>
+  focusWithinBorderRightColor?: BorderRightColorProp<T>
+  hoverBorderRightColor?: BorderRightColorProp<T>
+  focusBorderRightColor?: BorderRightColorProp<T>
+  focusVisibleBorderRightColor?: BorderRightColorProp<T>
+  activeBorderRightColor?: BorderRightColorProp<T>
+  disabledBorderRightColor?: BorderRightColorProp<T>
+  placeholderBorderRightColor?: BorderRightColorProp<T>
+}
+export const borderRightColor = style({
+  prop: 'borderRightColor',
+  themeGet: getBorderColor,
+})
+
+type BorderBottomColorProp<T extends ITheme> = SystemProp<
+  ColorGetter<T> | CSS.Property.BorderColor,
+  T
+>
+export interface BorderBottomColorProps<T extends ITheme = Theme> {
+  borderBottomColor?: BorderColorProp<T>
+  motionSafeBorderBottomColor?: BorderBottomColorProp<T>
+  motionReduceBorderBottomColor?: BorderBottomColorProp<T>
+  firstBorderBottomColor?: BorderBottomColorProp<T>
+  lastBorderBottomColor?: BorderBottomColorProp<T>
+  oddBorderBottomColor?: BorderBottomColorProp<T>
+  evenBorderBottomColor?: BorderBottomColorProp<T>
+  visitedBorderBottomColor?: BorderBottomColorProp<T>
+  checkedBorderBottomColor?: BorderBottomColorProp<T>
+  focusWithinBorderBottomColor?: BorderBottomColorProp<T>
+  hoverBorderBottomColor?: BorderBottomColorProp<T>
+  focusBorderBottomColor?: BorderBottomColorProp<T>
+  focusVisibleBorderBottomColor?: BorderBottomColorProp<T>
+  activeBorderBottomColor?: BorderBottomColorProp<T>
+  disabledBorderBottomColor?: BorderBottomColorProp<T>
+  placeholderBorderBottomColor?: BorderBottomColorProp<T>
+}
+export const borderBottomColor = style({
+  prop: 'borderBottomColor',
+  themeGet: getBorderColor,
+})
+
+type BorderLeftColorProp<T extends ITheme> = SystemProp<
+  ColorGetter<T> | CSS.Property.BorderColor,
+  T
+>
+export interface BorderLeftColorProps<T extends ITheme = Theme> {
+  borderLeftColor?: BorderColorProp<T>
+  motionSafeBorderLeftColor?: BorderLeftColorProp<T>
+  motionReduceBorderLeftColor?: BorderLeftColorProp<T>
+  firstBorderLeftColor?: BorderLeftColorProp<T>
+  lastBorderLeftColor?: BorderLeftColorProp<T>
+  oddBorderLeftColor?: BorderLeftColorProp<T>
+  evenBorderLeftColor?: BorderLeftColorProp<T>
+  visitedBorderLeftColor?: BorderLeftColorProp<T>
+  checkedBorderLeftColor?: BorderLeftColorProp<T>
+  focusWithinBorderLeftColor?: BorderLeftColorProp<T>
+  hoverBorderLeftColor?: BorderLeftColorProp<T>
+  focusBorderLeftColor?: BorderLeftColorProp<T>
+  focusVisibleBorderLeftColor?: BorderLeftColorProp<T>
+  activeBorderLeftColor?: BorderLeftColorProp<T>
+  disabledBorderLeftColor?: BorderLeftColorProp<T>
+  placeholderBorderLeftColor?: BorderLeftColorProp<T>
+}
+export const borderLeftColor = style({
+  prop: 'borderLeftColor',
+  themeGet: getBorderColor,
+})
+
 type BorderWidthProp<T extends ITheme> = SystemProp<
   BorderWidthGetter<T> | CSS.Property.BorderWidth,
   T
@@ -119,6 +335,114 @@ export interface BorderWidthProps<T extends ITheme = Theme> {
 }
 export const borderWidth = style({
   prop: 'borderWidth',
+  themeGet: getBorderWidth,
+})
+
+type BorderTopWidthProp<T extends ITheme> = SystemProp<
+  BorderWidthGetter<T> | CSS.Property.BorderWidth,
+  T
+>
+export interface BorderTopWidthProps<T extends ITheme = Theme> {
+  borderTopWidth?: BorderTopWidthProp<T>
+  motionSafeBorderTopWidth?: BorderTopWidthProp<T>
+  motionReduceBorderTopWidth?: BorderTopWidthProp<T>
+  firstBorderTopWidth?: BorderTopWidthProp<T>
+  lastBorderTopWidth?: BorderTopWidthProp<T>
+  oddBorderTopWidth?: BorderTopWidthProp<T>
+  evenBorderTopWidth?: BorderTopWidthProp<T>
+  visitedBorderTopWidth?: BorderTopWidthProp<T>
+  checkedBorderTopWidth?: BorderTopWidthProp<T>
+  focusWithinBorderTopWidth?: BorderTopWidthProp<T>
+  hoverBorderTopWidth?: BorderTopWidthProp<T>
+  focusBorderTopWidth?: BorderTopWidthProp<T>
+  focusVisibleBorderTopWidth?: BorderTopWidthProp<T>
+  activeBorderTopWidth?: BorderTopWidthProp<T>
+  disabledBorderTopWidth?: BorderTopWidthProp<T>
+  placeholderBorderTopWidth?: BorderTopWidthProp<T>
+}
+export const borderTopWidth = style({
+  prop: 'borderTopWidth',
+  themeGet: getBorderWidth,
+})
+
+type BorderRightWidthProp<T extends ITheme> = SystemProp<
+  BorderWidthGetter<T> | CSS.Property.BorderWidth,
+  T
+>
+export interface BorderRightWidthProps<T extends ITheme = Theme> {
+  borderRightWidth?: BorderRightWidthProp<T>
+  motionSafeBorderRightWidth?: BorderRightWidthProp<T>
+  motionReduceBorderRightWidth?: BorderRightWidthProp<T>
+  firstBorderRightWidth?: BorderRightWidthProp<T>
+  lastBorderRightWidth?: BorderRightWidthProp<T>
+  oddBorderRightWidth?: BorderRightWidthProp<T>
+  evenBorderRightWidth?: BorderRightWidthProp<T>
+  visitedBorderRightWidth?: BorderRightWidthProp<T>
+  checkedBorderRightWidth?: BorderRightWidthProp<T>
+  focusWithinBorderRightWidth?: BorderRightWidthProp<T>
+  hoverBorderRightWidth?: BorderRightWidthProp<T>
+  focusBorderRightWidth?: BorderRightWidthProp<T>
+  focusVisibleBorderRightWidth?: BorderRightWidthProp<T>
+  activeBorderRightWidth?: BorderRightWidthProp<T>
+  disabledBorderRightWidth?: BorderRightWidthProp<T>
+  placeholderBorderRightWidth?: BorderRightWidthProp<T>
+}
+export const borderRightWidth = style({
+  prop: 'borderRightWidth',
+  themeGet: getBorderWidth,
+})
+
+type BorderBottomWidthProp<T extends ITheme> = SystemProp<
+  BorderWidthGetter<T> | CSS.Property.BorderWidth,
+  T
+>
+export interface BorderBottomWidthProps<T extends ITheme = Theme> {
+  borderBottomWidth?: BorderBottomWidthProp<T>
+  motionSafeBorderBottomWidth?: BorderBottomWidthProp<T>
+  motionReduceBorderBottomWidth?: BorderBottomWidthProp<T>
+  firstBorderBottomWidth?: BorderBottomWidthProp<T>
+  lastBorderBottomWidth?: BorderBottomWidthProp<T>
+  oddBorderBottomWidth?: BorderBottomWidthProp<T>
+  evenBorderBottomWidth?: BorderBottomWidthProp<T>
+  visitedBorderBottomWidth?: BorderBottomWidthProp<T>
+  checkedBorderBottomWidth?: BorderBottomWidthProp<T>
+  focusWithinBorderBottomWidth?: BorderBottomWidthProp<T>
+  hoverBorderBottomWidth?: BorderBottomWidthProp<T>
+  focusBorderBottomWidth?: BorderBottomWidthProp<T>
+  focusVisibleBorderBottomWidth?: BorderBottomWidthProp<T>
+  activeBorderBottomWidth?: BorderBottomWidthProp<T>
+  disabledBorderBottomWidth?: BorderBottomWidthProp<T>
+  placeholderBorderBottomWidth?: BorderBottomWidthProp<T>
+}
+export const borderBottomWidth = style({
+  prop: 'borderBottomWidth',
+  themeGet: getBorderWidth,
+})
+
+type BorderLeftWidthProp<T extends ITheme> = SystemProp<
+  BorderWidthGetter<T> | CSS.Property.BorderWidth,
+  T
+>
+export interface BorderLeftWidthProps<T extends ITheme = Theme> {
+  borderLeftWidth?: BorderLeftWidthProp<T>
+  motionSafeBorderLeftWidth?: BorderLeftWidthProp<T>
+  motionReduceBorderLeftWidth?: BorderLeftWidthProp<T>
+  firstBorderLeftWidth?: BorderLeftWidthProp<T>
+  lastBorderLeftWidth?: BorderLeftWidthProp<T>
+  oddBorderLeftWidth?: BorderLeftWidthProp<T>
+  evenBorderLeftWidth?: BorderLeftWidthProp<T>
+  visitedBorderLeftWidth?: BorderLeftWidthProp<T>
+  checkedBorderLeftWidth?: BorderLeftWidthProp<T>
+  focusWithinBorderLeftWidth?: BorderLeftWidthProp<T>
+  hoverBorderLeftWidth?: BorderLeftWidthProp<T>
+  focusBorderLeftWidth?: BorderLeftWidthProp<T>
+  focusVisibleBorderLeftWidth?: BorderLeftWidthProp<T>
+  activeBorderLeftWidth?: BorderLeftWidthProp<T>
+  disabledBorderLeftWidth?: BorderLeftWidthProp<T>
+  placeholderBorderLeftWidth?: BorderLeftWidthProp<T>
+}
+export const borderLeftWidth = style({
+  prop: 'borderLeftWidth',
   themeGet: getBorderWidth,
 })
 
@@ -322,7 +646,7 @@ export interface DivideYProps<T extends ITheme = Theme> {
 export const divideY = style({
   prop: 'divideY',
   themeGet: getBorderWidth,
-  cssProperty: (value) => {
+  cssProperty: value => {
     const v = value === true ? 1 : value
     return {
       [divideSelector]: {
@@ -356,7 +680,7 @@ export interface DivideXProps<T extends ITheme = Theme> {
 export const divideX = style({
   prop: 'divideX',
   themeGet: getBorderWidth,
-  cssProperty: (value) => {
+  cssProperty: value => {
     const v = value === true ? 1 : value
     return {
       [divideSelector]: {
@@ -449,7 +773,7 @@ export interface DivideColorProps<T extends ITheme = Theme> {
 export const divideColor = style({
   prop: 'divideColor',
   themeGet: getBorderColor,
-  cssProperty: (value) => ({
+  cssProperty: value => ({
     [divideSelector]: {
       borderColor: value,
     },
@@ -481,7 +805,7 @@ export interface DivideStyleProps<T extends ITheme = Theme> {
 export const divideStyle = style({
   prop: 'divideStyle',
   themeGet: getBorderStyle,
-  cssProperty: (value) => ({
+  cssProperty: value => ({
     [divideSelector]: {
       borderStyle: value,
     },
@@ -519,7 +843,7 @@ export interface RingProps<T extends ITheme = Theme> {
 export const ring = style({
   prop: 'ring',
   themeGet: getRingWidth,
-  cssProperty: (value) => ({
+  cssProperty: value => ({
     '--x-ring-shadow': `var(--x-ring-inset, /*!*/ /*!*/) 0 0 0 ${value} var(--x-ring-color)`,
     boxShadow: 'var(--x-ring-shadow, 0 0 #0000), var(--x-shadow, 0 0 #0000)',
   }),
@@ -571,12 +895,24 @@ export interface RingColorProps<T extends ITheme = Theme> {
 export const ringColor = style({
   prop: 'ringColor',
   themeGet: getColor,
-  cssProperty: (value) => ({ '--x-ring-color': value }),
+  cssProperty: value => ({ '--x-ring-color': value }),
 })
 
 export type BordersProps<T extends ITheme> = BorderProps<T> &
+  BorderTopProps<T> &
+  BorderRightProps<T> &
+  BorderBottomProps<T> &
+  BorderLeftProps<T> &
   BorderColorProps<T> &
+  BorderTopColorProps<T> &
+  BorderRightColorProps<T> &
+  BorderBottomColorProps<T> &
+  BorderLeftColorProps<T> &
   BorderWidthProps<T> &
+  BorderTopWidthProps<T> &
+  BorderRightWidthProps<T> &
+  BorderBottomWidthProps<T> &
+  BorderLeftWidthProps<T> &
   BorderStyleProps<T> &
   BorderRadiusProps<T> &
   OutlineProps<T> &
@@ -595,8 +931,20 @@ export type BordersProps<T extends ITheme> = BorderProps<T> &
 
 export const borders = compose(
   border,
+  borderTop,
+  borderRight,
+  borderBottom,
+  borderLeft,
   borderColor,
+  borderTopColor,
+  borderRightColor,
+  borderBottomColor,
+  borderLeftColor,
   borderWidth,
+  borderTopWidth,
+  borderRightWidth,
+  borderBottomWidth,
+  borderLeftWidth,
   borderStyle,
   borderRadius,
   outline,
