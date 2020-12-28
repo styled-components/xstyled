@@ -22,7 +22,7 @@ function Example() {
         <x.h4 fontSize="xl" fontWeight="medium" color="black">
           xstyled
         </x.h4>
-        <x.p color="gray-500">The CSS in JS Framework.</x.p>
+        <x.p color="gray-500">The CSS-in-JS Framework.</x.p>
       </x.div>
     </x.div>
   )
@@ -180,7 +180,7 @@ export function Home() {
               Build your entire website using JSX and Props.
             </x.h1>
             <x.p fontSize={{ _: '2xl', md: '3xl' }} color="gray-600">
-              An all-in-one CSS in JS Framework build for React with props based
+              An all-in-one CSS-in-JS Framework built for React with props based
               utilities like{' '}
               <x.code fontWeight="bold" color="black">
                 display
