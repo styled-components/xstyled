@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/core",
   "description": "xstyled core utilities",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/core.esm.js",
@@ -25,6 +25,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
-    "@xstyled/system": "^2.0.0-alpha.0"
+    "@xstyled/system": "^2.0.0-alpha.1"
   }
 }
