@@ -30,14 +30,27 @@ Quicklinks to some of the most-visited pages:
 ## Example
 
 ```js
-import styled from '@xstyled/emotion'
+import { x } from '@xstyled/emotion'
 
-const Box = styled.div`
-  background-color: primary; /* ⟶ theme.colors.primary */
-  margin: 2; /* ⟶ theme.space.2 */
-`
-
-export default Box
+function Example() {
+  return (
+    <x.div p={{ _: 3, md: 6 }} bg="white" display="flex" spaceX={4}>
+      <x.div flexShrink={0}>
+        <x.img h={12} w={12} src="/img/logo.svg" alt="xstyled Logo" />
+      </x.div>
+      <x.div>
+        <x.h4
+          fontSize={{ _: 'md', lg: 'xl' }}
+          fontWeight="medium"
+          color="black"
+        >
+          xstyled
+        </x.h4>
+        <x.p color="gray-500">A CSS-in-JS framework built for React.</x.p>
+      </x.div>
+    </x.div>
+  )
+}
 ```
 
 ## License
