@@ -231,7 +231,7 @@ export function Home() {
                 </Button>
                 <Button
                   forwardedAs="a"
-                  href="https://github.com/smooth-code/xstyled/"
+                  href="https://github.com/gregberge/xstyled/"
                   borderRadius="xl"
                   transition
                   fontSize="lg"

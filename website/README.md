@@ -1,6 +1,6 @@
 # @xstyled/website
 
-[Documentation site](https://xstyled.dev) for [xstyled](https://github.com/smooth-code/xstyled). This website is running on [gatsbyjs](gatsbyjs.org).
+[Documentation site](https://xstyled.dev) for [xstyled](https://github.com/gregberge/xstyled). This website is running on [gatsbyjs](gatsbyjs.org).
 
 ## Getting Started
 

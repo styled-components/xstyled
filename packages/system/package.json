@@ -22,7 +22,7 @@
     "prepublishOnly": "yarn reset && yarn build"
   },
   "homepage": "https://xstyled.dev",
-  "repository": "https://github.com/smooth-code/xstyled/tree/master/packages/system",
+  "repository": "https://github.com/gregberge/xstyled/tree/master/packages/system",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/gregberge"

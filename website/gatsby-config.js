@@ -10,7 +10,7 @@ module.exports = {
         description:
           'Consistent theme based CSS for styled-components & emotion.',
         siteUrl: 'https://xstyled.dev',
-        githubRepositoryURL: 'https://github.com/smooth-code/xstyled',
+        githubRepositoryURL: 'https://github.com/gregberge/xstyled',
         baseDirectory: path.resolve(__dirname, '..'),
         navItems: [{ title: 'Docs', url: '/docs/' }],
         sections: [
