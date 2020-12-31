@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styled, {
   useTheme,
   th,
@@ -9,18 +9,9 @@ import styled, {
   defaultTheme,
 } from '@xstyled/styled-components'
 import Editor from 'react-simple-code-editor'
-import Prism from 'prismjs/components/prism-core'
-import 'prismjs/themes/prism-dark.css'
-import 'prismjs/components/prism-clike'
-import 'prismjs/components/prism-css'
-import 'prismjs/components/prism-markup'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-jsx'
-import 'prismjs/components/prism-diff'
-import 'prismjs/plugins/diff-highlight/prism-diff-highlight'
-import 'prismjs/plugins/diff-highlight/prism-diff-highlight.css'
 import { LiveProvider, LiveError, LivePreview, LiveContext } from 'react-live'
 import { mdx } from '@mdx-js/react'
+import { Highlight } from '../../components/Prism'
 
 const Pre = styled.pre`
   font-size: 15;
@@ -314,14 +305,6 @@ const PrismContainer = styled.div`
   }
 `
 
-function RawHighlight({ code, language: rawLanguage }) {
-  const language = rawLanguage === 'diffjs' ? 'diff-js' : rawLanguage
-  const grammar =
-    rawLanguage === 'diffjs' ? Prism.languages.diff : Prism.languages[language]
-  const html = Prism.highlight(code, grammar, language)
-  return <PrismContainer dangerouslySetInnerHTML={{ __html: html }} />
-}
-
 function LiveEditor() {
   const { code: initialCode, language, theme, onChange } = useContext(
     LiveContext,
@@ -332,8 +315,8 @@ function LiveEditor() {
     <Editor
       value={code}
       padding={10}
-      highlight={(code) => <RawHighlight code={code} language={language} />}
-      onValueChange={(code) => {
+      highlight={code => <Highlight code={code} language={language} />}
+      onValueChange={code => {
         setCode(code)
         onChange(code)
       }}
@@ -366,7 +349,7 @@ export function Code({
       <>
         <LiveProvider
           code={preview}
-          transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
+          transformCode={code => `/* @jsx mdx */ ${importToRequire(code)}`}
           scope={{ mdx, require: req, x }}
           language={lang}
           theme={prismTheme}
@@ -388,7 +371,7 @@ export function Code({
           <LiveError />
         </LiveProvider>
         <Pre data-preview>
-          <RawHighlight
+          <Highlight
             code={code.replace(/\n\s{2}/g, '\n').trim()}
             language={lang}
           />
@@ -400,7 +383,7 @@ export function Code({
     return (
       <LiveProvider
         code={children.trim()}
-        transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
+        transformCode={code => `/* @jsx mdx */ ${importToRequire(code)}`}
         scope={{ mdx, require: req }}
         language={lang}
         theme={prismTheme}
@@ -416,7 +399,7 @@ export function Code({
   }
   return (
     <Pre>
-      <RawHighlight code={children} language={lang} />
+      <Highlight code={children} language={lang} />
     </Pre>
   )
 }
