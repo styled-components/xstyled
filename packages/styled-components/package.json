@@ -1,6 +1,6 @@
 {
   "name": "@xstyled/styled-components",
-  "description": "Xstyled bindings for styled-components.",
+  "description": "A utility-first CSS-in-JS framework built for React (styled-components bindings).",
   "version": "2.0.0-alpha.1",
   "keywords": [
     "styled-components",

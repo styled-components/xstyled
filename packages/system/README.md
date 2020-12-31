@@ -1,7 +1,7 @@
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/gregberge/xstyled/master/resources/xstyled-logo.jpg" alt="xstyled" title="xstyled" width="300">
 </h1>
-<p align="center" style="font-size: 1.2rem;">A new way to style components</p>
+<p align="center" style="font-size: 1.2rem;">A utility-first CSS-in-JS framework built for React.</p>
 
 [![License](https://img.shields.io/npm/l/@xstyled/system.svg)](https://github.com/gregberge/xstyled/blob/master/LICENSE)
 [![npm package](https://img.shields.io/npm/v/@xstyled/system/latest.svg)](https://www.npmjs.com/package/@xstyled/system)

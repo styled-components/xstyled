@@ -7,8 +7,7 @@ module.exports = {
       options: {
         name: 'xstyled',
         author: 'Greg Bergé',
-        description:
-          'Consistent theme based CSS for styled-components & emotion.',
+        description: 'A utility-first CSS-in-JS framework built for React.',
         siteUrl: 'https://xstyled.dev',
         githubRepositoryURL: 'https://github.com/gregberge/xstyled',
         baseDirectory: path.resolve(__dirname, '..'),

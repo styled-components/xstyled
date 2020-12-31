@@ -1,6 +1,6 @@
 {
   "name": "@xstyled/core",
-  "description": "xstyled core utilities",
+  "description": "xstyled core utilities.",
   "version": "2.0.0-alpha.1",
   "sideEffects": false,
   "main": "dist/index.js",

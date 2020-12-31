@@ -1,6 +1,6 @@
 {
   "name": "@xstyled/util",
-  "description": "xstyled utilities",
+  "description": "xstyled common utilities.",
   "version": "2.0.0-alpha.1",
   "sideEffects": false,
   "main": "dist/index.js",

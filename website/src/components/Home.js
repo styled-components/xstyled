@@ -45,7 +45,7 @@ function Example() {
         <x.h4 fontSize={{ _: 'md', lg: 'xl' }} fontWeight="medium" color="black">
           xstyled
         </x.h4>
-        <x.p color="gray-500">The CSS-in-JS Framework.</x.p>
+        <x.p color="gray-500">A CSS-in-JS framework built for React.</x.p>
       </x.div>
     </x.div>
   )
@@ -202,8 +202,8 @@ export function Home() {
                 color="on-background-light"
                 mb={4}
               >
-                An all-in-one CSS-in-JS Framework built for React with props
-                based utilities like{' '}
+                A CSS-in-JS framework built for React with props based utilities
+                like{' '}
                 <x.code fontWeight="bold" color="on-background">
                   display
                 </x.code>
