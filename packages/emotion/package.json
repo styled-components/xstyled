@@ -6,7 +6,8 @@
     "emotion",
     "css",
     "system",
-    "styled-system"
+    "styled-system",
+    "tailwindcss"
   ],
   "sideEffects": false,
   "main": "dist/index.js",

@@ -8,7 +8,8 @@
     "css",
     "system",
     "styled-system",
-    "prop-types"
+    "prop-types",
+    "tailwindcss"
   ],
   "sideEffects": false,
   "main": "dist/index.js",
