@@ -288,7 +288,7 @@ export function Home() {
             <FeatureImage src={paintPaletteImageUrl} />
             <FeatureTitle>Themeable</FeatureTitle>
             <FeatureText>
-              Gives your components a new look in your next project. Create
+              Give your components a new look in your next project. Create
               universes in the same project with dynamic theme switching.
             </FeatureText>
           </Feature>
@@ -304,8 +304,7 @@ export function Home() {
             <FeatureImage src={responsiveImageUrl} />
             <FeatureTitle>Responsive</FeatureTitle>
             <FeatureText>
-              Creating responsive and mobile first components have never been so
-              easy.
+              Creating responsive and mobile first components has never been easier.
             </FeatureText>
           </Feature>
 
@@ -321,7 +320,7 @@ export function Home() {
             <FeatureImage src={moonAndStarsImageUrl} />
             <FeatureTitle>Dark Mode</FeatureTitle>
             <FeatureText>
-              Defines new colors in theme to enable dark mode your project. Use
+              Defines new colors in theme to enable dark mode for your project. Use
               system preference or Hooks to control it.
             </FeatureText>
           </Feature>
@@ -329,7 +328,7 @@ export function Home() {
             <FeatureImage src={pluginImageUrl} />
             <FeatureTitle>Extendable</FeatureTitle>
             <FeatureText>
-              Creates new utilities, compose them with existing ones, publish it
+              Create new utilities, compose them with existing ones, publish it
               as plugin. Possibilities are infinite!
             </FeatureText>
           </Feature>
