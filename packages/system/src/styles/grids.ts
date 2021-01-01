@@ -282,7 +282,7 @@ export const gridTemplateAreas = style({
 
 type GridAreaProp<T extends ITheme> = SystemProp<CSS.Property.GridArea, T>
 export interface GridAreaProps<T extends ITheme = Theme> {
-  gridTemplateAreas?: GridAreaProp<T>
+  gridArea?: GridAreaProp<T>
   motionSafeGridArea?: GridAreaProp<T>
   motionReduceGridArea?: GridAreaProp<T>
   firstGridArea?: GridAreaProp<T>
