@@ -1,53 +1,74 @@
-import { is, warn, getThemeValue } from '@xstyled/util'
+import { is, getThemeValue } from '@xstyled/util'
 import {
-  getColor,
-  getPx,
-  getPercent,
-  getRadius,
+  getAngle,
+  getAnimation,
   getBorder,
-  getBorderWidth,
+  getBorderColor,
   getBorderStyle,
-  getShadow,
-  getSize,
-  getZIndex,
-  getSpace,
+  getBorderWidth,
+  getColor,
+  getDuration,
   getFont,
   getFontSize,
-  getLineHeight,
   getFontWeight,
+  getInset,
   getLetterSpacing,
+  getLineHeight,
+  getPercent,
+  getPx,
+  getRadius,
+  getRingWidth,
+  getShadow,
+  getSize,
+  getSpace,
+  getTimingFunction,
+  getTransform,
   getTransition,
+  getTransitionProperty,
+  getZIndex,
 } from './styles/index'
-import { Props, ThemeGetter } from './types'
+import { IProps, ThemeGetter } from './types'
 
 interface ThemeGet {
-  (path: string): (props: Props) => any
-  [key: string]: ThemeGetter<any, any>
+  (path: string, defaultValue?: any): (props: IProps) => any
+  [key: string]: ThemeGetter
 }
 
-export const th = <ThemeGet>((path: string) => (props: Props) => {
+export const th = <ThemeGet>((path: string, defaultValue?: string) => (
+  props: IProps,
+) => {
   const value = getThemeValue(props, path)
-  warn(is(value), `value "${path}" not found in theme`)
-  return value
+  if (is(value)) return value
+  if (is(defaultValue)) return defaultValue
+  return path
 })
 ;[
-  getColor,
-  getPx,
-  getPercent,
-  getRadius,
+  getAngle,
+  getAnimation,
   getBorder,
-  getBorderWidth,
+  getBorderColor,
   getBorderStyle,
-  getShadow,
-  getSize,
-  getZIndex,
-  getSpace,
+  getBorderWidth,
+  getColor,
+  getDuration,
   getFont,
   getFontSize,
-  getLineHeight,
   getFontWeight,
+  getInset,
   getLetterSpacing,
+  getLineHeight,
+  getPercent,
+  getPx,
+  getRadius,
+  getRingWidth,
+  getShadow,
+  getSize,
+  getSpace,
+  getTimingFunction,
+  getTransform,
   getTransition,
+  getTransitionProperty,
+  getZIndex,
 ].forEach((themeGetter) => {
   if (themeGetter.meta.name) {
     th[themeGetter.meta.name] = themeGetter

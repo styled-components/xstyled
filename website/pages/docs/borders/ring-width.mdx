@@ -1,0 +1,183 @@
+---
+section: Borders
+title: Ring Width
+slug: /docs/ring-width/
+---
+
+# Ring Width
+
+Utilities for creating outline rings with box-shadows.
+
+<carbon-ad />
+
+| React props        | CSS Properties                                                                                                     |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `ring={ringWidth}` | `--x-ring-width: {ringWidth}; box-shadow: var(--x-ring-inset) 0 0 0 var(--x-ring-width, 3px) var(--x-ring-color);` |
+| `ringInset`        | `--x-ring-inset: 1;`                                                                                               |
+
+## Usage
+
+Use the `ring={ringWidth}` utilities to apply solid box-shadow of a specific thickness to an element. Rings are a semi-transparent blue color by default, similar to the default focus ring style in many systems.
+
+```jsx preview color=blue
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateColumns={{ _: 1, sm: 4 }}
+      gap={6}
+      justifyItems="center"
+    >
+      <x.button
+        tabindex="-1"
+        w={24}
+        focusOutline="none"
+        fontSize="sm"
+        py={3}
+        borderRadius="md"
+        fontWeight="semibold"
+        color="white"
+        bg="blue-500"
+        ring={0}
+      >
+        {`ring={0}`}
+      </x.button>
+      <x.button
+        tabindex="-1"
+        w={24}
+        focusOutline="none"
+        fontSize="sm"
+        py={3}
+        borderRadius="md"
+        fontWeight="semibold"
+        color="white"
+        bg="blue-500"
+        ring={2}
+      >
+        {`ring={2}`}
+      </x.button>
+      <x.button
+        tabindex="-1"
+        w={24}
+        focusOutline="none"
+        fontSize="sm"
+        py={3}
+        borderRadius="md"
+        fontWeight="semibold"
+        color="white"
+        bg="blue-500"
+        ring
+      >
+        ring
+      </x.button>
+      <x.button
+        tabindex="-1"
+        w={24}
+        focusOutline="none"
+        fontSize="sm"
+        py={3}
+        borderRadius="md"
+        fontWeight="semibold"
+        color="white"
+        bg="blue-500"
+        ring={4}
+      >
+        {`ring={4}`}
+      </x.button>
+    </x.div>
+  </template>
+  <x.button ring={0}>ring-0</x.button>
+  <x.button ring={2}>ring-2</x.button>
+  <x.button ring>ring</x.button>
+  <x.button ring={4}>ring-4</x.button>
+</>
+```
+
+Ring utilities compose gracefully with regular `boxShadow={shadow}` utility and can be combined on the same element.
+
+## Focus rings
+
+Add focus rings using `focusRing={ringWidth}` variant.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="center">
+      <x.button
+        w={32}
+        py={2}
+        borderRadius="md"
+        fontWeight="semibold"
+        color="white"
+        bg="emerald-500"
+        focusOutline="none"
+        focusRing={4}
+        focusRingColor="emerald-500-a50"
+      >
+        Button
+      </x.button>
+    </x.div>
+  </template>
+  <x.button focusRing={4} focusRingColor="emerald-500-a50">
+    Button
+  </x.button>
+</>
+```
+
+## Inset rings
+
+Use the `ringInset` utility to force a ring to render on the inside of an element instead of the outside. This can be useful for elements at the edge of the screen where part of the ring wouldn't be visible.
+
+```jsx preview color=pink
+<>
+  <template preview>
+    <x.div display="flex" spaceX={6} justifyContent="center" p={8}>
+      <x.button
+        tabindex="-1"
+        focusOutline="none"
+        w={32}
+        py={2}
+        borderRadius="md"
+        fontWeight="semibold"
+        color="white"
+        bg="pink-500"
+        ring={4}
+        ringColor="pink-300"
+      >
+        Default
+      </x.button>
+      <x.button
+        tabindex="-1"
+        focusOutline="none"
+        w={32}
+        py={2}
+        borderRadius="md"
+        fontWeight="semibold"
+        color="white"
+        bg="pink-500"
+        ring={4}
+        ringColor="pink-300"
+        ringInset
+      >
+        Inset
+      </x.button>
+    </x.div>
+  </template>
+  <x.button ring={4} ringColor="pink-300">
+    Default
+  </x.button>
+  <x.button ring={4} ringColor="pink-300" ringInset>
+    Inset
+  </x.button>
+</>
+```
+
+## Responsive
+
+To control outline rings at a specific breakpoint, use responsive object notation. For example, adding the property `ring={{ md: 2 }}` to an element would apply the `ring={2}` utility at medium screen sizes and above.
+
+```jsx
+<x.div ring={{ md: 2 }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

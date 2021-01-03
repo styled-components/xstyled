@@ -2,10 +2,10 @@
 import * as React from 'react'
 import emStyled, { CreateStyledComponent, CreateStyled } from '@emotion/styled'
 import { Theme } from '@emotion/react'
-import { createBox } from '@xstyled/core'
 import { SystemProps } from '@xstyled/system'
 import { css } from './css'
-import { BoxElements } from './types'
+import { BoxElements } from './BoxElements'
+import { x } from './x'
 
 function flattenArgs(arg: any, props: any): any {
   if (typeof arg === 'function') return flattenArgs(arg(props), props)
@@ -37,19 +37,11 @@ export const styled: CreateXStyled = (component: any) => {
   return getCreateStyle(emStyled(component))
 }
 
-export const Box = emStyled('div', {
-  shouldForwardProp: (prop: string) =>
-    prop !== 'as' && !createBox.meta.props.includes(prop),
-})<SystemProps<Theme>>(createBox)
-
-styled.box = styled(Box)
+styled.box = styled(x.div)
 
 Object.keys(emStyled).forEach((key) => {
   // @ts-ignore
   styled[key] = styled(key)
   // @ts-ignore
-  styled[`${key}Box`] = styled(
-    // @ts-ignore
-    Box.withComponent(key),
-  )
+  styled[`${key}Box`] = styled(x[key])
 })

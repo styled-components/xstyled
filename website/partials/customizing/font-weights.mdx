@@ -1,0 +1,41 @@
+### Font Weights
+
+If you'd like to customize your values for font weights, use the `theme.fontWeights` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    fontSizes: {
+-     hairline: 100,
++     'extra-light': 100,
+-     thin: 200,
+      light: 300,
+      normal: 400,
+      medium: 500,
++     semibold: 600,
+      bold: 700,
+-     extrabold: 800,
++     'extra-bold': 800,
+      black: 900,
+    },
+  }
+```
+
+If you don't want to customize it, a set of `fontWeights` is already defined in default theme:
+
+```js
+const defaultTheme = {
+  // ...
+  fontWeights: {
+    hairline: '100',
+    thin: '200',
+    light: '300',
+    normal: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+    extrabold: '800',
+    black: '900',
+  },
+}
+```

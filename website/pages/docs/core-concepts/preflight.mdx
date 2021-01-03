@@ -1,0 +1,192 @@
+---
+section: Core Concepts
+title: Preflight
+slug: /docs/preflight/
+order: 2
+---
+
+# Preflight
+
+An opinionated set of base styles for xstyled projects.
+
+<carbon-ad />
+
+Inspired from [Tailwind's Preflight](https://tailwindcss.com/docs/preflight) and build on top of [modern-normalize](https://github.com/sindresorhus/modern-normalize), Preflight is a set of base styles for xstyled projects that are designed to smooth over cross-browser inconsistencies and make it easier for you to work within the constraints of your design system.
+
+Preflight is available as a Global Style React Component, when mounted styles are automatically injected.
+
+```js
+import { Preflight } from '@xstyled/...'
+
+function App() {
+  return (
+    <>
+      <Preflight />
+      {/* ... */}
+    </>
+  )
+}
+```
+
+## Default margins are removed
+
+Preflight removes all of the default margins from elements like headings, blockquotes, paragraphs, etc.
+
+```css
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+```
+
+This makes it harder to accidentally rely on margin values applied by the user-agent stylesheet that are not part of your spacing scale.
+
+## Headings are unstyled
+
+All heading elements are completely unstyled by default, and have the same font-size and font-weight as normal text.
+
+```css
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+```
+
+The reason for this is two-fold:
+
+- **It helps you avoid accidentally deviating from your type scale**. By default, the browsers assigns sizes to headings that don't exist in Tailwind's default type scale, and aren't guaranteed to exist in your own type scale.
+- **In UI development, headings should often be visually de-emphasized**. Making headings unstyled by default means any styling you apply to headings happens consciously and deliberately.
+
+You can always add default header styles to your project by [adding your own base styles](/docs/adding-base-styles/).
+
+## Lists are unstyled
+
+Ordered and unordered lists are unstyled by default, with no bullets/numbers and no margin or padding.
+
+```css
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+```
+
+If you'd like to style a list, you can do so using the [listStyleType](/docs/list-style-type/) and [listStylePosition](/docs/list-style-position/) utilities:
+
+```jsx
+<x.ul listStyleType="disc" listStylePosition="inside">
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</x.ul>
+```
+
+You can always add default header styles to your project by [adding your own base styles](/docs/adding-base-styles/).
+
+## Images are block-level
+
+Images and other replaced elements (like `svg`, `video`, `canvas`, and others) are `display: block` by default.
+
+```css
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+}
+```
+
+This helps to avoid unexpected alignment issues that you often run into using the browser default of `display: inline`.
+
+If you ever need to make one of these elements `inline` instead of `block`, simply use the `display="inline"` utility:
+
+```jsx
+<x.img display="inline" src="..." alt="..." />
+```
+
+## Border styles are reset globally
+
+In order to make it easy to add a border by simply adding the `border` utility, xstyed overrides the default border styles for all elements with the following rules:
+
+```css
+*,
+::before,
+::after {
+  border-width: 0;
+  border-style: solid;
+  border-color: ${th.color('default-border-color', 'currentColor')};
+}
+```
+
+Since the `border` utiity only sets the `border-width` and `border-style` property, this reset ensures that adding that class always adds a solid 1px border using your configured default border color.
+
+This can cause some unexpected results when integrating certain third-party libraries, like [Google maps](https://github.com/tailwindlabs/tailwindcss/issues/484) for example.
+
+When you run into situations like this, you can work around them by overriding the Preflight styles with your own custom CSS:
+
+```css
+.google-map * {
+  border-style: none;
+}
+```
+
+## Buttons have a default outline
+
+To ensure that we provide accessible styles out of the box, we made sure
+that buttons have a default outline. You can of course override this by
+applying `focusRing` or similar utilities to your buttons.
+
+```css
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+```
+
+## Buttons have pointer
+
+To ensure accessibility, buttons have pointer.
+
+```css
+/* Role button pointer */
+[role='button'],
+button {
+  cursor: pointer;
+}
+```
+
+## Default ring color
+
+A default ring color is added by Preflight to ensure that default `ring` utility color is good.
+
+```css
+* {
+  --x-ring-color: ${th.color('default-ring-color', 'rgba(59,130,246,0.5)')};
+}
+```
+
+## Extending Preflight
+
+You can't extend or modify `Preflight`, however you can additional [add base styles](/docs/adding-base-styles).

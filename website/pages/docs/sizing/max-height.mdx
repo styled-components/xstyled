@@ -1,0 +1,241 @@
+---
+section: Sizing
+title: Max-Height
+slug: /docs/max-height/
+order: 5
+---
+
+# Max-Height
+
+Utilities for setting the maximum height of an element.
+
+<carbon-ad />
+
+| React props        | CSS Properties        |
+| ------------------ | --------------------- |
+| `maxHeight={size}` | `max-height: {size};` |
+
+## Scaled Max-Height
+
+All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scale `1`, you have to specify `1s`.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="space-around"
+      alignItems="flex-end"
+      mx="auto"
+    >
+      {['1s', 8, 12, 16, 24].map(v => (
+        <x.div
+          key={v}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          position="relative"
+          spaceY={4}
+        >
+          <x.div
+            h={32}
+            bg="cool-gray-300"
+            borderRadius="md"
+            display="flex"
+            alignItems="flex-end"
+          >
+            <x.div
+              w={8}
+              maxHeight={v}
+              h={32}
+              borderRadius="md"
+              bg="light-blue-500"
+              color="white"
+              fontSize="2xl"
+              fontWeight="extrabold"
+            />
+          </x.div>
+          <x.p fontSize="sm" color="light-blue-600" textAlign="right">
+            maxHeight={v}
+          </x.p>
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div>
+    <x.div maxHeight="1s" h={32} />
+    <x.div maxHeight={8} h={32} />
+    <x.div maxHeight={12} h={32} />
+    <x.div maxHeight={16} h={32} />
+    <x.div maxHeight={24} h={32} />
+  </x.div>
+</>
+```
+
+## Fixed Max-Height
+
+Any valid value is accepted in width, numbers are converted to `px`, other units have to be specified.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="space-around"
+      alignItems="flex-end"
+      mx="auto"
+    >
+      {[110, '12px', '4rem', '3ex'].map(v => (
+        <x.div
+          key={v}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          position="relative"
+          spaceY={4}
+        >
+          <x.div
+            h={32}
+            bg="cool-gray-300"
+            borderRadius="md"
+            display="flex"
+            alignItems="flex-end"
+          >
+            <x.div
+              w={8}
+              maxHeight={v}
+              h={32}
+              borderRadius="md"
+              bg="emerald-500"
+              color="white"
+              fontSize="2xl"
+              fontWeight="extrabold"
+            />
+          </x.div>
+          <x.p fontSize="sm" color="emerald-600" w={24} textAlign="right">
+            maxHeight={v}
+          </x.p>
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div>
+    <x.div maxHeight={110} h={32} />
+    <x.div maxHeight="12px" h={32} />
+    <x.div maxHeight="4rem" h={32} />
+    <x.div maxHeight="3ex" h={32} />
+  </x.div>
+</>
+```
+
+## Fluid Max-Height
+
+Values from `0` to `1` are converted into percentages. As a fraction or a number, both are an expression. Of course specifying `[value]%` is also possible.
+
+```jsx preview color=rose
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="space-around"
+      alignItems="flex-end"
+      mx="auto"
+    >
+      <x.div
+        overflow="hidden"
+        borderRadius="md"
+        color="white"
+        fontFamily="mono"
+        h={48}
+        display="flex"
+        flexDirection="column"
+        justifyContent="flex-end"
+        bg="cool-gray-300"
+      >
+        <x.div
+          h={0.3}
+          px={2}
+          py={4}
+          bg="rose-500"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          0.3
+        </x.div>
+      </x.div>
+      <x.div
+        overflow="hidden"
+        borderRadius="md"
+        color="white"
+        fontFamily="mono"
+        h={48}
+        display="flex"
+        flexDirection="column"
+        justifyContent="flex-end"
+        bg="cool-gray-300"
+      >
+        <x.div
+          h={0.2}
+          px={2}
+          py={4}
+          bg="cool-gray-300"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          color="rose-500"
+        >
+          0.2
+        </x.div>
+        <x.div
+          h={0.5}
+          px={2}
+          py={4}
+          bg="rose-500"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          0.5
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div maxHeight={1 / 2} h={0.3}>
+    maxHeight=1/2
+  </x.div>
+  <x.div maxHeight={0.5} h={0.7}>
+    maxHeight=0.5
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `maxHeight={{ md: 1 }}` to an element would apply the `maxHeight={1}` utility at medium screen sizes and above.
+
+```jsx
+<x.div maxHeight={{ xs: 1 / 2, md: 1 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+### Sizes scale
+
+f you'd like to customize your values for width, height, min-width, min-height, max-width, max-height, all at once, use the `theme.sizes` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    sizes: {
++     sm: '8px',
++     md: '16px',
++     lg: '24px',
++     xl: '48px',
+    },
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization documentation](/docs/theme/).

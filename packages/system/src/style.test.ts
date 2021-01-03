@@ -15,6 +15,43 @@ describe('#style', () => {
       ).toBe('d')
     })
 
+    it('supports second arg default', () => {
+      const scope = themeGetter({
+        key: 'scope',
+      })
+      expect(scope('no-value', 'this-one')({ theme: { scope: {} } })).toBe(
+        'this-one',
+      )
+    })
+
+    it('uses first as default without second arg', () => {
+      const scope = themeGetter({
+        key: 'scope',
+      })
+      expect(scope('no-value')({ theme: { scope: {} } })).toBe('no-value')
+    })
+
+    it('uses "default" value in theme when `true`', () => {
+      const scope = themeGetter({
+        key: 'scope',
+      })
+      expect(scope(true)({ theme: { scope: { default: 'foo' } } })).toBe('foo')
+    })
+
+    it('supports shorthand', () => {
+      const scope = themeGetter({ key: 'scope', shorthand: true })
+      expect(scope('1 value 2')({ theme: { scope: { value: 'foo' } } })).toBe(
+        '1 foo 2',
+      )
+    })
+
+    it('supports array', () => {
+      const scope = themeGetter({ key: 'scope' })
+      expect(
+        scope('value')({ theme: { scope: { value: ['foo', 'bar'] } } }),
+      ).toBe('foo,bar')
+    })
+
     it('uses defaultVariants', () => {
       const scope = themeGetter({
         key: 'scope',
@@ -59,16 +96,41 @@ describe('#style', () => {
       })
     })
 
-    it('returns null if style is not valid', () => {
-      expect(fontFamily({ fontFamily: () => {} })).toBe(null)
+    it('works with states', () => {
+      const theme = { screens: { _: 0, md: 400 } }
+      expect(fontFamily({ hoverFontFamily: 'title' })).toEqual({
+        '&:hover': {
+          fontFamily: 'title',
+        },
+      })
+      expect(
+        fontFamily({
+          motionReduceFontFamily: { md: 'title' },
+          theme,
+        }),
+      ).toEqual({
+        '@media (prefers-reduced-motion: reduce)': {
+          '@media (min-width: 400px)': { fontFamily: 'title' },
+        },
+      })
+    })
+
+    it('returns empty object if style is not valid', () => {
+      expect(fontFamily({ fontFamily: () => {} })).toEqual({})
     })
 
     it('works with breakpoints', () => {
-      expect(fontFamily({ fontFamily: { xs: 'title' } })).toEqual({
+      const theme = { screens: { _: 0, md: 400 } }
+      expect(
+        fontFamily({
+          fontFamily: { _: 'title' },
+          theme,
+        }),
+      ).toEqual({
         fontFamily: 'title',
       })
-      expect(fontFamily({ fontFamily: { md: 'title' } })).toEqual({
-        '@media (min-width: 768px)': {
+      expect(fontFamily({ fontFamily: { md: 'title' }, theme })).toEqual({
+        '@media (min-width: 400px)': {
           fontFamily: 'title',
         },
       })

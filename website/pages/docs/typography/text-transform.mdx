@@ -1,0 +1,93 @@
+---
+section: Typography
+title: Text Transform
+slug: /docs/text-transform/
+---
+
+# Text Transform
+
+Utilities for controlling the transformation of text.
+
+<carbon-ad />
+
+| React props                      | CSS Properties                      |
+| -------------------------------- | ----------------------------------- |
+| `textTransform={transformation}` | `text-transform: {transformation};` |
+
+## Normal Case
+
+Use the `textTransform="none"` utility to preserve the original casing. This is typically used to reset capitalization at different breakpoints.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.p textTransform="none" fontSize="xl" color="emerald-700">
+      Computers have lots of memory but no imagination.
+    </x.p>
+  </template>
+  <x.p textTransform="none">
+    Computers have lots of memory but no imagination.
+  </x.p>
+</>
+```
+
+## Uppercase
+
+Use the `textTransform="uppercase"` utility to uppercase text.
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.p textTransform="uppercase" fontSize="xl" color="red-700">
+      Computers have lots of memory but no imagination.
+    </x.p>
+  </template>
+  <x.p textTransform="uppercase">
+    Computers have lots of memory but no imagination.
+  </x.p>
+</>
+```
+
+## Lowercase
+
+Use the `textTransform="lowercase"` utility to lowercase text.
+
+```jsx preview color=violet
+<>
+  <template preview>
+    <x.p textTransform="lowercase" fontSize="xl" color="violet-700">
+      Computers have lots of memory but no imagination.
+    </x.p>
+  </template>
+  <x.p textTransform="lowercase">
+    Computers have lots of memory but no imagination.
+  </x.p>
+</>
+```
+
+## Capitalize
+
+Use the `textTransform="capitalize"` utility to capitalize text.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.p textTransform="capitalize" fontSize="xl" color="amber-700">
+      Computers have lots of memory but no imagination.
+    </x.p>
+  </template>
+  <x.p textTransform="capitalize">
+    Computers have lots of memory but no imagination.
+  </x.p>
+</>
+```
+
+## Responsive
+
+To control the text transformation of an element at a specific breakpoint, use responsive object notation. For example, adding the property `textTransform={{ md: "uppercase" }}` to an element would apply the `textTransform="uppercase"` utility at medium screen sizes and above.
+
+```jsx
+<x.div textTransform={{ md: 'uppercase' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

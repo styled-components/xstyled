@@ -1,0 +1,237 @@
+---
+section: Box Alignment
+title: Justify Content
+slug: /docs/justify-content/
+---
+
+# Justify Content
+
+Utilities for controlling how flex and grid items are positioned along a container's main axis.
+
+<carbon-ad />
+
+| React props                | CSS Properties                |
+| -------------------------- | ----------------------------- |
+| `justifyContent={keyword}` | `justify-content: {keyword};` |
+
+## Start
+
+Use `justifyContent="flex-start"` to justify items against the start of the container's main axis:
+
+```jsx preview color=fuchsia
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="flex-start" spaceX={4}>
+      {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        <x.div
+          key={value}
+          h={16}
+          w={16}
+          borderRadius="md"
+          bg="fuchsia-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="flex" justifyContent="flex-start">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Center
+
+Use `justifyContent="center"` to justify items along the center of the container's main axis:
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="center" spaceX={4}>
+      {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        <x.div
+          key={value}
+          h={16}
+          w={16}
+          borderRadius="md"
+          bg="indigo-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="flex" justifyContent="center">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## End
+
+Use `justifyContent="flex-end"` to justify items against the end of the container's main axis:
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="flex-end" spaceX={4}>
+      {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        <x.div
+          key={value}
+          h={16}
+          w={16}
+          borderRadius="md"
+          bg="amber-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="flex" justifyContent="flex-end">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Space between
+
+Use `justifyContent="space-between"` to justify items along the container's main axis such that there is an equal amount of space between each item:
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="space-between">
+      {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        <x.div
+          key={value}
+          h={16}
+          w={16}
+          borderRadius="md"
+          bg="emerald-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="flex" justifyContent="space-between">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Space around
+
+Use `justifyContent="space-around"` to justify items along the container's main axis such that there is an equal amount of space on each side of each item:
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="space-around">
+      {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        <x.div
+          key={value}
+          h={16}
+          w={16}
+          borderRadius="md"
+          bg="red-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="flex" justifyContent="space-around">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Space evenly
+
+Use `justifyContent="space-evenly"` to justify items along the container's main axis such that there is an equal amount of space around each item, but also accounting for the doubling of space you would normally see between each item when using `justifyContent="space-around"`:
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="space-evenly">
+      {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
+        <x.div
+          key={value}
+          h={16}
+          w={16}
+          borderRadius="md"
+          bg="light-blue-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="flex" justifyContent="space-evenly">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To justify flex items at a specific breakpoint, use responsive object notation. For example, adding the property `justifyContent={{ md: "center" }}` to an element would apply the `justifyContent="center` utility at medium screen sizes and above.
+
+```jsx
+<x.div display="grid" justifyContent={{ md: 'center' }}>
+  {/* ... */}
+</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

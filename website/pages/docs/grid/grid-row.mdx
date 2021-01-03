@@ -1,0 +1,158 @@
+---
+section: Grid
+title: Grid Row Start / End
+slug: /docs/grid-row/
+---
+
+# Grid Row Start / End
+
+Utilities for controlling how elements are sized and placed across grid rows.
+
+<carbon-ad />
+
+| React props       | CSS Properties       |
+| ----------------- | -------------------- |
+| `gridRow={value}` | `grid-row: {value};` |
+
+## Spanning rows
+
+Use the `gridRow="span n / span n"` utilities to make an element span _n_ rows.
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateRows={3}
+      gridAutoFlow="column"
+      gap={4}
+      h={64}
+    >
+      <x.div
+        borderRadius="md"
+        bg="red-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        gridRow="span 3 / span 3"
+      >
+        1
+      </x.div>
+      <x.div
+        borderRadius="md"
+        bg="red-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        gridColumn="span 2 / span 2"
+      >
+        2
+      </x.div>
+      <x.div
+        borderRadius="md"
+        bg="red-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        gridColumn="span 2 / span 2"
+        gridRow="span 2 / span 2"
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div display="grid" gridTemplateColumns={3} gap={4}>
+    <x.div gridRow="span 3 / span 3">1</x.div>
+    <x.div gridColumn="span 2 / span 2">2</x.div>
+    <x.div gridColumn="span 2 / span 2" gridRow="span 2 / span 2">
+      3
+    </x.div>
+  </x.div>
+</>
+```
+
+## Starting and ending lines
+
+Use the `gridRow="n"` (start) and `gridRow="auto / n"` (end) utilities to make an element start or end at the nth grid line. These can also be combined with the `gridRow="n / span x"` (start) and `gridRow="span x / n"` (end) utilities to span a specific number of rows.
+
+Note that CSS grid lines start at 1, not 0, so a full-width element in a 6-column grid would start at line 1 and end at line 7.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateRows={3}
+      gridAutoFlow="column"
+      gap={4}
+      h={64}
+    >
+      <x.div
+        borderRadius="md"
+        bg="emerald-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        gridRow="2 / span 2"
+      >
+        1
+      </x.div>
+      <x.div
+        borderRadius="md"
+        bg="emerald-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        gridRow="span 2 / 3"
+      >
+        2
+      </x.div>
+      <x.div
+        borderRadius="md"
+        bg="emerald-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+        gridRow="1 / 4"
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div display="grid" gridTemplateRows={3} gridAutoFlow="column" gap={4}>
+    <x.div gridRow="2 / span 2">1</x.div>
+    <x.div gridRow="span 2 / 3">2</x.div>
+    <x.div gridRow="1 / 4">3</x.div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the row placement of an element at a specific breakpoint, use responsive object notation. For example, adding the property `gridRow={{ md: "span 2 / span 2" }}` to an element would apply the `gridRow="span 2 / span 2"` utility at medium screen sizes and above.
+
+```jsx
+<x.div display="grid" gridRow={{ md: 'span 2 / span 2' }}>
+  {/* ... */}
+</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

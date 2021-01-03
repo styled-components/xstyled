@@ -1,0 +1,122 @@
+---
+section: Transitions
+title: Transition
+slug: /docs/transition/
+order: 1
+---
+
+# Transition
+
+Utilities for controlling transitions.
+
+<carbon-ad />
+
+| React props          | CSS Properties         |
+| -------------------- | ---------------------- |
+| `transition={value}` | `transition: {value};` |
+
+## Usage
+
+Use `transition={value}` to specify transitions.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div textAlign="center">
+      <x.button
+        fontWeight="medium"
+        transition
+        transitionDuration={500}
+        color="white"
+        bg="amber-600"
+        hoverBg="orange-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </x.button>
+    </x.div>
+  </template>
+  <x.button
+    transition
+    transitionDuration={500}
+    color="white"
+    bg="blue-600"
+    hoverBg="orange-600"
+    py={3}
+    px={6}
+    borderRadius="md"
+  >
+    Hover me
+  </x.button>
+</>
+```
+
+## Prefers-reduced-motion
+
+You can conditionally apply animations and transitions using the `motionSafe` and `motionReduce` variants:
+
+```jsx
+<x.button hoverColor="red" transition motionReduceTransition="none">
+  Hover me
+</x.button>
+```
+
+## Responsive
+
+To control the transitions on an element at a specific breakpoint, use responsive object notation. For example, adding the property `transition={{ md: "all" }}` to an element would apply the `transition="all"` utility at medium screen sizes and above.
+
+```jsx
+<x.div transition={{ md: 'all' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+import CustomizeTransitions from '../../../partials/customizing/transitions.mdx'
+
+<CustomizeTransitions />
+
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all transitions defined are automatically binded to `transition` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Button = styled.button`
+  transition: default;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
+
+### Manual
+
+It is possible to manually bind a transition using `th.transition` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Button = styled.button`
+  transition: ${th.transition('default')};
+`
+```
+
+## Hooks
+
+Get a transition in any component using `useTransition` hook:
+
+```js
+import { useTransition } from '@xstyled/...'
+
+function Button() {
+  const transition = useTransition('default')
+}
+```

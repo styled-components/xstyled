@@ -1,0 +1,69 @@
+---
+section: Backgrounds
+title: Background Image
+slug: /docs/background-image/
+---
+
+# Background Image
+
+Utilities for controlling an element's background image.
+
+<carbon-ad />
+
+| React props               | CSS Properties               |
+| ------------------------- | ---------------------------- |
+| `backgroundImage={image}` | `background-image: {image};` |
+
+## Image
+
+Use `backgroundImage="url(...)"` to display an image.
+
+```jsx preview
+<>
+  <template preview>
+    <x.div
+      bg="amber-300"
+      h={48}
+      backgroundSize="cover"
+      backgroundRepeat="no-repeat"
+      backgroundPosition="center"
+      backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&h=800&q=80');"
+    />
+  </template>
+  <x.div backgroundImage="url(...)" />
+</>
+```
+
+## Linear Gradient
+
+To give an element a linear gradient background, use one of the `backgroundImage="gradient-to-{direction}"` utilities, in combination with the [gradient color stop](/docs/gradient-color-stops/) utilities.
+
+```jsx preview
+<>
+  <template preview>
+    <x.div
+      h={24}
+      backgroundImage="gradient-to-r"
+      gradientFrom="orange-400"
+      gradientVia="red-500"
+      gradientTo="pink-500"
+    />
+  </template>
+  <x.div
+    backgroundImage="gradient-to-r"
+    gradientFrom="orange-400"
+    gradientVia="red-500"
+    gradientTo="pink-500"
+  />
+</>
+```
+
+## Responsive
+
+To control background image at a specific breakpoint, use responsive object notation. For example, adding the property `backgroundImage={{ md: "url(...)" }}` to an element would apply the `backgroundImage="url(...)"` utility at medium screen sizes and above.
+
+```jsx
+<x.div backgroundImage={{ md: 'url(...)' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

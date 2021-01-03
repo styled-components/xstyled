@@ -1,0 +1,264 @@
+---
+section: Borders
+title: Border Radius
+slug: /docs/border-radius/
+---
+
+# Border Radius
+
+Utilities for controlling the border radius of an element.
+
+<carbon-ad />
+
+| React props            | CSS Properties            |
+| ---------------------- | ------------------------- |
+| `borderRadius={radius}` | `border-radius: {radius};` |
+
+## Rounded corners
+
+Use `borderRadius={radius}` utility to apply different border radius sizes to an element.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 4 }}>
+      <x.div
+        p={6}
+        bg="light-blue-500"
+        color="white"
+        textAlign="center"
+        fontWeight="extrabold"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        borderRadius="sm"
+      >
+        sm
+      </x.div>
+      <x.div
+        p={6}
+        bg="light-blue-500"
+        color="white"
+        textAlign="center"
+        fontWeight="extrabold"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        borderRadius
+      >
+        default
+      </x.div>
+      <x.div
+        p={6}
+        bg="light-blue-500"
+        color="white"
+        textAlign="center"
+        fontWeight="extrabold"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        borderRadius="md"
+      >
+        md
+      </x.div>
+      <x.div
+        p={6}
+        bg="light-blue-500"
+        color="white"
+        textAlign="center"
+        fontWeight="extrabold"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        borderRadius="lg"
+      >
+        lg
+      </x.div>
+    </x.div>
+  </template>
+  <x.div borderRadius="sm" />
+  <x.div borderRadius />
+  <x.div borderRadius="md" />
+  <x.div borderRadius="lg" />
+</>
+```
+
+## Pills and circles
+
+Use `borderRadius="full"` utility to create pills and circles.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      spaceX={6}
+    >
+      <x.div
+        bg="indigo-500"
+        px={6}
+        py={3}
+        color="white"
+        textAlign="center"
+        fontWeight="extrabold"
+        borderRadius="full"
+      >
+        Pill Shape
+      </x.div>
+      <x.div
+        bg="indigo-500"
+        h={24}
+        w={24}
+        color="white"
+        textAlign="center"
+        fontWeight="extrabold"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        borderRadius="full"
+      >
+        Circle
+      </x.div>
+    </x.div>
+  </template>
+  <x.div borderRadius="full" py={3} px={6}>
+    Pill Shape
+  </x.div>
+  <x.div
+    borderRadius="full"
+    h={24}
+    w={24}
+    display="flex"
+    alignItems="center"
+    justifyContent="center"
+  >
+    Circle
+  </x.div>
+</>
+```
+
+## No rounding
+
+Use `borderRadius="none"` to remove an existing border radius from an element.
+
+This is most commonly used to remove a border radius that was applied at a smaller breakpoint.
+
+```jsx preview color=rose
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="center" alignItems="center">
+      <x.div
+        bg="rose-500"
+        p={6}
+        color="white"
+        textAlign="center"
+        fontWeight="extrabold"
+        borderRadius="none"
+      >
+        none
+      </x.div>
+    </x.div>
+  </template>
+  <x.div borderRadius="none">none</x.div>
+</>
+```
+
+## Rounding sides separately
+
+Use `borderRadius` shorthands to only round one side an element.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 4 }}>
+      {['lg lg 0 0', '0 lg lg 0', '0 0 lg lg', 'lg 0 0 lg'].map(
+        (borderRadius) => (
+          <x.div
+            key={borderRadius}
+            p={6}
+            bg="indigo-500"
+            color="white"
+            textAlign="center"
+            fontWeight="extrabold"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            borderRadius={borderRadius}
+          >
+            {borderRadius}
+          </x.div>
+        ),
+      )}
+    </x.div>
+  </template>
+  <x.div borderRadius="lg lg 0 0" />
+  <x.div borderRadius="0 lg lg 0" />
+  <x.div borderRadius="0 0 lg lg" />
+  <x.div borderRadius="lg 0 0 lg" />
+</>
+```
+
+## Rounding corners separately
+
+Use `borderRadius` shorthands to only round one corner an element.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 4 }}>
+      {['lg 0 0 0', '0 lg 0 0', '0 0 lg 0', '0 0 0 lg'].map((borderRadius) => (
+        <x.div
+          key={borderRadius}
+          p={6}
+          bg="amber-500"
+          color="white"
+          textAlign="center"
+          fontWeight="extrabold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius={borderRadius}
+        >
+          {borderRadius}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div borderRadius="lg 0 0 0" />
+  <x.div borderRadius="0 lg 0 0" />
+  <x.div borderRadius="0 0 lg 0" />
+  <x.div borderRadius="0 0 0 lg" />
+</>
+```
+
+## Responsive
+
+To control the border radius of an element at a specific breakpoint, use responsive object notation. For example, adding the property `borderRadius={{ md: "lg" }}` to an element would apply the `borderRadius="lg"` utility at medium screen sizes and above.
+
+```jsx
+<x.div borderRadius={{ md: 'lg' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+### Border Radii
+
+If you'd like to customize your values for all radii, use the `theme.radii` section of your theme.
+
+```diffjs
+  // theme.js
+  import { th } from '@xstyled/styled-components'
+
+  export const theme = {
+    radii: {
+      // ...
+-     default: '0.25rem',
++     default: '5px',
++     xxl: '30px',
+    },
+  }
+```

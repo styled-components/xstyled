@@ -2,9 +2,15 @@ import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import styled from 'styled-components'
-import { css } from './css'
+import { css, ThemeProvider } from '.'
 
 afterEach(cleanup)
+
+const SpaceTheme = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <ThemeProvider theme={{ space: { 1: 4, 2: 8 } }}>{children}</ThemeProvider>
+  )
+}
 
 describe('#css', () => {
   it('transforms rules', () => {
@@ -15,7 +21,11 @@ describe('#css', () => {
         margin-top: 2px;
       `}
     `
-    const { container } = render(<Dummy />)
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
     expect(container.firstChild).toHaveStyle(`
       margin: 2px 8px 8px 8px;
       padding: 4px;
@@ -28,7 +38,11 @@ describe('#css', () => {
         margin: 1 2;
       `}
     `
-    const { container } = render(<Dummy />)
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
     expect(container.firstChild).toHaveStyle('margin: 4px 8px;')
   })
 })

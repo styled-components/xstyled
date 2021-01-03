@@ -1,0 +1,30 @@
+### Timing Functions
+
+If you'd like to customize your values for all timing functions, use the `theme.timingFunctions` section of your theme.
+
+```diffjs
+  // theme.js
+
+  export const theme = {
+    timingFunctions: {
+      // ...
+      'ease-in': 'cubic-bezier(0.4, 0, 1, 1)',
+      'ease-out': 'cubic-bezier(0, 0, 0.2, 1)',
+      'ease-in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
++     'ease-in-expo': 'cubic-bezier(0.7, 0, 0.84, 0)',
+    },
+  }
+```
+
+If you don't want to customize it, a set of `timingFunctions` is already defined in default theme:
+
+```js
+const defaultTheme = {
+  // ...
+  timingFunctions: {
+    'ease-in': 'cubic-bezier(0.4, 0, 1, 1)',
+    'ease-out': 'cubic-bezier(0, 0, 0.2, 1)',
+    'ease-in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
+  },
+}
+```

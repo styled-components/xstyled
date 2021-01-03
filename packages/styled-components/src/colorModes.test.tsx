@@ -3,7 +3,7 @@ import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import { th } from '@xstyled/system'
-import { Box, ThemeProvider, ColorModeProvider } from '.'
+import { x, ThemeProvider, ColorModeProvider } from '.'
 
 afterEach(cleanup)
 
@@ -29,7 +29,7 @@ describe('colorModes', () => {
     render(
       <ThemeProvider theme={theme}>
         <ColorModeProvider>
-          <Box color="text">Hello</Box>
+          <x.div color="text">Hello</x.div>
         </ColorModeProvider>
       </ThemeProvider>,
     )

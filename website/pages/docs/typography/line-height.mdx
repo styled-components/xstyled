@@ -1,0 +1,156 @@
+---
+section: Typography
+title: Line Height
+slug: /docs/line-height/
+---
+
+# Line Height
+
+Utilities for controlling the leading (line height) of an element.
+
+<carbon-ad />
+
+| React props         | CSS Properties         |
+| ------------------- | ---------------------- |
+| `lineHeight={size}` | `line-height: {size};` |
+
+## Relative line heights
+
+Use the `"none"`, `"tight"`, `"snug"`, `"normal"`, `"relaxed"`, and `"loose"` utilities to give an element a relative `line-height` based on its current `font-size`.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div spaceY={8}>
+      {['none', 'tight', 'snug', 'normal', 'relaxed', 'loose'].map(
+        lineHeight => (
+          <x.dl key={lineHeight} color="light-blue-700" overflow="hidden">
+            <x.dt
+              w={16}
+              flexShrink={0}
+              fontSize="sm"
+              opacity={0.8}
+              fontFamily="mono"
+              mb={1}
+            >
+              lineHeight={lineHeight}
+            </x.dt>
+            <x.dd fontSize="xl" lineHeight={lineHeight} m={0}>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Assumenda, quia temporibus eveniet a libero incidunt suscipit
+              laborum, rerum accusantium modi quidem, ipsam illum quis sed
+              voluptatum quae eum fugit earum.
+            </x.dd>
+          </x.dl>
+        ),
+      )}
+    </x.div>
+  </template>
+  <x.p lineHeight="none">Lorem ipsum ...</x.p>
+  <x.p lineHeight="tight">Lorem ipsum ...</x.p>
+  <x.p lineHeight="snug">Lorem ipsum ...</x.p>
+  <x.p lineHeight="normal">Lorem ipsum ...</x.p>
+  <x.p lineHeight="relaxed">Lorem ipsum ...</x.p>
+  <x.p lineHeight="loose">Lorem ipsum ...</x.p>
+</>
+```
+
+## Fixed line-heights
+
+Use the `lineHeight={size}` utilities to give an element a fixed line-height, irrespective of the current font-size. These are useful when you need very precise control over an element's final size.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div spaceY={8}>
+      {[3, 4, 5, 6, 7, 8, 9, 10, '3rem', '20px'].map(lineHeight => (
+        <x.dl key={lineHeight} color="emerald-700" overflow="hidden">
+          <x.dt
+            w={16}
+            flexShrink={0}
+            fontSize="sm"
+            opacity={0.8}
+            fontFamily="mono"
+            mb={1}
+          >
+            lineHeight={lineHeight}
+          </x.dt>
+          <x.dd fontSize="xl" lineHeight={lineHeight} m={0}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda,
+            quia temporibus eveniet a libero incidunt suscipit laborum, rerum
+            accusantium modi quidem, ipsam illum quis sed voluptatum quae eum
+            fugit earum.
+          </x.dd>
+        </x.dl>
+      ))}
+    </x.div>
+  </template>
+  <x.p lineHeight={3}>Lorem ipsum ...</x.p>
+  <x.p lineHeight={4}>Lorem ipsum ...</x.p>
+  <x.p lineHeight={5}>Lorem ipsum ...</x.p>
+  <x.p lineHeight={6}>Lorem ipsum ...</x.p>
+  <x.p lineHeight={7}>Lorem ipsum ...</x.p>
+  <x.p lineHeight={8}>Lorem ipsum ...</x.p>
+  <x.p lineHeight={9}>Lorem ipsum ...</x.p>
+  <x.p lineHeight={10}>Lorem ipsum ...</x.p>
+  <x.p lineHeight="3rem">Lorem ipsum ...</x.p>
+  <x.p lineHeight="20px">Lorem ipsum ...</x.p>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `lineHeight={{ md: "relaxed" }}` to an element would apply the `lineHeight="relaxed"` utility at medium screen sizes and above.
+
+```jsx
+<x.div lineHeight={{ md: 'relaxed' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+import CustomizeLineHeights from '../../../partials/customizing/line-heights.mdx'
+
+<CustomizeLineHeights />
+
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all line heights defined are automatically binded to `line-height` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Title = styled.h4`
+  line-height: loose;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
+
+### Manual
+
+It is possible to manually bind a line height using `th.lineHeight` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Title = styled.h4`
+  font: arial 10px / ${th.lineHeight('loose')};
+`
+```
+
+## Hooks
+
+Get a font size in any component using `useLineHeight` hook:
+
+```js
+import { useLineHeight } from '@xstyled/...'
+
+function Title() {
+  const lineHeight = useLineHeight('loose')
+}
+```

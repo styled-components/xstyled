@@ -1,0 +1,680 @@
+---
+section: Layout
+title: Display
+slug: /docs/display/
+---
+
+# Display
+
+Utilities for controlling the display box type of an element.
+
+<carbon-ad />
+
+| React props         | CSS Properties        |
+| ------------------- | --------------------- |
+| `display={keyword}` | `display: {keyword};` |
+
+## Block
+
+Use `display="block"` to create a block-level element.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div p={4} spaceY={4} bg="light-blue-300" borderRadius="md">
+      <x.span
+        display="block"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="light-blue-500"
+        p={6}
+      >
+        1
+      </x.span>
+      <x.span
+        display="block"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="light-blue-500"
+        p={6}
+      >
+        2
+      </x.span>
+      <x.span
+        display="block"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="light-blue-500"
+        p={6}
+      >
+        3
+      </x.span>
+    </x.div>
+  </template>
+  <x.div spaceY={4}>
+    <x.span display="block">1</x.span>
+    <x.span display="block">2</x.span>
+    <x.span display="block">3</x.span>
+  </x.div>
+</>
+```
+
+## Flow-Root
+
+Use `display="flow-root"` to create a block-level element with its own [block formatting context](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context).
+
+```jsx preview color=purple
+<>
+  <template preview>
+    <x.div spaceY={4}>
+      <x.div display="flow-root" bg="purple-300" borderRadius="md">
+        <x.div
+          my={4}
+          color="white"
+          fontWeight="extrabold"
+          textAlign="center"
+          bg="purple-500"
+          p={6}
+        >
+          1
+        </x.div>
+      </x.div>
+      <x.div display="flow-root" bg="purple-300" borderRadius="md">
+        <x.div
+          my={4}
+          color="white"
+          fontWeight="extrabold"
+          textAlign="center"
+          bg="purple-500"
+          p={6}
+        >
+          2
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div spaceY={4}>
+    <x.div display="flow-root">
+      <x.div my={4}>1</x.div>
+    </x.div>
+    <x.div display="flow-root">
+      <x.div my={4}>2</x.div>
+    </x.div>
+  </x.div>
+</>
+```
+
+## Inline Block
+
+Use `display="inline-block"` to create an inline block-level element.
+
+```jsx preview color=rose
+<>
+  <template preview>
+    <x.div p={4} spaceX={4} bg="rose-300" borderRadius="md">
+      <x.div
+        display="inline-block"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="rose-500"
+        px={6}
+        py={4}
+      >
+        1
+      </x.div>
+      <x.div
+        display="inline-block"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="rose-500"
+        px={6}
+        py={4}
+      >
+        2
+      </x.div>
+      <x.div
+        display="inline-block"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="rose-500"
+        px={6}
+        py={4}
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div spaceX={4}>
+    <x.div display="inline-block">1</x.div>
+    <x.div display="inline-block">2</x.div>
+    <x.div display="inline-block">3</x.div>
+  </x.div>
+</>
+```
+
+## Inline
+
+Use `display="inline"` to create an inline element.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div m={4} spaceX={4} bg="amber-300" borderRadius="md">
+      <x.div
+        display="inline"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="amber-500"
+        px={6}
+        py={4}
+      >
+        1
+      </x.div>
+      <x.div
+        display="inline"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="amber-500"
+        px={6}
+        py={4}
+      >
+        2
+      </x.div>
+      <x.div
+        display="inline"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="amber-500"
+        px={6}
+        py={4}
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div spaceX={4}>
+    <x.div display="inline">1</x.div>
+    <x.div display="inline">2</x.div>
+    <x.div display="inline">3</x.div>
+  </x.div>
+</>
+```
+
+## Flex
+
+Use `display="flex"` to create a block-level flex container.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div p={4} spaceX={4} bg="emerald-300" display="flex" borderRadius="md">
+      <x.div
+        flex="1 1 0"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="emerald-500"
+        p={6}
+      >
+        1
+      </x.div>
+      <x.div
+        flex="1 1 0"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="emerald-500"
+        p={6}
+      >
+        2
+      </x.div>
+      <x.div
+        flex="1 1 0"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="emerald-500"
+        p={6}
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div display="flex" spaceX={4}>
+    <x.div flex="1 1 0">1</x.div>
+    <x.div flex="1 1 0">2</x.div>
+    <x.div flex="1 1 0">3</x.div>
+  </x.div>
+</>
+```
+
+## Inline Flex
+
+Use `display="inline-flex"` to create an inline flex container.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div
+      p={4}
+      spaceX={4}
+      bg="indigo-300"
+      display="inline-flex"
+      borderRadius="md"
+    >
+      <x.div
+        flex="1 1 0"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="indigo-500"
+        py={4}
+        px={6}
+      >
+        1
+      </x.div>
+      <x.div
+        flex="1 1 0"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="indigo-500"
+        py={4}
+        px={6}
+      >
+        2
+      </x.div>
+      <x.div
+        flex="1 1 0"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="indigo-500"
+        py={4}
+        px={6}
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div display="inline-flex" spaceX={4}>
+    <x.div flex="1 1 0">1</x.div>
+    <x.div flex="1 1 0">2</x.div>
+    <x.div flex="1 1 0">3</x.div>
+  </x.div>
+</>
+```
+
+## Grid
+
+Use `display="grid"` to create a grid container.
+
+```jsx preview color=fuchsia
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      p={4}
+      bg="fuchsia-300"
+      borderRadius="md"
+      gridTemplateColumns={3}
+      gap={4}
+    >
+      {Array.from({ length: 9 }, (_, index) => index + 1).map(value => (
+        <x.div
+          key={value}
+          py={4}
+          px={6}
+          borderRadius="md"
+          bg="fuchsia-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        />
+      ))}
+    </x.div>
+  </template>
+  <x.div display="grid" gap={4} gridTemplateColumns={3}>
+    {/* ... */}
+  </x.div>
+</>
+```
+
+## Inline Grid
+
+Use `display="inline-grid"` to create an inline grid container.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div spaceX={4}>
+      <x.div
+        display="inline-grid"
+        p={4}
+        bg="light-blue-300"
+        borderRadius="md"
+        gridTemplateColumns={3}
+        gap={4}
+      >
+        {Array.from({ length: 3 }, (_, index) => index + 1).map(value => (
+          <x.div
+            key={value}
+            py={4}
+            px={6}
+            borderRadius="md"
+            bg="light-blue-500"
+            color="white"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            fontWeight="extrabold"
+          >
+            1
+          </x.div>
+        ))}
+      </x.div>
+      <x.div
+        display="inline-grid"
+        p={4}
+        bg="light-blue-300"
+        borderRadius="md"
+        gridTemplateColumns={3}
+        gap={4}
+      >
+        {Array.from({ length: 3 }, (_, index) => index + 1).map(value => (
+          <x.div
+            key={value}
+            py={4}
+            px={6}
+            borderRadius="md"
+            bg="light-blue-500"
+            color="white"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            fontWeight="extrabold"
+          >
+            2
+          </x.div>
+        ))}
+      </x.div>
+    </x.div>
+  </template>
+  <x.div display="inline-grid" gap={4} gridTemplateColumns={3}>
+    <span>1</span>
+    <span>1</span>
+    <span>1</span>
+  </x.div>
+  <x.div display="inline-grid" gap={4} gridTemplateColumns={3}>
+    <span>2</span>
+    <span>2</span>
+    <span>2</span>
+  </x.div>
+</>
+```
+
+## Contents
+
+Use `display="contents"` to create a "phantom" container whose children act like direct children of the parent.
+
+```jsx preview color=purple
+<>
+  <template preview>
+    <x.div p={2} bg="purple-300" display="flex" borderRadius="md">
+      <x.div
+        flex="1 1 0"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="purple-500"
+        p={6}
+        m={2}
+      >
+        1
+      </x.div>
+      <x.div display="contents">
+        <x.div
+          flex="1 1 0"
+          borderRadius="md"
+          color="white"
+          fontWeight="extrabold"
+          textAlign="center"
+          bg="purple-500"
+          p={6}
+          m={2}
+        >
+          2
+        </x.div>
+        <x.div
+          flex="1 1 0"
+          borderRadius="md"
+          color="white"
+          fontWeight="extrabold"
+          textAlign="center"
+          bg="purple-500"
+          p={6}
+          m={2}
+        >
+          3
+        </x.div>
+      </x.div>
+      <x.div
+        flex="1 1 0"
+        borderRadius="md"
+        color="white"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="purple-500"
+        p={6}
+        m={2}
+      >
+        4
+      </x.div>
+    </x.div>
+  </template>
+  <x.div display="flex">
+    <x.div flex="1 1 0">1</x.div>
+    <x.div display="contents">
+      <x.div flex="1 1 0">2</x.div>
+      <x.div flex="1 1 0">3</x.div>
+    </x.div>
+    <x.div flex="1 1 0">4</x.div>
+  </x.div>
+</>
+```
+
+## Table
+
+Use `display="table"`, `display="table-caption"`, `display="table-cell"`, `display="table-column"`, `display="table-column-group"`, `display="table-footer-group"`, `display="table-header-group"`, `display="table-row-group"` and `display="table-row"` utilities to create elements that behave like their respective table elements.
+
+```jsx preview color=rose
+<>
+  <template preview>
+    <x.div
+      display="table"
+      w="100%"
+      bg="rose-300"
+      borderRadius="md"
+      overflow="hidden"
+    >
+      <x.div display="table-row-group">
+        <x.div display="table-row">
+          <x.div
+            display="table-cell"
+            color="white"
+            fontWeight="extrabold"
+            textAlign="center"
+            bg="rose-500"
+            px={6}
+            py={4}
+          >
+            A cell with more content
+          </x.div>
+          <x.div
+            display="table-cell"
+            color="white"
+            fontWeight="extrabold"
+            textAlign="center"
+            bg="rose-400"
+            px={6}
+            py={4}
+          >
+            Cell 2
+          </x.div>
+          <x.div
+            display="table-cell"
+            color="white"
+            fontWeight="extrabold"
+            textAlign="center"
+            bg="rose-500"
+            px={6}
+            py={4}
+          >
+            Cell 3
+          </x.div>
+        </x.div>
+        <x.div display="table-row">
+          <x.div
+            display="table-cell"
+            color="white"
+            fontWeight="extrabold"
+            textAlign="center"
+            bg="rose-400"
+            px={6}
+            py={4}
+          >
+            Cell 4
+          </x.div>
+          <x.div
+            display="table-cell"
+            color="white"
+            fontWeight="extrabold"
+            textAlign="center"
+            bg="rose-500"
+            px={6}
+            py={4}
+          >
+            A cell with more content
+          </x.div>
+          <x.div
+            display="table-cell"
+            color="white"
+            fontWeight="extrabold"
+            textAlign="center"
+            bg="rose-400"
+            px={6}
+            py={4}
+          >
+            Cell 6
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div display="table" w="100%">
+    <x.div display="table-row-group">
+      <x.div display="table-row">
+        <x.div display="table-cell">A cell with more content</x.div>
+        <x.div display="table-cell">Cell 2</x.div>
+        <x.div display="table-cell">Cell 3</x.div>
+      </x.div>
+      <x.div display="table-row">
+        <x.div display="table-cell">Cell 4</x.div>
+        <x.div display="table-cell">A cell with more content</x.div>
+        <x.div display="table-cell">Cell 6</x.div>
+      </x.div>
+    </x.div>
+  </x.div>
+</>
+```
+
+## None
+
+Use `display="none"` to set an element to `display: none` and remove it from the page layout (compare with `visibility="hidden"` from the [visibility documentation](/docs/visibility/)).
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div p={4} display="flex" spaceX={4} bg="amber-300" borderRadius="md">
+      <x.div
+        color="white"
+        borderRadius="md"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="amber-500"
+        px={6}
+        py={4}
+        display="none"
+        hidden
+      >
+        1
+      </x.div>
+      <x.div
+        color="white"
+        borderRadius="md"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="amber-500"
+        px={6}
+        py={4}
+      >
+        2
+      </x.div>
+      <x.div
+        color="white"
+        borderRadius="md"
+        fontWeight="extrabold"
+        textAlign="center"
+        bg="amber-500"
+        px={6}
+        py={4}
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div display="flex">
+    <x.div display="none">1</x.div>
+    <x.div>2</x.div>
+    <x.div>3</x.div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the display property of an element at a specific breakpoint, use responsive object notation. For example, adding the property `display={{ md: "none" }}` to an element would apply the `display="none"` utility at medium screen sizes and above.
+
+```jsx
+<x.div display={{ md: 'none' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

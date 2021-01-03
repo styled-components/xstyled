@@ -125,8 +125,9 @@ describe('styles', () => {
       },
     ],
     [
-      'width',
+      'w',
       {
+        utility: 'width',
         styleRule: 'width',
         theme: {
           sizes: {
@@ -142,26 +143,10 @@ describe('styles', () => {
       },
     ],
     [
-      'height',
+      'h',
       {
+        utility: 'height',
         styleRule: 'height',
-        theme: {
-          sizes: {
-            large: 400,
-          },
-        },
-        expectations: [
-          [0.5, '50%'],
-          ['large', '400px'],
-          [50, '50px'],
-          ['16rpx', '1rem'],
-        ],
-      },
-    ],
-    [
-      'size',
-      {
-        styleRule: ['width', 'height'],
         theme: {
           sizes: {
             large: 400,
@@ -472,10 +457,9 @@ describe('styles', () => {
       {
         styleRule: 'top',
         expectations: [
-          ['10', '10'],
+          ['10', '10px'],
           [10, '10px'],
           [-10, '-10px'],
-          ['10', '10'],
           ['16rpx', '1rem'],
           ['10px', '10px'],
           ['4%', '4%'],
@@ -489,10 +473,9 @@ describe('styles', () => {
       {
         styleRule: 'right',
         expectations: [
-          ['10', '10'],
+          ['10', '10px'],
           [10, '10px'],
           [-10, '-10px'],
-          ['10', '10'],
           ['16rpx', '1rem'],
           ['10px', '10px'],
           ['4%', '4%'],
@@ -506,10 +489,9 @@ describe('styles', () => {
       {
         styleRule: 'bottom',
         expectations: [
-          ['10', '10'],
+          ['10', '10px'],
           [10, '10px'],
           [-10, '-10px'],
-          ['10', '10'],
           ['16rpx', '1rem'],
           ['10px', '10px'],
           ['4%', '4%'],
@@ -523,10 +505,9 @@ describe('styles', () => {
       {
         styleRule: 'left',
         expectations: [
-          ['10', '10'],
+          ['10', '10px'],
           [10, '10px'],
           [-10, '-10px'],
-          ['10', '10'],
           ['16rpx', '1rem'],
           ['10px', '10px'],
           ['4%', '4%'],
@@ -563,46 +544,6 @@ describe('styles', () => {
         expectations: [
           ['solid', 'solid'],
           ['dashed', 'dashed'],
-        ],
-      },
-    ],
-    [
-      'borderTop',
-      {
-        styleRule: 'border-top',
-        expectations: [
-          [1, '1px solid'],
-          ['1px solid red', '1px solid red'],
-        ],
-      },
-    ],
-    [
-      'borderRight',
-      {
-        styleRule: 'border-right',
-        expectations: [
-          [1, '1px solid'],
-          ['1px solid red', '1px solid red'],
-        ],
-      },
-    ],
-    [
-      'borderBottom',
-      {
-        styleRule: 'border-bottom',
-        expectations: [
-          [1, '1px solid'],
-          ['1px solid red', '1px solid red'],
-        ],
-      },
-    ],
-    [
-      'borderLeft',
-      {
-        styleRule: 'border-left',
-        expectations: [
-          [1, '1px solid'],
-          ['1px solid red', '1px solid red'],
         ],
       },
     ],
@@ -647,10 +588,10 @@ describe('styles', () => {
         },
         styleRule: 'box-shadow',
         expectations: [
-          ['red', '10px 5px 5px red'],
+          ['red', 'var(--x-ring-shadow,0 0 #0000),var(--x-shadow)'],
           [
             '12px 12px 2px 1px rgba(0, 0, 255, .2)',
-            '12px 12px 2px 1px rgba(0,0,255,.2)',
+            'var(--x-ring-shadow,0 0 #0000),var(--x-shadow)',
           ],
         ],
       },
@@ -682,7 +623,7 @@ describe('styles', () => {
     ],
   ])('#%s', (name, config) => {
     const Dummy = styled.div`
-      ${styles[config.utility || name]};
+      ${styles[(config as any).utility || name]};
     `
 
     describe.each(config.expectations)(
@@ -691,7 +632,7 @@ describe('styles', () => {
         it('supports simple value', () => {
           const props = { [name]: value }
           const { container } = render(
-            <Dummy theme={config.theme} {...props} />,
+            <Dummy theme={(config as any).theme} {...props} />,
           )
           const styleRules = Array.isArray(config.styleRule)
             ? config.styleRule
@@ -707,7 +648,7 @@ describe('styles', () => {
         xit('supports breakpoints value', () => {
           const props = { [name]: { md: value } }
           const { container } = render(
-            <Dummy theme={config.theme} {...props} />,
+            <Dummy theme={(config as any).theme} {...props} />,
           )
           const styleRules = Array.isArray(config.styleRule)
             ? config.styleRule
@@ -716,6 +657,7 @@ describe('styles', () => {
           styleRules.forEach((styleRule) => {
             expect(container.firstChild).toHaveStyle(
               `${styleRule}: ${expected};`,
+              // @ts-ignore
               {
                 media: '(min-width:768px)',
               },

@@ -2,28 +2,15 @@ import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import { ThemeProvider } from '@emotion/react'
-import styled, { css, keyframes, Box } from '.'
+import styled, { css, keyframes } from '.'
 
 afterEach(cleanup)
 
-describe('#Box', () => {
-  it('creates system based components', () => {
-    const { container } = render(<Box m={2} p={1} />)
-    expect(container.firstChild).toHaveStyle(`
-    margin: 8px;
-    padding: 4px;
-    `)
-  })
-
-  it('supports "as" prop', () => {
-    const { container } = render(<Box as="a" m={2} p={1} />)
-    expect(container.firstChild!.nodeName).toBe('A')
-    expect(container.firstChild).toHaveStyle(`
-      margin: 8px;
-      padding: 4px;
-    `)
-  })
-})
+const SpaceTheme = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <ThemeProvider theme={{ space: { 1: 4, 2: 8 } }}>{children}</ThemeProvider>
+  )
+}
 
 describe('#styled', () => {
   it('transforms rules', () => {
@@ -32,7 +19,11 @@ describe('#styled', () => {
       padding: 1;
       margin-top: 2px;
     `
-    const { container } = render(<Dummy />)
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
     expect(container.firstChild).toHaveStyle(`
       margin: 2px 8px 8px 8px;
       padding: 4px;
@@ -49,7 +40,11 @@ describe('#styled', () => {
         margin: ${p.margin};
       `}
     `
-    const { container } = render(<Dummy margin={2} />)
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy margin={2} />
+      </SpaceTheme>,
+    )
     expect(container.firstChild).toHaveStyle(`
       color: red;
       margin: 8px;
@@ -115,7 +110,11 @@ describe('#styled', () => {
     const Dummy = styled.div({
       margin: '2',
     })
-    const { container } = render(<Dummy />)
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
     expect(container.firstChild).toHaveStyle('margin: 8px;')
   })
 
@@ -124,7 +123,7 @@ describe('#styled', () => {
       ${() => [
         'color: red;',
         css`
-          margin: 1;
+          margin: 4;
         `,
       ]}
     `
@@ -144,21 +143,33 @@ describe('#styled.xxx', () => {
 describe('#styled.xxxBox', () => {
   it('supports box tags', () => {
     const Dummy = styled.box``
-    const { container } = render(<Dummy m={1} />)
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy m={1} />
+      </SpaceTheme>,
+    )
     expect(container.firstChild!.nodeName).toBe('DIV')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
   })
 
   it('supports xxxBox tags', () => {
     const Dummy = styled.headerBox``
-    const { container } = render(<Dummy m={1} />)
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy m={1} />
+      </SpaceTheme>,
+    )
     expect(container.firstChild!.nodeName).toBe('HEADER')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
   })
 
   it("doesn't forward attributes", () => {
     const Dummy = styled.box``
-    const { container } = render(<Dummy margin={1} />)
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy margin={1} />
+      </SpaceTheme>,
+    )
     expect(container.firstChild!.nodeName).toBe('DIV')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
     expect(container.firstChild).not.toHaveAttribute('margin')
@@ -166,9 +177,9 @@ describe('#styled.xxxBox', () => {
 
   it('supports as prop', () => {
     const Dummy = styled.divBox``
-    // This is not supported by emotion
+    // This is not supported by Emotion
     // @ts-expect-error
-    const { container } = render(<Dummy as="a" margin={1} href="ok" />)
+    const { container } = render(<Dummy as="a" margin={4} href="ok" />)
     expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
     expect(container.firstChild).not.toHaveAttribute('margin')

@@ -1,0 +1,75 @@
+---
+section: Customization
+title: Colors
+slug: /docs/colors/
+order: 2
+---
+
+# Customizing Colors
+
+Customizing the default color palette for your project.
+
+<carbon-ad />
+
+## Palette Reference
+
+xstyled includes [Tailwind colors](https://tailwindcss.com/docs/customizing-colors) as a default palette that is a great starting point if you don't have your own specific branding in mind.
+
+import { Colors } from '../../../src/components/Colors'
+
+<Colors my={8} />
+
+## Alpha Variants
+
+All colors includes 10 degrees of alpha variants, for example you can use `red-500-a50` to display a `red-500` color with an opacity of `0.5`.
+
+```js
+<x.p color="red-500-a50" />
+```
+
+## Add colors
+
+Even if the included palette is large, feel free to add your own colors.
+
+```js
+import { defaultTheme } from '@xstyled/...'
+
+export const theme = {
+  colors: {
+    ...defaultTheme.colors,
+    'blue-light': '#85d7ff',
+  },
+}
+```
+
+Alpha variants are not automatically generated. To get it, you have to use `generateHexAlphaVariants` utility.
+
+```js
+import { defaultTheme, generateHexAlphaVariants } from '@xstyled/...'
+
+export const theme = {
+  colors: {
+    ...defaultTheme.colors,
+    // Generate 'blue-light-a10', 'blue-light-a20', ...
+    ...generateHexAlphaVariants({
+      'blue-light': '#85d7ff',
+    }),
+  },
+}
+```
+
+## Alias Colors
+
+It is always a good choice to alias colors, for example define a `primary` that refers to `emerald`.
+
+```js
+import { defaultTheme, aliasColor } from '@xstyled/...'
+
+export const theme = {
+  colors: {
+    ...defaultTheme.colors,
+    // Using `primary-500` is equivalent to `emerald-500`
+    ...aliasColor('primary', 'emerald'),
+  },
+}
+```

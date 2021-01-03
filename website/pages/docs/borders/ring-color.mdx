@@ -1,0 +1,83 @@
+---
+section: Borders
+title: Ring Color
+slug: /docs/ring-color/
+---
+
+# Ring Color
+
+Utilities for setting the color of outline rings.
+
+<carbon-ad />
+
+| React props         | CSS Properties             |
+| ------------------- | -------------------------- |
+| `ringColor={color}` | `--x-ring-color: {color};` |
+
+## Usage
+
+Use the `ringColor={color}` utility to set the color of an [outline ring](/docs/ring-width/).
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="center">
+      <x.button
+        w={32}
+        py={2}
+        borderRadius="md"
+        fontWeight="semibold"
+        color="white"
+        bg="indigo-500"
+        focusOutline="none"
+        ring={4}
+        ringColor="indigo-300"
+      >
+        Button
+      </x.button>
+    </x.div>
+  </template>
+  <x.button ring={4} ringColor="indigo-300">
+    Button
+  </x.button>
+</>
+```
+
+### Changing opacity
+
+Use [color alpha variants](/docs/colors/) to choose another opacity.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="center">
+      <x.button
+        w={32}
+        py={2}
+        borderRadius="md"
+        fontWeight="semibold"
+        color="white"
+        bg="amber-500"
+        focusOutline="none"
+        ring={4}
+        ringColor="amber-500-a50"
+      >
+        Button
+      </x.button>
+    </x.div>
+  </template>
+  <x.button ring={4} ringColor="amber-500-a50">
+    Button
+  </x.button>
+</>
+```
+
+## Responsive
+
+To control outline ring colors at a specific breakpoint, use responsive object notation. For example, adding the property `ringColor={{ md: "indigo-300" }}` to an element would apply the `ringColor="indigo-300"` utility at medium screen sizes and above.
+
+```jsx
+<x.div ringColor={{ md: 'indigo-300' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

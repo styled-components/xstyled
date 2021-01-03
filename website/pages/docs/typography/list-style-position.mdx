@@ -1,0 +1,76 @@
+---
+section: Typography
+title: List Style Position
+slug: /docs/list-style-position/
+---
+
+# List Style Position
+
+Utilities for controlling the position of bullets/numbers in lists.
+
+<carbon-ad />
+
+| React props                    | CSS Properties                     |
+| ------------------------------ | ---------------------------------- |
+| `listStylePosition={position}` | `list-style-position: {position};` |
+
+## Usage
+
+Control the position of the markers in a list using the `listStylePosition="inside"` and `listStylePosition="outside"` utilities.
+
+```jsx preview color=violet
+<>
+  <template preview>
+    <x.div spaceY={8}>
+      {['inside', 'outside'].map((listStylePosition) => (
+        <x.dl key={listStylePosition} color="violet-700" overflow="hidden">
+          <x.dt
+            w={16}
+            flexShrink={0}
+            fontSize="sm"
+            opacity={0.8}
+            fontFamily="mono"
+            mb={1}
+          >
+            listStylePosition={listStylePosition}
+          </x.dt>
+          <x.dd fontSize="xl" m={0}>
+            <x.ul
+              bg="violet-100"
+              listStylePosition={listStylePosition}
+              borderRadius="md"
+              p={0}
+              my={0}
+              ml={6}
+            >
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
+              <li>
+                Assumenda, quia temporibus eveniet a libero incidunt suscipit
+              </li>
+              <li>
+                Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+              </li>
+            </x.ul>
+          </x.dd>
+        </x.dl>
+      ))}
+    </x.div>
+  </template>
+  <x.ul listStylePosition="inside">
+    <li>Lorem ipsum ...</li>
+  </x.div>
+  <x.ul listStylePosition="outside">
+    <li>Lorem ipsum ...</li>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `listStylePosition={{ md: "inside" }}` to an element would apply the `listStylePosition="inside"` utility at medium screen sizes and above.
+
+```jsx
+<x.ul listStylePosition={{ md: 'inside' }}>{/* ... */}</x.ul>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

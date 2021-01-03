@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/core",
-  "description": "xstyled core utilities",
-  "version": "1.20.0-alpha.0",
+  "description": "xstyled core utilities.",
+  "version": "2.0.0-alpha.1",
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/core.esm.js",
@@ -9,12 +9,13 @@
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "reset": "rm -rf dist && rm -rf node_modules/.cache",
     "watch": "tsdx watch",
     "build": "tsdx build",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn reset && yarn build"
   },
   "homepage": "https://xstyled.dev",
-  "repository": "https://github.com/smooth-code/xstyled/tree/master/packages/core",
+  "repository": "https://github.com/gregberge/xstyled/tree/master/packages/core",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/gregberge"
@@ -24,6 +25,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
-    "@xstyled/system": "^1.20.0-alpha.0"
+    "@xstyled/system": "^2.0.0-alpha.1"
   }
 }

@@ -1,0 +1,99 @@
+---
+section: Borders
+title: Border Color
+slug: /docs/border-color/
+---
+
+# Border Color
+
+Utilities for controlling the color of an element's borders.
+
+<carbon-ad />
+
+| React props                 | CSS Properties                  |
+| --------------------------- | ------------------------------- |
+| `borderColor={color}`       | `border-color: {color};`        |
+| `borderTopColor={color}`    | `border-top-color: {color};`    |
+| `borderRightColor={color}`  | `border-right-color: {color};`  |
+| `borderBottomColor={color}` | `border-bottom-color: {color};` |
+| `borderLeftColor={color}`   | `border-left-color: {color};`   |
+
+## All sides
+
+Use `borderColor={color}` utilities to set the border color for all sides of an element.
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.div display="flex" alignItems="center" justifyContent="center">
+      <x.input
+        placeholder="Your email"
+        p={3}
+        border={2}
+        borderColor="red-600"
+        focusOutline="0"
+        borderRadius="md"
+      />
+    </x.div>
+  </template>
+  <x.input border={2} borderColor="red-600" />
+</>
+```
+
+## Individual sides
+
+Use `borderColor={color}` utilities to set the border color for invidiual sides of an element.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.input
+      placeholder="Your email"
+      p={3}
+      border={2}
+      borderColor="indigo-500 emerald-500 purple-500 red-500"
+      focusOutline="0"
+      borderRadius="md"
+    />
+  </template>
+  <x.input border={2} borderColor="indigo-500 emerald-500 purple-500 red-500" />
+</>
+```
+
+## Changing opacity
+
+Use [color alpha variants](/docs/colors/) to choose another opacity.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div display="flex" alignItems="center" justifyContent="center">
+      <x.input
+        placeholder="Your email"
+        p={3}
+        border={2}
+        borderColor="indigo-600-a50"
+        focusOutline="0"
+        borderRadius="md"
+      />
+    </x.div>
+  </template>
+  <x.input border={2} borderColor="indigo-600-a50" />
+</>
+```
+
+## Responsive
+
+To control the border color of an element at a specific breakpoint, use responsive object notation. For example, adding the property `borderColor={{ md: 'red-500' }}` to an element would apply the `borderColor="red-500` utility at medium screen sizes and above.
+
+```jsx
+<x.div borderColor={{ md: 'red-500' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+import CustomizeColors from '../../../partials/customizing/colors.mdx'
+
+<CustomizeColors />

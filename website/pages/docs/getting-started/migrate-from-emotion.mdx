@@ -1,0 +1,266 @@
+---
+section: Getting Started
+title: Migrate from Emotion
+slug: /docs/migrate-from-emotion/
+order: 6
+---
+
+# Migrate from Emotion
+
+Differences with Emotion and migration guide to xstyled.
+
+<carbon-ad />
+
+## Differences with Emotion
+
+### Declarative components
+
+xstyled is similare to Emotion `css` prop with some benefits. As a picture is better than 1000 words, take this example:
+
+**Using Emotion**
+
+```jsx
+/** @jsx jsx */
+import { jsx, css } from '@emotion/react'
+
+const Button = ({ children }) => {
+  return (
+    <button
+      css={{
+        padding: '0.5rem 1rem',
+        color: 'white',
+        borderRadius: '0.375rem',
+        fontWeight: 600,
+        transition: 'background-color cubic-bezier(0.4, 0, 0.2, 1) 150ms',
+        backgroundColor: '#10b981',
+        '&:hover': {
+          backgroundColor: '#065f46',
+        },
+        '&:focus': {
+          outline: 'none',
+          boxShadow: '0 0 0 3px #10b98180',
+        },
+      }}
+    >
+      {children}
+    </button>
+  )
+}
+```
+
+**Using xstyled**
+
+```jsx
+import { x } from '@xstyled/emotion'
+
+const Button = ({ children }) => (
+  <x.button
+    py={2}
+    px={4}
+    color="white"
+    borderRadius="md"
+    fontWeight="semibold"
+    transition
+    bg="emerald-500"
+    hoverBg="emerald-800"
+    focusOutline="none"
+    focusRing
+    focusRingColor="emerald-500-a50"
+  >
+    {children}
+  </x.button>
+)
+```
+
+As you can see xstyled is fully declarative and much more productive than using emotion.
+
+Read [declarative components guide](/docs/declarative-components/) to learn more about this approach.
+
+### Enhanced `css`
+
+We know you could not be convinced by `x.*` approach. That's why xstyled could help you to be more productive with enhanced `css` approach too.
+
+Most projects follow a design system, a set of space, colors, fonts.. that define the constraints and the universe of a project.
+
+To follow a design system with emotion, the common way is to use the theme.
+
+**Using Emotion**
+
+```js
+/** @jsx jsx */
+import { jsx } from '@emotion/react'
+
+const Button = ({ children }) => {
+  return (
+    <button
+      css={(theme) => ({
+        padding: `${theme.space[2]} ${theme.space[4]}`,
+        color: theme.colors.white,
+        borderRadius: theme.radii.md,
+        fontWeight: theme.fontWeights.semibold,
+        transition: theme.transition.default,
+        backgroundColor: theme.colors['emerald-500'],
+        '&:hover': {
+          backgroundColor: theme.colors['emerald-800'],
+        },
+        '&:focus': {
+          outline: 'none',
+          boxShadow: theme.shadows['emerald-ring'],
+        },
+      })}
+    >
+      {children}
+    </button>
+  )
+}
+```
+
+**Using xstyled**
+
+```js
+/** @jsx jsx */
+import { jsx } from '@xstyled/emotion'
+
+const Button = ({ children }) => {
+  return (
+    <button
+      css={{
+        paddingTop: 2,
+        color: 'white',
+        borderRadius: 'md',
+        fontWeight: 'semibold',
+        transition: 'default',
+        backgroundColor: 'emerald-500',
+        '&:hover': {
+          backgroundColor: 'emerald-800',
+        },
+        '&:focus': {
+          outline: 'none',
+          boxShadow: 'emerald-ring',
+        },
+      }}
+    >
+      {children}
+    </button>
+  )
+}
+```
+
+Read [enhanced styled components guide](/docs/enhanced-styled-components/) to learn more about this approach.
+
+### Responsive utilities
+
+xstyled has great responsive utilities to simplify usage of media queries.
+
+**Using Emotion**
+
+```jsx
+/** @jsx jsx */
+import { jsx } from '@emotion/react'
+
+const Button = ({ children }) => {
+  return (
+    <button css={{ width: 200, '@media (min-width: 768px)': { width: 300 } }}>
+      {children}
+    </button>
+  )
+}
+```
+
+**Using xstyled**
+
+```jsx
+import { x } from '@xstyled/emotion'
+
+const Button = ({ children }) => {
+  return <x.button w={{ _: 200, md: 300 }}>{children}</x.button>
+}
+```
+
+## Replacing Emotion by xstyled
+
+`@xstyled/emotion` is a replacement of `@emotion/react` and `@emotion/styled`. You can safely replace `@emotion/react` and `@emotion/styled` by `@xstyled/emotion`.
+
+Once your code is using xstyled, you can start using [declarative components (`x.*`)](/docs/declarative-components/) and [enhanced styled components (`styled.*`)](/docs/styled-components/).
+
+### JSX Pragma
+
+JSX Pragma is exposed in `@xstyled/emotion`:
+
+```js
+/** @jsx jsx */
+import { jsx } from '@xstyled/emotion'
+
+const Button = ({ children }) => {
+  return (
+    <button
+      css={{
+        paddingTop: 2,
+        color: 'white',
+        borderRadius: 'md',
+      }}
+    >
+      {children}
+    </button>
+  )
+}
+```
+
+### Babel preset
+
+To avoid the `/** @jsx jsx */` you can use `@xstyled/babel-preset-emotion-css-prop`. It has the same interface as `@emotion/babel-preset-css-prop`, see [Emotion documentation](https://emotion.sh/docs/css-prop#babel-preset).
+
+**.babelrc**
+
+```js
+{
+  "presets": ["@xstyled/babel-preset-emotion-css-prop"]
+}
+```
+
+### Difference in `css` prop usage
+
+`css` prop with `@xstyled/emotion` is slighly different from `css` prop with `@emotion/react`.
+
+- `theme` is accessible as a destructured object `{ theme }`
+- When using a function, you have to wrap your style in `css`
+
+**With Emotion**
+
+```js
+/** @jsx jsx */
+import { jsx } from '@emotion/react'
+
+const Button = ({ children }) => {
+  return (
+    <button
+      css={(theme) => ({
+        paddingTop: theme.space[1],
+      })}
+    >
+      {children}
+    </button>
+  )
+}
+```
+
+**With xstyled**
+
+```jsx
+/** @jsx jsx */
+import { jsx } from '@xstyled/emotion'
+
+const Button = ({ children }) => {
+  return (
+    <button
+      css={({ theme }) =>
+        css({
+          paddingTop: theme.space[1],
+        })
+      }
+    >
+      {children}
+    </button>
+  )
+}
+```

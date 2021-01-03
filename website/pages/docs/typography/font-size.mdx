@@ -1,0 +1,138 @@
+---
+section: Typography
+title: Font Size
+slug: /docs/font-size/
+---
+
+# Font Size
+
+Utilities for controlling the font size of an element.
+
+<carbon-ad />
+
+| React props       | CSS Properties       |
+| ----------------- | -------------------- |
+| `fontSize={size}` | `font-size: {size};` |
+
+## Usage
+
+Control the font size of an element using the `fontSize={size}` utility.
+
+```jsx preview color=violet
+<>
+  <template preview>
+    <>
+      {[
+        'xs',
+        '14px',
+        'sm',
+        'base',
+        'lg',
+        '1.2rem',
+        'xl',
+        '2xl',
+        '3xl',
+        '4xl',
+        '5xl',
+        '6xl',
+        '7xl',
+        '8xl',
+        '9xl',
+      ].map(size => (
+        <x.dl
+          key={size}
+          display="flex"
+          alignItems="baseline"
+          color="violet-600"
+          overflow="hidden"
+        >
+          <x.dt
+            w={16}
+            flexShrink={0}
+            fontSize="sm"
+            opacity={0.8}
+            fontFamily="mono"
+          >
+            {size}
+          </x.dt>
+          <x.dd fontSize={size} fontWeight="medium">
+            Computers have lots of memory but no imagination.
+          </x.dd>
+        </x.dl>
+      ))}
+    </>
+  </template>
+  <x.p fontSize="xs">Computers have lots ...</x.p>
+  <x.p fontSize="14px">Computers have lots ...</x.p>
+  <x.p fontSize="sm">Computers have lots ...</x.p>
+  <x.p fontSize="base">Computers have lots ...</x.p>
+  <x.p fontSize="lg">Computers have lots ...</x.p>
+  <x.p fontSize="1.2rem">Computers have lots ...</x.p>
+  <x.p fontSize="xl">Computers have lots ...</x.p>
+  <x.p fontSize="2xl">Computers have lots ...</x.p>
+  <x.p fontSize="3xl">Computers have lots ...</x.p>
+  <x.p fontSize="4xl">Computers have lots ...</x.p>
+  <x.p fontSize="5xl">Computers have lots ...</x.p>
+  <x.p fontSize="6xl">Computers have lots ...</x.p>
+  <x.p fontSize="7xl">Computers have lots ...</x.p>
+  <x.p fontSize="8xl">Computers have lots ...</x.p>
+  <x.p fontSize="9xl">Computers have lots ...</x.p>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `fontSize={{ md: "xl" }}` to an element would apply the `fontSize="xl"` utility at medium screen sizes and above.
+
+```jsx
+<x.p fontSize={{ xs: 'sm', md: 'xl' }}>{/* ... */}</x.p>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+import CustomizeFontSizes from '../../../partials/customizing/font-sizes.mdx'
+
+<CustomizeFontSizes />
+
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all font sizes defined are automatically binded to `font-size` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Title = styled.h4`
+  font-size: 2xl;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
+
+### Manual
+
+It is possible to manually bind a font size using `th.fontSize` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Title = styled.h4`
+  font: ${th.fontSize('xl')};
+`
+```
+
+## Hooks
+
+Get a font size in any component using `useFontSize` hook:
+
+```js
+import { useFontSize } from '@xstyled/...'
+
+function Title() {
+  const fontSize = useFontSize('xl')
+}
+```

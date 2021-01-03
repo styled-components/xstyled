@@ -1,14 +1,13 @@
-// @ts-nocheck
 import { transform } from '@babel/core'
 import preset from './index'
 
-const testPreset = (code) => {
+const testPreset = (code: string) => {
   const result = transform(code, {
     presets: [preset],
     configFile: false,
   })
 
-  return result.code
+  return result?.code ?? null
 }
 
 const code = `

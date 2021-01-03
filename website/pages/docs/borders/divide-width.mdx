@@ -1,0 +1,190 @@
+---
+section: Borders
+title: Divide Width
+slug: /docs/divide-width/
+---
+
+# Divide Width
+
+Utilities for controlling the border width between elements.
+
+<carbon-ad />
+
+| React props      | CSS Properties                                                                                                                                                                |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `divideX={size}` | `--x-divide-x-reverse: 0;`<br />`border-right-width: calc({size} * var(--x-divide-x-reverse));`<br />`border-left-width: calc({size} * calc(1 - var(--x-divide-x-reverse)));` |
+| `divideXReverse` | `--x-divide-x-reverse: 1;`                                                                                                                                                    |
+| `divideY={size}` | `--x-divide-y-reverse: 0;`<br />`border-top-width: calc({size} * calc(1 - var(--x-divide-y-reverse)));`<br />`border-bottom-width: calc({size} * var(--x-divide-y-reverse));` |
+| `divideYReverse` | `--x-divide-y-reverse: 1;`                                                                                                                                                    |
+
+## Add borders between horizontal children
+
+Add borders between horizontal elements using the `divideX={size}` utilities.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateColumns={3}
+      divideX
+      divideColor="emerald-500"
+    >
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="emerald-600"
+        px={6}
+      >
+        1
+      </x.div>
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="emerald-600"
+        px={6}
+      >
+        2
+      </x.div>
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="emerald-600"
+        px={6}
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div
+    display="grid"
+    gridTemplateColumns={3}
+    divideX
+    divideColor="emerald-500"
+  >
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Add borders between between stacked children
+
+Add borders between stacked elements using the `divideY={size}` utilities.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateColumns={1}
+      divideY
+      divideColor="amber-500"
+    >
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="amber-600"
+        py={3}
+      >
+        1
+      </x.div>
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="amber-600"
+        py={3}
+      >
+        2
+      </x.div>
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="amber-600"
+        py={3}
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div display="grid" gridTemplateColumns={1} divideY divideColor="amber-500">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Reversing children order
+
+If your elements are in reverse order (using say `flexDirection="row-reverse"` or `flexDirection="column-reverse"`), use the `divideXReverse` or `divideYReverse` utilities to ensure the border is added to the correct side of each element.
+
+```jsx preview color=rose
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      flexDirection="column-reverse"
+      divideY
+      divideYReverse
+      divideColor="rose-500"
+    >
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="rose-600"
+        py={3}
+      >
+        1
+      </x.div>
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="rose-600"
+        py={3}
+      >
+        2
+      </x.div>
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="rose-600"
+        py={3}
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div
+    display="flex"
+    flexDirection="column-reverse"
+    divideY
+    divideYReverse
+    divideColor="rose-500"
+  >
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the borders between elements at a specific breakpoint, use responsive object notation. For example, adding the property `divideY={{ md: 2 }}` to an element would apply the `divideY={2}` utility at medium screen sizes and above.
+
+```jsx
+<x.div divideY={{ md: 2 }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

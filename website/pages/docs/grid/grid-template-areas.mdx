@@ -1,0 +1,97 @@
+---
+section: Grid
+title: Grid Template Areas
+slug: /docs/grid-template-areas/
+---
+
+# Grid Template Areas
+
+Utilities for specifying the template areas in a grid layout.
+
+<carbon-ad />
+
+| React props                 | CSS Properties                  |
+| --------------------------- | ------------------------------- |
+| `gridTemplateAreas={template}` | `grid-template-areas: {template};` |
+| `gridArea={template}`          | `grid-area: {template};`           |
+
+## Usage
+
+Use the `gridTemplateAreas={value}` utilities to specify area positions in grids.
+
+```jsx preview color=fuchsia
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateColumns={3}
+      gap={4}
+      gridTemplateAreas='"a a a" "b b c"'
+    >
+      <x.div
+        gridArea="a"
+        h={12}
+        borderRadius="md"
+        bg="fuchsia-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        A
+      </x.div>
+      <x.div
+        gridArea="b"
+        h={12}
+        borderRadius="md"
+        bg="fuchsia-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        B
+      </x.div>
+      <x.div
+        gridArea="c"
+        h={12}
+        borderRadius="md"
+        bg="fuchsia-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        C
+      </x.div>
+    </x.div>
+  </template>
+  <x.div
+    display="grid"
+    gridTemplateColumns={3}
+    gridTemplateAreas='"a a a" "b b c"'
+  >
+    <x.div gridArea="a">A</x.div>
+    <x.div gridArea="b">B</x.div>
+    <x.div gridArea="c">C</x.div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the grid template areas at a specific breakpoint, use responsive object notation. For example, adding the property `gridTemplateAreas={{ md: '"header header"' }}` to an element would apply the `gridTemplateAreas='"header header"'` utility at medium screen sizes and above.
+
+```jsx
+<x.div display="grid" gridTemplateAreas={{ md: '"header header"' }}>
+  {/* ... */}
+</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

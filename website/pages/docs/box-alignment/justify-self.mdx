@@ -1,0 +1,241 @@
+---
+section: Box Alignment
+title: Justify Self
+slug: /docs/justify-self/
+---
+
+# Justify Self
+
+Utilities for controlling how an individual grid item is aligned along its inline axis.
+
+<carbon-ad />
+
+| React props             | CSS Properties             |
+| ----------------------- | -------------------------- |
+| `justifySelf={keyword}` | `justify-self: {keyword};` |
+
+## Auto
+
+Use `justifySelf="auto"` to align an item based on the value of the grid's `justify-items` property:
+
+```jsx preview color=purple
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateColumns={3}
+      gap={4}
+      justifyItems="stretch"
+    >
+      {Array.from({ length: 6 }, (_, index) => index + 1).map((value) => (
+        <x.div
+          key={value}
+          borderRadius="md"
+          h={16}
+          bg={value === 2 ? 'purple-500' : 'purple-300'}
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+          justifySelf={value === 2 ? 'auto' : null}
+        >
+          {value === 2 ? '1' : ''}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="grid" justifyItems="stretch">
+    {/* ... */}
+    <x.div justifySelf="auto">1</x.div>
+    {/* ... */}
+    {/* ... */}
+    {/* ... */}
+    {/* ... */}
+  </x.div>
+</>
+```
+
+## Start
+
+Use `justifySelf="start"` to align a grid item to the start its inline axis:
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateColumns={3}
+      gap={4}
+      justifyItems="stretch"
+    >
+      {Array.from({ length: 6 }, (_, index) => index + 1).map((value) => (
+        <x.div
+          key={value}
+          borderRadius="md"
+          h={16}
+          bg={value === 2 ? 'amber-500' : 'amber-300'}
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+          px={4}
+          justifySelf={value === 2 ? 'start' : null}
+        >
+          {value === 2 ? '1' : ''}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="grid" justifyItems="stretch">
+    {/* ... */}
+    <x.div justifySelf="start">1</x.div>
+    {/* ... */}
+    {/* ... */}
+    {/* ... */}
+    {/* ... */}
+  </x.div>
+</>
+```
+
+## Center
+
+Use `justifySelf="center"` to align a grid item along the center its inline axis:
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateColumns={3}
+      gap={4}
+      justifyItems="stretch"
+    >
+      {Array.from({ length: 6 }, (_, index) => index + 1).map((value) => (
+        <x.div
+          key={value}
+          borderRadius="md"
+          h={16}
+          bg={value === 2 ? 'light-blue-500' : 'light-blue-300'}
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+          px={4}
+          justifySelf={value === 2 ? 'center' : null}
+        >
+          {value === 2 ? '1' : ''}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="grid" justifyItems="stretch">
+    {/* ... */}
+    <x.div justifySelf="center">1</x.div>
+    {/* ... */}
+    {/* ... */}
+    {/* ... */}
+    {/* ... */}
+  </x.div>
+</>
+```
+
+## End
+
+Use `justifySelf="end"` to align a grid item to the end its inline axis:
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateColumns={3}
+      gap={4}
+      justifyItems="stretch"
+    >
+      {Array.from({ length: 6 }, (_, index) => index + 1).map((value) => (
+        <x.div
+          key={value}
+          borderRadius="md"
+          h={16}
+          bg={value === 2 ? 'red-500' : 'red-300'}
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+          px={4}
+          justifySelf={value === 2 ? 'end' : null}
+        >
+          {value === 2 ? '1' : ''}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="grid" justifyItems="stretch">
+    {/* ... */}
+    <x.div justifySelf="end">1</x.div>
+    {/* ... */}
+    {/* ... */}
+    {/* ... */}
+    {/* ... */}
+  </x.div>
+</>
+```
+
+## Stretch
+
+Use `justifySelf="stretch"` to stretch a grid item to fill the grid area on its inline axis:
+
+```jsx preview color=fuchsia
+<>
+  <template preview>
+    <x.div display="grid" gridTemplateColumns={3} gap={4} justifyItems="start">
+      {Array.from({ length: 6 }, (_, index) => index + 1).map((value) => (
+        <x.div
+          key={value}
+          borderRadius="md"
+          h={16}
+          bg={value === 2 ? 'fuchsia-500' : 'fuchsia-300'}
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+          px={4}
+          justifySelf={value === 2 ? 'stretch' : null}
+        >
+          {value === 2 ? '1' : ''}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="grid" justifyItems="start">
+    {/* ... */}
+    <x.div justifySelf="stretch">1</x.div>
+    {/* ... */}
+    {/* ... */}
+    {/* ... */}
+    {/* ... */}
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the alignment of a grid item inside its grid area at a specific breakpoint,, use responsive object notation. For example, adding the property `justifySelf={{ md: "center" }}` to an element would apply the `justifySelf="center` utility at medium screen sizes and above.
+
+```jsx
+<x.div display="grid" justifySelf={{ md: 'center' }}>
+  {/* ... */}
+</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

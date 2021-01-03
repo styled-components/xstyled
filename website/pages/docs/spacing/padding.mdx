@@ -1,0 +1,209 @@
+---
+section: Spacing
+title: Padding
+slug: /docs/padding/
+---
+
+# Padding
+
+Utilities for controlling an element's padding.
+
+<carbon-ad />
+
+| React props       | CSS Properties                                          |
+| ----------------- | ------------------------------------------------------- |
+| `padding={space}` | `padding: {space};`                                     |
+| `p={space}`       | `padding: {space};`                                     |
+| `pt={space}`      | `padding-top: {space};`                                 |
+| `pr={space}`      | `padding-right: {space};`                               |
+| `pb={space}`      | `padding-bottom: {space};`                              |
+| `pl={space}`      | `padding-left: {space};`                                |
+| `py={space}`      | `padding-top: {space};`<br />`padding-bottom: {space};` |
+| `px={space}`      | `padding-right: {space};`<br />`padding-left: {space};` |
+
+## Add padding to a single side
+
+Control the padding on one side of an element using the `p{t|r|b|l}={size}` utilities.
+
+For example, `pt={6}` would add `1.5rem` of padding to the top of an element, `pr={4}` would add `1rem` of padding to the right of an element, `pb={8}` would add `2rem` of padding to the bottom of an element, and `pl={2}` would add `0.5rem` of padding to the left of an element.
+
+```jsx preview color=rose
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      flexWrap="wrap"
+      alignItems="flex-start"
+      justifyContent="center"
+      color="white"
+      fontFamily="mono"
+      mx={-5}
+    >
+      <x.div mx={5} bg="rose-300" borderRadius="md" overflow="hidden" pt={6}>
+        <x.div
+          bg="rose-600"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          pt=6
+        </x.div>
+      </x.div>
+      <x.div
+        mx={5}
+        bg="rose-300"
+        borderRadius="md"
+        overflow="hidden"
+        pr={4}
+        mt={6}
+      >
+        <x.div
+          bg="rose-600"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          pr=4
+        </x.div>
+      </x.div>
+      <x.div
+        mx={5}
+        bg="rose-300"
+        borderRadius="md"
+        overflow="hidden"
+        pb={8}
+        mt={6}
+      >
+        <x.div
+          bg="rose-600"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          pb=8
+        </x.div>
+      </x.div>
+      <x.div
+        mx={5}
+        bg="rose-300"
+        borderRadius="md"
+        overflow="hidden"
+        pl={2}
+        mt={6}
+      >
+        <x.div
+          bg="rose-600"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          pl=2
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div pt={6}>pt=6</x.div>
+  <x.div pr={4}>pr=4</x.div>
+  <x.div pb={8}>pb=8</x.div>
+  <x.div pl={2}>pl=2</x.div>
+</>
+```
+
+## Add horizontal padding
+
+Control the horizontal padding of an element using the `px={size}` utilities.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="center"
+      color="white"
+      fontFamily="mono"
+    >
+      <x.div bg="emerald-300" borderRadius="md" overflow="hidden" px={8}>
+        <x.div bg="emerald-600" py={3} px={4}>
+          px=8
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div px={8}>px=8</x.div>
+</>
+```
+
+## Add vertical padding
+
+Control the vertical padding of an element using the `py={size}` utilities.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="center"
+      color="white"
+      fontFamily="mono"
+    >
+      <x.div bg="indigo-300" borderRadius="md" overflow="hidden" py={8}>
+        <x.div bg="indigo-600" py={3} px={4}>
+          py=8
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div py={8}>py=8</x.div>
+</>
+```
+
+## Add padding to all sides
+
+Control the padding on all sides of an element using the `p={size}` utilities.
+
+```jsx preview color=fuchsia
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="center"
+      color="white"
+      fontFamily="mono"
+    >
+      <x.div bg="fuchsia-300" borderRadius="md" overflow="hidden" p={8}>
+        <x.div bg="fuchsia-600" py={3} px={4}>
+          p=8
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div p={8}>p=8</x.div>
+</>
+```
+
+## Responsive
+
+To control the padding of an element at a specific breakpoint, use responsive object notation. For example, adding the property `py={{ md: 8 }}` to an element would apply the `py={8}` utility at medium screen sizes and above.
+
+```jsx
+<x.div py={{ md: 8 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+import CustomizeSpace from '../../../partials/customizing/space.mdx'
+import PaddingMargin from '../../../partials/padding-margin.mdx'
+
+## Customizing
+
+<CustomizeSpace />
+
+<PaddingMargin />

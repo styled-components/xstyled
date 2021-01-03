@@ -1,10 +1,24 @@
 {
   "root": true,
-  "extends": ["smooth", "smooth/project", "smooth/react"],
+  "env": {
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended"
+  ],
   "rules": {
-    "no-plusplus": "off",
-    "import/no-extraneous-dependencies": "off",
-    "import/extensions": "off",
-    "react/jsx-props-no-spreading": "off"
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "@typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/ban-types": "warn"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

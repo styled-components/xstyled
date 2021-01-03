@@ -1,0 +1,111 @@
+---
+section: Typography
+title: Letter Spacing
+slug: /docs/letter-spacing/
+---
+
+# Letter Spacing
+
+Utilities for controlling the tracking (letter spacing) of an element.
+
+<carbon-ad />
+
+| React props            | CSS Properties            |
+| ---------------------- | ------------------------- |
+| `letterSpacing={size}` | `letter-spacing: {size};` |
+
+## Usage
+
+Control the letter spacing of an element using the `letterSpacing={size}` utilities.
+
+```jsx preview color=pink
+<>
+  <template preview>
+    <x.div spaceY={4}>
+      {['tighter', 'tight', 'normal', 'wide', 'wider', 'widest', '20px'].map(
+        letterSpacing => (
+          <x.dl key={letterSpacing} color="pink-700" overflow="hidden">
+            <x.dt
+              w={16}
+              flexShrink={0}
+              fontSize="sm"
+              opacity={0.8}
+              fontFamily="mono"
+              mb={1}
+            >
+              {letterSpacing}
+            </x.dt>
+            <x.dd fontSize="xl" letterSpacing={letterSpacing} m={0}>
+              Computers have lots of memory but no imagination.
+            </x.dd>
+          </x.dl>
+        ),
+      )}
+    </x.div>
+  </template>
+  <x.p letterSpacing="tighter">Computers have lots ...</x.p>
+  <x.p letterSpacing="tight">Computers have lots ...</x.p>
+  <x.p letterSpacing="normal">Computers have lots ...</x.p>
+  <x.p letterSpacing="wide">Computers have lots ...</x.p>
+  <x.p letterSpacing="wider">Computers have lots ...</x.p>
+  <x.p letterSpacing="widest">Computers have lots ...</x.p>
+  <x.p letterSpacing="20px">Computers have lots ...</x.p>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `letterSpacing={{ md: "wide" }}` to an element would apply the `letterSpacing="wide"` utility at medium screen sizes and above.
+
+```jsx
+<x.div letterSpacing={{ md: 'wide' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+import CustomizeLetterSpacings from '../../../partials/customizing/letter-spacings.mdx'
+
+<CustomizeLetterSpacings />
+
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all letter spacings defined are automatically binded to `letter-spacing` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Title = styled.h4`
+  letter-spacing: wide;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
+
+### Manual
+
+It is possible to manually bind a letter spacing using `th.letterSpacing` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/system'
+
+const Title = styled.h4`
+  letter-spacing: ${th.letterSpacing('wide')};
+`
+```
+
+## Hooks
+
+Get a font size in any component using `useLetterSpacing` hook:
+
+```js
+import { useLetterSpacing } from '@xstyled/...'
+
+function Title() {
+  const letterSpacing = useLetterSpacing('wide')
+}
+```

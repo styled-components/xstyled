@@ -1,0 +1,63 @@
+---
+section: Transforms
+title: Scale
+slug: /docs/scale/
+---
+
+# Scale
+
+Utilities for scaling elements with transform.
+
+<carbon-ad />
+
+| React props      | CSS Properties                                      |
+| ---------------- | --------------------------------------------------- |
+| `scale={ratio}`  | `--x-scale-x: {ratio};`<br/>`--x-scale-y: {ratio};` |
+| `scaleX={ratio}` | `--x-scale-x: {ratio};`                             |
+| `scaleY={ratio}` | `--x-scale-y: {ratio};`                             |
+
+## Usage
+
+Control the scale of an element by first enabling transforms with the `transform` utility, then specifying the scale using the `scale={ratio}`, `scaleX={ratio}`, and `scaleY={ratio}` utilities.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      flexDirection={{ xs: 'column', md: 'row' }}
+      justifyContent="space-around"
+      spaceY={{ xs: 0, md: 12 }}
+      spaceY={{ xs: 12, md: 0 }}
+      my={10}
+    >
+      {[0.75, 1, 1.25, 1.5].map((scale) => (
+        <x.div key={scale} w={16} h={16} bg="indigo-300" borderRadius="md">
+          <x.img
+            h={16}
+            w={16}
+            transform
+            scale={scale}
+            borderRadius="md"
+            src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+          />
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.img transform scale={0.75} />
+  <x.img transform scale={1} />
+  <x.img transform scale={1.25} />
+  <x.img transform scale={1.5} />
+</>
+```
+
+## Responsive
+
+To control the scale of an element at a specific breakpoint, use responsive object notation. For example, adding the property `scale={{ md: 0.5 }}` to an element would apply the `scale={0.5}` utility at medium screen sizes and above.
+
+```jsx
+<x.div transform scale={{ md: 0.5 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

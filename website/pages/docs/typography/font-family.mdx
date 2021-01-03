@@ -1,0 +1,150 @@
+---
+section: Typography
+title: Font Family
+slug: /docs/font-family/
+---
+
+# Font Family
+
+Utilities for controlling the font family of an element.
+
+<carbon-ad />
+
+| React props         | CSS Properties         |
+| ------------------- | ---------------------- |
+| `fontFamily={font}` | `font-family: {font};` |
+
+## Sans-serif
+
+Use `fontFamily="sans"` to apply a web safe sans-serif font family:
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.p
+      fontFamily="sans"
+      fontSize="xl"
+      color="light-blue-700"
+      textAlign="center"
+    >
+      Computers have lots of memory but no imagination.
+    </x.p>
+  </template>
+  <x.p fontFamily="sans">Computers have lots of memory but no imagination.</x.p>
+</>
+```
+
+## Serif
+
+Use `fontFamily="serif"` to apply a web safe serif font family:
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.p
+      fontFamily="serif"
+      fontSize="xl"
+      color="emerald-700"
+      textAlign="center"
+    >
+      Computers have lots of memory but no imagination.
+    </x.p>
+  </template>
+  <x.p fontFamily="serif">
+    Computers have lots of memory but no imagination.
+  </x.p>
+</>
+```
+
+## Monospaced
+
+Use `fontFamily="mono"` to apply a web safe monospaced font family:
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.p fontFamily="mono" fontSize="xl" color="indigo-700" textAlign="center">
+      Computers have lots of memory but no imagination.
+    </x.p>
+  </template>
+  <x.p fontFamily="mono">Computers have lots of memory but no imagination.</x.p>
+</>
+```
+
+## Any font
+
+Use `fontFamily={font}` to apply a any custom font:
+
+```jsx preview color=rose
+<>
+  <template preview>
+    <x.p fontFamily="arial" fontSize="xl" color="rose-700" textAlign="center">
+      Computers have lots of memory but no imagination.
+    </x.p>
+  </template>
+  <x.p fontFamily="arial">
+    Computers have lots of memory but no imagination.
+  </x.p>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `fontFamily={{ md: "sans" }}` to an element would apply the `fontFamily="sans"` utility at medium screen sizes and above.
+
+```jsx
+<x.p fontFamily={{ xs: 'serif', md: 'sans' }}>{/* ... */}</x.p>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+import CustomizeFontFamilies from '../../../partials/customizing/font-families.mdx'
+
+<CustomizeFontFamilies />
+
+### Use custom Web Fonts
+
+To use custom web fonts, you have to load them in global using external CSS files or `createGlobalStyle` utility.
+
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all font families defined are automatically binded to `font-family` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Title = styled.h4`
+  font-family: sans;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
+
+### Manual
+
+It is possible to manually bind a font size using `th.font` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Title = styled.h4`
+  font: ${th.font('sans')};
+`
+```
+
+## Hooks
+
+Get a font size in any component using `useFont` hook:
+
+```js
+import { useFont } from '@xstyled/...'
+
+function Title() {
+  const font = useFont('sans')
+}
+```

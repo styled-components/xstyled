@@ -1,0 +1,157 @@
+---
+section: Layout
+title: Overscroll Behavior
+slug: /docs/overscroll-behavior/
+---
+
+# Overscroll Behavior
+
+Utilities for controlling how the browser behaves when reaching the boundary of a scrolling area.
+
+<carbon-ad />
+
+| React props                  | CSS Properties                  |
+| ---------------------------- | ------------------------------- |
+| `overscrollBehavior={keyword}` | `overscroll-behavior: {keyword};` |
+
+## Auto
+
+Use `overscrollBehavior="auto"` to make it possible for the user to continue scrolling a parent scroll area when they reach the boundary of the primary scroll area.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div
+      overscrollBehavior="auto"
+      overflow="auto"
+      h={32}
+      bg="emerald-200"
+      color="emerald-500"
+      px={6}
+      py={4}
+      fontWeight="medium"
+      fontFamily="Flow"
+      borderRadius="lg"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend
+        rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum
+        et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae
+        hendrerit lectus volutpat eget. In porttitor tincidunt egestas.
+        Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique
+        justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt,
+        lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut
+        dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean
+        mattis elit mi, sed ultricies augue consectetur id. Sed id magna
+        malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla
+        fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam
+        convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor
+        ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis
+        elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum
+        in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate,
+        tempor massa eget, malesuada mauris. Quisque fringilla consequat metus,
+        luctus scelerisque leo fringilla vel.
+      </p>
+    </x.div>
+  </template>
+  <x.div overscrollBehavior="auto">Lorem ipsum dolor sit amet...</x.div>
+</>
+```
+
+## Contain
+
+Use `overscrollBehavior="contain"` to prevent scrolling in the target area from triggering scrolling in the parent element, but preserve "bounce" effects when scrolling past the end of the container in operating systems that support it.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div
+      overscrollBehavior="contain"
+      overflow="auto"
+      h={32}
+      bg="light-blue-200"
+      color="light-blue-500"
+      px={6}
+      py={4}
+      fontWeight="medium"
+      fontFamily="Flow"
+      borderRadius="lg"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend
+        rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum
+        et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae
+        hendrerit lectus volutpat eget. In porttitor tincidunt egestas.
+        Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique
+        justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt,
+        lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut
+        dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean
+        mattis elit mi, sed ultricies augue consectetur id. Sed id magna
+        malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla
+        fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam
+        convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor
+        ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis
+        elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum
+        in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate,
+        tempor massa eget, malesuada mauris. Quisque fringilla consequat metus,
+        luctus scelerisque leo fringilla vel.
+      </p>
+    </x.div>
+  </template>
+  <x.div overscrollBehavior="contain">Lorem ipsum dolor sit amet...</x.div>
+</>
+```
+
+## Contain
+
+Use `overscrollBehavior="none"` to prevent scrolling in the target area from triggering scrolling in the parent element, and also prevent "bounce" effects when scrolling past the end of the container.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div
+      overscrollBehavior="none"
+      overflow="auto"
+      h={32}
+      bg="amber-200"
+      color="amber-500"
+      px={6}
+      py={4}
+      fontWeight="medium"
+      fontFamily="Flow"
+      borderRadius="lg"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend
+        rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum
+        et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae
+        hendrerit lectus volutpat eget. In porttitor tincidunt egestas.
+        Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique
+        justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt,
+        lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut
+        dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean
+        mattis elit mi, sed ultricies augue consectetur id. Sed id magna
+        malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla
+        fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam
+        convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor
+        ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis
+        elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum
+        in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate,
+        tempor massa eget, malesuada mauris. Quisque fringilla consequat metus,
+        luctus scelerisque leo fringilla vel.
+      </p>
+    </x.div>
+  </template>
+  <x.div overscrollBehavior="none">Lorem ipsum dolor sit amet...</x.div>
+</>
+```
+
+## Responsive
+
+To control the overscroll-behavior property at a specific breakpoint, use responsive object notation. For example, adding the property `overscrollBehavior={{ md: "contain" }}` to an element would apply the `overscrollBehavior="contain"` utility at medium screen sizes and above.
+
+```jsx
+<x.div overscrollBehavior={{ md: 'contain' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

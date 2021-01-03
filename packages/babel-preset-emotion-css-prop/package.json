@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/babel-preset-emotion-css-prop",
-  "description": "A babel preset to automatically enable emotion's css prop with xstyled",
-  "version": "1.20.0-alpha.0",
+  "description": "A babel preset to automatically enable emotion's css prop with xstyled.",
+  "version": "2.0.0-alpha.1",
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/babel-preset-emotion-css-prop.esm.js",
@@ -9,12 +9,13 @@
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "reset": "rm -rf dist && rm -rf node_modules/.cache",
     "watch": "tsdx watch",
     "build": "tsdx build",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn reset && yarn build"
   },
   "homepage": "https://xstyled.dev",
-  "repository": "https://github.com/smooth-code/xstyled/tree/master/packages/babel-preset-emotion-css-prop",
+  "repository": "https://github.com/gregberge/xstyled/tree/master/packages/babel-preset-emotion-css-prop",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/gregberge"
@@ -23,9 +24,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "@babel/plugin-transform-react-jsx": "^7.12.12",
     "@babel/runtime": "^7.11.2",
-    "@emotion/babel-plugin": "^11.0.0",
+    "@emotion/babel-plugin": "^11.1.2",
     "@emotion/babel-plugin-jsx-pragmatic": "^0.1.4"
   },
   "peerDependencies": {

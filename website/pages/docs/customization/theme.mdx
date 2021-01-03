@@ -1,0 +1,253 @@
+---
+section: Customization
+title: Theme
+slug: /docs/theme/
+order: 1
+---
+
+# Theme Configuration
+
+Customizing the default theme for your project.
+
+<carbon-ad />
+
+xstyled includes a `defaultTheme`, recommended to start a project, it includes colors, type scale, fonts, breakpoints, border radii, and more.
+
+## Theme structure
+
+Theme object contains keys for `screens`, `colors`, `space` and every utilities available.
+
+See the [theme configuration reference](/docs/theme/) or the [default theme](https://github.com/gregberge/xstyled/blob/master/packages/system/src/defaultTheme.ts) for a complete list of theme options.
+
+### Screens
+
+The `screens` key allows you to customize the responsive breakpoints in your project.
+
+```js
+export const theme = {
+  breakpoints: {
+    _: 0,
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+    '2xl': '1536px',
+  },
+}
+```
+
+### Colors
+
+The `colors` key allows you to customize the global color palette for your project.
+
+```js
+export const theme = {
+  colors: {
+    black: '#000',
+    white: '#fff',
+    'gray-100': '#f7fafc',
+    // ...
+    'gray-900': '#1a202c',
+    // ...
+  },
+}
+```
+
+These values are used for every utilities: `backgroundColor`, `borderColor`, `textColor`, and others...
+
+To learn more, see the [color customization documentation](/docs/colors/).
+
+### Spacing
+
+The `space` key allows you to customize the global spacing and sizing scale for your project.
+
+```js
+export const theme = {
+  space: {
+    px: '1px',
+    0: '0',
+    0.5: '0.125rem',
+    1: '0.25rem',
+    1.5: '0.375rem',
+    2: '0.5rem',
+    2.5: '0.625rem',
+    3: '0.75rem',
+    3.5: '0.875rem',
+    4: '1rem',
+    5: '1.25rem',
+    6: '1.5rem',
+    7: '1.75rem',
+    8: '2rem',
+    9: '2.25rem',
+    10: '2.5rem',
+    11: '2.75rem',
+    12: '3rem',
+    14: '3.5rem',
+    16: '4rem',
+    20: '5rem',
+    24: '6rem',
+    28: '7rem',
+    32: '8rem',
+    36: '9rem',
+    40: '10rem',
+    44: '11rem',
+    48: '12rem',
+    52: '13rem',
+    56: '14rem',
+    60: '15rem',
+    64: '16rem',
+    72: '18rem',
+    80: '20rem',
+    96: '24rem',
+  },
+}
+```
+
+These values are used for every space relative utilities: `padding`, `margin`, `gap`, and others...
+
+## Core Plugins
+
+Each utility has its own section. For example `radii` key lets you customize which border radius utilities will be generated:
+
+```js
+export const theme = {
+  radii: {
+    none: '0',
+    sm: '.125rem',
+    default: '.25rem',
+    lg: '.5rem',
+    full: '9999px',
+  },
+}
+```
+
+The keys are automatically transformed when you use `borderRadius` utility.
+
+```js
+<x.div borderRadius="sm" />
+// will generate CSS: "border-radius: .125em;"
+```
+
+The key `default` is used when you specify `"default"` or `true`. Since `true` is the default in JSX, it lets you shorten the property.
+
+```js
+<x.div borderRadius />
+// will generate CSS: "border-radius: .25em;"
+```
+
+For a complete reference of available theme properties and their default values, see [the default theme configuration](https://github.com/gregberge/xstyled/blob/master/packages/system/src/defaultTheme.ts).
+
+## Customizing the default theme
+
+To start an xstyled project, it is heavily recommended to use the `defaultTheme`. It is very easy to extends thanks to object spread operator.
+
+For example, if you wanted to add an extra breakpoint but preserve the existing ones, you could extend the `screens` property:
+
+```js
+import { defaultTheme, ThemeProvider } from '@xstyled/styled-components'
+
+export const theme = {
+  ...defaultTheme,
+  // Adds a new breakpoint in addition to the default breakpoints
+  screens: {
+    ...defaultTheme.screens,
+    '3xl': '1600px',
+  },
+}
+```
+
+## Overriding the default theme
+
+To override `defaultTheme`, do not spread default theme properties.
+
+```js
+import { defaultTheme, ThemeProvider } from '@xstyled/styled-components'
+
+export const theme = {
+  ...defaultTheme,
+  // Only two breakpoints will be available
+  screens: {
+    md: '800px',
+    xl: '1200px',
+  },
+}
+```
+
+## Referencing other values
+
+You can refer other values using `th.*` utility.
+
+```js
+import { th, defaultTheme, ThemeProvider } from '@xstyled/styled-components'
+
+export const theme = {
+  ...defaultTheme,
+  colors: {
+    ...defaultTheme,
+    // Use `red-500` as `primary` color
+    primary: th.color('red-500'),
+  },
+}
+```
+
+It works recursively, so you can use several level of design tokens:
+
+```js
+import { th, defaultTheme, ThemeProvider } from '@xstyled/styled-components'
+
+export const theme = {
+  ...defaultTheme,
+  colors: {
+    ...defaultTheme,
+    primary: th.color('red-500'),
+    'button-bg': th.color('primary'),
+  },
+}
+```
+
+## Adding you own keys
+
+Some `keys` are used by xstyled, but it does not mean you can't specify others.
+
+For example if you create a custom filter utility, or if you use it by your own, you can add a `filters` section:
+
+```js
+import { defaultTheme, ThemeProvider } from '@xstyled/styled-components'
+
+export const theme = {
+  ...defaultTheme,
+  filters: {
+    grayscale: 'grayscale(1)',
+    invert: 'invert(1)',
+    sepia: 'sepia(1)',
+  },
+}
+```
+
+## Configuration reference
+
+| Theme key              | Utilities                                                                                                                                                                                                 |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `animations`           | `animation`                                                                                                                                                                                               |
+| `borders`              | `border`, `border-top`, `border-right`, `border-bottom`, `border-left`                                                                                                                                    |
+| `borderStyles`         | `border-style`, `border-top-style`, `border-right-style`, `border-bottom-style`, `border-left-style`, `outline-style`                                                                                     |
+| `borderWidths`         | `border-width`, `border-top-width`, `border-right-width`, `border-bottom-width`, `border-left-width`, `outline-width`                                                                                     |
+| `colors`               | `color`, `background-color`, `border-color`, `border-top-color`, `border-right-color`, `border-bottom-color`, `border-left-color`, `outline-color`, `fill`, `stroke`                                      |
+| `fonts`                | `font-family`                                                                                                                                                                                             |
+| `fontSizes`            | `font-size`                                                                                                                                                                                               |
+| `fontWeights`          | `font-weight`                                                                                                                                                                                             |
+| `inset`                | `top`, `right`, `bottom`, `left`                                                                                                                                                                          |
+| `letterSpacings`       | `letter-spacing`                                                                                                                                                                                          |
+| `lineHeights`          | `line-height`                                                                                                                                                                                             |
+| `radii`                | `border-radius`, `border-top-left-radius`, `border-top-right-radius`, `border-bottom-right-radius`, `border-bottom-left-radius`                                                                           |
+| `shadows`              | `box-shadow`, `text-shadow`                                                                                                                                                                               |
+| `screens`              | Values for breakpoints.                                                                                                                                                                                   |
+| `settings`             | Values for custom settings (`rootFontSize`).                                                                                                                                                              |
+| `sizes`                | `width`, `height`, `max-width`, `max-height`, `min-width`, `min-height`                                                                                                                                   |
+| `space`                | `margin`, `margin-top`, `margin-bottom`, `margin-left`, `margin-right`, `padding`, `padding-top`, `padding-bottom`, `padding-left`, `padding-right`, `gap`, `grid-gap`, `grid-row-gap`, `grid-column-gap` |
+| `timingFunctions`      | `animation-timing-function`, `transition-timing-function`                                                                                                                                                 |
+| `transforms`           | `transform`                                                                                                                                                                                               |
+| `transitions`          | `transition`                                                                                                                                                                                              |
+| `transitionProperties` | `transition-property`                                                                                                                                                                                     |
+| `transformers`         | Values for [transformers](/docs/transformers/).                                                                                                                                                           |
+| `zIndices`             | `z-index`                                                                                                                                                                                                 |

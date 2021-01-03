@@ -1,0 +1,170 @@
+---
+section: Flexbox
+title: Flex Direction
+slug: /docs/flex-direction/
+---
+
+# Flex Direction
+
+Utilities for controlling the direction of flex items.
+
+<carbon-ad />
+
+| React props             | CSS Properties             |
+| ----------------------- | -------------------------- |
+| `flexDirection={direction}` | `flex-direction: {direction};` |
+
+## Row
+
+Use `flexDirection="row"` to position flex items horizontally in the same direction as text:
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div display="flex" flexDirection="row" spaceX={4}>
+      {[1, 2, 3].map((value) => (
+        <x.div
+          key={value}
+          w={16}
+          h={16}
+          borderRadius="md"
+          bg="amber-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="flex" flexDirection="row">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Row reversed
+
+Use `flexDirection="row-reverse"` to position flex items horizontally in the opposite direction:
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div display="flex" flexDirection="row-reverse" spaceX={4} spaceXReverse>
+      {[1, 2, 3].map((value) => (
+        <x.div
+          key={value}
+          w={16}
+          h={16}
+          borderRadius="md"
+          bg="light-blue-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="flex" flexDirection="row-reverse">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Column
+
+Use `flexDirection="column"` to position flex items vertically:
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div display="flex" flexDirection="column" spaceY={4}>
+      {[1, 2, 3].map((value) => (
+        <x.div
+          key={value}
+          h={16}
+          borderRadius="md"
+          bg="emerald-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="flex" flexDirection="column">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Column reversed
+
+Use `flexDirection="column-reverse"` to position flex items vertically in the opposite direction:
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      flexDirection="column-reverse"
+      spaceY={4}
+      spaceYReverse
+    >
+      {[1, 2, 3].map((value) => (
+        <x.div
+          key={value}
+          h={16}
+          borderRadius="md"
+          bg="red-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="flex" flexDirection="column-reverse">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To apply a flex direction utility only at a specific breakpoint, use responsive object notation. For example, adding the property `flexDirection={{ xs: 'column', md: 'row' }}` to an element would apply the `flexDirection="column"` by default and the `flexDirection="row"` utility at medium screen sizes and above.
+
+```jsx
+<x.div display="flex" flexDirection={{ xs: 'column', md: 'row' }}>
+  {/* ... */}
+</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

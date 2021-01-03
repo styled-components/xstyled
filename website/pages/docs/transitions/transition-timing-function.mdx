@@ -1,0 +1,151 @@
+---
+section: Transitions
+title: Transition Timing Function
+slug: /docs/transition-timing-function/
+---
+
+# Transition Timing Function
+
+Utilities for controlling the easing of CSS transitions.
+
+<carbon-ad />
+
+| React props                           | CSS Properties                            |
+| ------------------------------------- | ----------------------------------------- |
+| `transitionTimingFunction={timingFn}` | `transition-timing-function: {timingFn};` |
+
+## Usage
+
+Use `transitionTimingFunction={timingFn}` utilities to control an element's easing curve.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="space-around" alignItems="center">
+      <x.button
+        fontWeight="medium"
+        transition
+        transitionTimingFunction="ease-in"
+        transitionDuration={700}
+        color="white"
+        bg="emerald-600"
+        hoverBg="indigo-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </x.button>
+      <x.button
+        fontWeight="medium"
+        transition
+        transitionTimingFunction="ease-out"
+        transitionDuration={700}
+        color="white"
+        bg="emerald-600"
+        hoverBg="indigo-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </x.button>
+      <x.button
+        fontWeight="medium"
+        transition
+        transitionTimingFunction="ease-in-out"
+        transitionDuration={700}
+        color="white"
+        bg="emerald-600"
+        hoverBg="indigo-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </x.button>
+    </x.div>
+  </template>
+  <x.button
+    transition
+    transitionDuration={700}
+    transitionTimingFunction="ease-in"
+  >
+    Hover me
+  </x.button>
+  <x.button
+    transition
+    transitionDuration={700}
+    transitionTimingFunction="ease-out"
+  >
+    Hover me
+  </x.button>
+  <x.button
+    transition
+    transitionDuration={700}
+    transitionTimingFunction="ease-in-out"
+  >
+    Hover me
+  </x.button>
+</>
+```
+
+## Responsive
+
+To control an element's transition-timing-function at a specific breakpoint, use responsive object notation. For example, adding the property `transitionTimingFunction={{ md: "ease-in" }}` to an element would apply the `transitionTimingFunction="ease-in"` utility at medium screen sizes and above.
+
+```jsx
+<x.div transitionTimingFunction={{ md: 'ease-in' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+import CustomizeTransitionProperties from '../../../partials/customizing/transition-properties.mdx'
+
+<CustomizeTransitionProperties />
+
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all timing functions defined are automatically binded to `transition-timing-function` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Button = styled.button`
+  transition-timing-function: ease-in;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
+
+### Manual
+
+It is possible to manually bind a timing function using `th.timingFunction` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Button = styled.button`
+  transition: color ${th.timingFunction('ease-in')} 150ms;
+`
+```
+
+## Hooks
+
+Get a timing function in any component using `useTimingFunction` hook:
+
+```js
+import { useTimingFunction } from '@xstyled/...'
+
+function Button() {
+  const timingFunction = useTimingFunction('ease-in')
+}
+```

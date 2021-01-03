@@ -6,16 +6,16 @@ import {
   mediaMaxWidth,
   mediaBetweenWidth,
 } from './media'
-import { Props } from './types'
+import { IProps } from './types'
 
-export const up = (key: string | number, rules: any) => (props: Props) => {
+export const up = (key: string | number, rules: unknown) => (props: IProps) => {
   const breakpoints = getBreakpoints(props)
   const value = getBreakpointMin(breakpoints, key)
   if (value === null) return rules
   return [`${mediaMinWidth(value)} {`, rules, '}']
 }
 
-export const down = (key: string | number, rules: any) => (props: Props) => {
+export const down = (key: string | number, rules: any) => (props: IProps) => {
   const breakpoints = getBreakpoints(props)
   const value = getBreakpointMax(breakpoints, key)
   if (value === null) return null
@@ -26,7 +26,7 @@ export const between = (
   lower: string | number,
   upper: string | number,
   rules: any,
-) => (props: Props) => {
+) => (props: IProps) => {
   const breakpoints = getBreakpoints(props)
   const min = getBreakpointMin(breakpoints, lower)
   const max = getBreakpointMax(breakpoints, upper)
@@ -36,9 +36,7 @@ export const between = (
   return [`${mediaBetweenWidth(min, max)} {`, rules, '}']
 }
 
-export const breakpoints = (values: { [key: string]: any }) => (
-  props: Props,
-) => {
+export const breakpoints = (values: any) => (props: IProps) => {
   const allRules = []
   const keys = Object.keys(values)
   const keysLength = keys.length

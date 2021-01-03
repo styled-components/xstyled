@@ -1,0 +1,289 @@
+---
+section: Typography
+title: Vertical Align
+slug: /docs/vertical-align/
+---
+
+# Vertical Alignment
+
+Utilities for controlling the vertical alignment of an inline or table-cell box.
+
+<carbon-ad />
+
+| React props             | CSS Properties             |
+| ----------------------- | -------------------------- |
+| `verticalAlign={value}` | `vertical-align: {value};` |
+
+## Baseline
+
+Use `verticalAlign="baseline"` to align the baseline of an element with the baseline of its parent.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div lineHeight="none" position="relative">
+      <x.span w={0} h={8} display="inline-block" verticalAlign="baseline">
+        <x.span
+          position="absolute"
+          top={0}
+          borderColor="light-blue-300"
+          borderStyle="dashed"
+          borderWidth="1 0"
+          w={1}
+          h={8}
+        />
+        <x.span
+          position="absolute"
+          top={0}
+          borderColor="light-blue-300"
+          borderStyle="dashed"
+          borderWidth="1 0"
+          w={1}
+          h={4}
+        />
+      </x.span>
+      <x.span
+        position="relative"
+        zIndex={10}
+        color="light-blue-700"
+        fontWeight="medium"
+      >
+        Computers have lots of memory but no imagination.
+      </x.span>
+    </x.div>
+  </template>
+  <x.span display="inline-block" verticalAlign="baseline">
+    ...
+  </x.span>
+</>
+```
+
+## Top
+
+Use `verticalAlign="top"` to align the top of an element and its descendants with the top of the entire line.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div lineHeight="none" position="relative">
+      <x.span w={0} h={8} display="inline-block" verticalAlign="top">
+        <x.span
+          position="absolute"
+          top={0}
+          borderColor="emerald-300"
+          borderStyle="dashed"
+          borderWidth="1 0"
+          w={1}
+          h={8}
+        />
+        <x.span
+          position="absolute"
+          top={0}
+          borderColor="emerald-300"
+          borderStyle="dashed"
+          borderWidth="1 0"
+          w={1}
+          h={4}
+        />
+      </x.span>
+      <x.span
+        position="relative"
+        zIndex={10}
+        color="emerald-700"
+        fontWeight="medium"
+      >
+        Computers have lots of memory but no imagination.
+      </x.span>
+    </x.div>
+  </template>
+  <x.span display="inline-block" verticalAlign="top">
+    ...
+  </x.span>
+</>
+```
+
+## Middle
+
+Use `verticalAlign="middle"` to align the middle of an element with the baseline plus half the x-height of the parent.
+
+```jsx preview color=purple
+<>
+  <template preview>
+    <x.div lineHeight="none" position="relative">
+      <x.span w={0} h={8} display="inline-block" verticalAlign="middle">
+        <x.span
+          position="absolute"
+          top={0}
+          borderColor="purple-300"
+          borderStyle="dashed"
+          borderWidth="1 0"
+          w={1}
+          h={8}
+        />
+        <x.span
+          position="absolute"
+          top={0}
+          borderColor="purple-300"
+          borderStyle="dashed"
+          borderWidth="1 0"
+          w={1}
+          h={4}
+        />
+      </x.span>
+      <x.span
+        position="relative"
+        zIndex={10}
+        color="purple-700"
+        fontWeight="medium"
+      >
+        Computers have lots of memory but no imagination.
+      </x.span>
+    </x.div>
+  </template>
+  <x.span display="inline-block" verticalAlign="middle">
+    ...
+  </x.span>
+</>
+```
+
+## Bottom
+
+Use `verticalAlign="bottom` to align the bottom of an element and its descendants with the bottom of the entire line.
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.div lineHeight="none" position="relative">
+      <x.span w={0} h={8} display="inline-block" verticalAlign="bottom">
+        <x.span
+          position="absolute"
+          top={0}
+          borderColor="red-300"
+          borderStyle="dashed"
+          borderWidth="1 0"
+          w={1}
+          h={8}
+        />
+        <x.span
+          position="absolute"
+          top={0}
+          borderColor="red-300"
+          borderStyle="dashed"
+          borderWidth="1 0"
+          w={1}
+          h={4}
+        />
+      </x.span>
+      <x.span
+        position="relative"
+        zIndex={10}
+        color="red-700"
+        fontWeight="medium"
+      >
+        Computers have lots of memory but no imagination.
+      </x.span>
+    </x.div>
+  </template>
+  <x.span display="inline-block" verticalAlign="bottom">
+    ...
+  </x.span>
+</>
+```
+
+## Text Top
+
+Use `verticalAlign="text-top"` to align the top of an element with the top of the parent element's font.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div lineHeight="none" position="relative">
+      <x.span w={0} h={8} display="inline-block" verticalAlign="text-top">
+        <x.span
+          position="absolute"
+          top={0}
+          borderColor="amber-300"
+          borderStyle="dashed"
+          borderWidth="1 0"
+          w={1}
+          h={8}
+        />
+        <x.span
+          position="absolute"
+          top={0}
+          borderColor="amber-300"
+          borderStyle="dashed"
+          borderWidth="1 0"
+          w={1}
+          h={4}
+        />
+      </x.span>
+      <x.span
+        position="relative"
+        zIndex={10}
+        color="amber-700"
+        fontWeight="medium"
+      >
+        Computers have lots of memory but no imagination.
+      </x.span>
+    </x.div>
+  </template>
+  <x.span display="inline-block" verticalAlign="text-top">
+    ...
+  </x.span>
+</>
+```
+
+## Text Bottom
+
+Use `verticalAlign="text-bottom"` to align the bottom of an element with the bottom of the parent element's font.
+
+```jsx preview color=pink
+<>
+  <template preview>
+    <x.div lineHeight="none" position="relative">
+      <x.span w={0} h={8} display="inline-block" verticalAlign="text-bottom">
+        <x.span
+          position="absolute"
+          top={0}
+          borderColor="pink-300"
+          borderStyle="dashed"
+          borderWidth="1 0"
+          w={1}
+          h={8}
+        />
+        <x.span
+          position="absolute"
+          top={0}
+          borderColor="pink-300"
+          borderStyle="dashed"
+          borderWidth="1 0"
+          w={1}
+          h={4}
+        />
+      </x.span>
+      <x.span
+        position="relative"
+        zIndex={10}
+        color="pink-700"
+        fontWeight="medium"
+      >
+        Computers have lots of memory but no imagination.
+      </x.span>
+    </x.div>
+  </template>
+  <x.span display="inline-block" verticalAlign="text-bottom">
+    ...
+  </x.span>
+</>
+```
+
+## Responsive
+
+To control the vertical alignment of an element at a specific breakpoint, use responsive object notation. For example, adding the property `verticalAlign={{ md: "text-bottom" }}` to an element would apply the `verticalAlign="text-bottom"` utility at medium screen sizes and above.
+
+```jsx
+<x.div verticalAlign={{ md: 'text-bottom' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

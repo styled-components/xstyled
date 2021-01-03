@@ -1,0 +1,126 @@
+---
+section: Typography
+title: Font Weight
+slug: /docs/font-weight/
+---
+
+# Font Weight
+
+Utilities for controlling the font weight of an element.
+
+<carbon-ad />
+
+| React props           | CSS Properties           |
+| --------------------- | ------------------------ |
+| `fontWeight={weight}` | `font-weight: {weight};` |
+
+## Usage
+
+Control the font weight of an element using the `fontWeight={weight}` utilities.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <>
+      {[
+        'hairline',
+        'thin',
+        'light',
+        'normal',
+        'medium',
+        'semibold',
+        'bold',
+        'extrabold',
+        'black',
+      ].map(weight => (
+        <x.dl
+          key={weight}
+          display="flex"
+          alignItems="baseline"
+          color="amber-700"
+          overflow="hidden"
+        >
+          <x.dt
+            w={24}
+            flexShrink={0}
+            fontSize="sm"
+            opacity={0.8}
+            fontFamily="mono"
+          >
+            {weight}
+          </x.dt>
+          <x.dd fontSize="xl" fontWeight={weight}>
+            Computers have lots of memory but no imagination.
+          </x.dd>
+        </x.dl>
+      ))}
+    </>
+  </template>
+  <x.p fontWeight="hairline">Computers have lots ...</x.p>
+  <x.p fontWeight="thin">Computers have lots ...</x.p>
+  <x.p fontWeight="light">Computers have lots ...</x.p>
+  <x.p fontWeight="normal">Computers have lots ...</x.p>
+  <x.p fontWeight="medium">Computers have lots ...</x.p>
+  <x.p fontWeight="semibold">Computers have lots ...</x.p>
+  <x.p fontWeight="bold">Computers have lots ...</x.p>
+  <x.p fontWeight="extrabold">Computers have lots ...</x.p>
+  <x.p fontWeight="black">Computers have lots ...</x.p>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `fontWeight={{ md: "bold" }}` to an element would apply the `fontWeight="bold"` utility at medium screen sizes and above.
+
+```jsx
+<x.div fontWeight={{ xs: 'thin', md: 'bold' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+import CustomizeFontWeights from '../../../partials/customizing/font-weights.mdx'
+
+<CustomizeFontWeights />
+
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all font weights defined are automatically binded to `font-weight` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Title = styled.h4`
+  font-weight: semibold;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
+
+### Manual
+
+It is possible to manually bind a font size using `th.fontWeight` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/system'
+
+const Title = styled.h4`
+  font: ${th.fontWeight('semibold')};
+`
+```
+
+## Hooks
+
+Get a font size in any component using `useFontWeight` hook:
+
+```js
+import { useFontWeight } from '@xstyled/...'
+
+function Title() {
+  const fontWeight = useFontWeight('semibold')
+}
+```

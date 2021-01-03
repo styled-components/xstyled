@@ -1,0 +1,138 @@
+---
+section: Typography
+title: Text Color
+slug: /docs/text-color/
+---
+
+# Text Color
+
+Utilities for controlling the text color of an element.
+
+<carbon-ad />
+
+| React props     | CSS Properties    |
+| --------------- | ----------------- |
+| `color={color}` | `color: {color};` |
+
+## Usage
+
+Control the text color of an element using the `color={color}` utilities.
+
+```jsx preview
+<>
+  <template preview>
+    <x.div spaceY={8}>
+      {[
+        'red-500',
+        'emerald-700',
+        'light-blue-700-a50',
+        '#f59e0b',
+        'rgba(76, 29, 149, 0.6)',
+      ].map((color) => (
+        <x.dl key={color} color="cool-gray-500" overflow="hidden">
+          <x.dt
+            flexShrink={0}
+            fontSize="sm"
+            opacity={0.8}
+            fontFamily="mono"
+            mb={1}
+          >
+            color={color}
+          </x.dt>
+          <x.dd fontSize="xl" m={0}>
+            <x.div color={color}>
+              Computers have lots of memory but no imagination.
+            </x.div>
+          </x.dd>
+        </x.dl>
+      ))}
+    </x.div>
+  </template>
+  <x.div color="red-500">Computers have ...</x.div>
+  <x.div color="emerald-700">Computers have ...</x.div>
+  <x.div color="light-blue-700-a50">Computers have ...</x.div>
+  <x.div color="#f59e0b">Computers have ...</x.div>
+  <x.div color="rgba(4, 120, 87, 0.5)">Computers have ...</x.div>
+</>
+```
+
+## Hover
+
+To control the text color of an element on hover, use `hoverColor={color}` utility.
+
+```jsx preview
+<>
+  <template preview>
+    <x.div color="red-400" hoverColor="red-800">
+      Computers have lots of memory but no imagination.
+    </x.div>
+  </template>
+  <x.div color="red-400" hoverColor="red-800">
+    Computers have lots of memory but no imagination.
+  </x.div>
+</>
+```
+
+## Focus
+
+To control the text color of an element on hover, use `focusColor={color}` utility.
+
+```jsx preview
+<>
+  <template preview>
+    <x.input
+      defaultValue="Something"
+      color="red-600"
+      focusColor="red-800"
+      borderRadius="md"
+      border={1}
+      borderColor="red-600"
+      p={2}
+      focusOutline="none"
+    />
+  </template>
+  <x.input defaultValue="Something" color="red-600" focusColor="red-800" />
+</>
+```
+
+## Placeholder
+
+To control the placeholder color of an element, use `placeholderColor={color}` utility.
+
+```jsx preview
+<>
+  <template preview>
+    <x.input
+      placeholder="Type something..."
+      color="red-600"
+      placeholderColor="red-300"
+      borderRadius="md"
+      border={1}
+      borderColor="red-600"
+      p={2}
+      focusOutline="none"
+    />
+  </template>
+  <x.input
+    placeholder="Type something..."
+    color="red-600"
+    placeholderColor="red-300"
+  />
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `color={{ md: "red-600" }}` to an element would apply the `color="red-600"` utility at medium screen sizes and above.
+
+```jsx
+<x.div color={{ md: 'red-600' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+import CustomizeColors from '../../../partials/customizing/colors.mdx'
+
+<CustomizeColors />

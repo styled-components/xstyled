@@ -1,0 +1,186 @@
+---
+section: Interactivity
+title: Cursor
+slug: /docs/cursor/
+---
+
+# Cursor
+
+Utilities for controlling the cursor style when hovering over an element.
+
+<carbon-ad />
+
+| React props        | CSS Properties       |
+| ------------------ | -------------------- |
+| `cursor={keyword}` | `cursor: {keyword};` |
+
+## Auto
+
+Use `cursor="auto"` to allow the browser to change the cursor based on the current content (e.g. automatically change to `text` cursor when hovering over text).
+
+```jsx preview color=rose
+<>
+  <template preview>
+    <x.div
+      cursor="auto"
+      maxWidth="xs"
+      p={2}
+      bg="rose-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </x.div>
+  </template>
+  <x.div cursor="auto">Hover over this text</x.div>
+</>
+```
+
+## Default
+
+Use `cursor="default"` to change the mouse cursor to always use the platform-dependent default cursor (usually an arrow).
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div
+      cursor="default"
+      maxWidth="xs"
+      p={2}
+      bg="amber-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </x.div>
+  </template>
+  <x.div cursor="default">Hover over this text</x.div>
+</>
+```
+
+## Pointer
+
+Use `cursor="pointer"` to change the mouse cursor to indicate an interactive element (usually a pointing hand).
+
+```jsx preview color=purple
+<>
+  <template preview>
+    <x.div
+      cursor="pointer"
+      maxWidth="xs"
+      p={2}
+      bg="purple-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </x.div>
+  </template>
+  <x.div cursor="pointer">Hover over this text</x.div>
+</>
+```
+
+## Wait
+
+Use `cursor="wait"` to change the mouse cursor to indicate something is happening in the background (usually an hourglass or watch).
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div
+      cursor="wait"
+      maxWidth="xs"
+      p={2}
+      bg="emerald-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </x.div>
+  </template>
+  <x.div cursor="wait">Hover over this text</x.div>
+</>
+```
+
+## Text
+
+Use `cursor="text"` to change the mouse cursor to indicate the text can be selected (usually an I-beam shape).
+
+```jsx preview color=fuchsia
+<>
+  <template preview>
+    <x.div
+      cursor="text"
+      maxWidth="xs"
+      p={2}
+      bg="fuchsia-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </x.div>
+  </template>
+  <x.div cursor="text">Hover over this text</x.div>
+</>
+```
+
+## Move
+
+Use `cursor="move"` to change the mouse cursor to indicate something that can be moved.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div
+      cursor="move"
+      maxWidth="xs"
+      p={2}
+      bg="indigo-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </x.div>
+  </template>
+  <x.div cursor="move">Hover over this text</x.div>
+</>
+```
+
+## Not allowed
+
+Use `cursor="not-allowed"` to change the mouse cursor to indicate something can not be interacted with or clicked.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div
+      cursor="not-allowed"
+      maxWidth="xs"
+      p={2}
+      bg="light-blue-200"
+      mx="auto"
+      textAlign="center"
+      color="gray-600"
+    >
+      Hover over this text
+    </x.div>
+  </template>
+  <x.div cursor="not-allowed">Hover over this text</x.div>
+</>
+```
+
+## Responsive
+
+To control cursor style at a specific breakpoint, use responsive object notation. For example, adding the property `cursor={{ md: "pointer" }}` to an element would apply the `cursor="pointer"` utility at medium screen sizes and above.
+
+```jsx
+<x.div cursor={{ md: 'pointer' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

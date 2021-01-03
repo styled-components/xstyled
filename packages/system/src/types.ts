@@ -1,82 +1,92 @@
-export type Variants = {
-  [key: string]: any
+/* eslint-disable @typescript-eslint/no-empty-interface */
+
+export type IVariants = Record<string | number, string | number>
+export type ITheme = {
+  animations?: unknown
+  borders?: unknown
+  borderStyles?: unknown
+  borderWidths?: unknown
+  colors?: unknown
+  fonts?: unknown
+  fontSizes?: unknown
+  fontWeights?: unknown
+  gridTemplateColumns?: unknown
+  gridTemplateRows?: unknown
+  inset?: unknown
+  letterSpacings?: unknown
+  lineHeights?: unknown
+  radii?: unknown
+  ringWidths?: unknown
+  shadows?: unknown
+  screens?: unknown
+  settings?: unknown
+  sizes?: unknown
+  space?: unknown
+  timingFunctions?: unknown
+  transforms?: unknown
+  transitions?: unknown
+  transitionProperties?: unknown
+  transformers?: unknown
+  zIndices?: unknown
+}
+export type IProps = {
+  [Key: string]: any
+  [Key: number]: any
+  theme?: any
+}
+export type IStyles = Record<string, unknown>
+export type IBreakpoints = Record<string | number, number>
+export type IPropsWithTheme<TTheme extends ITheme> = IProps & { theme: TTheme }
+
+export type Mixin = (value: any) => IStyles | null | undefined
+
+export interface StyleGetter {
+  (props: IProps): any
 }
 
-export interface Theme {
-  [key: string]: any
+export type Breakpoints<TTheme extends ITheme> = TTheme extends {
+  breakpoints: IBreakpoints
+}
+  ? TTheme['screens']
+  : Record<string, unknown>
+
+export type BreakpointsProps<TType, TTheme extends ITheme> = {
+  [P in keyof Breakpoints<TTheme>]?: TType
 }
 
-export interface Props {
-  [key: string]: any
-}
+export type SystemProp<TType, TTheme extends ITheme> =
+  | TType
+  | BreakpointsProps<TType, TTheme>
 
-export interface ThemeProps<T> {
-  theme: T
-}
-
-export type StyledProps<P, T> = P & ThemeProps<T>
-
-export interface DefaultThemeBreakpoints {
-  xs: 0
-  sm: 576
-  md: 768
-  lg: 992
-  xl: 1200
-}
-
-export type ThemeBreakpoints<TTheme extends Theme> = TTheme extends {
-  breakpoints: Variants
-}
-  ? ExtractThemeProperty<TTheme, 'breakpoints'>
-  : DefaultThemeBreakpoints
-
-export type BreakpointsProperties<PropType, TTheme extends Theme> = {
-  [P in keyof ThemeBreakpoints<TTheme>]?: PropType
-}
-
-// CSS
-
-export type SystemProperty<PropType, TTheme extends Theme> =
-  | PropType
-  | BreakpointsProperties<PropType, TTheme>
-
-export interface StyleGenerator<TProps = any> {
-  (props: Props): any
+export interface StyleGenerator {
+  (props: IProps): any
   meta: {
     props: string[]
-    getStyle: StyleGenerator<TProps>
+    getStyle: StyleGenerator
     generators?: StyleGenerator[]
   }
 }
 
-export interface TransformValue<TVariants, TBaseType> {
+export interface TransformValue<TValueType = any> {
   (
     value: string | number,
     options: {
-      rawValue: VariantsType<TVariants, TBaseType>
-      variants: TVariants
-      props: Props
+      rawValue: TValueType
+      variants: IVariants
+      props: IProps
     },
   ): string | number | null
 }
 
-export interface ThemeGetter<TVariants, TBaseType> {
-  (value: VariantsType<TVariants, TBaseType>): (props: Props) => any
+export interface ThemeGetter<TValueType = any> {
+  (value: TValueType, defaultValue?: any): (props: IProps) => any
   meta: {
     name?: string
-    transform?: TransformValue<TVariants, TBaseType>
+    transform?: TransformValue<TValueType>
   }
 }
 
 // Theme
-
-/**
- * Extract theme property.
- */
-export type ExtractThemeProperty<
-  TTheme extends Theme,
-  Property extends string
-> = TTheme[Property]
 
 /**
  * Define a type from a variant.
@@ -88,13 +98,21 @@ export type VariantsType<
   ? number | (TBaseType & {})
   : TVariants extends Array<any>
   ? number | (TBaseType & {})
-  : TVariants extends Variants
+  : TVariants extends { default: any }
+  ? keyof TVariants | (TBaseType & {}) | true
+  : TVariants extends IVariants
   ? keyof TVariants | (TBaseType & {})
   : TBaseType & {}
 
-/**
- * Extract type from a theme getter.
- */
-export type ExtractThemeGetterType<
-  T extends (...args: any) => any
-> = Parameters<T>[0]
+export type FirstArg<T extends (...args: any) => any> = Parameters<T>[0]
+
+/* Theme exposed to be overriden */
+export interface Theme extends ITheme {}
+
+// Automatic State Props for TypeScript 4.1
+// For compatibility reason, we use static types instead
+// type StatePropName<TState extends string, TProp extends string> = `${TState}${Capitalize<TProp>}`
+// export type StatePropsOfProp<TStates extends string, TPropKey extends string, TPropType> = {
+//   [K in TStates as (StatePropName<string & K, TPropKey> | TPropKey)]: TPropType
+// }
+// export type SystemStateProps<TTheme, TPropKey extends string, TType> = StatePropsOfProp<DefaultStates, TPropKey, SystemProperty<TType, TTheme>>

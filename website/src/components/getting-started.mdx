@@ -1,0 +1,42 @@
+## Getting Started
+
+### Install xstyled
+
+```
+npm install styled-components @xstyled/styled-components
+```
+
+### Setup `theme` and `Preflight`
+
+```js
+// App.js
+import {
+  defaultTheme,
+  ThemeProvider,
+  Preflight,
+} from '@xstyled/styled-components'
+
+const theme = {
+  ...defaultTheme,
+  // Customize your theme here
+}
+
+export default function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <Preflight />
+      {/* ... */}
+    </ThemeProvider>
+  )
+}
+```
+
+### Write your first component
+
+```js
+import { x } from '@xstyled/styled-components'
+
+function Button(props) {
+  return <x.button bg="blue-500" {...props} />
+}
+```

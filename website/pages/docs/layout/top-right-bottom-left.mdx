@@ -1,0 +1,355 @@
+---
+section: Layout
+title: Top / Right / Bottom / Left
+slug: /docs/top-right-bottom-left/
+---
+
+# Top / Right / Bottom / Left
+
+Utilities for controlling the placement of positioned elements.
+
+<carbon-ad />
+
+| React props      | CSS Properties     |
+| ---------------- | ------------------ |
+| `top={value}`    | `top: {value};`    |
+| `right={value}`  | `right: {value};`  |
+| `bottom={value}` | `bottom: {value};` |
+| `left={value}`   | `left: {value};`   |
+
+## Usage
+
+Use the `{top|right|bottom|left}={value}` utilities to anchor absolutely positioned elements against any of the edges of the nearest positioned parent.
+
+Combined with xstyled's padding and margin utilities, you'll probably find that these are all you need to precisely control absolutely positioned elements.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div display="grid" gridTemplateColumns={{ xs: 2, sm: 3, md: 4 }} gap={4}>
+      {/* Span top edge */}
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
+          top={0}
+          right={0}
+          left={0}
+          h={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          1
+        </x.div>
+      </x.div>
+
+      {/* Span right edge */}
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
+          top={0}
+          right={0}
+          bottom={0}
+          w={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          2
+        </x.div>
+      </x.div>
+
+      {/* Span bottom edge */}
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
+          right={0}
+          bottom={0}
+          left={0}
+          h={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          3
+        </x.div>
+      </x.div>
+
+      {/* Span left edge */}
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
+          top={0}
+          bottom={0}
+          left={0}
+          w={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          4
+        </x.div>
+      </x.div>
+
+      {/* Fill entire parent */}
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
+          top={0}
+          right={0}
+          bottom={0}
+          left={0}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          5
+        </x.div>
+      </x.div>
+
+      {/* Pin to top left corner */}
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
+          top={0}
+          left={0}
+          h={16}
+          w={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          6
+        </x.div>
+      </x.div>
+
+      {/* Pin to top right corner */}
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
+          top={0}
+          right={0}
+          h={16}
+          w={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          7
+        </x.div>
+      </x.div>
+
+      {/* Pin to bottom right corner */}
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
+          right={0}
+          bottom={0}
+          h={16}
+          w={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          8
+        </x.div>
+      </x.div>
+
+      {/* Pin to bottom left corner */}
+      <x.div
+        position="relative"
+        h={32}
+        w={32}
+        bg="emerald-300"
+        borderRadius="md"
+      >
+        <x.div
+          bottom={0}
+          left={0}
+          h={16}
+          w={16}
+          position="absolute"
+          bg="emerald-500"
+          fontWeight="extrabold"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius="md"
+        >
+          9
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  {/* Span top edge */}
+  <x.div position="relative" h={32} w={32}>
+    <x.div top={0} right={0} left={0} h={16}>
+      1
+    </x.div>
+  </x.div>
+
+  {/* Span right edge */}
+  <x.div position="relative" h={32} w={32}>
+    <x.div top={0} right={0} bottom={0} w={16}>
+      2
+    </x.div>
+  </x.div>
+
+  {/* Span bottom edge */}
+  <x.div position="relative" h={32} w={32}>
+    <x.div right={0} bottom={0} left={0} h={16}>
+      2
+    </x.div>
+  </x.div>
+
+  {/* Span left edge */}
+  <x.div position="relative" h={32} w={32}>
+    <x.div top={0} bottom={0} left={0} w={16}>
+      3
+    </x.div>
+  </x.div>
+
+  {/* Fill entire parent */}
+  <x.div position="relative" h={32} w={32}>
+    <x.div top={0} right={0} bottom={0} left={0}>
+      4
+    </x.div>
+  </x.div>
+
+  {/* Pin to top left corner */}
+  <x.div position="relative" h={32} w={32}>
+    <x.div top={0} left={0} h={16} w={16}>
+      5
+    </x.div>
+  </x.div>
+
+  {/* Pin to top right corner */}
+  <x.div position="relative" h={32} w={32}>
+    <x.div top={0} right={0} h={16} w={16}>
+      6
+    </x.div>
+  </x.div>
+
+  {/* Pin to bottom right corner */}
+  <x.div position="relative" h={32} w={32}>
+    <x.div right={0} bottom={0} h={16} w={16}>
+      6
+    </x.div>
+  </x.div>
+
+  {/* Pin to bottom left corner */}
+  <x.div position="relative" h={32} w={32}>
+    <x.div bottom={0} left={0} h={16} w={16}>
+      6
+    </x.div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To position an element only at a specific breakpoint, use responsive object notation. For example, adding the property `top={{ md: 10 }}` to an element would apply the `top=10` utility at medium screen sizes and above.
+
+```jsx
+<x.div top={{ md: 10 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+### Inset scale
+
+If you'd like to customize your values for `top`, `right`, `bottom`, `left`, all at once, use the `theme.inset` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    inset: {
++     sm: '8px',
+    },
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization documentation](/docs/theme/).

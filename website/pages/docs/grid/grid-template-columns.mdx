@@ -1,0 +1,78 @@
+---
+section: Grid
+title: Grid Template Columns
+slug: /docs/grid-template-columns/
+---
+
+# Grid Template Columns
+
+Utilities for specifying the columns in a grid layout.
+
+<carbon-ad />
+
+| React props                   | CSS Properties                    |
+| ----------------------------- | --------------------------------- |
+| `gridTemplateColumns={value}` | `grid-template-columns: {value};` |
+
+## Usage
+
+Use the `gridTemplateColumns={value}` utilities to create grids with n equally sized columns.
+
+```jsx preview color=fuchsia
+<>
+  <template preview>
+    <x.div display="grid" gridTemplateColumns={3} gap={4}>
+      {Array.from({ length: 9 }, (_, index) => index + 1).map(value => (
+        <x.div
+          key={value}
+          h={12}
+          borderRadius="md"
+          bg="fuchsia-500"
+          color="white"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontSize="2xl"
+          fontWeight="extrabold"
+        >
+          {value}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div display="grid" gridTemplateColumns={3} gap={4}>
+    <div>1</div>
+    {/* ... */}
+    <div>9</div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the columns of a grid at a specific breakpoint, use responsive object notation. For example, adding the property `gridTemplateColumns={{ md: 2 }}` to an element would apply the `gridTemplateColumns={2}` utility at medium screen sizes and above.
+
+```jsx
+<x.div display="grid" gridTemplateColumns={{ md: 2 }}>
+  {/* ... */}
+</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+### Grid Template Columns
+
+If you'd like to customize your values for `gridTemplateColumns`, use the `theme.gridTemplateColumns` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    gridTemplateColumns: {
++     16: 'repeat(16, minmax(0, 1fr))',
+    },
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization documentation](/docs/theme/).

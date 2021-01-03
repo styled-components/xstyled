@@ -1,0 +1,113 @@
+---
+section: Transitions
+title: Transition Property
+slug: /docs/transition-property/
+---
+
+# Transition Property
+
+Utilities for controlling which CSS properties transition.
+
+<carbon-ad />
+
+| React props                    | CSS Properties                    |
+| ------------------------------ | --------------------------------- |
+| `transitionProperty={keyword}` | `transition-property: {keyword};` |
+
+## Usage
+
+Use `transitionProperty={keyword}` utilities to specify which properties should transition when they change.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div textAlign="center">
+      <x.button
+        fontWeight="medium"
+        transition
+        transitionDuration={500}
+        transitionProperty="background-color"
+        color="white"
+        bg="indigo-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </x.button>
+    </x.div>
+  </template>
+  <x.button
+    transition
+    transitionProperty="background-color"
+    transitionDuration={500}
+    color="white"
+    bg="indigo-600"
+    hoverBg="red-600"
+    py={3}
+    px={6}
+    borderRadius="md"
+  >
+    Hover me
+  </x.button>
+</>
+```
+
+## Responsive
+
+To change which properties of an element transition at a specific breakpoint, use responsive object notation. For example, adding the property `transitionProperty={{ md: "all" }}` to an element would apply the `transitionProperty="all"` utility at medium screen sizes and above.
+
+```jsx
+<x.div transitionProperty={{ md: 'all' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+import CustomizeTransitionProperties from '../../../partials/customizing/transition-properties.mdx'
+
+<CustomizeTransitionProperties />
+
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all transition properties defined are automatically binded to `transition-property` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Button = styled.button`
+  transition-property: default;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
+
+### Manual
+
+It is possible to manually bind a transition property using `th.transitionProperty` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Button = styled.button`
+  transition: ${th.transitionProperty('default')} 400ms;
+`
+```
+
+## Hooks
+
+Get a transition property in any component using `useTransitionProperty` hook:
+
+```js
+import { useTransitionProperty } from '@xstyled/...'
+
+function Butto() {
+  const transitionProperty = useTransitionProperty('default')
+}
+```
