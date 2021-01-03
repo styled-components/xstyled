@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/styled-components",
   "description": "A utility-first CSS-in-JS framework built for React (styled-components bindings).",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0",
   "keywords": [
     "styled-components",
     "css",
@@ -35,8 +35,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
-    "@xstyled/core": "^2.0.0-alpha.1",
-    "@xstyled/system": "^2.0.0-alpha.1",
-    "@xstyled/util": "^2.0.0-alpha.1"
+    "@xstyled/core": "^2.0.0",
+    "@xstyled/system": "^2.0.0",
+    "@xstyled/util": "^2.0.0"
   }
 }
