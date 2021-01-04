@@ -22,7 +22,7 @@ Use the `boxShadow={shadow}` utilities to apply different sized outer box shadow
 <>
   <template preview>
     <x.div display="grid" gap={5} gridTemplateColumns={{ sm: 2, lg: 5 }} p={3}>
-      {['sm', 'default', 'md', 'lg', 'xl', '2xl'].map(boxShadow => (
+      {['sm', 'default', 'md', 'lg', 'xl', '2xl'].map((boxShadow) => (
         <x.div
           p={6}
           bg="white"
@@ -128,7 +128,7 @@ const defaultTheme = {
 
 ### Automatic
 
-Using xstyled's `styled`, all shadows defined are automatically binded to `box-shadow` attribute:
+Using xstyled's `styled`, all shadows defined are automatically bound to `box-shadow` attribute:
 
 ```js
 import styled from '@xstyled/...'
