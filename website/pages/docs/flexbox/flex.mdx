@@ -1,0 +1,243 @@
+---
+section: Flexbox
+title: Flex
+slug: /docs/flex/
+---
+
+# Flex
+
+Utilities for controlling how flex items both grow and shrink.
+
+<carbon-ad />
+
+| React props    | CSS Properties   |
+| -------------- | ---------------- |
+| `flex={value}` | `flex: {value};` |
+
+## Initial
+
+Use `flex="0 1 auto"` to allow a flex item to shrink but not grow, taking into account its initial size:
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <div>
+      <x.p fontSize="sm" color="indigo-600">
+        Items don't grow when there's extra space
+      </x.p>
+      <x.div mt={2} display="flex" spaceX={4}>
+        <x.div
+          flex="0 1 auto"
+          borderRadius="md"
+          bg="indigo-500"
+          color="white"
+          fontWeight="semibold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={6}
+        >
+          Short
+        </x.div>
+        <x.div
+          flex="0 1 auto"
+          borderRadius="md"
+          bg="indigo-500"
+          color="white"
+          fontWeight="semibold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={6}
+        >
+          Medium length
+        </x.div>
+      </x.div>
+
+      <x.p mt={8} fontSize="sm" color="indigo-600">
+        Items shrink if possible when needed
+      </x.p>
+      <x.div mt={2} display="flex" spaceX={4}>
+        <x.div
+          flex="0 1 auto"
+          borderRadius="md"
+          bg="indigo-500"
+          color="white"
+          fontWeight="semibold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={6}
+        >
+          Short
+        </x.div>
+        <x.div
+          flex="0 1 auto"
+          borderRadius="md"
+          bg="indigo-500"
+          color="white"
+          fontWeight="semibold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={6}
+        >
+          Medium length
+        </x.div>
+        <x.div
+          flex="0 1 auto"
+          borderRadius="md"
+          bg="indigo-500"
+          color="white"
+          fontWeight="semibold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={6}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ad
+          labore ipsam, aut rem quo repellat esse tempore id, quidem
+        </x.div>
+      </x.div>
+    </div>
+  </template>
+  <x.div display="flex">
+    <x.div flex="0 1 auto">{/* Won't grow, but will shrink if needed */}</x.div>
+    <x.div flex="0 1 auto">{/* Won't grow, but will shrink if needed */}</x.div>
+    <x.div flex="0 1 auto">{/* Won't grow, but will shrink if needed */}</x.div>
+  </x.div>
+</>
+```
+
+## Grow
+
+Use `flex="1 1 0"` to allow a flex item to shrink but not grow, taking into account its initial size:
+
+```jsx preview color=fuchsia
+<>
+  <template preview>
+    <div>
+      <x.p fontSize="sm" color="fuchsia-600">
+        Default behaviour
+      </x.p>
+      <x.div mt={2} display="flex" spaceX={4}>
+        <x.div
+          borderRadius="md"
+          bg="fuchsia-500"
+          color="white"
+          fontWeight="semibold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={6}
+        >
+          Short
+        </x.div>
+        <x.div
+          borderRadius="md"
+          bg="fuchsia-500"
+          color="white"
+          fontWeight="semibold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={6}
+        >
+          Medium length
+        </x.div>
+        <x.div
+          borderRadius="md"
+          bg="fuchsia-500"
+          color="white"
+          fontWeight="semibold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={6}
+        >
+          Significantly larger amount of content
+        </x.div>
+      </x.div>
+
+      <x.p mt={8} fontSize="sm" color="fuchsia-600">
+        With "1 1 0"
+      </x.p>
+      <x.div mt={2} display="flex" spaceX={4}>
+        <x.div
+          flex="1 1 0"
+          borderRadius="md"
+          bg="fuchsia-500"
+          color="white"
+          fontWeight="semibold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={6}
+        >
+          Short
+        </x.div>
+        <x.div
+          flex="1 1 0"
+          borderRadius="md"
+          bg="fuchsia-500"
+          color="white"
+          fontWeight="semibold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={6}
+        >
+          Medium length
+        </x.div>
+        <x.div
+          flex="1 1 0"
+          borderRadius="md"
+          bg="fuchsia-500"
+          color="white"
+          fontWeight="semibold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={6}
+        >
+          Significantly larger amount of content
+        </x.div>
+      </x.div>
+    </div>
+  </template>
+  <x.div display="flex">
+    <x.div flex="1 1 0">
+      {/* Will grow and shrink as needed without taking initial size into account */}
+    </x.div>
+    <x.div flex="1 1 0">
+      {/* Will grow and shrink as needed without taking initial size into account */}
+    </x.div>
+    <x.div flex="1 1 0">
+      {/* Will grow and shrink as needed without taking initial size into account */}
+    </x.div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control how flex items wrap at a specific breakpoint, use responsive object notation. For example, adding the property `flexWrap={{ md: 'wrap-reverse' }}` to an element would apply the `flexWrap="wrap-reverse"` utility at medium screen sizes and above.
+
+```jsx
+<x.div display="flex" flexWrap={{ md: 'wrap-reverse' }}>
+  {/* ... */}
+</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

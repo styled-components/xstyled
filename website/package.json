@@ -1,22 +1,21 @@
 {
+  "name": "@xstyled/website",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "build": "gatsby build && cp _redirects public/",
-    "dev": "gatsby develop",
+    "develop": "gatsby develop",
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@smooth-ui/core-sc": "^11.1.5",
-    "@xstyled/styled-components": "^1.15.0",
-    "@xstyled/system": "^1.14.0",
-    "gatsby": "^2.18.17",
-    "gatsby-plugin-layout": "^1.1.18",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-live": "^2.2.2",
-    "reakit": "^1.0.0-beta.14",
-    "smooth-doc": "^3.3.0",
-    "styled-components": "^4.4.1"
+    "prismjs": "^1.22.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "smooth-doc": "^5.5.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "gatsby": "^2.29.3",
+    "gatsby-plugin-google-analytics": "^2.8.0",
+    "gatsby-plugin-layout": "^1.7.0"
+  }
 }

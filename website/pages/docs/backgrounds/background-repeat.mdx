@@ -1,0 +1,100 @@
+---
+section: Backgrounds
+title: Background Repeat
+slug: /docs/background-repeat/
+---
+
+# Background Repeat
+
+Utilities for controlling the repetition of an element's background image.
+
+<carbon-ad />
+
+| React props                | CSS Properties                |
+| -------------------------- | ----------------------------- |
+| `backgroundRepeat={keyword}` | `background-repeat: {keyword};` |
+
+## Repeat
+
+Use `backgroundRepeat="repeat"` to repeat the background image both vertically and horizontally.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div
+      bg="emerald-300"
+      h={96}
+      backgroundRepeat="repeat"
+      backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=200&h=200&q=80');"
+    />
+  </template>
+  <x.div backgroundRepeat="repeat" backgroundImage="url(...)" />
+</>
+```
+
+## No Repeat
+
+Use `backgroundRepeat="no-repeat"` when you don't want to repeat the background image.
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.div
+      bg="red-300"
+      h={96}
+      backgroundRepeat="no-repeat"
+      backgroundPosition="center"
+      backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=200&h=200&q=80');"
+    />
+  </template>
+  <x.div backgroundRepeat="no-repeat" backgroundImage="url(...)" />
+</>
+```
+
+## Repeat Horizontally
+
+Use `backgroundRepeat="repeat-x"` to repeat the background image only horizontally.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div
+      bg="amber-300"
+      h={96}
+      backgroundRepeat="repeat-x"
+      backgroundPosition="center"
+      backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=200&h=200&q=80');"
+    />
+  </template>
+  <x.div backgroundRepeat="repeat-x" backgroundImage="url(...)" />
+</>
+```
+
+## Repeat Vertically
+
+Use `backgroundRepeat="repeat-y"` to repeat the background image only vertically.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div
+      bg="light-blue-300"
+      h={96}
+      backgroundRepeat="repeat-y"
+      backgroundPosition="center"
+      backgroundImage="url('https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=200&h=200&q=80');"
+    />
+  </template>
+  <x.div backgroundRepeat="repeat-y" backgroundImage="url(...)" />
+</>
+```
+
+## Responsive
+
+To control the repetition of an element's background image at a specific breakpoint, use responsive object notation. For example, adding the property `backgroundRepeat={{ md: "no-repeat" }}` to an element would apply the `backgroundRepeat="no-repeat"` utility at medium screen sizes and above.
+
+```jsx
+<x.div backgroundRepeat={{ md: 'no-repeat' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

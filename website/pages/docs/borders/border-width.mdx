@@ -1,0 +1,161 @@
+---
+section: Borders
+title: Border Width
+slug: /docs/border-width/
+---
+
+# Border Width
+
+Utilities for controlling the width of an element's borders.
+
+<carbon-ad />
+
+| React props                | CSS Properties                 |
+| -------------------------- | ------------------------------ |
+| `borderWidth={size}`       | `border-width: {size};`        |
+| `borderTopWidth={size}`    | `border-top-width: {size};`    |
+| `borderRightWidth={size}`  | `border-right-width: {size};`  |
+| `borderBottomWidth={size}` | `border-bottom-width: {size};` |
+| `borderLeftWidth={size}`   | `border-left-width: {size};`   |
+
+## All sides
+
+Use `borderWidth={size}` utilities to set the border width for all sides of an element.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 5 }}>
+      {[0, 'default', 2, 4, 8].map(borderWidth => (
+        <x.div
+          p={6}
+          bg="indigo-300"
+          color="white"
+          textAlign="center"
+          fontWeight="extrabold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderStyle="solid"
+          borderColor="indigo-600"
+          borderWidth={borderWidth}
+        >
+          {borderWidth}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div borderWidth={0} borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth={2} borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth={4} borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth={8} borderStyle="solid" borderColor="indigo-600" />
+</>
+```
+
+## Individual sides
+
+Use `borderWidth={size}` utilities to set the border width for one side of an element.
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 5 }}>
+      {['2 0 0 0', '0 2 0 0', '0 0 2 0', '0 0 0 2'].map(borderWidth => (
+        <x.div
+          p={6}
+          bg="red-300"
+          color="white"
+          textAlign="center"
+          fontWeight="extrabold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderStyle="solid"
+          borderColor="red-600"
+          borderWidth={borderWidth}
+        >
+          {borderWidth}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div borderWidth="2 0 0 0" borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth="0 2 0 0" borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth="0 0 2 0" borderStyle="solid" borderColor="indigo-600" />
+  <x.div borderWidth="0 0 0 2" borderStyle="solid" borderColor="indigo-600" />
+</>
+```
+
+## Between elements
+
+You can also add borders between child elements using the `divide{X,Y}={width}` and `divideColor={color}` utilities.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div divideY divideColor="light-blue-400">
+      <x.div
+        p={4}
+        color="light-blue-800"
+        textAlign="center"
+        fontWeight="extrabold"
+      >
+        1
+      </x.div>
+      <x.div
+        p={4}
+        color="light-blue-800"
+        textAlign="center"
+        fontWeight="extrabold"
+      >
+        2
+      </x.div>
+      <x.div
+        p={4}
+        color="light-blue-800"
+        textAlign="center"
+        fontWeight="extrabold"
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div divideY divideColor="light-blue-400">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+Learn more in the [Divide Width](/docs/divide-width/) and [Divide Color](/docs/divide-color/) documentation.
+
+## Responsive
+
+To control the border width of an element at a specific breakpoint, use responsive object notation. For example, adding the property `borderWidth={{ md: 2 }}` to an element would apply the `borderWidth={2}` utility at medium screen sizes and above.
+
+```jsx
+<x.div borderWidth={{ md: 2 }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+### Border Widths
+
+If you'd like to customize your values for border widths, use the `theme.borderWidths` section of your theme.
+
+```diffjs
+  // theme.js
+  import { th } from '@xstyled/styled-components'
+
+  export const theme = {
+    radii: {
+      // ...
+-     default: '1px',
++     default: '2px',
+    },
+  }
+```

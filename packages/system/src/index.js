@@ -1,8 +1,0 @@
-export * from './style'
-export * from './styles/index'
-export * from './th'
-export * from './variant'
-export * from './breakpoints'
-export * from './transformers'
-export { getBreakpoints } from './media'
-export { createSystemComponent } from './systemComponent'

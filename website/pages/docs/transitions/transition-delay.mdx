@@ -1,0 +1,92 @@
+---
+section: Transitions
+title: Transition Delay
+slug: /docs/transition-delay/
+---
+
+# Transition Delay
+
+Utilities for controlling the delay of CSS transitions.
+
+<carbon-ad />
+
+| React props                  | CSS Properties                  |
+| ---------------------------- | ------------------------------- |
+| `transitionDelay={duration}` | `transition-delay: {duration};` |
+
+## Usage
+
+Use `transitionDelay={duration}` utilities to control an element's transition-delay.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="space-around" alignItems="center">
+      <x.button
+        fontWeight="medium"
+        transition
+        transitionDuration={500}
+        transitionDelay={150}
+        color="white"
+        bg="amber-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </x.button>
+      <x.button
+        fontWeight="medium"
+        transition
+        transitionDuration={500}
+        transitionDelay={300}
+        color="white"
+        bg="amber-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </x.button>
+      <x.button
+        fontWeight="medium"
+        transition
+        transitionDuration={500}
+        transitionDelay={700}
+        color="white"
+        bg="amber-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </x.button>
+    </x.div>
+  </template>
+  <x.button transition transitionDelay={150}>
+    Hover me
+  </x.button>
+  <x.button transition transitionDelay={300}>
+    Hover me
+  </x.button>
+  <x.button transition transitionDelay={700}>
+    Hover me
+  </x.button>
+</>
+```
+
+## Responsive
+
+To control an element's transition-delay at a specific breakpoint, use responsive object notation. For example, adding the property `transitionDelay={{ md: 300 }}` to an element would apply the `transitionDelay={300}` utility at medium screen sizes and above.
+
+```jsx
+<x.div transitionDelay={{ md: 300 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

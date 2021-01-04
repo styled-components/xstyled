@@ -1,0 +1,75 @@
+---
+section: Typography
+title: Text Alignment
+slug: /docs/text-align/
+---
+
+# Text Alignment
+
+Utilities for controlling the alignment of text.
+
+<carbon-ad />
+
+| React props             | CSS Properties             |
+| ----------------------- | -------------------------- |
+| `textAlign={alignment}` | `text-align: {alignment};` |
+
+## Usage
+
+Control the text alignment of an element using the `textAlign="left"`, `textAlign="center"`, `textAlign="right"`, and `textAlign="justify"` utilities.
+
+```jsx preview color=cool-gray
+<>
+  <template preview>
+    <x.div spaceY={8}>
+      {[
+        ['left', 'purple'],
+        ['center', 'rose'],
+        ['right', 'emerald'],
+        ['justify', 'amber'],
+      ].map(([textAlign, color]) => (
+        <x.dl key={textAlign} color={`${color}-700`} overflow="hidden">
+          <x.dt
+            w={16}
+            flexShrink={0}
+            fontSize="sm"
+            opacity={0.8}
+            fontFamily="mono"
+            mb={1}
+          >
+            textAlign={textAlign}
+          </x.dt>
+          <x.dd fontSize="xl" m={0}>
+            <x.div
+              textAlign={textAlign}
+              fontFamily="flow"
+              fontSize="3xl"
+              lineHeight={0.8}
+              color={`${color}-700`}
+            >
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
+              fugit, enim molestiae praesentium eveniet, recusandae et error
+              beatae facilis ex harum consequuntur, quia pariatur non. Doloribus
+              illo, ullam blanditiis ab.
+            </x.div>
+          </x.dd>
+        </x.dl>
+      ))}
+    </x.div>
+  </template>
+  <x.p textAlign="left">Lorem ipsum ...</x.p>
+  <x.p textAlign="center">Lorem ipsum ...</x.p>
+  <x.p textAlign="right">Lorem ipsum ...</x.p>
+  <x.p textAlign="justify">Lorem ipsum ...</x.p>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `textAlign={{ md: "justify" }}` to an element would apply the `textAlign="justify"` utility at medium screen sizes and above.
+
+```jsx
+<x.div textAlign={{ md: 'justify' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

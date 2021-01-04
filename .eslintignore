@@ -3,3 +3,4 @@ dist/
 /coverage/
 .cache/
 public/
+/benchmarks/

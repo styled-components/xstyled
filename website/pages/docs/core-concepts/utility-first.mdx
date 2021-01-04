@@ -1,0 +1,243 @@
+---
+section: Core Concepts
+title: Utility First
+slug: /docs/utility-first/
+order: 1
+---
+
+# Utility First
+
+Building complex components using utility props.
+
+<carbon-ad />
+
+Traditionally when you use Emotion or styled-components, you write CSS, as object or as string but it is still CSS:
+
+❌ **Using a traditional approach where custom designs require custom CSS**
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div maxWidth="sm" mx="auto" p={6} display="flex" alignItems="center" bg="white" borderRadius="xl" boxShadow="md" spaceX={4}>
+      <x.div flexShrink={0}>
+        <x.svg h={12} w={12} viewBox="0 0 40 40">
+          <defs>
+            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a">
+              <stop stopColor="#2397B3" offset="0%"/>
+              <stop stopColor="#13577E" offset="100%"/>
+            </linearGradient>
+            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b">
+              <stop stopColor="#73DFF2" offset="0%"/>
+              <stop stopColor="#47B1EB" offset="100%"/>
+            </linearGradient>
+          </defs>
+          <g fill="none" fillRule="evenodd">
+            <path
+              d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z"
+              fill="url(#a)"
+              transform="translate(1 1)"
+            />
+            <path
+              d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z"
+              fill="url(#b)"
+              transform="translate(1 1)"
+            />
+            <path
+              d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+              fill="#FFF"
+            />
+          </g>
+        </x.svg>
+      </x.div>
+      <x.div>
+        <x.div fontSize="xl" fontWeight="medium" color="black">ChitChat</x.div>
+        <x.p color="gray-500">You have a new message!</x.p>
+      </x.div>
+    </x.div>
+  </template>
+
+  const Container = styled.div`
+    display: flex;
+    max-width: 24rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  `
+
+  const LogoWrapper = styled.div`
+    flex-shrink: 0;
+  `
+
+  const Logo = styled.img`
+    height: 3rem;
+    width: 3rem;
+  `
+
+  const Content = styled.div`
+    margin-left: 1.5rem;
+    padding-top: 0.25rem;
+  `
+
+  const Title = styled.h4`
+    color: #1a202c;
+    font-size: 1.25rem;
+    line-height: 1.25;
+  `
+
+  const Message = styled.p`
+    color: #718096;
+    font-size: 1rem;
+    line-height: 1.5;
+  `
+
+  function ChatNotification() {
+    return (
+      <Container>
+        <LogoWrapper>
+          <Logo src="/img/logo.svg" alt="ChitChat Logo" />
+        </LogoWrapper>
+        <Content>
+          <Title>ChitChat</Title>
+          <Message>You have a new message!</Message>
+        </Content>
+      </Container>
+    )
+  }
+</>
+```
+
+With xstyled, your style components only using props:
+
+✅ **Using xstyled to build custom design without writing CSS**
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div
+      maxWidth="sm"
+      mx="auto"
+      p={6}
+      display="flex"
+      alignItems="center"
+      bg="white"
+      borderRadius="xl"
+      boxShadow="md"
+      spaceX={4}
+    >
+      <x.div flexShrink={0}>
+        <x.svg h={12} w={12} viewBox="0 0 40 40">
+          <defs>
+            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="a">
+              <stop stopColor="#2397B3" offset="0%"/>
+              <stop stopColor="#13577E" offset="100%"/>
+            </linearGradient>
+            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="b">
+              <stop stopColor="#73DFF2" offset="0%"/>
+              <stop stopColor="#47B1EB" offset="100%"/>
+            </linearGradient>
+          </defs>
+          <g fill="none" fillRule="evenodd">
+            <path
+              d="M28.872 22.096c.084.622.128 1.258.128 1.904 0 7.732-6.268 14-14 14-2.176 0-4.236-.496-6.073-1.382l-6.022 2.007c-1.564.521-3.051-.966-2.53-2.53l2.007-6.022A13.944 13.944 0 0 1 1 24c0-7.331 5.635-13.346 12.81-13.95A9.967 9.967 0 0 0 13 14c0 5.523 4.477 10 10 10a9.955 9.955 0 0 0 5.872-1.904z"
+              fill="url(#a)"
+              transform="translate(1 1)"
+            />
+            <path
+              d="M35.618 20.073l2.007 6.022c.521 1.564-.966 3.051-2.53 2.53l-6.022-2.007A13.944 13.944 0 0 1 23 28c-7.732 0-14-6.268-14-14S15.268 0 23 0s14 6.268 14 14c0 2.176-.496 4.236-1.382 6.073z"
+              fill="url(#b)"
+              transform="translate(1 1)"
+            />
+            <path
+              d="M18 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM24 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM30 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+              fill="#FFF"
+            />
+          </g>
+        </x.svg>
+      </x.div>
+      <x.div>
+        <x.div fontSize="xl" fontWeight="medium" color="black">
+          ChitChat
+        </x.div>
+        <x.p color="gray-500">You have a new message!</x.p>
+      </x.div>
+    </x.div>
+  </template>
+  function ChatNotification() {
+    return (
+      <x.div
+        p={6}
+        maxWidth="sm"
+        mx="auto"
+        bg="white"
+        borderRadius="xl"
+        boxShadow="md"
+        display="flex"
+        alignItems="center"
+        spaceX={4}
+      >
+        <x.div flexShrink={0}>
+          <x.img h={12} w={12} src="/img/logo.svg" alt="ChitChat Logo" />
+        </x.div>
+        <x.div>
+          <x.h4 fontSize="xl" fontWeight="medium" color="black">
+            ChitChat
+          </x.h4>
+          <x.p color="gray-500">You have a new message!</x.p>
+        </x.div>
+      </x.div>
+    )
+  }
+</>
+```
+
+This approach allows us to implement a completely custom component design without writing a single line of custom CSS.
+
+You could find it ugly and complex, you are right. It could be confusing the first time you see it. But before thowing it, you should give a try!
+
+They are several benefits from this approach:
+
+- **No intermediate components** — Everything is built-in the component
+- **Fully declarative** — Everything is declarative, a custom set of props give a custom rendering
+- **Concise** — In a few line of code, you have a ready-to-use component
+
+## Why not inline styles?
+
+By seeing this approach you may wonder why not using just inline styles. xstyled is close to inline style but it has several advantages over them:
+
+- **Designing with constraints** — Using inline styles, every value is a magic number. xstyled uses values the design system defined in your theme.
+- **Responsive design** — Unfortunately, media queries are not supported in inline styles. xstyled provides [responsive variants](/docs/responsive-design/) to build responsive interface.
+- **Hover, focus, and other states** — Inline styles can't target states like hover or focus, but xstyled [state props](/docs/hover-focus-other-states/) make it easy to style those.
+
+## Why not `css` props?
+
+If you know [Emotion `css` prop](https://emotion.sh/docs/css-prop), you could wonder why using xstyled instead of emotion css prop. There is several reasons:
+
+- **Designing with constraints** — Theme is part of xstyled, you just have to type the name of a color to use it. It is not the case with CSS prop.
+- **Developer experience** — Typing CSS is verbose and takes time. xstyled has short syntax for responsive, states, short prop names... Everything makes it easier than writing CSS.
+- **Utilities** — xstyled is not just CSS, it has powerful utilities for spacing, gradients, transforms, grids...
+
+## Design Tokens
+
+It exists several kind of design tokens:
+
+- **Global tokens**: the primitive, for example `#f43f5e`
+- **Alias tokens**: the alias of the primitive, for example `red-500`
+- **Logic tokens**: the logic alias, for example `cta-background-color`
+
+In built-in theme, we expose some _alias tokens_, for color `red-500` is the alias of `#f43f5e`.
+
+If you want to create a scaling design system, we recommend adding logic tokens in your theme. xstyled's `th` utility allows you to create design token aliases in your theme:
+
+```js
+import { th, defaultTheme } from '@xstyled/...'
+
+const theme = {
+  ...defaultTheme
+  colors: {
+    ...defaultTheme,
+    'cta-background-color': th.color('red-500'),
+  }
+}
+```

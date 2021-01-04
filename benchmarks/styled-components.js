@@ -39,7 +39,7 @@ function runStyled() {
 suite
   .add('styled-components', runStyled)
   .add('@xstyled/styled-components', runXstyled)
-  .on('cycle', event => {
+  .on('cycle', (event) => {
     console.log(String(event.target))
   })
   .on('complete', function onComplete() {

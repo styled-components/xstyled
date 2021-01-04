@@ -1,0 +1,87 @@
+---
+section: Core Concepts
+title: Transformers
+slug: /docs/transformers/
+---
+
+# Transformers
+
+Change the behaviour of xstyled's primitives.
+
+<carbon-ad />
+
+Transformers are an advanced feature of styled that give you the opportunity to configure the underlayer of the system.
+
+## Use `rem` as default unit
+
+[Using `rem` is always better for accessiblity](https://engageinteractive.co.uk/blog/em-vs-rem-vs-px), but it is very hard to implement a complete design using `rem` unit because most of design tools are not ready for it. For example, Sketch displays pixels instead of `rem`.
+
+xstyled solves this problem by automatically transforming your `px` into `rem`. It uses a base of `1rem = 16px`, the default on modern browsers.
+
+To use `rem` instead of `px`, configure transformers in your theme. All unitless properties will be transformed into `rem` instead of `px`.
+
+```js
+import styled, { x, ThemeProvider, rpxTransformers } from '@xstyled/...'
+
+const theme = {
+  transformers: {
+    ...rpxTransformers,
+  },
+}
+
+const Title = styled.h1`
+  font-size: 20;
+`
+
+export default () => (
+  <ThemeProvider theme={theme}>
+    <Title>Hello</Title>
+    <x.div m={16} />
+  </ThemeProvider>
+)
+
+// The style of the `Title` will be `font-size: 1.25rem` instead of `font-size: 1.25rem`.
+// The style of the `Box` will be `margin: 1rem` instead of `margin: 16px`.
+```
+
+> If you want to use `px` again, just specify it as string: `font-size: 12px`.
+
+### Change the default ratio
+
+By default, xstyled uses the default value of `1rem = 16px`. It is the default base root font size in all browsers. You can configure it in `theme.settings.rootFontSize`.
+
+```js
+export const theme = {
+  settings: {
+    // <x.div m={20} /> will be transformed to <x.div m="1rem" />
+    rootFontSize: 20,
+  },
+}
+```
+
+## Use custom transformers
+
+All theme getters are configurable through transformers. You can for example write a transformers that transforms colors on the fly.
+
+```js
+import styled, { ThemeProvider } from '@xstyled/styled-components'
+import { lighten } from 'polished'
+
+const theme = {
+  transformers: {
+    color: (value) => {
+      const matches = value.match(/(.*)\.light/)
+      if (!matches) return value
+      return lighten(0.2, matches[1])
+    },
+  },
+}
+
+export default () => (
+  <ThemeProvider theme={theme}>
+    <Box backgroundColor="black.light" />
+  </ThemeProvider>
+)
+
+// The background of the box will be "black" lightened with 0.2
+```

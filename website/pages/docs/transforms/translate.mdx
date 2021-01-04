@@ -1,0 +1,67 @@
+---
+section: Transforms
+title: Translate
+slug: /docs/translate/
+---
+
+# Translate
+
+Utilities for translating elements with transform.
+
+<carbon-ad />
+
+| React props          | CSS Properties              |
+| -------------------- | --------------------------- |
+| `translateX={space}` | `--x-translate-x: {space};` |
+| `translateY={space}` | `--x-translate-y: {space};` |
+
+## Usage
+
+Translate an element by first enabling transforms with the `transform` utility, then specifying the translate direction and distance using the `translateX={space}` and `translateY={space}` utilities.
+
+```jsx preview color=rose
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      flexDirection={{ xs: 'column', md: 'row' }}
+      justifyContent="space-around"
+      spaceY={{ xs: 0, md: 12 }}
+      spaceY={{ xs: 12, md: 0 }}
+      my={10}
+    >
+      {[6, -6, 0].map((translateY) => (
+        <x.div key={translateY} w={16} h={16} bg="rose-300" borderRadius="md">
+          <x.img
+            h={16}
+            w={16}
+            transform
+            translateY={translateY}
+            borderRadius="md"
+            src="https://images.unsplash.com/photo-1490079027102-cd08f2308c73?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=285&h=285&q=80"
+          />
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.img transform translateY={6} />
+  <x.img transform translateY={-6} />
+  <x.img transform translateY={0} />
+</>
+```
+
+## Responsive
+
+To control the translation of an element at a specific breakpoint, use responsive object notation. For example, adding the property `translateX={{ md: 6 }}` to an element would apply the `translateX={6}` utility at medium screen sizes and above.
+
+```jsx
+<x.div transform translateX={{ md: 6 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+import CustomizeSpace from '../../../partials/customizing/space.mdx'
+
+<CustomizeSpace />

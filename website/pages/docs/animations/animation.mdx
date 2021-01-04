@@ -1,0 +1,342 @@
+---
+section: Animations
+title: Animation
+slug: /docs/animation/
+---
+
+# Animation
+
+Utilities for animating elements with CSS animations.
+
+<carbon-ad />
+
+| React props             | CSS Properties            |
+| ----------------------- | ------------------------- |
+| `animation={animation}` | `animation: {animation};` |
+
+## Spin
+
+Add the `animation="spin"` utility to add a linear spin animation to elements like loading indicators.
+
+```jsx preview color=rose
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="space-around">
+      <x.span display="inline-flex" borderRadius="md" boxShadow="sm">
+        <x.button
+          type="button"
+          display="inline-flex"
+          alignItems="center"
+          px={4}
+          py={2}
+          border
+          borderColor="transparent"
+          lineHeight={6}
+          fontWeight="medium"
+          borderRadius="md"
+          color="white"
+          bg="rose-600"
+          disabled
+        >
+          <x.svg
+            animation="spin"
+            ml={-1}
+            mr={3}
+            h={5}
+            w={5}
+            color="white"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <x.circle
+              opacity={0.25}
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            />
+            <x.path
+              opacity={0.75}
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            />
+          </x.svg>
+          Processing
+        </x.button>
+      </x.span>
+    </x.div>
+  </template>
+  <x.button type="button" bg="rose-600" disabled>
+    <x.svg viewBox="0 0 24 24" animation="spin">
+      {/* ... */}
+    </x.svg>
+    Processing
+  </x.button>
+</>
+```
+
+## Ping
+
+Add the `animation="ping"` utility to make an element scale and fade like a radar ping or ripple of water — useful for things like notification badges.
+
+```jsx preview color=purple
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="space-around">
+      <x.span display="inline-flex" borderRadius="md" boxShadow="sm">
+        <x.button
+          type="button"
+          display="inline-flex"
+          alignItems="center"
+          position="relative"
+          px={4}
+          py={2}
+          border
+          borderColor="purple-400"
+          focusBorderColor="purple-300"
+          transition
+          lineHeight={6}
+          fontWeight="medium"
+          borderRadius="md"
+          color="purple-800"
+          bg="white"
+        >
+          <x.span
+            display="flex"
+            w={3}
+            h={3}
+            position="absolute"
+            top={0}
+            right={0}
+            mt={-1}
+            mr={-1}
+          >
+            <x.span
+              animation="ping"
+              position="absolute"
+              display="inline-flex"
+              w={1}
+              h={1}
+              borderRadius="full"
+              bg="purple-400"
+              opacity={0.75}
+            />
+            <x.span
+              position="relative"
+              display="inline-flex"
+              borderRadius="full"
+              h={3}
+              w={3}
+              bg="purple-500"
+            />
+          </x.span>
+          Transactions
+        </x.button>
+      </x.span>
+    </x.div>
+  </template>
+  <x.span display="flex" w={3} h={3}>
+    <x.span
+      animation="ping"
+      position="absolute"
+      display="inline-flex"
+      w={1}
+      h={1}
+      borderRadius="full"
+      bg="purple-400"
+      opacity={0.75}
+    />
+    <x.span
+      position="relative"
+      display="inline-flex"
+      borderRadius="full"
+      h={3}
+      w={3}
+      bg="purple-500"
+    />
+  </x.span>
+</>
+```
+
+## Pulse
+
+Add the `animation="pulse"` utility to make an element gently fade in and out — useful for things like skeleton loaders.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div
+      border
+      borderColor="light-blue-300"
+      boxShadow
+      borderRadius="md"
+      p={4}
+      maxWidth="sm"
+      w={1}
+      mx="auto"
+    >
+      <x.div animation="pulse" display="flex" spaceX={4}>
+        <x.div borderRadius="full" bg="light-blue-400" w={12} h={12} />
+        <x.div flex="1" spaceY={4} py={1}>
+          <x.div h={4} bg="light-blue-400" borderRadius w={3 / 4} />
+          <x.div spaceY={2}>
+            <x.div h={4} bg="light-blue-400" borderRadius />
+            <x.div h={4} bg="light-blue-400" borderRadius w={5 / 6} />
+          </x.div>
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div
+    border
+    borderColor="light-blue-300"
+    boxShadow
+    borderRadius="md"
+    p={4}
+    maxWidth="sm"
+    w={1}
+    mx="auto"
+  >
+    <x.div animation="pulse" display="flex" spaceX={4}>
+      <x.div borderRadius="full" bg="light-blue-400" w={12} h={12} />
+      <x.div flex="1" spaceY={4} py={1}>
+        <x.div h={4} bg="light-blue-400" borderRadius w={3 / 4} />
+        <x.div spaceY={2}>
+          <x.div h={4} bg="light-blue-400" borderRadius />
+          <x.div h={4} bg="light-blue-400" borderRadius w={5 / 6} />
+        </x.div>
+      </x.div>
+    </x.div>
+  </x.div>
+</>
+```
+
+## Bounce
+
+Add the `animation="bounce"` utility to make an element bounce up and down — useful for things like "scroll down" indicators.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="center" my={5}>
+      <x.svg
+        animation="bounce"
+        w={6}
+        h={6}
+        color="amber-800"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </x.svg>
+    </x.div>
+  </template>
+  <x.svg animation="bounce" w={6} h={6}>
+    {/* ... */}
+  </x.div>
+</>
+```
+
+## Prefers-reduced-motion
+
+You can conditionally apply animations and transitions using the `motionSafe` and `motionReduce` variants:
+
+```js
+<x.button type="button" bg="indigo-600" disabled>
+  <x.svg motionSafeAnimation="spin" h={5} w={5} mr={3} viewBox="0 0 24 24">
+    {/* ... */}
+  </x.svg>
+  Processing
+</x.button>
+```
+
+## Responsive
+
+To change or disable an animation at a specific breakpoint, use responsive object notation. For example, adding the property `animation={{ md: "spin" }}` to an element would apply the `animation="spin"` utility at medium screen sizes and above.
+
+```jsx
+<x.div animation={{ md: 'spin' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+### Animations
+
+Animations by their very nature tend to be highly project-specific. **The animations we include by default are best thought of as helpful examples**, and you're encouraged to customize your animations to better suit your needs.
+
+By default xstyled provides utilities for four different example animations. You change, add, or remove these by customizing the animation section of your theme configuration.
+
+Note that **animations `keyframes` have to be declared globally**. Default animations provided by xstyled are declared in [preflight](/docs/preflight/) and are prefixed by `x-`.
+
+```diffjs
+  // theme.js
+
+  export const theme = {
+    animations: {
+      // ...
+     'spin-slow': 'x-spin 3s linear infinite',
+    },
+  }
+```
+
+If you don't want to customize it, a set of `animations` is already defined in default theme:
+
+```js
+const defaultTheme = {
+  // ...
+  animations: {
+    spin: 'x-spin 1s linear infinite',
+    ping: 'x-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+    pulse: 'x-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+    bounce: 'x-bounce 1s infinite',
+  },
+}
+```
+
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all animations defined are automatically binded to `animation` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Button = styled.button`
+  animation: ping;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
+
+### Manual
+
+It is possible to manually bind a animation property using `th.animation` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Button = styled.button`
+  animation: ${th.animation('ping')};
+`
+```
+
+## Hooks
+
+Get a animation property in any component using `useAnimation` hook:
+
+```js
+import { useAnimation } from '@xstyled/...'
+
+function Button() {
+  const animation = useAnimation('ping')
+}
+```

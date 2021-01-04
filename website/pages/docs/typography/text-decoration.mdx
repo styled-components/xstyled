@@ -1,0 +1,76 @@
+---
+section: Typography
+title: Text Decoration
+slug: /docs/text-decoration/
+---
+
+# Text Decoration
+
+Utilities for controlling the decoration of text.
+
+<carbon-ad />
+
+| React props                   | CSS Properties                   |
+| ----------------------------- | -------------------------------- |
+| `textDecoration={decoration}` | `text-decoration: {decoration};` |
+
+## Underline
+
+Use the `textDecoration="underline"` utility to underline text.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.p textDecoration="underline" fontSize="xl" color="emerald-700">
+      Computers have lots of memory but no imagination.
+    </x.p>
+  </template>
+  <x.p textDecoration="underline">
+    Computers have lots of memory but no imagination.
+  </x.p>
+</>
+```
+
+## Line Through
+
+Use the `textDecoration="line-through"` utility to strike out text.
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.p textDecoration="line-through" fontSize="xl" color="red-700">
+      Computers have lots of memory but no imagination.
+    </x.p>
+  </template>
+  <x.p textDecoration="line-through">
+    Computers have lots of memory but no imagination.
+  </x.p>
+</>
+```
+
+## No underline
+
+Use the `textDecoration="none"` utility to strike out text.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.p textDecoration="none" fontSize="xl" color="indigo-700">
+      Computers have lots of memory but no imagination.
+    </x.p>
+  </template>
+  <x.p textDecoration="none">
+    Computers have lots of memory but no imagination.
+  </x.p>
+</>
+```
+
+## Responsive
+
+To control the text decoration of an element at a specific breakpoint, use responsive object notation. For example, adding the property `textDecoration={{ md: "underline" }}` to an element would apply the `textDecoration="underline"` utility at medium screen sizes and above.
+
+```jsx
+<x.div textDecoration={{ md: 'underline' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

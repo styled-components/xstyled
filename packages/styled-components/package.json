@@ -1,28 +1,31 @@
 {
   "name": "@xstyled/styled-components",
-  "description": "Xstyled bindings for styled-components.",
-  "version": "1.17.0",
+  "description": "A utility-first CSS-in-JS framework built for React (styled-components bindings).",
+  "version": "2.0.0",
   "keywords": [
     "styled-components",
     "css",
     "system",
-    "styled-system"
+    "styled-system",
+    "tailwindcss"
   ],
   "sideEffects": false,
-  "main": "dist/xstyled-styled-components.cjs.js",
-  "module": "dist/xstyled-styled-components.es.js",
+  "main": "dist/index.js",
+  "module": "dist/styled-components.esm.js",
+  "typings": "dist/index.d.ts",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
-    "prebuild": "shx rm -rf dist",
-    "prepublishOnly": "yarn build"
+    "reset": "rm -rf dist && rm -rf node_modules/.cache",
+    "watch": "tsdx watch",
+    "build": "tsdx build",
+    "prepublishOnly": "yarn reset && yarn build"
   },
   "publishConfig": {
     "access": "public"
   },
   "homepage": "https://xstyled.dev",
-  "repository": "https://github.com/smooth-code/xstyled/tree/master/packages/styled-components",
+  "repository": "https://github.com/gregberge/xstyled/tree/master/packages/styled-components",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/gregberge"
@@ -31,9 +34,9 @@
     "styled-components": "^4.0.0 || ^5.0.0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.8.3",
-    "@xstyled/core": "^1.17.0",
-    "@xstyled/system": "^1.17.0",
-    "@xstyled/util": "^1.16.0"
+    "@babel/runtime": "^7.11.2",
+    "@xstyled/core": "^2.0.0",
+    "@xstyled/system": "^2.0.0",
+    "@xstyled/util": "^2.0.0"
   }
 }

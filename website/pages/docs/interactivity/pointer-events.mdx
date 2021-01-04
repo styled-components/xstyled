@@ -1,0 +1,154 @@
+---
+section: Interactivity
+title: Pointer Events
+slug: /docs/pointer-events/
+---
+
+# Pointer Events
+
+Utilities for controlling whether an element responds to pointer events.
+
+<carbon-ad />
+
+| React props               | CSS Properties               |
+| ------------------------- | ---------------------------- |
+| `pointerEvents={keyword}` | `pointer-events: {keyword};` |
+
+## Usage
+
+Use `pointerEvents="auto"` to revert to the default browser behavior for pointer events (like `:hover` and `click`).
+
+Use `pointerEvents="none"` to make an element ignore pointer events. The pointer events will still trigger on child elements and pass-through to elements that are "beneath" the target.
+
+```jsx preview color=violet
+<>
+  <template preview>
+    <x.div maxWidth="sm">
+      <x.p color="gray-700">
+        Try clicking the caret icon to open the dropdown
+      </x.p>
+
+      <x.p mt={4} fontSize="sm" color="gray-600">
+        pointerEvents="auto" (event captured)
+      </x.p>
+      <x.div mt={1} position="relative">
+        <x.select
+          display="block"
+          appearance="none"
+          w={1}
+          border
+          borderColor="gray-200"
+          color="gray-700"
+          py={3}
+          px={4}
+          pr={8}
+          borderRadius
+          lineHeight="tight"
+          focusOutline="none"
+          focusBg="white"
+          focusBorderColor="gray-500"
+        >
+          <option>Indiana</option>
+          <option>Michigan</option>
+          <option>Ohio</option>
+        </x.select>
+        <x.div
+          position="absolute"
+          right={0}
+          top={0}
+          bottom={0}
+          display="flex"
+          alignItems="center"
+          px={3}
+          color="gray-700"
+          bg="purple-300"
+          borderRadius="0 default default 0"
+          pointerEvents="auto"
+        >
+          <x.svg fill="currentcolor" h={4} w={4} viewBox="0 0 20 20">
+            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+          </x.svg>
+        </x.div>
+      </x.div>
+
+      <x.p mt={4} fontSize="sm" color="gray-600">
+        pointerEvents="none" (event passes through)
+      </x.p>
+      <x.div mt={1} position="relative">
+        <x.select
+          display="block"
+          appearance="none"
+          w={1}
+          border
+          borderColor="gray-200"
+          color="gray-700"
+          py={3}
+          px={4}
+          pr={8}
+          borderRadius
+          lineHeight="tight"
+          focusOutline="none"
+          focusBg="white"
+          focusBorderColor="gray-500"
+        >
+          <option>Indiana</option>
+          <option>Michigan</option>
+          <option>Ohio</option>
+        </x.select>
+        <x.div
+          position="absolute"
+          right={0}
+          top={0}
+          bottom={0}
+          display="flex"
+          alignItems="center"
+          px={3}
+          color="gray-700"
+          bg="purple-300"
+          borderRadius="0 default default 0"
+          pointerEvents="none"
+        >
+          <x.svg fill="currentcolor" h={4} w={4} viewBox="0 0 20 20">
+            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+          </x.svg>
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div position="relative">
+    <select>
+      <option>Indiana</option>
+      <option>Michigan</option>
+      <option>Ohio</option>
+    </select>
+    <x.div pointerEvents="auto">
+      <x.svg fill="currentcolor" h={4} w={4} viewBox="0 0 20 20">
+        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+      </x.svg>
+    </x.div>
+  </x.div>
+
+  <x.div position="relative">
+    <select>
+      <option>Indiana</option>
+      <option>Michigan</option>
+      <option>Ohio</option>
+    </select>
+    <x.div pointerEvents="none">
+      <x.svg fill="currentcolor" h={4} w={4} viewBox="0 0 20 20">
+        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+      </x.svg>
+    </x.div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control pointer events at a specific breakpoint, use responsive object notation. For example, adding the property `pointerEvents={{ md: "none" }}` to an element would apply the `pointerEvents="none"` utility at medium screen sizes and above.
+
+```jsx
+<x.div pointerEvents={{ md: 'none' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

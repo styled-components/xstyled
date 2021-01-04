@@ -1,0 +1,204 @@
+---
+section: Core Concepts
+title: Responsive Design
+slug: /docs/responsive-design/
+order: 4
+---
+
+# Responsive Design
+
+Create adaptive user interfaces using responsive utilities.
+
+<carbon-ad />
+
+Every xstyled's utilities can be applied conditionnaly at different breakpoints, it makes it easy to build complex responsive interfaces.
+
+There are five breakpoints by default, inspired by common device resolutions:
+
+| Breakpoint prefix | Minimum width    | CSS                                  |
+| ----------------- | ---------------- | ------------------------------------ |
+| `_` or `xs`       | No minimum width | `{ ... }`                            |
+| `sm`              | `640px;`         | `@media (min-width: 640px) { ... }`  |
+| `md`              | `768px;`         | `@media (min-width: 768px) { ... }`  |
+| `lg`              | `1024px;`        | `@media (min-width: 1024px) { ... }` |
+| `xl`              | `1280px;`        | `@media (min-width: 1280px) { ... }` |
+| `2xl`             | `1536px;`        | `@media (min-width: 1536px) { ... }` |
+
+Every props accepts an object syntax to define a value for each breakpoints:
+
+```js
+// Width of 16 by default, 32 on medium screens, and 48 on large screens
+<x.img w={{ _: 16, md: 32, lg: 48 }} src="..." />
+```
+
+This works for every utility prop in the framework, which means you can change literally anything at a given breakpoint — even things like letter spacing or cursor styles.
+
+Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens (resize your browser to see it in action):
+
+```jsx preview color=pink
+<>
+  <template preview>
+    <x.div
+      maxWidth={{ _: 'md', md: '2xl' }}
+      mx="auto"
+      bg="white"
+      borderRadius="xl"
+      boxShadow="md"
+      overflow="hidden"
+    >
+      <x.div display={{ md: 'flex' }}>
+        <x.div flexShrink={{ md: 0 }}>
+          <x.img
+            h={48}
+            w={{ _: '100%', md: 48 }}
+            objectFit="cover"
+            src="https://images.unsplash.com/photo-1515711660811-48832a4c6f69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80"
+            alt="Man looking at item at a store"
+          />
+        </x.div>
+        <x.div p={8}>
+          <x.div
+            textTransform="uppercase"
+            letterSpacing="wide"
+            fontSize="sm"
+            color="pink-500"
+            fontWeight="semibold"
+          >
+            Case study
+          </x.div>
+          <x.a
+            href="#"
+            display="block"
+            mt={1}
+            fontSize="lg"
+            lineHeight="tight"
+            fontWeight="medium"
+            color="black"
+            textDecoration="none"
+            hoverTextDecoration="underline"
+          >
+            Finding customers for your new business
+          </x.a>
+          <x.p mt={2} color="gray-500">
+            Getting a new business off the ground is a lot of hard work. Here
+            are five ideas you can use to find your first customers.
+          </x.p>
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div
+    maxWidth={{ _: 'md', md: '2xl' }}
+    mx="auto"
+    bg="white"
+    borderRadius="xl"
+    boxShadow="md"
+    overflow="hidden"
+  >
+    <x.div display={{ md: 'flex' }}>
+      <x.div flexShrink={{ md: 0 }}>
+        <x.img
+          h={48}
+          w={{ _: '100%', md: 48 }}
+          objectFit="cover"
+          src="/img/store.jpg"
+          alt="Man looking at item at a store"
+        />
+      </x.div>
+      <x.div p={8}>
+        <x.div
+          textTransform="uppercase"
+          letterSpacing="wide"
+          fontSize="sm"
+          color="pink-500"
+          fontWeight="semibold"
+        >
+          Case study
+        </x.div>
+        <x.a
+          href="#"
+          display="block"
+          mt={1}
+          fontSize="lg"
+          lineHeight="tight"
+          fontWeight="medium"
+          color="black"
+          hoverTextDecoration="underline"
+        >
+          Finding customers for your new business
+        </x.a>
+        <x.p mt={2} color="gray-500">
+          Getting a new business off the ground is a lot of hard work. Here are
+          five ideas you can use to find your first customers.
+        </x.p>
+      </x.div>
+    </x.div>
+  </x.div>
+</>
+```
+
+Here's how the example above works:
+
+- By default, the outer `div` is `display: block`, but by adding the `display={{ md: 'flex' }}` utility, it becomes `display: flex` on medium screens and larger.
+- When the parent is a flex container, we want to make sure the image never shrinks, so we've added `flexShrink={{ md: 0 }}` to prevent shrinking on medium screens and larger. Technically we could have just used `flexShrink={0}` since it would do nothing on smaller screens, but since it only matters on `md` screens, it's a good idea to make that clear.
+- On small screens the image is automatically full width by default. On medium screens and up, we've constrained that width to a fixed size using `w={{ md: 48 }}`.
+
+We've only used one breakpoint in this example, but you could easily customize this component at other sizes using the `sm`, `lg`, or `xl` responsive prefixes as well.
+
+## Mobile First
+
+By default, xstyled uses a mobile first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap.
+
+What this means is that by default properties take effect on all screen sizes. While object syntax enables customization for a specific breakpoint and above.
+
+### Targetting mobile screens
+
+To target a small screen, you don't have to specify anything:
+
+```js
+// Center text on all screen sizes
+<x.div textAlign="center" />
+
+// Center text on all screen sizes
+<x.div textAlign={{ _: "center" }} />
+
+// Center text on screens smaller than 640px, and left align it on screens 640px and wider
+<x.div textAlign={{ _: "center", md: 'left' }} />
+```
+
+Because of the mobile first approach of xstyled, it is always a good idea to implement the mobile layout for a design first, then layer on any changes that make sense for `sm` screens, followed by `md` screens, etc.
+
+### Targeting a single breakpoint
+
+xstyled's breakpoints only include a `min-width` and don't include a `max-width`, which means any utilities you add at a smaller breakpoint will also be applied at larger breakpoints.
+
+If you'd like to apply a utility at one breakpoint only, the solution is to undo that utility at larger sizes by adding another utility that counteracts it.
+
+Here is an example where the background color is red at the `md` breakpoint, but teal at every other breakpoint:
+
+```js
+<x.div bg={{ _: 'teal-500', md: 'red-500', lg: 'teal-500' }} />
+```
+
+Notice that **we did not** have to specify a background color for the `sm` breakpoint or the `xl` breakpoint — you only need to specify when a utility should start taking effect, not when it should stop.
+
+## Customizing breakpoints
+
+You can completely customize breakpoints in your theme:
+
+```js
+// theme.js
+
+export const theme = {
+  breakpoints: {
+    tablet: 640,
+    // => @media (min-width: 640px) { ... }
+
+    laptop: 1024,
+    // => @media (min-width: 1024px) { ... }
+
+    desktop: 1280,
+    // => @media (min-width: 1280px) { ... }
+  },
+}
+```

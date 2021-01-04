@@ -1,0 +1,150 @@
+---
+section: Backgrounds
+title: Background Clip
+slug: /docs/background-clip/
+---
+
+# Background Clip
+
+Utilities for controlling the bounding box of an element's background.
+
+<carbon-ad />
+
+| React props              | CSS Properties              |
+| ------------------------ | --------------------------- |
+| `backgroundClip={keyword}` | `background-clip: {keyword};` |
+
+## Usage
+
+Use the `backgroundClip={keyword}` utilities to control the bounding box of an element's background.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div display="grid" gridTemplateColumns={{ _: 1, lg: 3 }} gap={2}>
+      <x.div
+        backgroundClip="border-box"
+        p={6}
+        borderRadius="md"
+        bg="indigo-600"
+        border={4}
+        borderColor="indigo-300"
+        borderStyle="dashed"
+        fontWeight="extrabold"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <x.span py={2}>border-box</x.span>
+      </x.div>
+      <x.div
+        backgroundClip="padding-box"
+        p={6}
+        borderRadius="md"
+        bg="indigo-600"
+        border={4}
+        borderColor="indigo-300"
+        borderStyle="dashed"
+        fontWeight="extrabold"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <x.span py={2}>padding-box</x.span>
+      </x.div>
+      <x.div
+        backgroundClip="content-box"
+        p={6}
+        borderRadius="md"
+        bg="indigo-600"
+        border={4}
+        borderColor="indigo-300"
+        borderStyle="dashed"
+        fontWeight="extrabold"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <x.span py={2}>content-box</x.span>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div
+    backgroundClip="border-box"
+    p={6}
+    bg="indigo-600"
+    border={4}
+    borderColor="indigo-300"
+    borderStyle="dashed"
+  />
+  <x.div
+    backgroundClip="padding-box"
+    p={6}
+    bg="indigo-600"
+    border={4}
+    borderColor="indigo-300"
+    borderStyle="dashed"
+  />
+  <x.div
+    backgroundClip="content-box"
+    p={6}
+    bg="indigo-600"
+    border={4}
+    borderColor="indigo-300"
+    borderStyle="dashed"
+  />
+</>
+```
+
+## Cropping to text
+
+Use `backgroundClip="text"` to crop an element's background to match the shape of the text. Useful for effects where you want a background image to be visible through the text.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div
+      textAlign="center"
+      py={6}
+      lineHeight={0}
+      letterSpacing="tight"
+      fontSize="5xl"
+      fontWeight="extrabold"
+    >
+      <x.span
+        backgroundClip="text"
+        color="transparent"
+        backgroundImage="gradient-to-r"
+        gradientFrom="emerald-500"
+        gradientTo="light-blue-500"
+      >
+        Hello world
+      </x.span>
+    </x.div>
+  </template>
+  <x.div fontSize="5xl" fontWeight="extrabold">
+    <x.span
+      backgroundClip="text"
+      color="transparent"
+      backgroundImage="gradient-to-r"
+      gradientFrom="emerald-500"
+      gradientTo="light-blue-500"
+    >
+      Hello world
+    </x.span>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the background attachment of an element at a specific breakpoint, use responsive object notation. For example, adding the property `backgroundAttachment={{ md: "scroll" }}` to an element would apply the `backgroundAttachment="scroll"` utility at medium screen sizes and above.
+
+```jsx
+<x.div backgroundAttachment={{ md: 'scroll' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

@@ -1,0 +1,56 @@
+---
+section: Core Concepts
+title: TypeScript
+slug: /docs/typescript/
+---
+
+# TypeScript
+
+Use xstyled with TypeScript.
+
+<carbon-ad />
+
+xstyled is written in TypeScript, all the library is strongly typed. It works out of the box for TypeScript users.
+
+You may have to configure styled-components or Emotion, especially if you use a theme.
+
+## Use TypeScript with Styled Components
+
+### Create a declaration file
+
+```js
+// styled-components.d.ts
+
+// import original module declarations
+import 'styled-components'
+import { DefaultTheme as XStyledDefaultTheme } from '@xstyled/styled-components'
+
+// and extend them!
+declare module 'styled-components' {
+  export interface DefaultTheme extends XStyledDefaultTheme {
+    /* Customize your theme */
+  }
+}
+```
+
+Read [styled-components TypeScript guide](https://styled-components.com/docs/api#typescript) to learn more about it.
+
+## Use TypeScript with Emotion
+
+### Create a declaration file
+
+```js
+// emotion.d.ts
+
+// import original module declarations
+import '@emotion/react'
+import { DefaultTheme as XStyledDefaultTheme } from '@xstyled/styled-components'
+
+declare module '@emotion/react' {
+  export interface Theme extends XStyledDefaultTheme {
+    /* Customize your theme */
+  }
+}
+```
+
+Read [Emotion TypeScript guide](https://emotion.sh/docs/typescript) to learn more about it.

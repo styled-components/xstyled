@@ -1,0 +1,151 @@
+---
+section: Flexbox
+title: Flex Grow
+slug: /docs/flex-grow/
+---
+
+# Flex Grow
+
+Utilities for controlling how flex items grow.
+
+<carbon-ad />
+
+| React props        | CSS Properties        |
+| ------------------ | --------------------- |
+| `flexGrow={value}` | `flex-grow: {value};` |
+
+## Grow
+
+Use `flexGrow={1}` to allow a flex item to grow to fill any available space:
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.div display="flex" spaceX={3}>
+      <x.div
+        flex="none"
+        h={16}
+        px={5}
+        borderRadius="md"
+        bg="red-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        ~
+      </x.div>
+      <x.div
+        flexGrow={1}
+        h={16}
+        px={5}
+        borderRadius="md"
+        bg="red-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        1
+      </x.div>
+      <x.div
+        flex="none"
+        h={16}
+        px={5}
+        borderRadius="md"
+        bg="red-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        ~
+      </x.div>
+    </x.div>
+  </template>
+  <x.div display="flex">
+    <x.div flex="none">{/* This item will not grow */}</x.div>
+    <x.div flexGrow={1}>{/* This item will grow */}</x.div>
+    <x.div flex="none">{/* This item will not grow */}</x.div>
+  </x.div>
+</>
+```
+
+## Don't grow
+
+Use `flexGrow={0}` to prevent a flex item from growing:
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div display="flex" spaceX={3}>
+      <x.div
+        flexGrow={1}
+        h={16}
+        px={5}
+        borderRadius="md"
+        bg="emerald-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        1
+      </x.div>
+      <x.div
+        flexGrow={0}
+        h={16}
+        px={5}
+        borderRadius="md"
+        bg="emerald-500"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        0
+      </x.div>
+      <x.div
+        flexGrow={1}
+        h={16}
+        px={5}
+        borderRadius="md"
+        bg="emerald-400"
+        color="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        fontSize="2xl"
+        fontWeight="extrabold"
+      >
+        1
+      </x.div>
+    </x.div>
+  </template>
+  <x.div display="flex">
+    <x.div flexGrow={1}>{/* This item will grow */}</x.div>
+    <x.div flexGrow={0}>{/* This item will not grow */}</x.div>
+    <x.div flexGrow={1}>{/* This item will grow */}</x.div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control how a flex item grows at a specific breakpoint, use responsive object notation. For example, adding the property `flexGrow={{ md: 1 }}` to an element would apply the `flexGrow={1}` utility at medium screen sizes and above.
+
+```jsx
+<x.div flexGrow={{ md: 1 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

@@ -1,0 +1,311 @@
+---
+section: Tables
+title: Border Collapse
+slug: /docs/border-collapse/
+---
+
+# Border Collapse
+
+Utilities for controlling whether table borders should collapse or be separated.
+
+<carbon-ad />
+
+| React props                | CSS Properties                |
+| -------------------------- | ----------------------------- |
+| `borderCollapse={keyword}` | `border-collapse: {keyword};` |
+
+## Separate
+
+Use `borderCollapse="separate"` to force each cell to display its own separate borders.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.table
+      w={1}
+      borderCollapse="separate"
+      border
+      borderColor="green-800"
+      fontFamily="Flow"
+    >
+      <x.thead bg="emerald-200">
+        <tr>
+          <x.th
+            border
+            borderColor="green-600"
+            color="emerald-800"
+            textAlign="left"
+            px={4}
+            py={2}
+          >
+            State
+          </x.th>
+          <x.th
+            border
+            borderColor="green-600"
+            color="emerald-800"
+            textAlign="left"
+            px={4}
+            py={2}
+          >
+            City
+          </x.th>
+        </tr>
+      </x.thead>
+      <tbody>
+        <tr>
+          <x.td
+            border
+            borderColor="green-600"
+            color="emerald-400"
+            px={4}
+            py={2}
+          >
+            Indiana
+          </x.td>
+          <x.td
+            border
+            borderColor="green-600"
+            color="emerald-400"
+            px={4}
+            py={2}
+          >
+            Indianapolis
+          </x.td>
+        </tr>
+        <tr>
+          <x.td
+            border
+            borderColor="green-600"
+            color="emerald-400"
+            px={4}
+            py={2}
+          >
+            Ohio
+          </x.td>
+          <x.td
+            border
+            borderColor="green-600"
+            color="emerald-400"
+            px={4}
+            py={2}
+          >
+            Columbus
+          </x.td>
+        </tr>
+        <tr>
+          <x.td
+            border
+            borderColor="green-600"
+            color="emerald-400"
+            px={4}
+            py={2}
+          >
+            Michigan
+          </x.td>
+          <x.td
+            border
+            borderColor="green-600"
+            color="emerald-400"
+            px={4}
+            py={2}
+          >
+            Detroit
+          </x.td>
+        </tr>
+      </tbody>
+    </x.table>
+  </template>
+  <x.table borderCollapse="separate" border borderColor="green-800">
+    <thead>
+      <tr>
+        <x.th border borderColor="green-600">
+          State
+        </x.th>
+        <x.th border borderColor="green-600">
+          City
+        </x.th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <x.td border borderColor="green-600">
+          Indiana
+        </x.td>
+        <x.td border borderColor="green-600">
+          Indianapolis
+        </x.td>
+      </tr>
+      <tr>
+        <x.td border borderColor="green-600">
+          Ohio
+        </x.td>
+        <x.td border borderColor="green-600">
+          Columbus
+        </x.td>
+      </tr>
+      <tr>
+        <x.td border borderColor="green-600">
+          Michigan
+        </x.td>
+        <x.td border borderColor="green-600">
+          Detroit
+        </x.td>
+      </tr>
+    </tbody>
+  </x.div>
+</>
+```
+
+## Combine
+
+Use `borderCollapse="collapse"` to combine adjacent cell borders into a single border when possible. Note that this includes collapsing borders on the top-level `<table>` tag.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.table
+      w={1}
+      borderCollapse="collapse"
+      border
+      borderColor="green-800"
+      fontFamily="Flow"
+    >
+      <x.thead bg="emerald-200">
+        <tr>
+          <x.th
+            border
+            borderColor="green-600"
+            color="emerald-800"
+            textAlign="left"
+            px={4}
+            py={2}
+          >
+            State
+          </x.th>
+          <x.th
+            border
+            borderColor="green-600"
+            color="emerald-800"
+            textAlign="left"
+            px={4}
+            py={2}
+          >
+            City
+          </x.th>
+        </tr>
+      </x.thead>
+      <tbody>
+        <tr>
+          <x.td
+            border
+            borderColor="green-600"
+            color="emerald-400"
+            px={4}
+            py={2}
+          >
+            Indiana
+          </x.td>
+          <x.td
+            border
+            borderColor="green-600"
+            color="emerald-400"
+            px={4}
+            py={2}
+          >
+            Indianapolis
+          </x.td>
+        </tr>
+        <tr>
+          <x.td
+            border
+            borderColor="green-600"
+            color="emerald-400"
+            px={4}
+            py={2}
+          >
+            Ohio
+          </x.td>
+          <x.td
+            border
+            borderColor="green-600"
+            color="emerald-400"
+            px={4}
+            py={2}
+          >
+            Columbus
+          </x.td>
+        </tr>
+        <tr>
+          <x.td
+            border
+            borderColor="green-600"
+            color="emerald-400"
+            px={4}
+            py={2}
+          >
+            Michigan
+          </x.td>
+          <x.td
+            border
+            borderColor="green-600"
+            color="emerald-400"
+            px={4}
+            py={2}
+          >
+            Detroit
+          </x.td>
+        </tr>
+      </tbody>
+    </x.table>
+  </template>
+  <x.table borderCollapse="collapse" border borderColor="green-800">
+    <thead>
+      <tr>
+        <x.th border borderColor="green-600">
+          State
+        </x.th>
+        <x.th border borderColor="green-600">
+          City
+        </x.th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <x.td border borderColor="green-600">
+          Indiana
+        </x.td>
+        <x.td border borderColor="green-600">
+          Indianapolis
+        </x.td>
+      </tr>
+      <tr>
+        <x.td border borderColor="green-600">
+          Ohio
+        </x.td>
+        <x.td border borderColor="green-600">
+          Columbus
+        </x.td>
+      </tr>
+      <tr>
+        <x.td border borderColor="green-600">
+          Michigan
+        </x.td>
+        <x.td border borderColor="green-600">
+          Detroit
+        </x.td>
+      </tr>
+    </tbody>
+  </x.table>
+</>
+```
+
+## Responsive
+
+To control the border collapsing of an element at a specific breakpoint, use responsive object notation. For example, adding the property `borderCollapse={{ md: "collapse" }}` to an element would apply the `borderCollapse="collapse"` utility at medium screen sizes and above.
+
+```jsx
+<x.table borderCollapse={{ md: 'collapse' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

@@ -1,0 +1,125 @@
+---
+section: Borders
+title: Divide Color
+slug: /docs/divide-color/
+---
+
+# Divide Color
+
+Utilities for controlling the border color between elements.
+
+<carbon-ad />
+
+| React props           | CSS Properties           |
+| --------------------- | ------------------------ |
+| `divideColor={color}` | `border-color: {color};` |
+
+## Usage
+
+Control the border color between elements using the `divideColor={color}` utility.
+
+```jsx preview color=fuchsia
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateColumns={3}
+      divideX
+      divideColor="fuchsia-500"
+    >
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="fuchsia-600"
+        px={6}
+      >
+        1
+      </x.div>
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="fuchsia-600"
+        px={6}
+      >
+        2
+      </x.div>
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="fuchsia-600"
+        px={6}
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div divideX divideColor="fuchsia-500">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+### Changing opacity
+
+Use [color alpha variants](/docs/colors/) to choose another opacity.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div
+      display="grid"
+      gridTemplateColumns={3}
+      divideX
+      divideColor="light-blue-500-a50"
+    >
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="light-blue-600"
+        px={6}
+      >
+        1
+      </x.div>
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="light-blue-600"
+        px={6}
+      >
+        2
+      </x.div>
+      <x.div
+        textAlign="center"
+        fontWeight="extrabold"
+        fontSize="2xl"
+        color="light-blue-600"
+        px={6}
+      >
+        3
+      </x.div>
+    </x.div>
+  </template>
+  <x.div divideX divideColor="light-blue-500-a50">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the border color between elements at a specific breakpoint, use responsive object notation. For example, adding the property `divideColor={{ md: "red-500" }}` to an element would apply the `divideColor="red-500"` utility at medium screen sizes and above.
+
+```jsx
+<x.div divideColor={{ md: 'red-500' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

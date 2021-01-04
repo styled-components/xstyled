@@ -1,0 +1,55 @@
+---
+section: Layout
+title: Container
+slug: /docs/container/
+---
+
+# Container
+
+A component for fixing an element's width to the current breakpoint.
+
+<carbon-ad />
+
+| React props         | Breakpoints  | CSS Properties       |
+| ------------------- | ------------ | -------------------- |
+| `container={value}` | None         | `width: 100%;`       |
+|                     | sm (640px)   | `max-width: 640px;`  |
+|                     | md (768px)   | `max-width: 768px;`  |
+|                     | lg (1024px)  | `max-width: 1024px;` |
+|                     | xl (1280px)  | `max-width: 1280px;` |
+|                     | 2xl (1536px) | `max-width: 1536px;` |
+
+## Usage
+
+The `container` utility sets the `max-width` of an element to match the `min-width` of the current breakpoint. This is useful if you'd prefer to design for a fixed set of screen sizes instead of trying to accommodate a fully fluid viewport.
+
+Note that unlike containers you might have used in other frameworks, **xstyled's container does not center itself automatically and does not have any built-in horizontal padding**.
+
+To center a container, use the `mx="auto"` utility:
+
+```jsx
+<x.div container mx="auto">
+  {/* ... */}
+</x.div>
+```
+
+To add horizontal padding, use the `px={size}` utility:
+
+```jsx
+<x.div container mx="auto" px={4}>
+  {/* ... */}
+</x.div>
+```
+
+## Responsive
+
+Use `container={breakpoints}` to make something behave like a container at only a certain breakpoint and up:
+
+```jsx
+<x.div container={{ md: true }}>
+  {/* Full-width fluid until the `lg` breakpoint, then lock to container */}
+  {/* ... */}
+</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

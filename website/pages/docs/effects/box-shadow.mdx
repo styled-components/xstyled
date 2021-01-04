@@ -1,0 +1,166 @@
+---
+section: Effects
+title: Box Shadow
+slug: /docs/box-shadow/
+---
+
+# Box Shadow
+
+Utilities for controlling the box shadow of an element.
+
+<carbon-ad />
+
+| React props          | CSS Properties          |
+| -------------------- | ----------------------- |
+| `boxShadow={shadow}` | `box-shadow: {shadow};` |
+
+## Outer shadow
+
+Use the `boxShadow={shadow}` utilities to apply different sized outer box shadows to an element.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div display="grid" gap={5} gridTemplateColumns={{ sm: 2, lg: 5 }} p={3}>
+      {['sm', 'default', 'md', 'lg', 'xl', '2xl'].map(boxShadow => (
+        <x.div
+          p={6}
+          bg="white"
+          color="gray-500"
+          textAlign="center"
+          fontWeight="medium"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderRadius
+          boxShadow={boxShadow}
+        >
+          {boxShadow}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div boxShadow="sm" />
+  <x.div boxShadow />
+  <x.div boxShadow="md" />
+  <x.div boxShadow="lg" />
+  <x.div boxShadow="xl" />
+  <x.div boxShadow="2xl" />
+</>
+```
+
+## Inner shadow
+
+Use the `boxShadow="inner"` utility to apply a subtle inset box shadow to an element. This can be useful for things like form controls or wells.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div display="grid" gap={5} gridTemplateColumns={{ sm: 2, lg: 5 }} p={3}>
+      <x.div
+        p={6}
+        bg="light-blue-300"
+        color="gray-800"
+        textAlign="center"
+        fontWeight="medium"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        borderRadius
+        boxShadow="inner"
+      >
+        "inner"
+      </x.div>
+    </x.div>
+  </template>
+  <x.div boxShadow="inner" />
+</>
+```
+
+## Responsive
+
+To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `boxShadow={{ md: "xl" }}` to an element would apply the `boxShadow="xl"` utility at medium screen sizes and above.
+
+```jsx
+<x.div boxShadow={{ md: 'xl' }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+### Shadows
+
+If you'd like to customize your values for shadows, use the `theme.shadows` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    shadows: {
++     '3xl': '0 100px 100px -12px rgba(0, 0, 0, 0.25)',
+    },
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization documentation](/docs/theme/).
+
+If you don't want to customize it, a set of `shadows` is already defined in default theme:
+
+```js
+const defaultTheme = {
+  // ...
+  shadows: {
+    xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
+    sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+    default: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+    md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+    lg:
+      '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+    xl:
+      '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+    '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+    inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+  },
+}
+```
+
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all shadows defined are automatically binded to `box-shadow` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Button = styled.button`
+  box-shadow: lg;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
+
+### Manual
+
+It is possible to manually bind a shadow property using `th.shadow` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Button = styled.button`
+  shadow: ${th.shadow('lg')};
+`
+```
+
+## Hooks
+
+Get a shadow property in any component using `useShadow` hook:
+
+```js
+import { useShadow } from '@xstyled/...'
+
+function Button() {
+  const shadow = useShadow('lg')
+}
+```

@@ -1,0 +1,37 @@
+---
+section: Core Concepts
+title: Prop Types
+slug: /docs/prop-types/
+---
+
+# Prop Types
+
+Add Prop Types on your declarative components.
+
+<carbon-ad />
+
+`@xstyled/prop-types` exposes a utility to generate prop-types from a system prop utility.
+
+## Installation
+
+```
+npm i @xstyled/prop-types
+```
+
+## Usage
+
+`getSystemPropTypes` let you get prop types from a system utility.
+
+```js
+import styled from 'styled-components'
+import { compose, space, color } from '@xstyled/system'
+import { getSystemPropTypes } from '@xstyled/prop-types'
+
+const customSystem = compose(space, color)
+
+const SystemBox = styled.div`
+  ${customSystem}
+`
+
+SystemBox.propTypes = getSystemPropTypes(customSystem)
+```

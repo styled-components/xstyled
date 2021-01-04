@@ -1,0 +1,89 @@
+---
+section: Transitions
+title: Transition Duration
+slug: /docs/transition-duration/
+---
+
+# Transition Duration
+
+Utilities for controlling the duration of CSS transitions.
+
+<carbon-ad />
+
+| React props                     | CSS Properties                     |
+| ------------------------------- | ---------------------------------- |
+| `transitionDuration={duration}` | `transition-duration: {duration};` |
+
+## Usage
+
+Use `transitionDuration={duration}` utilities to control an element's transition-duration.
+
+```jsx preview color=fuchsia
+<>
+  <template preview>
+    <x.div display="flex" justifyContent="space-around" alignItems="center">
+      <x.button
+        fontWeight="medium"
+        transition
+        transitionDuration={150}
+        color="white"
+        bg="fuchsia-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </x.button>
+      <x.button
+        fontWeight="medium"
+        transition
+        transitionDuration={300}
+        color="white"
+        bg="fuchsia-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </x.button>
+      <x.button
+        fontWeight="medium"
+        transition
+        transitionDuration={700}
+        color="white"
+        bg="fuchsia-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </x.button>
+    </x.div>
+  </template>
+  <x.button transition transitionDuration={150}>
+    Hover me
+  </x.button>
+  <x.button transition transitionDuration={300}>
+    Hover me
+  </x.button>
+  <x.button transition transitionDuration={700}>
+    Hover me
+  </x.button>
+</>
+```
+
+## Responsive
+
+To control an element's transition-duration at a specific breakpoint, use responsive object notation. For example, adding the property `transitionDuration={{ md: 300 }}` to an element would apply the `transitionDuration={300}` utility at medium screen sizes and above.
+
+```jsx
+<x.div transitionDuration={{ md: 300 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

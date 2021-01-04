@@ -1,0 +1,60 @@
+---
+section: Borders
+title: Border Style
+slug: /docs/border-style/
+---
+
+# Border Style
+
+Utilities for controlling the style of an element's borders.
+
+<carbon-ad />
+
+| React props           | CSS Properties           |
+| --------------------- | ------------------------ |
+| `borderStyle={style}` | `border-style: {style};` |
+
+## Usage
+
+Use `borderStyle={style}` to control an element's border style.
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.div display="grid" gap={2} gridTemplateColumns={{ sm: 2, lg: 5 }}>
+      {['solid', 'dashed', 'dotted', 'double', 'none'].map((borderStyle) => (
+        <x.div
+          p={6}
+          bg="red-300"
+          color="white"
+          textAlign="center"
+          fontWeight="extrabold"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          borderStyle={borderStyle}
+          borderColor="red-600"
+          borderWidth={3}
+        >
+          {borderStyle}
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div borderWidth={3} borderStyle="solid" />
+  <x.div borderWidth={3} borderStyle="dashed" />
+  <x.div borderWidth={3} borderStyle="dotted" />
+  <x.div borderWidth={3} borderStyle="double" />
+  <x.div borderWidth={3} borderStyle="none" />
+</>
+```
+
+## Responsive
+
+To control the border style of an element at a specific breakpoint, use responsive object notation. For example, adding the property `borderStyle={{ md: 'solid' }}` to an element would apply the `borderStyle="solid` utility at medium screen sizes and above.
+
+```jsx
+<x.div borderStyle={{ md: 'solid' }}>{/* ... */}</x.div>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.

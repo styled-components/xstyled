@@ -1,26 +1,29 @@
 {
   "name": "@xstyled/system",
-  "description": "Modern style system for styled-components & emotion.",
-  "version": "1.17.0",
+  "description": "xstyled system utilities.",
+  "version": "2.0.0",
   "keywords": [
     "emotion",
     "styled-components",
     "css",
     "system",
-    "styled-system"
+    "styled-system",
+    "tailwindcss"
   ],
   "sideEffects": false,
-  "main": "dist/xstyled-system.cjs.js",
-  "module": "dist/xstyled-system.es.js",
+  "main": "dist/index.js",
+  "module": "dist/system.esm.js",
+  "typings": "dist/index.d.ts",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
-    "prebuild": "shx rm -rf dist",
-    "prepublishOnly": "yarn build"
+    "reset": "rm -rf dist && rm -rf node_modules/.cache",
+    "watch": "tsdx watch",
+    "build": "tsdx build",
+    "prepublishOnly": "yarn reset && yarn build"
   },
   "homepage": "https://xstyled.dev",
-  "repository": "https://github.com/smooth-code/xstyled/tree/master/packages/system",
+  "repository": "https://github.com/gregberge/xstyled/tree/master/packages/system",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/gregberge"
@@ -29,7 +32,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/runtime": "^7.8.3",
-    "@xstyled/util": "^1.16.0"
+    "@babel/runtime": "^7.11.2",
+    "@xstyled/util": "^2.0.0",
+    "csstype": "^3.0.3 "
   }
 }

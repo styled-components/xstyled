@@ -1,3 +1,5 @@
 /*
 !/dist/**/*.js
-*.test.js
+!/dist/**/*.map
+*.test.ts
+*.test.tsx

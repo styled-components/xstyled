@@ -1,0 +1,16 @@
+### Transitions
+
+If you'd like to customize your values for transitions, use the `theme.transitions` section of your theme.
+
+```diffjs
+  // theme.js
+
+  export const theme = {
+    transitions: {
+      // ...
++     light: 'color 300ms ease-in-out'
+    },
+  }
+```
+
+If you don't want to customize it, a set of `transitions` is already present in default theme. Values are the same as the values accepted in `transitionProperty`.

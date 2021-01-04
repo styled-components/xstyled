@@ -1,0 +1,263 @@
+---
+section: Spacing
+title: Margin
+slug: /docs/margin/
+---
+
+# Margin
+
+Utilities for controlling an element's margin.
+
+<carbon-ad />
+
+| React props      | CSS Properties                                        |
+| ---------------- | ----------------------------------------------------- |
+| `margin={space}` | `margin: {space};`                                    |
+| `m={space}`      | `margin: {space};`                                    |
+| `mt={space}`     | `margin-top: {space};`                                |
+| `mr={space}`     | `margin-right: {space};`                              |
+| `mb={space}`     | `margin-bottom: {space};`                             |
+| `ml={space}`     | `margin-left: {space};`                               |
+| `my={space}`     | `margin-top: {space};`<br />`margin-bottom: {space};` |
+| `mx={space}`     | `margin-right: {space};`<br />`margin-left: {space};` |
+
+## Add margin to a single side
+
+Control the margin on one side of an element using the `m{t|r|b|l}={space}` utilities.
+
+For example, `mt={6}` would add `1.5rem` of margin to the top of an element, `mr={4}` would add `1rem` of margin to the right of an element, `mb={8}` would add `2rem` of margin to the bottom of an element, and `ml={2}` would add `0.5rem` of margin to the left of an element.
+
+```jsx preview color=rose
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      flexWrap="wrap"
+      alignItems="flex-start"
+      justifyContent="center"
+      color="white"
+      fontFamily="mono"
+      mx={-5}
+    >
+      <x.div mx={5} bg="rose-300" borderRadius="md" overflow="hidden" pt={6}>
+        <x.div
+          bg="rose-600"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          mt=6
+        </x.div>
+      </x.div>
+      <x.div
+        mx={5}
+        bg="rose-300"
+        borderRadius="md"
+        overflow="hidden"
+        pr={4}
+        mt={6}
+      >
+        <x.div
+          bg="rose-600"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          mr=4
+        </x.div>
+      </x.div>
+      <x.div
+        mx={5}
+        bg="rose-300"
+        borderRadius="md"
+        overflow="hidden"
+        pb={8}
+        mt={6}
+      >
+        <x.div
+          bg="rose-600"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          mb=8
+        </x.div>
+      </x.div>
+      <x.div
+        mx={5}
+        bg="rose-300"
+        borderRadius="md"
+        overflow="hidden"
+        pl={2}
+        mt={6}
+      >
+        <x.div
+          bg="rose-600"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          ml=2
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div mt={6}>mt=6</x.div>
+  <x.div mr={4}>mr=4</x.div>
+  <x.div mb={8}>mb=8</x.div>
+  <x.div ml={2}>ml=2</x.div>
+</>
+```
+
+## Add horizontal margin
+
+Control the horizontal margin of an element using the `mx={size}` utilities.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="center"
+      color="white"
+      fontFamily="mono"
+    >
+      <x.div bg="emerald-300" borderRadius="md" overflow="hidden" px={8}>
+        <x.div bg="emerald-600" py={3} px={4}>
+          mx=8
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div px={8}>mx=8</x.div>
+</>
+```
+
+## Add vertical margin
+
+Control the vertical margin of an element using the `my={size}` utilities.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="center"
+      color="white"
+      fontFamily="mono"
+    >
+      <x.div bg="indigo-300" borderRadius="md" overflow="hidden" py={8}>
+        <x.div bg="indigo-600" py={3} px={4}>
+          my=8
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div py={8}>my=8</x.div>
+</>
+```
+
+## Add margin to all sides
+
+Control the margin on all sides of an element using the `m={size}` utilities.
+
+```jsx preview color=fuchsia
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="center"
+      color="white"
+      fontFamily="mono"
+    >
+      <x.div bg="fuchsia-300" borderRadius="md" overflow="hidden" p={8}>
+        <x.div bg="fuchsia-600" py={3} px={4}>
+          m=8
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div p={8}>m=8</x.div>
+</>
+```
+
+## Negative margins
+
+It is possible to specify a negative margin in all margin utilities.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="space-around"
+      alignItems="center"
+      color="white"
+      fontFamily="mono"
+    >
+      <x.div display="flex" flexDirection="column" alignItems="center">
+        <x.div
+          position="relative"
+          w={32}
+          h={16}
+          bg="light-blue-300"
+          borderRadius="md"
+          overflow="hidden"
+        >
+          <x.div
+            position="absolute"
+            bottom={0}
+            w="100%"
+            h={8}
+            bg="light-blue-800"
+          />
+        </x.div>
+        <x.div
+          position="relative"
+          mt={-8}
+          bg="light-blue-600"
+          borderRadius="md"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          py={3}
+          px={4}
+        >
+          mt=-8
+        </x.div>
+      </x.div>
+    </x.div>
+  </template>
+  <x.div w={32} h={16} bg="light-blue-300" />
+  <x.div mt={-8} bg="light-blue-600">
+    mt=-8
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `my={{ md: 8 }}` to an element would apply the `my={8}` utility at medium screen sizes and above.
+
+```jsx
+<x.div my={{ md: 8 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+import CustomizeSpace from '../../../partials/customizing/space.mdx'
+import PaddingMargin from '../../../partials/padding-margin.mdx'
+
+## Customizing
+
+<CustomizeSpace />
+
+<PaddingMargin />

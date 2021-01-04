@@ -16,3 +16,4 @@ The app will run on `http://localhost:8083`
 
 - Use `npm run bench-system` to bench `@xstyled/system` against other libraries
 - Use `npm run bench-styled-components` to bench `@xstyled/styled-components` against `styled-components`
+- Use `npm run bench-emotion` to bench `@xstyled/emotion` against `@emotion/styled`

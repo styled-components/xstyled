@@ -1,0 +1,205 @@
+---
+section: Sizing
+title: Min-Height
+slug: /docs/min-height/
+order: 6
+---
+
+# Min-Height
+
+Utilities for setting the minimum height of an element.
+
+<carbon-ad />
+
+| React props        | CSS Properties        |
+| ------------------ | --------------------- |
+| `minHeight={size}` | `min-height: {size};` |
+
+## Scaled Min-Height
+
+All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scale `1`, you have to specify `1s`.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="space-around"
+      alignItems="flex-end"
+      mx="auto"
+    >
+      {['1s', 8, 12, 16, 24].map(v => (
+        <x.div
+          key={v}
+          spaceY={4}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        >
+          <x.div
+            minHeight={v}
+            w={8}
+            borderRadius="md"
+            bg="light-blue-500"
+            color="white"
+            fontSize="2xl"
+            fontWeight="extrabold"
+          />
+          <x.p fontSize="sm" color="light-blue-600" textAlign="center">
+            minHeight={v}
+          </x.p>
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div>
+    <x.div minHeight="1s" h={0} />
+    <x.div minHeight={8} h={0} />
+    <x.div minHeight={12} h={0} />
+    <x.div minHeight={16} h={0} />
+    <x.div minHeight={24} h={0} />
+  </x.div>
+</>
+```
+
+## Fixed Min-Height
+
+Any valid value is accepted in width, numbers are converted to `px`, other units have to be specified.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="space-around"
+      alignItems="flex-end"
+      mx="auto"
+    >
+      {[123, '12px', '4rem', '3ex'].map(v => (
+        <x.div
+          key={v}
+          spaceY={4}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        >
+          <x.div
+            w={8}
+            minHeight={v}
+            borderRadius="md"
+            bg="emerald-500"
+            color="white"
+            fontSize="2xl"
+            fontWeight="extrabold"
+          />
+          <x.p fontSize="sm" color="emerald-600" textAlign="center">
+            minHeight={v}
+          </x.p>
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div>
+    <x.div minHeight={123} h={0} />
+    <x.div minHeight="12px" h={0} />
+    <x.div minHeight="4rem" h={0} />
+    <x.div minHeight="3ex" h={0} />
+  </x.div>
+</>
+```
+
+## Fluid Min-Height
+
+Values from `0` to `1` are converted into percentages. As a fraction or a number, both are an expression. Of course specifying `[value]%` is also possible.
+
+```jsx preview color=rose
+<>
+  <template preview>
+    <x.div
+      display="flex"
+      justifyContent="space-around"
+      alignItems="flex-end"
+      mx="auto"
+    >
+      {[
+        [['1/2', 0.5], 0.1],
+        [['0.5', 0.5], 0.7],
+      ].map((v, i) => (
+        <x.div
+          key={i}
+          overflow="hidden"
+          borderRadius="md"
+          color="white"
+          fontFamily="mono"
+          h={48}
+          display="flex"
+          flexDirection="column"
+          justifyContent="flex-end"
+          bg="cool-gray-300"
+        >
+          {v[1] > v[0][1] && (
+            <x.div
+              h={v[1] - v[0][1]}
+              px={2}
+              py={4}
+              bg="rose-500"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              {`0.2`}
+            </x.div>
+          )}
+          <x.div
+            h={v[0][1]}
+            px={2}
+            py={4}
+            bg="rose-400"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            minHeight={v[0][0]}
+          </x.div>
+        </x.div>
+      ))}
+    </x.div>
+  </template>
+  <x.div minHeight={1 / 2} w={0.1}>
+    minHeight=1/2
+  </x.div>
+  <x.div minHeight={0.5} w={0.7}>
+    minHeight=0.5
+  </x.div>
+</>
+```
+
+## Responsive
+
+To control the margin of an element at a specific breakpoint, use responsive object notation. For example, adding the property `minHeight={{ md: 1 }}` to an element would apply the `minHeight={1}` utility at medium screen sizes and above.
+
+```jsx
+<x.div minHeight={{ xs: 1 / 2, md: 1 }} />
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+### Sizes scale
+
+f you'd like to customize your values for width, height, min-width, min-height, max-width, max-height, all at once, use the `theme.sizes` section of your theme.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    sizes: {
++     sm: '8px',
++     md: '16px',
++     lg: '24px',
++     xl: '48px',
+    },
+  }
+```
+
+Learn more about customizing the default theme in the [theme customization documentation](/docs/theme/).

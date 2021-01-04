@@ -1,0 +1,136 @@
+---
+section: Core Concepts
+title: Hover, Focus, & Other States
+slug: /docs/hover-focus-other-states/
+order: 3
+---
+
+# Hover, Focus, & Other States
+
+Using utilities to style elements on hover, focus, and more.
+
+<carbon-ad />
+
+Every prop utilities have several prefixed variants to style hover, focus and other states.
+
+```jsx preview color=purple
+<>
+  <template preview>
+    <x.form display="flex" w="full" maxWidth="sm" mx="auto" spaceX={3}>
+      <x.input
+        flex="1 0 0"
+        appearance="none"
+        border
+        borderColor="transparent"
+        w="full"
+        py={2}
+        px={4}
+        bg="white"
+        color="gray-700"
+        placeholderColor="gray-400"
+        boxShadow="md"
+        borderRadius="lg"
+        fontSize="base"
+        focusOutline="none"
+        focusRing={2}
+        focusRingColor="purple-600"
+        focusBorderColor="transparent"
+        type="email"
+        placeholder="Your email"
+      />
+      <x.button
+        flexShrink={0}
+        bg="purple-600"
+        color="white"
+        fontSize="base"
+        fontWeight="semibold"
+        py={2}
+        px={4}
+        borderRadius="lg"
+        boxShadow="md"
+        hoverBg="purple-700"
+        focusOutline="none"
+        focusRing={2}
+        focusRingColor="purple-500"
+        type="button"
+      >
+        Sign up
+      </x.button>
+    </x.form>
+  </template>
+  <form>
+    <x.input
+      border
+      borderColor="transparent"
+      focusOutline="none"
+      focusRing={2}
+      focusRingColor="purple-600"
+      focusBorder="transparent"
+    />
+    <x.button
+      bg="purple-600"
+      hoverBg="purple-700"
+      focusOutline="none"
+      focusRing={2}
+      focusRingColor="purple-600-a50"
+    >
+      Sign up
+    </x.button>
+  </form>
+</>
+```
+
+State variants props are available for all utilities.
+
+## Hover
+
+Add the `hover` prefix to only apply a utility on hover.
+
+```jsx preview color=red
+<>
+  <template preview>
+    <x.div textAlign="center">
+      <x.button
+        type="button"
+        py={2}
+        px={4}
+        bg="red-500"
+        color="white"
+        fontWeight="semibold"
+        borderRadius="lg"
+        boxShadow="md"
+        hoverBg="red-700"
+        focusOutline="none"
+        tabindex="-1"
+      >
+        Hover me
+      </x.button>
+    </x.div>
+  </template>
+  <x.button bg="red-500" hoverBg="red-700">
+    Hover me
+  </x.button>
+</>
+```
+
+## All available states
+
+Here is the complete list of available states on all utilities:
+
+| State Prefix   | CSS Scope                                        |
+| -------------- | ------------------------------------------------ |
+| `motionSafe`   | `@media (prefers-reduced-motion: no-preference)` |
+| `motionReduce` | `@media (prefers-reduced-motion: reduce)`        |
+| `first`        | `&:first-child`                                  |
+| `last`         | `&:last-child`                                   |
+| `odd`          | `&:odd`                                          |
+| `even`         | `&:even`                                         |
+| `visited`      | `&:visited`                                      |
+| `checked`      | `&:checked`                                      |
+| `focusWithin`  | `&:focus-within`                                 |
+| `hover`        | `&:hover`                                        |
+| `focus`        | `&:focus`                                        |
+| `focusVisible` | `&:focus-visible`                                |
+| `active`       | `&:active`                                       |
+| `disabled`     | `&:disabled`                                     |
+| `placeholder`  | `&::placeholder`                                 |
