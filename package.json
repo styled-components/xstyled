@@ -34,6 +34,7 @@
     "@babel/preset-typescript": "^7.12.7",
     "@emotion/jest": "^11.0.0",
     "@emotion/react": "^11.1.4",
+    "@emotion/serialize": "^1.0.0",
     "@emotion/styled": "^11.0.0",
     "@testing-library/jest-dom": "^5.11.8",
     "@testing-library/react": "^11.2.2",
