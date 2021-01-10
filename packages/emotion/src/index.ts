@@ -18,4 +18,5 @@ export {
 } from '@emotion/react'
 export * from './breakpoints'
 export * from './theme'
+export * from './preflight'
 export * from '@xstyled/system'
