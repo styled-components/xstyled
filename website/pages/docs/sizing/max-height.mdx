@@ -17,7 +17,7 @@ Utilities for setting the maximum height of an element.
 
 ## Scaled Max-Height
 
-All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scale `1`, you have to specify `1s`.
+All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scales between `0` and `1` due to conflicting with fluid range. You have to add a suffix `s` to target values from theme, like `0.5` becomes `0.5s` and `1` becomes `1s`.
 
 ```jsx preview color=light-blue
 <>

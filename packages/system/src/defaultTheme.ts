@@ -329,7 +329,9 @@ export const defaultTheme = {
   },
   sizes: {
     ...space,
+    0.5: undefined,
     1: undefined,
+    '0.5s': space[0.5],
     '1s': space[1],
     full: '100%',
     xs: '20rem',
