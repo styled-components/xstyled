@@ -87,4 +87,51 @@ describe('#jsx', () => {
       padding: 4px;
     `)
   })
+
+  it('does not render children', () => {
+    const { container } = render(
+      <SpaceTheme>
+        <div
+          // @ts-expect-error
+          css={[{ margin: '2' }, { padding: '1' }]}
+        />
+      </SpaceTheme>,
+    )
+
+    expect(container).toHaveTextContent('')
+  })
+
+  it('renders a single child', () => {
+    const { container } = render(
+      <SpaceTheme>
+        <div
+          // @ts-expect-error
+          css={[{ margin: '2' }, { padding: '1' }]}
+        >
+          <p id="test-p">A testing paragraph</p>
+        </div>
+      </SpaceTheme>,
+    )
+
+    expect(container.querySelector('#test-p')).toHaveTextContent(
+      'A testing paragraph',
+    )
+  })
+
+  it('renders multiple children', () => {
+    const { container } = render(
+      <SpaceTheme>
+        <div
+          // @ts-expect-error
+          css={[{ margin: '2' }, { padding: '1' }]}
+        >
+          <p className="test-p">First testing paragraph</p>
+
+          <p className="test-p">Second testing paragraph</p>
+        </div>
+      </SpaceTheme>,
+    )
+
+    expect(container.querySelectorAll('.test-p')).toHaveLength(2)
+  })
 })
