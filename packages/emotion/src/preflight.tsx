@@ -2,7 +2,7 @@ import * as React from 'react'
 import { CSSInterpolation } from '@emotion/serialize'
 import { Global, css } from '@emotion/react'
 import { createPreflight } from '@xstyled/system'
-import { useTheme } from '@xstyled/emotion'
+import { useTheme } from './theme'
 
 function createGlobalStyle(...styles: Array<CSSInterpolation | Function>) {
   return function Preflight() {
