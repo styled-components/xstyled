@@ -7,12 +7,13 @@ import { cx } from './cx'
 export const jsx: typeof emJsx = function (
   type: React.ElementType,
   props?: object,
+  ...children: React.ReactNode[]
 ) {
   if (props == null || !Object.prototype.hasOwnProperty.call(props, 'css')) {
     // @ts-expect-error
-    return React.createElement.apply(undefined, arguments)
+    return React.createElement.apply(undefined, arguments, ...children)
   }
 
   // @ts-expect-error
-  return emJsx(type, { ...props, css: cx(props.css) })
+  return emJsx(type, { ...props, css: cx(props.css) }, ...children)
 }
