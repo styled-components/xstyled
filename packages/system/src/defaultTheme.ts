@@ -63,7 +63,7 @@ const transitions: { [key: string]: string } = Object.keys(
   transitionProperties,
 ).reduce((obj, key) => {
   obj[key] = transitionProperties[key as keyof typeof transitionProperties]
-    .map(property => `${property} ${timingFunctions['ease-in-out']} 150ms`)
+    .map((property) => `${property} ${timingFunctions['ease-in-out']} 150ms`)
     .join(',')
   return obj
 }, {} as { [key: string]: string })
@@ -329,7 +329,9 @@ export const defaultTheme = {
   },
   sizes: {
     ...space,
+    0.5: undefined,
     1: undefined,
+    '0.5s': space[0.5],
     '1s': space[1],
     full: '100%',
     xs: '20rem',

@@ -17,13 +17,13 @@ Utilities for setting the maximum width of an element
 
 ## Scaled Max-Width
 
-All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scale `1`, you have to specify `1s`.
+All values specified in the `sizes` theme section are automatically applied. Note there is a little difference for scales between `0` and `1` due to conflicting with fluid range. You have to add a suffix `s` to target values from theme, like `0.5` becomes `0.5s` and `1` becomes `1s`.
 
 ```jsx preview color=light-blue
 <>
   <template preview>
     <x.div display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
-      {['1s', 8, 12, 16, 24].map(v => (
+      {['1s', 8, 12, 16, 24].map((v) => (
         <x.div key={v} display="flex" alignItems="center" spaceX={4}>
           <x.p fontSize="sm" color="light-blue-600" w={24} textAlign="right">
             maxWidth={v}
@@ -68,7 +68,7 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
 <>
   <template preview>
     <x.div display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
-      {[110, '12px', '4rem', '3ex'].map(v => (
+      {[110, '12px', '4rem', '3ex'].map((v) => (
         <x.div key={v} display="flex" alignItems="center" spaceX={4}>
           <x.p fontSize="sm" color="emerald-600" w={24} textAlign="right">
             maxWidth={v}
