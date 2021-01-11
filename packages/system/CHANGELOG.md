@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/gregberge/xstyled/tree/master/packages/system/compare/v2.0.0...v2.1.0) (2021-01-11)
+
+
+### Bug Fixes
+
+* size 0.5 conflict fluid range ([#168](https://github.com/gregberge/xstyled/tree/master/packages/system/issues/168)) ([762aa1c](https://github.com/gregberge/xstyled/tree/master/packages/system/commit/762aa1ccf6e4829d0664481a2be2e2ad2c4a0bf9))
+
+
+
+
+
 ## [1.19.1](https://github.com/gregberge/xstyled/tree/master/packages/system/compare/v1.19.0...v1.19.1) (2020-11-04)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/gregberge/xstyled/tree/master/packages/emotion/compare/v2.0.0...v2.1.0) (2021-01-11)
+
+
+### Bug Fixes
+
+* adding children to emotion jsx function ([#166](https://github.com/gregberge/xstyled/tree/master/packages/emotion/issues/166)) ([6bc0d4e](https://github.com/gregberge/xstyled/tree/master/packages/emotion/commit/6bc0d4ea574e1a6cdee622c8d0b8a7b431b2028a))
+
+
+### Features
+
+* **emotion:** add preflight component to emotion ([#167](https://github.com/gregberge/xstyled/tree/master/packages/emotion/issues/167)) ([b56e6b6](https://github.com/gregberge/xstyled/tree/master/packages/emotion/commit/b56e6b66c26f3854bc17d6622567081122556fb4))
+
+
+
+
+
 ## [1.19.1](https://github.com/gregberge/xstyled/tree/master/packages/emotion/compare/v1.19.0...v1.19.1) (2020-11-04)
 
 **Note:** Version bump only for package @xstyled/emotion
