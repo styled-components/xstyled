@@ -32,19 +32,27 @@ function generateAlphaVariants<
   transform: (value: string, key: string, variant: number) => string = (x) => x,
   variants: U = defaultAlphaVariants as U,
 ) {
-  type AlphaColors = {
-    [key in `${Extract<keyof T, string>}-a${typeof variants[number]}`]: string
-  }
-
-  return Object.keys(colors).reduce(
+  const alphaColors = Object.keys(colors).reduce(
     (obj, key: string) => {
       variants.forEach((i: number) => {
         obj[`${key}-a${i}`] = transform(colors[key], key, i)
       })
+
       return obj
     },
+
     { ...colors } as Colors,
-  ) as AlphaColors
+  )
+
+  type AlphaVariantSuffixes = typeof variants[number]
+
+  type AlphaColorKeys = `${Extract<keyof T, string>}-a${AlphaVariantSuffixes}`
+
+  type AlphaColors = {
+    [key in AlphaColorKeys]: string
+  }
+
+  return alphaColors as AlphaColors
 }
 
 export function generateHexAlphaVariants<
