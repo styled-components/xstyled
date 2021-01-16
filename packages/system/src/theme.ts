@@ -1,6 +1,9 @@
 import { IProps } from './types'
 import { th } from './th'
 
+type Colors = Record<string, string>
+type AlphaVariants = number[]
+
 const defaultAlphaVariants = [
   0,
   5,
@@ -17,29 +20,38 @@ const defaultAlphaVariants = [
   90,
   95,
   100,
-]
+] as const
 
-function generateAlphaVariants<T>(
-  colors: Record<string, T>,
-  transform: (value: T, key: string, variant: number) => T = (x) => x,
-  variants: number[] = defaultAlphaVariants,
-): Record<string, T> {
+type DefaultAlphaVariants = typeof defaultAlphaVariants
+
+function generateAlphaVariants<
+  T extends Colors,
+  U extends AlphaVariants | DefaultAlphaVariants = DefaultAlphaVariants
+>(
+  colors: T,
+  transform: (value: string, key: string, variant: number) => string = (x) => x,
+  variants: U = defaultAlphaVariants as U,
+) {
+  type AlphaColors = {
+    [key in `${Extract<keyof T, string>}-a${typeof variants[number]}`]: string
+  }
+
   return Object.keys(colors).reduce(
-    (obj, key) => {
-      variants.forEach((i) => {
+    (obj, key: string) => {
+      variants.forEach((i: number) => {
         obj[`${key}-a${i}`] = transform(colors[key], key, i)
       })
       return obj
     },
-    { ...colors },
-  )
+    { ...colors } as Colors,
+  ) as AlphaColors
 }
 
-export function generateHexAlphaVariants(
-  colors: Record<string, string>,
-  variants: number[] = defaultAlphaVariants,
-): Record<string, string> {
-  return generateAlphaVariants<string>(
+export function generateHexAlphaVariants<
+  T extends Colors,
+  U extends AlphaVariants | DefaultAlphaVariants = DefaultAlphaVariants
+>(colors: T, variants: U = defaultAlphaVariants as U) {
+  return generateAlphaVariants(
     colors,
     (value, _, variant) =>
       `${value}${Math.round((variant / 100) * 255).toString(16)}`,
@@ -53,7 +65,7 @@ export function aliasColor(
   alias: string,
   color: string,
   tones: number[] = defaultTones,
-  variants: number[] = defaultAlphaVariants,
+  variants: number[] = (defaultAlphaVariants as unknown) as number[],
 ): Record<string, (props: IProps) => unknown> {
   return tones.reduce((obj, tone) => {
     obj[`${alias}-${tone}`] = th.color(`${color}-${tone}`)
