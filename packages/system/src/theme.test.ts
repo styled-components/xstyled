@@ -5,7 +5,8 @@ describe('#theme', () => {
     it('generates colors with default alpha', () => {
       const colors = generateHexAlphaVariants({
         white: '#ffffff',
-        black: '#000000',
+
+        'blue-gray-500': '#64748b',
       })
 
       expect(colors).toEqual({
@@ -26,22 +27,22 @@ describe('#theme', () => {
         'white-a95': '#fffffff2',
         'white-a100': '#ffffffff',
 
-        black: '#000000',
-        'black-a0': '#0000000',
-        'black-a5': '#000000d',
-        'black-a20': '#00000033',
-        'black-a25': '#00000040',
-        'black-a30': '#0000004d',
-        'black-a40': '#00000066',
-        'black-a10': '#0000001a',
-        'black-a50': '#00000080',
-        'black-a60': '#00000099',
-        'black-a70': '#000000b3',
-        'black-a75': '#000000bf',
-        'black-a80': '#000000cc',
-        'black-a90': '#000000e6',
-        'black-a95': '#000000f2',
-        'black-a100': '#000000ff',
+        'blue-gray-500': '#64748b',
+        'blue-gray-500-a0': '#64748b0',
+        'blue-gray-500-a5': '#64748bd',
+        'blue-gray-500-a10': '#64748b1a',
+        'blue-gray-500-a20': '#64748b33',
+        'blue-gray-500-a25': '#64748b40',
+        'blue-gray-500-a30': '#64748b4d',
+        'blue-gray-500-a40': '#64748b66',
+        'blue-gray-500-a50': '#64748b80',
+        'blue-gray-500-a60': '#64748b99',
+        'blue-gray-500-a70': '#64748bb3',
+        'blue-gray-500-a75': '#64748bbf',
+        'blue-gray-500-a80': '#64748bcc',
+        'blue-gray-500-a90': '#64748be6',
+        'blue-gray-500-a95': '#64748bf2',
+        'blue-gray-500-a100': '#64748bff',
       })
     })
 
@@ -49,7 +50,7 @@ describe('#theme', () => {
       const colors = generateHexAlphaVariants(
         {
           white: '#ffffff',
-          black: '#000000',
+          'blue-gray-500': '#64748b',
         },
         [1, 2, 3],
       )
@@ -60,10 +61,10 @@ describe('#theme', () => {
         'white-a2': '#ffffff5',
         'white-a3': '#ffffff8',
 
-        black: '#000000',
-        'black-a1': '#0000003',
-        'black-a2': '#0000005',
-        'black-a3': '#0000008',
+        'blue-gray-500': '#64748b',
+        'blue-gray-500-a1': '#64748b3',
+        'blue-gray-500-a2': '#64748b5',
+        'blue-gray-500-a3': '#64748b8',
       })
     })
   })

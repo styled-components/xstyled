@@ -1,7 +1,7 @@
 import { IProps } from './types'
 import { th } from './th'
 
-type Colors = Record<string, string>
+type ColorsGuard = Record<string, string>
 type AlphaVariants = number[]
 
 const defaultAlphaVariants = [
@@ -25,7 +25,7 @@ const defaultAlphaVariants = [
 type DefaultAlphaVariants = typeof defaultAlphaVariants
 
 function generateAlphaVariants<
-  T extends Colors,
+  T extends ColorsGuard,
   U extends AlphaVariants | DefaultAlphaVariants = DefaultAlphaVariants
 >(
   colors: T,
@@ -41,22 +41,29 @@ function generateAlphaVariants<
       return obj
     },
 
-    { ...colors } as Colors,
+    { ...colors } as ColorsGuard,
   )
 
-  type AlphaVariantSuffixes = typeof variants[number]
+  type ColorKeys = keyof T
 
-  type AlphaColorKeys = `${Extract<keyof T, string>}-a${AlphaVariantSuffixes}`
-
-  type AlphaColors = {
-    [key in AlphaColorKeys]: string
+  type Colors = {
+    [key in ColorKeys]: string
   }
 
-  return alphaColors as AlphaColors
+  type AlphaVariantKeys = `${Extract<
+    ColorKeys,
+    string
+  >}-a${typeof variants[number]}`
+
+  type AlphaVariants = {
+    [key in AlphaVariantKeys]: string
+  }
+
+  return alphaColors as Colors & AlphaVariants
 }
 
 export function generateHexAlphaVariants<
-  T extends Colors,
+  T extends ColorsGuard,
   U extends AlphaVariants | DefaultAlphaVariants = DefaultAlphaVariants
 >(colors: T, variants: U = defaultAlphaVariants as U) {
   return generateAlphaVariants(
