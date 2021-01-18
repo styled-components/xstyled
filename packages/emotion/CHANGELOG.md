@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/gregberge/xstyled/tree/master/packages/emotion/compare/v2.1.0...v2.2.0) (2021-01-18)
+
+
+### Bug Fixes
+
+* **typings:** fix massive type in createX ([#173](https://github.com/gregberge/xstyled/tree/master/packages/emotion/issues/173)) ([273e395](https://github.com/gregberge/xstyled/tree/master/packages/emotion/commit/273e395a0ce1d72d0b72aea67297986fa2e37b09))
+
+
+
+
+
 # [2.1.0](https://github.com/gregberge/xstyled/tree/master/packages/emotion/compare/v2.0.0...v2.1.0) (2021-01-11)
 
 

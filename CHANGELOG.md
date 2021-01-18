@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/gregberge/xstyled/compare/v2.1.0...v2.2.0) (2021-01-18)
+
+
+### Bug Fixes
+
+* **typings:** fix massive type in createX ([#173](https://github.com/gregberge/xstyled/issues/173)) ([273e395](https://github.com/gregberge/xstyled/commit/273e395a0ce1d72d0b72aea67297986fa2e37b09))
+
+
+### Features
+
+* **typings:** type of colors object being more specific ([#174](https://github.com/gregberge/xstyled/issues/174)) ([379e54d](https://github.com/gregberge/xstyled/commit/379e54d0bdb53a71dc013171aa0ebe8bf60af363))
+
+
+
+
+
 # [2.1.0](https://github.com/smooth-code/xstyled/compare/v2.0.0...v2.1.0) (2021-01-11)
 
 
