@@ -29,7 +29,7 @@ export const createX: CreateX = <TProps extends object>(
     extend: (...generators) => createX(compose(generator, ...generators)),
   }
 
-  tags.forEach((tag) => {
+  tags.forEach(tag => {
     // @ts-ignore
     x[tag] = styled(tag, {
       shouldForwardProp: (prop: string) =>
