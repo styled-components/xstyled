@@ -1,6 +1,9 @@
 import { IProps } from './types'
 import { th } from './th'
 
+type ColorsGuard = Record<string, string>
+type AlphaVariants = number[]
+
 const defaultAlphaVariants = [
   0,
   5,
@@ -17,29 +20,53 @@ const defaultAlphaVariants = [
   90,
   95,
   100,
-]
+] as const
 
-function generateAlphaVariants<T>(
-  colors: Record<string, T>,
-  transform: (value: T, key: string, variant: number) => T = (x) => x,
-  variants: number[] = defaultAlphaVariants,
-): Record<string, T> {
-  return Object.keys(colors).reduce(
-    (obj, key) => {
-      variants.forEach((i) => {
+type DefaultAlphaVariants = typeof defaultAlphaVariants
+
+function generateAlphaVariants<
+  T extends ColorsGuard,
+  U extends AlphaVariants | DefaultAlphaVariants = DefaultAlphaVariants
+>(
+  colors: T,
+  transform: (value: string, key: string, variant: number) => string = (x) => x,
+  variants: U = defaultAlphaVariants as U,
+) {
+  const alphaColors = Object.keys(colors).reduce(
+    (obj, key: string) => {
+      variants.forEach((i: number) => {
         obj[`${key}-a${i}`] = transform(colors[key], key, i)
       })
+
       return obj
     },
-    { ...colors },
+
+    { ...colors } as ColorsGuard,
   )
+
+  type ColorKeys = keyof T
+
+  type Colors = {
+    [key in ColorKeys]: string
+  }
+
+  type AlphaVariantKeys = `${Extract<
+    ColorKeys,
+    string
+  >}-a${typeof variants[number]}`
+
+  type AlphaVariants = {
+    [key in AlphaVariantKeys]: string
+  }
+
+  return alphaColors as Colors & AlphaVariants
 }
 
-export function generateHexAlphaVariants(
-  colors: Record<string, string>,
-  variants: number[] = defaultAlphaVariants,
-): Record<string, string> {
-  return generateAlphaVariants<string>(
+export function generateHexAlphaVariants<
+  T extends ColorsGuard,
+  U extends AlphaVariants | DefaultAlphaVariants = DefaultAlphaVariants
+>(colors: T, variants: U = defaultAlphaVariants as U) {
+  return generateAlphaVariants(
     colors,
     (value, _, variant) =>
       `${value}${Math.round((variant / 100) * 255).toString(16)}`,
@@ -53,7 +80,7 @@ export function aliasColor(
   alias: string,
   color: string,
   tones: number[] = defaultTones,
-  variants: number[] = defaultAlphaVariants,
+  variants: number[] = (defaultAlphaVariants as unknown) as number[],
 ): Record<string, (props: IProps) => unknown> {
   return tones.reduce((obj, tone) => {
     obj[`${alias}-${tone}`] = th.color(`${color}-${tone}`)
