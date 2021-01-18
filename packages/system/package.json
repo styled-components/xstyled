@@ -34,6 +34,6 @@
   "dependencies": {
     "@babel/runtime": "^7.11.2",
     "@xstyled/util": "^2.0.0",
-    "csstype": "^3.0.3 "
+    "csstype": "^3.0.6"
   }
 }
