@@ -170,6 +170,17 @@ function CodeExample() {
   )
 }
 
+const LargeButton = (props) => (
+  <Button
+    borderRadius={{ _: 'default', md: 'xl' }}
+    transition
+    fontSize={{ md: 'lg' }}
+    py={{ md: 3 }}
+    px={{ md: 4 }}
+    {...props}
+  />
+)
+
 export function Home() {
   const theme = useTheme()
   return (
@@ -218,29 +229,16 @@ export function Home() {
                 .
               </x.p>
               <x.div display="inline-grid" gridAutoFlow="column" gap={4}>
-                <Button
-                  forwardedAs={Link}
-                  to="/docs/installation/"
-                  borderRadius="xl"
-                  transition
-                  fontSize="lg"
-                  py={3}
-                  px={4}
-                >
+                <LargeButton as={Link} to="/docs/installation/">
                   Getting Started
-                </Button>
-                <Button
-                  forwardedAs="a"
+                </LargeButton>
+                <LargeButton
+                  as="a"
                   href="https://github.com/gregberge/xstyled/"
-                  borderRadius="xl"
-                  transition
-                  fontSize="lg"
                   variant="neutral"
-                  py={3}
-                  px={4}
                 >
                   GitHub Repository
-                </Button>
+                </LargeButton>
               </x.div>
             </x.div>
             <x.div>
@@ -304,7 +302,8 @@ export function Home() {
             <FeatureImage src={responsiveImageUrl} />
             <FeatureTitle>Responsive</FeatureTitle>
             <FeatureText>
-              Creating responsive and mobile first components has never been easier.
+              Creating responsive and mobile first components has never been
+              easier.
             </FeatureText>
           </Feature>
 
@@ -320,8 +319,8 @@ export function Home() {
             <FeatureImage src={moonAndStarsImageUrl} />
             <FeatureTitle>Dark Mode</FeatureTitle>
             <FeatureText>
-              Defines new colors in theme to enable dark mode for your project. Use
-              system preference or Hooks to control it.
+              Defines new colors in theme to enable dark mode for your project.
+              Use system preference or Hooks to control it.
             </FeatureText>
           </Feature>
           <Feature>

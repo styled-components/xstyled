@@ -22,7 +22,7 @@ Use the `gridTemplateRows={value}` utilities to create grids with n equally size
 <>
   <template preview>
     <x.div display="grid" gridTemplateRows={3} gridAutoFlow="column" gap={4}>
-      {Array.from({ length: 9 }, (_, index) => index + 1).map(value => (
+      {Array.from({ length: 9 }, (_, index) => index + 1).map((value) => (
         <x.div
           key={value}
           h={12}

@@ -58,7 +58,7 @@ function ColorSet({ themeKey, children }) {
           minWidth={0}
           flex="1 1 0"
           display="grid"
-          gridTemplateColumns={{ _: 5, xl: 10 }}
+          gridTemplateColumns={{ _: 5, xxl: 10 }}
           gap={3}
         >
           {children}

@@ -151,8 +151,8 @@ function LiveEditor() {
     <Editor
       value={code}
       padding={10}
-      highlight={code => <Highlight code={code} language={language} />}
-      onValueChange={code => {
+      highlight={(code) => <Highlight code={code} language={language} />}
+      onValueChange={(code) => {
         setCode(code)
         onChange(code)
       }}
@@ -185,7 +185,7 @@ export function Code({
       <>
         <LiveProvider
           code={preview}
-          transformCode={code => `/* @jsx mdx */ ${importToRequire(code)}`}
+          transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
           scope={{ mdx, require: req, x }}
           language={lang}
           theme={prismTheme}
@@ -219,7 +219,7 @@ export function Code({
     return (
       <LiveProvider
         code={children.trim()}
-        transformCode={code => `/* @jsx mdx */ ${importToRequire(code)}`}
+        transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
         scope={{ mdx, require: req }}
         language={lang}
         theme={prismTheme}

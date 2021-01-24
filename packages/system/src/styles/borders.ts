@@ -646,7 +646,7 @@ export interface DivideYProps<T extends ITheme = Theme> {
 export const divideY = style({
   prop: 'divideY',
   themeGet: getBorderWidth,
-  cssProperty: value => {
+  cssProperty: (value) => {
     const v = value === true ? 1 : value
     return {
       [divideSelector]: {
@@ -680,7 +680,7 @@ export interface DivideXProps<T extends ITheme = Theme> {
 export const divideX = style({
   prop: 'divideX',
   themeGet: getBorderWidth,
-  cssProperty: value => {
+  cssProperty: (value) => {
     const v = value === true ? 1 : value
     return {
       [divideSelector]: {
@@ -773,7 +773,7 @@ export interface DivideColorProps<T extends ITheme = Theme> {
 export const divideColor = style({
   prop: 'divideColor',
   themeGet: getBorderColor,
-  cssProperty: value => ({
+  cssProperty: (value) => ({
     [divideSelector]: {
       borderColor: value,
     },
@@ -805,7 +805,7 @@ export interface DivideStyleProps<T extends ITheme = Theme> {
 export const divideStyle = style({
   prop: 'divideStyle',
   themeGet: getBorderStyle,
-  cssProperty: value => ({
+  cssProperty: (value) => ({
     [divideSelector]: {
       borderStyle: value,
     },
@@ -843,7 +843,7 @@ export interface RingProps<T extends ITheme = Theme> {
 export const ring = style({
   prop: 'ring',
   themeGet: getRingWidth,
-  cssProperty: value => ({
+  cssProperty: (value) => ({
     '--x-ring-shadow': `var(--x-ring-inset, /*!*/ /*!*/) 0 0 0 ${value} var(--x-ring-color)`,
     boxShadow: 'var(--x-ring-shadow, 0 0 #0000), var(--x-shadow, 0 0 #0000)',
   }),
@@ -895,7 +895,7 @@ export interface RingColorProps<T extends ITheme = Theme> {
 export const ringColor = style({
   prop: 'ringColor',
   themeGet: getColor,
-  cssProperty: value => ({ '--x-ring-color': value }),
+  cssProperty: (value) => ({ '--x-ring-color': value }),
 })
 
 export type BordersProps<T extends ITheme> = BorderProps<T> &

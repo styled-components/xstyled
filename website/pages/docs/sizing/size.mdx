@@ -22,7 +22,7 @@ Use `size={value}` to create a square.
 <>
   <template preview>
     <x.div display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
-      {['1s', 8, 12, 16, 24].map(v => (
+      {['1s', 8, 12, 16, 24].map((v) => (
         <x.div key={v} display="flex" alignItems="center" spaceX={4}>
           <x.p fontSize="sm" color="amber-600" w={24} textAlign="right">
             size={v}

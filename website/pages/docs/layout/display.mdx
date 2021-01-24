@@ -344,7 +344,7 @@ Use `display="grid"` to create a grid container.
       gridTemplateColumns={3}
       gap={4}
     >
-      {Array.from({ length: 9 }, (_, index) => index + 1).map(value => (
+      {Array.from({ length: 9 }, (_, index) => index + 1).map((value) => (
         <x.div
           key={value}
           py={4}
@@ -383,7 +383,7 @@ Use `display="inline-grid"` to create an inline grid container.
         gridTemplateColumns={3}
         gap={4}
       >
-        {Array.from({ length: 3 }, (_, index) => index + 1).map(value => (
+        {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
           <x.div
             key={value}
             py={4}
@@ -408,7 +408,7 @@ Use `display="inline-grid"` to create an inline grid container.
         gridTemplateColumns={3}
         gap={4}
       >
-        {Array.from({ length: 3 }, (_, index) => index + 1).map(value => (
+        {Array.from({ length: 3 }, (_, index) => index + 1).map((value) => (
           <x.div
             key={value}
             py={4}

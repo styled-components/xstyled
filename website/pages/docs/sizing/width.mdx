@@ -39,7 +39,7 @@ All values specified in the `sizes` theme section are automatically applied. Not
 <>
   <template preview>
     <x.div display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
-      {['1s', 8, 12, 16, 24].map(v => (
+      {['1s', 8, 12, 16, 24].map((v) => (
         <x.div key={v} display="flex" alignItems="center" spaceX={4}>
           <x.p fontSize="sm" color="light-blue-600" w={24} textAlign="right">
             w={v}
@@ -75,7 +75,7 @@ Any valid value is accepted in width, numbers are converted to `px`, other units
 <>
   <template preview>
     <x.div display="flex" flexDirection="column" spaceY={4} mx="auto" w={64}>
-      {[123, '12px', '4rem', '3ex'].map(v => (
+      {[123, '12px', '4rem', '3ex'].map((v) => (
         <x.div key={v} display="flex" alignItems="center" spaceX={4}>
           <x.p fontSize="sm" color="emerald-600" w={24} textAlign="right">
             w={v}
