@@ -93,7 +93,8 @@ export const textShadow = style({
   themeGet: getShadow,
 })
 
-export type EffectsProps<T extends ITheme = Theme> = OpacityProps<T> &
-  BoxShadowProps<T> &
-  TextShadowProps<T>
+export interface EffectsProps<T extends ITheme = Theme>
+  extends OpacityProps<T>,
+    BoxShadowProps<T>,
+    TextShadowProps<T> {}
 export const effects = compose(opacity, boxShadow, textShadow)

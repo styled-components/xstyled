@@ -39,5 +39,5 @@ export const animation = style({
   themeGet: getAnimation,
 })
 
-export type AnimationsProps<T extends ITheme = Theme> = AnimationProps<T>
+export { AnimationProps as AnimationsProps }
 export const animations = compose(animation)

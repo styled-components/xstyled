@@ -330,17 +330,18 @@ export const gradientTo = style({
   cssProperty: '--x-gradient-to',
 })
 
-export type BackgroundsProps<T extends ITheme = Theme> = BackgroundProps<T> &
-  BackgroundColorProps<T> &
-  BackgroundImageProps<T> &
-  BackgroundSizeProps<T> &
-  BackgroundPositionProps<T> &
-  BackgroundRepeatProps<T> &
-  BackgroundAttachmentProps<T> &
-  BackgroundClipProps<T> &
-  GradientFromProps<T> &
-  GradientViaProps<T> &
-  GradientToProps<T>
+export interface BackgroundsProps<T extends ITheme = Theme>
+  extends BackgroundProps<T>,
+    BackgroundColorProps<T>,
+    BackgroundImageProps<T>,
+    BackgroundSizeProps<T>,
+    BackgroundPositionProps<T>,
+    BackgroundRepeatProps<T>,
+    BackgroundAttachmentProps<T>,
+    BackgroundClipProps<T>,
+    GradientFromProps<T>,
+    GradientViaProps<T>,
+    GradientToProps<T> {}
 export const backgrounds = compose(
   background,
   backgroundColor,

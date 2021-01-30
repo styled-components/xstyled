@@ -410,21 +410,22 @@ export const objectFit = style({
   prop: 'objectFit',
 })
 
-export type LayoutProps<T extends ITheme = Theme> = DisplayProps<T> &
-  BoxSizingProps<T> &
-  ContainerProps<T> &
-  OverflowProps<T> &
-  OverflowXProps<T> &
-  OverflowYProps<T> &
-  PositionProps<T> &
-  ZIndexProps<T> &
-  TopProps<T> &
-  RightProps<T> &
-  BottomProps<T> &
-  LeftProps<T> &
-  VisibilityProps<T> &
-  OverscrollBehaviorProps<T> &
-  ObjectFitProps<T>
+export interface LayoutProps<T extends ITheme = Theme>
+  extends DisplayProps<T>,
+    BoxSizingProps<T>,
+    ContainerProps<T>,
+    OverflowProps<T>,
+    OverflowXProps<T>,
+    OverflowYProps<T>,
+    PositionProps<T>,
+    ZIndexProps<T>,
+    TopProps<T>,
+    RightProps<T>,
+    BottomProps<T>,
+    LeftProps<T>,
+    VisibilityProps<T>,
+    OverscrollBehaviorProps<T>,
+    ObjectFitProps<T> {}
 export const layout = compose(
   boxSizing,
   display,

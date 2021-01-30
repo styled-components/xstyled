@@ -159,12 +159,12 @@ export const transitionDelay = style({
   themeGet: getDuration,
 })
 
-export type TransitionsProps<T extends ITheme = Theme> = TransitionProps<T> &
-  TransitionPropertyProps<T> &
-  TransitionDurationProps<T> &
-  TransitionTimingFunctionProps<T> &
-  TransitionDelayProps<T>
-
+export interface TransitionsProps<T extends ITheme = Theme>
+  extends TransitionProps<T>,
+    TransitionPropertyProps<T>,
+    TransitionDurationProps<T>,
+    TransitionTimingFunctionProps<T>,
+    TransitionDelayProps<T> {}
 export const transitions = compose(
   transition,
   transitionProperty,

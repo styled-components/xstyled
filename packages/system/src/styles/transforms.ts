@@ -278,16 +278,17 @@ export const scaleY = style({
   transform: (v) => String(v),
 })
 
-export type TransformsProps<T extends ITheme = Theme> = TransformProps<T> &
-  TransformOriginProps<T> &
-  TranslateXProps<T> &
-  TranslateYProps<T> &
-  RotateProps<T> &
-  SkewXProps<T> &
-  SkewYProps<T> &
-  ScaleProps<T> &
-  ScaleXProps<T> &
-  ScaleYProps<T>
+export interface TransformsProps<T extends ITheme = Theme>
+  extends TransformProps<T>,
+    TransformOriginProps<T>,
+    TranslateXProps<T>,
+    TranslateYProps<T>,
+    RotateProps<T>,
+    SkewXProps<T>,
+    SkewYProps<T>,
+    ScaleProps<T>,
+    ScaleXProps<T>,
+    ScaleYProps<T> {}
 export const transforms = compose(
   transform,
   transformOrigin,

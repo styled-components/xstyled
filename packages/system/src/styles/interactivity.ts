@@ -120,11 +120,12 @@ export const userSelect = style({
   prop: 'userSelect',
 })
 
-export type InteractivityProps<T extends ITheme = Theme> = AppearanceProps<T> &
-  CursorProps<T> &
-  PointerEventsProps<T> &
-  ResizeProps<T> &
-  UserSelectProps<T>
+export interface InteractivityProps<T extends ITheme = Theme>
+  extends AppearanceProps<T>,
+    CursorProps<T>,
+    PointerEventsProps<T>,
+    ResizeProps<T>,
+    UserSelectProps<T> {}
 export const interactivity = compose(
   appearance,
   cursor,

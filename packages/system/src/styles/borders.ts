@@ -898,37 +898,37 @@ export const ringColor = style({
   cssProperty: (value) => ({ '--x-ring-color': value }),
 })
 
-export type BordersProps<T extends ITheme> = BorderProps<T> &
-  BorderTopProps<T> &
-  BorderRightProps<T> &
-  BorderBottomProps<T> &
-  BorderLeftProps<T> &
-  BorderColorProps<T> &
-  BorderTopColorProps<T> &
-  BorderRightColorProps<T> &
-  BorderBottomColorProps<T> &
-  BorderLeftColorProps<T> &
-  BorderWidthProps<T> &
-  BorderTopWidthProps<T> &
-  BorderRightWidthProps<T> &
-  BorderBottomWidthProps<T> &
-  BorderLeftWidthProps<T> &
-  BorderStyleProps<T> &
-  BorderRadiusProps<T> &
-  OutlineProps<T> &
-  OutlineColorProps<T> &
-  OutlineWidthProps<T> &
-  OutlineStyleProps<T> &
-  DivideXProps<T> &
-  DivideYProps<T> &
-  DivideXReverseProps<T> &
-  DivideYReverseProps<T> &
-  DivideColorProps<T> &
-  DivideStyleProps<T> &
-  RingProps<T> &
-  RingInsetProps<T> &
-  RingColorProps<T>
-
+export interface BordersProps<T extends ITheme>
+  extends BorderProps<T>,
+    BorderTopProps<T>,
+    BorderRightProps<T>,
+    BorderBottomProps<T>,
+    BorderLeftProps<T>,
+    BorderColorProps<T>,
+    BorderTopColorProps<T>,
+    BorderRightColorProps<T>,
+    BorderBottomColorProps<T>,
+    BorderLeftColorProps<T>,
+    BorderWidthProps<T>,
+    BorderTopWidthProps<T>,
+    BorderRightWidthProps<T>,
+    BorderBottomWidthProps<T>,
+    BorderLeftWidthProps<T>,
+    BorderStyleProps<T>,
+    BorderRadiusProps<T>,
+    OutlineProps<T>,
+    OutlineColorProps<T>,
+    OutlineWidthProps<T>,
+    OutlineStyleProps<T>,
+    DivideXProps<T>,
+    DivideYProps<T>,
+    DivideXReverseProps<T>,
+    DivideYReverseProps<T>,
+    DivideColorProps<T>,
+    DivideStyleProps<T>,
+    RingProps<T>,
+    RingInsetProps<T>,
+    RingColorProps<T> {}
 export const borders = compose(
   border,
   borderTop,

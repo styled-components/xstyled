@@ -54,6 +54,7 @@ export const tableLayout = style({
   prop: 'tableLayout',
 })
 
-export type TablesProps<T extends ITheme = Theme> = BorderCollapseProps<T> &
-  TableLayoutProps<T>
+export interface TablesProps<T extends ITheme = Theme>
+  extends BorderCollapseProps<T>,
+    TableLayoutProps<T> {}
 export const tables = compose(borderCollapse, tableLayout)
