@@ -70,34 +70,6 @@ export const height = style({
   themeGet: getSize,
 })
 
-type SizeProp<T extends ITheme> = SystemProp<
-  SizeGetter<T> | (CSS.Property.Width & CSS.Property.Height),
-  T
->
-export interface SizeProps<T extends ITheme = Theme> {
-  size?: SizeProp<T>
-  motionSafeSize?: SizeProp<T>
-  motionReduceSize?: SizeProp<T>
-  firstSize?: SizeProp<T>
-  lastSize?: SizeProp<T>
-  oddSize?: SizeProp<T>
-  evenSize?: SizeProp<T>
-  visitedSize?: SizeProp<T>
-  checkedSize?: SizeProp<T>
-  focusWithinSize?: SizeProp<T>
-  hoverSize?: SizeProp<T>
-  focusSize?: SizeProp<T>
-  focusVisibleSize?: SizeProp<T>
-  activeSize?: SizeProp<T>
-  disabledSize?: SizeProp<T>
-  placeholderSize?: SizeProp<T>
-}
-export const size = style({
-  prop: 'size',
-  cssProperty: ['width', 'height'],
-  themeGet: getSize,
-})
-
 type MaxWidthProp<T extends ITheme> = SystemProp<
   SizeGetter<T> | CSS.Property.MaxWidth,
   T
@@ -209,7 +181,6 @@ export const minHeight = style({
 export interface SizingProps<T extends ITheme = Theme>
   extends WidthProps<T>,
     HeightProps<T>,
-    SizeProps<T>,
     MaxWidthProps<T>,
     MaxHeightProps<T>,
     MinWidthProps<T>,
@@ -217,7 +188,6 @@ export interface SizingProps<T extends ITheme = Theme>
 export const sizing = compose(
   width,
   height,
-  size,
   maxWidth,
   maxHeight,
   minWidth,
