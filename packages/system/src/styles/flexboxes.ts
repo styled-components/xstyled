@@ -316,19 +316,20 @@ export const order = style({
   prop: 'order',
 })
 
-export type FlexboxesProps<T extends ITheme = Theme> = DisplayProps<T> &
-  AlignItemsProps<T> &
-  JustifyContentProps<T> &
-  JustifyItemsProps<T> &
-  FlexWrapProps<T> &
-  FlexWrapProps<T> &
-  FlexShrinkProps<T> &
-  FlexGrowProps<T> &
-  FlexDirectionProps<T> &
-  FlexProps<T> &
-  JustifySelfProps<T> &
-  AlignSelfProps<T> &
-  OrderProps<T>
+export interface FlexboxesProps<T extends ITheme = Theme>
+  extends DisplayProps<T>,
+    AlignItemsProps<T>,
+    JustifyContentProps<T>,
+    JustifyItemsProps<T>,
+    FlexWrapProps<T>,
+    FlexWrapProps<T>,
+    FlexShrinkProps<T>,
+    FlexGrowProps<T>,
+    FlexDirectionProps<T>,
+    FlexProps<T>,
+    JustifySelfProps<T>,
+    AlignSelfProps<T>,
+    OrderProps<T> {}
 export const flexboxes = compose(
   display,
   alignItems,

@@ -687,24 +687,26 @@ export const spaceYReverse = style({
   }),
 })
 
-export type SpaceProps<T extends ITheme = Theme> = MarginProps<T> &
-  MarginTopProps<T> &
-  MarginRightProps<T> &
-  MarginBottomProps<T> &
-  MarginLeftProps<T> &
-  MarginXProps<T> &
-  MarginYProps<T> &
-  PaddingProps<T> &
-  PaddingTopProps<T> &
-  PaddingRightProps<T> &
-  PaddingBottomProps<T> &
-  PaddingLeftProps<T> &
-  PaddingXProps<T> &
-  PaddingYProps<T> &
-  SpaceXProps<T> &
-  SpaceYProps<T> &
-  SpaceXReverseProps<T> &
-  SpaceYReverseProps<T>
+export interface SpaceProps<T extends ITheme = Theme>
+  extends MarginProps<T>,
+    MarginTopProps<T>,
+    MarginRightProps<T>,
+    MarginBottomProps<T>,
+    MarginLeftProps<T>,
+    MarginXProps<T>,
+    MarginYProps<T>,
+    PaddingProps<T>,
+    PaddingTopProps<T>,
+    PaddingRightProps<T>,
+    PaddingBottomProps<T>,
+    PaddingLeftProps<T>,
+    PaddingXProps<T>,
+    PaddingYProps<T>,
+    SpaceXProps<T>,
+    SpaceYProps<T>,
+    SpaceXReverseProps<T>,
+    SpaceYReverseProps<T> {}
+
 export const space = compose(
   margin,
   marginTop,

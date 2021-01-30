@@ -206,13 +206,14 @@ export const minHeight = style({
   themeGet: getSize,
 })
 
-export type SizingProps<T extends ITheme = Theme> = WidthProps<T> &
-  HeightProps<T> &
-  SizeProps<T> &
-  MaxWidthProps<T> &
-  MaxHeightProps<T> &
-  MinWidthProps<T> &
-  MinHeightProps<T>
+export interface SizingProps<T extends ITheme = Theme>
+  extends WidthProps<T>,
+    HeightProps<T>,
+    SizeProps<T>,
+    MaxWidthProps<T>,
+    MaxHeightProps<T>,
+    MinWidthProps<T>,
+    MinHeightProps<T> {}
 export const sizing = compose(
   width,
   height,

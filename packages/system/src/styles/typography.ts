@@ -456,21 +456,22 @@ export const listStylePosition = style({
 // @TODO add word-break
 // @TODO add overflow-wrap
 
-export type TypographyProps<T extends ITheme = Theme> = FontFamilyProps<T> &
-  FontSizeProps<T> &
-  FontStyleProps<T> &
-  LineHeightProps<T> &
-  FontWeightProps<T> &
-  TextAlignProps<T> &
-  LetterSpacingProps<T> &
-  ColorProps<T> &
-  TextTransformProps<T> &
-  TextDecorationProps<T> &
-  VerticalAlignProps<T> &
-  WhiteSpaceProps<T> &
-  TextOverflowProps<T> &
-  ListStyleTypeProps<T> &
-  ListStylePositionProps<T>
+export interface TypographyProps<T extends ITheme = Theme>
+  extends FontFamilyProps<T>,
+    FontSizeProps<T>,
+    FontStyleProps<T>,
+    LineHeightProps<T>,
+    FontWeightProps<T>,
+    TextAlignProps<T>,
+    LetterSpacingProps<T>,
+    ColorProps<T>,
+    TextTransformProps<T>,
+    TextDecorationProps<T>,
+    VerticalAlignProps<T>,
+    WhiteSpaceProps<T>,
+    TextOverflowProps<T>,
+    ListStyleTypeProps<T>,
+    ListStylePositionProps<T> {}
 export const typography = compose(
   fontFamily,
   fontSize,

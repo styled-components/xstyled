@@ -113,6 +113,7 @@ export const col = createStyleGenerator(
   ['col'],
 )
 
-export type FlexboxGridsProps<T extends ITheme = Theme> = RowProps<T> &
-  ColProps<T>
+export interface FlexboxGridsProps<T extends ITheme = Theme>
+  extends RowProps<T>,
+    ColProps<T> {}
 export const flexboxGrids = compose(row, col)

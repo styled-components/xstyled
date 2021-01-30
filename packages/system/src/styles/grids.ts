@@ -301,18 +301,19 @@ export interface GridAreaProps<T extends ITheme = Theme> {
 }
 export const gridArea = style({ prop: 'gridArea' })
 
-export type GridsProps<T extends ITheme = Theme> = GapProps<T> &
-  ColumnGapProps<T> &
-  RowGapProps<T> &
-  GridColumnProps<T> &
-  GridRowProps<T> &
-  GridAutoFlowProps<T> &
-  GridAutoColumnsProps<T> &
-  GridAutoRowsProps<T> &
-  GridTemplateColumnsProps<T> &
-  GridTemplateRowsProps<T> &
-  GridTemplateAreasProps<T> &
-  GridAreaProps<T>
+export interface GridsProps<T extends ITheme = Theme>
+  extends GapProps<T>,
+    ColumnGapProps<T>,
+    RowGapProps<T>,
+    GridColumnProps<T>,
+    GridRowProps<T>,
+    GridAutoFlowProps<T>,
+    GridAutoColumnsProps<T>,
+    GridAutoRowsProps<T>,
+    GridTemplateColumnsProps<T>,
+    GridTemplateRowsProps<T>,
+    GridTemplateAreasProps<T>,
+    GridAreaProps<T> {}
 export const grids = compose(
   gap,
   columnGap,

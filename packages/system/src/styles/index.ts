@@ -36,22 +36,23 @@ export * from './transitions'
 export * from './typography'
 export * from './units'
 
-export type SystemProps<T extends ITheme = Theme> = AnimationsProps<T> &
-  BackgroundsProps<T> &
-  BordersProps<T> &
-  EffectsProps<T> &
-  FlexboxGridsProps<T> &
-  FlexboxesProps<T> &
-  GridsProps<T> &
-  InteractivityProps<T> &
-  LayoutProps<T> &
-  SizingProps<T> &
-  SpaceProps<T> &
-  SvgProps<T> &
-  TablesProps<T> &
-  TransformsProps<T> &
-  TransitionsProps<T> &
-  TypographyProps<T>
+export interface SystemProps<T extends ITheme = Theme>
+  extends AnimationsProps<T>,
+    BackgroundsProps<T>,
+    BordersProps<T>,
+    EffectsProps<T>,
+    FlexboxGridsProps<T>,
+    FlexboxesProps<T>,
+    GridsProps<T>,
+    InteractivityProps<T>,
+    LayoutProps<T>,
+    SizingProps<T>,
+    SpaceProps<T>,
+    SvgProps<T>,
+    TablesProps<T>,
+    TransformsProps<T>,
+    TransitionsProps<T>,
+    TypographyProps<T> {}
 export const system = compose(
   animations,
   backgrounds,
