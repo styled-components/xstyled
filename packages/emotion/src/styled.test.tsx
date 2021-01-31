@@ -118,6 +118,18 @@ describe('#styled', () => {
     expect(container.firstChild).toHaveStyle('margin: 8px;')
   })
 
+  it('works with css as object and function prop', () => {
+    const Dummy = styled.div(() => ({
+      margin: '2',
+    }))
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
+    expect(container.firstChild).toHaveStyle('margin: 8px;')
+  })
+
   it('transforms first class interpolations', () => {
     const Dummy = styled.div`
       ${() => [

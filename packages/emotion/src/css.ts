@@ -1,4 +1,4 @@
-import { css as emCss } from '@emotion/react'
+import { css as emCss, SerializedStyles, Theme } from '@emotion/react'
 import { CSSInterpolation } from '@emotion/serialize'
 import { transform } from '@xstyled/core'
 
@@ -9,15 +9,36 @@ function styleToString(style: any, props: any): any {
   return style
 }
 
-// @ts-ignore
-export const css: typeof emCss = (
+interface Props {
+  theme?: Theme
+}
+
+interface CSSInterpolationFn {
+  (props: Props): CSSInterpolation
+}
+
+interface SerializedStylesFn {
+  (props: Props): SerializedStyles
+}
+
+export function css(fn: CSSInterpolationFn): SerializedStylesFn
+export function css(...args: CSSInterpolation[]): SerializedStylesFn
+export function css(
   strings: TemplateStringsArray,
-  ...rawArgs: Array<CSSInterpolation>
-) => {
-  const emCssArgs = emCss(strings, ...rawArgs)
-  const transformedStyles = transform(emCssArgs.styles)
-  return (props: any) => ({
-    ...emCssArgs,
-    styles: styleToString(transformedStyles, props),
-  })
+  ...rawArgs: CSSInterpolation[]
+): SerializedStylesFn
+export function css(
+  strings: TemplateStringsArray | CSSInterpolation | CSSInterpolationFn,
+  ...rawArgs: CSSInterpolation[]
+): SerializedStylesFn {
+  return (props: Props): SerializedStyles => {
+    const emCssArgs =
+      typeof strings === 'function'
+        ? emCss(strings(props))
+        : emCss(strings as TemplateStringsArray, ...rawArgs)
+    return {
+      ...emCssArgs,
+      styles: styleToString(transform(emCssArgs.styles), props),
+    }
+  }
 }
