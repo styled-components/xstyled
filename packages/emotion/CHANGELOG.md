@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/gregberge/xstyled/tree/master/packages/emotion/compare/v2.2.0...v2.2.1) (2021-01-31)
+
+
+### Bug Fixes
+
+* **emotion:** fix interpolation usage ([#184](https://github.com/gregberge/xstyled/tree/master/packages/emotion/issues/184)) ([d093e7f](https://github.com/gregberge/xstyled/tree/master/packages/emotion/commit/d093e7feceb19ac061a358e06f6204c55f41af76))
+
+
+
+
+
 # [2.2.0](https://github.com/gregberge/xstyled/tree/master/packages/emotion/compare/v2.1.0...v2.2.0) (2021-01-18)
 
 

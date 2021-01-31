@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/gregberge/xstyled/tree/master/packages/system/compare/v2.2.0...v2.2.1) (2021-01-31)
+
+
+### Bug Fixes
+
+* remove size utility ([#183](https://github.com/gregberge/xstyled/tree/master/packages/system/issues/183)) ([3fb9239](https://github.com/gregberge/xstyled/tree/master/packages/system/commit/3fb92397a4f2e9e824504c16f2a12e84c46637d6))
+
+
+
+
+
 # [2.2.0](https://github.com/gregberge/xstyled/tree/master/packages/system/compare/v2.1.0...v2.2.0) (2021-01-18)
 
 

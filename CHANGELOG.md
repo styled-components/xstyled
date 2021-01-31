@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/gregberge/xstyled/compare/v2.2.0...v2.2.1) (2021-01-31)
+
+
+### Bug Fixes
+
+* **emotion:** fix interpolation usage ([#184](https://github.com/gregberge/xstyled/issues/184)) ([d093e7f](https://github.com/gregberge/xstyled/commit/d093e7feceb19ac061a358e06f6204c55f41af76))
+* remove size utility ([#183](https://github.com/gregberge/xstyled/issues/183)) ([3fb9239](https://github.com/gregberge/xstyled/commit/3fb92397a4f2e9e824504c16f2a12e84c46637d6))
+
+
+
+
+
 # [2.2.0](https://github.com/gregberge/xstyled/compare/v2.1.0...v2.2.0) (2021-01-18)
 
 
