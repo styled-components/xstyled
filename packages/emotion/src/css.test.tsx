@@ -63,6 +63,34 @@ describe('#css', () => {
     expect(container.firstChild).toHaveStyle('margin: 4px 8px;')
   })
 
+  it('accepts object', () => {
+    const Dummy = styled.div`
+      ${css({
+        margin: '1 2',
+      })}
+    `
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
+    expect(container.firstChild).toHaveStyle('margin: 4px 8px;')
+  })
+
+  it('accepts function', () => {
+    const Dummy = styled.div`
+      ${css((p) => ({
+        margin: '1 2',
+      }))}
+    `
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
+    expect(container.firstChild).toHaveStyle('margin: 4px 8px;')
+  })
+
   it('transforms babel-plugin-emotion output', () => {
     const Dummy = styled.div`
       ${css({
