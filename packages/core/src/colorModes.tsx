@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable react/no-danger */
 /* eslint-env browser */
 import * as React from 'react'
@@ -6,28 +7,51 @@ import {
   toCustomPropertiesReferences,
 } from './customProperties'
 
-type Mode = string | null
-type ColorModeState = [Mode, (mode: Mode) => void]
+type ColorModeState = [string | null, (mode: string | null) => void]
+type Color = string | ((props: Record<string, unknown>) => Color)
+type Colors = Record<string, Color>
+
+interface ITheme {
+  useCustomProperties?: boolean
+  useColorSchemeMediaQuery?: boolean
+  initialColorModeName?: string
+  defaultColorModeName?: string
+  colors?: Colors & {
+    modes?: Record<string, Colors>
+  }
+}
+
+interface IColorModeTheme extends ITheme {
+  colors: Colors & { modes: Record<string, Colors> }
+}
 
 const STORAGE_KEY = 'xstyled-color-mode'
 
-const isLocalStorageAvailable =
+const isLocalStorageAvailable: boolean =
   typeof window !== 'undefined' &&
   (() => {
     try {
-      const STORAGE_TEST_KEY = `${STORAGE_KEY}-test`
-      window.localStorage.setItem(STORAGE_TEST_KEY, STORAGE_TEST_KEY)
-      window.localStorage.removeItem(STORAGE_TEST_KEY)
+      const key = 'xstyled-test-key'
+      window.localStorage.setItem(key, key)
+      window.localStorage.removeItem(key)
       return true
     } catch (err) {
       return false
     }
   })()
 
-const storage = isLocalStorageAvailable
+interface Storage {
+  get(): string | null
+  set(value: string): void
+  clear(): void
+}
+
+const storage: Storage = isLocalStorageAvailable
   ? {
       get: () => window.localStorage.getItem(STORAGE_KEY),
-      set: (value: string) => window.localStorage.setItem(STORAGE_KEY, value),
+      set: (value: string) => {
+        window.localStorage.setItem(STORAGE_KEY, value)
+      },
       clear: () => window.localStorage.removeItem(STORAGE_KEY),
     }
   : {
@@ -43,82 +67,76 @@ const getColorModeClassName = (mode: string) =>
 const XSTYLED_COLORS_PREFIX = 'xstyled-colors'
 const SYSTEM_MODES = ['light', 'dark']
 
-interface Theme {
-  useCustomProperties?: boolean
-  useColorSchemeMediaQuery?: boolean
-  initialColorModeName?: string
-  defaultColorModeName?: string
-  colors?: {
-    modes?: {
-      [key: string]: any
-    }
-  }
-}
-
-interface ModeTheme extends Theme {
-  colors: {
-    modes: {
-      [key: string]: any
-    }
-  }
-}
-
-function getModeTheme(theme: ModeTheme, mode: string) {
+function getModeTheme(theme: IColorModeTheme, mode: string): IColorModeTheme {
   return {
     ...theme,
     colors: { ...theme.colors, ...theme.colors.modes[mode] },
   }
 }
 
-const getMediaQuery = (query: string) => `@media ${query}`
-const getColorModeQuery = (mode: string) => `(prefers-color-scheme: ${mode})`
+const getMediaQuery = (query: string): string => `@media ${query}`
+const getColorModeQuery = (mode: string): string =>
+  `(prefers-color-scheme: ${mode})`
 
-function hasColorModes(theme: Theme): theme is ModeTheme {
+function checkHasColorModes(theme: ITheme | null): theme is IColorModeTheme {
   return Boolean(theme && theme.colors && theme.colors.modes)
 }
 
-function hasCustomPropertiesEnabled(theme: Theme) {
-  return (
+function checkHasCustomPropertiesEnabled(theme: ITheme | null): boolean {
+  return Boolean(
     theme &&
-    (theme.useCustomProperties === undefined || theme.useCustomProperties)
+      (theme.useCustomProperties === undefined || theme.useCustomProperties),
   )
 }
 
-function hasMediaQueryEnabled(theme: Theme) {
-  return (
+function checkHasMediaQueryEnabled(theme: ITheme | null): boolean {
+  return Boolean(
     theme &&
-    (theme.useColorSchemeMediaQuery === undefined ||
-      theme.useColorSchemeMediaQuery)
+      (theme.useColorSchemeMediaQuery === undefined ||
+        theme.useColorSchemeMediaQuery),
   )
 }
 
-function getInitialColorModeName(theme: Theme) {
+function getInitialColorModeName(theme: ITheme): string {
   return theme.initialColorModeName || 'default'
 }
 
-function getDefaultColorModeName(theme: Theme) {
+function getDefaultColorModeName(theme: ITheme): string {
   return theme.defaultColorModeName || getInitialColorModeName(theme)
 }
 
+function getUsedColorKeys(modes: Record<string, Record<string, Color>>) {
+  let keys: string[] = []
+  for (const key in modes) {
+    keys = [...keys, ...Object.keys(modes[key])]
+  }
+  return keys
+}
+
 export function createColorStyles(
-  theme: Theme,
+  theme: ITheme,
   { targetSelector = 'body' } = {},
-) {
-  if (!hasColorModes(theme)) return null
+): string | null {
+  if (!checkHasColorModes(theme)) return null
+
   const { modes, ...colors } = theme.colors
+  const colorKeys = getUsedColorKeys(modes)
+
   let styles = toCustomPropertiesDeclarations(
     colors,
-    XSTYLED_COLORS_PREFIX,
     theme,
+    colorKeys,
+    XSTYLED_COLORS_PREFIX,
   )
 
   function getModePropertiesDeclarations(mode: string) {
-    const modeTheme = getModeTheme(theme as ModeTheme, mode)
+    const modeTheme = getModeTheme(theme as IColorModeTheme, mode)
     const { modes, ...colors } = modeTheme.colors
     return toCustomPropertiesDeclarations(
       { ...colors, ...modes[mode] },
-      XSTYLED_COLORS_PREFIX,
       modeTheme,
+      colorKeys,
+      XSTYLED_COLORS_PREFIX,
     )
   }
 
@@ -148,10 +166,11 @@ function getSystemModeMql(mode: string) {
   return window.matchMedia(query)
 }
 
-function useSystemMode(theme: ModeTheme) {
+function useSystemMode(theme: ITheme) {
   const configs: { mode: string; mql: MediaQueryList }[] = React.useMemo(() => {
-    if (!hasMediaQueryEnabled(theme)) return []
+    if (!checkHasMediaQueryEnabled(theme)) return []
     return SYSTEM_MODES.map((mode) => {
+      if (!checkHasColorModes(theme)) return null
       if (!theme.colors.modes[mode]) return null
       const mql = getSystemModeMql(mode)
       return mql ? { mode, mql } : null
@@ -189,19 +208,19 @@ const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect
 
 export function useColorModeState(
-  theme: ModeTheme,
+  theme: ITheme,
   { target }: { target?: Element } = {},
 ): ColorModeState {
   const systemMode = useSystemMode(theme)
   const defaultColorMode = getDefaultColorModeName(theme)
   const initialColorMode = getInitialColorModeName(theme)
   const [mode, setMode] = React.useState(() => {
-    if (!hasColorModes(theme)) return null
+    if (!checkHasColorModes(theme)) return null
     return defaultColorMode
   })
 
   // Add mode className
-  const customPropertiesEnabled = hasCustomPropertiesEnabled(theme)
+  const customPropertiesEnabled = checkHasCustomPropertiesEnabled(theme)
 
   const manualSetRef = React.useRef(false)
   const manuallySetMode = React.useCallback((value) => {
@@ -211,7 +230,7 @@ export function useColorModeState(
 
   // Set initial color mode in lazy
   useIsomorphicLayoutEffect(() => {
-    if (!hasColorModes(theme)) return
+    if (!checkHasColorModes(theme)) return
     const storedMode = storage.get()
     const initialMode = storedMode || systemMode || defaultColorMode
     if (mode !== initialMode) {
@@ -257,27 +276,38 @@ export function useColorModeState(
   return [mode, manuallySetMode]
 }
 
-export function useColorModeTheme(theme: any, mode: Mode) {
+export function useColorModeTheme(
+  theme: ITheme,
+  mode: string | null,
+): ITheme | null {
+  const [initialMode] = React.useState(mode)
   const customPropertiesTheme = React.useMemo(() => {
-    if (!mode) return null
-    if (!hasCustomPropertiesEnabled(theme)) return null
-    if (!hasColorModes(theme)) return theme
-
+    if (!initialMode) return null
+    if (!checkHasCustomPropertiesEnabled(theme)) return null
+    if (!checkHasColorModes(theme)) return theme
     const { modes, ...colors } = theme.colors
+    const colorKeys = getUsedColorKeys(modes)
+
     return {
       ...theme,
       colors: {
-        ...toCustomPropertiesReferences(colors, XSTYLED_COLORS_PREFIX, theme),
+        ...colors,
+        ...toCustomPropertiesReferences(
+          colors,
+          theme,
+          colorKeys,
+          XSTYLED_COLORS_PREFIX,
+        ),
         modes,
       },
       __rawColors: theme.colors,
     }
-  }, [theme])
+  }, [initialMode, theme])
 
   const swapModeTheme = React.useMemo(() => {
     if (!mode) return null
-    if (hasCustomPropertiesEnabled(theme)) return null
-    if (!hasColorModes(theme)) return theme
+    if (checkHasCustomPropertiesEnabled(theme)) return null
+    if (!checkHasColorModes(theme)) return theme
 
     if (mode === getInitialColorModeName(theme)) {
       return { ...theme, __colorMode: mode }
@@ -294,12 +324,12 @@ export function useColorModeTheme(theme: any, mode: Mode) {
     }
   }, [theme, mode])
 
-  return customPropertiesTheme || swapModeTheme
+  return (customPropertiesTheme || swapModeTheme) as ITheme
 }
 
 export const ColorModeContext = React.createContext<ColorModeState | null>(null)
 
-export function useColorMode() {
+export function useColorMode(): ColorModeState {
   const colorModeState = React.useContext(ColorModeContext)
 
   if (!colorModeState) {
@@ -307,6 +337,12 @@ export function useColorMode() {
   }
 
   return colorModeState
+}
+
+export interface ColorModeProviderProps {
+  children: React.ReactNode
+  target?: Element
+  targetSelector?: string
 }
 
 export function createColorModeProvider({
@@ -317,16 +353,12 @@ export function createColorModeProvider({
   ThemeContext: React.Context<any>
   ThemeProvider: React.ComponentType<any>
   ColorModeStyle: React.ComponentType<any>
-}) {
+}): React.FC<ColorModeProviderProps> {
   function ColorModeProvider({
     children,
     target,
     targetSelector,
-  }: {
-    children: React.ReactNode
-    target?: Element
-    targetSelector?: string
-  }) {
+  }: ColorModeProviderProps) {
     const theme = React.useContext(ThemeContext)
     if (!theme) {
       throw new Error(
@@ -362,7 +394,9 @@ function getInitScript({
   } catch (e) {} })();`
 }
 
-export function getColorModeInitScriptElement(options?: GetInitScriptOptions) {
+export function getColorModeInitScriptElement(
+  options?: GetInitScriptOptions,
+): JSX.Element {
   return (
     <script
       key="xstyled-color-mode-init"
@@ -371,6 +405,8 @@ export function getColorModeInitScriptElement(options?: GetInitScriptOptions) {
   )
 }
 
-export function getColorModeInitScriptTag(options?: GetInitScriptOptions) {
+export function getColorModeInitScriptTag(
+  options?: GetInitScriptOptions,
+): string {
   return `<script>${getInitScript(options)}</script>`
 }
