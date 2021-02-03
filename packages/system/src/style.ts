@@ -245,22 +245,18 @@ function indexGeneratorsByProp(styles: StyleGenerator[]) {
   return index
 }
 
-function sortStyles(styles: Record<string | number, unknown>, props: IProps) {
-  const breakpoints = getBreakpoints(props)
-
-  const breakpointsStyles: Record<string | number, unknown> = {}
-
-  for (const key in breakpoints) {
-    const min = getBreakpointMin(breakpoints, key)
-    const mediaMin = mediaMinWidth(min)
-    if (!mediaMin) continue
-
-    const style = styles[mediaMin]
-    if (!style) continue
-    breakpointsStyles[mediaMin] = style
+function sortStyles(
+  styles: Record<string, unknown>,
+  medias: Record<string, string>,
+) {
+  for (const key in medias) {
+    const mediaValue = medias[key]
+    const s = styles[mediaValue]
+    if (!s) continue
+    delete styles[mediaValue]
+    styles[mediaValue] = s
   }
-
-  return assign(styles, breakpointsStyles)
+  return styles
 }
 
 export function compose(...generators: StyleGenerator[]): StyleGenerator {
@@ -277,17 +273,24 @@ export function compose(...generators: StyleGenerator[]): StyleGenerator {
 
   const generatorsByProp = indexGeneratorsByProp(flatGenerators)
 
-  function getStyle(props: IProps) {
+  function getStyle(props: IProps, sort = true) {
     const styles: IStyles = {}
+
     for (const key in props) {
       const generator = generatorsByProp[key]
       if (generator) {
-        const style = generator.meta.getStyle(props)
+        const style = generator.meta.getStyle(props, false)
         merge(styles, style)
       }
     }
 
-    return sortStyles(styles, props)
+    if (!sort) return styles
+
+    const medias = getCachedMedias(
+      props,
+      getCacheNamespace(props.theme, '__medias'),
+    )
+    return sortStyles(styles, medias)
   }
 
   const props = flatGenerators.reduce(

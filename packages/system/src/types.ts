@@ -59,7 +59,7 @@ export type SystemProp<TType, TTheme extends ITheme> =
   | BreakpointsProps<TType, TTheme>
 
 export interface StyleGenerator {
-  (props: IProps): any
+  (props: IProps, sort?: boolean): any
   meta: {
     props: string[]
     getStyle: StyleGenerator
