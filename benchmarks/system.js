@@ -12,7 +12,7 @@ const sysSystem = sys.compose(sys.fontSize, sys.space)
 const suite = new Benchmark.Suite('systems')
 
 const xSysValue = {
-  theme: {},
+  theme: xsys.defaultTheme,
   p: { xs: 1, md: 20 },
   mt: 10,
   m: '20px',

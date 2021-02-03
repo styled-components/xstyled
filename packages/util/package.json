@@ -22,8 +22,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.11.2"
   }
 }
