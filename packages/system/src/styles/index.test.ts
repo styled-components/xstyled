@@ -18,10 +18,10 @@ describe('#system', () => {
     const keys = Object.keys(res)
     expect(keys).toEqual([
       'display',
-      '@media (min-width: 640px)',
-      '@media (min-width: 1024px)',
-      '@media (min-width: 768px)',
       '& > :not([hidden]) ~ :not([hidden])',
+      '@media (min-width: 640px)',
+      '@media (min-width: 768px)',
+      '@media (min-width: 1024px)',
     ])
   })
 })
