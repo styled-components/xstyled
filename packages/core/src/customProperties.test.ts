@@ -26,11 +26,10 @@ describe('#toCustomPropertiesReferences', () => {
   })
 
   it('supports xstyled func references', () => {
-    expect(
-      toCustomPropertiesReferences({
-        colors: { blue: '#0000FF', primary: th.color('blue') },
-      }),
-    ).toEqual({
+    const theme = {
+      colors: { blue: '#0000FF', primary: th.color('blue') },
+    }
+    expect(toCustomPropertiesReferences(theme, theme)).toEqual({
       colors: {
         blue: 'var(--colors-blue, #0000FF)',
         primary: 'var(--colors-primary, #0000FF)',
@@ -56,6 +55,8 @@ describe('#toCustomPropertiesReferences', () => {
         {
           foo: 'bar',
         },
+        undefined,
+        undefined,
         'xstyled',
       ),
     ).toEqual({
@@ -84,11 +85,12 @@ describe('#toCustomPropertiesDeclarations', () => {
   })
 
   it('supports xstyled func references', () => {
-    expect(
-      toCustomPropertiesDeclarations({
-        colors: { blue: '#0000FF', primary: th.color('blue') },
-      }),
-    ).toBe('--colors-blue: #0000FF;--colors-primary: #0000FF;')
+    const theme = {
+      colors: { blue: '#0000FF', primary: th.color('blue') },
+    }
+    expect(toCustomPropertiesDeclarations(theme, theme)).toBe(
+      '--colors-blue: #0000FF;--colors-primary: #0000FF;',
+    )
   })
 
   it('supports prefix', () => {
@@ -97,6 +99,8 @@ describe('#toCustomPropertiesDeclarations', () => {
         {
           foo: 'bar',
         },
+        undefined,
+        undefined,
         'xstyled',
       ),
     ).toBe('--xstyled-foo: bar;')

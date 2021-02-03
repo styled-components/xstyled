@@ -1,27 +1,36 @@
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable no-continue */
-/* eslint-disable guard-for-in */
-/* eslint-disable no-restricted-syntax */
-import { obj, string, func } from '@xstyled/util'
+import { obj, string, func, cascade } from '@xstyled/util'
 
-const join = (...args: (string | undefined)[]) => args.filter(Boolean).join('.')
+const join = (...args: (string | undefined)[]): string =>
+  args.filter(Boolean).join('.')
 
-const toVarName = (key: string) => `--${key.replace(/\./g, '-')}`
-const toVarValue = (key: string, value: string) =>
+const toVarName = (key: string): string => `--${key.replace(/\./g, '-')}`
+const toVarValue = (key: string, value: string): string =>
   `var(${toVarName(key)}, ${value})`
+const toProp = (key: string, value: string): string => `${key}: ${value};`
 
-export function toCustomPropertiesReferences(
-  object: any,
+export function toCustomPropertiesReferences<
+  T extends Record<string | number, unknown>
+>(
+  values: T,
+  theme?: object,
+  keys: string[] = Object.keys(values),
   parent?: string,
-  theme: any = object,
-) {
-  const next: any = Array.isArray(object) ? [] : {}
+): Record<string | number, unknown> {
+  const next: Record<string | number, unknown> = Array.isArray(values)
+    ? ([] as Record<number, string>)
+    : ({} as Record<string, string>)
 
-  for (const key in object as any) {
-    const value = (object as any)[key]
+  for (const i in keys) {
+    const key = keys[i]
+    const value = values[key]
     const name = join(parent, key)
     if (obj(value)) {
-      next[key] = toCustomPropertiesReferences(value, name, theme)
+      next[key] = toCustomPropertiesReferences(
+        value as { [key: string]: unknown },
+        theme,
+        Object.keys(value),
+        name,
+      )
       continue
     }
     if (string(value)) {
@@ -29,7 +38,7 @@ export function toCustomPropertiesReferences(
       continue
     }
     if (func(value)) {
-      next[key] = toVarValue(name, value({ theme }))
+      next[key] = toVarValue(name, cascade(value, { theme }))
       continue
     }
   }
@@ -38,24 +47,32 @@ export function toCustomPropertiesReferences(
 }
 
 export function toCustomPropertiesDeclarations(
-  object: object,
+  values: { [key: string]: unknown },
+  theme?: object,
+  keys: string[] = Object.keys(values),
   parent?: string,
-  theme = object,
   state = { value: '' },
-) {
-  for (const key in object) {
-    const value = (object as any)[key]
+): string {
+  for (const i in keys) {
+    const key = keys[i]
+    const value = values[key]
     const name = join(parent, key)
     if (obj(value)) {
-      toCustomPropertiesDeclarations(value, name, theme, state)
+      toCustomPropertiesDeclarations(
+        value as { [key: string]: unknown },
+        theme,
+        Object.keys(value),
+        name,
+        state,
+      )
       continue
     }
     if (string(value)) {
-      state.value += `${toVarName(name)}: ${value};`
+      state.value += toProp(toVarName(name), value)
       continue
     }
     if (func(value)) {
-      state.value += `${toVarName(name)}: ${value({ theme })};`
+      state.value += toProp(toVarName(name), cascade(value, { theme }))
       continue
     }
   }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/state-in-constructor */
 /* eslint-env browser */
@@ -80,8 +81,8 @@ describe('#createColorStyles', () => {
         },
       },
     }
-    expect(createColorStyles(theme)).toBe(
-      `body{--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff0000;--xstyled-colors-danger: #ff0000;--xstyled-colors-text: #000;@media (prefers-color-scheme: dark){--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff4400;--xstyled-colors-danger: #ff4400;--xstyled-colors-text: #fff;}&.xstyled-color-mode-default{--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff0000;--xstyled-colors-danger: #ff0000;--xstyled-colors-text: #000;}&.xstyled-color-mode-dark{--xstyled-colors-black: #000;--xstyled-colors-white: #fff;--xstyled-colors-red: #ff4400;--xstyled-colors-danger: #ff4400;--xstyled-colors-text: #fff;}}`,
+    expect(createColorStyles(theme as any)).toBe(
+      `body{--xstyled-colors-red: #ff0000;--xstyled-colors-text: #000;@media (prefers-color-scheme: dark){--xstyled-colors-red: #ff4400;--xstyled-colors-text: #fff;}&.xstyled-color-mode-default{--xstyled-colors-red: #ff0000;--xstyled-colors-text: #000;}&.xstyled-color-mode-dark{--xstyled-colors-red: #ff4400;--xstyled-colors-text: #fff;}}`,
     )
   })
 })
@@ -272,10 +273,8 @@ describe('#useColorModeTheme', () => {
       render(<Dummy />)
       expect(colorModeTheme).toEqual({
         colors: {
-          black: 'var(--xstyled-colors-black, #000)',
-          white: 'var(--xstyled-colors-white, #fff)',
+          ...darkTheme.colors,
           red: 'var(--xstyled-colors-red, #ff0000)',
-          danger: 'var(--xstyled-colors-danger, #ff0000)',
           text: 'var(--xstyled-colors-text, #000)',
           modes: { dark: darkTheme.colors.modes.dark },
         },

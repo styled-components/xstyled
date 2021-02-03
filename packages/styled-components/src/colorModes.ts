@@ -5,8 +5,10 @@ import {
 } from 'styled-components'
 import { createColorModeProvider, createColorStyles } from '@xstyled/core'
 
-const ColorModeStyle = createGlobalStyle`${(p: any) =>
-  createColorStyles(p.theme, { targetSelector: p.targetSelector })}`
+const ColorModeStyle = createGlobalStyle`${(p: {
+  theme: any
+  targetSelector: string
+}) => createColorStyles(p.theme, { targetSelector: p.targetSelector })}`
 
 export const ColorModeProvider = createColorModeProvider({
   ThemeContext,
