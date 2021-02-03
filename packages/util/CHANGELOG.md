@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.2](https://github.com/gregberge/xstyled/tree/master/packages/util/compare/v2.2.1...v2.2.2) (2021-02-03)
+
+
+### Bug Fixes
+
+* fix & optimize style sorting ([76ed20a](https://github.com/gregberge/xstyled/tree/master/packages/util/commit/76ed20a122666c50e80a9b3ddcf32c467d7d6de7))
+
+
+
+
+
 # [1.19.0](https://github.com/gregberge/xstyled/tree/master/packages/util/compare/v1.18.1...v1.19.0) (2020-09-10)
 
 **Note:** Version bump only for package @xstyled/util

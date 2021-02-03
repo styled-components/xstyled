@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.2](https://github.com/gregberge/xstyled/tree/master/packages/system/compare/v2.2.1...v2.2.2) (2021-02-03)
+
+
+### Bug Fixes
+
+* fix & optimize style sorting ([76ed20a](https://github.com/gregberge/xstyled/tree/master/packages/system/commit/76ed20a122666c50e80a9b3ddcf32c467d7d6de7))
+
+
+
+
+
 ## [2.2.1](https://github.com/gregberge/xstyled/tree/master/packages/system/compare/v2.2.0...v2.2.1) (2021-01-31)
 
 

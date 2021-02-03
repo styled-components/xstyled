@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.2](https://github.com/gregberge/xstyled/compare/v2.2.1...v2.2.2) (2021-02-03)
+
+
+### Bug Fixes
+
+* fix & optimize style sorting ([76ed20a](https://github.com/gregberge/xstyled/commit/76ed20a122666c50e80a9b3ddcf32c467d7d6de7))
+
+
+### Performance Improvements
+
+* optimize color modes ([#185](https://github.com/gregberge/xstyled/issues/185)) ([7429182](https://github.com/gregberge/xstyled/commit/7429182020bb54acaf38111196062422f74322c7))
+
+
+
+
+
 ## [2.2.1](https://github.com/gregberge/xstyled/compare/v2.2.0...v2.2.1) (2021-01-31)
 
 
