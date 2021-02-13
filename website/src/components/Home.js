@@ -104,9 +104,6 @@ function CodeExample() {
         <x.div position="relative" w={1} display="flex" flexDirection="column">
           <x.div
             position="relative"
-            borderStyle="solid"
-            borderWidth="1 0 0"
-            borderColor="white-a10"
             minHeight={0}
             flex="1 1 auto"
             display="flex"
