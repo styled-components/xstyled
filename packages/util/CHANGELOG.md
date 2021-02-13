@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.3](https://github.com/gregberge/xstyled/tree/master/packages/util/compare/v2.2.2...v2.2.3) (2021-02-13)
+
+
+### Bug Fixes
+
+* fix style merging problem ([c6aa69c](https://github.com/gregberge/xstyled/tree/master/packages/util/commit/c6aa69ccaf5a550f58899a80783ca74c39d547d3))
+
+
+
+
+
 ## [2.2.2](https://github.com/gregberge/xstyled/tree/master/packages/util/compare/v2.2.1...v2.2.2) (2021-02-03)
 
 
