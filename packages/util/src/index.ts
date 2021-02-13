@@ -102,7 +102,7 @@ export const merge = <TObject, TSource>(
     // @ts-ignore
     if (obj(a[key])) {
       // @ts-ignore
-      a[key] = merge(a[key], b[key])
+      a[key] = merge(assign({}, a[key]), b[key])
     } else {
       // @ts-ignore
       a[key] = b[key]
