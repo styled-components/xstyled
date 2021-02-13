@@ -47,11 +47,5 @@ module.exports = {
         trackingId: 'UA-154496255-3',
       },
     },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/layout`),
-      },
-    },
   ],
 }

@@ -9460,13 +9460,6 @@ gatsby-plugin-google-analytics@^2.11.0:
     "@babel/runtime" "^7.12.5"
     minimatch "3.0.4"
 
-gatsby-plugin-layout@^1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.10.0.tgz#6b058e51d995d33ee0d020f6f136878a3d5a7c39"
-  integrity sha512-POZbetL3coxsYbAA1SsZ7u0wd7zcR667OpP7atCGFc/9RRSxkUtA4sog1DNO9Zi/eG2eUnkw+KWuVLKSHV4Hng==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-
 gatsby-plugin-manifest@^2.11.0:
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.12.0.tgz#107bcffaf236fa3b8d2c0ee830bd617bc903273b"
