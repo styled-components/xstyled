@@ -162,17 +162,14 @@ const Button = ({ children }) => {
 **Using xstyled's `styled.*`**
 
 ```js
-import styled, { up, css } from '@xstyled/styled-components'
+import styled from '@xstyled/styled-components'
 
 const Button = styled.div`
   width: 200;
 
-  ${up(
-    'md',
-    css`
-      width: 300;
-    `,
-  )}
+  @media (min-width: md) {
+    width: 300;
+  }
 `
 ```
 
