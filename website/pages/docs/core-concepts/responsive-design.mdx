@@ -182,6 +182,22 @@ Here is an example where the background color is red at the `md` breakpoint, but
 
 Notice that **we did not** have to specify a background color for the `sm` breakpoint or the `xl` breakpoint — you only need to specify when a utility should start taking effect, not when it should stop.
 
+## Using media queries in `styled.*`
+
+You can reference screens directly in `min-width` and `max-width` media queries:
+
+```js
+import styled from '@xstyled/...'
+
+const Colorful = styled.div`
+  background-color: papayawhip;
+  @media (min-width: md) and (max-width: lg) {
+    background-color: rebeccapurple;
+  }
+```
+
+For `max-width`, xstyled reduces the breakpoint slightly to avoid matching at the exact value. With the default breakpoints, this example translates to a minimum width of `768px` and a maximum width of `1023.98px`.
+
 ## Customizing breakpoints
 
 You can completely customize breakpoints in your theme:
