@@ -1,8 +1,20 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
 import { propGetters } from './propGetters'
 
-const PROP_REGEXP = /(\s*)([^&{}:;\n]+):\s*([^&{}:;\n]+)(\s*);/g
-const IMPORTANT_REGEXP = /\s*!important\s*/
+// prettier-ignore
+const PROP_REGEXP = new RegExp(
+  `(\\s*)` +            // leading whitespace
+  `([^&{}:;\\n]+)` +    // property name
+  `:\\s*` +             // colon, whitespace
+  `([^&{}:;\\n]+)` +    // property value
+  `(\\s*);`,            // trailing whitespace, semicolon
+  `g`,                  // flags
+)
+
+// prettier-ignore
+const IMPORTANT_REGEXP = new RegExp(
+  `\\s*!important\\s*`, // important flag, surrounding whitespace
+)
 
 export function transform(rawValue: any) {
   if (typeof rawValue !== 'string') return rawValue
