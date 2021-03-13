@@ -33,8 +33,8 @@ type BoxStyledTags = {
 interface CreateXStyled extends CreateStyled, BoxStyledTags {}
 
 // @ts-ignore
-export const styled: CreateXStyled = (component: any) => {
-  return getCreateStyle(emStyled(component))
+export const styled: CreateXStyled = (component: any, options: any) => {
+  return getCreateStyle(emStyled(component, options))
 }
 
 styled.box = styled(x.div)
