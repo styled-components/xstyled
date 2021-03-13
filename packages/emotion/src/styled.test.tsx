@@ -142,6 +142,15 @@ describe('#styled', () => {
     const { container } = render(<Dummy />)
     expect(container.firstChild).toHaveStyle('color: red; margin: 4px;')
   })
+
+  it('passes options through', () => {
+    // https://emotion.sh/docs/styled#customizing-prop-forwarding
+    const Dummy = styled('div', {
+      shouldForwardProp: (prop) => prop !== 'color',
+    })``
+    const { container } = render(<Dummy color="lemonchiffon" />)
+    expect(container.firstChild).not.toHaveAttribute('color', 'lemonchiffon')
+  })
 })
 
 describe('#styled.xxx', () => {
