@@ -319,7 +319,6 @@ export const defaultTheme = {
   colors: generateHexAlphaVariants(colors),
   space,
   screens: {
-    _: 0,
     xs: 0,
     sm: 640,
     md: 768,
@@ -471,6 +470,24 @@ export const defaultTheme = {
     ping: 'x-ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
     pulse: 'x-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
     bounce: 'x-bounce 1s infinite',
+  },
+  states: {
+    _: null,
+    motionSafe: '@media (prefers-reduced-motion: no-preference)',
+    motionReduce: '@media (prefers-reduced-motion: reduce)',
+    first: '&:first-child',
+    last: '&:last-child',
+    odd: '&:odd',
+    even: '&:even',
+    visited: '&:visited',
+    checked: '&:checked',
+    focusWithin: '&:focus-within',
+    hover: '&:hover',
+    focus: '&:focus',
+    focusVisible: '&:focus-visible',
+    active: '&:active',
+    disabled: '&:disabled',
+    placeholder: '&::placeholder',
   },
 }
 

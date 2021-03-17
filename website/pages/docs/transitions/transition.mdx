@@ -28,8 +28,7 @@ Use `transition={value}` to specify transitions.
         transition
         transitionDuration={500}
         color="white"
-        bg="amber-600"
-        hoverBg="orange-600"
+        bg={{ _: 'amber-600', hover: 'orange-600' }}
         py={3}
         px={6}
         borderRadius="md"
@@ -43,8 +42,7 @@ Use `transition={value}` to specify transitions.
     transition
     transitionDuration={500}
     color="white"
-    bg="blue-600"
-    hoverBg="orange-600"
+    bg={{ _: 'amber-600', hover: 'orange-600' }}
     py={3}
     px={6}
     borderRadius="md"
@@ -56,10 +54,13 @@ Use `transition={value}` to specify transitions.
 
 ## Prefers-reduced-motion
 
-You can conditionally apply animations and transitions using the `motionSafe` and `motionReduce` variants:
+You can conditionally apply animations and transitions using the `motionSafe` and `motionReduce` states:
 
 ```jsx
-<x.button hoverColor="red" transition motionReduceTransition="none">
+<x.button
+  color={{ hover: 'red' }}
+  transition={{ _: true, motionReduce: 'none' }}
+>
   Hover me
 </x.button>
 ```

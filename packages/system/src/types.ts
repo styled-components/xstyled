@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
-
 export type IVariants = Record<string | number, string | number>
+export type IStates = Record<string, string>
 export type ITheme = {
   animations?: unknown
   borders?: unknown
@@ -19,6 +19,7 @@ export type ITheme = {
   ringWidths?: unknown
   shadows?: unknown
   screens?: unknown
+  states?: unknown
   settings?: unknown
   sizes?: unknown
   space?: unknown
@@ -45,18 +46,26 @@ export interface StyleGetter {
 }
 
 export type Breakpoints<TTheme extends ITheme> = TTheme extends {
-  breakpoints: IBreakpoints
+  screens: IBreakpoints
 }
   ? TTheme['screens']
   : Record<string, unknown>
 
-export type BreakpointsProps<TType, TTheme extends ITheme> = {
-  [P in keyof Breakpoints<TTheme>]?: TType
+export type States<TTheme extends ITheme> = TTheme extends {
+  states: IStates
+}
+  ? TTheme['states']
+  : Record<string, unknown>
+
+export type VariantProps<TType, TTheme extends ITheme> = {
+  [P in keyof (Breakpoints<TTheme> & States<TTheme>)]?:
+    | TType
+    | VariantProps<TType, TTheme>
 }
 
 export type SystemProp<TType, TTheme extends ITheme> =
   | TType
-  | BreakpointsProps<TType, TTheme>
+  | VariantProps<TType, TTheme>
 
 export interface StyleGenerator {
   (props: IProps, sort?: boolean): any
@@ -108,11 +117,3 @@ export type FirstArg<T extends (...args: any) => any> = Parameters<T>[0]
 
 /* Theme exposed to be overriden */
 export interface Theme extends ITheme {}
-
-// Automatic State Props for TypeScript 4.1
-// For compatibility reason, we use static types instead
-// type StatePropName<TState extends string, TProp extends string> = `${TState}${Capitalize<TProp>}`
-// export type StatePropsOfProp<TStates extends string, TPropKey extends string, TPropType> = {
-//   [K in TStates as (StatePropName<string & K, TPropKey> | TPropKey)]: TPropType
-// }
-// export type SystemStateProps<TTheme, TPropKey extends string, TType> = StatePropsOfProp<DefaultStates, TPropKey, SystemProperty<TType, TTheme>>

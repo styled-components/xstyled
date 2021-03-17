@@ -74,8 +74,7 @@ Here's a simple example of a marketing page component that uses a stacked layout
             lineHeight="tight"
             fontWeight="medium"
             color="black"
-            textDecoration="none"
-            hoverTextDecoration="underline"
+            textDecoration={{ _: 'none', hover: 'underline' }}
           >
             Finding customers for your new business
           </x.a>
@@ -123,7 +122,7 @@ Here's a simple example of a marketing page component that uses a stacked layout
           lineHeight="tight"
           fontWeight="medium"
           color="black"
-          hoverTextDecoration="underline"
+          textDecoration={{ hover: 'underline' }}
         >
           Finding customers for your new business
         </x.a>
