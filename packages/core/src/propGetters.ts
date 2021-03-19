@@ -68,7 +68,9 @@ export const propGetters = {
   'padding-right': getNumberSpace,
   gap: getMultiNumberSpace,
   'grid-gap': getMultiNumberSpace,
+  'row-gap': getNumberSpace,
   'grid-row-gap': getNumberSpace,
+  'column-gap': getNumberSpace,
   'grid-column-gap': getNumberSpace,
 
   // getColor
