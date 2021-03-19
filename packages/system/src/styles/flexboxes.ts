@@ -319,6 +319,7 @@ export const order = style({
 export interface FlexboxesProps<T extends ITheme = Theme>
   extends DisplayProps<T>,
     AlignItemsProps<T>,
+    AlignContentProps<T>,
     JustifyContentProps<T>,
     JustifyItemsProps<T>,
     FlexWrapProps<T>,
