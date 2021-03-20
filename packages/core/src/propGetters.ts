@@ -61,6 +61,8 @@ export const propGetters = {
   'margin-bottom': getNumberSpace,
   'margin-left': getNumberSpace,
   'margin-right': getNumberSpace,
+  'margin-inline-start': getNumberSpace,
+  'margin-inline-end': getNumberSpace,
   padding: getMultiNumberSpace,
   'padding-top': getNumberSpace,
   'padding-bottom': getNumberSpace,

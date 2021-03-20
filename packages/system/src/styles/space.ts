@@ -291,6 +291,94 @@ export const my = style({
   themeGet: getSpace,
 })
 
+type MarginInlineStartProp<T extends ITheme> = SystemProp<
+  CSS.Property.MarginInlineStart | SpaceGetter<T>,
+  T
+>
+export interface MarginInlineStartProps<T extends ITheme = Theme> {
+  marginInlineStart?: MarginInlineStartProp<T>
+  motionSafeMarginInlineStart?: MarginInlineStartProp<T>
+  motionReduceMarginInlineStart?: MarginInlineStartProp<T>
+  firstMarginInlineStart?: MarginInlineStartProp<T>
+  lastMarginInlineStart?: MarginInlineStartProp<T>
+  oddMarginInlineStart?: MarginInlineStartProp<T>
+  evenMarginInlineStart?: MarginInlineStartProp<T>
+  visitedMarginInlineStart?: MarginInlineStartProp<T>
+  checkedMarginInlineStart?: MarginInlineStartProp<T>
+  focusWithinMarginInlineStart?: MarginInlineStartProp<T>
+  hoverMarginInlineStart?: MarginInlineStartProp<T>
+  focusMarginInlineStart?: MarginInlineStartProp<T>
+  focusVisibleMarginInlineStart?: MarginInlineStartProp<T>
+  activeMarginInlineStart?: MarginInlineStartProp<T>
+  disabledMarginInlineStart?: MarginInlineStartProp<T>
+  placeholderMarginInlineStart?: MarginInlineStartProp<T>
+  ms?: MarginInlineStartProp<T>
+  motionSafeMs?: MarginInlineStartProp<T>
+  motionReduceMs?: MarginInlineStartProp<T>
+  firstMs?: MarginInlineStartProp<T>
+  lastMs?: MarginInlineStartProp<T>
+  oddMs?: MarginInlineStartProp<T>
+  evenMs?: MarginInlineStartProp<T>
+  visitedMs?: MarginInlineStartProp<T>
+  checkedMs?: MarginInlineStartProp<T>
+  focusWithinMs?: MarginInlineStartProp<T>
+  hoverMs?: MarginInlineStartProp<T>
+  focusMs?: MarginInlineStartProp<T>
+  focusVisibleMs?: MarginInlineStartProp<T>
+  activeMs?: MarginInlineStartProp<T>
+  disabledMs?: MarginInlineStartProp<T>
+  placeholderMs?: MarginInlineStartProp<T>
+}
+export const marginInlineStart = style({
+  prop: ['marginInlineStart', 'ms'],
+  cssProperty: 'marginInlineStart',
+  themeGet: getSpace,
+})
+
+type MarginInlineEndProp<T extends ITheme> = SystemProp<
+  CSS.Property.MarginInlineEnd | SpaceGetter<T>,
+  T
+>
+export interface MarginInlineEndProps<T extends ITheme = Theme> {
+  marginInlineEnd?: MarginInlineEndProp<T>
+  motionSafeMarginInlineEnd?: MarginInlineEndProp<T>
+  motionReduceMarginInlineEnd?: MarginInlineEndProp<T>
+  firstMarginInlineEnd?: MarginInlineEndProp<T>
+  lastMarginInlineEnd?: MarginInlineEndProp<T>
+  oddMarginInlineEnd?: MarginInlineEndProp<T>
+  evenMarginInlineEnd?: MarginInlineEndProp<T>
+  visitedMarginInlineEnd?: MarginInlineEndProp<T>
+  checkedMarginInlineEnd?: MarginInlineEndProp<T>
+  focusWithinMarginInlineEnd?: MarginInlineEndProp<T>
+  hoverMarginInlineEnd?: MarginInlineEndProp<T>
+  focusMarginInlineEnd?: MarginInlineEndProp<T>
+  focusVisibleMarginInlineEnd?: MarginInlineEndProp<T>
+  activeMarginInlineEnd?: MarginInlineEndProp<T>
+  disabledMarginInlineEnd?: MarginInlineEndProp<T>
+  placeholderMarginInlineEnd?: MarginInlineEndProp<T>
+  me?: MarginInlineEndProp<T>
+  motionSafeMe?: MarginInlineEndProp<T>
+  motionReduceMe?: MarginInlineEndProp<T>
+  firstMe?: MarginInlineEndProp<T>
+  lastMe?: MarginInlineEndProp<T>
+  oddMe?: MarginInlineEndProp<T>
+  evenMe?: MarginInlineEndProp<T>
+  visitedMe?: MarginInlineEndProp<T>
+  checkedMe?: MarginInlineEndProp<T>
+  focusWithinMe?: MarginInlineEndProp<T>
+  hoverMe?: MarginInlineEndProp<T>
+  focusMe?: MarginInlineEndProp<T>
+  focusVisibleMe?: MarginInlineEndProp<T>
+  activeMe?: MarginInlineEndProp<T>
+  disabledMe?: MarginInlineEndProp<T>
+  placeholderMe?: MarginInlineEndProp<T>
+}
+export const marginInlineEnd = style({
+  prop: ['marginInlineEnd', 'me'],
+  cssProperty: 'marginInlineEnd',
+  themeGet: getSpace,
+})
+
 // Padding
 
 type PaddingProp<T extends ITheme> = SystemProp<
