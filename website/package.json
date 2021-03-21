@@ -11,10 +11,10 @@
     "prismjs": "^1.23.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "smooth-doc": "^6.0.1"
+    "smooth-doc": "^7.0.1"
   },
   "devDependencies": {
-    "gatsby": "^2.32.0",
-    "gatsby-plugin-google-analytics": "^2.11.0"
+    "gatsby": "^3.1.1",
+    "gatsby-plugin-google-analytics": "^3.1.0"
   }
 }

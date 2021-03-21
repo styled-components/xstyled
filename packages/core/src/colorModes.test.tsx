@@ -132,6 +132,8 @@ describe('#useColorModeState', () => {
       window.matchMedia = jest.fn((query) => ({
         matches: query === `(prefers-color-scheme: ${mode})`,
         media: query,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
       }))
     }
 
