@@ -35,6 +35,29 @@ export const display = style({
   prop: 'display',
 })
 
+type FloatProp<T extends ITheme> = SystemProp<CSS.Property.Float, T>
+export interface FloatProps<T extends ITheme = Theme> {
+  float?: FloatProp<T>
+  motionSafeFloat?: FloatProp<T>
+  motionReduceFloat?: FloatProp<T>
+  firstFloat?: FloatProp<T>
+  lastFloat?: FloatProp<T>
+  oddFloat?: FloatProp<T>
+  evenFloat?: FloatProp<T>
+  visitedFloat?: FloatProp<T>
+  checkedFloat?: FloatProp<T>
+  focusWithinFloat?: FloatProp<T>
+  hoverFloat?: FloatProp<T>
+  focusFloat?: FloatProp<T>
+  focusVisibleFloat?: FloatProp<T>
+  activeFloat?: FloatProp<T>
+  disabledFloat?: FloatProp<T>
+  placeholderFloat?: FloatProp<T>
+}
+export const float = style({
+  prop: 'float',
+})
+
 type BoxSizingProp<T extends ITheme> = SystemProp<CSS.Property.BoxSizing, T>
 export interface BoxSizingProps<T extends ITheme = Theme> {
   boxSizing?: BoxSizingProp<T>
@@ -412,6 +435,7 @@ export const objectFit = style({
 
 export interface LayoutProps<T extends ITheme = Theme>
   extends DisplayProps<T>,
+    FloatProps<T>,
     BoxSizingProps<T>,
     ContainerProps<T>,
     OverflowProps<T>,
@@ -429,6 +453,7 @@ export interface LayoutProps<T extends ITheme = Theme>
 export const layout = compose(
   boxSizing,
   display,
+  float,
   container,
   overflow,
   overflowX,
