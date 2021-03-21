@@ -15,18 +15,18 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - yarn-cache-{{ checksum "yarn.lock" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - yarn-cache
 
       - run:
           name: Installing Dependencies
-          command: yarn install --frozen-lockfile
+          command: yarn install --immutable
 
       - save_cache:
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "yarn.lock" }}
+            - .yarn
+          key: yarn-cache-{{ checksum "yarn.lock" }}
 
       - run:
           name: Build

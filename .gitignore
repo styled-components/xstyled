@@ -2,4 +2,11 @@ node_modules/
 dist/
 /coverage/
 .size-snapshot.json
-.yarn*
+
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
