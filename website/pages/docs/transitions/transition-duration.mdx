@@ -25,7 +25,7 @@ Use `transitionDuration={duration}` utilities to control an element's transition
       <x.button
         fontWeight="medium"
         transition
-        transitionDuration={150}
+        transitionDuration="instant"
         color="white"
         bg="fuchsia-600"
         hoverBg="red-600"
@@ -39,7 +39,7 @@ Use `transitionDuration={duration}` utilities to control an element's transition
       <x.button
         fontWeight="medium"
         transition
-        transitionDuration={300}
+        transitionDuration="fast-in"
         color="white"
         bg="fuchsia-600"
         hoverBg="red-600"
@@ -64,15 +64,32 @@ Use `transitionDuration={duration}` utilities to control an element's transition
       >
         Hover me
       </x.button>
+      <x.button
+        fontWeight="medium"
+        transition
+        transitionDuration="3s"
+        color="white"
+        bg="fuchsia-600"
+        hoverBg="red-600"
+        py={3}
+        px={6}
+        borderRadius="md"
+        border={0}
+      >
+        Hover me
+      </x.button>
     </x.div>
   </template>
-  <x.button transition transitionDuration={150}>
+  <x.button transition transitionDuration="instant">
     Hover me
   </x.button>
-  <x.button transition transitionDuration={300}>
+  <x.button transition transitionDuration="fast-in">
     Hover me
   </x.button>
   <x.button transition transitionDuration={700}>
+    Hover me
+  </x.button>
+  <x.button transition transitionDuration="3s">
     Hover me
   </x.button>
 </>
@@ -87,3 +104,50 @@ To control an element's transition-duration at a specific breakpoint, use respon
 ```
 
 For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+import CustomizeDurations from '../../../partials/customizing/durations.mdx'
+
+<CustomizeDurations />
+
+## Styled bindings
+
+### Automatic
+
+Using xstyled's `styled`, all transition properties defined are automatically bound to `transition-property` attribute:
+
+```js
+import styled from '@xstyled/...'
+
+const Button = styled.button`
+  transition-duration: fast-in;
+`
+```
+
+To learn more about styled syntax, read [styled syntax documentation](/docs/enhanced-styled-components/).
+
+### Manual
+
+It is possible to manually bind a transition property using `th.duration` utility:
+
+```js
+import styled from '...'
+import { th } from '@xstyled/...'
+
+const Switch = styled.radio`
+  transition: opacity ${th.duration('instant')};
+`
+```
+
+## Hooks
+
+Get a transition property in any component using `useDuration` hook:
+
+```js
+import { useDuration } from '@xstyled/...'
+
+function Button() {
+  const duration = useDuration('fast-out')
+}
+```

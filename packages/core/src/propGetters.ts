@@ -19,6 +19,7 @@ import {
   getTimingFunction,
   getTransform,
   getTransitionProperty,
+  getDuration,
 } from '@xstyled/system'
 
 const getNumber = (transform: Function) => (value: any) => {
@@ -147,6 +148,10 @@ export const propGetters = {
 
   // getTransition
   transition: getTransition,
+
+  // getDuration
+  'transition-duration': getDuration,
+  'animation-duration': getDuration,
 
   // getAnimation
   animation: getAnimation,
