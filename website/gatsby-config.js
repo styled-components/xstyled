@@ -34,7 +34,6 @@ module.exports = {
         ],
         carbonAdsURL:
           '//cdn.carbonads.com/carbon.js?serve=CE7IL2JN&placement=xstyleddev',
-        licenseKey: '24A6B70D-C4A94AA6-826DC75D-64B099AA',
         docSearch: {
           apiKey: '9a5b8a758fdc63c340972ae48583c2f9',
           indexName: 'smooth-code-xstyled',

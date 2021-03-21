@@ -183,21 +183,17 @@ function useSystemMode(theme: ITheme) {
   })
 
   React.useEffect(() => {
-    const cleans = configs
-      .filter(({ mql }) => mql.addEventListener && mql.removeEventListener)
-      .map(({ mode, mql }) => {
-        const handler = ({ matches }: MediaQueryListEvent) => {
-          if (matches) {
-            setSystemMode(mode)
-          } else {
-            setSystemMode((previousMode) =>
-              previousMode === mode ? null : mode,
-            )
-          }
+    const cleans = configs.map(({ mode, mql }) => {
+      const handler = ({ matches }: MediaQueryListEvent) => {
+        if (matches) {
+          setSystemMode(mode)
+        } else {
+          setSystemMode((previousMode) => (previousMode === mode ? null : mode))
         }
-        mql.addEventListener('change', handler)
-        return () => mql.removeEventListener('change', handler)
-      })
+      }
+      mql.addEventListener('change', handler)
+      return () => mql.removeEventListener('change', handler)
+    })
     return () => cleans.forEach((clean) => clean())
   })
 
