@@ -14,6 +14,7 @@ export const getPx = themeGetter<PxGetter>({
 export type DurationGetter = number | string
 export const getDuration = themeGetter<DurationGetter>({
   name: 'duration',
+  key: 'durations',
   transform: (value: number | string) => {
     const num = Number(value)
     return ms(Number.isNaN(num) ? value : num)

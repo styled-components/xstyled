@@ -327,6 +327,13 @@ export const defaultTheme = {
     xl: 1280,
     '2xl': 1536,
   },
+  durations: {
+    instant: '100ms',
+    'fast-in': '250ms',
+    'fast-out': '200ms',
+    'slow-in': '300ms',
+    'slow-out': '250ms',
+  },
   sizes: {
     ...space,
     0.5: undefined,

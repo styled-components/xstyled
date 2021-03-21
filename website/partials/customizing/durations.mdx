@@ -1,0 +1,34 @@
+### Durations
+
+If you'd like to customize your values for durations, use the `theme.durations` section of your theme.
+
+```diffjs
+  // theme.js
+
+  export const theme = {
+    durations: {
+      // ...
+      instant: '100ms',
+      'fast-in': '250ms',
+      'fast-out': '200ms',
+      'slow-in': '300ms',
+      'slow-out': '250ms',
++     'very-slow': '400ms',
+    },
+  }
+```
+
+If you don't want to customize it, a set of `durations` based on [Google Material Design recommendations](https://material.io/design/motion/speed.html#duration) is already defined in default theme.
+
+```js
+const defaultTheme = {
+  // ...
+  durations: {
+    instant: '100ms',
+    'fast-in': '250ms',
+    'fast-out': '200ms',
+    'slow-in': '300ms',
+    'slow-out': '250ms',
+  },
+}
+```
