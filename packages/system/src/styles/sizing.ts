@@ -75,6 +75,7 @@ type MaxWidthProp<T extends ITheme> = SystemProp<
   T
 >
 export interface MaxWidthProps<T extends ITheme = Theme> {
+  // maxWidth
   maxWidth?: MaxWidthProp<T>
   motionSafeMaxWidth?: MaxWidthProp<T>
   motionReduceMaxWidth?: MaxWidthProp<T>
@@ -91,9 +92,27 @@ export interface MaxWidthProps<T extends ITheme = Theme> {
   activeMaxWidth?: MaxWidthProp<T>
   disabledMaxWidth?: MaxWidthProp<T>
   placeholderMaxWidth?: MaxWidthProp<T>
+
+  // maxW
+  maxW?: MaxWidthProp<T>
+  motionSafeMaxW?: MaxWidthProp<T>
+  motionReduceMaxW?: MaxWidthProp<T>
+  firstMaxW?: MaxWidthProp<T>
+  lastMaxW?: MaxWidthProp<T>
+  oddMaxW?: MaxWidthProp<T>
+  evenMaxW?: MaxWidthProp<T>
+  visitedMaxW?: MaxWidthProp<T>
+  checkedMaxW?: MaxWidthProp<T>
+  focusWithinMaxW?: MaxWidthProp<T>
+  hoverMaxW?: MaxWidthProp<T>
+  focusMaxW?: MaxWidthProp<T>
+  focusVisibleMaxW?: MaxWidthProp<T>
+  activeMaxW?: MaxWidthProp<T>
+  disabledMaxW?: MaxWidthProp<T>
+  placeholderMaxW?: MaxWidthProp<T>
 }
 export const maxWidth = style({
-  prop: 'maxWidth',
+  prop: ['maxWidth', 'maxW'],
   themeGet: getSize,
 })
 
@@ -102,6 +121,7 @@ type MaxHeightProp<T extends ITheme> = SystemProp<
   T
 >
 export interface MaxHeightProps<T extends ITheme = Theme> {
+  // maxHeight
   maxHeight?: MaxHeightProp<T>
   motionSafeMaxHeight?: MaxHeightProp<T>
   motionReduceMaxHeight?: MaxHeightProp<T>
@@ -118,9 +138,27 @@ export interface MaxHeightProps<T extends ITheme = Theme> {
   activeMaxHeight?: MaxHeightProp<T>
   disabledMaxHeight?: MaxHeightProp<T>
   placeholderMaxHeight?: MaxHeightProp<T>
+
+  // maxH
+  maxH?: MaxWidthProp<T>
+  motionSafeMaxH?: MaxWidthProp<T>
+  motionReduceMaxH?: MaxWidthProp<T>
+  firstMaxH?: MaxWidthProp<T>
+  lastMaxH?: MaxWidthProp<T>
+  oddMaxH?: MaxWidthProp<T>
+  evenMaxH?: MaxWidthProp<T>
+  visitedMaxH?: MaxWidthProp<T>
+  checkedMaxH?: MaxWidthProp<T>
+  focusWithinMaxH?: MaxWidthProp<T>
+  hoverMaxH?: MaxWidthProp<T>
+  focusMaxH?: MaxWidthProp<T>
+  focusVisibleMaxH?: MaxWidthProp<T>
+  activeMaxH?: MaxWidthProp<T>
+  disabledMaxH?: MaxWidthProp<T>
+  placeholderMaxH?: MaxWidthProp<T>
 }
 export const maxHeight = style({
-  prop: 'maxHeight',
+  prop: ['maxHeight', 'maxH'],
   themeGet: getSize,
 })
 
@@ -129,6 +167,7 @@ type MinWidthProp<T extends ITheme> = SystemProp<
   T
 >
 export interface MinWidthProps<T extends ITheme = Theme> {
+  // minWidth
   minWidth?: MinWidthProp<T>
   motionSafeMinWidth?: MinWidthProp<T>
   motionReduceMinWidth?: MinWidthProp<T>
@@ -145,9 +184,27 @@ export interface MinWidthProps<T extends ITheme = Theme> {
   activeMinWidth?: MinWidthProp<T>
   disabledMinWidth?: MinWidthProp<T>
   placeholderMinWidth?: MinWidthProp<T>
+
+  // minW
+  minW?: MaxWidthProp<T>
+  motionSafeMinW?: MaxWidthProp<T>
+  motionReduceMinW?: MaxWidthProp<T>
+  firstMinW?: MaxWidthProp<T>
+  lastMinW?: MaxWidthProp<T>
+  oddMinW?: MaxWidthProp<T>
+  evenMinW?: MaxWidthProp<T>
+  visitedMinW?: MaxWidthProp<T>
+  checkedMinW?: MaxWidthProp<T>
+  focusWithinMinW?: MaxWidthProp<T>
+  hoverMinW?: MaxWidthProp<T>
+  focusMinW?: MaxWidthProp<T>
+  focusVisibleMinW?: MaxWidthProp<T>
+  activeMinW?: MaxWidthProp<T>
+  disabledMinW?: MaxWidthProp<T>
+  placeholderMinW?: MaxWidthProp<T>
 }
 export const minWidth = style({
-  prop: 'minWidth',
+  prop: ['minWidth', 'minW'],
   themeGet: getSize,
 })
 
@@ -156,6 +213,7 @@ type MinHeightProp<T extends ITheme> = SystemProp<
   T
 >
 export interface MinHeightProps<T extends ITheme = Theme> {
+  // minHeight
   minHeight?: MinHeightProp<T>
   motionSafeMinHeight?: MinHeightProp<T>
   motionReduceMinHeight?: MinHeightProp<T>
@@ -172,9 +230,27 @@ export interface MinHeightProps<T extends ITheme = Theme> {
   activeMinHeight?: MinHeightProp<T>
   disabledMinHeight?: MinHeightProp<T>
   placeholderMinHeight?: MinHeightProp<T>
+
+  // minH
+  minH?: MaxWidthProp<T>
+  motionSafeMinH?: MaxWidthProp<T>
+  motionReduceMinH?: MaxWidthProp<T>
+  firstMinH?: MaxWidthProp<T>
+  lastMinH?: MaxWidthProp<T>
+  oddMinH?: MaxWidthProp<T>
+  evenMinH?: MaxWidthProp<T>
+  visitedMinH?: MaxWidthProp<T>
+  checkedMinH?: MaxWidthProp<T>
+  focusWithinMinH?: MaxWidthProp<T>
+  hoverMinH?: MaxWidthProp<T>
+  focusMinH?: MaxWidthProp<T>
+  focusVisibleMinH?: MaxWidthProp<T>
+  activeMinH?: MaxWidthProp<T>
+  disabledMinH?: MaxWidthProp<T>
+  placeholderMinH?: MaxWidthProp<T>
 }
 export const minHeight = style({
-  prop: 'minHeight',
+  prop: ['minHeight', 'minH'],
   themeGet: getSize,
 })
 
