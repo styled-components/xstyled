@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/gregberge/xstyled/compare/v2.2.3...v2.3.0) (2021-03-23)
+
+
+### Bug Fixes
+
+* **emotion:** pass options through ([#202](https://github.com/gregberge/xstyled/issues/202)) ([781704c](https://github.com/gregberge/xstyled/commit/781704cd2baa9bb9447e720dacb3a3d596276cd1))
+* **styled:** use space in column-gap & row-gap ([517c08e](https://github.com/gregberge/xstyled/commit/517c08e4caf4ada2b5370f92c6abc211a938d3ad)), closes [#200](https://github.com/gregberge/xstyled/issues/200)
+* **transform:** confused by comments, whitespace ([93cba6a](https://github.com/gregberge/xstyled/commit/93cba6adc043dce0389d057d2ab9b88a3b7fa917))
+* **types:** add missing alignContent prop ([eb3c47f](https://github.com/gregberge/xstyled/commit/eb3c47f856166c2f3803025f88d1546f71f058ae)), closes [#205](https://github.com/gregberge/xstyled/issues/205)
+* **types:** invalid color prop ([0660565](https://github.com/gregberge/xstyled/commit/0660565773898ec4f87eb66f90a42d5511753953))
+
+
+### Features
+
+* add float property ([0335114](https://github.com/gregberge/xstyled/commit/0335114280242a2554e300e565065e083459550f)), closes [#192](https://github.com/gregberge/xstyled/issues/192)
+* add maxW, maxH, minW, minH shortcuts ([fde802e](https://github.com/gregberge/xstyled/commit/fde802ec0e73b6fb6826936c4bac072348c275b3)), closes [#199](https://github.com/gregberge/xstyled/issues/199)
+* **durations:** bind durations to `theme.durations` ([362dea3](https://github.com/gregberge/xstyled/commit/362dea3284a7a9a951ba1b26822dceed78d2ed4d))
+* **transform:** min/max widths in media queries ([aa1f518](https://github.com/gregberge/xstyled/commit/aa1f518f26c098e30299b4fb1f36db95f1ccab86))
+
+
+### Performance Improvements
+
+* add media query to benchmark ([af10f5a](https://github.com/gregberge/xstyled/commit/af10f5abcdea00cd06396360c9bb696541b73e28))
+
+
+
+
+
 ## [2.2.3](https://github.com/gregberge/xstyled/compare/v2.2.2...v2.2.3) (2021-02-13)
 
 

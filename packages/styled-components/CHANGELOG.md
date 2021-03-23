@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/gregberge/xstyled/tree/master/packages/styled-components/compare/v2.2.3...v2.3.0) (2021-03-23)
+
+
+### Bug Fixes
+
+* **types:** invalid color prop ([0660565](https://github.com/gregberge/xstyled/tree/master/packages/styled-components/commit/0660565773898ec4f87eb66f90a42d5511753953))
+
+
+
+
+
 ## [2.2.3](https://github.com/gregberge/xstyled/tree/master/packages/styled-components/compare/v2.2.2...v2.2.3) (2021-02-13)
 
 **Note:** Version bump only for package @xstyled/styled-components

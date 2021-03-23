@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/gregberge/xstyled/tree/master/packages/babel-preset-emotion-css-prop/compare/v2.2.3...v2.3.0) (2021-03-23)
+
+**Note:** Version bump only for package @xstyled/babel-preset-emotion-css-prop
+
+
+
+
+
 ## [2.2.2](https://github.com/gregberge/xstyled/tree/master/packages/babel-preset-emotion-css-prop/compare/v2.2.1...v2.2.2) (2021-02-03)
 
 **Note:** Version bump only for package @xstyled/babel-preset-emotion-css-prop

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/gregberge/xstyled/tree/master/packages/core/compare/v2.2.3...v2.3.0) (2021-03-23)
+
+
+### Bug Fixes
+
+* **styled:** use space in column-gap & row-gap ([517c08e](https://github.com/gregberge/xstyled/tree/master/packages/core/commit/517c08e4caf4ada2b5370f92c6abc211a938d3ad)), closes [#200](https://github.com/gregberge/xstyled/tree/master/packages/core/issues/200)
+* **transform:** confused by comments, whitespace ([93cba6a](https://github.com/gregberge/xstyled/tree/master/packages/core/commit/93cba6adc043dce0389d057d2ab9b88a3b7fa917))
+
+
+### Features
+
+* **durations:** bind durations to `theme.durations` ([362dea3](https://github.com/gregberge/xstyled/tree/master/packages/core/commit/362dea3284a7a9a951ba1b26822dceed78d2ed4d))
+* **transform:** min/max widths in media queries ([aa1f518](https://github.com/gregberge/xstyled/tree/master/packages/core/commit/aa1f518f26c098e30299b4fb1f36db95f1ccab86))
+
+
+
+
+
 ## [2.2.3](https://github.com/gregberge/xstyled/tree/master/packages/core/compare/v2.2.2...v2.2.3) (2021-02-13)
 
 **Note:** Version bump only for package @xstyled/core

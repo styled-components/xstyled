@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/gregberge/xstyled/tree/master/packages/emotion/compare/v2.2.3...v2.3.0) (2021-03-23)
+
+
+### Bug Fixes
+
+* **emotion:** pass options through ([#202](https://github.com/gregberge/xstyled/tree/master/packages/emotion/issues/202)) ([781704c](https://github.com/gregberge/xstyled/tree/master/packages/emotion/commit/781704cd2baa9bb9447e720dacb3a3d596276cd1))
+
+
+
+
+
 ## [2.2.3](https://github.com/gregberge/xstyled/tree/master/packages/emotion/compare/v2.2.2...v2.2.3) (2021-02-13)
 
 **Note:** Version bump only for package @xstyled/emotion

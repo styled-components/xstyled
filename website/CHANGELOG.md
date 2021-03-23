@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/gregberge/xstyled/compare/v2.2.3...v2.3.0) (2021-03-23)
+
+
+### Features
+
+* add float property ([0335114](https://github.com/gregberge/xstyled/commit/0335114280242a2554e300e565065e083459550f)), closes [#192](https://github.com/gregberge/xstyled/issues/192)
+* add maxW, maxH, minW, minH shortcuts ([fde802e](https://github.com/gregberge/xstyled/commit/fde802ec0e73b6fb6826936c4bac072348c275b3)), closes [#199](https://github.com/gregberge/xstyled/issues/199)
+* **durations:** bind durations to `theme.durations` ([362dea3](https://github.com/gregberge/xstyled/commit/362dea3284a7a9a951ba1b26822dceed78d2ed4d))
+
+
+
+
+
 ## [2.2.3](https://github.com/gregberge/xstyled/compare/v2.2.2...v2.2.3) (2021-02-13)
 
 **Note:** Version bump only for package @xstyled/website
