@@ -1,0 +1,88 @@
+---
+section: Core Concepts
+title: Performances
+slug: /docs/performances/
+---
+
+# Performances
+
+Understand performances concerns with xstyled.
+
+<carbon-ad />
+
+One of the reason xstyled was created is performance. It was originally a drop-in replacement for [styled-system](https://styled-system.com/) which was not performant due to its internal algorithm. Since the beginning xstyled is focused on being as performant as possible.
+
+## Impact on bundlesize
+
+xstyled is around ~15kb gzipped including all utilities and all dependencies.
+
+- `@xstyled/styled-components`: 15.4kb gzipped ([see on Bundlephobia](https://bundlephobia.com/result?p=@xstyled/styled-components@2.2.3))
+- `@xstyled/emotion`: 15.7kb gzipped ([see on Bundlephobia](https://bundlephobia.com/result?p=@xstyled/emotion@2.2.3))
+
+For ~15kb it includes everything to build an entire website or design system.
+
+## Impact on performance
+
+xstyled has a very small impact on performance, it is heavily optimized. Every property computation is cached. Every single part of the code is optimized to reduce the footprint as much as possible.
+
+Most of time using xstyled could lead to a performance improvement of your website. This website is entirely build with xstyled, it scores 99 on [Lighthouse](https://developers.google.com/web/tools/lighthouse) performance audit.
+
+## FAQ
+
+### Does it make sense to create namespaces with less utilities than the `x.*`?
+
+No, xstyled iterates on component properties, not on namespace utilities.
+
+### Does it make sense to use `styled.*` instead of `x.*`?
+
+To be honest, we didn't measure it but we didn't have any complaint about it.
+
+### 15kb is huge! Can I reduce it?
+
+No, it's the cost of the productivity dear. It includes **every utilities**, for a comparison, Tailwind including everything is 294kb gzipped.
+
+## Benchmarks
+
+Benchmarks are available in [xstyled repository](https://github.com/gregberge/xstyled/tree/main/benchmarks). I ran it on a MacBook Pro (2,3 GHz 8-Core Intel Core i9, 32 GB 2667 MHz DDR4).
+
+### xstyled vs styled-system
+
+This benchmark measures the speed of [@xstyled/system](https://www.npmjs.com/package/@xstyled/system) vs [styled-system](https://www.npmjs.com/package/styled-system).
+
+```js
+@xstyled/system x 431,828 ops/sec ±1.06% (86 runs sampled)
+styled-system x 549,224 ops/sec ±0.85% (90 runs sampled)
+Fastest is styled-system
+```
+
+#### Why is xstyled slower?
+
+xstyled and styled-system basically does the same thing. They are both heavily optimized to be as fast as possible. The small difference is due to several things:
+
+- xstyled ensures [responsive styles ordering](https://github.com/gregberge/xstyled/issues/119)
+- xstyled allows nested theme caching, [styled-system don't](https://github.com/styled-system/styled-system/commit/0128ace29ce959578d3568d174a2913d7380510a)
+- xstyled API is much more flexible, but flexibility has a cost
+
+Even if it is slower, it is still very fast and it should not have any impact in your application. This documentation website has a 99 Lighthouse performance score 🤗.
+
+### Styled components evaluation
+
+This benchmark measures the speed of styled components evaluation. It impacts code parsing when your application is loaded.
+
+```js
+styled-components x 45,910 ops/sec ±1.49% (86 runs sampled)
+@xstyled/styled-components x 17,538 ops/sec ±2.10% (87 runs sampled)
+Fastest is styled-components
+```
+
+As you can see xstyled is slower. xstyled uses RegExp to detects properties in CSS that's why it has a small impact when your component is evaluated. However this impact is negligible compared to the hydration or mounting phase operated by React.
+
+### Styled components rendering
+
+```js
+styled-components x 1,008,161 ops/sec ±1.24% (86 runs sampled)
+@xstyled/styled-components x 1,009,807 ops/sec ±1.13% (86 runs sampled)
+Fastest is @xstyled/styled-components,styled-components
+```
+
+xstyled has no impact on rendering.
