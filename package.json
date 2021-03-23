@@ -20,8 +20,8 @@
     }
   ],
   "scripts": {
-    "build": "lerna run build --ignore @xstyled/website,@xstyled/benchmarks",
-    "reset": "lerna run reset --ignore @xstyled/website,@xstyled/benchmarks",
+    "build": "lerna run build --ignore @xstyled/website --ignore @xstyled/benchmarks",
+    "reset": "lerna run reset --ignore @xstyled/website --ignore @xstyled/benchmarks",
     "watch": "lerna run watch --parallel",
     "format": "prettier --write \"**/*.{js,ts,tsx,json,md,mdx}\"",
     "lint": "eslint .",
