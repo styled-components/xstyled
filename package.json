@@ -2,7 +2,8 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "website"
+    "website",
+    "benchmarks"
   ],
   "bundlesize": [
     {
@@ -19,8 +20,8 @@
     }
   ],
   "scripts": {
-    "build": "lerna run build --ignore @xstyled/website",
-    "reset": "lerna run reset --ignore @xstyled/website",
+    "build": "lerna run build --ignore @xstyled/website,@xstyled/benchmarks",
+    "reset": "lerna run reset --ignore @xstyled/website,@xstyled/benchmarks",
     "watch": "lerna run watch --parallel",
     "format": "prettier --write \"**/*.{js,ts,tsx,json,md,mdx}\"",
     "lint": "eslint .",
