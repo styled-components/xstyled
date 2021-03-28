@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/gregberge/xstyled/tree/master/packages/core/compare/v2.3.0...v2.4.0) (2021-03-28)
+
+
+### Features
+
+* bind mask-size to sizes ([#219](https://github.com/gregberge/xstyled/tree/master/packages/core/issues/219)) ([ae826fa](https://github.com/gregberge/xstyled/tree/master/packages/core/commit/ae826fa9d69628433f2cd537a883c90b68a37d3d))
+
+
+
+
+
 # [2.3.0](https://github.com/gregberge/xstyled/tree/master/packages/core/compare/v2.2.3...v2.3.0) (2021-03-23)
 
 

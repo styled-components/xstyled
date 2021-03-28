@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/gregberge/xstyled/tree/master/packages/styled-components/compare/v2.3.0...v2.4.0) (2021-03-28)
+
+
+### Features
+
+* add system.apply utility ([#218](https://github.com/gregberge/xstyled/tree/master/packages/styled-components/issues/218)) ([c32f714](https://github.com/gregberge/xstyled/tree/master/packages/styled-components/commit/c32f71489c506c095bc8fb75dc41add9be2fe300))
+
+
+
+
+
 # [2.3.0](https://github.com/gregberge/xstyled/tree/master/packages/styled-components/compare/v2.2.3...v2.3.0) (2021-03-23)
 
 

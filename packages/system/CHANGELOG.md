@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/gregberge/xstyled/tree/master/packages/system/compare/v2.3.0...v2.4.0) (2021-03-28)
+
+
+### Bug Fixes
+
+* fix minW, minH, maxW, maxH ([#217](https://github.com/gregberge/xstyled/tree/master/packages/system/issues/217)) ([65c04de](https://github.com/gregberge/xstyled/tree/master/packages/system/commit/65c04deb8001835b4944fc9ac5dc34f2c7c64fab))
+
+
+### Features
+
+* add system.apply utility ([#218](https://github.com/gregberge/xstyled/tree/master/packages/system/issues/218)) ([c32f714](https://github.com/gregberge/xstyled/tree/master/packages/system/commit/c32f71489c506c095bc8fb75dc41add9be2fe300))
+
+
+
+
+
 # [2.3.0](https://github.com/gregberge/xstyled/tree/master/packages/system/compare/v2.2.3...v2.3.0) (2021-03-23)
 
 
