@@ -8,21 +8,6 @@ type BorderCollapseProp<T extends ITheme = Theme> = SystemProp<
 >
 export interface BorderCollapseProps<T extends ITheme = Theme> {
   borderCollapse?: BorderCollapseProp<T>
-  motionSafeBorderCollapse?: BorderCollapseProp<T>
-  motionReduceBorderCollapse?: BorderCollapseProp<T>
-  firstBorderCollapse?: BorderCollapseProp<T>
-  lastBorderCollapse?: BorderCollapseProp<T>
-  oddBorderCollapse?: BorderCollapseProp<T>
-  evenBorderCollapse?: BorderCollapseProp<T>
-  visitedBorderCollapse?: BorderCollapseProp<T>
-  checkedBorderCollapse?: BorderCollapseProp<T>
-  focusWithinBorderCollapse?: BorderCollapseProp<T>
-  hoverBorderCollapse?: BorderCollapseProp<T>
-  focusBorderCollapse?: BorderCollapseProp<T>
-  focusVisibleBorderCollapse?: BorderCollapseProp<T>
-  activeBorderCollapse?: BorderCollapseProp<T>
-  disabledBorderCollapse?: BorderCollapseProp<T>
-  placeholderBorderCollapse?: BorderCollapseProp<T>
 }
 export const borderCollapse = style({
   prop: 'borderCollapse',
@@ -34,21 +19,6 @@ type TableLayoutProp<T extends ITheme = Theme> = SystemProp<
 >
 export interface TableLayoutProps<T extends ITheme = Theme> {
   tableLayout?: TableLayoutProp<T>
-  motionSafeTableLayout?: TableLayoutProp<T>
-  motionReduceTableLayout?: TableLayoutProp<T>
-  firstTableLayout?: TableLayoutProp<T>
-  lastTableLayout?: TableLayoutProp<T>
-  oddTableLayout?: TableLayoutProp<T>
-  evenTableLayout?: TableLayoutProp<T>
-  visitedTableLayout?: TableLayoutProp<T>
-  checkedTableLayout?: TableLayoutProp<T>
-  focusWithinTableLayout?: TableLayoutProp<T>
-  hoverTableLayout?: TableLayoutProp<T>
-  focusTableLayout?: TableLayoutProp<T>
-  focusVisibleTableLayout?: TableLayoutProp<T>
-  activeTableLayout?: TableLayoutProp<T>
-  disabledTableLayout?: TableLayoutProp<T>
-  placeholderTableLayout?: TableLayoutProp<T>
 }
 export const tableLayout = style({
   prop: 'tableLayout',

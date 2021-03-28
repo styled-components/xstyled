@@ -7,13 +7,12 @@ import {
   obj,
   getThemeValue,
   warn,
-  identity,
   merge,
   assign,
   cascade,
 } from '@xstyled/util'
 import { getBreakpoints, getBreakpointMin, mediaMinWidth } from './media'
-import { defaultStates } from './defaultStates'
+import { getThemeStates } from './states'
 import {
   IProps,
   IStyles,
@@ -25,10 +24,6 @@ import {
   StyleGenerator,
   Mixin,
 } from './types'
-
-const defaultStateKeys = Object.keys(
-  defaultStates,
-) as (keyof typeof defaultStates)[]
 
 const cacheSupported =
   typeof Map !== 'undefined' && typeof WeakMap !== 'undefined'
@@ -143,7 +138,7 @@ export function createStyleGenerator(
   return generator
 }
 
-function getMedias(props: IProps) {
+function getStates(props: IProps) {
   const breakpoints = getBreakpoints(props)
   const medias: { [key: string]: string | null } = {}
   for (const breakpoint in breakpoints) {
@@ -151,34 +146,35 @@ function getMedias(props: IProps) {
       getBreakpointMin(breakpoints, breakpoint),
     )
   }
-  return medias
+  return { ...medias, ...getThemeStates(props) }
 }
 
-function getCachedMedias(props: IProps, cache: ThemeCache) {
-  if (cache.has('_medias')) {
-    return cache.get('_medias')
+function getCachedStates(props: IProps, cache: ThemeCache) {
+  if (cache.has('_states')) {
+    return cache.get('_states')
   }
-  const medias = getMedias(props)
-  cache.set('_medias', medias)
-  return medias
+  const states = getStates(props)
+  cache.set('_states', states)
+  return states
 }
 
-export function reduceBreakpoints(
+export function reduceStates(
   props: IProps,
   values: { [key: string]: any },
-  getStyle: (value: any) => IStyles | null = identity,
+  getStyle: (value: any) => IStyles | null,
   cache?: ThemeCache,
-) {
-  const medias = cache ? getCachedMedias(props, cache) : getMedias(props)
+): IStyles {
+  const states = cache ? getCachedStates(props, cache) : getStates(props)
   let styles: IStyles = {}
-  for (const breakpoint in values) {
-    const style = getStyle(values[breakpoint])
+  for (const value in values) {
+    const style = getStyle(values[value])
     if (style === null) continue
-    const media = medias[breakpoint]
-    if (media === null) {
+    const state = states[value]
+    if (state === undefined) continue
+    if (state === null) {
       styles = merge(styles, style)
     } else {
-      styles[media] = styles[media] ? assign(styles[media], style) : style
+      styles[state] = styles[state] ? assign(styles[state], style) : style
     }
   }
   return styles
@@ -205,32 +201,18 @@ function getStyleFactory(
   themeGet: ThemeGetter,
 ): StyleGetter {
   return function getStyle(props: IProps) {
-    const value = props[prop]
-    if (!is(value)) return null
-    const cache = getCacheNamespace(props.theme, prop)
+    const fromValue = (value: any) => {
+      if (!is(value)) return null
+      const cache = getCacheNamespace(props.theme, prop)
 
-    if (obj(value)) {
-      return reduceBreakpoints(
-        props,
-        value,
-        (breakpointValue) =>
-          styleFromValue(mixin, breakpointValue, props, themeGet, cache),
-        cache,
-      )
+      if (obj(value)) {
+        return reduceStates(props, value, fromValue, cache)
+      }
+
+      return styleFromValue(mixin, value, props, themeGet, cache)
     }
 
-    return styleFromValue(mixin, value, props, themeGet, cache)
-  }
-}
-
-function scopeStyleGetter(
-  selector: string,
-  getStyle: StyleGetter,
-): StyleGetter {
-  return (props: IProps) => {
-    const result = getStyle(props)
-    if (result === null) return result
-    return { [selector]: result }
+    return fromValue(props[prop])
   }
 }
 
@@ -289,9 +271,9 @@ export function compose(...generators: StyleGenerator[]): StyleGenerator {
 
     if (!sort) return styles
 
-    const medias = getCachedMedias(
+    const medias = getCachedStates(
       props,
-      getCacheNamespace(props.theme, '__medias'),
+      getCacheNamespace(props.theme, '__states'),
     )
     return sortStyles(styles, medias)
   }
@@ -329,7 +311,6 @@ export function style({
   key,
   transform,
   themeGet,
-  states = defaultStates,
 }: {
   prop: string | string[]
   cssProperty?: CSSProperty
@@ -355,20 +336,7 @@ export function style({
 
   themeGet = themeGet || themeGetter({ key, transform })
 
-  const capitalizedProp = prop.charAt(0).toUpperCase() + prop.slice(1)
   const generators: StyleGenerator[] = []
-  const stateNames =
-    states === defaultStates ? defaultStateKeys : Object.keys(states)
-  for (let i = 0; i < stateNames.length; i++) {
-    const stateName = stateNames[i]
-    const stateProp = `${stateName}${capitalizedProp}`
-    const getStyle = scopeStyleGetter(
-      states[stateName],
-      getStyleFactory(stateProp, mixin, themeGet),
-    )
-    const generator = createStyleGenerator(getStyle, [stateProp])
-    generators.push(generator)
-  }
   const getStyle = getStyleFactory(prop, mixin, themeGet)
   const generator = createStyleGenerator(getStyle, [prop])
   generators.push(generator)

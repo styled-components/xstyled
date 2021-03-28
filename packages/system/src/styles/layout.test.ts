@@ -1,6 +1,9 @@
 import { container, getInset } from './layout'
 
 const theme = {
+  states: {
+    hover: '&:hover',
+  },
   screens: {
     _: 0,
     xs: 0,

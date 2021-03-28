@@ -33,7 +33,7 @@ Control the background color of an element using the `bg={color}` or `background
         fontWeight="semibold"
         borderRadius="lg"
         boxShadow="md"
-        focusOutline="none"
+        outline={{ focus: 'none' }}
         tabindex="-1"
       >
         Click me
@@ -124,7 +124,7 @@ Use [color opacity variants](/docs/colors/) to choose another opacity.
 
 ## Hover
 
-Control the hover background color of an element using the `hoverBg={color}` or `hoverBackgroundColor={color}` utilities.
+Control the hover background color of an element using the `bg={{ hover: color }}` or `backgroundColor={{ hover: color}}` utilities.
 
 ```jsx preview color=indigo
 <>
@@ -135,22 +135,19 @@ Control the hover background color of an element using the `hoverBg={color}` or 
         py={3}
         px={4}
         transition
-        bg="indigo-500"
-        hoverBg="indigo-800"
+        bg={{ _: 'indigo-500', hover: 'indigo-800' }}
         color="white"
         fontWeight="semibold"
         borderRadius="lg"
         boxShadow="md"
-        focusOutline="none"
+        outline={{ focus: 'none' }}
         tabindex="-1"
       >
         Click me
       </x.button>
     </x.div>
   </template>
-  <x.button bg="indigo-500" hoverBg="indigo-800">
-    Button
-  </x.button>
+  <x.button bg={{ _: 'indigo-500', hover: 'indigo-800' }}>Button</x.button>
 </>
 ```
 
