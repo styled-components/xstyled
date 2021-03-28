@@ -127,6 +127,7 @@ export const propGetters = {
   'max-height': getNumberSize,
   'min-width': getNumberSize,
   'min-height': getNumberSize,
+  'mask-size': getMultiValues(getNumberSize),
 
   // getZIndex
   'z-index': getNumber(getZIndex),
