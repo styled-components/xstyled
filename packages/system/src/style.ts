@@ -137,6 +137,8 @@ export function createStyleGenerator(
     getStyle: generator,
     generators,
   }
+  generator.apply = (values: object) => ({ theme }: IProps) =>
+    generator({ theme, ...values })
   return generator
 }
 

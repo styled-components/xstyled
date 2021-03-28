@@ -163,5 +163,17 @@ describe('#style', () => {
         fontFamily: 'arial',
       })
     })
+
+    it('allows apply', () => {
+      expect(
+        fontFamily.apply({
+          fontFamily: 'title',
+        })({
+          theme: { fonts: { title: 'arial' } },
+        }),
+      ).toEqual({
+        fontFamily: 'arial',
+      })
+    })
   })
 })

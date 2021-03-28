@@ -65,6 +65,7 @@ export interface StyleGenerator {
     getStyle: StyleGenerator
     generators?: StyleGenerator[]
   }
+  apply: (values: object) => (IProps: object) => any
 }
 
 export interface TransformValue<TValueType = any> {
