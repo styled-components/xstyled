@@ -2,7 +2,7 @@ import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import { ThemeProvider, keyframes } from 'styled-components'
-import styled, { css } from '.'
+import styled, { css, system } from '.'
 
 afterEach(cleanup)
 
@@ -128,6 +128,26 @@ describe('#styled', () => {
     expect(container.firstChild).toHaveStyle(
       `animation: ${animation.getName()};`,
     )
+  })
+
+  it('works with system.apply', () => {
+    const theme = {
+      colors: {
+        primary: 'pink',
+      },
+    }
+    const Dummy = styled.div`
+      ${system.apply({ fontSize: 2, bg: 'primary' })}
+    `
+    const { container } = render(
+      <ThemeProvider theme={theme}>
+        <Dummy />
+      </ThemeProvider>,
+    )
+    expect(container.firstChild).toHaveStyle(`
+      font-size: 2px;
+      background-color: pink;
+    `)
   })
 })
 

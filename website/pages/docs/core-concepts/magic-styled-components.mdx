@@ -1,13 +1,13 @@
 ---
 section: Core Concepts
-title: Enhanced Styled Components
-slug: /docs/enhanced-styled-components/
-order: 5
+title: Magic Styled Components
+slug: /docs/magic-styled-components/
+order: 2
 ---
 
-# Enhanced Styled Components
+# Magic Styled Components
 
-How to use xstyled's styled components.
+Reduce the boilerplate of your Styled Components.
 
 <carbon-ad />
 
@@ -26,6 +26,10 @@ const Button = styled.button`
   transition: default;
   background-color: emerald-500;
   color: #fff;
+
+  @media (min-width: md) {
+    font-size: lg;
+  }
 `
 ```
 
@@ -35,7 +39,9 @@ Here's how the example above works:
 - `semibold` is replaced by `theme.fontWeights.semibold`
 - `default` is replaced by `theme.transitions.default`
 - `emerald-500` is replaced by `theme.colors['emerald-500']`
-- `text` is replaced by `theme.colors['#fff']`, that is not defined, so it uses `#fff` as value
+- `#fff` is replaced by `theme.colors['#fff']`, that is not defined, so it uses `#fff` as value
+- `@media (min-width: md)` is replaced by `@media (min-width: ${theme.screens.lg})`
+- `lg` is replaced by `theme.fontSizes.lg`
 
 ## Use another component
 
@@ -50,6 +56,10 @@ const Button = styled.button`
   transition: default;
   background-color: emerald-500;
   color: #fff;
+
+  @media (min-width: md) {
+    font-size: lg;
+  }
 `
 
 function App() {
@@ -119,9 +129,9 @@ All available theme getters are automatically bound to a theme section and to CS
 | `th.transitionProperty` | `transitionProperties` | `transition-property`                                                                                                                                                                                     |
 | `th.zIndex`             | `zIndices`             | `z-index`                                                                                                                                                                                                 |
 
-## Create declarative components using styled
+## Add utility props to styled components
 
-Sometimes it is convenient to mix styled components and declarative components. It is possible to do it by adding a `Box` suffix to `styled.tag`. Using `styled.buttonBox` instead of `styled.button` let you use any props utilities on the component:
+Sometimes it is convenient to mix styled components and utility props. It is possible to do it by adding a `Box` suffix to `styled.tag`. Using `styled.buttonBox` instead of `styled.button` let you use any props utilities on the component:
 
 ```js
 import styled from '@xstyled/...'
@@ -139,7 +149,57 @@ function App() {
 }
 ```
 
+It is possible to explicitly add utility props by using `system` or any utility as interpolation:
+
+```js
+import { system, typography } from '@xstyled/styled-components'
+import styled from 'styled-components'
+
+const Button = styled.div`
+  ${system}
+`
+
+const Paragraph = styled.p`
+  ${typography}
+`
+
+function App() {
+  return (
+    <>
+      <Button bg="red-500">Danger</Button>
+      <Paragraph fontSize="sm">Hello world!</Paragraph>
+    </>
+  )
+}
+```
+
+## Use utility props to apply style in styled components
+
+Some utilities like `ring` can't be used in styled components. The `apply` method available on each utility or utilities family allows you to apply style directly on your styled components:
+
+```js
+import styled, { system } from '@xstyled/...'
+
+const Button = styled.buttonBox`
+  border-radius: md;
+  font-weight: semibold;
+  transition: default;
+  background-color: emerald-500;
+  color: #fff;
+
+  &:focus {
+    ${system.apply({ ring: 2, ringColor: 'emerald-800' )}
+  }
+`
+
+function App() {
+  return <Button bg="red-500">Danger</Button>
+}
+```
+
 ## Responsive utilities
+
+**Media queries are automatically transformed by xstyled, these utilities are deprecated and will be removed in next major version. Please use `@media` instead.**
 
 ### breakpoints
 
