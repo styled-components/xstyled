@@ -58,16 +58,16 @@ Control the text color of an element using the `color={color}` utilities.
 
 ## Hover
 
-To control the text color of an element on hover, use `hoverColor={color}` utility.
+To control the text color of an element on hover, use `color={{ hover: color }}` utility.
 
 ```jsx preview
 <>
   <template preview>
-    <x.div color="red-400" hoverColor="red-800">
+    <x.div color={{ _: 'red-400', hover: 'red-800' }}>
       Computers have lots of memory but no imagination.
     </x.div>
   </template>
-  <x.div color="red-400" hoverColor="red-800">
+  <x.div color={{ _: 'red-400', hover: 'red-800' }}>
     Computers have lots of memory but no imagination.
   </x.div>
 </>
@@ -75,48 +75,48 @@ To control the text color of an element on hover, use `hoverColor={color}` utili
 
 ## Focus
 
-To control the text color of an element on hover, use `focusColor={color}` utility.
+To control the text color of an element on hover, use `color={{ focus: color }}` utility.
 
 ```jsx preview
 <>
   <template preview>
     <x.input
       defaultValue="Something"
-      color="red-600"
-      focusColor="red-800"
+      color={{ _: 'red-600', focus: 'red-800' }}
       borderRadius="md"
       border={1}
       borderColor="red-600"
       p={2}
-      focusOutline="none"
+      outline={{ focus: 'none' }}
     />
   </template>
-  <x.input defaultValue="Something" color="red-600" focusColor="red-800" />
+  <x.input
+    defaultValue="Something"
+    color={{ _: 'red-600', focus: 'red-800' }}
+  />
 </>
 ```
 
 ## Placeholder
 
-To control the placeholder color of an element, use `placeholderColor={color}` utility.
+To control the placeholder color of an element, use `color={{ placeholder: color }}` utility.
 
 ```jsx preview
 <>
   <template preview>
     <x.input
       placeholder="Type something..."
-      color="red-600"
-      placeholderColor="red-300"
+      color={{ _: 'red-600', placeholder: 'red-300' }}
       borderRadius="md"
       border={1}
       borderColor="red-600"
       p={2}
-      focusOutline="none"
+      outline={{ focus: 'none' }}
     />
   </template>
   <x.input
     placeholder="Type something..."
-    color="red-600"
-    placeholderColor="red-300"
+    color={{ _: 'red-600', placeholder: 'red-300' }}
   />
 </>
 ```

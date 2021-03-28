@@ -56,11 +56,10 @@ const Button = (props) => (
     borderRadius="md"
     fontWeight="semibold"
     transition
-    bg="emerald-500"
-    hoverBg="emerald-800"
-    focusOutline="none"
-    focusRing
-    focusRingColor="emerald-500-a50"
+    bg={{ _: 'emerald-500', hover: 'emerald-800' }}
+    outline={{ focus: 'none' }}
+    ring={{ focus: true }}
+    ringColor={{ focus: 'emerald-500-a50' }}
     {...props}
   />
 )

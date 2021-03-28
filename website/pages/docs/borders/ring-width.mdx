@@ -31,7 +31,7 @@ Use the `ring={ringWidth}` utilities to apply solid box-shadow of a specific thi
       <x.button
         tabindex="-1"
         w={24}
-        focusOutline="none"
+        outline={{ focus: 'none' }}
         fontSize="sm"
         py={3}
         borderRadius="md"
@@ -45,7 +45,7 @@ Use the `ring={ringWidth}` utilities to apply solid box-shadow of a specific thi
       <x.button
         tabindex="-1"
         w={24}
-        focusOutline="none"
+        outline={{ focus: 'none' }}
         fontSize="sm"
         py={3}
         borderRadius="md"
@@ -59,7 +59,7 @@ Use the `ring={ringWidth}` utilities to apply solid box-shadow of a specific thi
       <x.button
         tabindex="-1"
         w={24}
-        focusOutline="none"
+        outline={{ focus: 'none' }}
         fontSize="sm"
         py={3}
         borderRadius="md"
@@ -73,7 +73,7 @@ Use the `ring={ringWidth}` utilities to apply solid box-shadow of a specific thi
       <x.button
         tabindex="-1"
         w={24}
-        focusOutline="none"
+        outline={{ focus: 'none' }}
         fontSize="sm"
         py={3}
         borderRadius="md"
@@ -97,7 +97,7 @@ Ring utilities compose gracefully with regular `boxShadow={shadow}` utility and 
 
 ## Focus rings
 
-Add focus rings using `focusRing={ringWidth}` variant.
+Add focus rings using `ring={{ focus: ringWidth }}` utility.
 
 ```jsx preview color=emerald
 <>
@@ -110,15 +110,15 @@ Add focus rings using `focusRing={ringWidth}` variant.
         fontWeight="semibold"
         color="white"
         bg="emerald-500"
-        focusOutline="none"
-        focusRing={4}
-        focusRingColor="emerald-500-a50"
+        outline={{ focus: 'none' }}
+        ring={{ focus: 4 }}
+        ringColor={{ focus: 'emerald-500-a50' }}
       >
         Button
       </x.button>
     </x.div>
   </template>
-  <x.button focusRing={4} focusRingColor="emerald-500-a50">
+  <x.button ring={{ focus: 4 }} ringColor={{ focus: 'emerald-500-a50' }}>
     Button
   </x.button>
 </>
@@ -134,7 +134,7 @@ Use the `ringInset` utility to force a ring to render on the inside of an elemen
     <x.div display="flex" spaceX={6} justifyContent="center" p={8}>
       <x.button
         tabindex="-1"
-        focusOutline="none"
+        outline={{ focus: 'none' }}
         w={32}
         py={2}
         borderRadius="md"
@@ -148,7 +148,7 @@ Use the `ringInset` utility to force a ring to render on the inside of an elemen
       </x.button>
       <x.button
         tabindex="-1"
-        focusOutline="none"
+        outline={{ focus: 'none' }}
         w={32}
         py={2}
         borderRadius="md"

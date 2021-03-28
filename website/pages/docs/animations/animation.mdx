@@ -93,8 +93,7 @@ Add the `animation="ping"` utility to make an element scale and fade like a rada
           px={4}
           py={2}
           border
-          borderColor="purple-400"
-          focusBorderColor="purple-300"
+          borderColor={{ _: 'purple-400', focus: 'purple-300' }}
           transition
           lineHeight={6}
           fontWeight="medium"
@@ -244,11 +243,17 @@ Add the `animation="bounce"` utility to make an element bounce up and down — u
 
 ## Prefers-reduced-motion
 
-You can conditionally apply animations and transitions using the `motionSafe` and `motionReduce` variants:
+You can conditionally apply animations and transitions using the `motionSafe` and `motionReduce` states:
 
 ```js
 <x.button type="button" bg="indigo-600" disabled>
-  <x.svg motionSafeAnimation="spin" h={5} w={5} mr={3} viewBox="0 0 24 24">
+  <x.svg
+    animation={{ motionSafe: 'spin' }}
+    h={5}
+    w={5}
+    mr={3}
+    viewBox="0 0 24 24"
+  >
     {/* ... */}
   </x.svg>
   Processing
