@@ -9,21 +9,6 @@ type FillProp<T extends ITheme = Theme> = SystemProp<
 >
 export interface FillProps<T extends ITheme = Theme> {
   fill?: FillProp<T>
-  motionSafeFill?: FillProp<T>
-  motionReduceFill?: FillProp<T>
-  firstFill?: FillProp<T>
-  lastFill?: FillProp<T>
-  oddFill?: FillProp<T>
-  evenFill?: FillProp<T>
-  visitedFill?: FillProp<T>
-  checkedFill?: FillProp<T>
-  focusWithinFill?: FillProp<T>
-  hoverFill?: FillProp<T>
-  focusFill?: FillProp<T>
-  focusVisibleFill?: FillProp<T>
-  activeFill?: FillProp<T>
-  disabledFill?: FillProp<T>
-  placeholderFill?: FillProp<T>
 }
 export const fill = style({
   prop: 'fill',
@@ -36,21 +21,6 @@ type StrokeProp<T extends ITheme = Theme> = SystemProp<
 >
 export interface StrokeProps<T extends ITheme = Theme> {
   stroke?: StrokeProp<T>
-  motionSafeStroke?: StrokeProp<T>
-  motionReduceStroke?: StrokeProp<T>
-  firstStroke?: StrokeProp<T>
-  lastStroke?: StrokeProp<T>
-  oddStroke?: StrokeProp<T>
-  evenStroke?: StrokeProp<T>
-  visitedStroke?: StrokeProp<T>
-  checkedStroke?: StrokeProp<T>
-  focusWithinStroke?: StrokeProp<T>
-  hoverStroke?: StrokeProp<T>
-  focusStroke?: StrokeProp<T>
-  focusVisibleStroke?: StrokeProp<T>
-  activeStroke?: StrokeProp<T>
-  disabledStroke?: StrokeProp<T>
-  placeholderStroke?: StrokeProp<T>
 }
 export const stroke = style({
   prop: 'stroke',

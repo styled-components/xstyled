@@ -1,31 +1,11 @@
 import { SystemProp, ITheme, IProps, Theme } from '../types'
 import { obj } from '@xstyled/util'
-import {
-  style,
-  createStyleGenerator,
-  reduceBreakpoints,
-  compose,
-} from '../style'
+import { style, createStyleGenerator, reduceStates, compose } from '../style'
 import { getPercent } from './units'
 
 type RowProp<T extends ITheme> = SystemProp<boolean, T>
 export interface RowProps<T extends ITheme = Theme> {
   row?: RowProp<T>
-  motionSafeRow?: RowProp<T>
-  motionReduceRow?: RowProp<T>
-  firstRow?: RowProp<T>
-  lastRow?: RowProp<T>
-  oddRow?: RowProp<T>
-  evenRow?: RowProp<T>
-  visitedRow?: RowProp<T>
-  checkedRow?: RowProp<T>
-  focusWithinRow?: RowProp<T>
-  hoverRow?: RowProp<T>
-  focusRow?: RowProp<T>
-  focusVisibleRow?: RowProp<T>
-  activeRow?: RowProp<T>
-  disabledRow?: RowProp<T>
-  placeholderRow?: RowProp<T>
 }
 export const row = style({
   prop: 'row',
@@ -65,21 +45,6 @@ function getColStyle(props: IProps, size: any) {
 type ColProp<T extends ITheme> = SystemProp<true | 'auto' | string | number, T>
 export interface ColProps<T extends ITheme = Theme> {
   col?: ColProp<T>
-  motionSafeCol?: ColProp<T>
-  motionReduceCol?: ColProp<T>
-  firstCol?: ColProp<T>
-  lastCol?: ColProp<T>
-  oddCol?: ColProp<T>
-  evenCol?: ColProp<T>
-  visitedCol?: ColProp<T>
-  checkedCol?: ColProp<T>
-  focusWithinCol?: ColProp<T>
-  hoverCol?: ColProp<T>
-  focusCol?: ColProp<T>
-  focusVisibleCol?: ColProp<T>
-  activeCol?: ColProp<T>
-  disabledCol?: ColProp<T>
-  placeholderCol?: ColProp<T>
 }
 export const col = createStyleGenerator(
   (props) => {
@@ -92,11 +57,10 @@ export const col = createStyleGenerator(
     }
 
     if (obj(value)) {
-      const breakpointsStyle = reduceBreakpoints(
+      const breakpointsStyle = reduceStates(
         props,
         value,
-        (breakpointValue: string | number) =>
-          getColStyle(props, breakpointValue),
+        (v: string | number) => getColStyle(props, v),
       )
 
       return {

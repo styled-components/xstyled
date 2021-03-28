@@ -17,21 +17,6 @@ type AnimationProp<T extends ITheme> = SystemProp<
 >
 export interface AnimationProps<T extends ITheme = Theme> {
   animation?: AnimationProp<T>
-  motionSafeAnimation?: AnimationProp<T>
-  motionReduceAnimation?: AnimationProp<T>
-  firstAnimation?: AnimationProp<T>
-  lastAnimation?: AnimationProp<T>
-  oddAnimation?: AnimationProp<T>
-  evenAnimation?: AnimationProp<T>
-  visitedAnimation?: AnimationProp<T>
-  checkedAnimation?: AnimationProp<T>
-  focusWithinAnimation?: AnimationProp<T>
-  hoverAnimation?: AnimationProp<T>
-  focusAnimation?: AnimationProp<T>
-  focusVisibleAnimation?: AnimationProp<T>
-  activeAnimation?: AnimationProp<T>
-  disabledAnimation?: AnimationProp<T>
-  placeholderAnimation?: AnimationProp<T>
 }
 
 export const animation = style({
