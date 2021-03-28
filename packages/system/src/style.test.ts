@@ -96,21 +96,47 @@ describe('#style', () => {
       })
     })
 
-    it('works with states', () => {
-      const theme = { screens: { _: 0, md: 400 } }
-      expect(fontFamily({ hoverFontFamily: 'title' })).toEqual({
+    it('works with variants', () => {
+      const theme = {
+        states: { hover: '&:hover', first: '&:first-child' },
+        screens: { _: 0, md: 400 },
+      }
+      expect(fontFamily({ fontFamily: { hover: 'title' }, theme })).toEqual({
         '&:hover': {
           fontFamily: 'title',
         },
       })
       expect(
         fontFamily({
-          motionReduceFontFamily: { md: 'title' },
+          fontFamily: { hover: { md: 'title' } },
           theme,
         }),
       ).toEqual({
-        '@media (prefers-reduced-motion: reduce)': {
+        '&:hover': {
           '@media (min-width: 400px)': { fontFamily: 'title' },
+        },
+      })
+      expect(
+        fontFamily({
+          fontFamily: { hover: { first: { md: 'title' } } },
+          theme,
+        }),
+      ).toEqual({
+        '&:hover': {
+          '&:first-child': {
+            '@media (min-width: 400px)': { fontFamily: 'title' },
+          },
+        },
+      })
+      expect(
+        fontFamily({
+          fontFamily: { _: 'title', hover: 'title2' },
+          theme,
+        }),
+      ).toEqual({
+        fontFamily: 'title',
+        '&:hover': {
+          fontFamily: 'title2',
         },
       })
     })

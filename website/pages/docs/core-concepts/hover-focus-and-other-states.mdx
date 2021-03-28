@@ -11,7 +11,7 @@ Using utilities to style elements on hover, focus, and more.
 
 <carbon-ad />
 
-Every prop utilities have several prefixed variants to style hover, focus and other states.
+Every prop utilities accepts an object to style hover, focus and other states.
 
 ```jsx preview color=purple
 <>
@@ -21,26 +21,25 @@ Every prop utilities have several prefixed variants to style hover, focus and ot
         flex="1 0 0"
         appearance="none"
         border
-        borderColor="transparent"
+        borderColor={{ _: 'transparent', focus: 'transparent' }}
         w="full"
         py={2}
         px={4}
         bg="white"
-        color="gray-700"
-        placeholderColor="gray-400"
+        color={{ _: 'gray-700', placeholder: 'gray-400' }}
         boxShadow="md"
         borderRadius="lg"
         fontSize="base"
-        focusOutline="none"
-        focusRing={2}
-        focusRingColor="purple-600"
-        focusBorderColor="transparent"
+        outline={{ focus: 'none' }}
+        ring={{ focus: 2 }}
+        ringColor={{ focus: 'purple-600' }}
         type="email"
         placeholder="Your email"
       />
       <x.button
+        type="button"
         flexShrink={0}
-        bg="purple-600"
+        bg={{ _: 'purple-600', hover: 'purple-700' }}
         color="white"
         fontSize="base"
         fontWeight="semibold"
@@ -48,11 +47,9 @@ Every prop utilities have several prefixed variants to style hover, focus and ot
         px={4}
         borderRadius="lg"
         boxShadow="md"
-        hoverBg="purple-700"
-        focusOutline="none"
-        focusRing={2}
-        focusRingColor="purple-500"
-        type="button"
+        outline={{ focus: 'none' }}
+        ring={{ focus: 2 }}
+        ringColor={{ focus: 'purple-500' }}
       >
         Sign up
       </x.button>
@@ -62,17 +59,16 @@ Every prop utilities have several prefixed variants to style hover, focus and ot
     <x.input
       border
       borderColor="transparent"
-      focusOutline="none"
-      focusRing={2}
-      focusRingColor="purple-600"
-      focusBorder="transparent"
+      outline={{ focus: 'none' }}
+      ring={{ focus: 2 }}
+      ringColor={{ focus: 'purple-600' }}
+      border={{ focus: 'transparent' }}
     />
     <x.button
-      bg="purple-600"
-      hoverBg="purple-700"
-      focusOutline="none"
-      focusRing={2}
-      focusRingColor="purple-600-a50"
+      bg={{ _: 'purple-600', hover: 'purple-700' }}
+      outline={{ focus: 'none' }}
+      ring={{ focus: 2 }}
+      ringColor={{ focus: 'purple-600-a50' }}
     >
       Sign up
     </x.button>
@@ -80,11 +76,11 @@ Every prop utilities have several prefixed variants to style hover, focus and ot
 </>
 ```
 
-State variants props are available for all utilities.
+State objects are available for all utilities.
 
 ## Hover
 
-Add the `hover` prefix to only apply a utility on hover.
+Add the `hover` state to only apply a utility on hover.
 
 ```jsx preview color=red
 <>
@@ -94,22 +90,19 @@ Add the `hover` prefix to only apply a utility on hover.
         type="button"
         py={2}
         px={4}
-        bg="red-500"
+        bg={{ _: 'red-500', hover: 'red-700' }}
         color="white"
         fontWeight="semibold"
         borderRadius="lg"
         boxShadow="md"
-        hoverBg="red-700"
-        focusOutline="none"
+        outline={{ focus: 'none ' }}
         tabindex="-1"
       >
         Hover me
       </x.button>
     </x.div>
   </template>
-  <x.button bg="red-500" hoverBg="red-700">
-    Hover me
-  </x.button>
+  <x.button bg={{ _: 'red-500', hover: 'red-700' }}>Hover me</x.button>
 </>
 ```
 
