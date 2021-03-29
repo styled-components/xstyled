@@ -20,7 +20,7 @@ npm install @xstyled/styled-components styled-components
 
 Quicklinks to some of the most-visited pages:
 
-- [**Getting started**](https://xstyled.dev/docs/getting-started/)
+- [**Getting started**](https://xstyled.dev/docs/installation/)
 - [Motivation](https://xstyled.dev/docs/introduction/#story)
 
 ## Example
