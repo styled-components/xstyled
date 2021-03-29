@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/gregberge/xstyled/compare/v2.4.0...v2.4.1) (2021-03-29)
+
+
+### Bug Fixes
+
+* **styled:** fix nested states ([#221](https://github.com/gregberge/xstyled/issues/221)) ([78fac38](https://github.com/gregberge/xstyled/commit/78fac380e996ed93ca99020de668df2e52ccb318))
+
+
+
+
+
 # [2.4.0](https://github.com/gregberge/xstyled/compare/v2.3.0...v2.4.0) (2021-03-28)
 
 
