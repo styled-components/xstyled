@@ -7,9 +7,9 @@ const props = {
   },
 }
 
-const transformToStr = (s) =>
+const transformToStr = (s: string) =>
   transform(s)
-    .map((x) => (typeof x === 'function' ? x(props) : x))
+    .map((x: Function | string) => (typeof x === 'function' ? x(props) : x))
     .join('')
 
 describe('#transform', () => {
@@ -69,6 +69,12 @@ describe('#transform', () => {
       ),
     ).toBe(
       'div{color:#000;}@media(min-width:1920px){div{color:#000;}}div{color:#000;}',
+    )
+  })
+
+  it('handles nested states', () => {
+    expect(transformToStr('&:hover:not(:active) { color: black; }')).toBe(
+      '&:hover:not(:active) { color: #000; }',
     )
   })
 })

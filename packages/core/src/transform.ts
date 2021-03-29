@@ -5,8 +5,8 @@ import { propGetters } from './propGetters'
 // prop name is an ident: word chars, underscore and dash.
 const PROP_CHAR = `[-\\w]`
 
-// prop value consists of non-semis unless backslash-escaped.
-const VALUE_CHAR = `(?:\\\\.|[^\\\\;])`
+// prop value consists of non-semis and no curly braces unless backslash-escaped.
+const VALUE_CHAR = `(?:\\\\.|[^\\\\;{}])`
 
 // prettier-ignore
 const PROP_PATT = (
