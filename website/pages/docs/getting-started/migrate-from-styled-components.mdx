@@ -227,4 +227,19 @@ You can use it out of the box, but you have to specify xstyled as `topLevelImpor
 
 ## Babel Macro
 
-Unfortunately Babel Macro is not yet supported by xstyled.
+You may want to use [styled-components Babel macro](https://styled-components.com/docs/tooling#babel-macro) to use Babel plugin with zero-configuration.
+
+To use it, follow [styled-components guide](https://styled-components.com/docs/tooling#babel-macro) and add this configuration in your `package.json` or any other [babel-plugin-macros](https://github.com/kentcdodds/babel-plugin-macros) config file:
+
+```js
+// babel-plugin-macros.config.js
+module.exports = {
+  // ...
+  // Other macros config
+  styledComponents: {
+    importModuleName: '@xstyled/styled-components',
+  },
+}
+```
+
+You don't need to specify additional `topLevelImportPaths` config when you use babel macro.
