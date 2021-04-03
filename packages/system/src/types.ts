@@ -38,11 +38,11 @@ export type IStyles = Record<string, unknown>
 export type IBreakpoints = Record<string | number, number>
 export type IPropsWithTheme<TTheme extends ITheme> = IProps & { theme: TTheme }
 
-export type Mixin = (value: any) => IStyles | null | undefined
-
 export interface StyleGetter {
   (props: IProps): any
 }
+
+export type Mixin = (value: unknown) => IStyles | null | undefined | StyleGetter
 
 export type Breakpoints<TTheme extends ITheme> = TTheme extends {
   breakpoints: IBreakpoints
