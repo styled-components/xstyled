@@ -36,7 +36,7 @@ export interface BackgroundProps<T extends ITheme = Theme> {
 export const background = style({
   prop: 'background',
   cssProperty: (value) => ({
-    background: gradientBackgrounds[value] || value,
+    background: gradientBackgrounds[value as string] || value,
   }),
 })
 
@@ -112,7 +112,7 @@ export interface BackgroundImageProps<T extends ITheme = Theme> {
 export const backgroundImage = style({
   prop: 'backgroundImage',
   cssProperty: (value) => ({
-    backgroundImage: gradientBackgrounds[value] || value,
+    backgroundImage: gradientBackgrounds[value as string] || value,
   }),
 })
 

@@ -175,5 +175,26 @@ describe('#style', () => {
         fontFamily: 'arial',
       })
     })
+
+    describe('mixins', () => {
+      const fontSize = style({
+        prop: 'fontSize',
+        key: 'fontSizes',
+      })
+      const text = style({
+        prop: 'text',
+        key: 'texts',
+        cssProperty: (value) => fontSize.apply({ fontSize: value }),
+      })
+
+      it('supports functions', () => {
+        const theme = {
+          fontSizes: { xs: '0.8rem' },
+          texts: { xs: 2 },
+        }
+
+        expect(text({ theme, text: 'xs' })).toEqual({ fontSize: 2 })
+      })
+    })
   })
 })

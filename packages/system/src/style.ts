@@ -10,6 +10,7 @@ import {
   identity,
   merge,
   assign,
+  cascade,
 } from '@xstyled/util'
 import { getBreakpoints, getBreakpointMin, mediaMinWidth } from './media'
 import { defaultStates } from './defaultStates'
@@ -193,7 +194,7 @@ function styleFromValue(
   if (obj(value)) return null
   if (cache.has(value)) return cache.get(value)
   const computedValue = themeGet(value)(props)
-  const style = mixin(computedValue)
+  const style = cascade(mixin(computedValue), props)
   cache.set(value, style)
   return style
 }
