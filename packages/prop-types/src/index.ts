@@ -1,6 +1,6 @@
 import { oneOfType, number, string, object, bool } from 'prop-types'
 
-export function getSystemPropTypes(system?: any) {
+export const getSystemPropTypes = (system?: any) => {
   if (!system) return {}
   return system.meta.props.reduce(
     (obj: { [key: string]: any }, prop: string) => {

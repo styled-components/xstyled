@@ -32,7 +32,7 @@ const MEDIA_PATT = (
 
 const MATCH_REGEXP = new RegExp(`(?:${PROP_PATT}|${MEDIA_PATT})`, `g`)
 
-export function transform(rawValue: any) {
+export function transform(rawValue: any): any {
   if (typeof rawValue !== 'string') return rawValue
   let matches
   let lastIndex = 0

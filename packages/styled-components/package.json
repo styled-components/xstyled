@@ -16,9 +16,8 @@
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "reset": "rm -rf dist && rm -rf node_modules/.cache",
-    "watch": "tsdx watch",
-    "build": "tsdx build",
+    "reset": "rm -rf dist",
+    "build": "../../node_modules/.bin/rollup -c ../../build/rollup.config.js",
     "prepublishOnly": "yarn reset && yarn build"
   },
   "publishConfig": {

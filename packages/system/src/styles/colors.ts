@@ -1,8 +1,13 @@
+import * as CSS from 'csstype'
 import { themeGetter } from '../style'
-import { VariantsType, ITheme, Theme } from '../types'
+import { ThemeNamespaceValue, ITheme, Theme } from '../types'
 
-export type ColorGetter<T extends ITheme = Theme> = VariantsType<T['colors']>
-export const getColor = themeGetter<ColorGetter>({
+export type ThemeColor<T extends ITheme = Theme> = ThemeNamespaceValue<
+  'colors',
+  T
+>
+export type Color<T extends ITheme = Theme> = ThemeColor<T> | CSS.Property.Color
+export const getColor = themeGetter<ThemeColor>({
   name: 'color',
   key: 'colors',
 })
