@@ -4,120 +4,95 @@ import { getPercent } from './units'
 import { display, DisplayProps } from './layout'
 import { SystemProp, ITheme, Theme } from '../types'
 
-type AlignItemsProp<T extends ITheme> = SystemProp<CSS.Property.AlignItems, T>
 export interface AlignItemsProps<T extends ITheme = Theme> {
-  alignItems?: AlignItemsProp<T>
+  alignItems?: SystemProp<CSS.Property.AlignItems, T>
 }
-export const alignItems = style({
+export const alignItems = style<AlignItemsProps>({
   prop: 'alignItems',
 })
 
-type AlignContentProp<T extends ITheme> = SystemProp<
-  CSS.Property.AlignContent,
-  T
->
 export interface AlignContentProps<T extends ITheme = Theme> {
-  alignContent?: AlignContentProp<T>
+  alignContent?: SystemProp<CSS.Property.AlignContent, T>
 }
-export const alignContent = style({
+export const alignContent = style<AlignContentProps>({
   prop: 'alignContent',
 })
 
-type JustifyContentProp<T extends ITheme> = SystemProp<
-  CSS.Property.JustifyContent,
-  T
->
 export interface JustifyContentProps<T extends ITheme = Theme> {
-  justifyContent?: JustifyContentProp<T>
+  justifyContent?: SystemProp<CSS.Property.JustifyContent, T>
 }
-export const justifyContent = style({
+export const justifyContent = style<JustifyContentProps>({
   prop: 'justifyContent',
 })
 
-type JustifyItemsProp<T extends ITheme> = SystemProp<
-  CSS.Property.JustifyItems,
-  T
->
 export interface JustifyItemsProps<T extends ITheme = Theme> {
-  justifyItems?: JustifyItemsProp<T>
+  justifyItems?: SystemProp<CSS.Property.JustifyItems, T>
 }
-export const justifyItems = style({
+export const justifyItems = style<JustifyItemsProps>({
   prop: 'justifyItems',
 })
 
-type FlexWrapProp<T extends ITheme> = SystemProp<CSS.Property.FlexWrap, T>
 export interface FlexWrapProps<T extends ITheme = Theme> {
-  flexWrap?: FlexWrapProp<T>
+  flexWrap?: SystemProp<CSS.Property.FlexWrap, T>
 }
-export const flexWrap = style({
+export const flexWrap = style<FlexWrapProps>({
   prop: 'flexWrap',
 })
 
-type FlexGrowProp<T extends ITheme> = SystemProp<CSS.Property.FlexGrow, T>
 export interface FlexGrowProps<T extends ITheme = Theme> {
-  flexGrow?: FlexGrowProp<T>
+  flexGrow?: SystemProp<CSS.Property.FlexGrow, T>
 }
-export const flexGrow = style({
+export const flexGrow = style<FlexGrowProps>({
   prop: 'flexGrow',
 })
 
-type FlexShrinkProp<T extends ITheme> = SystemProp<CSS.Property.FlexShrink, T>
 export interface FlexShrinkProps<T extends ITheme = Theme> {
-  flexShrink?: FlexShrinkProp<T>
+  flexShrink?: SystemProp<CSS.Property.FlexShrink, T>
 }
-export const flexShrink = style({
+export const flexShrink = style<FlexShrinkProps>({
   prop: 'flexShrink',
 })
 
-type FlexBasisProp<T extends ITheme> = SystemProp<CSS.Property.FlexBasis, T>
 export interface FlexBasisProps<T extends ITheme = Theme> {
-  flexBasis?: FlexBasisProp<T>
+  flexBasis?: SystemProp<CSS.Property.FlexBasis, T>
 }
-export const flexBasis = style({
+export const flexBasis = style<FlexBasisProps>({
   prop: 'flexBasis',
   themeGet: getPercent,
 })
 
-type FlexDirectionProp<T extends ITheme> = SystemProp<
-  CSS.Property.FlexDirection,
-  T
->
 export interface FlexDirectionProps<T extends ITheme = Theme> {
-  flexDirection?: FlexDirectionProp<T>
+  flexDirection?: SystemProp<CSS.Property.FlexDirection, T>
 }
-export const flexDirection = style({
+export const flexDirection = style<FlexDirectionProps>({
   prop: 'flexDirection',
 })
 
-type FlexProp<T extends ITheme> = SystemProp<CSS.Property.Flex, T>
 export interface FlexProps<T extends ITheme = Theme> {
-  flex?: FlexProp<T>
+  flex?: SystemProp<CSS.Property.Flex, T>
 }
-export const flex = style({
+export const flex = style<FlexProps>({
   prop: 'flex',
 })
 
-type JustifySelfProp<T extends ITheme> = SystemProp<CSS.Property.JustifySelf, T>
 export interface JustifySelfProps<T extends ITheme = Theme> {
-  justifySelf?: JustifySelfProp<T>
+  justifySelf?: SystemProp<CSS.Property.JustifySelf, T>
 }
-export const justifySelf = style({
+export const justifySelf = style<JustifySelfProps>({
   prop: 'justifySelf',
 })
 
-type AlignSelfProp<T extends ITheme> = SystemProp<CSS.Property.AlignSelf, T>
 export interface AlignSelfProps<T extends ITheme = Theme> {
-  alignSelf?: AlignSelfProp<T>
+  alignSelf?: SystemProp<CSS.Property.AlignSelf, T>
 }
-export const alignSelf = style({
+export const alignSelf = style<AlignSelfProps>({
   prop: 'alignSelf',
 })
 
-type OrderProp<T extends ITheme> = SystemProp<CSS.Property.Order, T>
 export interface OrderProps<T extends ITheme = Theme> {
-  order?: OrderProp<T>
+  order?: SystemProp<CSS.Property.Order, T>
 }
-export const order = style({
+export const order = style<OrderProps>({
   prop: 'order',
 })
 
@@ -136,7 +111,7 @@ export interface FlexboxesProps<T extends ITheme = Theme>
     JustifySelfProps<T>,
     AlignSelfProps<T>,
     OrderProps<T> {}
-export const flexboxes = compose(
+export const flexboxes = compose<FlexboxesProps>(
   display,
   alignItems,
   alignContent,

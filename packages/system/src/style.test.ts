@@ -52,16 +52,6 @@ describe('#style', () => {
       ).toBe('foo,bar')
     })
 
-    it('uses defaultVariants', () => {
-      const scope = themeGetter({
-        key: 'scope',
-        defaultVariants: { foo: 'bar' },
-      })
-      const theme = { scope: { x: 'y' } }
-      expect(scope('foo')({})).toBe('bar')
-      expect(scope('x')({ theme })).toBe('y')
-    })
-
     it('supports transform func', () => {
       const scope = themeGetter({
         key: 'scope',
@@ -141,10 +131,6 @@ describe('#style', () => {
       })
     })
 
-    it('returns empty object if style is not valid', () => {
-      expect(fontFamily({ fontFamily: () => {} })).toEqual({})
-    })
-
     it('works with breakpoints', () => {
       const theme = { screens: { _: 0, md: 400 } }
       expect(
@@ -210,7 +196,7 @@ describe('#style', () => {
       const text = style({
         prop: 'text',
         key: 'texts',
-        cssProperty: (value) => fontSize.apply({ fontSize: value }),
+        css: (value) => fontSize.apply({ fontSize: value }),
       })
 
       it('supports functions', () => {

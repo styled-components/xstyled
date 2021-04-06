@@ -141,6 +141,9 @@ describe('util', () => {
     it('gets a value from the theme', () => {
       expect(getThemeValue({}, 'foo')).toBe(undefined)
       expect(getThemeValue({ theme: { foo: 'bar' } }, 'foo')).toBe('bar')
+      expect(getThemeValue({ theme: { foo: { x: 'y' } } }, 'foo')).toEqual({
+        x: 'y',
+      })
       expect(getThemeValue({ theme: { a: { b: { c: 'd' } } } }, 'a.b.c')).toBe(
         'd',
       )
@@ -150,7 +153,7 @@ describe('util', () => {
     it('starts from the initial value specified', () => {
       type Props = { theme: { other: string } }
       expect(
-        getThemeValue<Props>({ theme: { other: 'x' } }, 'foo', {
+        getThemeValue({ theme: { other: 'x' } }, 'foo', {
           foo: (p: Props) => p.theme.other,
         }),
       ).toBe('x')

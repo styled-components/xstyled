@@ -1,64 +1,59 @@
-/* eslint-disable no-console */
+import { Props, Path } from './types'
+
+export * from './types'
+
 const DEV = process.env.NODE_ENV !== 'production'
 
 /**
  * Identity function.
- * @param x
  */
-export const identity = <T>(x: T) => x
+export const identity = <T>(x: T): T => x
 
 /**
  * Check if a value is not null and not undefined.
- * @param n
  */
 export const is = <T>(n: T): n is Exclude<T, undefined | null> =>
   n !== undefined && n !== null
 
 /**
  * Check if a value is a number.
- * @param n
  */
-export const num = (n: any): n is number =>
+export const num = (n: unknown): n is number =>
   typeof n === 'number' && !Number.isNaN(n)
 
 /**
  * Check if a value is a string.
- * @param n
  */
-export const string = (n: any): n is Exclude<string, ''> =>
+export const string = (n: unknown): n is Exclude<string, ''> =>
   typeof n === 'string' && n !== ''
 
 /**
  * Check if a value is an object.
- * @param n
  */
-export const obj = (n: any): n is object => typeof n === 'object' && n !== null
+export const obj = (
+  n: unknown,
+): n is { [key: string]: unknown; [key: number]: unknown } =>
+  typeof n === 'object' && n !== null
 
 /**
  * Check if a value is a function.
- * @param n
  */
-export const func = (n: any): n is Function => typeof n === 'function'
+export const func = (n: unknown): n is Function => typeof n === 'function'
 
 /**
  * Check if a value is a negative number.
- * @param n
  */
-export const negative = (n: any): n is number => num(n) && n < 0
-
-type Path = string | number
+export const negative = (n: unknown): n is number => num(n) && n < 0
 
 /**
  * Get a value from an object or an array.
- * @param from
- * @param path
  */
-export const get = <T>(from: { [key: string]: any } | any[], path: Path): T => {
+export const get = (from: unknown, path: Path): unknown => {
   const paths = String(path).split('.')
   const pathsLength = paths.length
   let result: any = from
   for (let i = 0; i < pathsLength; i += 1) {
-    if (result === undefined) return result
+    if (!is(result)) return result
     const path = paths[i]
     result = is(result[path]) ? result[path] : undefined
   }
@@ -67,57 +62,38 @@ export const get = <T>(from: { [key: string]: any } | any[], path: Path): T => {
 
 /**
  * Assign object into another
- * @param a
- * @param b
  */
-export const assign = <TObject, TSource>(
-  a: TObject,
-  b: TSource,
-): TObject & TSource => {
-  // @ts-ignore
-  if (!is(b)) return a
-  // eslint-disable-next-line no-restricted-syntax, guard-for-in
-  for (const key in b) {
+export const assign = <T, U>(target: T, source: U): T & U => {
+  if (!is(source)) return target as T & U
+  for (const key in source) {
     // @ts-ignore
-    a[key] = b[key]
+    target[key] = source[key]
   }
-  // @ts-ignore
-  return a
+  return target as T & U
 }
 
 /**
  * Merge deeply one object into another.
- * @param a
- * @param b
  */
-export const merge = <TObject, TSource>(
-  a: TObject,
-  b: TSource,
-): TObject & TSource => {
-  // @ts-ignore
-  if (!is(b)) return a
-  // eslint-disable-next-line no-restricted-syntax
-  for (const key in b) {
-    // eslint-disable-next-line no-continue
+export const merge = <T, U>(target: T, source: U): T & U => {
+  if (!is(source)) return target as T & U
+  for (const key in source) {
     // @ts-ignore
-    if (obj(a[key])) {
+    if (obj(target[key])) {
       // @ts-ignore
-      a[key] = merge(assign({}, a[key]), b[key])
+      target[key] = merge(assign({}, target[key]), source[key])
     } else {
       // @ts-ignore
-      a[key] = b[key]
+      target[key] = source[key]
     }
   }
-  // @ts-ignore
-  return a
+  return target as T & U
 }
 
 /**
  * Warn if a condition is not met.
- * @param condition
- * @param message
  */
-export const warn = (condition: boolean, message: string) => {
+export const warn = (condition: boolean, message: string): void => {
   if (DEV) {
     if (!condition && console.error) {
       console.error(message)
@@ -127,10 +103,8 @@ export const warn = (condition: boolean, message: string) => {
 
 /**
  * Recursively call a function until getting something that is not a function.
- * @param value
- * @param arg
  */
-export function cascade(value: any, arg?: any): Exclude<any, Function> {
+export function cascade(value: unknown, arg?: unknown): Exclude<any, Function> {
   if (typeof value === 'function') {
     return cascade(value(arg), arg)
   }
@@ -139,27 +113,21 @@ export function cascade(value: any, arg?: any): Exclude<any, Function> {
 
 /**
  * Get value from theme.
- * @param props
- * @param path
- * @param initial
  */
-export const getThemeValue = <TProps extends { theme?: any }>(
-  props: TProps,
+export const getThemeValue = <T extends Props>(
+  props: T,
   path: Path,
-  initial = props.theme,
-) => cascade(get(initial, path), props)
+  initial: unknown = props.theme,
+): unknown => cascade(get(initial, path), props)
 
 /**
  * Omit values from an object.
- * @param object
- * @param values
  */
-export function omit<T extends object, K extends string[]>(
+export function omit<T extends { [key: string]: unknown }, K extends string[]>(
   object: T,
   values: K,
-) {
-  const result: { [key: string]: any } = {}
-  // eslint-disable-next-line no-restricted-syntax
+): Pick<T, Exclude<keyof T, K[number]>> {
+  const result: { [key: string]: unknown } = {}
   for (const key in object) {
     if (values.indexOf(key) === -1) {
       result[key] = object[key]
@@ -168,11 +136,8 @@ export function omit<T extends object, K extends string[]>(
   return result as Pick<T, Exclude<keyof T, K[number]>>
 }
 
-/* eslint-disable no-continue, no-loop-func, no-cond-assign */
-
 /**
  * Flatten every string together in an array.
- * @param array
  */
 export function flattenStrings(array: any[]): any[] {
   return array.reduce((flattenedArray, value) => {
@@ -203,8 +168,7 @@ function flattenDown(array: any[], result: any[]) {
 
 /**
  * Flatten an array.
- * @param array
  */
-export function flatten(array: any[]) {
+export function flatten(array: any[]): any[] {
   return flattenDown(array, [])
 }

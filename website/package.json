@@ -9,12 +9,12 @@
   },
   "dependencies": {
     "prismjs": "^1.23.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "smooth-doc": "^7.0.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "smooth-doc": "^7.0.1"
   },
   "devDependencies": {
-    "gatsby": "^3.1.1",
-    "gatsby-plugin-google-analytics": "^3.1.0"
+    "gatsby": "^3.2.1",
+    "gatsby-plugin-google-analytics": "^3.2.0"
   }
 }

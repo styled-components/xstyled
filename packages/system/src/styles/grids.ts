@@ -1,125 +1,103 @@
 import * as CSS from 'csstype'
-import { SystemProp, ITheme, Theme, VariantsType } from '../types'
+import { SystemProp, ITheme, Theme, ThemeNamespaceValue } from '../types'
 import { style, compose } from '../style'
-import { getSpace, SpaceGetter } from './space'
+import { getSpace, ThemeSpace } from './space'
 
-type GapProp<T extends ITheme> = SystemProp<
-  SpaceGetter<T> | CSS.Property.Gap,
-  T
->
 export interface GapProps<T extends ITheme = Theme> {
-  gap?: GapProp<T>
+  gap?: SystemProp<ThemeSpace<T> | CSS.Property.Gap, T>
 }
-export const gap = style({
+export const gap = style<GapProps>({
   prop: 'gap',
   themeGet: getSpace,
 })
 
-type ColumnGapProp<T extends ITheme> = SystemProp<
-  SpaceGetter<T> | CSS.Property.ColumnGap,
-  T
->
 export interface ColumnGapProps<T extends ITheme = Theme> {
-  columnGap?: ColumnGapProp<T>
+  columnGap?: SystemProp<ThemeSpace<T> | CSS.Property.ColumnGap, T>
 }
-export const columnGap = style({
+export const columnGap = style<ColumnGapProps>({
   prop: 'columnGap',
   themeGet: getSpace,
 })
 
-type RowGapProp<T extends ITheme> = SystemProp<
-  SpaceGetter<T> | CSS.Property.RowGap,
-  T
->
 export interface RowGapProps<T extends ITheme = Theme> {
-  rowGap?: RowGapProp<T>
+  rowGap?: SystemProp<ThemeSpace<T> | CSS.Property.RowGap, T>
 }
-export const rowGap = style({
+export const rowGap = style<RowGapProps>({
   prop: 'rowGap',
   themeGet: getSpace,
 })
 
-type GridColumnProp<T extends ITheme> = SystemProp<CSS.Property.GridColumn, T>
 export interface GridColumnProps<T extends ITheme = Theme> {
-  gridColumn?: GridColumnProp<T>
+  gridColumn?: SystemProp<CSS.Property.GridColumn, T>
 }
-export const gridColumn = style({ prop: 'gridColumn' })
+export const gridColumn = style<GridColumnProps>({
+  prop: 'gridColumn',
+})
 
-type GridRowProp<T extends ITheme> = SystemProp<CSS.Property.GridRow, T>
 export interface GridRowProps<T extends ITheme = Theme> {
-  gridRow?: GridRowProp<T>
+  gridRow?: SystemProp<CSS.Property.GridRow, T>
 }
-export const gridRow = style({ prop: 'gridRow' })
+export const gridRow = style<GridRowProps>({
+  prop: 'gridRow',
+})
 
-type GridAutoFlowProp<T extends ITheme> = SystemProp<
-  CSS.Property.GridAutoFlow,
-  T
->
 export interface GridAutoFlowProps<T extends ITheme = Theme> {
-  gridAutoFlow?: GridAutoFlowProp<T>
+  gridAutoFlow?: SystemProp<CSS.Property.GridAutoFlow, T>
 }
-export const gridAutoFlow = style({ prop: 'gridAutoFlow' })
+export const gridAutoFlow = style<GridAutoFlowProps>({
+  prop: 'gridAutoFlow',
+})
 
-type GridAutoColumnsProp<T extends ITheme> = SystemProp<
-  CSS.Property.GridAutoColumns,
-  T
->
 export interface GridAutoColumnsProps<T extends ITheme = Theme> {
-  gridAutoColumns?: GridAutoColumnsProp<T>
+  gridAutoColumns?: SystemProp<CSS.Property.GridAutoColumns, T>
 }
-export const gridAutoColumns = style({
+export const gridAutoColumns = style<GridAutoColumnsProps>({
   prop: 'gridAutoColumns',
 })
 
-type GridAutoRowsProp<T extends ITheme> = SystemProp<
-  CSS.Property.GridAutoRows,
-  T
->
 export interface GridAutoRowsProps<T extends ITheme = Theme> {
-  gridAutoRows?: GridAutoRowsProp<T>
+  gridAutoRows?: SystemProp<CSS.Property.GridAutoRows, T>
 }
-export const gridAutoRows = style({ prop: 'gridAutoRows' })
+export const gridAutoRows = style<GridAutoRowsProps>({
+  prop: 'gridAutoRows',
+})
 
-type GridTemplateColumnsProp<T extends ITheme> = SystemProp<
-  VariantsType<T['gridTemplateColumns']> | CSS.Property.GridTemplateColumns,
-  T
->
 export interface GridTemplateColumnsProps<T extends ITheme = Theme> {
-  gridTemplateColumns?: GridTemplateColumnsProp<T>
+  gridTemplateColumns?: SystemProp<
+    | ThemeNamespaceValue<'gridTemplateColumns', T>
+    | CSS.Property.GridTemplateColumns,
+    T
+  >
 }
-export const gridTemplateColumns = style({
+export const gridTemplateColumns = style<GridTemplateColumnsProps>({
   prop: 'gridTemplateColumns',
   key: 'gridTemplateColumns',
 })
 
-type GridTemplateRowsProp<T extends ITheme> = SystemProp<
-  VariantsType<T['gridTemplateRows']> | CSS.Property.GridTemplateRows,
-  T
->
 export interface GridTemplateRowsProps<T extends ITheme = Theme> {
-  gridTemplateRows?: GridTemplateRowsProp<T>
+  gridTemplateRows?: SystemProp<
+    ThemeNamespaceValue<'gridTemplateRows', T> | CSS.Property.GridTemplateRows,
+    T
+  >
 }
-export const gridTemplateRows = style({
+export const gridTemplateRows = style<GridTemplateRowsProps>({
   prop: 'gridTemplateRows',
   key: 'gridTemplateRows',
 })
 
-type GridTemplateAreasProp<T extends ITheme> = SystemProp<
-  CSS.Property.GridTemplateAreas,
-  T
->
 export interface GridTemplateAreasProps<T extends ITheme = Theme> {
-  gridTemplateAreas?: GridTemplateAreasProp<T>
+  gridTemplateAreas?: SystemProp<CSS.Property.GridTemplateAreas, T>
 }
-export const gridTemplateAreas = style({
+export const gridTemplateAreas = style<GridTemplateAreasProps>({
   prop: 'gridTemplateAreas',
 })
 
-type GridAreaProp<T extends ITheme> = SystemProp<CSS.Property.GridArea, T>
 export interface GridAreaProps<T extends ITheme = Theme> {
-  gridArea?: GridAreaProp<T>
+  gridArea?: SystemProp<CSS.Property.GridArea, T>
 }
-export const gridArea = style({ prop: 'gridArea' })
+export const gridArea = style<GridAreaProps>({
+  prop: 'gridArea',
+})
 
 export interface GridsProps<T extends ITheme = Theme>
   extends GapProps<T>,
@@ -134,7 +112,7 @@ export interface GridsProps<T extends ITheme = Theme>
     GridTemplateRowsProps<T>,
     GridTemplateAreasProps<T>,
     GridAreaProps<T> {}
-export const grids = compose(
+export const grids = compose<GridsProps>(
   gap,
   columnGap,
   rowGap,

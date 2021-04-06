@@ -3,8 +3,8 @@ import * as React from 'react'
 import emStyled, { CreateStyledComponent, CreateStyled } from '@emotion/styled'
 import { Theme } from '@emotion/react'
 import { SystemProps } from '@xstyled/system'
+import { BoxElements } from '@xstyled/core'
 import { css } from './css'
-import { BoxElements } from './BoxElements'
 import { x } from './x'
 
 function flattenArgs(arg: any, props: any): any {

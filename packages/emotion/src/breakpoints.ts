@@ -1,25 +1,26 @@
 import {
-  useThemeBreakpoints,
+  useThemeScreens,
   useThemeBreakpoint,
   useThemeUp,
   useThemeDown,
 } from '@xstyled/core'
+import { Screens } from '@xstyled/system'
 import { useTheme } from '@emotion/react'
 
 export { useViewportWidth } from '@xstyled/core'
 
-export function useBreakpoints() {
-  return useThemeBreakpoints(useTheme())
+export const useScreens = (): Screens => {
+  return useThemeScreens(useTheme())
 }
 
-export function useBreakpoint() {
+export const useBreakpoint = (): string | null => {
   return useThemeBreakpoint(useTheme())
 }
 
-export function useUp(key: string | number) {
+export const useUp = (key: string | number): boolean => {
   return useThemeUp(useTheme(), key)
 }
 
-export function useDown(key: string | number) {
+export const useDown = (key: string | number): boolean => {
   return useThemeDown(useTheme(), key)
 }
