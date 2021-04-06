@@ -32,6 +32,6 @@
   },
   "dependencies": {
     "@xstyled/util": "^2.2.3",
-    "csstype": "^3.0.7"
+    "csstype": "^3.0.0"
   }
 }
