@@ -1390,7 +1390,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-react-jsx@npm:^7.13.12":
+"@babel/plugin-transform-react-jsx@npm:^7.13.0, @babel/plugin-transform-react-jsx@npm:^7.13.12":
   version: 7.13.12
   resolution: "@babel/plugin-transform-react-jsx@npm:7.13.12"
   dependencies:
@@ -1903,7 +1903,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/babel-plugin-jsx-pragmatic@npm:^0.1.5":
+"@emotion/babel-plugin-jsx-pragmatic@npm:^0.1.0":
   version: 0.1.5
   resolution: "@emotion/babel-plugin-jsx-pragmatic@npm:0.1.5"
   dependencies:
@@ -5455,9 +5455,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xstyled/babel-preset-emotion-css-prop@workspace:packages/babel-preset-emotion-css-prop"
   dependencies:
-    "@babel/plugin-transform-react-jsx": ^7.13.12
+    "@babel/plugin-transform-react-jsx": ^7.13.0
     "@emotion/babel-plugin": ^11.2.0
-    "@emotion/babel-plugin-jsx-pragmatic": ^0.1.5
+    "@emotion/babel-plugin-jsx-pragmatic": ^0.1.0
   peerDependencies:
     "@babel/core": ^7.0.0
   languageName: unknown
@@ -5518,7 +5518,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xstyled/styled-components@^2.2.3, @xstyled/styled-components@^2.5.0, @xstyled/styled-components@workspace:packages/styled-components":
+"@xstyled/styled-components@^2.5.0, @xstyled/styled-components@workspace:*, @xstyled/styled-components@workspace:packages/styled-components":
   version: 0.0.0-use.local
   resolution: "@xstyled/styled-components@workspace:packages/styled-components"
   dependencies:
@@ -5535,7 +5535,7 @@ __metadata:
   resolution: "@xstyled/system@workspace:packages/system"
   dependencies:
     "@xstyled/util": ^2.2.3
-    csstype: ^3.0.7
+    csstype: ^3.0.0
   languageName: unknown
   linkType: soft
 
@@ -6496,7 +6496,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-styled-components@npm:>= 1, babel-plugin-styled-components@npm:>= 1.12.0, babel-plugin-styled-components@npm:^1.12.0":
+"babel-plugin-styled-components@npm:>= 1.12.0, babel-plugin-styled-components@npm:^1.12.0":
   version: 1.12.0
   resolution: "babel-plugin-styled-components@npm:1.12.0"
   dependencies:
@@ -9051,7 +9051,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^3.0.2, csstype@npm:^3.0.7":
+"csstype@npm:^3.0.0, csstype@npm:^3.0.2":
   version: 3.0.7
   resolution: "csstype@npm:3.0.7"
   checksum: 76d542d719cd6bca7c491e6425a28873f76b0f4cf602b626a9fee105806446be4fab2191c5d18a045aea412bb3d5dcb5cab9414328080c672671433b786746f5
@@ -21464,7 +21464,7 @@ resolve@^2.0.0-next.3:
     rollup: ^2.44.0
     rollup-plugin-dts: ^3.0.1
     rollup-plugin-esbuild: ^3.0.2
-    styled-components: 5.2.3
+    styled-components: ^5.2.3
     typescript: ^4.2.3
   languageName: unknown
   linkType: soft
@@ -23017,7 +23017,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"styled-components@npm:5.2.3, styled-components@npm:^5.2.3":
+"styled-components@npm:^5.2.3":
   version: 5.2.3
   resolution: "styled-components@npm:5.2.3"
   dependencies:
@@ -23036,28 +23036,6 @@ resolve@^2.0.0-next.3:
     react-dom: ">= 16.8.0"
     react-is: ">= 16.8.0"
   checksum: fca12eec3e1f714227d702bc9aa15a93a76571d9e2dba14d5180ae78488b3df5434718e7705d6f1fed2ae71d8113d129e14548623410d3e9bd781172e9617174
-  languageName: node
-  linkType: hard
-
-"styled-components@npm:^5.2.1":
-  version: 5.2.1
-  resolution: "styled-components@npm:5.2.1"
-  dependencies:
-    "@babel/helper-module-imports": ^7.0.0
-    "@babel/traverse": ^7.4.5
-    "@emotion/is-prop-valid": ^0.8.8
-    "@emotion/stylis": ^0.8.4
-    "@emotion/unitless": ^0.7.4
-    babel-plugin-styled-components: ">= 1"
-    css-to-react-native: ^3.0.0
-    hoist-non-react-statics: ^3.0.0
-    shallowequal: ^1.1.0
-    supports-color: ^5.5.0
-  peerDependencies:
-    react: ">= 16.8.0"
-    react-dom: ">= 16.8.0"
-    react-is: ">= 16.8.0"
-  checksum: c27911be08f2c6212d1f381d154cab5204c63b34d1b9ba56388b19654497a523ff466884fbf8914637c046ae8862387b0fc63f9ead67e1a8ab3a8af70b0d8089
   languageName: node
   linkType: hard
 
