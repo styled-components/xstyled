@@ -2,46 +2,38 @@ import * as CSS from 'csstype'
 import { style, compose } from '../style'
 import { SystemProp, ITheme, Theme } from '../types'
 
-type AppearanceProp<T extends ITheme> = SystemProp<CSS.Property.Appearance, T>
 export interface AppearanceProps<T extends ITheme = Theme> {
-  appearance?: AppearanceProp<T>
+  appearance?: SystemProp<CSS.Property.Appearance, T>
 }
-export const appearance = style({
+export const appearance = style<AppearanceProps>({
   prop: 'appearance',
 })
 
-type CursorProp<T extends ITheme> = SystemProp<CSS.Property.Cursor, T>
 export interface CursorProps<T extends ITheme = Theme> {
-  cursor?: CursorProp<T>
+  cursor?: SystemProp<CSS.Property.Cursor, T>
 }
-export const cursor = style({
+export const cursor = style<CursorProps>({
   prop: 'cursor',
 })
 
-type PointerEventsProp<T extends ITheme> = SystemProp<
-  CSS.Property.PointerEvents,
-  T
->
 export interface PointerEventsProps<T extends ITheme = Theme> {
-  pointerEvents?: PointerEventsProp<T>
+  pointerEvents?: SystemProp<CSS.Property.PointerEvents, T>
 }
-export const pointerEvents = style({
+export const pointerEvents = style<PointerEventsProps>({
   prop: 'pointerEvents',
 })
 
-type ResizeProp<T extends ITheme> = SystemProp<CSS.Property.Resize, T>
 export interface ResizeProps<T extends ITheme = Theme> {
-  resize?: ResizeProp<T>
+  resize?: SystemProp<CSS.Property.Resize, T>
 }
-export const resize = style({
+export const resize = style<ResizeProps>({
   prop: 'resize',
 })
 
-type UserSelectProp<T extends ITheme> = SystemProp<CSS.Property.UserSelect, T>
 export interface UserSelectProps<T extends ITheme = Theme> {
-  userSelect?: UserSelectProp<T>
+  userSelect?: SystemProp<CSS.Property.UserSelect, T>
 }
-export const userSelect = style({
+export const userSelect = style<UserSelectProps>({
   prop: 'userSelect',
 })
 
@@ -51,7 +43,7 @@ export interface InteractivityProps<T extends ITheme = Theme>
     PointerEventsProps<T>,
     ResizeProps<T>,
     UserSelectProps<T> {}
-export const interactivity = compose(
+export const interactivity = compose<InteractivityProps>(
   appearance,
   cursor,
   pointerEvents,

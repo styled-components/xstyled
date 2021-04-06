@@ -14,6 +14,7 @@ const SpaceTheme = ({ children }: { children: React.ReactNode }) => {
 
 describe('#cx', () => {
   it('throws with string value', () => {
+    // @ts-expect-error Strings are not allowed
     expect(() => render(<div css={cx(`margin: 2px`)} />)).toThrow(
       'Strings are not allowed as css prop values',
     )

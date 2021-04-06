@@ -53,7 +53,7 @@ export interface SystemProps<T extends ITheme = Theme>
     TransformsProps<T>,
     TransitionsProps<T>,
     TypographyProps<T> {}
-export const system = compose(
+export const system = compose<SystemProps>(
   animations,
   backgrounds,
   borders,

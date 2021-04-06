@@ -1,34 +1,35 @@
-import { is, num, string, negative, getThemeValue } from '@xstyled/util'
-import { TransformValue } from './types'
-
-const round = (value: number) => Math.round(value * 10 ** 4) / 10 ** 4
-
-export const unit = (unit: string) => <T extends string | number | null>(
-  value: T,
-): string | number | null =>
-  num(value) && value !== 0 ? `${value}${unit}` : value
-
-export const ms = unit('ms')
-export const px = unit('px')
-export const deg = unit('deg')
+import { num, string, negative, getThemeValue } from '@xstyled/util'
+import { StyleScalarValue, TransformValue } from './types'
 
 interface PxToRemOptions {
   rootFontSize?: number
 }
 
-const pxToRem = (value: number, { rootFontSize = 16 }: PxToRemOptions = {}) =>
-  round(value / rootFontSize)
+const round = (value: number): number => Math.round(value * 10 ** 4) / 10 ** 4
 
-export const remPx = <T>(
+export const unit = (unit: string) => <T extends StyleScalarValue>(
   value: T,
+): string | T => (num(value) && value !== 0 ? `${value}${unit}` : value)
+
+export const ms = unit('ms')
+export const px = unit('px')
+export const deg = unit('deg')
+
+const pxToRem = (
+  value: number,
+  { rootFontSize = 16 }: PxToRemOptions = {},
+): number => round(value / rootFontSize)
+
+export const remPx = (
+  value: StyleScalarValue,
   options?: PxToRemOptions,
-): T | number | string =>
+): StyleScalarValue =>
   num(value) && value !== 0 ? `${pxToRem(value, options)}rem` : value
 
-export const rpx = <T>(
-  value: T,
+export const rpx = (
+  value: StyleScalarValue,
   options?: PxToRemOptions,
-): T | number | string => {
+): StyleScalarValue => {
   if (!string(value) || value.length < 4) return value
   const unit = value.slice(-3)
   if (unit !== 'rpx') return value
@@ -37,13 +38,8 @@ export const rpx = <T>(
   return `${pxToRem(n, options)}rem`
 }
 
-export const percent = (n: string | number): string | number =>
+export const percent = (n: StyleScalarValue): StyleScalarValue =>
   num(n) && n !== 0 && n >= -1 && n <= 1 ? `${round(n * 100)}%` : n
-
-function toNegative(value: string | number) {
-  if (string(value)) return `-${value}`
-  return value * -1
-}
 
 export const transformNegative: TransformValue = (
   _,
@@ -51,13 +47,18 @@ export const transformNegative: TransformValue = (
 ) => {
   if (string(rawValue)) {
     const neg = rawValue.startsWith('-')
-    const absoluteValue = neg ? rawValue.substr(1) : rawValue
-    const variantValue = getThemeValue(props, absoluteValue, variants)
-    const value = is(variantValue) ? variantValue : absoluteValue
-    return neg ? toNegative(value) : value
+    const abs = neg ? rawValue.substr(1) : rawValue
+    const varVal = getThemeValue(props, abs, variants)
+    const value = string(varVal) || num(varVal) ? varVal : abs
+    return neg ? `-${value}` : value
   }
-  const abs = Math.abs(rawValue)
-  const neg = negative(rawValue)
-  const value = is(variants && variants[abs]) ? variants[abs] : abs
-  return neg ? toNegative(value) : value
+  if (num(rawValue)) {
+    const neg = negative(rawValue)
+    const abs = Math.abs(rawValue)
+    const varVal = variants ? variants[abs] : undefined
+    if (string(varVal)) return neg ? `-${varVal}` : varVal
+    const value = num(varVal) ? varVal : abs
+    return neg ? value * -1 : value
+  }
+  return null
 }
