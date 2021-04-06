@@ -1,92 +1,50 @@
-import { IProps } from './types'
-import { th } from './th'
+import { Screens, States, Props } from './types'
+import { mediaMinWidth, getBreakpointMin } from './media'
+import { XCache } from './cache'
 
-type ColorsGuard = Record<string, string>
-type AlphaVariants = number[]
+type PropsScreens<T extends Props> = T['theme'] extends { screens: Screens }
+  ? T['theme']['screens']
+  : Screens
 
-const defaultAlphaVariants = [
-  0,
-  5,
-  10,
-  20,
-  25,
-  30,
-  40,
-  50,
-  60,
-  70,
-  75,
-  80,
-  90,
-  95,
-  100,
-] as const
-
-type DefaultAlphaVariants = typeof defaultAlphaVariants
-
-function generateAlphaVariants<
-  T extends ColorsGuard,
-  U extends AlphaVariants | DefaultAlphaVariants = DefaultAlphaVariants
->(
-  colors: T,
-  transform: (value: string, key: string, variant: number) => string = (x) => x,
-  variants: U = defaultAlphaVariants as U,
-) {
-  const alphaColors = Object.keys(colors).reduce(
-    (obj, key: string) => {
-      variants.forEach((i: number) => {
-        obj[`${key}-a${i}`] = transform(colors[key], key, i)
-      })
-
-      return obj
-    },
-
-    { ...colors } as ColorsGuard,
-  )
-
-  type ColorKeys = keyof T
-
-  type Colors = {
-    [key in ColorKeys]: string
-  }
-
-  type AlphaVariantKeys = `${Extract<
-    ColorKeys,
-    string
-  >}-a${typeof variants[number]}`
-
-  type AlphaVariants = {
-    [key in AlphaVariantKeys]: string
-  }
-
-  return alphaColors as Colors & AlphaVariants
+export const getScreens = <T extends Props>(props: T): PropsScreens<T> => {
+  return (props.theme && props.theme.screens
+    ? props.theme.screens
+    : {}) as PropsScreens<T>
 }
 
-export function generateHexAlphaVariants<
-  T extends ColorsGuard,
-  U extends AlphaVariants | DefaultAlphaVariants = DefaultAlphaVariants
->(colors: T, variants: U = defaultAlphaVariants as U) {
-  return generateAlphaVariants(
-    colors,
-    (value, _, variant) =>
-      `${value}${Math.round((variant / 100) * 255).toString(16)}`,
-    variants,
-  )
+type PropsStates<T extends Props> = T['theme'] extends { states: States }
+  ? T['theme']['states']
+  : Screens
+
+export const getStates = <T extends Props>(props: T): PropsStates<T> => {
+  return (props.theme && props.theme.states
+    ? props.theme.states
+    : {}) as PropsStates<T>
 }
 
-const defaultTones = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
+type PropsScreensVariants<T extends Props> = {
+  [P in keyof PropsScreens<T>]: string | null
+}
 
-export function aliasColor(
-  alias: string,
-  color: string,
-  tones: number[] = defaultTones,
-  variants: number[] = (defaultAlphaVariants as unknown) as number[],
-): Record<string, (props: IProps) => unknown> {
-  return tones.reduce((obj, tone) => {
-    obj[`${alias}-${tone}`] = th.color(`${color}-${tone}`)
-    variants.forEach((i) => {
-      obj[`${alias}-${tone}-a${i}`] = th.color(`${color}-${tone}-a${i}`)
-    })
-    return obj
-  }, {} as Record<string, (props: IProps) => unknown>)
+export type PropsVariants<T extends Props> = PropsScreensVariants<T> &
+  PropsStates<T>
+
+export const getVariants = <T extends Props>(props: T): PropsVariants<T> => {
+  const screens = getScreens(props)
+  const states = getStates(props)
+  const medias = {} as PropsScreensVariants<T>
+  for (const value in screens) {
+    medias[value] = mediaMinWidth(getBreakpointMin(screens, value))
+  }
+  return { ...medias, ...states }
+}
+
+export const getCachedVariants = <T extends Props>(
+  props: T,
+  cache: XCache<PropsVariants<T>>,
+): PropsVariants<T> => {
+  if (cache.has('_variants')) return cache.get('_variants') as PropsVariants<T>
+  const states = getVariants(props)
+  cache.set('_variants', states)
+  return states
 }

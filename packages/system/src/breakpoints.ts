@@ -1,42 +1,49 @@
 import {
-  getBreakpoints,
   getBreakpointMin,
   getBreakpointMax,
   mediaMinWidth,
   mediaMaxWidth,
   mediaBetweenWidth,
 } from './media'
-import { IProps } from './types'
+import { getScreens } from './theme'
+import { Props } from './types'
 
-export const up = (key: string | number, rules: unknown) => (props: IProps) => {
-  const breakpoints = getBreakpoints(props)
-  const value = getBreakpointMin(breakpoints, key)
+export const up = <T>(key: string | number, rules: T) => (
+  props: Props,
+): T | (string | T)[] => {
+  const screens = getScreens(props)
+  const value = getBreakpointMin(screens, key)
   if (value === null) return rules
   return [`${mediaMinWidth(value)} {`, rules, '}']
 }
 
-export const down = (key: string | number, rules: any) => (props: IProps) => {
-  const breakpoints = getBreakpoints(props)
-  const value = getBreakpointMax(breakpoints, key)
+export const down = <T>(key: string | number, rules: T) => (
+  props: Props,
+): null | (string | T)[] => {
+  const screens = getScreens(props)
+  const value = getBreakpointMax(screens, key)
   if (value === null) return null
   return [`${mediaMaxWidth(value)} {`, rules, '}']
 }
 
-export const between = (
+export const between = <T>(
   lower: string | number,
   upper: string | number,
-  rules: any,
-) => (props: IProps) => {
-  const breakpoints = getBreakpoints(props)
-  const min = getBreakpointMin(breakpoints, lower)
-  const max = getBreakpointMax(breakpoints, upper)
+  rules: T,
+) => (props: Props): T | (string | T)[] | null => {
+  const screens = getScreens(props)
+  const min = getBreakpointMin(screens, lower)
+  const max = getBreakpointMax(screens, upper)
 
   if (max === null) return up(lower, rules)(props)
   if (min === null) return down(upper, rules)(props)
   return [`${mediaBetweenWidth(min, max)} {`, rules, '}']
 }
 
-export const breakpoints = (values: any) => (props: IProps) => {
+export const breakpoints = <T>(values: {
+  [key: string]: T
+  [key: number]: T
+}) => (props: Props): T[] => {
   const allRules = []
   const keys = Object.keys(values)
   const keysLength = keys.length

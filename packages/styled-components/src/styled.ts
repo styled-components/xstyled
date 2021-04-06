@@ -6,7 +6,7 @@ import scStyled, {
   DefaultTheme,
 } from 'styled-components'
 import { SystemProps } from '@xstyled/system'
-import { BoxElements } from './BoxElements'
+import { BoxElements } from '@xstyled/core'
 import { x } from './x'
 import { css } from './css'
 

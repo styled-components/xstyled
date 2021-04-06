@@ -1,4 +1,4 @@
-import { generateHexAlphaVariants } from './theme'
+import { generateHexAlphaVariants } from './colors'
 
 const space = {
   0.5: '0.125rem',

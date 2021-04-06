@@ -20,25 +20,31 @@ import {
   getTransform,
   getTransitionProperty,
   getDuration,
+  Props,
 } from '@xstyled/system'
 
-const getNumber = (transform: Function) => (value: any) => {
+interface Transform {
+  (value: any): any
+}
+
+const getNumber = (transform: Transform): Transform => (value: any) => {
   const num = Number(value)
   return transform(Number.isNaN(num) ? value : num)
 }
 
 const SPACES = /\s+/
-const getMultiDimensions = (transform: Function) => (value: any) => {
+const getMultiDimensions = (transform: Transform): Transform => (
+  value: any,
+) => {
   const values = value.split(SPACES)
   return (p: object) =>
     values.map((value: any) => transform(value)(p)).join(' ')
 }
 
 const COMMA = /\s*,\s*/
-const getMultiValues = (transform: Function) => (value: any) => {
+const getMultiValues = (transform: Transform): Transform => (value: any) => {
   const values = value.split(COMMA)
-  return (p: object) =>
-    values.map((value: any) => transform(value)(p)).join(',')
+  return (p: Props) => values.map((value: any) => transform(value)(p)).join(',')
 }
 
 const getNumberInset = getNumber(getInset)

@@ -2,14 +2,17 @@
 /* eslint-disable react/no-danger */
 /* eslint-env browser */
 import * as React from 'react'
+import { Colors } from '@xstyled/system'
 import {
   toCustomPropertiesDeclarations,
   toCustomPropertiesReferences,
 } from './customProperties'
 
 type ColorModeState = [string | null, (mode: string | null) => void]
-type Color = string | ((props: Record<string, unknown>) => Color)
-type Colors = Record<string, Color>
+
+interface ColorModes {
+  [key: string]: Colors
+}
 
 interface ITheme {
   useCustomProperties?: boolean
@@ -17,12 +20,12 @@ interface ITheme {
   initialColorModeName?: string
   defaultColorModeName?: string
   colors?: Colors & {
-    modes?: Record<string, Colors>
+    modes?: ColorModes
   }
 }
 
 interface IColorModeTheme extends ITheme {
-  colors: Colors & { modes: Record<string, Colors> }
+  colors: Colors & { modes: ColorModes }
 }
 
 const STORAGE_KEY = 'xstyled-color-mode'
@@ -105,7 +108,7 @@ function getDefaultColorModeName(theme: ITheme): string {
   return theme.defaultColorModeName || getInitialColorModeName(theme)
 }
 
-function getUsedColorKeys(modes: Record<string, Record<string, Color>>) {
+function getUsedColorKeys(modes: ColorModes) {
   let keys: string[] = []
   for (const key in modes) {
     keys = [...keys, ...Object.keys(modes[key])]

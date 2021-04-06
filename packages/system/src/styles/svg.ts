@@ -1,28 +1,20 @@
 import * as CSS from 'csstype'
 import { style, compose } from '../style'
-import { getColor, ColorGetter } from './colors'
+import { getColor, ThemeColor } from './colors'
 import { SystemProp, Theme, ITheme } from '../types'
 
-type FillProp<T extends ITheme = Theme> = SystemProp<
-  ColorGetter<T> | CSS.Property.Fill,
-  T
->
 export interface FillProps<T extends ITheme = Theme> {
-  fill?: FillProp<T>
+  fill?: SystemProp<ThemeColor<T> | CSS.Property.Fill, T>
 }
-export const fill = style({
+export const fill = style<FillProps>({
   prop: 'fill',
   themeGet: getColor,
 })
 
-type StrokeProp<T extends ITheme = Theme> = SystemProp<
-  ColorGetter<T> | CSS.Property.Stroke,
-  T
->
 export interface StrokeProps<T extends ITheme = Theme> {
-  stroke?: StrokeProp<T>
+  stroke?: SystemProp<ThemeColor<T> | CSS.Property.Stroke, T>
 }
-export const stroke = style({
+export const stroke = style<StrokeProps>({
   prop: 'stroke',
   themeGet: getColor,
 })
@@ -30,4 +22,4 @@ export const stroke = style({
 export interface SvgProps<T extends ITheme = Theme>
   extends FillProps<T>,
     StrokeProps<T> {}
-export const svg = compose(fill, stroke)
+export const svg = compose<SvgProps>(fill, stroke)

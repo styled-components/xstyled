@@ -4,51 +4,47 @@ import {
   style,
   compose,
   createStyleGenerator,
-  reduceStates,
+  reduceVariants,
   themeGetter,
 } from '../style'
 import { transformNegative } from '../unit'
 import { getPx } from './units'
-import { getBreakpoints } from '../media'
-import { SystemProp, VariantsType, ITheme, Theme } from '../types'
+import { getScreens } from '../theme'
+import { SystemProp, ThemeNamespaceValue, ITheme, Theme } from '../types'
 
-type DisplayProp<T extends ITheme> = SystemProp<CSS.Property.Display, T>
 export interface DisplayProps<T extends ITheme = Theme> {
-  display?: DisplayProp<T>
+  display?: SystemProp<CSS.Property.Display, T>
 }
-export const display = style({
+export const display = style<DisplayProps>({
   prop: 'display',
 })
 
-type FloatProp<T extends ITheme> = SystemProp<CSS.Property.Float, T>
 export interface FloatProps<T extends ITheme = Theme> {
-  float?: FloatProp<T>
+  float?: SystemProp<CSS.Property.Float, T>
 }
-export const float = style({
+export const float = style<FloatProps>({
   prop: 'float',
 })
 
-type BoxSizingProp<T extends ITheme> = SystemProp<CSS.Property.BoxSizing, T>
 export interface BoxSizingProps<T extends ITheme = Theme> {
-  boxSizing?: BoxSizingProp<T>
+  boxSizing?: SystemProp<CSS.Property.BoxSizing, T>
 }
-export const boxSizing = style({
+export const boxSizing = style<BoxSizingProps>({
   prop: 'boxSizing',
 })
 
-type ContainerProp<T extends ITheme> = SystemProp<boolean, T>
 export interface ContainerProps<T extends ITheme = Theme> {
-  container?: ContainerProp<T>
+  container?: SystemProp<boolean, T>
 }
-export const container = createStyleGenerator(
+export const container = createStyleGenerator<ContainerProps>(
   (props) => {
     if (!props.container) return null
-    const breakpoints = getBreakpoints(props)
-    let styles = reduceStates(props, breakpoints, (v: string | number) =>
+    const breakpoints = getScreens(props)
+    let styles = reduceVariants(props, breakpoints, (v: string | number) =>
       v !== 0 ? { maxWidth: v } : {},
     )
     if (obj(props.container)) {
-      styles = reduceStates(props, props.container, () => styles)
+      styles = reduceVariants(props, props.container, () => styles)
     }
 
     return {
@@ -59,134 +55,112 @@ export const container = createStyleGenerator(
   ['container'],
 )
 
-type OverflowProp<T extends ITheme> = SystemProp<CSS.Property.Overflow, T>
 export interface OverflowProps<T extends ITheme = Theme> {
-  overflow?: OverflowProp<T>
+  overflow?: SystemProp<CSS.Property.Overflow, T>
 }
-export const overflow = style({
+export const overflow = style<OverflowProps>({
   prop: 'overflow',
 })
 
-type OverflowXProp<T extends ITheme> = SystemProp<CSS.Property.OverflowX, T>
 export interface OverflowXProps<T extends ITheme = Theme> {
-  overflowX?: OverflowXProp<T>
+  overflowX?: SystemProp<CSS.Property.OverflowX, T>
 }
-export const overflowX = style({
+export const overflowX = style<OverflowXProps>({
   prop: 'overflowX',
 })
 
-type OverflowYProp<T extends ITheme> = SystemProp<CSS.Property.OverflowY, T>
 export interface OverflowYProps<T extends ITheme = Theme> {
-  overflowY?: OverflowYProp<T>
+  overflowY?: SystemProp<CSS.Property.OverflowY, T>
 }
-export const overflowY = style({
+export const overflowY = style<OverflowYProps>({
   prop: 'overflowY',
 })
 
-export type ZIndexGetter<T extends ITheme = Theme> = VariantsType<T['zIndices']>
-export const getZIndex = themeGetter<ZIndexGetter>({
+export type ThemeZIndex<T extends ITheme = Theme> = ThemeNamespaceValue<
+  'zIndices',
+  T
+>
+export const getZIndex = themeGetter<ThemeZIndex>({
   name: 'zIndex',
   key: 'zIndices',
 })
 
-type ZIndexProp<T extends ITheme> = SystemProp<
-  ZIndexGetter<T> | CSS.Property.ZIndex,
-  T
->
 export interface ZIndexProps<T extends ITheme = Theme> {
-  zIndex?: ZIndexProp<T>
+  zIndex?: SystemProp<ThemeZIndex<T> | CSS.Property.ZIndex, T>
 }
-export const zIndex = style({
+export const zIndex = style<ZIndexProps>({
   prop: 'zIndex',
   themeGet: getZIndex,
 })
 
-type PositionProp<T extends ITheme> = SystemProp<CSS.Property.Position, T>
 export interface PositionProps<T extends ITheme = Theme> {
-  position?: PositionProp<T>
+  position?: SystemProp<CSS.Property.Position, T>
 }
-export const position = style({ prop: 'position' })
+export const position = style<PositionProps>({
+  prop: 'position',
+})
 
-export type InsetGetter<T extends ITheme = Theme> = VariantsType<T['inset']>
-export const getInset = themeGetter({
+export type ThemeInset<T extends ITheme = Theme> = ThemeNamespaceValue<
+  'inset',
+  T
+>
+export const getInset = themeGetter<ThemeInset>({
   name: 'inset',
   key: 'inset',
   compose: getPx,
   transform: transformNegative,
 })
 
-type TopProp<T extends ITheme> = SystemProp<
-  InsetGetter<T> | CSS.Property.Top,
-  T
->
 export interface TopProps<T extends ITheme = Theme> {
-  top?: TopProp<T>
+  top?: SystemProp<ThemeInset<T> | CSS.Property.Top, T>
 }
-export const top = style({
+export const top = style<TopProps>({
   prop: 'top',
   themeGet: getInset,
 })
 
-type RightProp<T extends ITheme> = SystemProp<
-  InsetGetter<T> | CSS.Property.Right,
-  T
->
 export interface RightProps<T extends ITheme = Theme> {
-  right?: RightProp<T>
+  right?: SystemProp<ThemeInset<T> | CSS.Property.Right, T>
 }
-export const right = style({
+export const right = style<RightProps>({
   prop: 'right',
   themeGet: getInset,
 })
 
-type BottomProp<T extends ITheme> = SystemProp<
-  InsetGetter<T> | CSS.Property.Bottom,
-  T
->
 export interface BottomProps<T extends ITheme = Theme> {
-  bottom?: BottomProp<T>
+  bottom?: SystemProp<ThemeInset<T> | CSS.Property.Bottom, T>
 }
-export const bottom = style({
+export const bottom = style<BottomProps>({
   prop: 'bottom',
   themeGet: getInset,
 })
 
-type LeftProp<T extends ITheme> = SystemProp<
-  InsetGetter<T> | CSS.Property.Left,
-  T
->
 export interface LeftProps<T extends ITheme = Theme> {
-  left?: LeftProp<T>
+  left?: SystemProp<ThemeInset<T> | CSS.Property.Left, T>
 }
-export const left = style({
+export const left = style<LeftProps>({
   prop: 'left',
   themeGet: getInset,
 })
 
-type VisibilityProp<T extends ITheme> = SystemProp<CSS.Property.Visibility, T>
 export interface VisibilityProps<T extends ITheme = Theme> {
-  visibility?: VisibilityProp<T>
+  visibility?: SystemProp<CSS.Property.Visibility, T>
 }
-export const visibility = style({
+export const visibility = style<VisibilityProps>({
   prop: 'visibility',
 })
 
-type OverscrollBehaviorProp<T extends ITheme> = SystemProp<
-  CSS.Property.OverscrollBehavior,
-  T
->
 export interface OverscrollBehaviorProps<T extends ITheme = Theme> {
-  overscrollBehavior?: OverscrollBehaviorProp<T>
+  overscrollBehavior?: SystemProp<CSS.Property.OverscrollBehavior, T>
 }
-export const overscrollBehavior = style({
+export const overscrollBehavior = style<OverscrollBehaviorProps>({
   prop: 'overscrollBehavior',
 })
 
-type ObjectFitProp<T extends ITheme> = SystemProp<CSS.Property.ObjectFit, T>
 export interface ObjectFitProps<T extends ITheme = Theme> {
-  objectFit?: ObjectFitProp<T>
+  objectFit?: SystemProp<CSS.Property.ObjectFit, T>
 }
-export const objectFit = style({
+export const objectFit = style<ObjectFitProps>({
   prop: 'objectFit',
 })
 
@@ -207,7 +181,7 @@ export interface LayoutProps<T extends ITheme = Theme>
     VisibilityProps<T>,
     OverscrollBehaviorProps<T>,
     ObjectFitProps<T> {}
-export const layout = compose(
+export const layout = compose<LayoutProps>(
   boxSizing,
   display,
   float,

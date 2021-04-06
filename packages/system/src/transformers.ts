@@ -1,7 +1,9 @@
 import { num } from '@xstyled/util'
+import { StyleScalarValue } from './types'
 import { remPx, rpx } from './unit'
 
 export const rpxTransformers = {
-  px: <T>(value: T) => remPx(rpx(value)),
-  border: <T>(n: T) => (num(n) && n > 0 ? `${remPx(n)} solid` : n),
+  px: (value: StyleScalarValue): StyleScalarValue => remPx(rpx(value)),
+  border: (value: StyleScalarValue): StyleScalarValue =>
+    num(value) && value > 0 ? `${remPx(value)} solid` : value,
 }

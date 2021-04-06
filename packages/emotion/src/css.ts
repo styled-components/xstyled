@@ -17,7 +17,7 @@ interface CSSInterpolationFn {
   (props: Props): CSSInterpolation
 }
 
-interface SerializedStylesFn {
+export interface SerializedStylesFn {
   (props: Props): SerializedStyles
 }
 
@@ -35,7 +35,14 @@ export function css(
     const emCssArgs =
       typeof strings === 'function'
         ? emCss(strings(props))
-        : emCss(strings as TemplateStringsArray, ...rawArgs)
+        : emCss(
+            strings as TemplateStringsArray,
+            ...rawArgs.map((arg) => {
+              // @ts-expect-error
+              if (typeof arg === 'function') return arg(props)
+              return arg
+            }),
+          )
     return {
       ...emCssArgs,
       styles: styleToString(transform(emCssArgs.styles), props),

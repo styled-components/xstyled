@@ -1,120 +1,157 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
-export type IVariants = Record<string | number, string | number>
-export type IStates = Record<string, string>
-export type ITheme = {
-  animations?: unknown
-  borders?: unknown
-  borderStyles?: unknown
-  borderWidths?: unknown
-  colors?: unknown
-  fonts?: unknown
-  fontSizes?: unknown
-  fontWeights?: unknown
-  gridTemplateColumns?: unknown
-  gridTemplateRows?: unknown
-  inset?: unknown
-  letterSpacings?: unknown
-  lineHeights?: unknown
-  radii?: unknown
-  ringWidths?: unknown
-  shadows?: unknown
-  screens?: unknown
-  states?: unknown
-  settings?: unknown
-  sizes?: unknown
-  space?: unknown
-  timingFunctions?: unknown
-  transforms?: unknown
-  transitions?: unknown
-  transitionProperties?: unknown
-  transformers?: unknown
-  zIndices?: unknown
-}
-export type IProps = {
-  [Key: string]: any
-  [Key: number]: any
-  theme?: any
-}
-export type IStyles = Record<string, unknown>
-export type IBreakpoints = Record<string | number, number>
-export type IPropsWithTheme<TTheme extends ITheme> = IProps & { theme: TTheme }
+import { ITheme, Props } from '@xstyled/util'
 
-export interface StyleGetter {
-  (props: IProps): any
+export { ITheme, Props }
+
+export type StyleScalarValue = null | undefined | string | number
+
+export interface Styles {
+  [key: string]: StyleScalarValue | Styles
+}
+export type StyleFromProps<TProps = {}> = (
+  props: TProps,
+) => Styles | null | undefined
+export type Mixin = (value: any) => StyleFromProps | Styles | null | undefined
+
+export type ThemeAlias = (props: Props<Theme>) => ThemeValue
+export type ThemeValue =
+  | undefined
+  | null
+  | string
+  | string[]
+  | number
+  | number[]
+  | ThemeAlias
+  | ThemeNamespace
+export interface States {
+  [key: string]: string | null
+}
+export interface Screens {
+  [key: string]: number
+  [key: number]: number
+}
+export type Variants = States & Screens
+export interface Colors {
+  [key: string]: string | Colors
+  [key: number]: string | Colors
+}
+export interface Transformers {
+  [key: string]: TransformValue
+}
+export interface ThemeNamespace {
+  [key: string]: ThemeValue
+  [key: number]: ThemeValue
+}
+export interface XTheme extends ITheme {
+  animations?: ThemeNamespace
+  borders?: ThemeNamespace
+  borderStyles?: ThemeNamespace
+  borderWidths?: ThemeNamespace
+  colors?: Colors
+  durations?: ThemeNamespace
+  fonts?: ThemeNamespace
+  fontSizes?: ThemeNamespace
+  fontWeights?: ThemeNamespace
+  gridTemplateColumns?: ThemeNamespace
+  gridTemplateRows?: ThemeNamespace
+  inset?: ThemeNamespace
+  letterSpacings?: ThemeNamespace
+  lineHeights?: ThemeNamespace
+  radii?: ThemeNamespace
+  ringWidths?: ThemeNamespace
+  shadows?: ThemeNamespace
+  screens?: Screens
+  states?: States
+  settings?: ThemeNamespace
+  sizes?: ThemeNamespace
+  space?: ThemeNamespace
+  timingFunctions?: ThemeNamespace
+  transforms?: ThemeNamespace
+  transitions?: ThemeNamespace
+  transitionProperties?: ThemeNamespace
+  transformers?: Transformers
+  zIndices?: ThemeNamespace
 }
 
-export type Mixin = (value: unknown) => IStyles | null | undefined | StyleGetter
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface Theme extends ITheme {}
 
-export type Breakpoints<TTheme extends ITheme> = TTheme extends {
-  screens: IBreakpoints
+export type NamespaceType<T> = T extends ReadonlyArray<unknown>
+  ? number
+  : T extends Array<unknown>
+  ? number
+  : T extends { default: ThemeValue }
+  ? keyof T | true
+  : T extends ThemeNamespace
+  ? keyof T
+  : {}
+
+export type ThemeScreens<T extends ITheme> = T extends { screens: Screens }
+  ? T['screens']
+  : unknown
+
+export type ThemeStates<T extends ITheme> = T extends {
+  states: States
 }
-  ? TTheme['screens']
-  : Record<string, unknown>
+  ? T['states']
+  : unknown
 
-export type States<TTheme extends ITheme> = TTheme extends {
-  states: IStates
-}
-  ? TTheme['states']
-  : Record<string, unknown>
+export type ThemeVariants<T extends ITheme> = ThemeScreens<T> & ThemeStates<T>
 
-export type VariantProps<TType, TTheme extends ITheme> = {
-  [P in keyof (Breakpoints<TTheme> & States<TTheme>)]?:
-    | TType
-    | VariantProps<TType, TTheme>
+export type ThemeProp<TType, TTheme extends ITheme> = {
+  [P in keyof ThemeVariants<TTheme>]?: TType | ThemeProp<TType, TTheme>
 }
 
 export type SystemProp<TType, TTheme extends ITheme> =
   | TType
-  | VariantProps<TType, TTheme>
+  | ThemeProp<TType, TTheme>
 
-export interface StyleGenerator {
-  (props: IProps, sort?: boolean): any
+export type CSSOption = string | string[] | Mixin
+
+export interface StyleOptions {
+  prop: string | string[] | readonly string[]
+  css?: CSSOption
+  themeGet?: ThemeGetter
+  key?: string
+  transform?: TransformValue
+}
+
+export interface StyleGenerator<TProps = {}> {
+  (props: Props<Theme> & TProps, sort?: boolean): Styles | null
   meta: {
     props: string[]
-    getStyle: StyleGenerator
+    getStyle: StyleGenerator<TProps>
     generators?: StyleGenerator[]
   }
-  apply: (values: object) => (IProps: object) => any
+  apply: (values: TProps) => StyleFromProps<Props<Theme> & TProps>
 }
 
-export interface TransformValue<TValueType = any> {
+export interface TransformValue {
   (
-    value: string | number,
+    value: any,
     options: {
-      rawValue: TValueType
-      variants: IVariants
-      props: IProps
+      rawValue: unknown
+      variants: ThemeNamespace | null
+      props: Props<Theme>
     },
-  ): string | number | null
+  ): StyleScalarValue
 }
 
-export interface ThemeGetter<TValueType = any> {
-  (value: TValueType, defaultValue?: any): (props: IProps) => any
+export type ThemeNamespaceValue<K extends string, T extends ITheme> =
+  | NamespaceType<T[K]>
+  | {}
+
+export interface ThemeGetter<T = any> {
+  (value: T, defaultValue?: StyleScalarValue): (
+    props: Props<Theme>,
+  ) => StyleScalarValue
   meta: {
     name?: string
-    transform?: TransformValue<TValueType>
+    transform?: TransformValue
   }
 }
 
-// Theme
-
-/**
- * Define a type from a variant.
- */
-export type VariantsType<
-  TVariants,
-  TBaseType = number | string
-> = TVariants extends ReadonlyArray<any>
-  ? number | (TBaseType & {})
-  : TVariants extends Array<any>
-  ? number | (TBaseType & {})
-  : TVariants extends { default: any }
-  ? keyof TVariants | (TBaseType & {}) | true
-  : TVariants extends IVariants
-  ? keyof TVariants | (TBaseType & {})
-  : TBaseType & {}
-
-export type FirstArg<T extends (...args: any) => any> = Parameters<T>[0]
-
-/* Theme exposed to be overriden */
-export interface Theme extends ITheme {}
+export type ThemeGetterType<T extends ThemeGetter> = T extends ThemeGetter<
+  infer T
+>
+  ? T
+  : never

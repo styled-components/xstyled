@@ -7,7 +7,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "target": "ES5",
+    "target": "esnext",
     "esModuleInterop": true,
     "moduleResolution": "node",
     "jsx": "react",

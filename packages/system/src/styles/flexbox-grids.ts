@@ -1,15 +1,14 @@
-import { SystemProp, ITheme, IProps, Theme } from '../types'
-import { obj } from '@xstyled/util'
-import { style, createStyleGenerator, reduceStates, compose } from '../style'
+import { SystemProp, ITheme, Props, Theme } from '../types'
+import { obj, is } from '@xstyled/util'
+import { style, createStyleGenerator, reduceVariants, compose } from '../style'
 import { getPercent } from './units'
 
-type RowProp<T extends ITheme> = SystemProp<boolean, T>
 export interface RowProps<T extends ITheme = Theme> {
-  row?: RowProp<T>
+  row?: SystemProp<boolean, T>
 }
-export const row = style({
+export const row = style<RowProps>({
   prop: 'row',
-  cssProperty: () => ({
+  css: () => ({
     boxSizing: 'border-box',
     flexGrow: 1,
     flexWrap: 'wrap',
@@ -17,7 +16,9 @@ export const row = style({
   }),
 })
 
-function getColStyle(props: IProps, size: any) {
+function getColStyle(props: Props, size: string | number | true | undefined) {
+  if (!is(size)) return null
+
   if (size === true) {
     return {
       flexBasis: 0,
@@ -42,11 +43,10 @@ function getColStyle(props: IProps, size: any) {
   }
 }
 
-type ColProp<T extends ITheme> = SystemProp<true | 'auto' | string | number, T>
 export interface ColProps<T extends ITheme = Theme> {
-  col?: ColProp<T>
+  col?: SystemProp<true | 'auto' | string | number, T>
 }
-export const col = createStyleGenerator(
+export const col = createStyleGenerator<ColProps>(
   (props) => {
     const value = props.col
     const common = {
@@ -57,7 +57,7 @@ export const col = createStyleGenerator(
     }
 
     if (obj(value)) {
-      const breakpointsStyle = reduceStates(
+      const breakpointsStyle = reduceVariants(
         props,
         value,
         (v: string | number) => getColStyle(props, v),
@@ -80,4 +80,4 @@ export const col = createStyleGenerator(
 export interface FlexboxGridsProps<T extends ITheme = Theme>
   extends RowProps<T>,
     ColProps<T> {}
-export const flexboxGrids = compose(row, col)
+export const flexboxGrids = compose<FlexboxGridsProps>(row, col)
