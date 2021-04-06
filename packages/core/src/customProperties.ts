@@ -1,4 +1,5 @@
 import { obj, string, func, cascade } from '@xstyled/util'
+import { ITheme } from '@xstyled/system'
 
 const join = (...args: (string | undefined)[]): string =>
   args.filter(Boolean).join('.')
@@ -12,7 +13,7 @@ export function toCustomPropertiesReferences<
   T extends Record<string | number, unknown>
 >(
   values: T,
-  theme?: object,
+  theme?: ITheme,
   keys: string[] = Object.keys(values),
   parent?: string,
 ): Record<string | number, unknown> {
@@ -48,7 +49,7 @@ export function toCustomPropertiesReferences<
 
 export function toCustomPropertiesDeclarations(
   values: { [key: string]: unknown },
-  theme?: object,
+  theme?: ITheme,
   keys: string[] = Object.keys(values),
   parent?: string,
   state = { value: '' },

@@ -1,25 +1,25 @@
 import * as CSS from 'csstype'
 import { compose, themeGetter, style } from '../style'
-import { SystemProp, VariantsType, ITheme, Theme } from '../types'
-import { getAngle } from './units'
-import { getSpace } from './space'
+import { SystemProp, ThemeNamespaceValue, ITheme, Theme } from '../types'
+import { getAngle, Angle } from './units'
+import { getSpace, ThemeSpace } from './space'
 
-export type TransformGetter<T extends ITheme = Theme> = VariantsType<
-  T['transforms']
+export type ThemeTransform<T extends ITheme = Theme> = ThemeNamespaceValue<
+  'transforms',
+  T
 >
-export const getTransform = themeGetter<TransformGetter>({
+export const getTransform = themeGetter<ThemeTransform>({
   name: 'transform',
   key: 'transforms',
 })
 
-type TransformProp<T extends ITheme> = SystemProp<boolean, T>
 export interface TransformProps<T extends ITheme = Theme> {
-  transform?: TransformProp<T>
+  transform?: SystemProp<boolean, T>
 }
-export const transform = style({
+export const transform = style<TransformProps>({
   prop: 'transform',
   themeGet: getTransform,
-  cssProperty: (value) => {
+  css: (value) => {
     if (value === true) {
       return {
         '--x-translate-x': 0,
@@ -37,95 +37,83 @@ export const transform = style({
   },
 })
 
-type TransformOriginProp<T extends ITheme> = SystemProp<
-  CSS.Property.TransformOrigin,
-  T
->
 export interface TransformOriginProps<T extends ITheme = Theme> {
-  transformOrigin?: TransformOriginProp<T>
+  transformOrigin?: SystemProp<CSS.Property.TransformOrigin, T>
 }
-export const transformOrigin = style({
+export const transformOrigin = style<TransformOriginProps>({
   prop: 'transformOrigin',
 })
 
-type TranslateXProp<T extends ITheme> = SystemProp<number | string, T>
 export interface TranslateXProps<T extends ITheme = Theme> {
-  translateX?: TranslateXProp<T>
+  translateX?: SystemProp<ThemeSpace<T> | number | string, T>
 }
-export const translateX = style({
+export const translateX = style<TranslateXProps>({
   prop: 'translateX',
-  cssProperty: '--x-translate-x',
   themeGet: getSpace,
+  css: '--x-translate-x',
 })
 
-type TranslateYProp<T extends ITheme> = SystemProp<number | string, T>
 export interface TranslateYProps<T extends ITheme = Theme> {
-  translateY?: TranslateYProp<T>
+  translateY?: SystemProp<ThemeSpace<T> | number | string, T>
 }
-export const translateY = style({
+export const translateY = style<TranslateYProps>({
   prop: 'translateY',
-  cssProperty: '--x-translate-y',
   themeGet: getSpace,
+  css: '--x-translate-y',
 })
 
-type RotateProp<T extends ITheme> = SystemProp<number | string, T>
 export interface RotateProps<T extends ITheme = Theme> {
-  rotate?: RotateProp<T>
+  rotate?: SystemProp<Angle, T>
 }
 export const rotate = style({
   prop: 'rotate',
-  cssProperty: '--x-rotate',
   themeGet: getAngle,
+  css: '--x-rotate',
 })
 
-type SkewXProp<T extends ITheme> = SystemProp<number | string, T>
 export interface SkewXProps<T extends ITheme = Theme> {
-  skewX?: SkewXProp<T>
+  skewX?: SystemProp<Angle, T>
 }
-export const skewX = style({
+export const skewX = style<SkewXProps>({
   prop: 'skewX',
-  cssProperty: '--x-skew-x',
   themeGet: getAngle,
+  css: '--x-skew-x',
 })
 
-type SkewYProp<T extends ITheme> = SystemProp<number | string, T>
 export interface SkewYProps<T extends ITheme = Theme> {
-  skewY?: SkewYProp<T>
+  skewY?: SystemProp<Angle, T>
 }
-export const skewY = style({
+export const skewY = style<SkewYProps>({
   prop: 'skewY',
-  cssProperty: '--x-skew-y',
   themeGet: getAngle,
+  css: '--x-skew-y',
 })
 
-type ScaleProp<T extends ITheme> = SystemProp<number | string, T>
 export interface ScaleProps<T extends ITheme = Theme> {
-  scale?: ScaleProp<T>
+  scale?: SystemProp<number | string, T>
 }
-export const scale = style({
+export const scale = style<ScaleProps>({
   prop: 'scale',
-  cssProperty: ['--x-scale-x', '--x-scale-y'],
   transform: (v) => String(v),
+  css: ['--x-scale-x', '--x-scale-y'],
 })
 
-type ScaleXProp<T extends ITheme> = SystemProp<number | string, T>
 export interface ScaleXProps<T extends ITheme = Theme> {
-  scaleX?: ScaleXProp<T>
+  scaleX?: SystemProp<number | string, T>
 }
-export const scaleX = style({
+export const scaleX = style<ScaleXProps>({
   prop: 'scaleX',
-  cssProperty: '--x-scale-x',
   transform: (v) => String(v),
+  css: '--x-scale-x',
 })
 
-type ScaleYProp<T extends ITheme> = SystemProp<number | string, T>
 export interface ScaleYProps<T extends ITheme = Theme> {
-  scaleY?: ScaleYProp<T>
+  scaleY?: SystemProp<number | string, T>
 }
-export const scaleY = style({
+export const scaleY = style<ScaleYProps>({
   prop: 'scaleY',
-  cssProperty: '--x-scale-y',
   transform: (v) => String(v),
+  css: '--x-scale-y',
 })
 
 export interface TransformsProps<T extends ITheme = Theme>
@@ -139,7 +127,7 @@ export interface TransformsProps<T extends ITheme = Theme>
     ScaleProps<T>,
     ScaleXProps<T>,
     ScaleYProps<T> {}
-export const transforms = compose(
+export const transforms = compose<TransformsProps>(
   transform,
   transformOrigin,
   translateX,

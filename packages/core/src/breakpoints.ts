@@ -1,18 +1,18 @@
 /* eslint-disable no-undef */
 import * as React from 'react'
-import { getBreakpoints, Theme } from '@xstyled/system'
+import { getScreens, ITheme, Screens } from '@xstyled/system'
 
-export function useThemeBreakpoints(theme: Theme) {
-  return getBreakpoints({ theme })
+export function useThemeScreens(theme: ITheme): Screens {
+  return getScreens({ theme })
 }
 
 /**
  * Minimum breakpoint width.
  * Null for the smallest breakpoint.
  */
-function useThemeMinValue(theme: Theme, key: string | number) {
-  const breakpoints = useThemeBreakpoints(theme)
-  const value = breakpoints[key]
+function useThemeMinValue(theme: ITheme, key: string | number): number | null {
+  const screens = useThemeScreens(theme)
+  const value = screens[key]
   return value === 0 ? null : value
 }
 
@@ -24,13 +24,13 @@ function useThemeMinValue(theme: Theme, key: string | number) {
  * Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
  * See https://bugs.webkit.org/show_bug.cgi?id=178261
  */
-function useThemeMaxValue(theme: Theme, key: string | number) {
-  const breakpoints = useThemeBreakpoints(theme)
-  const breakPoint = breakpoints[key]
+function useThemeMaxValue(theme: ITheme, key: string | number): number | null {
+  const screens = useThemeScreens(theme)
+  const breakPoint = screens[key]
   return breakPoint === 0 ? null : breakPoint - 0.02
 }
 
-export function useViewportWidth() {
+export function useViewportWidth(): number | null {
   const [width, setWidth] = React.useState(
     typeof window === 'undefined' ? null : window.innerWidth,
   )
@@ -50,27 +50,25 @@ export function useViewportWidth() {
   return width
 }
 
-export function useThemeBreakpoint(theme: Theme) {
-  const breakpoints = useThemeBreakpoints(theme)
+export function useThemeBreakpoint(theme: ITheme): string | null {
+  const screns = useThemeScreens(theme)
   const width = useViewportWidth()
   return React.useMemo(() => {
     return (
-      Object.keys(breakpoints)
+      Object.keys(screns)
         .reverse()
-        .find(
-          (breakpoint) => width !== null && width > breakpoints[breakpoint],
-        ) || null
+        .find((screen) => width !== null && width > screns[screen]) || null
     )
-  }, [breakpoints, width])
+  }, [screns, width])
 }
 
-export function useThemeUp(theme: Theme, key: string | number) {
+export function useThemeUp(theme: ITheme, key: string | number): boolean {
   const value = useThemeMinValue(theme, key)
   const width = useViewportWidth()
   return width !== null && value !== null && width >= value
 }
 
-export function useThemeDown(theme: Theme, key: string | number) {
+export function useThemeDown(theme: ITheme, key: string | number): boolean {
   const value = useThemeMaxValue(theme, key)
   const width = useViewportWidth()
   return width !== null && value !== null && width < value

@@ -1,6 +1,6 @@
 import * as CSS from 'csstype'
 import { style, compose } from '../style'
-import { getColor, ColorGetter } from './colors'
+import { getColor, ThemeColor, Color } from './colors'
 import { SystemProp, ITheme, Theme } from '../types'
 
 const gradientBackgrounds: { [key: string]: string } = {
@@ -14,109 +14,83 @@ const gradientBackgrounds: { [key: string]: string } = {
   'gradient-to-tl': 'linear-gradient(to top left, var(--x-gradient-stops))',
 }
 
-type BackgroundProp<T extends ITheme> = SystemProp<CSS.Property.Background, T>
 export interface BackgroundProps<T extends ITheme = Theme> {
-  background?: BackgroundProp<T>
+  background?: SystemProp<CSS.Property.Background, T>
 }
-export const background = style({
+export const background = style<BackgroundProps>({
   prop: 'background',
-  cssProperty: (value) => ({
-    background: gradientBackgrounds[value as string] || value,
+  css: (value) => ({
+    background: gradientBackgrounds[value] || value,
   }),
 })
 
 type BackgroundColorProp<T extends ITheme> = SystemProp<
-  ColorGetter<T> | CSS.Property.BackgroundColor,
+  ThemeColor<T> | CSS.Property.BackgroundColor,
   T
 >
 export interface BackgroundColorProps<T extends ITheme = Theme> {
   backgroundColor?: BackgroundColorProp<T>
   bg?: BackgroundColorProp<T>
 }
-export const backgroundColor = style({
+export const backgroundColor = style<BackgroundColorProps>({
   prop: ['backgroundColor', 'bg'],
-  cssProperty: 'backgroundColor',
+  css: 'backgroundColor',
   themeGet: getColor,
 })
 
-type BackgroundImageProp<T extends ITheme> = SystemProp<
-  CSS.Property.BackgroundImage,
-  T
->
 export interface BackgroundImageProps<T extends ITheme = Theme> {
-  backgroundImage?: BackgroundImageProp<T>
+  backgroundImage?: SystemProp<CSS.Property.BackgroundImage, T>
 }
-export const backgroundImage = style({
+export const backgroundImage = style<BackgroundImageProps>({
   prop: 'backgroundImage',
-  cssProperty: (value) => ({
-    backgroundImage: gradientBackgrounds[value as string] || value,
+  css: (value) => ({
+    backgroundImage: gradientBackgrounds[value] || value,
   }),
 })
 
-type BackgroundSizeProp<T extends ITheme> = SystemProp<
-  CSS.Property.BackgroundSize,
-  T
->
 export interface BackgroundSizeProps<T extends ITheme = Theme> {
-  backgroundSize?: BackgroundSizeProp<T>
+  backgroundSize?: SystemProp<CSS.Property.BackgroundSize, T>
 }
-export const backgroundSize = style({
+export const backgroundSize = style<BackgroundSizeProps>({
   prop: 'backgroundSize',
 })
 
-type BackgroundPositionProp<T extends ITheme> = SystemProp<
-  CSS.Property.BackgroundPosition,
-  T
->
 export interface BackgroundPositionProps<T extends ITheme = Theme> {
-  backgroundPosition?: BackgroundPositionProp<T>
+  backgroundPosition?: SystemProp<CSS.Property.BackgroundPosition, T>
 }
-export const backgroundPosition = style({
+export const backgroundPosition = style<BackgroundPositionProps>({
   prop: 'backgroundPosition',
 })
 
-type BackgroundRepeatProp<T extends ITheme> = SystemProp<
-  CSS.Property.BackgroundRepeat,
-  T
->
 export interface BackgroundRepeatProps<T extends ITheme = Theme> {
-  backgroundRepeat?: BackgroundRepeatProp<T>
+  backgroundRepeat?: SystemProp<CSS.Property.BackgroundRepeat, T>
 }
-export const backgroundRepeat = style({
+export const backgroundRepeat = style<BackgroundRepeatProps>({
   prop: 'backgroundRepeat',
 })
 
-type BackgroundAttachmentProp<T extends ITheme> = SystemProp<
-  CSS.Property.BackgroundAttachment,
-  T
->
 export interface BackgroundAttachmentProps<T extends ITheme = Theme> {
-  backgroundAttachment?: BackgroundAttachmentProp<T>
+  backgroundAttachment?: SystemProp<CSS.Property.BackgroundAttachment, T>
 }
-export const backgroundAttachment = style({
+export const backgroundAttachment = style<BackgroundAttachmentProps>({
   prop: 'backgroundAttachment',
 })
 
-type BackgroundClipProp<T extends ITheme> = SystemProp<
-  CSS.Property.BackgroundClip,
-  T
->
 export interface BackgroundClipProps<T extends ITheme = Theme> {
-  backgroundClip?: BackgroundClipProp<T>
+  backgroundClip?: SystemProp<CSS.Property.BackgroundClip, T>
 }
-export const backgroundClip = style({
+export const backgroundClip = style<BackgroundClipProps>({
   prop: 'backgroundClip',
-  cssProperty: ['backgroundClip', '-webkitBackgroundClip'],
+  css: ['backgroundClip', '-webkitBackgroundClip'],
 })
 
-type GradientFromProp<T extends ITheme> = SystemProp<ColorGetter<T>, T>
 export interface GradientFromProps<T extends ITheme = Theme> {
-  gradientFrom?: GradientFromProp<T>
+  gradientFrom?: SystemProp<Color<T>, T>
 }
-export const gradientFrom = style({
+export const gradientFrom = style<GradientFromProps>({
   prop: 'gradientFrom',
   themeGet: getColor,
-  cssProperty: (value) => {
+  css: (value) => {
     return {
       '--x-gradient-from': value,
       '--x-gradient-stops':
@@ -125,26 +99,24 @@ export const gradientFrom = style({
   },
 })
 
-type GradientViaProp<T extends ITheme> = SystemProp<ColorGetter<T>, T>
 export interface GradientViaProps<T extends ITheme = Theme> {
-  gradientVia?: GradientViaProp<T>
+  gradientVia?: SystemProp<Color<T>, T>
 }
-export const gradientVia = style({
+export const gradientVia = style<GradientViaProps>({
   prop: 'gradientVia',
   themeGet: getColor,
-  cssProperty: (value) => ({
+  css: (value) => ({
     '--x-gradient-stops': `var(--x-gradient-from), ${value}, var(--x-gradient-to, transparent)`,
   }),
 })
 
-type GradientToProp<T extends ITheme> = SystemProp<ColorGetter<T>, T>
 export interface GradientToProps<T extends ITheme = Theme> {
-  gradientTo?: GradientToProp<T>
+  gradientTo?: SystemProp<Color<T>, T>
 }
-export const gradientTo = style({
+export const gradientTo = style<GradientToProps>({
   prop: 'gradientTo',
   themeGet: getColor,
-  cssProperty: '--x-gradient-to',
+  css: '--x-gradient-to',
 })
 
 export interface BackgroundsProps<T extends ITheme = Theme>
@@ -159,7 +131,7 @@ export interface BackgroundsProps<T extends ITheme = Theme>
     GradientFromProps<T>,
     GradientViaProps<T>,
     GradientToProps<T> {}
-export const backgrounds = compose(
+export const backgrounds = compose<BackgroundsProps>(
   background,
   backgroundColor,
   backgroundImage,

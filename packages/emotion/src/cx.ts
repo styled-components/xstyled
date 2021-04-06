@@ -1,10 +1,13 @@
 import { cascade, flatten } from '@xstyled/util'
-import { css } from './css'
+import { Theme } from '@xstyled/system'
+import { css, SerializedStylesFn } from './css'
 
-export function cx(styles: any) {
+export function cx(
+  styles: SerializedStylesFn | SerializedStylesFn[],
+): (theme: Theme) => any {
   if (typeof styles === 'string') return styles
 
-  return (theme: any) => {
+  return (theme: Theme) => {
     const p = { theme }
 
     function parseStyle(style: any) {

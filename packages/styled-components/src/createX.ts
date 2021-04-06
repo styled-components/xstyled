@@ -37,6 +37,7 @@ export const createX = <TProps extends object>(generator: StyleGenerator) => {
           return false
         return defaultValidatorFn(prop)
       },
+      // @ts-ignore
     })<TProps>(() => [`&&{`, generator, `}`])
   })
 

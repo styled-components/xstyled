@@ -18,18 +18,27 @@ You may have to configure styled-components or Emotion, especially if you use a 
 
 ### Create a declaration file
 
-```js
-// styled-components.d.ts
+```ts
+// styled.d.ts
 
 // import original module declarations
 import 'styled-components'
-import { DefaultTheme as XStyledDefaultTheme } from '@xstyled/styled-components'
+import '@xstyled/system'
+import {
+  ITheme,
+  DefaultTheme as XStyledDefaultTheme,
+} from '@xstyled/styled-components'
+
+interface AppTheme extends ITheme, XStyledDefaultTheme {
+  /* Customize your theme */
+}
 
 // and extend them!
+declare module '@xstyled/system' {
+  export interface Theme extends AppTheme {}
+}
 declare module 'styled-components' {
-  export interface DefaultTheme extends XStyledDefaultTheme {
-    /* Customize your theme */
-  }
+  export interface DefaultTheme extends AppTheme {}
 }
 ```
 
@@ -40,12 +49,21 @@ Read [styled-components TypeScript guide](https://styled-components.com/docs/api
 ### Create a declaration file
 
 ```js
-// emotion.d.ts
+// styled.d.ts
 
 // import original module declarations
+import '@xstyled/system'
 import '@emotion/react'
-import { DefaultTheme as XStyledDefaultTheme } from '@xstyled/styled-components'
+import { ITheme, DefaultTheme as XStyledDefaultTheme } from '@xstyled/styled-components'
 
+interface AppTheme extends ITheme, XStyledDefaultTheme {
+  /* Customize your theme */
+}
+
+// and extend them!
+declare module '@xstyled/system' {
+  export interface Theme extends AppTheme {}
+}
 declare module '@emotion/react' {
   export interface Theme extends XStyledDefaultTheme {
     /* Customize your theme */

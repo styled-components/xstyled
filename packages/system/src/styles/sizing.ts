@@ -1,12 +1,15 @@
 import * as CSS from 'csstype'
 import { style, themeGetter, compose } from '../style'
 import { getPercent } from './units'
-import { SystemProp, VariantsType, ITheme, Theme } from '../types'
+import { SystemProp, ThemeNamespaceValue, ITheme, Theme } from '../types'
 
 // Getters
 
-export type SizeGetter<T extends ITheme = Theme> = VariantsType<T['sizes']>
-export const getSize = themeGetter({
+export type ThemeSize<T extends ITheme = Theme> = ThemeNamespaceValue<
+  'sizes',
+  T
+>
+export const getSize = themeGetter<ThemeSize>({
   name: 'size',
   key: 'sizes',
   compose: getPercent,
@@ -14,85 +17,73 @@ export const getSize = themeGetter({
 
 // Styles
 
-type WidthProp<T extends ITheme> = SystemProp<
-  SizeGetter<T> | CSS.Property.Width,
-  T
->
 export interface WidthProps<T extends ITheme = Theme> {
-  w?: WidthProp<T>
+  w?: SystemProp<ThemeSize<T> | CSS.Property.Width, T>
 }
-export const width = style({
+export const width = style<WidthProps>({
   prop: 'w',
-  cssProperty: 'width',
   themeGet: getSize,
+  css: 'width',
 })
 
-type HeightProp<T extends ITheme> = SystemProp<
-  SizeGetter<T> | CSS.Property.Height,
-  T
->
 export interface HeightProps<T extends ITheme = Theme> {
-  h?: HeightProp<T>
+  h?: SystemProp<ThemeSize<T> | CSS.Property.Height, T>
 }
-export const height = style({
+export const height = style<HeightProps>({
   prop: 'h',
-  cssProperty: 'height',
   themeGet: getSize,
+  css: 'height',
 })
 
 type MaxWidthProp<T extends ITheme> = SystemProp<
-  SizeGetter<T> | CSS.Property.MaxWidth,
+  ThemeSize<T> | CSS.Property.MaxWidth,
   T
 >
 export interface MaxWidthProps<T extends ITheme = Theme> {
   maxWidth?: MaxWidthProp<T>
   maxW?: MaxWidthProp<T>
 }
-export const maxWidth = style({
-  cssProperty: 'maxWidth',
+export const maxWidth = style<MaxWidthProps>({
   prop: ['maxWidth', 'maxW'],
   themeGet: getSize,
+  css: 'maxWidth',
 })
 
 type MaxHeightProp<T extends ITheme> = SystemProp<
-  SizeGetter<T> | CSS.Property.MaxHeight,
+  ThemeSize<T> | CSS.Property.MaxHeight,
   T
 >
 export interface MaxHeightProps<T extends ITheme = Theme> {
   maxHeight?: MaxHeightProp<T>
   maxH?: MaxHeightProp<T>
 }
-export const maxHeight = style({
-  cssProperty: 'maxHeight',
+export const maxHeight = style<MaxHeightProps>({
   prop: ['maxHeight', 'maxH'],
   themeGet: getSize,
+  css: 'maxHeight',
 })
 
-type MinWidthProp<T extends ITheme> = SystemProp<
-  SizeGetter<T> | CSS.Property.MinWidth,
-  T
->
 export interface MinWidthProps<T extends ITheme = Theme> {
-  minWidth?: MinWidthProp<T>
+  minWidth?: SystemProp<ThemeSize<T> | CSS.Property.MinWidth, T>
 }
-export const minWidth = style({
-  cssProperty: 'minWidth',
+export const minWidth = style<MinWidthProps>({
   prop: ['minWidth', 'minW'],
   themeGet: getSize,
+  css: 'minWidth',
 })
 
 type MinHeightProp<T extends ITheme> = SystemProp<
-  SizeGetter<T> | CSS.Property.MinHeight,
+  ThemeSize<T> | CSS.Property.MinHeight,
   T
 >
 export interface MinHeightProps<T extends ITheme = Theme> {
   minHeight?: MinHeightProp<T>
   minH?: MinHeightProp<T>
 }
-export const minHeight = style({
-  cssProperty: 'minHeight',
+export const minHeight = style<MinHeightProps>({
   prop: ['minHeight', 'minH'],
   themeGet: getSize,
+  css: 'minHeight',
 })
 
 export interface SizingProps<T extends ITheme = Theme>
@@ -102,7 +93,7 @@ export interface SizingProps<T extends ITheme = Theme>
     MaxHeightProps<T>,
     MinWidthProps<T>,
     MinHeightProps<T> {}
-export const sizing = compose(
+export const sizing = compose<SizingProps>(
   width,
   height,
   maxWidth,
