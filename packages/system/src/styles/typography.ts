@@ -187,10 +187,7 @@ export const listStylePosition = style<ListStylePositionProps>({
   prop: 'listStylePosition',
 })
 
-// @TODO add word-break
-// @TODO add overflow-wrap
-
-export interface TypographyProps<T extends ITheme = Theme>
+interface AllProps<T extends ITheme = Theme>
   extends FontFamilyProps<T>,
     FontSizeProps<T>,
     FontStyleProps<T>,
@@ -206,7 +203,7 @@ export interface TypographyProps<T extends ITheme = Theme>
     TextOverflowProps<T>,
     ListStyleTypeProps<T>,
     ListStylePositionProps<T> {}
-export const typography = compose<TypographyProps>(
+const all = compose<AllProps>(
   fontFamily,
   fontSize,
   fontStyle,
@@ -223,3 +220,24 @@ export const typography = compose<TypographyProps>(
   listStyleType,
   listStylePosition,
 )
+
+export type ThemeText<T extends ITheme = Theme> = ThemeNamespaceValue<
+  'texts',
+  T
+>
+export interface TextProps<T extends ITheme = Theme> {
+  text?: SystemProp<ThemeText<T>, T>
+}
+export const text = style<TextProps>({
+  prop: 'text',
+  key: 'texts',
+  css: (value) => ({ theme }: any) => all({ ...value, theme }),
+})
+
+// @TODO add word-break
+// @TODO add overflow-wrap
+
+export interface TypographyProps<T extends ITheme = Theme>
+  extends AllProps<T>,
+    TextProps<T> {}
+export const typography = compose<TypographyProps>(all, text)
