@@ -1,0 +1,132 @@
+---
+section: Typography
+title: Text
+slug: /docs/text/
+---
+
+# Text
+
+Utilities for controlling the all typography of an element.
+
+<carbon-ad />
+
+| React props   | CSS Properties |
+| ------------- | -------------- |
+| `text={size}` | Mixed          |
+
+## Usage
+
+Text is similar to [`fontSize`](/docs/font-size/), except it also specify according [`lineHeight`](/docs/line-height/).
+
+By extending theme, `text` can be used to define all text variants of your application.
+
+```jsx preview color=violet
+<>
+  <template preview>
+    <>
+      {[
+        'xs',
+        'sm',
+        'base',
+        'lg',
+        'xl',
+        '2xl',
+        '3xl',
+        '4xl',
+        '5xl',
+        '6xl',
+        '7xl',
+        '8xl',
+        '9xl',
+      ].map((size) => (
+        <x.dl
+          key={size}
+          display="flex"
+          alignItems="baseline"
+          color="violet-600"
+          overflow="hidden"
+        >
+          <x.dt w={16} flexShrink={0} text="sm" opacity={0.8} fontFamily="mono">
+            {size}
+          </x.dt>
+          <x.dd text={size} fontWeight="medium">
+            Computers have lots of memory but no imagination.
+          </x.dd>
+        </x.dl>
+      ))}
+    </>
+  </template>
+  <x.p text="xs">Computers have lots ...</x.p>
+  <x.p text="sm">Computers have lots ...</x.p>
+  <x.p text="base">Computers have lots ...</x.p>
+  <x.p text="lg">Computers have lots ...</x.p>
+  <x.p text="xl">Computers have lots ...</x.p>
+  <x.p text="2xl">Computers have lots ...</x.p>
+  <x.p text="3xl">Computers have lots ...</x.p>
+  <x.p text="4xl">Computers have lots ...</x.p>
+  <x.p text="5xl">Computers have lots ...</x.p>
+  <x.p text="6xl">Computers have lots ...</x.p>
+  <x.p text="7xl">Computers have lots ...</x.p>
+  <x.p text="8xl">Computers have lots ...</x.p>
+  <x.p text="9xl">Computers have lots ...</x.p>
+</>
+```
+
+## Responsive
+
+To control the space between elements at a specific breakpoint, use responsive object notation. For example, adding the property `text={{ md: "xl" }}` to an element would apply the `text="xl"` utility at medium screen sizes and above.
+
+```jsx
+<x.p text={{ xs: 'sm', md: 'xl' }}>{/* ... */}</x.p>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
+
+## Customizing
+
+### Texts
+
+If you'd like to customize your values for texts, use the `theme.texts` section of your theme. Every typography utilities are authorized, not only `fontSize` and `lineHeight`. You can literally define all your texts style using this utility.
+
+```diffjs
+  // theme.js
+  export const theme = {
+    texts: {
+      title: {
+        fontSize: '30px',
+        lineHeight: '45px',
+        fontWeight: 'bold'
+      },
+      hint: {
+        fontSize: 10,
+        lineHeight: 1.4,
+        color: 'gray-300',
+      }
+    },
+  }
+```
+
+If you don't want to customize it, a set of `fontSizes` is already defined in default theme:
+
+```js
+const defaultTheme = {
+  // ...
+  fontSizes: {
+    xs: { fontSize: 'xs', lineHeight: 'xs' },
+    sm: { fontSize: 'sm', lineHeight: 'sm' },
+    default: { fontSize: 'default', lineHeight: 'default' },
+    lg: { fontSize: 'lg', lineHeight: 'lg' },
+    xl: { fontSize: 'xl', lineHeight: 'xl' },
+    '2xl': { fontSize: '2xl', lineHeight: '2xl' },
+    '3xl': { fontSize: '3xl', lineHeight: '3xl' },
+    '4xl': { fontSize: '4xl', lineHeight: '4xl' },
+    '5xl': { fontSize: '5xl', lineHeight: '5xl' },
+    '6xl': { fontSize: '6xl', lineHeight: '6xl' },
+    '7xl': { fontSize: '7xl', lineHeight: '7xl' },
+    '8xl': { fontSize: '8xl', lineHeight: '8xl' },
+    '9xl': { fontSize: '9xl', lineHeight: '9xl' },
+  },
+}
+```
+
+Values are defined in `fontSizes` and `lineHeights` theme section. It means if you modify a `fontSize` it will automatically reflects change on `text` and `fontSize` utility.

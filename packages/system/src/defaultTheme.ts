@@ -315,6 +315,32 @@ const colors = {
   'rose-900': '#881337',
 }
 
+const fontSizes = {
+  xs: '0.75rem',
+  sm: '0.875rem',
+  default: '1rem',
+  lg: '1.125rem',
+  xl: '1.25rem',
+  '2xl': '1.5rem',
+  '3xl': '1.875rem',
+  '4xl': '2.25rem',
+  '5xl': '3rem',
+  '6xl': '3.75rem',
+  '7xl': '4.5rem',
+  '8xl': '6rem',
+  '9xl': '8rem',
+}
+
+const texts = Object.keys(fontSizes).reduce(
+  (texts, key) => {
+    texts[key as keyof typeof fontSizes] = { fontSize: key, lineHeight: key }
+    return texts
+  },
+  {} as {
+    [key in keyof typeof fontSizes]: { fontSize: string; lineHeight: string }
+  },
+)
+
 export const defaultTheme = {
   colors: generateHexAlphaVariants(colors),
   space,
@@ -376,21 +402,7 @@ export const defaultTheme = {
     inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
     outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
   },
-  fontSizes: {
-    xs: '0.75rem',
-    sm: '0.875rem',
-    default: '1rem',
-    lg: '1.125rem',
-    xl: '1.25rem',
-    '2xl': '1.5rem',
-    '3xl': '1.875rem',
-    '4xl': '2.25rem',
-    '5xl': '3rem',
-    '6xl': '3.75rem',
-    '7xl': '4.5rem',
-    '8xl': '6rem',
-    '9xl': '8rem',
-  },
+  fontSizes,
   fontWeights: {
     hairline: '100',
     thin: '200',
@@ -430,6 +442,21 @@ export const defaultTheme = {
     8: '2rem',
     9: '2.25rem',
     10: '2.5rem',
+
+    // Match fontSizes
+    xs: '1rem',
+    sm: '1.25rem',
+    default: '1.5rem',
+    lg: '1.75rem',
+    xl: '1.75rem',
+    '2xl': '2rem',
+    '3xl': '2.25rem',
+    '4xl': '2.5rem',
+    '5xl': 1,
+    '6xl': 1,
+    '7xl': 1,
+    '8xl': 1,
+    '9xl': 1,
   },
   gridTemplateColumns: {
     1: 'repeat(1, minmax(0, 1fr))',
@@ -462,6 +489,7 @@ export const defaultTheme = {
   borders: {
     default: '1px solid transparent',
   },
+  texts,
   transitions,
   transitionProperties,
   timingFunctions,

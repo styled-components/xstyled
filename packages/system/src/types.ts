@@ -41,36 +41,6 @@ export interface ThemeNamespace {
   [key: string]: ThemeValue
   [key: number]: ThemeValue
 }
-export interface XTheme extends ITheme {
-  animations?: ThemeNamespace
-  borders?: ThemeNamespace
-  borderStyles?: ThemeNamespace
-  borderWidths?: ThemeNamespace
-  colors?: Colors
-  durations?: ThemeNamespace
-  fonts?: ThemeNamespace
-  fontSizes?: ThemeNamespace
-  fontWeights?: ThemeNamespace
-  gridTemplateColumns?: ThemeNamespace
-  gridTemplateRows?: ThemeNamespace
-  inset?: ThemeNamespace
-  letterSpacings?: ThemeNamespace
-  lineHeights?: ThemeNamespace
-  radii?: ThemeNamespace
-  ringWidths?: ThemeNamespace
-  shadows?: ThemeNamespace
-  screens?: Screens
-  states?: States
-  settings?: ThemeNamespace
-  sizes?: ThemeNamespace
-  space?: ThemeNamespace
-  timingFunctions?: ThemeNamespace
-  transforms?: ThemeNamespace
-  transitions?: ThemeNamespace
-  transitionProperties?: ThemeNamespace
-  transformers?: Transformers
-  zIndices?: ThemeNamespace
-}
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Theme extends ITheme {}
