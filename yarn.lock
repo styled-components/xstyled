@@ -5114,8 +5114,8 @@ __metadata:
     "@emotion/core": ^11.0.0
     "@emotion/react": ^11.1.5
     "@emotion/styled": ^11.1.5
-    "@xstyled/emotion": "workspace:*"
-    "@xstyled/styled-components": "workspace:*"
+    "@xstyled/emotion": ^2.4.1
+    "@xstyled/styled-components": ^2.4.1
     babel-loader: ^8.2.2
     benchmark: ^2.1.4
     emotion-theming: ^11.0.0
@@ -5138,7 +5138,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xstyled/emotion@workspace:*, @xstyled/emotion@workspace:packages/emotion":
+"@xstyled/emotion@^2.4.1, @xstyled/emotion@workspace:packages/emotion":
   version: 0.0.0-use.local
   resolution: "@xstyled/emotion@workspace:packages/emotion"
   dependencies:
@@ -5159,7 +5159,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xstyled/styled-components@workspace:*, @xstyled/styled-components@workspace:packages/styled-components":
+"@xstyled/styled-components@^2.2.3, @xstyled/styled-components@^2.4.1, @xstyled/styled-components@workspace:packages/styled-components":
   version: 0.0.0-use.local
   resolution: "@xstyled/styled-components@workspace:packages/styled-components"
   dependencies:
