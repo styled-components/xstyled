@@ -2,6 +2,7 @@
 import * as React from 'react'
 import { Theme } from '@emotion/react'
 import styled, { StyledComponent } from '@emotion/styled'
+import isPropValid from '@emotion/is-prop-valid'
 import { compose, StyleGenerator } from '@xstyled/system'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
@@ -33,7 +34,7 @@ export const createX: CreateX = <TProps extends object>(
     // @ts-ignore
     x[tag] = styled(tag, {
       shouldForwardProp: (prop: string) =>
-        prop !== 'as' && !generator.meta.props.includes(prop),
+        prop !== 'as' && !generator.meta.props.includes(prop) && isPropValid(prop),
       // @ts-ignore
     })<TProps>(() => [`&&{`, generator, `}`])
   })
