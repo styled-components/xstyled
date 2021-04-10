@@ -160,7 +160,7 @@ type PaddingBottomProp<T extends ITheme> = SystemProp<
   T
 >
 export interface PaddingBottomProps<T extends ITheme = Theme> {
-  paddingBottop?: PaddingBottomProp<T>
+  paddingBottom?: PaddingBottomProp<T>
   pb?: PaddingBottomProp<T>
 }
 export const paddingBottom = style<PaddingBottomProps>({
