@@ -32,10 +32,18 @@ export const createX = <TProps extends object>(generator: StyleGenerator) => {
   tags.forEach((tag) => {
     // @ts-ignore
     x[tag] = styled(tag).withConfig({
-      shouldForwardProp: (prop, defaultValidatorFn) => {
+      shouldForwardProp: (prop, defaultValidatorFn, elementToBeCreated) => {
         if (typeof prop === 'string' && generator.meta.props.includes(prop))
           return false
-        return defaultValidatorFn(prop)
+        // We must test elementToBeCreated so we can pass through props for
+        // <x.div as={Component} />. However elementToBeCreated isn't available
+        // until styled-components 5.2.4 or 6, and in the meantime will be
+        // undefined. This means that HTML elements could get unwanted props,
+        // but ultimately this is a bug in the caller, because why are they
+        // passing unwanted props?
+        if (typeof elementToBeCreated === 'string')
+          return defaultValidatorFn(prop)
+        return true
       },
       // @ts-ignore
     })<TProps>(() => [`&&{`, generator, `}`])
