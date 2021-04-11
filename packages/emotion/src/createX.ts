@@ -29,12 +29,15 @@ export const createX: CreateX = <TProps extends object>(
     extend: (...generators) => createX(compose(generator, ...generators)),
   }
 
+  const propSet = new Set<string>(generator.meta.props)
+
+  const shouldForwardProp = (prop: string) =>
+    prop !== 'as' && !propSet.has(prop)
+
   tags.forEach((tag) => {
     // @ts-ignore
     x[tag] = styled(tag, {
-      shouldForwardProp: (prop: string) =>
-        prop !== 'as' && !generator.meta.props.includes(prop),
-      // @ts-ignore
+      shouldForwardProp,
     })<TProps>(() => [`&&{`, generator, `}`])
   })
 
