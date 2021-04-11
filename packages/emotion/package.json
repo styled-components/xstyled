@@ -35,6 +35,7 @@
     "@emotion/styled": "^11.0.0"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.1.0",
     "@xstyled/core": "^2.4.1",
     "@xstyled/system": "^2.4.0",
     "@xstyled/util": "^2.2.3"
