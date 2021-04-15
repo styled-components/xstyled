@@ -218,6 +218,34 @@ To avoid the `/** @jsx jsx */` you can use `@xstyled/babel-preset-emotion-css-pr
 }
 ```
 
+### Babel Plugin
+
+You may want to use [Emotion Babel plugin](https://emotion.sh/docs/babel) for minification of styles, dead code elimination, components as selectors, and a nicer debugging experience.
+
+You have to specify xstyled inside the `importMap`:
+
+**.babelrc**
+
+```js
+{
+  ...,
+  "plugins": [
+    [
+      "@emotion/babel-plugin",
+      {
+        "importMap": {
+          "@xstyled/emotion": {
+            "default": {
+              "canonicalImport": ["@emotion/styled", "default"]
+            }
+          }
+        }
+      }
+    ]
+  ]
+}
+```
+
 ### Difference in `css` prop usage
 
 `css` prop with `@xstyled/emotion` is slightly different from `css` prop with `@emotion/react`.
