@@ -430,22 +430,22 @@ type PaddingBottomProp<T extends ITheme> = SystemProp<
   T
 >
 export interface PaddingBottomProps<T extends ITheme = Theme> {
-  paddingBottop?: PaddingBottomProp<T>
-  motionSafePaddingBottop?: PaddingBottomProp<T>
-  motionReducePaddingBottop?: PaddingBottomProp<T>
-  firstPaddingBottop?: PaddingBottomProp<T>
-  lastPaddingBottop?: PaddingBottomProp<T>
-  oddPaddingBottop?: PaddingBottomProp<T>
-  evenPaddingBottop?: PaddingBottomProp<T>
-  visitedPaddingBottop?: PaddingBottomProp<T>
-  checkedPaddingBottop?: PaddingBottomProp<T>
-  focusWithinPaddingBottop?: PaddingBottomProp<T>
-  hoverPaddingBottop?: PaddingBottomProp<T>
-  focusPaddingBottop?: PaddingBottomProp<T>
-  focusVisiblePaddingBottop?: PaddingBottomProp<T>
-  activePaddingBottop?: PaddingBottomProp<T>
-  disabledPaddingBottop?: PaddingBottomProp<T>
-  placeholderPaddingBottop?: PaddingBottomProp<T>
+  paddingBottom?: PaddingBottomProp<T>
+  motionSafePaddingBottom?: PaddingBottomProp<T>
+  motionReducePaddingBottom?: PaddingBottomProp<T>
+  firstPaddingBottom?: PaddingBottomProp<T>
+  lastPaddingBottom?: PaddingBottomProp<T>
+  oddPaddingBottom?: PaddingBottomProp<T>
+  evenPaddingBottom?: PaddingBottomProp<T>
+  visitedPaddingBottom?: PaddingBottomProp<T>
+  checkedPaddingBottom?: PaddingBottomProp<T>
+  focusWithinPaddingBottom?: PaddingBottomProp<T>
+  hoverPaddingBottom?: PaddingBottomProp<T>
+  focusPaddingBottom?: PaddingBottomProp<T>
+  focusVisiblePaddingBottom?: PaddingBottomProp<T>
+  activePaddingBottom?: PaddingBottomProp<T>
+  disabledPaddingBottom?: PaddingBottomProp<T>
+  placeholderPaddingBottom?: PaddingBottomProp<T>
   pb?: PaddingBottomProp<T>
   motionSafePb?: PaddingBottomProp<T>
   motionReducePb?: PaddingBottomProp<T>
