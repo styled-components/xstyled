@@ -19,8 +19,8 @@ _Before_ submitting a pull request, please make sure the following is done…
     Open terminal (e.g. Terminal, iTerm, Git Bash or Git Shell) and type:
 
     ```sh-session
-    $ git clone https://github.com/<your_username>/smooth-ui
-    $ cd smooth-ui
+    $ git clone https://github.com/<your_username>/xstyled
+    $ cd xstyled
     $ git checkout -b my_branch
     ```
 
