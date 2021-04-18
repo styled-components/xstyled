@@ -56,6 +56,7 @@ export const createX = <TProps extends object>(generator: StyleGenerator) => {
     x[tag] = styled(tag).withConfig({
       // @ts-ignore
       shouldForwardProp,
+      // @ts-ignore
     })<TProps>(() => [`&&{`, generator, `}`])
   })
 
