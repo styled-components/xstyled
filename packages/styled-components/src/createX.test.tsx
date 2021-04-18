@@ -34,14 +34,14 @@ describe('#createX', () => {
   })
 
   it('avoids passing system props to "as" component', () => {
-    const Component = props => <div {...props} />
+    const Component = (props) => <div {...props} />
     const x = createX<FontSizeProps<Theme>>(fontSize)
     const { container } = render(<x.div as={Component} fontSize={10} />)
     expect(container.firstChild).not.toHaveAttribute('fontSize')
   })
 
   it('passes non-system props to "as" component', () => {
-    const Component = ({asdf, ...props}) => <div {...props}>{asdf}</div>
+    const Component = ({ asdf, ...props }) => <div {...props}>{asdf}</div>
     const x = createX<FontSizeProps<Theme>>(fontSize)
     const { container } = render(<x.div as={Component} asdf="boo!" />)
     expect(container.firstChild).toHaveTextContent('boo!')
@@ -50,10 +50,10 @@ describe('#createX', () => {
   // skip because this depends on unreleased styled-components 5.2.4 or 6
   it.skip('avoids passing non-HTML attrs to HTML element', () => {
     const x = createX<FontSizeProps<Theme>>(fontSize)
+    // @ts-expect-error explicit test
     const { container } = render(<x.div asdf="boo!" />)
     expect(container.firstChild).not.toHaveAttribute('asdf')
   })
-
 })
 
 describe('#x.extend', () => {
