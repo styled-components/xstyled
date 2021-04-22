@@ -1,6 +1,7 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
 import styled, { StyledComponent, DefaultTheme } from 'styled-components'
 import { compose, StyleGenerator } from '@xstyled/system'
+import { createShouldForwardProp } from './createShouldForwardProp'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
 
@@ -29,27 +30,7 @@ export const createX = <TProps extends object>(generator: StyleGenerator) => {
     extend: (...generators) => createX(compose(generator, ...generators)),
   }
 
-  const propSet = new Set<string>(generator.meta.props)
-
-  const shouldForwardProp = (
-    prop: string,
-    defaultValidatorFn: (prop: string) => boolean,
-    elementToBeCreated?: any,
-  ) => {
-    if (typeof prop === 'string' && propSet.has(prop)) {
-      return false
-    }
-    if (typeof elementToBeCreated === 'string') {
-      // We must test elementToBeCreated so we can pass through props for <x.div
-      // as={Component} />. However elementToBeCreated isn't available until
-      // styled-components 5.2.4 or 6, and in the meantime will be undefined.
-      // This means that HTML elements could get unwanted props, but ultimately
-      // this is a bug in the caller, because why are they passing unwanted
-      // props?
-      return defaultValidatorFn(prop)
-    }
-    return true
-  }
+  const shouldForwardProp = createShouldForwardProp(generator)
 
   tags.forEach((tag) => {
     // @ts-ignore
