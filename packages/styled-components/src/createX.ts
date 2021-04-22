@@ -1,11 +1,10 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
-import styled, { StyledComponent, DefaultTheme } from 'styled-components'
+import scStyled, { StyledComponent, DefaultTheme } from 'styled-components'
 import { compose, StyleGenerator } from '@xstyled/system'
 import { createShouldForwardProp } from './createShouldForwardProp'
+import { styledWithGenerator } from './styled'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
-
-const tags = Object.keys(styled)
 
 type SafeIntrinsicComponent<T extends keyof JSX.IntrinsicElements> = (
   props: Omit<JSX.IntrinsicElements[T], 'color'>,
@@ -32,12 +31,11 @@ export const createX = <TProps extends object>(generator: StyleGenerator) => {
 
   const shouldForwardProp = createShouldForwardProp(generator)
 
-  tags.forEach((tag) => {
+  Object.keys(scStyled).forEach((tag) => {
     // @ts-ignore
-    x[tag] = styled(tag).withConfig({
+    x[tag] = styledWithGenerator(tag, generator).withConfig({
       shouldForwardProp,
-      // @ts-ignore
-    })<TProps>(() => [`&&{`, generator, `}`])
+    })``
   })
 
   return x

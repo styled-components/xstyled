@@ -174,6 +174,16 @@ describe('#styled.xxxBox', () => {
     expect(container.firstChild).toHaveStyle('margin: 1px;')
   })
 
+  it('overrides styles with props', () => {
+    const Dummy = styled.box`
+      margin: 2px;
+    `
+    const { container } = render(<Dummy m={1} />)
+    expect(container.firstChild!.nodeName).toBe('DIV')
+    expect(container.firstChild).toHaveStyle('margin: 1px;')
+    expect(container.firstChild).not.toHaveStyle('margin: 2px;')
+  })
+
   it("doesn't forward attributes", () => {
     const Dummy = styled.box``
     const { container } = render(<Dummy margin={1} />)

@@ -1,26 +1,27 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
+import { BoxElements } from '@xstyled/core'
+import { StyleGenerator, system, SystemProps } from '@xstyled/system'
 import scStyled, {
-  ThemedStyledFunction,
+  DefaultTheme,
   StyledConfig,
   ThemedBaseStyledInterface,
-  DefaultTheme,
+  ThemedStyledFunction,
 } from 'styled-components'
-import { SystemProps } from '@xstyled/system'
-import { BoxElements } from '@xstyled/core'
-import { x } from './x'
+
+import { createShouldForwardProp } from './createShouldForwardProp'
 import { css } from './css'
 
-function getCreateStyle(baseCreateStyle: ThemedStyledFunction<any, any>) {
-  // @ts-ignore
-  const createStyle = (...args: any) => baseCreateStyle`${css(...args)}`
-  createStyle.attrs = (attrs: any) => {
-    const nextCreateStyle = baseCreateStyle.attrs(attrs)
-    return getCreateStyle(nextCreateStyle)
-  }
-  createStyle.withConfig = (config: StyledConfig<any>) => {
-    const nextCreateStyle = baseCreateStyle.withConfig(config)
-    return getCreateStyle(nextCreateStyle)
-  }
+function getCreateStyle(
+  baseCreateStyle: ThemedStyledFunction<any, any>,
+  ...generators: StyleGenerator[]
+) {
+  const createStyle = (...args: Parameters<typeof css>) =>
+    // @ts-ignore
+    baseCreateStyle`${css(...args, ...generators)}`
+  createStyle.attrs = (attrs: Parameters<typeof baseCreateStyle.attrs>[0]) =>
+    getCreateStyle(baseCreateStyle.attrs(attrs), ...generators)
+  createStyle.withConfig = (config: StyledConfig<any>) =>
+    getCreateStyle(baseCreateStyle.withConfig(config), ...generators)
   return createStyle
 }
 
@@ -39,15 +40,28 @@ interface ThemeBaseXStyledInterface<T extends object>
 type XStyledInterface = ThemeBaseXStyledInterface<DefaultTheme>
 
 export const styled = <XStyledInterface>(
-  ((component: any) => getCreateStyle(scStyled(component)))
+  ((component: Parameters<typeof scStyled>[0]) =>
+    getCreateStyle(scStyled(component)))
 )
 
+// exported for x.* but not for xstyled API
+export const styledWithGenerator = <XStyledInterface>(
+  ((component: Parameters<typeof scStyled>[0], generator: StyleGenerator) =>
+    getCreateStyle(scStyled(component), generator))
+)
+
+const shouldForwardProp = createShouldForwardProp(system)
+
 // @ts-ignore
-styled.box = styled(x.div)
+styled.box = styledWithGenerator('div', system).withConfig({
+  shouldForwardProp,
+})
 
 Object.keys(scStyled).forEach((key) => {
   // @ts-ignore
   styled[key] = styled(key)
   // @ts-ignore
-  styled[`${key}Box`] = styled(x[key])
+  styled[`${key}Box`] = styledWithGenerator(key, system).withConfig({
+    shouldForwardProp,
+  })
 })
