@@ -1,9 +1,10 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
 import * as React from 'react'
 import { Theme } from '@emotion/react'
-import styled, { StyledComponent } from '@emotion/styled'
+import emStyled, { StyledComponent } from '@emotion/styled'
 import { compose, StyleGenerator } from '@xstyled/system'
 import { createShouldForwardProp } from './createShouldForwardProp'
+import { styledWithGenerator } from './styled'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
 
@@ -20,8 +21,6 @@ export interface X<TProps extends object> extends JSXElements<TProps> {
   extend: CreateX
 }
 
-const tags = Object.keys(styled) as JSXElementKeys[]
-
 export const createX: CreateX = <TProps extends object>(
   generator: StyleGenerator,
 ) => {
@@ -32,11 +31,9 @@ export const createX: CreateX = <TProps extends object>(
 
   const shouldForwardProp = createShouldForwardProp(generator)
 
-  tags.forEach((tag) => {
+  Object.keys(emStyled).forEach((tag) => {
     // @ts-ignore
-    x[tag] = styled(tag, {
-      shouldForwardProp,
-    })<TProps>(() => [`&&{`, generator, `}`])
+    x[tag] = styledWithGenerator(tag, { shouldForwardProp }, generator)``
   })
 
   return x
