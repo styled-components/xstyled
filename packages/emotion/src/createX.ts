@@ -3,6 +3,7 @@ import * as React from 'react'
 import { Theme } from '@emotion/react'
 import styled, { StyledComponent } from '@emotion/styled'
 import { compose, StyleGenerator } from '@xstyled/system'
+import { createShouldForwardProp } from './createShouldForwardProp'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
 
@@ -29,10 +30,7 @@ export const createX: CreateX = <TProps extends object>(
     extend: (...generators) => createX(compose(generator, ...generators)),
   }
 
-  const propSet = new Set<string>(generator.meta.props)
-
-  const shouldForwardProp = (prop: string) =>
-    prop !== 'as' && !prop.startsWith('$') && !propSet.has(prop)
+  const shouldForwardProp = createShouldForwardProp(generator)
 
   tags.forEach((tag) => {
     // @ts-ignore
