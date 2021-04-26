@@ -6,7 +6,8 @@ import { propGetters } from './propGetters'
 const PROP_CHAR = `[-\\w]`
 
 // prop value consists of non-semis and no curly braces unless backslash-escaped.
-const VALUE_CHAR = `(?:\\\\.|[^\\\\;{}])`
+// This uses [\s\S] instead of . because IE11 doesn't support the s flag.
+const VALUE_CHAR = `(?:\\\\[\\s\\S]|[^\\\\;{}])`
 
 // prettier-ignore
 const PROP_PATT = (
@@ -29,7 +30,7 @@ const MEDIA_PATT = (
   `(\\s*\\{)`           // brace & whitespace
 )
 
-const MATCH_REGEXP = new RegExp(`(?:${PROP_PATT}|${MEDIA_PATT})`, `gs`)
+const MATCH_REGEXP = new RegExp(`(?:${PROP_PATT}|${MEDIA_PATT})`, `g`)
 
 export function transform(rawValue: any): any {
   if (typeof rawValue !== 'string') return rawValue
@@ -68,7 +69,7 @@ const QUERY_REGEXP = new RegExp(
   `(\\s*:\\s*)` +     // colon & whitespace
   `([^\\)]*?)` +      // capture prop value (non-greedy)
   `(\\s*\\))`,        // close paren, whitespace
-  `gs`
+  `g`
 )
 
 function mediaTransform(rawValue: string) {
