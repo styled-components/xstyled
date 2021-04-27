@@ -210,6 +210,16 @@ describe('#styled.xxxBox', () => {
     expect(container.firstChild).not.toHaveAttribute('margin')
   })
 
+  it("doesn't forward theme", () => {
+    const Dummy = styled.box``
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
+    expect(container.firstChild).not.toHaveAttribute('theme')
+  })
+
   it('supports as prop', () => {
     const Dummy = styled.divBox``
     // This is not supported by Emotion
