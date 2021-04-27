@@ -33,7 +33,7 @@ export const createX: CreateX = <TProps extends object>(
     // @ts-ignore
     x[tag] = styled(tag, {
       shouldForwardProp: (prop: string) =>
-        prop !== 'as' && !generator.meta.props.includes(prop) && !prop.startsWith('$'),
+        prop !== 'as' && !prop.startsWith('$') && !generator.meta.props.includes(prop),
       // @ts-ignore
     })<TProps>(() => [`&&{`, generator, `}`])
   })
