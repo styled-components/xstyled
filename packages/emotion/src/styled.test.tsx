@@ -151,6 +151,20 @@ describe('#styled', () => {
     const { container } = render(<Dummy color="lemonchiffon" />)
     expect(container.firstChild).not.toHaveAttribute('color', 'lemonchiffon')
   })
+
+  it('should not pass props that are invalid html attributes', () => {
+    // https://emotion.sh/docs/styled#customizing-prop-forwarding
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(jest.fn())
+    const Dummy = styled.box({})
+    
+    // @ts-ignore
+    const { container } = render(<Dummy $dark={false} />)
+
+    expect(container.firstChild).not.toHaveAttribute('$dark', false)
+    expect(consoleErrorSpy).not.toHaveBeenCalled()
+
+    consoleErrorSpy.mockRestore()
+  })
 })
 
 describe('#styled.xxx', () => {
