@@ -6,7 +6,7 @@ export const createShouldForwardProp = (
   const propSet = new Set<string>(generator.meta.props)
 
   const shouldForwardProp = (prop: string) =>
-    prop !== 'as' && !propSet.has(prop)
+    prop !== 'as' && !prop.startsWith('$') && !propSet.has(prop)
 
   return shouldForwardProp
 }
