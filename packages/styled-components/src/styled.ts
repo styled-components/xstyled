@@ -54,6 +54,7 @@ const shouldForwardProp = createShouldForwardProp(system)
 
 // @ts-ignore
 styled.box = styledWithGenerator('div', system).withConfig({
+  // @ts-ignore
   shouldForwardProp,
 })
 
@@ -62,6 +63,7 @@ Object.keys(scStyled).forEach((key) => {
   styled[key] = styled(key)
   // @ts-ignore
   styled[`${key}Box`] = styledWithGenerator(key, system).withConfig({
+    // @ts-ignore
     shouldForwardProp,
   })
 })
