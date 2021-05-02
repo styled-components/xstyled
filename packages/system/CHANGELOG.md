@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/gregberge/xstyled/tree/master/packages/system/compare/v2.4.1...v2.5.0) (2021-05-02)
+
+
+### Bug Fixes
+
+* **system:** fix paddingBottom typings ([#242](https://github.com/gregberge/xstyled/tree/master/packages/system/issues/242)) ([ee01b9b](https://github.com/gregberge/xstyled/tree/master/packages/system/commit/ee01b9b42bf5a4de58227780bf1fccb41c489d51))
+
+
+### Features
+
+* **style:** improve mixin ([#225](https://github.com/gregberge/xstyled/tree/master/packages/system/issues/225)) ([66ac294](https://github.com/gregberge/xstyled/tree/master/packages/system/commit/66ac294eb7fa0760bf75b1ac679e9e964397c915))
+
+
+
+
+
 # [2.4.0](https://github.com/gregberge/xstyled/tree/master/packages/system/compare/v2.3.0...v2.4.0) (2021-03-28)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/gregberge/xstyled/tree/master/packages/core/compare/v2.4.1...v2.5.0) (2021-05-02)
+
+
+### Bug Fixes
+
+* **transform:** IE11 doesn't support dotAll ([#247](https://github.com/gregberge/xstyled/tree/master/packages/core/issues/247)) ([e620935](https://github.com/gregberge/xstyled/tree/master/packages/core/commit/e6209354c89739edd5205d15cd80de2a4afb2302))
+
+
+
+
+
 ## [2.4.1](https://github.com/gregberge/xstyled/tree/master/packages/core/compare/v2.4.0...v2.4.1) (2021-03-29)
 
 

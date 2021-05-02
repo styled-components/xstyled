@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/gregberge/xstyled/compare/v2.4.1...v2.5.0) (2021-05-02)
+
+**Note:** Version bump only for package @xstyled/website
+
+
+
+
+
 # [2.4.0](https://github.com/gregberge/xstyled/compare/v2.3.0...v2.4.0) (2021-03-28)
 
 
