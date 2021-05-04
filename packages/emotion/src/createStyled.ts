@@ -1,7 +1,7 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
 import emStyled, { CreateStyled, CreateStyledComponent } from '@emotion/styled'
 import { Theme } from '@emotion/react'
-import { StyleGenerator, SystemProps } from '@xstyled/system'
+import { compose, StyleGenerator, SystemProps } from '@xstyled/system'
 import { BoxElements } from '@xstyled/core'
 import { createShouldForwardProp } from './createShouldForwardProp'
 import { css } from './css'
@@ -51,6 +51,9 @@ export const createStyled = (generator: StyleGenerator) => {
     component: any,
     options: any,
   ) => getCreateStyle(emStyled(component, options), generator)
+
+  styled.extend = (...generators: StyleGenerator[]) =>
+    createStyled(compose(generator, ...generators))
 
   const shouldForwardProp = createShouldForwardProp(generator)
 

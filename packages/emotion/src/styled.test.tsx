@@ -2,7 +2,7 @@ import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import { ThemeProvider } from '@emotion/react'
-import styled, { css, keyframes } from '.'
+import styled, { css, getSpace, keyframes, style } from '.'
 
 afterEach(cleanup)
 
@@ -247,5 +247,37 @@ describe('#styled.xxxBox', () => {
     expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
     expect(container.firstChild).not.toHaveAttribute('margin')
+  })
+})
+
+describe('#styled.extend', () => {
+  const borderInlineWidth = style({
+    prop: ['biw', 'borderInlineWidth'],
+    css: 'borderInlineWidth',
+    themeGet: getSpace,
+  })
+  const myStyled = styled.extend(borderInlineWidth)
+
+  it('handles custom generator on styled.box', () => {
+    const Dummy = myStyled.box``
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy biw={1} />
+      </SpaceTheme>,
+    )
+    expect(container.firstChild).toHaveStyle('border-inline-width: 4px;')
+  })
+
+  // Not supported yet: transform() refers to statically defined propGetters.
+  it.skip('handles custom generator in transfom', () => {
+    const Dummy = myStyled.div`
+      border-inline-width: 1;
+    `
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
+    expect(container.firstChild).toHaveStyle('border-inline-width: 4px;')
   })
 })

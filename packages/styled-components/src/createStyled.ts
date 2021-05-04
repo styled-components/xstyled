@@ -1,6 +1,6 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
 import { BoxElements } from '@xstyled/core'
-import { StyleGenerator, SystemProps } from '@xstyled/system'
+import { compose, StyleGenerator, SystemProps } from '@xstyled/system'
 import scStyled, {
   DefaultTheme,
   ThemedBaseStyledInterface,
@@ -54,6 +54,9 @@ export const createStyled = (generator: StyleGenerator) => {
     ((component: Parameters<typeof scStyled>[0]) =>
       getCreateStyle(scStyled(component)))
   )
+
+  styled.extend = (...generators: StyleGenerator[]) =>
+    createStyled(compose(generator, ...generators))
 
   const shouldForwardProp = createShouldForwardProp(generator)
 
