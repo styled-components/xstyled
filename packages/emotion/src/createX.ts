@@ -4,7 +4,7 @@ import { Theme } from '@emotion/react'
 import emStyled, { StyledComponent } from '@emotion/styled'
 import { compose, StyleGenerator } from '@xstyled/system'
 import { createShouldForwardProp } from './createShouldForwardProp'
-import { styledWithGenerator } from './styled'
+import { styled } from './styled'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
 
@@ -33,7 +33,7 @@ export const createX: CreateX = <TProps extends object>(
 
   Object.keys(emStyled).forEach((tag) => {
     // @ts-ignore
-    x[tag] = styledWithGenerator(tag, { shouldForwardProp }, generator)``
+    x[tag] = styled(tag, { generator, shouldForwardProp })``
   })
 
   return x

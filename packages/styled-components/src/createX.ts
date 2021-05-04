@@ -2,7 +2,7 @@
 import scStyled, { StyledComponent, DefaultTheme } from 'styled-components'
 import { compose, StyleGenerator } from '@xstyled/system'
 import { createShouldForwardProp } from './createShouldForwardProp'
-import { styledWithGenerator } from './styled'
+import { styled } from './styled'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
 
@@ -33,7 +33,7 @@ export const createX = <TProps extends object>(generator: StyleGenerator) => {
 
   Object.keys(scStyled).forEach((tag) => {
     // @ts-ignore
-    x[tag] = styledWithGenerator(tag, generator).withConfig({
+    x[tag] = styled(tag).withGenerator(generator).withConfig({
       // @ts-ignore
       shouldForwardProp,
     })``
