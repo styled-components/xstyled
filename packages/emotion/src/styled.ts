@@ -14,31 +14,23 @@ function flattenArgs(arg: any, props: any): any {
 }
 
 function getCreateStyle(baseCreateStyle: any, ...generators: StyleGenerator[]) {
-  return (strings: any, ...args: any) =>
-    baseCreateStyle((props: any) => {
-      let flattenedArgs = flattenArgs(args, props)
-
-      // Emotion's css function can receive: template literal (array of
-      // strings followed by interpolations), style object, or array of style
-      // objects. Additional generators supplied to getCreateStyle need to be
-      // interpolated differently depending on which form is called.
-      if (generators.length) {
-        if (Array.isArray(strings) && typeof strings[0] === 'string') {
+  const createStyle = generators.length
+    ? (strings: any, ...args: any) => {
+        if (Array.isArray(strings)) {
           // The tagged template literal should receive an equal number of
           // additional separators.
           strings = strings.concat(generators.map(() => '\n'))
-          flattenedArgs = flattenedArgs.concat(flattenArgs(generators, props))
-        } else if (Array.isArray(strings)) {
-          // Resolve generators to objects and append to existing array.
-          strings = strings.concat(flattenArgs(generators, props))
-        } else {
-          // Convert single object to array.
-          strings = [strings].concat(flattenArgs(generators, props))
         }
+        args = args.concat(generators)
+        return baseCreateStyle((props: any) =>
+          css(strings, ...flattenArgs(args, props))(props),
+        )
       }
-
-      return css(strings, ...flattenedArgs)(props)
-    })
+    : (strings: any, ...args: any) =>
+        baseCreateStyle((props: any) =>
+          css(strings, ...flattenArgs(args, props))(props),
+        )
+  return createStyle
 }
 
 type BoxStyledTags = {
