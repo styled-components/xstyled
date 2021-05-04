@@ -13,8 +13,28 @@ const SpaceTheme = ({ children }: { children: React.ReactNode }) => {
 }
 
 describe('#styled', () => {
+  it('supports basic tags', () => {
+    const Dummy = styled.div``
+    const { container } = render(<Dummy />)
+    expect(container.firstChild!.nodeName).toBe('DIV')
+  })
+
+  it('passes options through', () => {
+    // https://emotion.sh/docs/styled#customizing-prop-forwarding
+    const Dummy = styled('div', {
+      shouldForwardProp: (prop) => prop !== 'foo',
+    })``
+    // @ts-ignore
+    const { container } = render(<Dummy foo="one" bar="two" />)
+    expect(container.firstChild).not.toHaveAttribute('foo', 'one')
+    expect(container.firstChild).toHaveAttribute('bar', 'two')
+  })
+})
+
+describe.each([['div'], ['box']])('#styled.%s', (key) => {
   it('transforms rules', () => {
-    const Dummy = styled.div`
+    // @ts-ignore
+    const Dummy = styled[key]`
       margin: 2;
       padding: 1;
       margin-top: 2px;
@@ -34,11 +54,15 @@ describe('#styled', () => {
     interface DummyProps {
       margin: number
     }
-    const Dummy = styled.div<DummyProps>`
+    // @ts-ignore
+    const Dummy = styled[key]<DummyProps>`
       color: red;
-      ${(p) => css`
-        margin: ${p.margin};
-      `}
+      ${
+        // @ts-ignore
+        (p) => css`
+          margin: ${p.margin};
+        `
+      }
     `
     const { container } = render(
       <SpaceTheme>
@@ -61,7 +85,8 @@ describe('#styled', () => {
         transform: translateX(100%);
       }
     `
-    const Dummy = styled.div`
+    // @ts-ignore
+    const Dummy = styled[key]`
       ${css`
         animation: ${animation};
       `}
@@ -78,7 +103,8 @@ describe('#styled', () => {
         primary: 'pink',
       },
     }
-    const Dummy = styled.div`
+    // @ts-ignore
+    const Dummy = styled[key]`
       color: primary;
     `
     const { container } = render(
@@ -95,7 +121,8 @@ describe('#styled', () => {
         md: 10,
       },
     }
-    const Dummy = styled.div`
+    // @ts-ignore
+    const Dummy = styled[key]`
       margin: -md;
     `
     const { container } = render(
@@ -107,7 +134,8 @@ describe('#styled', () => {
   })
 
   it('works with css as object', () => {
-    const Dummy = styled.div({
+    // @ts-ignore
+    const Dummy = styled[key]({
       margin: '2',
     })
     const { container } = render(
@@ -119,7 +147,8 @@ describe('#styled', () => {
   })
 
   it('works with css as object and function prop', () => {
-    const Dummy = styled.div(() => ({
+    // @ts-ignore
+    const Dummy = styled[key](() => ({
       margin: '2',
     }))
     const { container } = render(
@@ -131,7 +160,8 @@ describe('#styled', () => {
   })
 
   it('transforms first class interpolations', () => {
-    const Dummy = styled.div`
+    // @ts-ignore
+    const Dummy = styled[key]`
       ${() => [
         'color: red;',
         css`
@@ -143,20 +173,13 @@ describe('#styled', () => {
     expect(container.firstChild).toHaveStyle('color: red; margin: 4px;')
   })
 
-  it('passes options through', () => {
-    // https://emotion.sh/docs/styled#customizing-prop-forwarding
-    const Dummy = styled('div', {
-      shouldForwardProp: (prop) => prop !== 'color',
-    })``
-    const { container } = render(<Dummy color="lemonchiffon" />)
-    expect(container.firstChild).not.toHaveAttribute('color', 'lemonchiffon')
-  })
-
   it('should not pass props that are invalid html attributes', () => {
     // https://emotion.sh/docs/styled#customizing-prop-forwarding
-    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(jest.fn())
+    const consoleErrorSpy = jest
+      .spyOn(console, 'error')
+      .mockImplementation(jest.fn())
     const Dummy = styled.box({})
-    
+
     // @ts-ignore
     const { container } = render(<Dummy $dark={false} />)
 
@@ -164,14 +187,6 @@ describe('#styled', () => {
     expect(consoleErrorSpy).not.toHaveBeenCalled()
 
     consoleErrorSpy.mockRestore()
-  })
-})
-
-describe('#styled.xxx', () => {
-  it('supports basic tags', () => {
-    const Dummy = styled.div``
-    const { container } = render(<Dummy />)
-    expect(container.firstChild!.nodeName).toBe('DIV')
   })
 })
 
