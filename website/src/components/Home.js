@@ -19,7 +19,7 @@ import {
   SiblingNavLink,
   Button,
 } from 'smooth-doc/components'
-import { Highlight } from './Prism'
+import { HomeHero } from './HomeHero'
 import GettingStarted from './getting-started.mdx'
 import css3ImageUrl from './images/icons8-css3-100.png'
 import europeImageUrl from './images/icons8-europe-100.png'
@@ -33,139 +33,6 @@ import reactImageUrl from './images/icons8-react-100.png'
 import responsiveImageUrl from './images/icons8-responsive-100.png'
 import rulerImageUrl from './images/icons8-ruler-100.png'
 import webAccessibilityImageUrl from './images/icons8-web-accessibility-100.png'
-
-const exampleCode = `
-function Example() {
-  return (
-    <x.div p={{ _: 3, md: 6 }} bg="white" display="flex" spaceX={4}>
-      <x.div flexShrink={0}>
-        <x.img h={12} w={12} src="/img/logo.svg" alt="xstyled Logo" />
-      </x.div>
-      <x.div>
-        <x.h4 fontSize={{ _: 'md', lg: 'xl' }} fontWeight="medium" color="black">
-          xstyled
-        </x.h4>
-        <x.p color="gray-500">A CSS-in-JS framework built for React.</x.p>
-      </x.div>
-    </x.div>
-  )
-}
-`.trim()
-
-function CodeExample() {
-  return (
-    <x.div position="relative" mt={{ lg: 10 }} mx={{ _: -4, lg: 0 }}>
-      <x.div
-        position="absolute"
-        display={{ _: 'none', lg: 'block' }}
-        top={0}
-        right={0}
-        bottom={0}
-        left={0}
-        backgroundImage="gradient-to-t"
-        gradientFrom="transparent"
-        gradientTo="pink-300"
-        transform="rotate3d(-.85,-.85,0,30deg) rotateZ(-18deg) scale(1.175)"
-        borderRadius="xl"
-      />
-      <x.div
-        position="absolute"
-        display={{ _: 'none', lg: 'block' }}
-        top={0}
-        right={0}
-        bottom={0}
-        left={0}
-        backgroundImage="gradient-to-t"
-        gradientFrom="transparent"
-        gradientTo="fuchsia-500"
-        transform="rotate3d(-.5,-.85,0,15deg) rotateZ(-9deg) scale(1.05)"
-        borderRadius="xl"
-      />
-      <x.div
-        position="relative"
-        overflow="hidden"
-        borderRadius={{ lg: 'xl' }}
-        boxShadow="2xl"
-        display="flex"
-        bg="fuchsia-600"
-        skewY={3}
-        skewX={2}
-        border={{ lg: 1 }}
-        borderColor={{ lg: 'fuchsia-900' }}
-      >
-        <x.div
-          position="absolute"
-          top={0}
-          right={0}
-          bottom={0}
-          left={0}
-          bg="black-a80"
-        />
-        <x.div position="relative" w={1} display="flex" flexDirection="column">
-          <x.div
-            position="relative"
-            minHeight={0}
-            flex="1 1 auto"
-            display="flex"
-            flexDirection="column"
-          >
-            <x.div
-              hidden
-              display={{ lg: 'block' }}
-              position="absolute"
-              top={0}
-              bottom={0}
-              left={0}
-              bg="black-a25"
-              w={50}
-            />
-            <x.div
-              w={{ _: '100vw', lg: 1 }}
-              flex="1 1 auto"
-              display="flex"
-              minHeight={0}
-              overflow="auto"
-            >
-              <x.div w={1} position="relative" flex="1 1 auto">
-                <x.pre
-                  display="flex"
-                  minHeight={1}
-                  fontSize={{ _: 'xs', lg: 'sm' }}
-                >
-                  <x.div
-                    aria-hidden="true"
-                    hidden
-                    display={{ lg: 'block' }}
-                    color="white-a50"
-                    flex="none"
-                    py={4}
-                    pr={4}
-                    textAlign="right"
-                    userSelect="none"
-                    w={50}
-                  >
-                    {Array.from({ length: 16 }, (_, index) => index + 1).join(
-                      '\n',
-                    )}
-                  </x.div>
-                  <x.code
-                    flex="1 1 auto"
-                    position="relative"
-                    color="white"
-                    display="block"
-                    p={4}
-                  >
-                    <Highlight language="jsx" code={exampleCode} />
-                  </x.code>
-                </x.pre>
-              </x.div>
-            </x.div>
-          </x.div>
-        </x.div>
-      </x.div>
-    </x.div>
-  )
-}
 
 const LargeButton = (props) => (
   <Button
@@ -192,8 +59,8 @@ export function Home() {
         <x.section mt={{ _: 10, lg: 20 }} color="on-background">
           <x.div
             display="grid"
-            gridTemplateColumns={{ _: '1fr', lg: '3fr 2fr' }}
-            gap={10}
+            gridTemplateColumns={{ _: '1fr', lg: '1fr 1fr' }}
+            gap={4}
           >
             <x.div>
               <x.h1
@@ -239,7 +106,7 @@ export function Home() {
               </x.div>
             </x.div>
             <x.div>
-              <CodeExample />
+              <HomeHero />
             </x.div>
           </x.div>
         </x.section>
