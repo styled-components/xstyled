@@ -14,7 +14,7 @@
     "smooth-doc": "^7.0.1"
   },
   "devDependencies": {
-    "gatsby": "^3.2.1",
-    "gatsby-plugin-google-analytics": "^3.2.0"
+    "gatsby": "^3.4.2",
+    "gatsby-plugin-google-analytics": "^3.4.0"
   }
 }
