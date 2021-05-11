@@ -5,11 +5,83 @@ slug: /docs/upgrade-guide/
 order: 4
 ---
 
-# Upgrade Guide
+# Upgrade guide
 
-Upgrading from xstyled v1.x to v2.0.
+Upgrading from xstyled from v1.x to v3.0.
 
 <carbon-ad />
+
+# From v2.x to v3.x
+
+xstyled v3 is focused on features.
+
+## Object states
+
+States are now similar to breakpoints, they are specified using object syntax:
+
+```js
+<x.button color={{ _: 'red-500', hover: 'red-300' }} />
+```
+
+They can be nested:
+
+```js
+// Mixed screens and states
+<x.button color={{ _: 'red-600', md: { _: 'red-500', hover: 'red-300' } }} />
+// Nested states
+<x.div bg={{ first: { odd: 'blue' } } } />
+```
+
+And they are configurable in theme:
+
+```js
+export const theme = {
+  states: {
+    hover: '&:hover',
+    // ...
+  },
+}
+```
+
+Learn more in [states documentation](/docs/hover-focus-other-states/).
+
+## New text utility
+
+A new text utility has been added. It is similar to `fontSize` excepts that it defines both `font-size` and `line-height`. It is customizabled to handle all your typography styles.
+
+Learn more in [text utility documentation](/docs/text/).
+
+## Remove specificity
+
+xstyled was using a trick to ensure props were more specific than component style. The props were injected in a `&&`, so the class was duplicated and the specificity increased. In v3, props are now injected in the correct order, it means this specificity is not longer required.
+
+## Breaking changes
+
+### No prefixed states
+
+States were prefixed props in v2. You can use this regular expression to find state props in your code:
+
+```
+((motionSafe|motionReduce|first|last|odd|even|visited|focusWithin|hover|focus|focusVisible|focusWithin|active|disabled|placeholder|checked)[A-Z])[A-Za-z]+=
+```
+
+### `Box` has been removed
+
+`Box` component is no longer available, you can safely replace it by `x.div`.
+
+### `cssProperty` option of `style` becomes `css`
+
+Since the [`css` accepts a mixin](/docs/adding-new-utilities/#generate-arbitrary-style), `cssProperty` was no longer a good name.
+
+### `getBreakpoints` becomes `getScreens` and `useBreakpoints` becomes `useScreens`
+
+In v1, theme section handling screens was named `breakpoints`, since v2 theme section is now `screens`. For consistency `getBreakpoints` becomes `getScreens` and `useBreakpoints` becomes `useScreens`.
+
+### `th.timingFunctions` becomes `th.timingFunction`
+
+Every `th.*` utilities are singular, `th.timingFunctions` was a mistake.
+
+# From v1.x to v2.x
 
 xstyled v2 is the new major version since v1 of xstyled released in May 2019.
 
@@ -142,17 +214,14 @@ Add `variant` utility in your codebase:
 ```js
 import { getThemeValue, merge, warn, is, assign } from '@xstyled/util'
 
-const variant = ({
-  key = null,
-  default: defaultValue,
-  variants = {},
-  prop = 'variant',
-}) => (props) => {
-  const themeVariants = is(key) ? getThemeValue(props, key) : null
-  const computedVariants = merge(assign({}, variants), themeVariants)
-  const value = props[prop] !== undefined ? props[prop] : defaultValue
-  const result = getThemeValue(props, value, computedVariants)
-  warn(is(result), `variant "${value}" not found`)
-  return result
-}
+const variant =
+  ({ key = null, default: defaultValue, variants = {}, prop = 'variant' }) =>
+  (props) => {
+    const themeVariants = is(key) ? getThemeValue(props, key) : null
+    const computedVariants = merge(assign({}, variants), themeVariants)
+    const value = props[prop] !== undefined ? props[prop] : defaultValue
+    const result = getThemeValue(props, value, computedVariants)
+    warn(is(result), `variant "${value}" not found`)
+    return result
+  }
 ```
