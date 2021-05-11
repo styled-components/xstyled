@@ -5,20 +5,6 @@
     "website",
     "benchmarks"
   ],
-  "bundlesize": [
-    {
-      "path": "./packages/system/dist/xstyled-system.min.js",
-      "maxSize": "4.8 kB"
-    },
-    {
-      "path": "./packages/styled-components/dist/xstyled-styled-components.min.js",
-      "maxSize": "4 kB"
-    },
-    {
-      "path": "./packages/emotion/dist/xstyled-emotion.min.js",
-      "maxSize": "4 kB"
-    }
-  ],
   "scripts": {
     "build": "lerna run build --ignore @xstyled/website --ignore @xstyled/benchmarks",
     "reset": "lerna run reset --ignore @xstyled/website --ignore @xstyled/benchmarks",
@@ -44,7 +30,6 @@
     "@typescript-eslint/parser": "^4.22.1",
     "babel-jest": "^26.6.3",
     "browser-resolve": "^2.0.0",
-    "bundlesize": "^0.18.1",
     "codecov": "^3.8.2",
     "conventional-github-releaser": "^3.1.5",
     "esbuild": "^0.11.20",
