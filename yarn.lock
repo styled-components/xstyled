@@ -5184,8 +5184,8 @@ __metadata:
     "@emotion/core": ^11.0.0
     "@emotion/react": ^11.4.0
     "@emotion/styled": ^11.3.0
-    "@xstyled/emotion": ^2.4.1
-    "@xstyled/styled-components": ^2.4.1
+    "@xstyled/emotion": ^3.0.0-beta.0
+    "@xstyled/styled-components": ^3.0.0-beta.0
     babel-loader: ^8.2.2
     benchmark: ^2.1.4
     emotion-theming: ^11.0.0
@@ -5200,21 +5200,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xstyled/core@^2.5.0, @xstyled/core@workspace:packages/core":
+"@xstyled/core@^3.0.0-beta.0, @xstyled/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@xstyled/core@workspace:packages/core"
   dependencies:
-    "@xstyled/system": ^2.5.0
+    "@xstyled/system": ^3.0.0-beta.0
   languageName: unknown
   linkType: soft
 
-"@xstyled/emotion@^2.4.1, @xstyled/emotion@workspace:packages/emotion":
+"@xstyled/core@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@xstyled/core@npm:2.5.0"
+  dependencies:
+    "@xstyled/system": ^2.5.0
+  checksum: 8dc9c9604693a8841cae25d3482619fcb8e786c6fba54c8fc9f040aebda9b6e4b545c1bb815446173ba00aa11a63e43c628207c37334978b5bc9058c74bb1c63
+  languageName: node
+  linkType: hard
+
+"@xstyled/emotion@^3.0.0-beta.0, @xstyled/emotion@workspace:packages/emotion":
   version: 0.0.0-use.local
   resolution: "@xstyled/emotion@workspace:packages/emotion"
   dependencies:
-    "@xstyled/core": ^2.5.0
-    "@xstyled/system": ^2.5.0
-    "@xstyled/util": ^2.2.3
+    "@xstyled/core": ^3.0.0-beta.0
+    "@xstyled/system": ^3.0.0-beta.0
+    "@xstyled/util": ^3.0.0-beta.0
   peerDependencies:
     "@emotion/react": ^11.0.0
     "@emotion/styled": ^11.0.0
@@ -5229,32 +5238,62 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xstyled/styled-components@^2.2.3, @xstyled/styled-components@^2.4.1, @xstyled/styled-components@workspace:packages/styled-components":
+"@xstyled/styled-components@^3.0.0-beta.0, @xstyled/styled-components@workspace:packages/styled-components":
   version: 0.0.0-use.local
   resolution: "@xstyled/styled-components@workspace:packages/styled-components"
+  dependencies:
+    "@xstyled/core": ^3.0.0-beta.0
+    "@xstyled/system": ^3.0.0-beta.0
+    "@xstyled/util": ^3.0.0-beta.0
+  peerDependencies:
+    styled-components: ^4.0.0 || ^5.0.0
+  languageName: unknown
+  linkType: soft
+
+"@xstyled/styled-components@npm:^2.2.3":
+  version: 2.5.0
+  resolution: "@xstyled/styled-components@npm:2.5.0"
   dependencies:
     "@xstyled/core": ^2.5.0
     "@xstyled/system": ^2.5.0
     "@xstyled/util": ^2.2.3
   peerDependencies:
     styled-components: ^4.0.0 || ^5.0.0
-  languageName: unknown
-  linkType: soft
+  checksum: 630734a6871f7e0a1c6abb7e828219ef30e13e9758665ac5a4c12b2a0ebc8f58da7bfa82ba2d7c45ef584bc56935d2e75ba04ccb74c6409067f3409b2d4c73d6
+  languageName: node
+  linkType: hard
 
-"@xstyled/system@^2.5.0, @xstyled/system@workspace:packages/system":
+"@xstyled/system@^3.0.0-beta.0, @xstyled/system@workspace:packages/system":
   version: 0.0.0-use.local
   resolution: "@xstyled/system@workspace:packages/system"
   dependencies:
-    "@xstyled/util": ^2.2.3
+    "@xstyled/util": ^3.0.0-beta.0
     csstype: ^3.0.8
   languageName: unknown
   linkType: soft
 
-"@xstyled/util@^2.2.3, @xstyled/util@workspace:packages/util":
+"@xstyled/system@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@xstyled/system@npm:2.5.0"
+  dependencies:
+    "@xstyled/util": ^2.2.3
+    csstype: ^3.0.7
+  checksum: 7c78dc67199d4a8c4ca175561f08d081232ed770c4cccb5c44850f575cea2f8e51edfe23a53c1cdbf2fd658ccbfab70cf7fd7634e18506270b3629bafdc4b9ef
+  languageName: node
+  linkType: hard
+
+"@xstyled/util@^3.0.0-beta.0, @xstyled/util@workspace:packages/util":
   version: 0.0.0-use.local
   resolution: "@xstyled/util@workspace:packages/util"
   languageName: unknown
   linkType: soft
+
+"@xstyled/util@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "@xstyled/util@npm:2.2.3"
+  checksum: c8d9e91fdaf0f09b179fcbac51ca8b65c4b5c38c3a3a645c38bfe004739ae7aaf8d7f9a357a7f873d31a7fa6432af23aa24162f9b5ad11b1b9a046a8d0695dcf
+  languageName: node
+  linkType: hard
 
 "@xstyled/website@workspace:website":
   version: 0.0.0-use.local
@@ -8760,7 +8799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^3.0.2, csstype@npm:^3.0.8":
+"csstype@npm:^3.0.2, csstype@npm:^3.0.7, csstype@npm:^3.0.8":
   version: 3.0.8
   resolution: "csstype@npm:3.0.8"
   checksum: e15233592a2c580fd72c4346a5c921044b8f4f29bcb81628a81199c4d6a91eb8f8e4875f440ef9c990e85f179a3370f3b842fe55e4743119ad0ce712519e7123
