@@ -106,9 +106,80 @@ Add the `hover` state to only apply a utility on hover.
 </>
 ```
 
-## All available states
+## Using reponsive states
 
-Here is the complete list of available states on all utilities:
+States and breakpoints can be seemlessly mixed, every screens defined in theme are a `@media (min-width: ...)` state.
+
+```jsx preview color=fuchsia
+<>
+  <template preview>
+    <x.div textAlign="center">
+      <x.button
+        type="button"
+        py={2}
+        px={4}
+        bg={{
+          _: { _: 'indigo-500', hover: 'indigo-700' },
+          md: { _: 'fuchsia-500', hover: 'fuchsia-700' },
+        }}
+        color="white"
+        fontWeight="semibold"
+        borderRadius="lg"
+        boxShadow="md"
+        outline={{ focus: 'none ' }}
+        tabindex="-1"
+      >
+        Cameleon button
+      </x.button>
+    </x.div>
+  </template>
+  <x.button
+    bg={{
+      _: { _: 'indigo-500', hover: 'indigo-700' },
+      md: { _: 'fuchsia-500', hover: 'fuchsia-700' },
+    }}
+  >
+    Cameleon button
+  </x.button>
+</>
+```
+
+## Combined states
+
+Use nested objects to combine states.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div textAlign="center">
+      <x.a
+        href="#"
+        color={{
+          _: 'indigo-500',
+          hover: 'indigo-600',
+          visited: { hover: 'indigo-900' },
+        }}
+      >
+        Link
+      </x.a>
+    </x.div>
+  </template>
+  <x.a
+    href="#"
+    color={{
+      _: 'indigo-500',
+      hover: 'indigo-600',
+      visited: { hover: 'indigo-900' },
+    }}
+  >
+    Link
+  </x.a>
+</>
+```
+
+## Available states
+
+Default theme includes a set of useful states.
 
 | State Prefix   | CSS Scope                                        |
 | -------------- | ------------------------------------------------ |
@@ -120,10 +191,25 @@ Here is the complete list of available states on all utilities:
 | `even`         | `&:even`                                         |
 | `visited`      | `&:visited`                                      |
 | `checked`      | `&:checked`                                      |
-| `focusWithin`  | `&:focus-within`                                 |
 | `hover`        | `&:hover`                                        |
 | `focus`        | `&:focus`                                        |
 | `focusVisible` | `&:focus-visible`                                |
+| `focusWithin`  | `&:focus-within`                                 |
 | `active`       | `&:active`                                       |
 | `disabled`     | `&:disabled`                                     |
 | `placeholder`  | `&::placeholder`                                 |
+
+## Customizing states
+
+You can completely customize states in your theme:
+
+```js
+// theme.js
+
+export const theme = {
+  states: {
+    firstLetter: '&::first-letter',
+    dark: '.xstyled-color-mode-dark &',
+  },
+}
+```
