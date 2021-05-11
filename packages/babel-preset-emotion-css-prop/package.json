@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/babel-preset-emotion-css-prop",
   "description": "A babel preset to automatically enable emotion's css prop with xstyled.",
-  "version": "2.3.0",
+  "version": "3.0.0-beta.0",
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.mjs",
