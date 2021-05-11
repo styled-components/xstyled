@@ -5568,7 +5568,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-styles@npm:^3.1.0, ansi-styles@npm:^3.2.0, ansi-styles@npm:^3.2.1":
+"ansi-styles@npm:^3.2.0, ansi-styles@npm:^3.2.1":
   version: 3.2.1
   resolution: "ansi-styles@npm:3.2.1"
   dependencies:
@@ -6009,7 +6009,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:0.21.1, axios@npm:^0.21.0, axios@npm:^0.21.1":
+"axios@npm:^0.21.0, axios@npm:^0.21.1":
   version: 0.21.1
   resolution: "axios@npm:0.21.1"
   dependencies:
@@ -6676,16 +6676,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"brotli-size@npm:0.1.0":
-  version: 0.1.0
-  resolution: "brotli-size@npm:0.1.0"
-  dependencies:
-    duplexer: ^0.1.1
-    iltorb: ^2.4.3
-  checksum: 9175221432d68e1be7bde5a89c385e576c31dac2a6d5774701e5820c604df962c67c1abb5bab3f46cc840cdd683b646f0ebf454bc9c59648aac783cafb724ba1
-  languageName: node
-  linkType: hard
-
 "browser-process-hrtime@npm:^1.0.0":
   version: 1.0.0
   resolution: "browser-process-hrtime@npm:1.0.0"
@@ -6825,28 +6815,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bundlesize@npm:^0.18.1":
-  version: 0.18.1
-  resolution: "bundlesize@npm:0.18.1"
-  dependencies:
-    axios: ^0.21.1
-    brotli-size: 0.1.0
-    bytes: ^3.1.0
-    ci-env: ^1.4.0
-    commander: ^2.20.0
-    cosmiconfig: ^5.2.1
-    github-build: ^1.2.2
-    glob: ^7.1.4
-    gzip-size: ^4.0.0
-    prettycli: ^1.4.3
-  bin:
-    bundlesize: index.js
-    bundlesize-init: src/init-status.js
-    bundlesize-pipe: pipe.js
-  checksum: 7cdf134ecf69665bafb4efd21e556aedd6daf8ba1aaef0f7a5adf1d23a50c0a4d6090f0aa9be748b75695223a177605d6397ea089eb58718b710e5c562139640
-  languageName: node
-  linkType: hard
-
 "busboy@npm:^0.2.11":
   version: 0.2.14
   resolution: "busboy@npm:0.2.14"
@@ -6887,7 +6855,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bytes@npm:3.1.0, bytes@npm:^3.1.0":
+"bytes@npm:3.1.0":
   version: 3.1.0
   resolution: "bytes@npm:3.1.0"
   checksum: c3f64645ef37922c8194fef88a052de2a28101882dfdf8a225493888c4941a26ea15164957e7492e5c5e3a8e98ee6276f4834efacb68e2d8ad4d91f903250b6c
@@ -7202,17 +7170,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:2.1.0":
-  version: 2.1.0
-  resolution: "chalk@npm:2.1.0"
-  dependencies:
-    ansi-styles: ^3.1.0
-    escape-string-regexp: ^1.0.5
-    supports-color: ^4.0.0
-  checksum: 50ff087068cb30551330852c7fc1fe62215cd7ea948f399967b3e55df56d459416223c598b7e4d76233a0a4d3893dc02b44e1fd1f1874f9e7344a4964c0eaf6b
-  languageName: node
-  linkType: hard
-
 "chalk@npm:2.4.2, chalk@npm:^2.0.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
@@ -7439,13 +7396,6 @@ __metadata:
   dependencies:
     tslib: ^1.9.0
   checksum: 926fe23bc92e35c7fb666711c1dc1f342f289a728eb37d23bc4371df7587fe58152569eb57d657e2377f2e56093513939cab5a5a8f3589743938cc0b61527c02
-  languageName: node
-  linkType: hard
-
-"ci-env@npm:^1.4.0":
-  version: 1.16.0
-  resolution: "ci-env@npm:1.16.0"
-  checksum: 1f1819cc4ad63c4f38222210b3712e6286201694347261cc2e79b0608fbf0965b4d2725333d97eeb6c6dc36ef7aabf6ff6fff6bb50ccf3ccdc6e01c7d311478d
   languageName: node
   linkType: hard
 
@@ -8392,7 +8342,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig@npm:^5.0.0, cosmiconfig@npm:^5.2.1":
+"cosmiconfig@npm:^5.0.0":
   version: 5.2.1
   resolution: "cosmiconfig@npm:5.2.1"
   dependencies:
@@ -12423,15 +12373,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"github-build@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "github-build@npm:1.2.2"
-  dependencies:
-    axios: 0.21.1
-  checksum: 323b1ca94cea551a55edcd8c5399512f3bb52a91824721f0ea1753928b82fc70ae035a84693f1b91fe4afda9269738156d345f1e8e9cc92cba14dfeeee0d0302
-  languageName: node
-  linkType: hard
-
 "github-from-package@npm:0.0.0":
   version: 0.0.0
   resolution: "github-from-package@npm:0.0.0"
@@ -12862,16 +12803,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"gzip-size@npm:^4.0.0":
-  version: 4.1.0
-  resolution: "gzip-size@npm:4.1.0"
-  dependencies:
-    duplexer: ^0.1.1
-    pify: ^3.0.0
-  checksum: 234bb4ecb0dbba7b0bf6f4f65ae02a23173ece59db8e8c387428f72d5cf6d8fbdac90ade3874fc17f58f361dd437de6db3c56c3df7817e7cbbb7bce53dc77e89
-  languageName: node
-  linkType: hard
-
 "handle-thing@npm:^2.0.0":
   version: 2.0.1
   resolution: "handle-thing@npm:2.0.1"
@@ -12941,13 +12872,6 @@ fsevents@^1.2.7:
   version: 1.1.0
   resolution: "has-cors@npm:1.1.0"
   checksum: c8257cbe3fc1c2f49d293879f0c6873c6fa7ba7be44147f9a9023cc421c7842833c3553f46bdc04459f046c1c74eb9c7a98e63fdd2c7713caaddd26b1b7f9043
-  languageName: node
-  linkType: hard
-
-"has-flag@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "has-flag@npm:2.0.0"
-  checksum: bdc20630dfa70841dc00ab80d673a6801c685f4a3609f79c52c6755cc9aff950ceb39789ee63210e8a45e959f26c4496b0c9a9509b3d7017512743b8f1e741b4
   languageName: node
   linkType: hard
 
@@ -13558,20 +13482,6 @@ fsevents@^1.2.7:
   version: 5.1.8
   resolution: "ignore@npm:5.1.8"
   checksum: b08e3d5b5d94eca13475f29a5d47d221060e9cdd7e38d7647088e29d90130669a970fecbc4cdb41b8fa295c6673740c729d3dc05dadc381f593efb42282cbf9f
-  languageName: node
-  linkType: hard
-
-"iltorb@npm:^2.4.3":
-  version: 2.4.5
-  resolution: "iltorb@npm:2.4.5"
-  dependencies:
-    detect-libc: ^1.0.3
-    nan: ^2.14.0
-    node-gyp: latest
-    npmlog: ^4.1.2
-    prebuild-install: ^5.3.3
-    which-pm-runs: ^1.0.0
-  checksum: b17ef49a3673bdc0080c7855f97749d67b47da3642e97eb669dd9e7c6d48e443d212095a0c5d2561fa753d71f3eb5c3eac049cc3949aa4e6e79ef5a48b65f3a9
   languageName: node
   linkType: hard
 
@@ -17262,7 +17172,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"nan@npm:^2.12.1, nan@npm:^2.14.0":
+"nan@npm:^2.12.1":
   version: 2.14.2
   resolution: "nan@npm:2.14.2"
   dependencies:
@@ -19447,31 +19357,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prebuild-install@npm:^5.3.3":
-  version: 5.3.6
-  resolution: "prebuild-install@npm:5.3.6"
-  dependencies:
-    detect-libc: ^1.0.3
-    expand-template: ^2.0.3
-    github-from-package: 0.0.0
-    minimist: ^1.2.3
-    mkdirp-classic: ^0.5.3
-    napi-build-utils: ^1.0.1
-    node-abi: ^2.7.0
-    noop-logger: ^0.1.1
-    npmlog: ^4.0.1
-    pump: ^3.0.0
-    rc: ^1.2.7
-    simple-get: ^3.0.3
-    tar-fs: ^2.0.0
-    tunnel-agent: ^0.6.0
-    which-pm-runs: ^1.0.0
-  bin:
-    prebuild-install: bin.js
-  checksum: 81ff157668dc26349e1f8076fce0ba990f45481e39a64645efad60c9ae2d61e73e3c420d56f5f38fbe6dc3275e8e27067d2613d941c778f41658a6110e544130
-  languageName: node
-  linkType: hard
-
 "prebuild-install@npm:^6.0.1":
   version: 6.0.1
   resolution: "prebuild-install@npm:6.0.1"
@@ -19572,15 +19457,6 @@ fsevents@^1.2.7:
     ansi-styles: ^4.0.0
     react-is: ^17.0.1
   checksum: 5ad34fc128218485732cf0271d396158a00584708fc97bf063c1c3c000fe14da572e9a1d3d7b92d95c5e24965434656c56ed0e45804dea2435ca59a1f86f1b07
-  languageName: node
-  linkType: hard
-
-"prettycli@npm:^1.4.3":
-  version: 1.4.3
-  resolution: "prettycli@npm:1.4.3"
-  dependencies:
-    chalk: 2.1.0
-  checksum: 34c371e4370ff2730dc6820bfa523cd461bb392b839e3bdc9270ca5161a68e1bdf7c9117c270b7ff9f906df11c5e6be7dcb881a53501799646eefbdd4d9471c9
   languageName: node
   linkType: hard
 
@@ -21145,7 +21021,6 @@ resolve@^2.0.0-next.3:
     "@typescript-eslint/parser": ^4.22.1
     babel-jest: ^26.6.3
     browser-resolve: ^2.0.0
-    bundlesize: ^0.18.1
     codecov: ^3.8.2
     conventional-github-releaser: ^3.1.5
     esbuild: ^0.11.20
@@ -22787,15 +22662,6 @@ resolve@^2.0.0-next.3:
   version: 2.0.0
   resolution: "supports-color@npm:2.0.0"
   checksum: 5d6fb449e29f779cc639756f0d6b9ab6138048e753683cd2c647f36a9254714051909a5f569e6aa83c5310c8dfe8a1f481967e02bef401ac8eed46ee0950d779
-  languageName: node
-  linkType: hard
-
-"supports-color@npm:^4.0.0":
-  version: 4.5.0
-  resolution: "supports-color@npm:4.5.0"
-  dependencies:
-    has-flag: ^2.0.0
-  checksum: 53497c783ba167c0aea147b3317ef9bba598e0f5d635105d6c5a8bddacb693ebb741d246586c7dfc45311f8d491a1c9dbe2c239d82049fedff637acf90aa6380
   languageName: node
   linkType: hard
 
