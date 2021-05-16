@@ -31,7 +31,16 @@ import {
 
 let themeGetterId = 0
 
-const SPACES = /\s+/
+type Splitter = [RegExp, string]
+
+const SPLITTERS: { [key: string]: Splitter } = {
+  shorthand: [/\s+/, ' '],
+  multiple: [/\s*,\s*/, ','],
+}
+
+const splitValue =
+  (splitter: Splitter, transform: (v: string) => any) => (value: string) =>
+    value.split(splitter[0]).map(transform).join(splitter[1])
 
 export const themeGetter = <T = any>({
   name,
@@ -39,12 +48,14 @@ export const themeGetter = <T = any>({
   key,
   compose,
   shorthand,
+  multiple,
 }: {
   name?: string
   key?: string
   transform?: TransformValue
   compose?: ThemeGetter
   shorthand?: boolean
+  multiple?: boolean
 }): ThemeGetter<T> => {
   const id = themeGetterId++
   const getter =
@@ -96,9 +107,11 @@ export const themeGetter = <T = any>({
         return compose ? compose(res)(props) : res
       }
 
-      if (shorthand && string(value)) {
-        const values = value.split(SPACES)
-        res = values.map((value: string) => getValue(value)).join(' ')
+      if ((shorthand || multiple) && string(value)) {
+        let transform: (value: string) => any = getValue
+        if (shorthand) transform = splitValue(SPLITTERS.shorthand, transform)
+        if (multiple) transform = splitValue(SPLITTERS.multiple, transform)
+        res = transform(value)
       } else {
         res = getValue(value)
       }
@@ -110,14 +123,21 @@ export const themeGetter = <T = any>({
   return getter
 }
 
-export const createStyleGenerator = <TProps = {}>(
-  getStyle: CSSFromProps<Props<Theme> & TProps>,
-  props: string[],
-  generators?: StyleGenerator[],
-): StyleGenerator<TProps> => {
+export const createStyleGenerator = <TProps = {}>({
+  getStyle,
+  props,
+  cssGetters = {},
+  generators,
+}: {
+  getStyle: CSSFromProps<Props<Theme> & TProps>
+  props: string[]
+  cssGetters?: { [key: string]: ThemeGetter }
+  generators?: StyleGenerator[]
+}): StyleGenerator<TProps> => {
   const generator = getStyle as unknown as StyleGenerator
   generator.meta = {
     props,
+    cssGetters,
     getStyle: generator,
     generators,
   }
@@ -153,13 +173,13 @@ export const reduceVariants = <T extends Props>(
 const getStyleFactory = (
   prop: string,
   mixin: Mixin,
-  themeGet: ThemeGetter,
+  themeGet?: ThemeGetter,
 ): CSSFromProps => {
   return (props: Props<Theme>) => {
     const fromValue = (value: unknown): CSSObject | null | undefined => {
       if (!is(value)) return null
       if (obj(value)) return reduceVariants(props, value, fromValue)
-      return cascade(mixin(themeGet(value)(props)), props)
+      return cascade(mixin(themeGet ? themeGet(value)(props) : value), props)
     }
 
     const value = props[prop]
@@ -173,13 +193,13 @@ const getStyleFactory = (
 }
 
 const indexGeneratorsByProp = (
-  styles: StyleGenerator[],
+  generators: StyleGenerator[],
 ): {
   [key: string]: StyleGenerator
 } => {
   const index: { [key: string]: StyleGenerator } = {}
-  for (let i = 0; i < styles.length; i++) {
-    const style = styles[i]
+  for (let i = 0; i < generators.length; i++) {
+    const style = generators[i]
     if (style && style.meta) {
       for (let j = 0; j < style.meta.props.length; j++) {
         const prop = style.meta.props[j]
@@ -224,26 +244,30 @@ export const compose = <TProps = {}>(
   const getStyle = (props: Props<Theme>, sort = true) => {
     const styles = {} as CSSObject
 
+    let generator
     for (const key in props) {
-      const generator = generatorsByProp[key]
+      generator = generatorsByProp[key]
       if (generator) {
         const style = generator.meta.getStyle(props, false)
         merge(styles, style)
       }
     }
 
-    if (!sort) return styles
+    if (!generator || !sort) return styles
 
     const medias = getCachedVariants(props, getCache(props.theme, '__states'))
     return sortStyles(styles, medias)
   }
 
-  const props = flatGenerators.reduce(
-    (allProps, generator) => [...allProps, ...generator.meta.props],
-    [] as string[],
-  )
+  let props = [] as string[]
+  let cssGetters = {} as { [key: string]: ThemeGetter }
+  for (let i = 0; i < flatGenerators.length; i++) {
+    const generator = flatGenerators[i]
+    props = [...props, ...generator.meta.props]
+    cssGetters = { ...cssGetters, ...generator.meta.cssGetters }
+  }
 
-  return createStyleGenerator(getStyle, props, generators)
+  return createStyleGenerator({ getStyle, props, cssGetters, generators })
 }
 
 const getMixinFromCSSProperties =
@@ -262,19 +286,34 @@ const getMixinFromCSSOption = (css: CSSOption): Mixin => {
   return getMixinFromCSSProperties(css)
 }
 
+const dasherize = (key: string) => key.replace(/[A-Z]/g, '-$&').toLowerCase()
+
 export const style = <TProps = {}>({
   prop,
   css,
   themeGet,
   key,
   transform,
+  cssProps: cssPropsOption,
 }: StyleOptions): StyleGenerator<TProps> => {
-  const getter = themeGet || themeGetter({ key, transform })
+  const getter =
+    themeGet || (key || transform ? themeGetter({ key, transform }) : undefined)
+  const cssProps =
+    cssPropsOption ||
+    (string(css)
+      ? [css]
+      : Array.isArray(css)
+      ? css
+      : string(prop)
+      ? [prop]
+      : Array.isArray(prop)
+      ? prop
+      : [])
 
   if (Array.isArray(prop)) {
     const mixin = css ? getMixinFromCSSOption(css) : css
     const generators = prop.map((prop) =>
-      style({ prop, css: mixin, themeGet: getter }),
+      style({ prop, css: mixin, cssProps, themeGet: getter }),
     )
     return compose(...generators)
   }
@@ -284,7 +323,13 @@ export const style = <TProps = {}>({
 
   const generators = [] as StyleGenerator[]
   const getStyle = getStyleFactory(prop as string, mixin, getter)
-  const generator = createStyleGenerator(getStyle, props)
+  const cssGetters = getter
+    ? cssProps.reduce((getters, cssProp) => {
+        getters[dasherize(cssProp)] = getter
+        return getters
+      }, {} as { [key: string]: ThemeGetter })
+    : {}
+  const generator = createStyleGenerator({ getStyle, props, cssGetters })
   generators.push(generator)
   return compose(...generators)
 }

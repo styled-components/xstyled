@@ -190,6 +190,13 @@ export interface BorderStyleProps<T extends ITheme = Theme> {
 export const borderStyle = style<BorderStyleProps>({
   prop: 'borderStyle',
   themeGet: getBorderStyle,
+  cssProps: [
+    'borderStyle',
+    'borderTopStyle',
+    'borderRightStyle',
+    'borderBottomStyle',
+    'borderLeftStyle',
+  ],
 })
 
 // Outline
@@ -245,6 +252,13 @@ export interface BorderRadiusProps<T extends ITheme = Theme> {
 export const borderRadius = style<BorderRadiusProps>({
   prop: 'borderRadius',
   themeGet: getRadius,
+  cssProps: [
+    'borderRadius',
+    'borderTopLeftRadius',
+    'borderTopRightRadius',
+    'borderBottomRightRadius',
+    'borderBottomLeftRadius',
+  ],
 })
 
 // Divide
