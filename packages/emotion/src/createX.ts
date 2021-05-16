@@ -1,10 +1,9 @@
-/* eslint-disable no-continue, no-loop-func, no-cond-assign */
+/* eslint-disable @typescript-eslint/ban-types */
 import * as React from 'react'
 import { Theme } from '@emotion/react'
 import emStyled, { StyledComponent } from '@emotion/styled'
 import { compose, StyleGenerator } from '@xstyled/system'
-import { createShouldForwardProp } from './createShouldForwardProp'
-import { styledWithGenerator } from './styled'
+import { createBaseStyled } from './createStyled'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
 
@@ -24,17 +23,13 @@ export interface X<TProps extends object> extends JSXElements<TProps> {
 export const createX: CreateX = <TProps extends object>(
   generator: StyleGenerator,
 ) => {
-  // @ts-ignore
+  const styled = createBaseStyled(generator)
   const x: X<TProps> = {
     extend: (...generators) => createX(compose(generator, ...generators)),
-  }
-
-  const shouldForwardProp = createShouldForwardProp(generator)
-
+  } as X<TProps>
   Object.keys(emStyled).forEach((tag) => {
     // @ts-ignore
-    x[tag] = styledWithGenerator(tag, { shouldForwardProp }, generator)``
+    x[tag] = styled(tag)``
   })
-
   return x
 }

@@ -1,16 +1,22 @@
+import * as CSS from 'csstype'
 import { ITheme, Props } from '@xstyled/util'
 
 export { ITheme, Props }
 
-export type StyleScalarValue = null | undefined | string | number
+export type CSSProperties = CSS.Properties<string | number>
 
-export interface Styles {
-  [key: string]: StyleScalarValue | Styles
+export type CSSPseudos = { [K in CSS.Pseudos]?: CSSObject }
+
+export type CSSScalar = undefined | string | number
+
+export interface CSSObject extends CSSProperties, CSSPseudos {
+  [key: string]: CSSObject | CSSScalar
 }
-export type StyleFromProps<TProps = {}> = (
+
+export type CSSFromProps<TProps = {}> = (
   props: TProps,
-) => Styles | null | undefined
-export type Mixin = (value: any) => StyleFromProps | Styles | null | undefined
+) => CSSObject | null | undefined
+export type Mixin = (value: any) => CSSFromProps | CSSObject | null | undefined
 
 export type ThemeAlias = (props: Props<Theme>) => ThemeValue
 export type ThemeValue =
@@ -86,13 +92,13 @@ export interface StyleOptions {
 }
 
 export interface StyleGenerator<TProps = {}> {
-  (props: Props<Theme> & TProps, sort?: boolean): Styles | null
+  (props: Props<Theme> & TProps, sort?: boolean): CSSObject | null
   meta: {
     props: string[]
     getStyle: StyleGenerator<TProps>
     generators?: StyleGenerator[]
   }
-  apply: (values: TProps) => StyleFromProps<Props<Theme> & TProps>
+  apply: (values: TProps) => CSSFromProps<Props<Theme> & TProps>
 }
 
 export interface TransformValue {
@@ -103,7 +109,7 @@ export interface TransformValue {
       variants: ThemeNamespace | null
       props: Props<Theme>
     },
-  ): StyleScalarValue
+  ): CSSScalar
 }
 
 export type ThemeNamespaceValue<K extends string, T extends ITheme> =
@@ -111,9 +117,7 @@ export type ThemeNamespaceValue<K extends string, T extends ITheme> =
   | {}
 
 export interface ThemeGetter<T = any> {
-  (value: T, defaultValue?: StyleScalarValue): (
-    props: Props<Theme>,
-  ) => StyleScalarValue
+  (value: T, defaultValue?: CSSScalar): (props: Props<Theme>) => CSSScalar
   meta: {
     name?: string
     transform?: TransformValue
@@ -121,6 +125,12 @@ export interface ThemeGetter<T = any> {
 }
 
 export type ThemeGetterType<T extends ThemeGetter> = T extends ThemeGetter<
+  infer T
+>
+  ? T
+  : never
+
+export type StyleGeneratorProps<T extends object> = T extends StyleGenerator<
   infer T
 >
   ? T
