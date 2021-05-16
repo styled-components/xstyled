@@ -2,40 +2,40 @@
 import type { ElementType } from 'react'
 import { BoxElements } from '@xstyled/core'
 import { string } from '@xstyled/util'
-import { StyleGenerator, StyleGeneratorProps } from '@xstyled/system'
+import { StyleGenerator, StyleGeneratorProps, Theme } from '@xstyled/system'
 import scStyled, {
-  DefaultTheme,
   StyledConfig,
   ThemedBaseStyledInterface,
   ThemedStyledFunction,
 } from 'styled-components'
-import { css } from './css'
+import { createCssFunction, XCSSFunction } from './createCssFunction'
 
 const getCreateStyle = (
   baseCreateStyle: ThemedStyledFunction<any, any>,
+  css: XCSSFunction,
   generator?: StyleGenerator,
 ) => {
   const createStyle = (...args: Parameters<typeof css>) =>
     // @ts-ignore
     baseCreateStyle`${css(...args)}${generator}`
   createStyle.attrs = (attrs: Parameters<typeof baseCreateStyle.attrs>[0]) =>
-    getCreateStyle(baseCreateStyle.attrs(attrs), generator)
+    getCreateStyle(baseCreateStyle.attrs(attrs), css, generator)
   createStyle.withConfig = (config: StyledConfig<any>) =>
-    getCreateStyle(baseCreateStyle.withConfig(config), generator)
+    getCreateStyle(baseCreateStyle.withConfig(config), css, generator)
   return createStyle
 }
 
 type BoxStyledTags<TProps extends object> = {
   [Key in keyof BoxElements]: ThemedStyledFunction<
     BoxElements[Key],
-    DefaultTheme,
+    Theme,
     TProps
   >
 }
 
-export interface CreateXStyled<TProps extends object = {}>
-  extends ThemedBaseStyledInterface<DefaultTheme>,
-    BoxStyledTags<TProps> {}
+export interface XStyled<TGen extends StyleGenerator>
+  extends ThemedBaseStyledInterface<Theme>,
+    BoxStyledTags<StyleGeneratorProps<TGen>> {}
 
 const createShouldForwardProp = (
   generator: StyleGenerator,
@@ -67,8 +67,9 @@ const createShouldForwardProp = (
 }
 
 export const createBaseStyled = <TGen extends StyleGenerator>(
+  css: XCSSFunction,
   generator?: TGen,
-): CreateXStyled<StyleGeneratorProps<TGen>> => {
+): XStyled<TGen> => {
   const config = generator
     ? {
         shouldForwardProp: createShouldForwardProp(generator),
@@ -78,16 +79,18 @@ export const createBaseStyled = <TGen extends StyleGenerator>(
     const baseStyled = scStyled(component)
     return getCreateStyle(
       config ? baseStyled.withConfig(config) : baseStyled,
+      css,
       generator,
     )
-  }) as CreateXStyled<StyleGeneratorProps<TGen>>
+  }) as XStyled<TGen>
 }
 
 export const createStyled = <TGen extends StyleGenerator>(
   generator: TGen,
-): CreateXStyled<StyleGeneratorProps<TGen>> => {
-  const styled = createBaseStyled()
-  const xstyled = createBaseStyled(generator)
+): XStyled<TGen> => {
+  const css = createCssFunction(generator)
+  const styled = createBaseStyled(css)
+  const xstyled = createBaseStyled(css, generator)
   styled.box = xstyled('div')
   Object.keys(scStyled).forEach((key) => {
     // @ts-ignore

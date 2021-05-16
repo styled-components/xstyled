@@ -65,4 +65,33 @@ describe('#x', () => {
     expect(container.firstChild).not.toHaveAttribute('display')
     expect(container.firstChild).toHaveAttribute('data-foo')
   })
+
+  it('avoids passing system props to HTML element', () => {
+    const { container } = render(<x.div fontSize={10} />)
+    expect(container.firstChild).not.toHaveAttribute('fontSize')
+  })
+
+  it('passes HTML attrs to HTML element', () => {
+    const { container } = render(<x.div role="presentation" />)
+    expect(container.firstChild).toHaveAttribute('role', 'presentation')
+  })
+
+  it('avoids passing system props to "as" component', () => {
+    const Component = (props: any) => <div {...props} />
+    const { container } = render(<x.div as={Component} fontSize={10} />)
+    expect(container.firstChild).not.toHaveAttribute('fontSize')
+  })
+
+  it('passes non-system props to "as" component', () => {
+    const Component = ({ asdf, ...props }: any) => <div {...props}>{asdf}</div>
+    const { container } = render(<x.div as={Component} asdf="boo!" />)
+    expect(container.firstChild).toHaveTextContent('boo!')
+  })
+
+  // skip because this depends on unreleased styled-components 5.2.4 or 6
+  it.skip('avoids passing non-HTML attrs to HTML element', () => {
+    // @ts-expect-error explicit test
+    const { container } = render(<x.div asdf="boo!" />)
+    expect(container.firstChild).not.toHaveAttribute('asdf')
+  })
 })

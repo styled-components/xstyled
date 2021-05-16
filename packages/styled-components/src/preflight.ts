@@ -1,4 +1,6 @@
-import { createPreflight } from '@xstyled/system'
 import { createGlobalStyle } from 'styled-components'
+import { getPreflightStyles } from '@xstyled/system'
 
-export const Preflight = createPreflight({ createGlobalStyle })
+export const Preflight = createGlobalStyle(({ theme }) =>
+  getPreflightStyles(theme),
+)

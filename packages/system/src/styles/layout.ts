@@ -36,8 +36,8 @@ export const boxSizing = style<BoxSizingProps>({
 export interface ContainerProps<T extends ITheme = Theme> {
   container?: SystemProp<boolean, T>
 }
-export const container = createStyleGenerator<ContainerProps>(
-  (props) => {
+export const container = createStyleGenerator<ContainerProps>({
+  getStyle: (props) => {
     if (!props.container) return null
     const breakpoints = getScreens(props)
     let styles = reduceVariants(props, breakpoints, (v: string | number) =>
@@ -52,8 +52,8 @@ export const container = createStyleGenerator<ContainerProps>(
       ...styles,
     }
   },
-  ['container'],
-)
+  props: ['container'],
+})
 
 export interface OverflowProps<T extends ITheme = Theme> {
   overflow?: SystemProp<CSS.Property.Overflow, T>

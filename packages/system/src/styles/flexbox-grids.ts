@@ -49,8 +49,8 @@ const getColStyle = (
 export interface ColProps<T extends ITheme = Theme> {
   col?: SystemProp<true | 'auto' | string | number, T>
 }
-export const col = createStyleGenerator<ColProps>(
-  (props) => {
+export const col = createStyleGenerator<ColProps>({
+  getStyle: (props) => {
     const value = props.col
     const common = {
       boxSizing: 'border-box' as const,
@@ -77,8 +77,8 @@ export const col = createStyleGenerator<ColProps>(
       ...getColStyle(props, value),
     }
   },
-  ['col'],
-)
+  props: ['col'],
+})
 
 export interface FlexboxGridsProps<T extends ITheme = Theme>
   extends RowProps<T>,
