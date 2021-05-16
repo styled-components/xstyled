@@ -38,11 +38,29 @@ describe('#style', () => {
       expect(scope(true)({ theme: { scope: { default: 'foo' } } })).toBe('foo')
     })
 
-    it('supports shorthand', () => {
+    it('supports shorthand mode', () => {
       const scope = themeGetter({ key: 'scope', shorthand: true })
       expect(scope('1 value 2')({ theme: { scope: { value: 'foo' } } })).toBe(
         '1 foo 2',
       )
+    })
+
+    it('supports multiple mode', () => {
+      const scope = themeGetter({ key: 'scope', multiple: true })
+      expect(scope('1, value, 2')({ theme: { scope: { value: 'foo' } } })).toBe(
+        '1,foo,2',
+      )
+    })
+
+    it('supports both shorthand and multiple modes', () => {
+      const scope = themeGetter({
+        key: 'scope',
+        shorthand: true,
+        multiple: true,
+      })
+      expect(
+        scope('1, value y, 2')({ theme: { scope: { value: 'foo' } } }),
+      ).toBe('1,foo y,2')
     })
 
     it('supports array', () => {

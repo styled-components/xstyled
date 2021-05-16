@@ -1,4 +1,5 @@
-import { transform } from './transform'
+import { system } from '@xstyled/system'
+import { createTransform } from './transform'
 
 const props = {
   theme: {
@@ -6,6 +7,8 @@ const props = {
     colors: { black: '#000' },
   },
 }
+
+const transform = createTransform(system)
 
 const transformToStr = (s: string) =>
   transform(s)

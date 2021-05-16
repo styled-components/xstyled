@@ -86,6 +86,7 @@ export type CSSOption = string | string[] | Mixin
 export interface StyleOptions {
   prop: string | string[] | readonly string[]
   css?: CSSOption
+  cssProps?: string[]
   themeGet?: ThemeGetter
   key?: string
   transform?: TransformValue
@@ -95,6 +96,7 @@ export interface StyleGenerator<TProps = {}> {
   (props: Props<Theme> & TProps, sort?: boolean): CSSObject | null
   meta: {
     props: string[]
+    cssGetters: { [key: string]: ThemeGetter }
     getStyle: StyleGenerator<TProps>
     generators?: StyleGenerator[]
   }

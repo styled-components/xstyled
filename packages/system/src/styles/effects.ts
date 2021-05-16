@@ -11,6 +11,7 @@ export type ThemeShadow<T extends ITheme = Theme> = ThemeNamespaceValue<
 export const getShadow = themeGetter<ThemeShadow>({
   name: 'shadow',
   key: 'shadows',
+  multiple: true,
 })
 
 // Style

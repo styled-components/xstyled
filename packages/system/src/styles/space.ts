@@ -12,6 +12,7 @@ export const getSpace = themeGetter<ThemeSpace>({
   name: 'space',
   key: 'space',
   compose: getPx,
+  shorthand: true,
   transform: transformNegative,
 })
 

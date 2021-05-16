@@ -1,6 +1,6 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
+import type { StyleGenerator } from '@xstyled/system'
 import { mediaGetters } from './mediaGetters'
-import { propGetters } from './propGetters'
 
 // prop name is an ident: word chars, underscore and dash.
 const PROP_CHAR = `[-\\w]`
@@ -62,31 +62,33 @@ const mediaTransform = (rawValue: string) => {
   return values
 }
 
-export const transform = (rawValue: any): any => {
-  if (typeof rawValue !== 'string') return rawValue
-  let matches
-  let lastIndex = 0
-  const values = []
-  while ((matches = MATCH_REGEXP.exec(rawValue))) {
-    const [, prop, colon, value, imp, semi, media, query, brace] = matches
-    if (media) {
-      values.push(rawValue.slice(lastIndex, matches.index))
-      values.push(media)
-      mediaTransform(query).forEach((v) => values.push(v))
-      values.push(brace)
-      lastIndex = matches.index + matches[0].length
-    } else {
-      const getter = (propGetters as any)[prop]
-      if (getter) {
+export const createTransform =
+  (generator: StyleGenerator) =>
+  (rawValue: any): any => {
+    if (typeof rawValue !== 'string') return rawValue
+    let matches
+    let lastIndex = 0
+    const values = []
+    while ((matches = MATCH_REGEXP.exec(rawValue))) {
+      const [, prop, colon, value, imp, semi, media, query, brace] = matches
+      if (media) {
         values.push(rawValue.slice(lastIndex, matches.index))
-        values.push(
-          (p: object) =>
-            `${prop}${colon}${getter(value)(p)}${imp || ''}${semi}`,
-        )
+        values.push(media)
+        mediaTransform(query).forEach((v) => values.push(v))
+        values.push(brace)
         lastIndex = matches.index + matches[0].length
+      } else {
+        const getter = generator.meta.cssGetters[prop]
+        if (getter) {
+          values.push(rawValue.slice(lastIndex, matches.index))
+          values.push(
+            (p: object) =>
+              `${prop}${colon}${getter(value)(p)}${imp || ''}${semi}`,
+          )
+          lastIndex = matches.index + matches[0].length
+        }
       }
     }
+    values.push(rawValue.slice(lastIndex, rawValue.length))
+    return values
   }
-  values.push(rawValue.slice(lastIndex, rawValue.length))
-  return values
-}

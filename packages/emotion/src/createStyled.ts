@@ -3,7 +3,7 @@ import emStyled, { CreateStyledComponent, CreateStyled } from '@emotion/styled'
 import { Theme } from '@emotion/react'
 import { StyleGenerator, StyleGeneratorProps } from '@xstyled/system'
 import { BoxElements } from '@xstyled/core'
-import { css } from './css'
+import { createCssFunction, XCSSFunction } from './createCssFunction'
 
 const flattenArgs = (arg: any, props: any): any => {
   if (typeof arg === 'function') return flattenArgs(arg(props), props)
@@ -11,7 +11,11 @@ const flattenArgs = (arg: any, props: any): any => {
   return arg
 }
 
-const getCreateStyle = (baseCreateStyle: any, generator?: StyleGenerator) => {
+const getCreateStyle = (
+  baseCreateStyle: any,
+  css: XCSSFunction,
+  generator?: StyleGenerator,
+) => {
   if (!generator) {
     return (strings: any, ...args: any) =>
       baseCreateStyle((props: any) =>
@@ -38,9 +42,9 @@ type BoxStyledTags<TProps extends object> = {
   >
 }
 
-export interface CreateXStyled<TProps extends object = {}>
+export interface XStyled<TGen extends StyleGenerator>
   extends CreateStyled,
-    BoxStyledTags<TProps> {}
+    BoxStyledTags<StyleGeneratorProps<TGen>> {}
 
 const createShouldForwardProp = (
   generator: StyleGenerator,
@@ -51,8 +55,9 @@ const createShouldForwardProp = (
 }
 
 export const createBaseStyled = <TGen extends StyleGenerator>(
+  css: XCSSFunction,
   generator?: TGen,
-): CreateXStyled<StyleGeneratorProps<TGen>> => {
+): XStyled<TGen> => {
   const defaultOptions = generator
     ? {
         shouldForwardProp: createShouldForwardProp(generator),
@@ -61,15 +66,17 @@ export const createBaseStyled = <TGen extends StyleGenerator>(
   return ((component: any, options: any) =>
     getCreateStyle(
       emStyled(component, { ...defaultOptions, ...options }),
+      css,
       generator,
-    )) as CreateXStyled<StyleGeneratorProps<TGen>>
+    )) as XStyled<TGen>
 }
 
 export const createStyled = <TGen extends StyleGenerator>(
   generator: TGen,
-): CreateXStyled<StyleGeneratorProps<TGen>> => {
-  const styled = createBaseStyled()
-  const xstyled = createBaseStyled(generator)
+): XStyled<TGen> => {
+  const css = createCssFunction(generator)
+  const styled = createBaseStyled(css)
+  const xstyled = createBaseStyled(css, generator)
   styled.box = xstyled('div')
   Object.keys(emStyled).forEach((key) => {
     // @ts-ignore

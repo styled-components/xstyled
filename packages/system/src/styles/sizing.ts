@@ -86,13 +86,28 @@ export const minHeight = style<MinHeightProps>({
   css: 'minHeight',
 })
 
+export interface MaskSizeProps<T extends ITheme = Theme> {
+  maskSize?: SystemProp<ThemeSize<T> | CSS.Property.MaskSize, T>
+}
+export const maskSize = style<MaskSizeProps>({
+  prop: 'maskSize',
+  themeGet: themeGetter<ThemeSize>({
+    name: 'size',
+    key: 'sizes',
+    compose: getPercent,
+    multiple: true,
+    shorthand: true,
+  }),
+})
+
 export interface SizingProps<T extends ITheme = Theme>
   extends WidthProps<T>,
     HeightProps<T>,
     MaxWidthProps<T>,
     MaxHeightProps<T>,
     MinWidthProps<T>,
-    MinHeightProps<T> {}
+    MinHeightProps<T>,
+    MaskSizeProps<T> {}
 export const sizing = compose<SizingProps>(
   width,
   height,
@@ -100,4 +115,5 @@ export const sizing = compose<SizingProps>(
   maxHeight,
   minWidth,
   minHeight,
+  maskSize,
 )
