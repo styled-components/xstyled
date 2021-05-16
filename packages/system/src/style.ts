@@ -14,12 +14,12 @@ import {
 import { getCachedVariants, PropsVariants } from './theme'
 import { getCache } from './cache'
 import {
-  StyleScalarValue,
+  CSSScalar,
+  CSSObject,
   Props,
   Transformers,
   ThemeNamespace,
-  Styles,
-  StyleFromProps,
+  CSSFromProps,
   Theme,
   ThemeGetter,
   TransformValue,
@@ -47,95 +47,95 @@ export const themeGetter = <T = any>({
   shorthand?: boolean
 }): ThemeGetter<T> => {
   const id = themeGetterId++
-  const getter = (value: unknown, defaultValue?: StyleScalarValue) => (
-    props: Props<Theme>,
-  ) => {
-    let res = value
-    if (!string(value) && !num(value) && value !== true) {
-      return res as StyleScalarValue
-    }
-    const cacheKey = `${value}-${defaultValue}`
-    const cache = getCache<StyleScalarValue>(props.theme, `__themeGetter${id}`)
-    if (cache.has(cacheKey)) return cache.get(cacheKey)
+  const getter =
+    (value: unknown, defaultValue?: CSSScalar) => (props: Props<Theme>) => {
+      let res = value
+      if (!string(value) && !num(value) && value !== true) {
+        return res as CSSScalar
+      }
+      const cacheKey = `${value}-${defaultValue}`
+      const cache = getCache<CSSScalar>(props.theme, `__themeGetter${id}`)
+      if (cache.has(cacheKey)) return cache.get(cacheKey)
 
-    const getValue = (value: string | number | true) => {
-      const localDefaultValue = is(defaultValue) ? defaultValue : value
-      let res: string | number | true | undefined | null = value
-      const variants = is(key)
-        ? (getThemeValue(props, key) as ThemeNamespace)
-        : null
-      if (is(variants)) {
-        const path =
-          value === true
-            ? 'default'
-            : string(value) || num(value)
-            ? value
-            : null
-        if (is(path)) {
-          const fromTheme = getThemeValue(props, path, variants)
-          res = Array.isArray(fromTheme)
-            ? fromTheme.join(',')
-            : (fromTheme as string | number | true)
+      const getValue = (value: string | number | true) => {
+        const localDefaultValue = is(defaultValue) ? defaultValue : value
+        let res: string | number | true | undefined | null = value
+        const variants = is(key)
+          ? (getThemeValue(props, key) as ThemeNamespace)
+          : null
+        if (is(variants)) {
+          const path =
+            value === true
+              ? 'default'
+              : string(value) || num(value)
+              ? value
+              : null
+          if (is(path)) {
+            const fromTheme = getThemeValue(props, path, variants)
+            res = Array.isArray(fromTheme)
+              ? fromTheme.join(',')
+              : (fromTheme as string | number | true)
+          }
         }
+        let rawValue: unknown = value
+        if (!is(res)) {
+          rawValue = localDefaultValue
+          res = localDefaultValue
+        }
+        const transform =
+          (name && props.theme && props.theme.transformers
+            ? (props.theme.transformers as Transformers)[name]
+            : null) || defaultTransform
+        if (transform) {
+          res = transform(res, {
+            rawValue,
+            variants,
+            props,
+          })
+        }
+        return compose ? compose(res)(props) : res
       }
-      let rawValue: unknown = value
-      if (!is(res)) {
-        rawValue = localDefaultValue
-        res = localDefaultValue
-      }
-      const transform =
-        (name && props.theme && props.theme.transformers
-          ? (props.theme.transformers as Transformers)[name]
-          : null) || defaultTransform
-      if (transform) {
-        res = transform(res, {
-          rawValue,
-          variants,
-          props,
-        })
-      }
-      return compose ? compose(res)(props) : res
-    }
 
-    if (shorthand && string(value)) {
-      const values = value.split(SPACES)
-      res = values.map((value: string) => getValue(value)).join(' ')
-    } else {
-      res = getValue(value)
-    }
+      if (shorthand && string(value)) {
+        const values = value.split(SPACES)
+        res = values.map((value: string) => getValue(value)).join(' ')
+      } else {
+        res = getValue(value)
+      }
 
-    cache.set(cacheKey, res as StyleScalarValue)
-    return res as StyleScalarValue
-  }
+      cache.set(cacheKey, res as CSSScalar)
+      return res as CSSScalar
+    }
   getter.meta = { name, transform: defaultTransform }
   return getter
 }
 
 export const createStyleGenerator = <TProps = {}>(
-  getStyle: StyleFromProps<Props<Theme> & TProps>,
+  getStyle: CSSFromProps<Props<Theme> & TProps>,
   props: string[],
   generators?: StyleGenerator[],
 ): StyleGenerator<TProps> => {
-  const generator = (getStyle as unknown) as StyleGenerator
+  const generator = getStyle as unknown as StyleGenerator
   generator.meta = {
     props,
     getStyle: generator,
     generators,
   }
-  generator.apply = (values: { [key: string]: unknown }) => ({
-    theme,
-  }: Props<Theme>) => generator({ theme, ...values })
+  generator.apply =
+    (values: { [key: string]: unknown }) =>
+    ({ theme }: Props<Theme>) =>
+      generator({ theme, ...values })
   return generator
 }
 
 export const reduceVariants = <T extends Props>(
   props: T,
   values: { [key: string]: unknown; [key: number]: unknown },
-  getStyle: (value: any) => Styles | null | undefined,
-): Styles => {
+  getStyle: (value: any) => CSSObject | null | undefined,
+): CSSObject => {
   const cache = getCache<PropsVariants<T>>(props.theme, '__variants')
   const variants = getCachedVariants(props, cache)
-  let styles = {} as Styles
+  let styles = {} as CSSObject
   for (const value in values) {
     const style = getStyle(values[value])
     if (style === null) continue
@@ -154,9 +154,9 @@ const getStyleFactory = (
   prop: string,
   mixin: Mixin,
   themeGet: ThemeGetter,
-): StyleFromProps => {
+): CSSFromProps => {
   return (props: Props<Theme>) => {
-    const fromValue = (value: unknown): Styles | null | undefined => {
+    const fromValue = (value: unknown): CSSObject | null | undefined => {
       if (!is(value)) return null
       if (obj(value)) return reduceVariants(props, value, fromValue)
       return cascade(mixin(themeGet(value)(props)), props)
@@ -164,7 +164,7 @@ const getStyleFactory = (
 
     const value = props[prop]
     if (!is(value)) return null
-    const cache = getCache<Styles | null | undefined>(props.theme, prop)
+    const cache = getCache<CSSObject | null | undefined>(props.theme, prop)
     if (cache.has(value)) return cache.get(value)
     const style = fromValue(props[prop])
     cache.set(value, style)
@@ -191,9 +191,9 @@ const indexGeneratorsByProp = (
 }
 
 const sortStyles = (
-  styles: Styles,
+  styles: CSSObject,
   variants: { [key: string]: string },
-): Styles => {
+): CSSObject => {
   for (const key in variants) {
     const variant = variants[key]
     const style = styles[variant]
@@ -222,7 +222,7 @@ export const compose = <TProps = {}>(
   const generatorsByProp = indexGeneratorsByProp(flatGenerators)
 
   const getStyle = (props: Props<Theme>, sort = true) => {
-    const styles = {} as Styles
+    const styles = {} as CSSObject
 
     for (const key in props) {
       const generator = generatorsByProp[key]
@@ -246,16 +246,16 @@ export const compose = <TProps = {}>(
   return createStyleGenerator(getStyle, props, generators)
 }
 
-const getMixinFromCSSProperties = (properties?: string | string[]): Mixin => (
-  value,
-) => {
-  if (string(properties)) return { [properties]: value } as Styles
-  const style = {} as Styles
-  for (const key in properties) {
-    style[properties[(key as unknown) as number]] = value as Styles
+const getMixinFromCSSProperties =
+  (properties?: string | string[]): Mixin =>
+  (value) => {
+    if (string(properties)) return { [properties]: value } as CSSObject
+    const style = {} as CSSObject
+    for (const key in properties) {
+      style[properties[key as unknown as number]] = value as CSSObject
+    }
+    return style
   }
-  return style
-}
 
 const getMixinFromCSSOption = (css: CSSOption): Mixin => {
   if (func(css)) return css

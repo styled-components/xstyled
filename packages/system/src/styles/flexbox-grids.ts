@@ -16,7 +16,10 @@ export const row = style<RowProps>({
   }),
 })
 
-function getColStyle(props: Props, size: string | number | true | undefined) {
+const getColStyle = (
+  props: Props,
+  size: string | number | true | undefined,
+) => {
   if (!is(size)) return null
 
   if (size === true) {
@@ -50,7 +53,7 @@ export const col = createStyleGenerator<ColProps>(
   (props) => {
     const value = props.col
     const common = {
-      boxSizing: 'border-box',
+      boxSizing: 'border-box' as const,
       flexBasis: 0,
       flexGrow: 1,
       maxWidth: '100%',
