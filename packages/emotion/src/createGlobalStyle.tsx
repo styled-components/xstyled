@@ -7,8 +7,10 @@ import { css } from './css'
 export const createGlobalStyle = <P extends object = {}>(
   ...styles: Parameters<typeof css>
 ) => {
-  return function GlobalStyle(props: P) {
+  const GlobalStyle = (props: P) => {
     const theme = useTheme()
     return <Global styles={css(...styles)({ theme, ...props })} />
   }
+  GlobalStyle.displayName = 'GlobalStyle'
+  return GlobalStyle
 }

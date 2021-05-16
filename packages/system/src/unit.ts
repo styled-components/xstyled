@@ -1,5 +1,5 @@
 import { num, string, negative, getThemeValue } from '@xstyled/util'
-import { StyleScalarValue, TransformValue } from './types'
+import { CSSScalar, TransformValue } from './types'
 
 interface PxToRemOptions {
   rootFontSize?: number
@@ -7,9 +7,10 @@ interface PxToRemOptions {
 
 const round = (value: number): number => Math.round(value * 10 ** 4) / 10 ** 4
 
-export const unit = (unit: string) => <T extends StyleScalarValue>(
-  value: T,
-): string | T => (num(value) && value !== 0 ? `${value}${unit}` : value)
+export const unit =
+  (unit: string) =>
+  <T extends CSSScalar>(value: T): string | T =>
+    num(value) && value !== 0 ? `${value}${unit}` : value
 
 export const ms = unit('ms')
 export const px = unit('px')
@@ -20,16 +21,10 @@ const pxToRem = (
   { rootFontSize = 16 }: PxToRemOptions = {},
 ): number => round(value / rootFontSize)
 
-export const remPx = (
-  value: StyleScalarValue,
-  options?: PxToRemOptions,
-): StyleScalarValue =>
+export const remPx = (value: CSSScalar, options?: PxToRemOptions): CSSScalar =>
   num(value) && value !== 0 ? `${pxToRem(value, options)}rem` : value
 
-export const rpx = (
-  value: StyleScalarValue,
-  options?: PxToRemOptions,
-): StyleScalarValue => {
+export const rpx = (value: CSSScalar, options?: PxToRemOptions): CSSScalar => {
   if (!string(value) || value.length < 4) return value
   const unit = value.slice(-3)
   if (unit !== 'rpx') return value
@@ -38,7 +33,7 @@ export const rpx = (
   return `${pxToRem(n, options)}rem`
 }
 
-export const percent = (n: StyleScalarValue): StyleScalarValue =>
+export const percent = (n: CSSScalar): CSSScalar =>
   num(n) && n !== 0 && n >= -1 && n <= 1 ? `${round(n * 100)}%` : n
 
 export const transformNegative: TransformValue = (
@@ -60,5 +55,5 @@ export const transformNegative: TransformValue = (
     const value = num(varVal) ? varVal : abs
     return neg ? value * -1 : value
   }
-  return null
+  return undefined
 }
