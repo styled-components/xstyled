@@ -30,6 +30,7 @@
     "@typescript-eslint/parser": "^4.22.1",
     "babel-jest": "^26.6.3",
     "browser-resolve": "^2.0.0",
+    "bundlewatch": "^0.3.2",
     "codecov": "^3.8.2",
     "conventional-github-releaser": "^3.1.5",
     "esbuild": "^0.11.20",
@@ -51,5 +52,29 @@
   },
   "resolutions": {
     "smooth-doc/styled-components": "^5.2.3"
+  },
+  "bundlewatch" : {
+    "files": [
+      {
+        "path": "packages/core/dist/index.mjs",
+        "maxSize": "10kB"
+      },
+      {
+        "path": "packages/emotion/dist/index.mjs",
+        "maxSize": "10kB"
+      },
+      {
+        "path": "packages/styled-components/dist/index.mjs",
+        "maxSize": "10kB"
+      },
+      {
+        "path": "packages/system/dist/index.mjs",
+        "maxSize": "10kB"
+      },
+      {
+        "path": "packages/util/dist/index.mjs",
+        "maxSize": "10kB"
+      }
+    ]
   }
 }
