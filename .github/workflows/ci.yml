@@ -21,7 +21,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .yarn
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-deps-${{ hashFiles('yarn.lock') }}
+          restore-keys: ${{ runner.os }}-deps
 
       - name: Install dependencies
         run: yarn install --immutable
@@ -34,3 +35,5 @@ jobs:
 
       - name: Test
         run: yarn test --ci --coverage --runInBand && yarn codecov
+
+      - name: Check bundle size
