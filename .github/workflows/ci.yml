@@ -22,7 +22,8 @@ jobs:
         with:
           path: .yarn
           key: ${{ runner.os }}-deps-${{ hashFiles('yarn.lock') }}
-          restore-keys: ${{ runner.os }}-deps
+          restore-keys: |
+            ${{ runner.os }}-deps
 
       - name: Install dependencies
         run: yarn install --immutable
@@ -34,6 +35,14 @@ jobs:
         run: yarn lint
 
       - name: Test
-        run: yarn test --ci --coverage --runInBand && yarn codecov
+        run: yarn test --ci --coverage --runInBand
+
+      - name: Codecov
+        continue-on-error: true
+        run: yarn codecov
 
       - name: Check bundle size
+        continue-on-error: true
+        env:
+          BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+        run: yarn bundlewatch
