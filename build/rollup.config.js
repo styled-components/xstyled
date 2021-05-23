@@ -31,6 +31,15 @@ export default [
     ],
   }),
   bundle({
+    plugins: [esbuild({ minify: true })],
+    output: [
+      {
+        file: `${name}.min.mjs`,
+        format: 'es',
+      },
+    ],
+  }),
+  bundle({
     plugins: [dts()],
     output: {
       file: `${name}.d.ts`,
