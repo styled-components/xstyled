@@ -57,23 +57,23 @@
     "files": [
       {
         "path": "packages/core/dist/index.min.mjs",
-        "maxSize": "3.8kB"
+        "maxSize": "2.8kB"
       },
       {
         "path": "packages/emotion/dist/index.min.mjs",
-        "maxSize": "2kB"
+        "maxSize": "1.6kB"
       },
       {
         "path": "packages/styled-components/dist/index.min.mjs",
-        "maxSize": "1.5kB"
+        "maxSize": "1.3kB"
       },
       {
         "path": "packages/system/dist/index.min.mjs",
-        "maxSize": "13kB"
+        "maxSize": "11.4kB"
       },
       {
         "path": "packages/util/dist/index.min.mjs",
-        "maxSize": "1kB"
+        "maxSize": "0.7kB"
       }
     ]
   }
