@@ -244,27 +244,28 @@ export const compose = <TProps = {}>(
   const getStyle = (props: Props<Theme>, sort = true) => {
     const styles = {} as CSSObject
 
-    let generator
+    let merged
     for (const key in props) {
-      generator = generatorsByProp[key]
+      const generator = generatorsByProp[key]
       if (generator) {
         const style = generator.meta.getStyle(props, false)
         merge(styles, style)
+        merged = true
       }
     }
 
-    if (!generator || !sort) return styles
+    if (!merged || !sort) return styles
 
     const medias = getCachedVariants(props, getCache(props.theme, '__states'))
     return sortStyles(styles, medias)
   }
 
-  let props = [] as string[]
-  let cssGetters = {} as { [key: string]: ThemeGetter }
+  const props = [] as string[]
+  const cssGetters = {} as { [key: string]: ThemeGetter }
   for (let i = 0; i < flatGenerators.length; i++) {
     const generator = flatGenerators[i]
-    props = [...props, ...generator.meta.props]
-    cssGetters = { ...cssGetters, ...generator.meta.cssGetters }
+    props.push(...generator.meta.props)
+    Object.assign(cssGetters, generator.meta.cssGetters)
   }
 
   return createStyleGenerator({ getStyle, props, cssGetters, generators })
