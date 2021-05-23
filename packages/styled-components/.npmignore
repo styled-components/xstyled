@@ -1,5 +1,4 @@
 /*
-!/dist/**/*.js
-!/dist/**/*.map
-*.test.ts
-*.test.tsx
+/dist/*
+!/dist/index.{d.ts,js,mjs}
+!/dist/index.{js,mjs}.map
