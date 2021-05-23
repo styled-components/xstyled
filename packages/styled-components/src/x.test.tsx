@@ -88,8 +88,7 @@ describe('#x', () => {
     expect(container.firstChild).toHaveTextContent('boo!')
   })
 
-  // skip because this depends on unreleased styled-components 5.2.4 or 6
-  it.skip('avoids passing non-HTML attrs to HTML element', () => {
+  it('avoids passing non-HTML attrs to HTML element', () => {
     // @ts-expect-error explicit test
     const { container } = render(<x.div asdf="boo!" />)
     expect(container.firstChild).not.toHaveAttribute('asdf')
