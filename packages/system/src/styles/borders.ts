@@ -1,5 +1,4 @@
 import * as CSS from 'csstype'
-import { num } from '@xstyled/util'
 import { style, themeGetter, compose } from '../style'
 import { px } from '../unit'
 import { getColor, ThemeColor, Color } from './colors'
@@ -14,7 +13,10 @@ export type ThemeBorder<T extends ITheme = Theme> = ThemeNamespaceValue<
 export const getBorder = themeGetter<ThemeBorder>({
   name: 'border',
   key: 'borders',
-  transform: (n: number | string) => (num(n) && n > 0 ? `${px(n)} solid` : n),
+  transform: (value: number | string) => {
+    const num = Number(value)
+    return num > 0 ? `${px(num)} solid` : value
+  },
 })
 
 export type ThemeBorderWidth<T extends ITheme = Theme> = ThemeNamespaceValue<

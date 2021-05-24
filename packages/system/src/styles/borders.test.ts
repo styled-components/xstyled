@@ -1,5 +1,13 @@
 import { borders } from './borders'
 
+describe('#border', () => {
+  it('expands border', () => {
+    expect(borders({ border: 1 })).toEqual({ border: '1px solid' })
+    expect(borders({ border: '1' })).toEqual({ border: '1px solid' })
+    expect(borders({ border: '3px' })).toEqual({ border: '3px' })
+  })
+})
+
 describe('#divideY', () => {
   it('works as expected', () => {
     expect(borders({ divideY: 1 })).toEqual({
