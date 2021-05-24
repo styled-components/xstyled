@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/system",
   "description": "xstyled system utilities.",
-  "version": "3.0.0-beta.2",
+  "version": "3.0.0",
   "keywords": [
     "emotion",
     "styled-components",
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@xstyled/util": "^3.0.0-beta.1",
+    "@xstyled/util": "^3.0.0",
     "csstype": "^3.0.8"
   }
 }

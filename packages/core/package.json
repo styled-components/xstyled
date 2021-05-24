@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/core",
   "description": "xstyled core utilities.",
-  "version": "3.0.0-beta.2",
+  "version": "3.0.0",
   "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -23,6 +23,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@xstyled/system": "^3.0.0-beta.2"
+    "@xstyled/system": "^3.0.0"
   }
 }
