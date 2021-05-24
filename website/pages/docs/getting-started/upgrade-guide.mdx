@@ -45,15 +45,42 @@ export const theme = {
 
 Learn more in [states documentation](/docs/hover-focus-other-states/).
 
+## Plugins API
+
+xstyled can now be fully extended with plugins using a `xstyled.config.js`:
+
+```js
+import { createCss, system, compose } from '@xstyled/...'
+import { borderInline } from './utilities/border-inline'
+
+export const { css, styled, x, createGlobalStyle } = createCss(
+  compose(system, borderInline),
+)
+```
+
+Learn more in [documentation](/docs/adding-new-utilities/).
+
 ## New text utility
 
 A new text utility has been added. It is similar to `fontSize` excepts that it defines both `font-size` and `line-height`. It is customizabled to handle all your typography styles.
 
 Learn more in [text utility documentation](/docs/text/).
 
+## New utilities
+
+`animationDuration`, `animationTimingFunction` and `maskSize` have been added to the core.
+
 ## Remove specificity
 
 xstyled was using a trick to ensure props were more specific than component style. The props were injected in a `&&`, so the class was duplicated and the specificity increased. In v3, props are now injected in the correct order, it means this specificity is not longer required.
+
+## New `multiple` option in style
+
+You can now use `multiple` to declare style that accepts multiple styles separated by a comma. For example, `box-shadow`:
+
+```js
+<x.div boxShadow="light-shadow, big-shadow" />
+```
 
 ## Breaking changes
 
@@ -80,6 +107,14 @@ In v1, theme section handling screens was named `breakpoints`, since v2 theme se
 ### `th.timingFunctions` becomes `th.timingFunction`
 
 Every `th.*` utilities are singular, `th.timingFunctions` was a mistake.
+
+### `x.extend` and `createX` are gone
+
+Use `createCss` instead.
+
+### TypeScript theme bindings
+
+Be sure to correctly extend xstyled theme and to follow [TypeScript guide](/docs/typescript/).
 
 # From v1.x to v2.x
 
