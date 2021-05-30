@@ -10,9 +10,11 @@ Utilities for controlling how the browser behaves when reaching the boundary of 
 
 <carbon-ad />
 
-| React props                    | CSS Properties                    |
-| ------------------------------ | --------------------------------- |
-| `overscrollBehavior={keyword}` | `overscroll-behavior: {keyword};` |
+| React props                     | CSS Properties                      |
+| ------------------------------- | ----------------------------------- |
+| `overscrollBehavior={keyword}`  | `overscroll-behavior: {keyword};`   |
+| `overscrollBehaviorX={keyword}` | `overscroll-behavior-x: {keyword};` |
+| `overscrollBehaviorY={keyword}` | `overscroll-behavior-y: {keyword};` |
 
 ## Auto
 
@@ -102,7 +104,7 @@ Use `overscrollBehavior="contain"` to prevent scrolling in the target area from 
 </>
 ```
 
-## Contain
+## None
 
 Use `overscrollBehavior="none"` to prevent scrolling in the target area from triggering scrolling in the parent element, and also prevent "bounce" effects when scrolling past the end of the container.
 
@@ -111,6 +113,270 @@ Use `overscrollBehavior="none"` to prevent scrolling in the target area from tri
   <template preview>
     <x.div
       overscrollBehavior="none"
+      overflow="auto"
+      h={32}
+      bg="amber-200"
+      color="amber-500"
+      px={6}
+      py={4}
+      fontWeight="medium"
+      fontFamily="Flow"
+      borderRadius="lg"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend
+        rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum
+        et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae
+        hendrerit lectus volutpat eget. In porttitor tincidunt egestas.
+        Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique
+        justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt,
+        lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut
+        dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean
+        mattis elit mi, sed ultricies augue consectetur id. Sed id magna
+        malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla
+        fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam
+        convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor
+        ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis
+        elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum
+        in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate,
+        tempor massa eget, malesuada mauris. Quisque fringilla consequat metus,
+        luctus scelerisque leo fringilla vel.
+      </p>
+    </x.div>
+  </template>
+  <x.div overscrollBehavior="none">Lorem ipsum dolor sit amet...</x.div>
+</>
+```
+
+## Horizontally scroll parent at child boundary
+
+Use `overscrollBehaviorX="auto"` to make it possible for the user to continue scrolling horizontally within a parent scroll area when they reach the boundary of the primary scroll area.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div
+      overscrollBehaviorX="auto"
+      overflow="auto"
+      h={32}
+      bg="emerald-200"
+      color="emerald-500"
+      px={6}
+      py={4}
+      fontWeight="medium"
+      fontFamily="Flow"
+      borderRadius="lg"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend
+        rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum
+        et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae
+        hendrerit lectus volutpat eget. In porttitor tincidunt egestas.
+        Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique
+        justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt,
+        lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut
+        dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean
+        mattis elit mi, sed ultricies augue consectetur id. Sed id magna
+        malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla
+        fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam
+        convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor
+        ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis
+        elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum
+        in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate,
+        tempor massa eget, malesuada mauris. Quisque fringilla consequat metus,
+        luctus scelerisque leo fringilla vel.
+      </p>
+    </x.div>
+  </template>
+  <x.div overscrollBehavior="auto">Lorem ipsum dolor sit amet...</x.div>
+</>
+```
+
+## Prevent horizontal scroll with bounce
+
+Use `overscrollBehaviorX="contain"` to prevent horizontal scrolling in the target area from triggering scrolling in the parent element, but preserve "bounce" effects when horizontally scrolling past the end of the container in operating systems that support it.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div
+      overscrollBehaviorX="contain"
+      overflow="auto"
+      h={32}
+      bg="light-blue-200"
+      color="light-blue-500"
+      px={6}
+      py={4}
+      fontWeight="medium"
+      fontFamily="Flow"
+      borderRadius="lg"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend
+        rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum
+        et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae
+        hendrerit lectus volutpat eget. In porttitor tincidunt egestas.
+        Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique
+        justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt,
+        lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut
+        dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean
+        mattis elit mi, sed ultricies augue consectetur id. Sed id magna
+        malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla
+        fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam
+        convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor
+        ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis
+        elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum
+        in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate,
+        tempor massa eget, malesuada mauris. Quisque fringilla consequat metus,
+        luctus scelerisque leo fringilla vel.
+      </p>
+    </x.div>
+  </template>
+  <x.div overscrollBehavior="contain">Lorem ipsum dolor sit amet...</x.div>
+</>
+```
+
+## None
+
+Use `overscrollBehaviorX="none"` to prevent horizontal scrolling in the target area from triggering horizontal scrolling in the parent element, and also prevent "bounce" effects when scrolling horizontally past the end of the container.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div
+      overscrollBehaviorX="none"
+      overflow="auto"
+      h={32}
+      bg="amber-200"
+      color="amber-500"
+      px={6}
+      py={4}
+      fontWeight="medium"
+      fontFamily="Flow"
+      borderRadius="lg"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend
+        rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum
+        et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae
+        hendrerit lectus volutpat eget. In porttitor tincidunt egestas.
+        Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique
+        justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt,
+        lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut
+        dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean
+        mattis elit mi, sed ultricies augue consectetur id. Sed id magna
+        malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla
+        fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam
+        convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor
+        ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis
+        elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum
+        in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate,
+        tempor massa eget, malesuada mauris. Quisque fringilla consequat metus,
+        luctus scelerisque leo fringilla vel.
+      </p>
+    </x.div>
+  </template>
+  <x.div overscrollBehavior="none">Lorem ipsum dolor sit amet...</x.div>
+</>
+```
+
+## Vertically scroll parent at child boundary
+
+Use `overscrollBehaviorY="auto"` to make it possible for the user to continue scrolling vertically within a parent scroll area when they reach the vertical boundary of the primary scroll area.
+
+```jsx preview color=emerald
+<>
+  <template preview>
+    <x.div
+      overscrollBehaviorY="auto"
+      overflow="auto"
+      h={32}
+      bg="emerald-200"
+      color="emerald-500"
+      px={6}
+      py={4}
+      fontWeight="medium"
+      fontFamily="Flow"
+      borderRadius="lg"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend
+        rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum
+        et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae
+        hendrerit lectus volutpat eget. In porttitor tincidunt egestas.
+        Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique
+        justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt,
+        lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut
+        dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean
+        mattis elit mi, sed ultricies augue consectetur id. Sed id magna
+        malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla
+        fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam
+        convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor
+        ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis
+        elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum
+        in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate,
+        tempor massa eget, malesuada mauris. Quisque fringilla consequat metus,
+        luctus scelerisque leo fringilla vel.
+      </p>
+    </x.div>
+  </template>
+  <x.div overscrollBehavior="auto">Lorem ipsum dolor sit amet...</x.div>
+</>
+```
+
+## Prevent vertical scroll with bounce
+
+Use `overscrollBehaviorY="contain"` to prevent vertical scrolling in the target area from triggering vertical scrolling in the parent element, but preserve "bounce" effects when vertically scrolling past the end of the container in operating systems that support it.
+
+```jsx preview color=light-blue
+<>
+  <template preview>
+    <x.div
+      overscrollBehaviorX="contain"
+      overflow="auto"
+      h={32}
+      bg="light-blue-200"
+      color="light-blue-500"
+      px={6}
+      py={4}
+      fontWeight="medium"
+      fontFamily="Flow"
+      borderRadius="lg"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend
+        rutrum auctor. Phasellus convallis sagittis augue ut ornare. Vestibulum
+        et gravida lectus, sed ultrices sapien. Nullam aliquet elit dui, vitae
+        hendrerit lectus volutpat eget. In porttitor tincidunt egestas.
+        Pellentesque laoreet ligula at est vulputate facilisis. Etiam tristique
+        justo ut odio placerat ornare. Cras bibendum, orci at ornare tincidunt,
+        lacus nunc gravida enim, sit amet euismod nunc lectus in lectus. Ut
+        dictum nulla et arcu aliquet ornare. Aliquam et dapibus lectus. Aenean
+        mattis elit mi, sed ultricies augue consectetur id. Sed id magna
+        malesuada, luctus urna a, bibendum tortor. Cras cursus cursus ex. Nulla
+        fringilla elit vitae imperdiet scelerisque. Donec ac sem eu diam
+        convallis mollis a sed leo. Proin congue augue turpis, eget rutrum dolor
+        ultricies non. Nulla blandit venenatis dapibus. Sed tincidunt mollis
+        elit, quis suscipit nibh eleifend quis. Donec ex lorem, auctor eu rutrum
+        in, blandit id dolor. Nulla molestie arcu turpis. In id felis vulputate,
+        tempor massa eget, malesuada mauris. Quisque fringilla consequat metus,
+        luctus scelerisque leo fringilla vel.
+      </p>
+    </x.div>
+  </template>
+  <x.div overscrollBehavior="contain">Lorem ipsum dolor sit amet...</x.div>
+</>
+```
+
+## None
+
+Use `overscrollBehaviorY="none"` to prevent vertical scrolling in the target area from triggering vertical scrolling in the parent element, and also prevent "bounce" effects when scrolling vertically past the end of the container.
+
+```jsx preview color=amber
+<>
+  <template preview>
+    <x.div
+      overscrollBehaviorY="none"
       overflow="auto"
       h={32}
       bg="amber-200"
