@@ -14,9 +14,13 @@ const bundle = (config) => ({
   external: (id) => !/^[./]/.test(id),
 })
 
+const esbuildConfig = {
+  target: 'es2015',
+}
+
 export default [
   bundle({
-    plugins: [esbuild()],
+    plugins: [esbuild(esbuildConfig)],
     output: [
       {
         file: `${name}.js`,
@@ -31,7 +35,10 @@ export default [
     ],
   }),
   bundle({
-    plugins: [esbuild({ minify: true })],
+    plugins: [esbuild({
+      ...esbuildConfig,
+      minify: true,
+    })],
     output: [
       {
         file: `${name}.min.mjs`,
