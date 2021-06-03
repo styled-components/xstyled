@@ -1,0 +1,40 @@
+{
+  "name": "@xstyled/styled-components-native",
+  "description": "A utility-first CSS-in-JS framework built for React Native (styled-components bindings).",
+  "version": "3.0.1",
+  "keywords": [
+    "styled-components",
+    "css",
+    "system",
+    "styled-system",
+    "tailwindcss"
+  ],
+  "sideEffects": false,
+  "main": "dist/index.js",
+  "module": "dist/styled-components.esm.js",
+  "typings": "dist/index.d.ts",
+  "author": "Diego Oliveira <diegooliveira.tsi@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "reset": "rm -rf dist",
+    "build": "../../node_modules/.bin/rollup -c ../../build/rollup.config.js",
+    "prepublishOnly": "yarn reset && yarn build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://xstyled.dev",
+  "repository": "https://github.com/gregberge/xstyled/tree/master/packages/styled-components-native",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/gregberge"
+  },
+  "peerDependencies": {
+    "styled-components": "^4.0.0 || ^5.0.0"
+  },
+  "dependencies": {
+    "@xstyled/core": "^3.0.1",
+    "@xstyled/system": "^3.0.1",
+    "@xstyled/util": "^3.0.1"
+  }
+}
