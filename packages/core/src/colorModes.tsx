@@ -351,7 +351,7 @@ export function createColorModeProvider({
 }: {
   ThemeContext: React.Context<any>
   ThemeProvider: React.ComponentType<any>
-  ColorModeStyle: React.ComponentType<any>
+  ColorModeStyle?: React.ComponentType<any>
 }): React.FC<ColorModeProviderProps> {
   function ColorModeProvider({
     children,
@@ -368,7 +368,7 @@ export function createColorModeProvider({
     const colorModeTheme = useColorModeTheme(theme, colorState[0])
     return (
       <>
-        <ColorModeStyle targetSelector={targetSelector} />
+        {ColorModeStyle &&  <ColorModeStyle targetSelector={targetSelector} />}
         <ThemeProvider theme={colorModeTheme}>
           <ColorModeContext.Provider value={colorState}>
             {children}
