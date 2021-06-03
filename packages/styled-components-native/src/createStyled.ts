@@ -3,7 +3,8 @@ import type { ElementType } from 'react'
 import { BoxElements } from '@xstyled/core'
 import { string } from '@xstyled/util'
 import { StyleGenerator, StyleGeneratorProps, Theme } from '@xstyled/system'
-import scStyled, {
+import scStyled from 'styled-components/native'
+import {
   StyledConfig,
   ThemedBaseStyledInterface,
   ThemedStyledFunction,

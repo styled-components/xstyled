@@ -5122,6 +5122,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-native@npm:*":
+  version: 0.64.10
+  resolution: "@types/react-native@npm:0.64.10"
+  dependencies:
+    "@types/react": "*"
+  checksum: 6e438d046d38f0f3bae1f20c2c5acb964e5eb870c04bb4dc908f589ba330f852c6bf1dc7eb395693d047f089dbbb80a703aac70682f0fa0fc154495da0c5adde
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:*":
   version: 17.0.5
   resolution: "@types/react@npm:17.0.5"
@@ -5196,7 +5205,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:^5.1.9":
+"@types/styled-components-react-native@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "@types/styled-components-react-native@npm:5.1.1"
+  dependencies:
+    "@types/react": "*"
+    "@types/react-native": "*"
+    "@types/styled-components": "*"
+  checksum: fccf7771bd7816ed9ba08323c7e2cdcc6a2d8561432289e39a1eaa68fbc368dfd370d6fa9505daa49c00c9f332b374317778d8bc4bef38ee2e7bbf299d5ecabc
+  languageName: node
+  linkType: hard
+
+"@types/styled-components@npm:*, @types/styled-components@npm:^5.1.9":
   version: 5.1.9
   resolution: "@types/styled-components@npm:5.1.9"
   dependencies:
@@ -5731,6 +5751,19 @@ __metadata:
   resolution: "@xstyled/prop-types@workspace:packages/prop-types"
   peerDependencies:
     prop-types: ^15.0.0
+  languageName: unknown
+  linkType: soft
+
+"@xstyled/styled-components-native@workspace:packages/styled-components-native":
+  version: 0.0.0-use.local
+  resolution: "@xstyled/styled-components-native@workspace:packages/styled-components-native"
+  dependencies:
+    "@types/styled-components-react-native": ^5.1.1
+    "@xstyled/core": ^3.0.1
+    "@xstyled/system": ^3.0.1
+    "@xstyled/util": ^3.0.1
+  peerDependencies:
+    styled-components: ^4.0.0 || ^5.0.0
   languageName: unknown
   linkType: soft
 

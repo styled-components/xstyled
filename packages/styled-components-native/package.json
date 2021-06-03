@@ -36,5 +36,8 @@
     "@xstyled/core": "^3.0.1",
     "@xstyled/system": "^3.0.1",
     "@xstyled/util": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/styled-components-react-native": "^5.1.1"
   }
 }
