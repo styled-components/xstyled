@@ -1,4 +1,4 @@
 /*
 /dist/*
-!/dist/index.{d.ts,js,mjs}
-!/dist/index.{js,mjs}.map
+!/dist/index.{d.ts,js,esm.js}
+!/dist/index.{js,esm.js}.map
