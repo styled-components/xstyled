@@ -4,7 +4,7 @@
   "version": "3.0.1",
   "sideEffects": false,
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "module": "dist/index.esm.js",
   "typings": "dist/index.d.js",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",

@@ -28,7 +28,7 @@ export default [
         sourcemap: true,
       },
       {
-        file: `${name}.mjs`,
+        file: `${name}.esm.js`,
         format: 'es',
         sourcemap: true,
       },
@@ -41,7 +41,7 @@ export default [
     })],
     output: [
       {
-        file: `${name}.min.mjs`,
+        file: `${name}.min.esm.js`,
         format: 'es',
       },
     ],
