@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/gregberge/xstyled/tree/master/packages/babel-preset-emotion-css-prop/compare/v3.0.1...v3.0.2) (2021-06-18)
+
+
+### Bug Fixes
+
+* move away from mjs extension to work in more environments ([9098b83](https://github.com/gregberge/xstyled/tree/master/packages/babel-preset-emotion-css-prop/commit/9098b83407888dea985081029dc93c18d5bb6eab))
+
+
+
+
+
 # [2.3.0](https://github.com/gregberge/xstyled/tree/master/packages/babel-preset-emotion-css-prop/compare/v2.2.3...v2.3.0) (2021-03-23)
 
 **Note:** Version bump only for package @xstyled/babel-preset-emotion-css-prop

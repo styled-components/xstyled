@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/gregberge/xstyled/tree/master/packages/emotion/compare/v3.0.1...v3.0.2) (2021-06-18)
+
+
+### Bug Fixes
+
+* **emotion:** fix color prop ([4d88c18](https://github.com/gregberge/xstyled/tree/master/packages/emotion/commit/4d88c18712f9c020af988b8072157a836a6cd0d7)), closes [#276](https://github.com/gregberge/xstyled/tree/master/packages/emotion/issues/276)
+* move away from mjs extension to work in more environments ([9098b83](https://github.com/gregberge/xstyled/tree/master/packages/emotion/commit/9098b83407888dea985081029dc93c18d5bb6eab))
+
+
+
+
+
 # [2.5.0](https://github.com/gregberge/xstyled/tree/master/packages/emotion/compare/v2.4.1...v2.5.0) (2021-05-02)
 
 
