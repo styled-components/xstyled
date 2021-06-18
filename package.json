@@ -58,11 +58,11 @@
     "files": [
       {
         "path": "packages/core/dist/index.min.esm.js",
-        "maxSize": "2.8kB"
+        "maxSize": "3kB"
       },
       {
         "path": "packages/emotion/dist/index.min.esm.js",
-        "maxSize": "1.6kB"
+        "maxSize": "2kB"
       },
       {
         "path": "packages/styled-components/dist/index.min.esm.js",
@@ -70,7 +70,7 @@
       },
       {
         "path": "packages/system/dist/index.min.esm.js",
-        "maxSize": "11.4kB"
+        "maxSize": "12kB"
       },
       {
         "path": "packages/util/dist/index.min.esm.js",
