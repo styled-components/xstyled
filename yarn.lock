@@ -13277,15 +13277,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-robots-txt@npm:^1.6.2":
-  version: 1.6.2
-  resolution: "gatsby-plugin-robots-txt@npm:1.6.2"
+"gatsby-plugin-robots-txt@npm:1.5.6":
+  version: 1.5.6
+  resolution: "gatsby-plugin-robots-txt@npm:1.5.6"
   dependencies:
     "@babel/runtime": ^7.11.2
     generate-robotstxt: ^8.0.3
   peerDependencies:
     gatsby: ^3.0.0 || ^2.0.0
-  checksum: e7ce6c244fe1bed82d017e99f7099dc569fd43e7a71624dd3fdb4ae805aad73be2aae253c7e75f8266c10cb452d08bff47404f9f1363ac9c3d236d90321de9c4
+  checksum: ac657df67b0d4ffc5a8dd93938a88e8c1a186ef6609a7be78649c599fc03ce639835ca5a4cc0da1a284cb66c6cd4e1107c72b6a8200a52c42cbb1ed0a1ced2b8
   languageName: node
   linkType: hard
 
