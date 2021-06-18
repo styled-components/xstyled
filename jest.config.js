@@ -1,4 +1,5 @@
 module.exports = {
+  testEnvironment: 'jsdom',
   transformIgnorePatterns: ['<rootDir>.*(node_modules)(?!.*@xstyled.*).*$'],
   transform: {
     '^.+\\.(j|t)sx?$': 'babel-jest',

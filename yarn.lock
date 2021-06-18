@@ -5436,19 +5436,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^7.28.1":
-  version: 7.30.0
-  resolution: "@testing-library/dom@npm:7.30.0"
+"@testing-library/dom@npm:^8.0.0-alpha.6":
+  version: 8.0.0-alpha.6
+  resolution: "@testing-library/dom@npm:8.0.0-alpha.6"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/runtime": ^7.12.5
     "@types/aria-query": ^4.2.0
     aria-query: ^4.2.2
     chalk: ^4.1.0
-    dom-accessibility-api: ^0.5.4
+    dom-accessibility-api: ^0.5.6
     lz-string: ^1.4.4
-    pretty-format: ^26.6.2
-  checksum: 5af9f762ff43265cf9c36bb62bba37d73da2858a6149a2f11f159c61bfb46d60f66d9c7c10ab9f201cf0749c9e0039494005379355b0a0d494c60f6b759cea34
+    pretty-format: ^27.0.2
+  checksum: f39cd840113e1e10ee6c0ba91203d76ea89ada29d18037b6122d2e29b27d153aa158fd3d54fe997f53742a20613230fafcab3d4411db862c0165efb3a4e5398b
   languageName: node
   linkType: hard
 
@@ -5469,16 +5469,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^11.2.7":
-  version: 11.2.7
-  resolution: "@testing-library/react@npm:11.2.7"
+"@testing-library/react@npm:12.0.0-alpha.2":
+  version: 12.0.0-alpha.2
+  resolution: "@testing-library/react@npm:12.0.0-alpha.2"
   dependencies:
     "@babel/runtime": ^7.12.5
-    "@testing-library/dom": ^7.28.1
+    "@testing-library/dom": ^8.0.0-alpha.6
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 389c9f3e83f59677f5283783788d18f8cd499342a0e5c1f67821c292860afe5f282ff8b5ced795b9c2f7d78132005d8b6b33e1b3e3a9004e240e3569f8e168ef
+  checksum: 02557642c5ebedf40b5d692ae6d87d50ff6d4327d9530095b80dc9ed16db84175990b71c9a9c3ba782d46cfba02e75dfafe9dba590f12f726cd590b55c2b9d92
   languageName: node
   linkType: hard
 
@@ -10879,13 +10879,6 @@ __metadata:
   dependencies:
     esutils: ^2.0.2
   checksum: 2eae469bd2889ceee9892083a67340b3622568fe5290edce620e5d5ddab23d644b2a780e9a7c68ad9c8a62716a70c5e484402ac93a398fa78b54b7505592aa7f
-  languageName: node
-  linkType: hard
-
-"dom-accessibility-api@npm:^0.5.4":
-  version: 0.5.4
-  resolution: "dom-accessibility-api@npm:0.5.4"
-  checksum: 39351d26a3732312f14411effef698204bf6c79a7d5eb0664441897541243f2cdf2e508aca52684ccf3b10df6708a6c265d1fde323eebcb8363a1093f5927b10
   languageName: node
   linkType: hard
 
@@ -22786,7 +22779,7 @@ resolve@^2.0.0-next.3:
     "@emotion/serialize": ^1.0.2
     "@emotion/styled": ^11.3.0
     "@testing-library/jest-dom": ^5.14.1
-    "@testing-library/react": ^11.2.7
+    "@testing-library/react": 12.0.0-alpha.2
     "@types/react": ^17.0.11
     "@types/styled-components": ^5.1.10
     "@typescript-eslint/eslint-plugin": ^4.27.0
