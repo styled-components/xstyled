@@ -1,7 +1,7 @@
 import * as CSS from 'csstype'
 import type { ITheme, Props } from '@xstyled/util'
 
-export { ITheme, Props }
+export type { ITheme, Props }
 
 export type CSSProperties = CSS.Properties<string | number>
 
