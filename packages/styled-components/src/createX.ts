@@ -6,13 +6,13 @@ import { createCssFunction } from './createCssFunction'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
 
-type SafeIntrinsicComponent<T extends keyof JSX.IntrinsicElements> = (
+type SafeIntrinsicElement<T extends keyof JSX.IntrinsicElements> = (
   props: Omit<JSX.IntrinsicElements[T], 'color'>,
 ) => React.ReactElement<any, T>
 
 export type X<TGen extends StyleGenerator> = {
   [Key in JSXElementKeys]: StyledComponent<
-    SafeIntrinsicComponent<Key>,
+    SafeIntrinsicElement<Key>,
     DefaultTheme,
     StyleGeneratorProps<TGen>,
     'color'
