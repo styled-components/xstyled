@@ -345,6 +345,7 @@ export const defaultTheme = {
   colors: generateHexAlphaVariants(colors),
   space,
   screens: {
+    _: 0,
     xs: 0,
     sm: 640,
     md: 768,
