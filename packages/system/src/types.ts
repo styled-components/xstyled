@@ -1,5 +1,5 @@
 import * as CSS from 'csstype'
-import { ITheme, Props } from '@xstyled/util'
+import type { ITheme, Props } from '@xstyled/util'
 
 export { ITheme, Props }
 
