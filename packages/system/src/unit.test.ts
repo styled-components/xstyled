@@ -6,7 +6,6 @@ describe('unit', () => {
       const em = unit('em')
       expect(em(0)).toBe(0)
       expect(em(10)).toBe('10em')
-      expect(em(null)).toBe(null)
       expect(em(undefined)).toBe(undefined)
       expect(em('10px')).toBe('10px')
     })
@@ -16,7 +15,6 @@ describe('unit', () => {
     it('adds px if it is a number', () => {
       expect(px(0)).toBe(0)
       expect(px(10)).toBe('10px')
-      expect(px(null)).toBe(null)
       expect(px(undefined)).toBe(undefined)
       expect(px('10px')).toBe('10px')
     })

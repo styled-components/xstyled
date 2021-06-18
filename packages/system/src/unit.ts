@@ -21,8 +21,14 @@ const pxToRem = (
   { rootFontSize = 16 }: PxToRemOptions = {},
 ): number => round(value / rootFontSize)
 
-export const remPx = (value: CSSScalar, options?: PxToRemOptions): CSSScalar =>
-  num(value) && value !== 0 ? `${pxToRem(value, options)}rem` : value
+export const remPx = (
+  value: CSSScalar,
+  options?: PxToRemOptions,
+): CSSScalar => {
+  const num = Number(value)
+  if (Number.isNaN(num) || num === 0) return value
+  return `${pxToRem(num, options)}rem`
+}
 
 export const rpx = (value: CSSScalar, options?: PxToRemOptions): CSSScalar => {
   if (!string(value) || value.length < 4) return value
