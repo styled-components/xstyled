@@ -10,6 +10,7 @@ describe('#rpxTransformers', () => {
     const remProps = { theme: { transformers: { ...rpxTransformers } } }
     expect(th.space(1)(remProps)).toBe('0.0625rem')
     expect(th.space(2)(remProps)).toBe('0.125rem')
+    expect(th.space(200)(remProps)).toBe('12.5rem')
     expect(th.border(2)(remProps)).toBe('0.125rem solid')
   })
 })
