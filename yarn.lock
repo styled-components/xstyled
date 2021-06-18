@@ -6508,8 +6508,8 @@ __metadata:
     "@emotion/core": ^11.0.0
     "@emotion/react": ^11.4.0
     "@emotion/styled": ^11.3.0
-    "@xstyled/emotion": ^3.0.1
-    "@xstyled/styled-components": ^3.0.1
+    "@xstyled/emotion": ^3.0.2
+    "@xstyled/styled-components": ^3.0.2
     babel-loader: ^8.2.2
     benchmark: ^2.1.4
     emotion-theming: ^11.0.0
@@ -6524,21 +6524,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xstyled/core@^3.0.1, @xstyled/core@workspace:packages/core":
+"@xstyled/core@^3.0.2, @xstyled/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@xstyled/core@workspace:packages/core"
   dependencies:
-    "@xstyled/system": ^3.0.1
+    "@xstyled/system": ^3.0.2
   languageName: unknown
   linkType: soft
 
-"@xstyled/emotion@^3.0.1, @xstyled/emotion@workspace:packages/emotion":
+"@xstyled/emotion@^3.0.2, @xstyled/emotion@workspace:packages/emotion":
   version: 0.0.0-use.local
   resolution: "@xstyled/emotion@workspace:packages/emotion"
   dependencies:
-    "@xstyled/core": ^3.0.1
-    "@xstyled/system": ^3.0.1
-    "@xstyled/util": ^3.0.1
+    "@xstyled/core": ^3.0.2
+    "@xstyled/system": ^3.0.2
+    "@xstyled/util": ^3.0.2
   peerDependencies:
     "@emotion/react": ^11.0.0
     "@emotion/styled": ^11.0.0
@@ -6553,28 +6553,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xstyled/styled-components@^3.0.0, @xstyled/styled-components@^3.0.1, @xstyled/styled-components@workspace:packages/styled-components":
+"@xstyled/styled-components@^3.0.0, @xstyled/styled-components@^3.0.2, @xstyled/styled-components@workspace:packages/styled-components":
   version: 0.0.0-use.local
   resolution: "@xstyled/styled-components@workspace:packages/styled-components"
   dependencies:
-    "@xstyled/core": ^3.0.1
-    "@xstyled/system": ^3.0.1
-    "@xstyled/util": ^3.0.1
+    "@xstyled/core": ^3.0.2
+    "@xstyled/system": ^3.0.2
+    "@xstyled/util": ^3.0.2
   peerDependencies:
     styled-components: ^4.0.0 || ^5.0.0
   languageName: unknown
   linkType: soft
 
-"@xstyled/system@^3.0.1, @xstyled/system@workspace:packages/system":
+"@xstyled/system@^3.0.2, @xstyled/system@workspace:packages/system":
   version: 0.0.0-use.local
   resolution: "@xstyled/system@workspace:packages/system"
   dependencies:
-    "@xstyled/util": ^3.0.1
+    "@xstyled/util": ^3.0.2
     csstype: ^3.0.8
   languageName: unknown
   linkType: soft
 
-"@xstyled/util@^3.0.1, @xstyled/util@workspace:packages/util":
+"@xstyled/util@^3.0.2, @xstyled/util@workspace:packages/util":
   version: 0.0.0-use.local
   resolution: "@xstyled/util@workspace:packages/util"
   languageName: unknown
