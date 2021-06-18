@@ -10,7 +10,7 @@ type JSXElementKeys = keyof JSX.IntrinsicElements
 export type X<TGen extends StyleGenerator> = {
   [Key in JSXElementKeys]: StyledComponent<
     StyleGeneratorProps<TGen> & { as?: React.ElementType; theme?: Theme },
-    JSX.IntrinsicElements[Key]
+    Omit<JSX.IntrinsicElements[Key], 'color'>
   >
 }
 
