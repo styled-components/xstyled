@@ -11,7 +11,7 @@
   ],
   "sideEffects": false,
   "main": "dist/index.js",
-  "module": "dist/styled-components.esm.js",
+  "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
