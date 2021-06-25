@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/gregberge/xstyled/compare/v3.0.2...v3.0.3) (2021-06-25)
+
+
+### Bug Fixes
+
+* fix styled components module name ([#284](https://github.com/gregberge/xstyled/issues/284)) ([7c979d0](https://github.com/gregberge/xstyled/commit/7c979d0d69698629a516cfa5b8582cbc01aed1cb))
+
+
+
+
+
 ## [3.0.2](https://github.com/gregberge/xstyled/compare/v3.0.1...v3.0.2) (2021-06-18)
 
 
