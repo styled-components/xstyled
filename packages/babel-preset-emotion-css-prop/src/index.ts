@@ -19,6 +19,7 @@ export default (
     sourceMap,
     autoLabel,
     labelFormat,
+    importMap,
     instances = [],
     ...options
   } = {},
@@ -40,6 +41,7 @@ export default (
           sourceMap,
           autoLabel,
           labelFormat,
+          importMap,
           instances: ['@xstyled/emotion', ...instances],
           cssPropOptimization: true,
         },
