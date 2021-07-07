@@ -221,29 +221,26 @@ To avoid the `/** @jsx jsx */` you can use `@xstyled/babel-preset-emotion-css-pr
 
 You may want to use [Emotion Babel plugin](https://emotion.sh/docs/babel) for minification of styles, dead code elimination, components as selectors, and a nicer debugging experience.
 
-You have to specify xstyled inside the `importMap`:
-
 **.babelrc**
 
 ```js
 {
   ...,
-  "plugins": [
+  "presets": [
     [
-      "@emotion/babel-plugin",
+      "@xstyled/babel-preset-emotion-css-prop",
       {
-        "importMap": {
-          "@xstyled/emotion": {
-            "default": {
-              "canonicalImport": ["@emotion/styled", "default"]
-            }
-          }
-        }
+        // @emotion/babel-plugin options
+        // https://emotion.sh/docs/@emotion/babel-plugin
       }
     ]
   ]
 }
 ```
+
+Note: `importMap` has some known issues coming from Emotion side
+- [Emotion not compatible with styled.box](https://github.com/gregberge/xstyled/issues/286)
+- [CSS prop doesnt have access to the theme](https://github.com/gregberge/xstyled/issues/285)
 
 ### Difference in `css` prop usage
 
