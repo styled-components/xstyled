@@ -515,7 +515,7 @@ export const defaultTheme = {
     focus: '&:focus',
     focusVisible: '&:focus-visible',
     active: '&:active',
-    disabled: '&:disabled',
+    disabled: '&:disabled, &[aria-disabled=true]',
     placeholder: '&::placeholder',
   },
 }
