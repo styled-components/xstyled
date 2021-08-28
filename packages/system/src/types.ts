@@ -71,7 +71,7 @@ export type ThemeStates<T extends ITheme> = T extends {
   ? T['states']
   : unknown
 
-export type ThemeVariants<T extends ITheme> = ThemeScreens<T> & ThemeStates<T>
+export type ThemeVariants<T extends ITheme> = ThemeScreens<T> & Omit<ThemeStates<T>, '_'>
 
 export type ThemeProp<TType, TTheme extends ITheme> = {
   [P in keyof ThemeVariants<TTheme>]?: TType | ThemeProp<TType, TTheme>
