@@ -8,6 +8,9 @@ export {
   ThemeProvider,
   withTheme,
 } from 'styled-components'
+import * as XSystem from '@xstyled/system'
+import { defaultTheme }  from './defaultTheme'
+
 export * from './colorModes'
 export * from './theme'
 export * from './breakpoints'
@@ -19,4 +22,4 @@ import { system } from '@xstyled/system'
 import { createCss } from './create'
 
 const { css, styled, x } = createCss(system)
-export { css, styled as default, x }
+export { css, styled as default, x, XSystem, defaultTheme }
