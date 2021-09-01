@@ -11,9 +11,7 @@ export {
 import * as XSystem from '@xstyled/system'
 import { defaultTheme }  from './defaultTheme'
 
-export * from './colorModes'
 export * from './theme'
-export * from './breakpoints'
 export * from '@xstyled/system'
 export * from './create'
 
@@ -21,5 +19,5 @@ export * from './create'
 import { system } from '@xstyled/system'
 import { createCss } from './create'
 
-const { css, styled, x } = createCss(system)
-export { css, styled as default, x, XSystem, defaultTheme }
+const { css, styled, } = createCss(system)
+export { css, styled as default, XSystem, defaultTheme }
