@@ -1,6 +1,6 @@
 # How to Contribute
 
-Smooth UI is a small project, it is widely used but has not a lot of contributors. We're still working out the kinks to make contributing to this project as easy and transparent as possible, but we're not quite there yet. Hopefully this document makes the process for contributing clear and answers some questions that you may have.
+xstyled is a small project, it is widely used but has not a lot of contributors. We're still working out the kinks to make contributing to this project as easy and transparent as possible, but we're not quite there yet. Hopefully this document makes the process for contributing clear and answers some questions that you may have.
 
 ## [Code of Conduct](https://github.com/gregberge/xstyled/blob/master/CODE_OF_CONDUCT.md)
 
@@ -8,7 +8,7 @@ We expect project participants to adhere to our Code of Conduct. Please read [th
 
 ## Open Development
 
-All work on Smooth UI happens directly on [GitHub](/). Both core team members and external contributors send pull requests which go through the same review process.
+All work on xstyled happens directly on [GitHub](/). Both core team members and external contributors send pull requests which go through the same review process.
 
 ### Workflow and Pull Requests
 
@@ -26,41 +26,29 @@ _Before_ submitting a pull request, please make sure the following is done…
 
     Note: Replace `<your_username>` with your GitHub username
 
-2.  Smooth UI uses [Yarn](https://code.fb.com/web/yarn-a-new-package-manager-for-javascript/) for running development scripts. If you haven't already done so, please [install yarn](https://yarnpkg.com/en/docs/install).
+2.  Run `npm install --legacy-peer-deps`
 
-3.  Run `yarn install`. On Windows: To install [Yarn](https://yarnpkg.com/en/docs/install#windows-tab) on Windows you may need to download either node.js or Chocolatey<br />
-
-    ```sh
-    yarn install
-    ```
-
-    To check your version of Yarn and ensure it's installed you can type:
-
-    ```sh
-    yarn --version
-    ```
-
-4.  If you've added code that should be tested, add tests.
+3.  If you've added code that should be tested, add tests.
 
     ```sh
     # build packages
-    yarn run build
+    npm run build
     # run docs
-    yarn run dev
+    npm run dev
     ```
 
-5.  If you've changed APIs, update the documentation.
+4.  If you've changed APIs, update the documentation.
 
-6.  Ensure the linting is good via `yarn lint`.
+5.  Ensure the linting is good via `npm run lint`.
 
     ```sh-session
-    $ yarn lint
+    $ npm run lint
     ```
 
-7.  Ensure the test suite passes via `yarn test`.
+6.  Ensure the test suite passes via `npm run test`.
 
     ```sh-session
-    $ yarn test
+    $ npm run test
     ```
 
 ## Bugs

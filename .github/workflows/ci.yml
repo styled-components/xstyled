@@ -17,32 +17,24 @@ jobs:
         with:
           node-version: '16.x'
 
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: .yarn
-          key: ${{ runner.os }}-deps-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-deps
-
       - name: Install dependencies
-        run: yarn install --immutable
+        run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Lint
-        run: yarn lint
+        run: npm run lint
 
       - name: Test
-        run: yarn test --ci --coverage --runInBand
+        run: npm run test --ci --coverage --runInBand
 
       - name: Codecov
         continue-on-error: true
-        run: yarn codecov
+        run: npm run codecov
 
       - name: Check bundle size
         continue-on-error: true
         env:
           BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
-        run: yarn bundlewatch
+        run: npm run bundlewatch
