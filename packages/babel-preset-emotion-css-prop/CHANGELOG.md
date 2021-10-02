@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/gregberge/xstyled/compare/v3.0.3...v3.1.0) (2021-10-02)
+
+
+### Features
+
+* **emotion:** add importMap to the babel plugin ([#293](https://github.com/gregberge/xstyled/issues/293)) ([657f7fe](https://github.com/gregberge/xstyled/commit/657f7fe53b7f14a9523163aa0c1989655d83e058))
+
+
+
+
+
 ## [3.0.2](https://github.com/gregberge/xstyled/tree/master/packages/babel-preset-emotion-css-prop/compare/v3.0.1...v3.0.2) (2021-06-18)
 
 

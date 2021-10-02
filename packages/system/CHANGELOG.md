@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/gregberge/xstyled/compare/v3.0.3...v3.1.0) (2021-10-02)
+
+
+### Bug Fixes
+
+* **types:** fix wrong type for ThemeVariants ([#301](https://github.com/gregberge/xstyled/issues/301)) ([b69619e](https://github.com/gregberge/xstyled/commit/b69619ed06bedfe6146df35e697a5c60a79aa4d5))
+
+
+### Features
+
+* **system:** add aria-disabled to the disabled state ([#297](https://github.com/gregberge/xstyled/issues/297)) ([d28cf38](https://github.com/gregberge/xstyled/commit/d28cf38425fef81c090cc95b47b62e2bfc440781))
+* **typings:** assemble deep paths for autocompletion ([#310](https://github.com/gregberge/xstyled/issues/310)) ([9867158](https://github.com/gregberge/xstyled/commit/986715841c9c40c775d55ad54b8653165b2f1b71))
+
+
+
+
+
 ## [3.0.2](https://github.com/gregberge/xstyled/tree/master/packages/system/compare/v3.0.1...v3.0.2) (2021-06-18)
 
 

@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/gregberge/xstyled/compare/v3.0.3...v3.1.0) (2021-10-02)
+
+
+### Bug Fixes
+
+* **docs:** added a missing paren in the code example ([#303](https://github.com/gregberge/xstyled/issues/303)) ([901755b](https://github.com/gregberge/xstyled/commit/901755ba6d16eb621bacfe966886296cf2c6efdb))
+* fix for Prototype Pollution ([#304](https://github.com/gregberge/xstyled/issues/304)) ([34ed147](https://github.com/gregberge/xstyled/commit/34ed147c2c9dd02bc213e74f9d5d7af1fae3b42c))
+* **types:** fix wrong type for ThemeVariants ([#301](https://github.com/gregberge/xstyled/issues/301)) ([b69619e](https://github.com/gregberge/xstyled/commit/b69619ed06bedfe6146df35e697a5c60a79aa4d5))
+
+
+### Features
+
+* **emotion:** add importMap to the babel plugin ([#293](https://github.com/gregberge/xstyled/issues/293)) ([657f7fe](https://github.com/gregberge/xstyled/commit/657f7fe53b7f14a9523163aa0c1989655d83e058))
+* **system:** add aria-disabled to the disabled state ([#297](https://github.com/gregberge/xstyled/issues/297)) ([d28cf38](https://github.com/gregberge/xstyled/commit/d28cf38425fef81c090cc95b47b62e2bfc440781))
+* **typings:** assemble deep paths for autocompletion ([#310](https://github.com/gregberge/xstyled/issues/310)) ([9867158](https://github.com/gregberge/xstyled/commit/986715841c9c40c775d55ad54b8653165b2f1b71))
+
+
+
+
+
 ## [3.0.3](https://github.com/gregberge/xstyled/compare/v3.0.2...v3.0.3) (2021-06-25)
 
 

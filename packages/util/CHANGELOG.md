@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/gregberge/xstyled/compare/v3.0.3...v3.1.0) (2021-10-02)
+
+
+### Bug Fixes
+
+* fix for Prototype Pollution ([#304](https://github.com/gregberge/xstyled/issues/304)) ([34ed147](https://github.com/gregberge/xstyled/commit/34ed147c2c9dd02bc213e74f9d5d7af1fae3b42c))
+
+
+
+
+
 ## [3.0.2](https://github.com/gregberge/xstyled/tree/master/packages/util/compare/v3.0.1...v3.0.2) (2021-06-18)
 
 
