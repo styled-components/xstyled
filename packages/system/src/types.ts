@@ -114,10 +114,10 @@ export interface TransformValue {
   ): CSSScalar
 }
 
-declare type SynthesizedPath<T extends Theme> = {
-  [P in keyof T]: T[P] extends ITheme
+declare type SynthesizedPath<T extends {}> = {
+  [P in keyof T]: (T[P] extends {[key: string]: any; [key: number]: any}
     ? `${string & P}` | `${string & P}.${SynthesizedPath<T[P]>}`
-    : `${string & P}`
+    : `${string & P}`) | number
 }[T extends any[] ? number & keyof T : keyof T]
 
 export type ThemeNamespaceValue<
