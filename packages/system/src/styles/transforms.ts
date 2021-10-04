@@ -14,7 +14,7 @@ export const getTransform = themeGetter<ThemeTransform>({
 })
 
 export interface TransformProps<T extends ITheme = Theme> {
-  transform?: SystemProp<boolean, T>
+  transform?: SystemProp<string, T>
 }
 export const transform = style<TransformProps>({
   prop: 'transform',
