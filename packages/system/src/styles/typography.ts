@@ -110,7 +110,7 @@ export const letterSpacing = style<LetterSpacingProps>({
 // Color
 
 export interface ColorProps<T extends ITheme = Theme> {
-  color?: Color<T>
+  color?: SystemProp<Color<T>, T>
 }
 export const color = style<ColorProps>({
   prop: 'color',
@@ -231,7 +231,10 @@ export interface TextProps<T extends ITheme = Theme> {
 export const text = style<TextProps>({
   prop: 'text',
   key: 'texts',
-  css: (value) => ({ theme }: any) => all({ ...value, theme }),
+  css:
+    (value) =>
+    ({ theme }: any) =>
+      all({ ...value, theme }),
 })
 
 // @TODO add word-break
