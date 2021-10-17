@@ -4,8 +4,8 @@ import { Global, useTheme } from '@emotion/react'
 import { StyleGenerator } from '@xstyled/system'
 import { createCssFunction, XCSSFunction } from './createCssFunction'
 
-export interface XCreateGlobalStyle<P extends object = {}> {
-  (...styles: Parameters<XCSSFunction>): React.FC<P>
+export interface XCreateGlobalStyle {
+  <P extends object = {}>(...styles: Parameters<XCSSFunction>): React.FC<P>
 }
 
 export const createCreateGlobalStyle = <TGen extends StyleGenerator>(
