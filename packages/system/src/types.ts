@@ -71,7 +71,8 @@ export type ThemeStates<T extends ITheme> = T extends {
   ? T['states']
   : unknown
 
-export type ThemeVariants<T extends ITheme> = ThemeScreens<T> & Omit<ThemeStates<T>, '_'>
+export type ThemeVariants<T extends ITheme> = ThemeScreens<T> &
+  Omit<ThemeStates<T>, '_'>
 
 export type ThemeProp<TType, TTheme extends ITheme> = {
   [P in keyof ThemeVariants<TTheme>]?: TType | ThemeProp<TType, TTheme>
@@ -115,9 +116,11 @@ export interface TransformValue {
 }
 
 declare type SynthesizedPath<T extends {}> = {
-  [P in keyof T]: (T[P] extends {[key: string]: any; [key: number]: any}
-    ? `${string & P}` | `${string & P}.${SynthesizedPath<T[P]>}`
-    : `${string & P}`) | number
+  [P in keyof T]:
+    | (T[P] extends { [key: string]: any; [key: number]: any }
+        ? `${string & P}` | `${string & P}.${SynthesizedPath<T[P]>}`
+        : `${string & P}`)
+    | number
 }[T extends any[] ? number & keyof T : keyof T]
 
 export type ThemeNamespaceValue<
