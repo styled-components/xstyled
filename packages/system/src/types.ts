@@ -120,7 +120,7 @@ declare type SynthesizedPath<T extends {}> = {
     | (T[P] extends { [key: string]: any; [key: number]: any }
         ? `${string & P}` | `${string & P}.${SynthesizedPath<T[P]>}`
         : `${string & P}`)
-    | number
+    | (number & P)
 }[T extends any[] ? number & keyof T : keyof T]
 
 export type ThemeNamespaceValue<
