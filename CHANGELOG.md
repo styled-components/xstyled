@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/gregberge/xstyled/compare/v3.1.0...v3.1.1) (2021-10-30)
+
+
+### Bug Fixes
+
+* allow numeric values for systemprops ([efdefe1](https://github.com/gregberge/xstyled/commit/efdefe1ddcf481a10bac1f7473143ce140e34ca8))
+* boolean or string for transform property type ([1498d86](https://github.com/gregberge/xstyled/commit/1498d8671af5b46357ae99ae85c4ed62213e065f))
+* color prop missing responsive support ([65f532b](https://github.com/gregberge/xstyled/commit/65f532bd1bf2f1b2dbc56068ef8d943223d7b4ff))
+* ensure the number is one of the keys ([c2f71fd](https://github.com/gregberge/xstyled/commit/c2f71fd5c01b2f8597c4de370c39486218aa291b))
+* more correct synthesized type that allows number keys ([c31c6b1](https://github.com/gregberge/xstyled/commit/c31c6b11b024fd9e5b96640f51d8f2b0c0342bb8))
+* move typography color fix to proper file ([5c635b0](https://github.com/gregberge/xstyled/commit/5c635b08f321ce5c81ca7c2dbb93d29ca7ab9b12))
+* transform prop type should be string not boolean ([50c847e](https://github.com/gregberge/xstyled/commit/50c847eddf11bcfb770830e98bdacda3514f4889))
+* **types:** fix emotion createGlobalStyle type def ([95667bc](https://github.com/gregberge/xstyled/commit/95667bcb1d25ad008fd51080af66323b3be930ab))
+
+
+
+
+
 # [3.1.0](https://github.com/gregberge/xstyled/compare/v3.0.3...v3.1.0) (2021-10-02)
 
 
