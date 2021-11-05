@@ -124,6 +124,63 @@ const defaultTheme = {
 }
 ```
 
+### Dark mode
+
+The built-in shadows default to a light-mode appropriate appearance. Leverage injected CSS variables to override and customize this for other color modes, e.g.
+
+```tsx
+const defaultTheme = {
+  // ...
+  colors: {
+    shadows: {
+      xs: 'rgba(0, 0, 0, 0.05)',
+      sm: 'rgba(0, 0, 0, 0.05)',
+      defaultPrimary: 'rgba(0, 0, 0, 0.1)',
+      defaultSecondary: 'rgba(0, 0, 0, 0.06)',
+      mdPrimary: 'rgba(0, 0, 0, 0.1)',
+      mdSecondary: 'rgba(0, 0, 0, 0.06)',
+      lgPrimary: 'rgba(0, 0, 0, 0.1)',
+      lgSecondary: 'rgba(0, 0, 0, 0.05)',
+      xlPrimary: 'rgba(0, 0, 0, 0.1)',
+      xlSecondary: 'rgba(0, 0, 0, 0.04)',
+      2xl: 'rgba(0, 0, 0, 0.25)',
+      inner: 'rgba(0, 0, 0, 0.06)',
+    },
+    
+    modes: {
+      dark: {
+        shadows: {
+          xs: 'rgba(255, 255, 255, 0.05)',
+          sm: 'rgba(255, 255, 255, 0.05)',
+          defaultPrimary: 'rgba(255, 255, 255, 0.1)',
+          defaultSecondary: 'rgba(255, 255, 255, 0.06)',
+          mdPrimary: 'rgba(255, 255, 255, 0.1)',
+          mdSecondary: 'rgba(255, 255, 255, 0.06)',
+          lgPrimary: 'rgba(255, 255, 255, 0.1)',
+          lgSecondary: 'rgba(255, 255, 255, 0.05)',
+          xlPrimary: 'rgba(255, 255, 255, 0.1)',
+          xlSecondary: 'rgba(255, 255, 255, 0.04)',
+          2xl: 'rgba(255, 255, 255, 0.25)',
+          inner: 'rgba(255, 255, 255, 0.06)',
+        },
+      }
+    }
+  },
+  shadows: {
+    xs: '0 0 0 1px var(--xstyled-colors-shadows-xs)',
+    sm: '0 1px 2px 0 var(--xstyled-colors-shadows-sm)',
+    default: '0 1px 3px 0 var(--xstyled-colors-shadows-defaultPrimary), 0 1px 2px 0 var(--xstyled-colors-shadows-defaultSecondary)',
+    md: '0 4px 6px -1px var(--xstyled-colors-shadows-mdPrimary), 0 2px 4px -1px var(--xstyled-colors-shadows-mdSecondary)',
+    lg:
+      '0 10px 15px -3px var(--xstyled-colors-shadows-lgPrimary), 0 4px 6px -2px var(--xstyled-colors-shadows-lgSecondary)',
+    xl:
+      '0 20px 25px -5px var(--xstyled-colors-shadows-xlPrimary), 0 10px 10px -5px var(--xstyled-colors-shadows-xlSecondary)',
+    '2xl': '0 25px 50px -12px var(--xstyled-colors-shadows-2xl)',
+    inner: 'inset 0 2px 4px 0 var(--xstyled-colors-shadows-inner)',
+  },
+}
+```
+
 ## Styled bindings
 
 ### Automatic
