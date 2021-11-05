@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](https://github.com/gregberge/xstyled/compare/v3.1.1...v3.1.2) (2021-11-05)
+
+
+### Bug Fixes
+
+* **system:** fix caching issue with value with different types ([4a6ded3](https://github.com/gregberge/xstyled/commit/4a6ded3c89e2822bac4c672e06c2e74a8f2c7141))
+
+
+
+
+
 ## [3.1.1](https://github.com/gregberge/xstyled/compare/v3.1.0...v3.1.1) (2021-10-30)
 
 
