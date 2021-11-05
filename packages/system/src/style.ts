@@ -64,7 +64,7 @@ export const themeGetter = <T = any>({
       if (!string(value) && !num(value) && value !== true) {
         return res as CSSScalar
       }
-      const cacheKey = `${value}-${defaultValue}`
+      const cacheKey = `${typeof value}-${value}-${defaultValue}`
       const cache = getCache<CSSScalar>(props.theme, `__themeGetter${id}`)
       if (cache.has(cacheKey)) return cache.get(cacheKey)
 
