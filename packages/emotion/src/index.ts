@@ -13,6 +13,7 @@ export * from './breakpoints'
 export * from './theme'
 export * from './preflight'
 export * from '@xstyled/system'
+export * from './create'
 
 // Create and export default system
 import { system } from '@xstyled/system'
