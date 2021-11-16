@@ -152,6 +152,37 @@ describe('#style', () => {
           fontFamily: 'title2',
         },
       })
+      // https://github.com/gregberge/xstyled/issues/288
+      expect(
+        JSON.stringify(
+          fontFamily({
+            fontFamily: {
+              _: { _: 'title', hover: 'title2' },
+              md: { _: 'title3', hover: 'title4' },
+            },
+            theme,
+          }),
+          null,
+          2,
+        ),
+      ).toEqual(
+        JSON.stringify(
+          {
+            fontFamily: 'title',
+            '&:hover': {
+              fontFamily: 'title2',
+            },
+            '@media (min-width: 400px)': {
+              fontFamily: 'title3',
+              '&:hover': {
+                fontFamily: 'title4',
+              },
+            },
+          },
+          null,
+          2,
+        ),
+      )
     })
 
     it('works with breakpoints', () => {
