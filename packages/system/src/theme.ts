@@ -36,7 +36,20 @@ export const getVariants = <T extends Props>(props: T): PropsVariants<T> => {
   for (const value in screens) {
     medias[value] = mediaMinWidth(getBreakpointMin(screens, value))
   }
-  return { ...medias, ...states }
+  const variants = { ...medias, ...states }
+
+  // Move at-rules to the end, since they don't increase specificity by
+  // themselves but might need to override something that does.
+  // See https://github.com/gregberge/xstyled/issues/288
+  for (const [value, selector] of Object.entries(variants)) {
+    if (selector && selector.startsWith('@')) {
+      delete variants[value]
+      // @ts-ignore
+      variants[value] = selector
+    }
+  }
+
+  return variants
 }
 
 export const getCachedVariants = <T extends Props>(
