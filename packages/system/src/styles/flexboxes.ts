@@ -103,7 +103,7 @@ export interface FlexboxesProps<T extends ITheme = Theme>
     JustifyContentProps<T>,
     JustifyItemsProps<T>,
     FlexWrapProps<T>,
-    FlexWrapProps<T>,
+    FlexBasisProps<T>,
     FlexShrinkProps<T>,
     FlexGrowProps<T>,
     FlexDirectionProps<T>,
