@@ -20,4 +20,4 @@ import { system } from '@xstyled/system'
 import { createCss } from './create'
 
 const { css, styled, x, createGlobalStyle } = createCss(system)
-export { css, styled as default, x, createGlobalStyle }
+export { css, styled, styled as default, x, createGlobalStyle }
