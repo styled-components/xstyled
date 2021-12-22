@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/gregberge/xstyled/compare/v3.1.2...v3.2.0) (2021-12-22)
+
+
+### Bug Fixes
+
+* FlexboxesProps missing FlexBasisProps ([#332](https://github.com/gregberge/xstyled/issues/332)) ([dbc531b](https://github.com/gregberge/xstyled/commit/dbc531b8dfc93ef516d190d5d51c951165ea5bee))
+
+
+### Features
+
+* export `styled` as a named export ([410cd67](https://github.com/gregberge/xstyled/commit/410cd679fc6c5c72b527c062bc88fb3d4dfe252c))
+
+
+
+
+
 ## [3.1.2](https://github.com/gregberge/xstyled/compare/v3.1.1...v3.1.2) (2021-11-05)
 
 
