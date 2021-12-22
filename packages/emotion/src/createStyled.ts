@@ -5,6 +5,10 @@ import { StyleGenerator, StyleGeneratorProps } from '@xstyled/system'
 import { BoxElements } from '@xstyled/core'
 import { createCssFunction, XCSSFunction } from './createCssFunction'
 
+const emStyledInterop =
+  // @ts-ignore
+  typeof emStyled === 'function' ? emStyled : emStyled.default
+
 const flattenArgs = (arg: any, props: any): any => {
   if (typeof arg === 'function') return flattenArgs(arg(props), props)
   if (Array.isArray(arg)) return arg.map((arg) => flattenArgs(arg, props))
@@ -65,7 +69,7 @@ export const createBaseStyled = <TGen extends StyleGenerator>(
     : {}
   return ((component: any, options: any) =>
     getCreateStyle(
-      emStyled(component, { ...defaultOptions, ...options }),
+      emStyledInterop(component, { ...defaultOptions, ...options }),
       css,
       generator,
     )) as XStyled<TGen>
@@ -78,7 +82,7 @@ export const createStyled = <TGen extends StyleGenerator>(
   const styled = createBaseStyled(css)
   const xstyled = createBaseStyled(css, generator)
   styled.box = xstyled('div')
-  Object.keys(emStyled).forEach((key) => {
+  Object.keys(emStyledInterop).forEach((key) => {
     // @ts-ignore
     styled[key] = styled(key)
     // @ts-ignore
