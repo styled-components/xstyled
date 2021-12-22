@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/gregberge/xstyled/compare/v3.2.0...v3.3.0) (2021-12-22)
+
+
+### Features
+
+* **styled:** add esm support ([a080d96](https://github.com/gregberge/xstyled/commit/a080d9609c6bdf02fb91de9e989de7157b131133)), closes [#3601](https://github.com/gregberge/xstyled/issues/3601)
+
+
+
+
+
 # [3.2.0](https://github.com/gregberge/xstyled/compare/v3.1.2...v3.2.0) (2021-12-22)
 
 
