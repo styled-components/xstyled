@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/gregberge/xstyled/compare/v3.3.0...v3.4.0) (2021-12-22)
+
+
+### Features
+
+* **emotion:** support ESM ([292fe28](https://github.com/gregberge/xstyled/commit/292fe28d71c280cb755ed4ecf01ac6deae693031))
+
+
+
+
+
 # [3.2.0](https://github.com/gregberge/xstyled/compare/v3.1.2...v3.2.0) (2021-12-22)
 
 
