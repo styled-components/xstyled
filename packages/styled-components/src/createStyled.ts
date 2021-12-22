@@ -10,6 +10,10 @@ import scStyled, {
 } from 'styled-components'
 import { createCssFunction, XCSSFunction } from './createCssFunction'
 
+const scStyledInterop =
+  // @ts-ignore
+  typeof scStyled === 'function' ? scStyled : scStyled.default
+
 const getCreateStyle = (
   baseCreateStyle: ThemedStyledFunction<any, any>,
   css: XCSSFunction,
@@ -76,7 +80,7 @@ export const createBaseStyled = <TGen extends StyleGenerator>(
       }
     : {}
   return ((component: Parameters<typeof scStyled>[0]) => {
-    const baseStyled = scStyled(component)
+    const baseStyled = scStyledInterop(component)
     return getCreateStyle(
       config ? baseStyled.withConfig(config) : baseStyled,
       css,
@@ -92,7 +96,7 @@ export const createStyled = <TGen extends StyleGenerator>(
   const styled = createBaseStyled(css)
   const xstyled = createBaseStyled(css, generator)
   styled.box = xstyled('div')
-  Object.keys(scStyled).forEach((key) => {
+  Object.keys(scStyledInterop).forEach((key) => {
     // @ts-ignore
     styled[key] = styled(key)
     // @ts-ignore
