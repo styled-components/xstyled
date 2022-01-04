@@ -69,3 +69,31 @@ describe('#ring', () => {
     })
   })
 })
+
+describe('#borderStyle', () => {
+  it('works as expected', () => {
+    expect(borders({ borderStyle: 'dashed' })).toEqual({
+      borderStyle: 'dashed',
+    })
+  })
+  it('works as expected', () => {
+    expect(borders({ borderTopStyle: 'dashed' })).toEqual({
+      borderTopStyle: 'dashed',
+    })
+  })
+  it('works as expected', () => {
+    expect(borders({ borderRightStyle: 'solid' })).toEqual({
+      borderRightStyle: 'solid',
+    })
+  })
+  it('works as expected', () => {
+    expect(borders({ borderBottomStyle: 'double' })).toEqual({
+      borderBottomStyle: 'double',
+    })
+  })
+  it('works as expected', () => {
+    expect(borders({ borderLeftStyle: 'dotted' })).toEqual({
+      borderLeftStyle: 'dotted',
+    })
+  })
+})

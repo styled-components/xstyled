@@ -201,6 +201,50 @@ export const borderStyle = style<BorderStyleProps>({
   ],
 })
 
+export interface BorderTopStyleProps<T extends ITheme = Theme> {
+  borderTopStyle?: SystemProp<
+    ThemeBorderStyle<T> | CSS.Property.BorderTopStyle,
+    T
+  >
+}
+export const borderTopStyle = style<BorderTopStyleProps>({
+  prop: 'borderTopStyle',
+  themeGet: getBorderStyle,
+})
+
+export interface BorderRightStyleProps<T extends ITheme = Theme> {
+  borderRightStyle?: SystemProp<
+    ThemeBorderStyle<T> | CSS.Property.BorderRightStyle,
+    T
+  >
+}
+export const borderRightStyle = style<BorderRightStyleProps>({
+  prop: 'borderRightStyle',
+  themeGet: getBorderStyle,
+})
+
+export interface BorderBottomStyleProps<T extends ITheme = Theme> {
+  borderBottomStyle?: SystemProp<
+    ThemeBorderStyle<T> | CSS.Property.BorderBottomStyle,
+    T
+  >
+}
+export const borderBottomStyle = style<BorderBottomStyleProps>({
+  prop: 'borderBottomStyle',
+  themeGet: getBorderStyle,
+})
+
+export interface BorderLeftStyleProps<T extends ITheme = Theme> {
+  borderLeftStyle?: SystemProp<
+    ThemeBorderStyle<T> | CSS.Property.BorderLeftStyle,
+    T
+  >
+}
+export const borderLeftStyle = style<BorderLeftStyleProps>({
+  prop: 'borderLeftStyle',
+  themeGet: getBorderStyle,
+})
+
 // Outline
 
 export interface OutlineProps<T extends ITheme = Theme> {
@@ -440,6 +484,10 @@ export const borders = compose<BordersProps>(
   borderBottomWidth,
   borderLeftWidth,
   borderStyle,
+  borderTopStyle,
+  borderRightStyle,
+  borderBottomStyle,
+  borderLeftStyle,
   borderRadius,
   outline,
   outlineColor,
