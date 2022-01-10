@@ -1,12 +1,5 @@
-import path from 'path'
 import dts from 'rollup-plugin-dts'
 import esbuild from 'rollup-plugin-esbuild'
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const name = require(path.resolve(
-  process.cwd(),
-  './package.json',
-)).main.replace(/\.js$/, '')
 
 const bundle = (config) => ({
   ...config,
@@ -23,25 +16,27 @@ export default [
     plugins: [esbuild(esbuildConfig)],
     output: [
       {
-        file: `${name}.js`,
+        file: `dist/index.cjs`,
         format: 'cjs',
         sourcemap: true,
       },
       {
-        file: `${name}.esm.js`,
+        file: `dist/index.mjs`,
         format: 'es',
         sourcemap: true,
       },
     ],
   }),
   bundle({
-    plugins: [esbuild({
-      ...esbuildConfig,
-      minify: true,
-    })],
+    plugins: [
+      esbuild({
+        ...esbuildConfig,
+        minify: true,
+      }),
+    ],
     output: [
       {
-        file: `${name}.min.esm.js`,
+        file: `dist/index.min.mjs`,
         format: 'es',
       },
     ],
@@ -49,7 +44,7 @@ export default [
   bundle({
     plugins: [dts()],
     output: {
-      file: `${name}.d.ts`,
+      file: `dist/index.d.ts`,
       format: 'es',
     },
   }),

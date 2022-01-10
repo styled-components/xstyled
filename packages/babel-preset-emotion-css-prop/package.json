@@ -4,8 +4,8 @@
   "version": "3.2.0",
   "sideEffects": false,
   "type": "commonjs",
-  "main": "./dist/index.js",
-  "exports": "./dist/index.js",
+  "main": "./dist/index.cjs",
+  "exports": "./dist/index.cjs",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {

@@ -57,23 +57,23 @@
   "bundlewatch": {
     "files": [
       {
-        "path": "packages/core/dist/index.min.esm.js",
+        "path": "packages/core/dist/index.min.mjs",
         "maxSize": "3kB"
       },
       {
-        "path": "packages/emotion/dist/index.min.esm.js",
+        "path": "packages/emotion/dist/index.min.mjs",
         "maxSize": "2kB"
       },
       {
-        "path": "packages/styled-components/dist/index.min.esm.js",
+        "path": "packages/styled-components/dist/index.min.mjs",
         "maxSize": "1.3kB"
       },
       {
-        "path": "packages/system/dist/index.min.esm.js",
+        "path": "packages/system/dist/index.min.mjs",
         "maxSize": "12kB"
       },
       {
-        "path": "packages/util/dist/index.min.esm.js",
+        "path": "packages/util/dist/index.min.mjs",
         "maxSize": "0.7kB"
       }
     ]
