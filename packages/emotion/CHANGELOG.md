@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/gregberge/xstyled/compare/v3.4.0...v3.5.0) (2022-01-10)
+
+
+### Bug Fixes
+
+* **emotion:** fix ESM interop ([465df83](https://github.com/gregberge/xstyled/commit/465df839104a149bc0e8440dd6e8f6b5bfc9552f)), closes [#338](https://github.com/gregberge/xstyled/issues/338) [#343](https://github.com/gregberge/xstyled/issues/343)
+* **esm:** fix module exports ([5624604](https://github.com/gregberge/xstyled/commit/56246046815ffab3d860a298c6c4bc62162c928d)), closes [#336](https://github.com/gregberge/xstyled/issues/336)
+
+
+
+
+
 # [3.4.0](https://github.com/gregberge/xstyled/compare/v3.3.0...v3.4.0) (2021-12-22)
 
 

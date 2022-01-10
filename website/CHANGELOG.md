@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/gregberge/xstyled/compare/v3.4.0...v3.5.0) (2022-01-10)
+
+
+### Bug Fixes
+
+* typo border doc ([694408e](https://github.com/gregberge/xstyled/commit/694408e0044f214c20a510e5f4c2a8715c0c2fcb))
+
+
+### Features
+
+* add border positions style helpers ([3bcaada](https://github.com/gregberge/xstyled/commit/3bcaada8541af40cb40e9fbf691692cd597b8438))
+
+
+
+
+
 # [3.2.0](https://github.com/gregberge/xstyled/compare/v3.1.2...v3.2.0) (2021-12-22)
 
 **Note:** Version bump only for package @xstyled/website
