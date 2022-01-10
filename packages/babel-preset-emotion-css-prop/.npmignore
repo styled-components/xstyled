@@ -1,3 +1,4 @@
 /*
 /dist/*
-!/dist/index.js
+!/dist/index.{d.ts,cjs,mjs}
+!/dist/index.{cjs,mjs}.map
