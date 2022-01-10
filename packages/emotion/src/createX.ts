@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Theme } from '@emotion/react'
-import emStyled, { StyledComponent } from '@emotion/styled'
+import { StyledComponent } from '@emotion/styled'
 import { StyleGenerator, StyleGeneratorProps } from '@xstyled/system'
-import { createBaseStyled } from './createStyled'
+import { createBaseStyled, emStyledInterop } from './createStyled'
 import { createCssFunction } from './createCssFunction'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
@@ -19,7 +19,7 @@ export const createX = <TGen extends StyleGenerator>(
 ): X<TGen> => {
   const styled = createBaseStyled(createCssFunction(generator), generator)
   const x = {} as X<TGen>
-  Object.keys(emStyled).forEach((tag) => {
+  Object.keys(emStyledInterop).forEach((tag) => {
     // @ts-ignore
     x[tag] = styled(tag)``
   })

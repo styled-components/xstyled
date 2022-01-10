@@ -5,7 +5,7 @@ import { StyleGenerator, StyleGeneratorProps } from '@xstyled/system'
 import { BoxElements } from '@xstyled/core'
 import { createCssFunction, XCSSFunction } from './createCssFunction'
 
-const emStyledInterop =
+export const emStyledInterop =
   // @ts-ignore
   typeof emStyled === 'function' ? emStyled : emStyled.default
 
