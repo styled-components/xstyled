@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { Theme } from '@emotion/react'
-import emStyled, { StyledComponent } from '@emotion/styled'
+import { StyledComponent } from '@emotion/styled'
 import { StyleGenerator, StyleGeneratorProps } from '@xstyled/system'
 import { createBaseStyled } from './createStyled'
 import { createCssFunction } from './createCssFunction'
+import { emStyled } from './emStyled'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
 
