@@ -1,5 +1,6 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
-import scStyled, { StyledComponent, DefaultTheme } from 'styled-components'
+import { StyledComponent, DefaultTheme } from 'styled-components'
+import { scStyled } from './scStyled'
 import { StyleGenerator, StyleGeneratorProps } from '@xstyled/system'
 import { createBaseStyled } from './createStyled'
 import { createCssFunction } from './createCssFunction'
