@@ -3,16 +3,13 @@ import type { ElementType } from 'react'
 import { BoxElements } from '@xstyled/core'
 import { string } from '@xstyled/util'
 import { StyleGenerator, StyleGeneratorProps, Theme } from '@xstyled/system'
-import scStyled, {
+import {
   StyledConfig,
   ThemedBaseStyledInterface,
   ThemedStyledFunction,
 } from 'styled-components'
+import { scStyled } from './scStyled'
 import { createCssFunction, XCSSFunction } from './createCssFunction'
-
-const scStyledInterop =
-  // @ts-ignore
-  typeof scStyled === 'function' ? scStyled : scStyled.default
 
 const getCreateStyle = (
   baseCreateStyle: ThemedStyledFunction<any, any>,
@@ -80,7 +77,7 @@ export const createBaseStyled = <TGen extends StyleGenerator>(
       }
     : {}
   return ((component: Parameters<typeof scStyled>[0]) => {
-    const baseStyled = scStyledInterop(component)
+    const baseStyled = scStyled(component)
     return getCreateStyle(
       config ? baseStyled.withConfig(config) : baseStyled,
       css,
@@ -96,7 +93,7 @@ export const createStyled = <TGen extends StyleGenerator>(
   const styled = createBaseStyled(css)
   const xstyled = createBaseStyled(css, generator)
   styled.box = xstyled('div')
-  Object.keys(scStyledInterop).forEach((key) => {
+  Object.keys(scStyled).forEach((key) => {
     // @ts-ignore
     styled[key] = styled(key)
     // @ts-ignore
