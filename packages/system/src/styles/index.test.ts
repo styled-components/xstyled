@@ -15,7 +15,7 @@ describe('#system', () => {
       spaceY: { _: 3, sm: 0 },
       spaceX: { sm: 4 },
     })
-    const keys = Object.keys(res)
+    const keys = Object.keys(res ?? {})
     expect(keys).toEqual([
       'display',
       '& > :not([hidden]) ~ :not([hidden])',
