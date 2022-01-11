@@ -1,67 +1,10 @@
 import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { render, cleanup, RenderOptions } from '@testing-library/react'
-import { ThemeProvider } from '@emotion/react'
+import { render, cleanup } from '@testing-library/react'
 import styled, { css, keyframes } from '.'
-
-// import original module declarations
-import '@xstyled/system'
-import '@emotion/react'
-import {
-	defaultTheme as xstyledDefaultTheme, 
-	DefaultTheme as XStyledDefaultTheme 
-} from '@xstyled/system'
-
-import { 
-	ITheme, 
-} from '@xstyled/emotion'
-
-interface AppTheme extends ITheme, XStyledDefaultTheme {
-  /* Customize your theme */
-	colors: XStyledDefaultTheme['colors'] & {
-		primary: string
-	}
-	space: XStyledDefaultTheme['space'] & {
-		md: number
-	}
-}
-
-// and extend them!
-declare module '@xstyled/system' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface Theme extends AppTheme {}
-}
-
-declare module '@emotion/react' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface Theme extends AppTheme {
-    /* Customize your theme */
-  }
-}
-
-const defaultTheme: XStyledDefaultTheme = xstyledDefaultTheme
-
-const theme: AppTheme = {
-	...defaultTheme,
-	colors: {
-		...defaultTheme?.colors,
-		primary: 'pink',
-	},
-	space: {
-		...defaultTheme?.space,
-		md: 10,
-		1: '4px', 
-		2: '8px'
-	}
-}
-
+import { renderWithTheme } from './theme.test'
 
 afterEach(cleanup)
-
-const renderWithTheme = (ui: React.ReactElement, options?: Omit<RenderOptions, 'queries'>) => render(
-	<ThemeProvider theme={theme}>{ui}</ThemeProvider>,
-	options
-)
 
 describe('#styled', () => {
   it('supports basic tags', () => {
@@ -103,7 +46,7 @@ describe.each([['div'], ['box']])('#styled.%s', (key) => {
     }
     // @ts-ignore
     const Dummy = styled[key]<DummyProps>`
-      color: red;
+      color: pink;
       ${
         // @ts-ignore
         (p) => css`
@@ -113,7 +56,7 @@ describe.each([['div'], ['box']])('#styled.%s', (key) => {
     `
     const { container } = renderWithTheme(<Dummy margin={2} />)
     expect(container.firstChild).toHaveStyle(`
-      color: red;
+      color: pink;
       margin: 8px;
     `)
   })

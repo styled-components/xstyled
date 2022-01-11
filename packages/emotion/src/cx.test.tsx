@@ -2,15 +2,10 @@
 import { jsx } from '@emotion/react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
-import { css, cx, ThemeProvider } from '.'
+import { css, cx } from '.'
+import { renderWithTheme } from './theme.test'
 
 afterEach(cleanup)
-
-const SpaceTheme = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <ThemeProvider theme={{ space: { 1: 4, 2: 8 } }}>{children}</ThemeProvider>
-  )
-}
 
 describe('#cx', () => {
   it('throws with string value', () => {
@@ -21,18 +16,16 @@ describe('#cx', () => {
   })
 
   it('handles css values', () => {
-    const { container } = render(
-      <SpaceTheme>
-        <div
-          css={cx(
-            css`
-              margin: 2;
-              padding: 1;
-              margin-top: 2px;
-            `,
-          )}
-        />
-      </SpaceTheme>,
+    const { container } = renderWithTheme(
+			<div
+				css={cx(
+					css`
+						margin: 2;
+						padding: 1;
+						margin-top: 2px;
+					`,
+				)}
+			/>
     )
     expect(container.firstChild).toHaveStyle(`
       margin: 2px 8px 8px 8px;
@@ -41,19 +34,17 @@ describe('#cx', () => {
   })
 
   it('handles multiple css values', () => {
-    const { container } = render(
-      <SpaceTheme>
-        <div
-          css={cx([
-            css`
-              margin: 2;
-            `,
-            css`
-              padding: 1;
-            `,
-          ])}
-        />
-      </SpaceTheme>,
+    const { container } = renderWithTheme(
+			<div
+				css={cx([
+					css`
+						margin: 2;
+					`,
+					css`
+						padding: 1;
+					`,
+				])}
+			/>
     )
     expect(container.firstChild).toHaveStyle(`
       margin: 8px;
