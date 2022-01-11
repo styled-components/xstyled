@@ -1,16 +1,10 @@
 import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
 import { x } from '.'
+import { renderWithTheme } from './theme.test'
 
 afterEach(cleanup)
-
-const SpaceTheme = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <ThemeProvider theme={{ space: { 1: 4, 2: 8 } }}>{children}</ThemeProvider>
-  )
-}
 
 describe('#x', () => {
   it('creates system based components', () => {
@@ -23,7 +17,7 @@ describe('#x', () => {
 
   it('supports "as" prop', () => {
     const { container } = render(<x.div as="a" m={2} p={1} href="#" />)
-    expect(container.firstChild!.nodeName).toBe('A')
+    expect(container.firstChild?.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle(`
       margin: 2px;
       padding: 1px; 
@@ -36,7 +30,7 @@ describe('#x', () => {
         Hello
       </x.a>,
     )
-    expect(container.firstChild!.nodeName).toBe('A')
+    expect(container.firstChild?.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle(`
       margin: 2px;
       padding: 1px; 
@@ -44,14 +38,12 @@ describe('#x', () => {
   })
 
   it('uses theme', () => {
-    const { container } = render(
-      <SpaceTheme>
-        <x.a m={2} p={1}>
-          Hello
-        </x.a>
-      </SpaceTheme>,
+    const { container } = renderWithTheme(
+			<x.a m={2} p={1}>
+				Hello
+			</x.a>
     )
-    expect(container.firstChild!.nodeName).toBe('A')
+    expect(container.firstChild?.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle(`
       margin: 8px;
       padding: 4px; 
@@ -60,7 +52,7 @@ describe('#x', () => {
 
   it('does not forward props', () => {
     const { container } = render(<x.div display="flex" data-foo="bar" />)
-    expect(container.firstChild!.nodeName).toBe('DIV')
+    expect(container.firstChild?.nodeName).toBe('DIV')
     expect(container.firstChild).toHaveStyle('display: flex;')
     expect(container.firstChild).not.toHaveAttribute('display')
     expect(container.firstChild).toHaveAttribute('data-foo')

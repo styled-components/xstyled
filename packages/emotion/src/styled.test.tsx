@@ -1,22 +1,73 @@
 import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { render, cleanup } from '@testing-library/react'
+import { render, cleanup, RenderOptions } from '@testing-library/react'
 import { ThemeProvider } from '@emotion/react'
 import styled, { css, keyframes } from '.'
 
+// import original module declarations
+import '@xstyled/system'
+import '@emotion/react'
+import {
+	defaultTheme as xstyledDefaultTheme, 
+	DefaultTheme as XStyledDefaultTheme 
+} from '@xstyled/system'
+
+import { 
+	ITheme, 
+} from '@xstyled/emotion'
+
+interface AppTheme extends ITheme, XStyledDefaultTheme {
+  /* Customize your theme */
+	colors: XStyledDefaultTheme['colors'] & {
+		primary: string
+	}
+	space: XStyledDefaultTheme['space'] & {
+		md: number
+	}
+}
+
+// and extend them!
+declare module '@xstyled/system' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface Theme extends AppTheme {}
+}
+
+declare module '@emotion/react' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface Theme extends AppTheme {
+    /* Customize your theme */
+  }
+}
+
+const defaultTheme: XStyledDefaultTheme = xstyledDefaultTheme
+
+const theme: AppTheme = {
+	...defaultTheme,
+	colors: {
+		...defaultTheme?.colors,
+		primary: 'pink',
+	},
+	space: {
+		...defaultTheme?.space,
+		md: 10,
+		1: '4px', 
+		2: '8px'
+	}
+}
+
+
 afterEach(cleanup)
 
-const SpaceTheme = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <ThemeProvider theme={{ space: { 1: 4, 2: 8 } }}>{children}</ThemeProvider>
-  )
-}
+const renderWithTheme = (ui: React.ReactElement, options?: Omit<RenderOptions, 'queries'>) => render(
+	<ThemeProvider theme={theme}>{ui}</ThemeProvider>,
+	options
+)
 
 describe('#styled', () => {
   it('supports basic tags', () => {
     const Dummy = styled.div``
     const { container } = render(<Dummy />)
-    expect(container.firstChild!.nodeName).toBe('DIV')
+    expect(container.firstChild?.nodeName).toBe('DIV')
   })
 
   it('passes options through', () => {
@@ -39,11 +90,7 @@ describe.each([['div'], ['box']])('#styled.%s', (key) => {
       padding: 1;
       margin-top: 2px;
     `
-    const { container } = render(
-      <SpaceTheme>
-        <Dummy />
-      </SpaceTheme>,
-    )
+    const { container } = renderWithTheme(<Dummy />)
     expect(container.firstChild).toHaveStyle(`
       margin: 2px 8px 8px 8px;
       padding: 4px;
@@ -64,11 +111,7 @@ describe.each([['div'], ['box']])('#styled.%s', (key) => {
         `
       }
     `
-    const { container } = render(
-      <SpaceTheme>
-        <Dummy margin={2} />
-      </SpaceTheme>,
-    )
+    const { container } = renderWithTheme(<Dummy margin={2} />)
     expect(container.firstChild).toHaveStyle(`
       color: red;
       margin: 8px;
@@ -98,38 +141,20 @@ describe.each([['div'], ['box']])('#styled.%s', (key) => {
   })
 
   it('reads value from the theme', () => {
-    const theme = {
-      colors: {
-        primary: 'pink',
-      },
-    }
     // @ts-ignore
     const Dummy = styled[key]`
       color: primary;
     `
-    const { container } = render(
-      <ThemeProvider theme={theme}>
-        <Dummy />
-      </ThemeProvider>,
-    )
+    const { container } = renderWithTheme(<Dummy />)
     expect(container.firstChild).toHaveStyle('color: pink;')
   })
 
   it('handles negative values', () => {
-    const theme = {
-      space: {
-        md: 10,
-      },
-    }
     // @ts-ignore
     const Dummy = styled[key]`
       margin: -md;
     `
-    const { container } = render(
-      <ThemeProvider theme={theme}>
-        <Dummy />
-      </ThemeProvider>,
-    )
+    const { container } = renderWithTheme(<Dummy />)
     expect(container.firstChild).toHaveStyle('margin: -10px;')
   })
 
@@ -138,11 +163,7 @@ describe.each([['div'], ['box']])('#styled.%s', (key) => {
     const Dummy = styled[key]({
       margin: '2',
     })
-    const { container } = render(
-      <SpaceTheme>
-        <Dummy />
-      </SpaceTheme>,
-    )
+    const { container } = renderWithTheme(<Dummy />)
     expect(container.firstChild).toHaveStyle('margin: 8px;')
   })
 
@@ -151,11 +172,7 @@ describe.each([['div'], ['box']])('#styled.%s', (key) => {
     const Dummy = styled[key](() => ({
       margin: '2',
     }))
-    const { container } = render(
-      <SpaceTheme>
-        <Dummy />
-      </SpaceTheme>,
-    )
+    const { container } = renderWithTheme(<Dummy />)
     expect(container.firstChild).toHaveStyle('margin: 8px;')
   })
 
@@ -193,23 +210,15 @@ describe.each([['div'], ['box']])('#styled.%s', (key) => {
 describe('#styled.xxxBox', () => {
   it('supports box tags', () => {
     const Dummy = styled.box``
-    const { container } = render(
-      <SpaceTheme>
-        <Dummy m={1} />
-      </SpaceTheme>,
-    )
-    expect(container.firstChild!.nodeName).toBe('DIV')
+    const { container } = renderWithTheme(<Dummy m={1} />)
+    expect(container.firstChild?.nodeName).toBe('DIV')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
   })
 
   it('supports xxxBox tags', () => {
     const Dummy = styled.headerBox``
-    const { container } = render(
-      <SpaceTheme>
-        <Dummy m={1} />
-      </SpaceTheme>,
-    )
-    expect(container.firstChild!.nodeName).toBe('HEADER')
+    const { container } = renderWithTheme(<Dummy m={1} />)
+    expect(container.firstChild?.nodeName).toBe('HEADER')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
   })
 
@@ -217,24 +226,16 @@ describe('#styled.xxxBox', () => {
     const Dummy = styled.box`
       margin: 2px;
     `
-    const { container } = render(
-      <SpaceTheme>
-        <Dummy m={1} />
-      </SpaceTheme>,
-    )
-    expect(container.firstChild!.nodeName).toBe('DIV')
+    const { container } = renderWithTheme(<Dummy m={1} />)
+    expect(container.firstChild?.nodeName).toBe('DIV')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
     expect(container.firstChild).not.toHaveStyle('margin: 2px;')
   })
 
   it("doesn't forward attributes", () => {
     const Dummy = styled.box``
-    const { container } = render(
-      <SpaceTheme>
-        <Dummy margin={1} />
-      </SpaceTheme>,
-    )
-    expect(container.firstChild!.nodeName).toBe('DIV')
+    const { container } = renderWithTheme(<Dummy m={1} />)
+    expect(container.firstChild?.nodeName).toBe('DIV')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
     expect(container.firstChild).not.toHaveAttribute('margin')
   })
@@ -244,7 +245,7 @@ describe('#styled.xxxBox', () => {
     // This is not supported by Emotion
     // @ts-expect-error
     const { container } = render(<Dummy as="a" margin={4} href="ok" />)
-    expect(container.firstChild!.nodeName).toBe('A')
+    expect(container.firstChild?.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle('margin: 4px;')
     expect(container.firstChild).not.toHaveAttribute('margin')
   })
