@@ -43,9 +43,7 @@ declare module '@xstyled/system' {
 
 declare module '@emotion/react' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface Theme extends AppTheme {
-    /* Customize your theme */
-  }
+  export interface Theme extends AppTheme {}
 }
 
 const defaultTheme: XStyledDefaultTheme = xstyledDefaultTheme
