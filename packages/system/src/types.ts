@@ -81,6 +81,9 @@ export type ThemeProp<TType, TTheme extends ITheme> = {
 export type SystemProp<TType, TTheme extends ITheme> =
   | TType
   | ThemeProp<TType, TTheme>
+	| string
+	| number
+	| false
 
 export type CSSOption = string | string[] | Mixin
 
