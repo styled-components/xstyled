@@ -47,7 +47,7 @@ const getColStyle = (
 }
 
 export interface ColProps<T extends ITheme = Theme> {
-  col?: SystemProp<true | 'auto' | string | number, T>
+  col?: SystemProp<true | 'auto', T>
 }
 export const col = createStyleGenerator<ColProps>({
   getStyle: (props) => {
@@ -58,6 +58,10 @@ export const col = createStyleGenerator<ColProps>({
       flexGrow: 1,
       maxWidth: '100%',
     }
+
+		if (value === false) {
+			return null
+		}
 
     if (obj(value)) {
       const breakpointsStyle = reduceVariants(

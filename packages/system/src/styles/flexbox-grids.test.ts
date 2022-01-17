@@ -48,6 +48,8 @@ describe('#flexboxGrids', () => {
       flex: '0 0 33.3333%',
     })
 
+		expect(flexboxGrids({ col: false })).toEqual({})
+
     expect(flexboxGrids({ col: true })).toEqual({
       boxSizing: 'border-box',
       flexBasis: 0,
