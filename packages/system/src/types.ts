@@ -126,7 +126,7 @@ declare type SynthesizedPath<T extends {}> = {
 export type ThemeNamespaceValue<
   K extends string,
   T extends ITheme,
-> = SynthesizedPath<T[K]> | number | string | false
+> = SynthesizedPath<T[K]>
 
 export interface ThemeGetter<T = any> {
   (value: T, defaultValue?: CSSScalar): (props: Props<Theme>) => CSSScalar
