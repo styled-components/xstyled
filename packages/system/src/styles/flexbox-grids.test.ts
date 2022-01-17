@@ -14,6 +14,8 @@ const theme = {
 
 describe('#flexboxGrids', () => {
   it('supports row', () => {
+		expect(flexboxGrids({ row: false })).toEqual({})
+
     expect(flexboxGrids({ row: true })).toEqual({
       boxSizing: 'border-box',
       flexGrow: 1,

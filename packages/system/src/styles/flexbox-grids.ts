@@ -4,16 +4,16 @@ import { style, createStyleGenerator, reduceVariants, compose } from '../style'
 import { getPercent } from './units'
 
 export interface RowProps<T extends ITheme = Theme> {
-  row?: SystemProp<boolean, T>
+  row?: SystemProp<true, T>
 }
 export const row = style<RowProps>({
   prop: 'row',
-  css: () => ({
+  css: value => value ? {
     boxSizing: 'border-box',
     flexGrow: 1,
     flexWrap: 'wrap',
     display: 'flex',
-  }),
+  } : {},
 })
 
 const getColStyle = (
