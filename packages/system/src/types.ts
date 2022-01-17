@@ -132,7 +132,7 @@ export type ThemeNamespaceValue<
 > = SynthesizedPath<T[K]>
 
 export interface ThemeGetter<T = any> {
-  (value: T, defaultValue?: CSSScalar): (props: Props<Theme>) => CSSScalar
+  (value: T | string | number | boolean, defaultValue?: CSSScalar): (props: Props<Theme>) => CSSScalar
   meta: {
     name?: string
     transform?: TransformValue
