@@ -27,6 +27,7 @@ import {
   Mixin,
   StyleOptions,
   CSSOption,
+  StyleGeneratorPropsConcat,
 } from './types'
 
 let themeGetterId = 0
@@ -224,9 +225,14 @@ const sortStyles = (
   return styles
 }
 
-export const compose = <TProps = {}>(
+export function compose<TProps = {}>(
   ...generators: StyleGenerator[]
-): StyleGenerator<TProps> => {
+): StyleGenerator<TProps>
+export function compose<T extends StyleGenerator[]>(
+  ...generators: T
+): StyleGenerator<StyleGeneratorPropsConcat<T>>
+
+export function compose(...generators: any[]): any {
   let flatGenerators: StyleGenerator[] = []
 
   generators.forEach((gen) => {
