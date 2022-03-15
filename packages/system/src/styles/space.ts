@@ -19,7 +19,7 @@ export const getSpace = themeGetter<ThemeSpace>({
 // Margin
 
 type MarginProp<T extends ITheme> = SystemProp<
-  ThemeSpace<T> | CSS.Property.Margin,
+  ThemeSpace<T> | number | CSS.Property.Margin,
   T
 >
 export interface MarginProps<T extends ITheme = Theme> {
@@ -33,7 +33,7 @@ export const margin = style({
 })
 
 type MarginTopProp<T extends ITheme> = SystemProp<
-  ThemeSpace<T> | CSS.Property.MarginTop,
+  ThemeSpace<T> | number | CSS.Property.MarginTop,
   T
 >
 export interface MarginTopProps<T extends ITheme = Theme> {
@@ -47,7 +47,7 @@ export const marginTop = style<MarginTopProps>({
 })
 
 type MarginRightProp<T extends ITheme> = SystemProp<
-  ThemeSpace<T> | CSS.Property.MarginRight,
+  ThemeSpace<T> | number | CSS.Property.MarginRight,
   T
 >
 export interface MarginRightProps<T extends ITheme = Theme> {
@@ -61,7 +61,7 @@ export const marginRight = style<MarginRightProps>({
 })
 
 type MarginBottomProp<T extends ITheme> = SystemProp<
-  ThemeSpace<T> | CSS.Property.MarginBottom,
+  ThemeSpace<T> | number | CSS.Property.MarginBottom,
   T
 >
 export interface MarginBottomProps<T extends ITheme = Theme> {
@@ -75,7 +75,7 @@ export const marginBottom = style<MarginBottomProps>({
 })
 
 type MarginLeftProp<T extends ITheme> = SystemProp<
-  ThemeSpace<T> | CSS.Property.MarginLeft,
+  ThemeSpace<T> | number | CSS.Property.MarginLeft,
   T
 >
 export interface MarginLeftProps<T extends ITheme = Theme> {
@@ -90,7 +90,9 @@ export const marginLeft = style<MarginLeftProps>({
 
 export interface MarginXProps<T extends ITheme = Theme> {
   mx?: SystemProp<
-    ThemeSpace<T> | (CSS.Property.MarginLeft & CSS.Property.MarginRight),
+    | ThemeSpace<T>
+    | number
+    | (CSS.Property.MarginLeft & CSS.Property.MarginRight),
     T
   >
 }
@@ -102,7 +104,9 @@ export const mx = style<MarginXProps>({
 
 export interface MarginYProps<T extends ITheme = Theme> {
   my?: SystemProp<
-    ThemeSpace<T> | (CSS.Property.MarginTop & CSS.Property.MarginBottom),
+    | ThemeSpace<T>
+    | number
+    | (CSS.Property.MarginTop & CSS.Property.MarginBottom),
     T
   >
 }
@@ -115,7 +119,7 @@ export const my = style<MarginYProps>({
 // Padding
 
 type PaddingProp<T extends ITheme> = SystemProp<
-  ThemeSpace<T> | CSS.Property.Padding,
+  ThemeSpace<T> | number | CSS.Property.Padding,
   T
 >
 export interface PaddingProps<T extends ITheme = Theme> {
@@ -129,7 +133,7 @@ export const padding = style<PaddingProps>({
 })
 
 type PaddingTopProp<T extends ITheme> = SystemProp<
-  ThemeSpace<T> | CSS.Property.PaddingTop,
+  ThemeSpace<T> | number | CSS.Property.PaddingTop,
   T
 >
 export interface PaddingTopProps<T extends ITheme = Theme> {
@@ -143,7 +147,7 @@ export const paddingTop = style<PaddingTopProps>({
 })
 
 type PaddingRightProp<T extends ITheme> = SystemProp<
-  ThemeSpace<T> | CSS.Property.PaddingRight,
+  ThemeSpace<T> | number | CSS.Property.PaddingRight,
   T
 >
 export interface PaddingRightProps<T extends ITheme = Theme> {
@@ -157,7 +161,7 @@ export const paddingRight = style<PaddingRightProps>({
 })
 
 type PaddingBottomProp<T extends ITheme> = SystemProp<
-  ThemeSpace<T> | CSS.Property.PaddingBottom,
+  ThemeSpace<T> | number | CSS.Property.PaddingBottom,
   T
 >
 export interface PaddingBottomProps<T extends ITheme = Theme> {
@@ -171,7 +175,7 @@ export const paddingBottom = style<PaddingBottomProps>({
 })
 
 type PaddingLeftProp<T extends ITheme> = SystemProp<
-  ThemeSpace<T> | CSS.Property.PaddingLeft,
+  ThemeSpace<T> | number | CSS.Property.PaddingLeft,
   T
 >
 export interface PaddingLeftProps<T extends ITheme = Theme> {
@@ -186,7 +190,9 @@ export const paddingLeft = style<PaddingLeftProps>({
 
 export interface PaddingXProps<T extends ITheme = Theme> {
   px?: SystemProp<
-    ThemeSpace<T> | (CSS.Property.PaddingLeft & CSS.Property.PaddingRight),
+    | ThemeSpace<T>
+    | number
+    | (CSS.Property.PaddingLeft & CSS.Property.PaddingRight),
     T
   >
 }
@@ -198,7 +204,9 @@ export const px = style<PaddingXProps>({
 
 export interface PaddingYProps<T extends ITheme = Theme> {
   py?: SystemProp<
-    ThemeSpace<T> | (CSS.Property.PaddingTop & CSS.Property.PaddingBottom),
+    | ThemeSpace<T>
+    | number
+    | (CSS.Property.PaddingTop & CSS.Property.PaddingBottom),
     T
   >
 }
