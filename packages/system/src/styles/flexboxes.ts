@@ -54,7 +54,7 @@ export const flexShrink = style<FlexShrinkProps>({
 })
 
 export interface FlexBasisProps<T extends ITheme = Theme> {
-  flexBasis?: SystemProp<CSS.Property.FlexBasis, T>
+  flexBasis?: SystemProp<CSS.Property.FlexBasis | number, T>
 }
 export const flexBasis = style<FlexBasisProps>({
   prop: 'flexBasis',
