@@ -21,11 +21,13 @@ describe('#getFontSize', () => {
 describe('#text', () => {
   it('gets value from the theme and transforms it', () => {
     const theme = {
-      texts: { custom: { fontSize: 10, lineHeight: 1.5 } },
+      space: { 2: '1rem' },
+      texts: { custom: { fontSize: 10, lineHeight: 1.5, marginBottom: 2 } },
     }
     expect(text({ text: 'custom', theme })).toEqual({
       fontSize: '10px',
       lineHeight: 1.5,
+      marginBottom: '1rem',
     })
     expect(text({ text: 'xs', theme })).toEqual({})
   })

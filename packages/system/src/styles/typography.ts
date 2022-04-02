@@ -4,6 +4,7 @@ import { style, compose, themeGetter } from '../style'
 import { rpx } from '../unit'
 import { getPx } from './units'
 import { getColor, Color } from './colors'
+import { space, SpaceProps } from './space'
 
 // Getters
 
@@ -202,8 +203,10 @@ interface AllProps<T extends ITheme = Theme>
     WhiteSpaceProps<T>,
     TextOverflowProps<T>,
     ListStyleTypeProps<T>,
-    ListStylePositionProps<T> {}
+    ListStylePositionProps<T>,
+    SpaceProps<T> {}
 const all = compose<AllProps>(
+  space,
   fontFamily,
   fontSize,
   fontStyle,
