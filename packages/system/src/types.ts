@@ -142,8 +142,10 @@ export type ThemeGetterType<T extends ThemeGetter> = T extends ThemeGetter<
   ? T
   : never
 
-export type StyleGeneratorProps<T extends object> = T extends StyleGenerator<
-  infer T
->
-  ? T
+export type StyleGeneratorProps<T> = T extends StyleGenerator<infer Props>
+  ? Props
   : never
+
+export type StyleGeneratorPropsConcat<T> = T extends [infer Head, ...infer Tail]
+  ? StyleGeneratorProps<Head> & StyleGeneratorPropsConcat<Tail>
+  : unknown
