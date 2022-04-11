@@ -279,6 +279,13 @@ export const outlineStyle = style<OutlineStyleProps>({
   themeGet: getBorderStyle,
 })
 
+export interface OutlineOffsetProps<T extends ITheme = Theme> {
+  outlineOffset?: SystemProp<ThemeBorderWidth<T> | CSS.Property.OutlineOffset, T>
+}
+export const outlineOffset = style<OutlineOffsetProps>({
+  prop: 'outlineOffset',
+})
+
 // Radius
 
 export type ThemeRadius<T extends ITheme = Theme> = ThemeNamespaceValue<
@@ -462,6 +469,7 @@ export interface BordersProps<T extends ITheme = Theme>
     OutlineColorProps<T>,
     OutlineWidthProps<T>,
     OutlineStyleProps<T>,
+    OutlineOffsetProps<T>,
     DivideXProps<T>,
     DivideYProps<T>,
     DivideXReverseProps<T>,
@@ -497,6 +505,7 @@ export const borders = compose<BordersProps>(
   outlineColor,
   outlineWidth,
   outlineStyle,
+  outlineOffset,
   divideX,
   divideY,
   divideXReverse,
