@@ -18,7 +18,7 @@ export const getSize = themeGetter<ThemeSize>({
 // Styles
 
 export interface WidthProps<T extends ITheme = Theme> {
-  w?: SystemProp<ThemeSize<T> | CSS.Property.Width, T>
+  w?: SystemProp<ThemeSize<T> | number | CSS.Property.Width, T>
 }
 export const width = style<WidthProps>({
   prop: 'w',
@@ -27,7 +27,7 @@ export const width = style<WidthProps>({
 })
 
 export interface HeightProps<T extends ITheme = Theme> {
-  h?: SystemProp<ThemeSize<T> | CSS.Property.Height, T>
+  h?: SystemProp<ThemeSize<T> | number | CSS.Property.Height, T>
 }
 export const height = style<HeightProps>({
   prop: 'h',
@@ -36,7 +36,7 @@ export const height = style<HeightProps>({
 })
 
 type MaxWidthProp<T extends ITheme> = SystemProp<
-  ThemeSize<T> | CSS.Property.MaxWidth,
+  ThemeSize<T> | number | CSS.Property.MaxWidth,
   T
 >
 export interface MaxWidthProps<T extends ITheme = Theme> {
@@ -50,7 +50,7 @@ export const maxWidth = style<MaxWidthProps>({
 })
 
 type MaxHeightProp<T extends ITheme> = SystemProp<
-  ThemeSize<T> | CSS.Property.MaxHeight,
+  ThemeSize<T> | number | CSS.Property.MaxHeight,
   T
 >
 export interface MaxHeightProps<T extends ITheme = Theme> {
@@ -64,7 +64,7 @@ export const maxHeight = style<MaxHeightProps>({
 })
 
 export interface MinWidthProps<T extends ITheme = Theme> {
-  minWidth?: SystemProp<ThemeSize<T> | CSS.Property.MinWidth, T>
+  minWidth?: SystemProp<ThemeSize<T> | number | CSS.Property.MinWidth, T>
 }
 export const minWidth = style<MinWidthProps>({
   prop: ['minWidth', 'minW'],
@@ -73,7 +73,7 @@ export const minWidth = style<MinWidthProps>({
 })
 
 type MinHeightProp<T extends ITheme> = SystemProp<
-  ThemeSize<T> | CSS.Property.MinHeight,
+  ThemeSize<T> | number | CSS.Property.MinHeight,
   T
 >
 export interface MinHeightProps<T extends ITheme = Theme> {
@@ -87,7 +87,7 @@ export const minHeight = style<MinHeightProps>({
 })
 
 export interface MaskSizeProps<T extends ITheme = Theme> {
-  maskSize?: SystemProp<ThemeSize<T> | CSS.Property.MaskSize, T>
+  maskSize?: SystemProp<ThemeSize<T> | number | CSS.Property.MaskSize, T>
 }
 export const maskSize = style<MaskSizeProps>({
   prop: 'maskSize',

@@ -67,7 +67,7 @@ export const fontFamily = style<FontFamilyProps>({
 })
 
 export interface FontSizeProps<T extends ITheme = Theme> {
-  fontSize?: SystemProp<ThemeFontSize<T> | CSS.Property.FontSize, T>
+  fontSize?: SystemProp<ThemeFontSize<T> | number | CSS.Property.FontSize, T>
 }
 export const fontSize = style<FontSizeProps>({
   prop: 'fontSize',
@@ -99,7 +99,7 @@ export const fontStyle = style<FontStyleProps>({
 
 export interface LetterSpacingProps<T extends ITheme = Theme> {
   letterSpacing?: SystemProp<
-    ThemeLetterSpacing<T> | CSS.Property.LetterSpacing,
+    ThemeLetterSpacing<T> | number | CSS.Property.LetterSpacing,
     T
   >
 }

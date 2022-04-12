@@ -112,7 +112,7 @@ export const getInset = themeGetter<ThemeInset>({
 })
 
 export interface TopProps<T extends ITheme = Theme> {
-  top?: SystemProp<ThemeInset<T> | CSS.Property.Top, T>
+  top?: SystemProp<ThemeInset<T> | number | CSS.Property.Top, T>
 }
 export const top = style<TopProps>({
   prop: 'top',
@@ -120,7 +120,7 @@ export const top = style<TopProps>({
 })
 
 export interface RightProps<T extends ITheme = Theme> {
-  right?: SystemProp<ThemeInset<T> | CSS.Property.Right, T>
+  right?: SystemProp<ThemeInset<T> | number | CSS.Property.Right, T>
 }
 export const right = style<RightProps>({
   prop: 'right',
@@ -128,7 +128,7 @@ export const right = style<RightProps>({
 })
 
 export interface BottomProps<T extends ITheme = Theme> {
-  bottom?: SystemProp<ThemeInset<T> | CSS.Property.Bottom, T>
+  bottom?: SystemProp<ThemeInset<T> | number | CSS.Property.Bottom, T>
 }
 export const bottom = style<BottomProps>({
   prop: 'bottom',
@@ -136,7 +136,7 @@ export const bottom = style<BottomProps>({
 })
 
 export interface LeftProps<T extends ITheme = Theme> {
-  left?: SystemProp<ThemeInset<T> | CSS.Property.Left, T>
+  left?: SystemProp<ThemeInset<T> | number | CSS.Property.Left, T>
 }
 export const left = style<LeftProps>({
   prop: 'left',

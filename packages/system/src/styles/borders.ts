@@ -49,7 +49,7 @@ export const getBorderStyle = themeGetter<ThemeBorderStyle>({
 // Border
 
 export interface BorderProps<T extends ITheme = Theme> {
-  border?: SystemProp<ThemeBorder<T> | CSS.Property.Border, T>
+  border?: SystemProp<ThemeBorder<T> | number | CSS.Property.Border, T>
 }
 export const border = style<BorderProps>({
   prop: 'border',
@@ -57,7 +57,7 @@ export const border = style<BorderProps>({
 })
 
 export interface BorderTopProps<T extends ITheme = Theme> {
-  borderTop?: SystemProp<ThemeBorder<T> | CSS.Property.BorderTop, T>
+  borderTop?: SystemProp<ThemeBorder<T> | number | CSS.Property.BorderTop, T>
 }
 export const borderTop = style<BorderTopProps>({
   prop: 'borderTop',
@@ -65,7 +65,10 @@ export const borderTop = style<BorderTopProps>({
 })
 
 export interface BorderRightProps<T extends ITheme = Theme> {
-  borderRight?: SystemProp<ThemeBorder<T> | CSS.Property.BorderRight, T>
+  borderRight?: SystemProp<
+    ThemeBorder<T> | number | CSS.Property.BorderRight,
+    T
+  >
 }
 export const borderRight = style<BorderRightProps>({
   prop: 'borderRight',
@@ -73,7 +76,10 @@ export const borderRight = style<BorderRightProps>({
 })
 
 export interface BorderBottomProps<T extends ITheme = Theme> {
-  borderBottom?: SystemProp<ThemeBorder<T> | CSS.Property.BorderBottom, T>
+  borderBottom?: SystemProp<
+    ThemeBorder<T> | number | CSS.Property.BorderBottom,
+    T
+  >
 }
 export const borderBottom = style<BorderBottomProps>({
   prop: 'borderBottom',
@@ -81,7 +87,7 @@ export const borderBottom = style<BorderBottomProps>({
 })
 
 export interface BorderLeftProps<T extends ITheme = Theme> {
-  borderLeft?: SystemProp<ThemeBorder<T> | CSS.Property.BorderLeft, T>
+  borderLeft?: SystemProp<ThemeBorder<T> | number | CSS.Property.BorderLeft, T>
 }
 export const borderLeft = style<BorderLeftProps>({
   prop: 'borderLeft',
@@ -135,7 +141,10 @@ export const borderLeftColor = style<BorderLeftColorProps>({
 })
 
 export interface BorderWidthProps<T extends ITheme = Theme> {
-  borderWidth?: SystemProp<ThemeBorderWidth<T> | CSS.Property.BorderWidth, T>
+  borderWidth?: SystemProp<
+    ThemeBorderWidth<T> | number | CSS.Property.BorderWidth,
+    T
+  >
 }
 export const borderWidth = style<BorderWidthProps>({
   prop: 'borderWidth',
@@ -144,7 +153,7 @@ export const borderWidth = style<BorderWidthProps>({
 
 export interface BorderTopWidthProps<T extends ITheme = Theme> {
   borderTopWidth?: SystemProp<
-    ThemeBorderWidth<T> | CSS.Property.BorderTopWidth,
+    ThemeBorderWidth<T> | number | CSS.Property.BorderTopWidth,
     T
   >
 }
@@ -155,7 +164,7 @@ export const borderTopWidth = style<BorderTopWidthProps>({
 
 export interface BorderRightWidthProps<T extends ITheme = Theme> {
   borderRightWidth?: SystemProp<
-    ThemeBorderWidth<T> | CSS.Property.BorderRightWidth,
+    ThemeBorderWidth<T> | number | CSS.Property.BorderRightWidth,
     T
   >
 }
@@ -166,7 +175,7 @@ export const borderRightWidth = style<BorderRightWidthProps>({
 
 export interface BorderBottomWidthProps<T extends ITheme = Theme> {
   borderBottomWidth?: SystemProp<
-    ThemeBorderWidth<T> | CSS.Property.BorderBottomWidth,
+    ThemeBorderWidth<T> | number | CSS.Property.BorderBottomWidth,
     T
   >
 }
@@ -177,7 +186,7 @@ export const borderBottomWidth = style<BorderBottomWidthProps>({
 
 export interface BorderLeftWidthProps<T extends ITheme = Theme> {
   borderLeftWidth?: SystemProp<
-    ThemeBorderWidth<T> | CSS.Property.BorderLeftWidth,
+    ThemeBorderWidth<T> | number | CSS.Property.BorderLeftWidth,
     T
   >
 }
@@ -248,7 +257,7 @@ export const borderLeftStyle = style<BorderLeftStyleProps>({
 // Outline
 
 export interface OutlineProps<T extends ITheme = Theme> {
-  outline?: SystemProp<ThemeBorder<T> | CSS.Property.Outline, T>
+  outline?: SystemProp<ThemeBorder<T> | number | CSS.Property.Outline, T>
 }
 export const outline = style<OutlineProps>({
   prop: 'outline',
@@ -264,7 +273,10 @@ export const outlineColor = style<OutlineColorProps>({
 })
 
 export interface OutlineWidthProps<T extends ITheme = Theme> {
-  outlineWidth?: SystemProp<ThemeBorderWidth<T> | CSS.Property.OutlineWidth, T>
+  outlineWidth?: SystemProp<
+    ThemeBorderWidth<T> | number | CSS.Property.OutlineWidth,
+    T
+  >
 }
 export const outlineWidth = style<OutlineWidthProps>({
   prop: 'outlineWidth',
@@ -293,7 +305,10 @@ export const getRadius = themeGetter<ThemeRadius>({
 })
 
 export interface BorderRadiusProps<T extends ITheme = Theme> {
-  borderRadius?: SystemProp<ThemeRadius<T> | CSS.Property.BorderRadius, T>
+  borderRadius?: SystemProp<
+    ThemeRadius<T> | number | CSS.Property.BorderRadius,
+    T
+  >
 }
 export const borderRadius = style<BorderRadiusProps>({
   prop: 'borderRadius',
@@ -408,7 +423,7 @@ export const getRingWidth = themeGetter<ThemeRingWidth>({
 })
 
 export interface RingProps<T extends ITheme = Theme> {
-  ring?: SystemProp<ThemeRingWidth<T>, T>
+  ring?: SystemProp<ThemeRingWidth<T> | number, T>
 }
 export const ring = style<RingProps>({
   prop: 'ring',
