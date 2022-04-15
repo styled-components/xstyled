@@ -49,19 +49,20 @@ To create custom lists, use the `listStyleType={type}` utilities.
       ))}
     </x.div>
   </template>
-  <x.ul listStyleType="disc">
+  {/* inline styles required to override smooth-doc */}
+  <x.ul listStyleType="disc" style="list-style-type: disc">
     <li>Lorem ipsum ...</li>
   </x.ul>
-  <x.ul listStyleType="decimal">
+  <x.ul listStyleType="decimal" style="list-style-type: decimal">
     <li>Lorem ipsum ...</li>
   </x.ul>
-  <x.ul listStyleType="circle">
+  <x.ul listStyleType="circle" style="list-style-type: circle">
     <li>Lorem ipsum ...</li>
   </x.ul>
-  <x.ul listStyleType="square">
+  <x.ul listStyleType="square" style="list-style-type: circle">
     <li>Lorem ipsum ...</li>
   </x.ul>
-  <x.ul listStyleType="none">
+  <x.ul listStyleType="none" style="list-style-type: none">
     <li>Lorem ipsum ...</li>
   </x.ul>
 </>
