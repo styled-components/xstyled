@@ -31,6 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@xstyled/system": "^3.5.1"
+    "@xstyled/system": "^3.5.1",
+    "@xstyled/util": "^3.5.1"
   }
 }
