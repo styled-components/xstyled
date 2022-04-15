@@ -115,18 +115,22 @@ export interface TransformValue {
   ): CSSScalar
 }
 
-declare type SynthesizedPath<T extends {}> = {
-  [P in keyof T]:
-    | (T[P] extends { [key: string]: any; [key: number]: any }
-        ? `${string & P}` | `${string & P}.${SynthesizedPath<T[P]>}`
-        : `${string & P}`)
-    | (number & P)
-}[T extends any[] ? number & keyof T : keyof T]
+// declare type SynthesizedPath<T> = {
+//   [P in keyof T]:
+//     | (T[P] extends { [key: string]: any; [key: number]: any }
+//         ? `${string & P}` | `${string & P}.${SynthesizedPath<T[P]>}`
+//         : `${string & P}`)
+//     | (number & P)
+// }[T extends any[] ? number & keyof T : keyof T]
 
-export type ThemeNamespaceValue<
-  K extends string,
-  T extends ITheme,
-> = SynthesizedPath<T[K]>
+// export type ThemeNamespaceValue<
+//   K extends string,
+//   T extends ITheme,
+// > = SynthesizedPath<T[K]>
+
+export type ThemeNamespaceValue<K extends string, T extends ITheme> =
+  | NamespaceType<T[K]>
+  | {}
 
 export interface ThemeGetter<T = any> {
   (value: T, defaultValue?: CSSScalar): (props: Props<Theme>) => CSSScalar
