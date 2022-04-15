@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/gregberge/xstyled/compare/v3.5.1...v3.6.0) (2022-04-15)
+
+
+### Features
+
+* add ability to customize spacing properties in "texts" ([#351](https://github.com/gregberge/xstyled/issues/351)) ([57304c2](https://github.com/gregberge/xstyled/commit/57304c2fdf5c5eecd7dbceb218bd8da9ef9ab262)), closes [#350](https://github.com/gregberge/xstyled/issues/350)
+
+
+
+
+
 # [3.5.0](https://github.com/gregberge/xstyled/compare/v3.4.0...v3.5.0) (2022-01-10)
 
 

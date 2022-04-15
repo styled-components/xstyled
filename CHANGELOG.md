@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/gregberge/xstyled/compare/v3.5.1...v3.6.0) (2022-04-15)
+
+
+### Bug Fixes
+
+* **core:** add missing util ([#362](https://github.com/gregberge/xstyled/issues/362)) ([00ae8dc](https://github.com/gregberge/xstyled/commit/00ae8dc818448a642d69a71dd5609e66737002f7)), closes [#354](https://github.com/gregberge/xstyled/issues/354)
+* **emotion:** add missing `createCss` ([#324](https://github.com/gregberge/xstyled/issues/324)) ([f5eaa07](https://github.com/gregberge/xstyled/commit/f5eaa079780ca374f88c9184733a05362c070938))
+* move at-rules to end of nested responsive states ([6c7528e](https://github.com/gregberge/xstyled/commit/6c7528e46b2dccd934cf21ec12eb0f5076004e59)), closes [#288](https://github.com/gregberge/xstyled/issues/288)
+* **types:** add missing types to the borders system utility ([#346](https://github.com/gregberge/xstyled/issues/346)) ([c0c92b4](https://github.com/gregberge/xstyled/commit/c0c92b459bb3a5de46d7854be3667861f816baa5))
+* **types:** fix missing values in types ([#361](https://github.com/gregberge/xstyled/issues/361)) ([01afa25](https://github.com/gregberge/xstyled/commit/01afa252e9c34220c799142bfc42dc0a736e55d9)), closes [#355](https://github.com/gregberge/xstyled/issues/355)
+* **types:** remove deep path autocompletion ([e01e8b3](https://github.com/gregberge/xstyled/commit/e01e8b3567bebe16c90f18676797160eb9a6466a))
+* **typing:** Support any valid number for utility props that needs it ([#357](https://github.com/gregberge/xstyled/issues/357)) ([1fd72c6](https://github.com/gregberge/xstyled/commit/1fd72c6d97c469c4e7d24d900744c10e27a2a8e5))
+
+
+### Features
+
+* add ability to customize spacing properties in "texts" ([#351](https://github.com/gregberge/xstyled/issues/351)) ([57304c2](https://github.com/gregberge/xstyled/commit/57304c2fdf5c5eecd7dbceb218bd8da9ef9ab262)), closes [#350](https://github.com/gregberge/xstyled/issues/350)
+* add outlineOffset property ([#360](https://github.com/gregberge/xstyled/issues/360)) ([4dac9a3](https://github.com/gregberge/xstyled/commit/4dac9a31c6b80bc66b6f28b0ea69c41a252c7a4d))
+* added inline variants support ([#334](https://github.com/gregberge/xstyled/issues/334)) ([acfa364](https://github.com/gregberge/xstyled/commit/acfa364561a2fb69b07a2a3689baf5f3a345f028)), closes [#333](https://github.com/gregberge/xstyled/issues/333)
+* **typing:** infer automatically the typing of the generators used inside of the compose ([#358](https://github.com/gregberge/xstyled/issues/358)) ([ecbae73](https://github.com/gregberge/xstyled/commit/ecbae7351280b93b7fbce02ab262e0dff5884cea))
+
+
+
+
+
 ## [3.5.1](https://github.com/gregberge/xstyled/compare/v3.5.0...v3.5.1) (2022-01-10)
 
 

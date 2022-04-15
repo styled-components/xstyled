@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/emotion",
   "description": "A utility-first CSS-in-JS framework built for React (Emotion bindings).",
-  "version": "3.5.1",
+  "version": "3.6.0",
   "keywords": [
     "emotion",
     "css",
@@ -42,8 +42,8 @@
     "@emotion/styled": "^11.0.0"
   },
   "dependencies": {
-    "@xstyled/core": "^3.5.1",
-    "@xstyled/system": "^3.5.1",
+    "@xstyled/core": "^3.6.0",
+    "@xstyled/system": "^3.6.0",
     "@xstyled/util": "^3.5.1"
   }
 }

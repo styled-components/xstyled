@@ -1,6 +1,6 @@
 {
   "name": "@xstyled/benchmarks",
-  "version": "3.5.1",
+  "version": "3.6.0",
   "private": true,
   "scripts": {
     "bench-system": "node ./system.js",
@@ -26,8 +26,8 @@
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@xstyled/emotion": "^3.5.1",
-    "@xstyled/styled-components": "^3.5.1",
+    "@xstyled/emotion": "^3.6.0",
+    "@xstyled/styled-components": "^3.6.0",
     "emotion-theming": "^11.0.0",
     "styled-components": "^5.3.5",
     "styled-system": "^5.1.5"

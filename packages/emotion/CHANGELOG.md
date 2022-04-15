@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/gregberge/xstyled/compare/v3.5.1...v3.6.0) (2022-04-15)
+
+
+### Bug Fixes
+
+* **emotion:** add missing `createCss` ([#324](https://github.com/gregberge/xstyled/issues/324)) ([f5eaa07](https://github.com/gregberge/xstyled/commit/f5eaa079780ca374f88c9184733a05362c070938))
+
+
+
+
+
 ## [3.5.1](https://github.com/gregberge/xstyled/compare/v3.5.0...v3.5.1) (2022-01-10)
 
 

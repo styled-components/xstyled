@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/gregberge/xstyled/compare/v3.5.1...v3.6.0) (2022-04-15)
+
+
+### Bug Fixes
+
+* **core:** add missing util ([#362](https://github.com/gregberge/xstyled/issues/362)) ([00ae8dc](https://github.com/gregberge/xstyled/commit/00ae8dc818448a642d69a71dd5609e66737002f7)), closes [#354](https://github.com/gregberge/xstyled/issues/354)
+
+
+
+
+
 ## [3.5.1](https://github.com/gregberge/xstyled/compare/v3.5.0...v3.5.1) (2022-01-10)
 
 
