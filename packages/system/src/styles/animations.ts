@@ -1,6 +1,6 @@
 import * as CSS from 'csstype'
 import { style, themeGetter, compose } from '../style'
-import { getDuration, ThemeDuration } from './units'
+import { getDuration, Duration } from './units'
 import { getTimingFunction, ThemeTimingFunction } from './transitions'
 import { ITheme, SystemProp, ThemeNamespaceValue, Theme } from '../types'
 
@@ -25,7 +25,7 @@ export const animation = style<AnimationProps>({
 
 export interface AnimationDurationProps<T extends ITheme = Theme> {
   animationDuration?: SystemProp<
-    ThemeDuration<T> | CSS.Property.AnimationDuration,
+    Duration<T> | CSS.Property.AnimationDuration,
     T
   >
 }

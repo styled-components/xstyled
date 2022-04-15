@@ -8,7 +8,7 @@ import {
   themeGetter,
 } from '../style'
 import { transformNegative } from '../unit'
-import { getPx } from './units'
+import { getPx, Pixel } from './units'
 import { getScreens } from '../theme'
 import { SystemProp, ThemeNamespaceValue, ITheme, Theme } from '../types'
 
@@ -34,7 +34,7 @@ export const boxSizing = style<BoxSizingProps>({
 })
 
 export interface ContainerProps<T extends ITheme = Theme> {
-  container?: SystemProp<boolean, T>
+  container?: SystemProp<true, T>
 }
 export const container = createStyleGenerator<ContainerProps>({
   getStyle: (props) => {
@@ -104,6 +104,7 @@ export type ThemeInset<T extends ITheme = Theme> = ThemeNamespaceValue<
   'inset',
   T
 >
+export type Inset<T extends ITheme = Theme> = Pixel | ThemeInset<T>
 export const getInset = themeGetter<ThemeInset>({
   name: 'inset',
   key: 'inset',
@@ -112,7 +113,7 @@ export const getInset = themeGetter<ThemeInset>({
 })
 
 export interface TopProps<T extends ITheme = Theme> {
-  top?: SystemProp<ThemeInset<T> | number | CSS.Property.Top, T>
+  top?: SystemProp<Inset<T> | CSS.Property.Top, T>
 }
 export const top = style<TopProps>({
   prop: 'top',
@@ -120,7 +121,7 @@ export const top = style<TopProps>({
 })
 
 export interface RightProps<T extends ITheme = Theme> {
-  right?: SystemProp<ThemeInset<T> | number | CSS.Property.Right, T>
+  right?: SystemProp<Inset<T> | CSS.Property.Right, T>
 }
 export const right = style<RightProps>({
   prop: 'right',
@@ -128,7 +129,7 @@ export const right = style<RightProps>({
 })
 
 export interface BottomProps<T extends ITheme = Theme> {
-  bottom?: SystemProp<ThemeInset<T> | number | CSS.Property.Bottom, T>
+  bottom?: SystemProp<Inset<T> | CSS.Property.Bottom, T>
 }
 export const bottom = style<BottomProps>({
   prop: 'bottom',
@@ -136,7 +137,7 @@ export const bottom = style<BottomProps>({
 })
 
 export interface LeftProps<T extends ITheme = Theme> {
-  left?: SystemProp<ThemeInset<T> | number | CSS.Property.Left, T>
+  left?: SystemProp<Inset<T> | CSS.Property.Left, T>
 }
 export const left = style<LeftProps>({
   prop: 'left',
