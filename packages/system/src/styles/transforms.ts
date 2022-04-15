@@ -2,7 +2,7 @@ import * as CSS from 'csstype'
 import { compose, themeGetter, style } from '../style'
 import { SystemProp, ThemeNamespaceValue, ITheme, Theme } from '../types'
 import { getAngle, Angle } from './units'
-import { getSpace, ThemeSpace } from './space'
+import { getSpace, Space } from './space'
 
 export type ThemeTransform<T extends ITheme = Theme> = ThemeNamespaceValue<
   'transforms',
@@ -46,7 +46,7 @@ export const transformOrigin = style<TransformOriginProps>({
 })
 
 export interface TranslateXProps<T extends ITheme = Theme> {
-  translateX?: SystemProp<ThemeSpace<T> | number | string, T>
+  translateX?: SystemProp<Space<T>, T>
 }
 export const translateX = style<TranslateXProps>({
   prop: 'translateX',
@@ -55,7 +55,7 @@ export const translateX = style<TranslateXProps>({
 })
 
 export interface TranslateYProps<T extends ITheme = Theme> {
-  translateY?: SystemProp<ThemeSpace<T> | number | string, T>
+  translateY?: SystemProp<Space<T>, T>
 }
 export const translateY = style<TranslateYProps>({
   prop: 'translateY',
@@ -90,8 +90,9 @@ export const skewY = style<SkewYProps>({
   css: '--x-skew-y',
 })
 
+type Scale = number | string
 export interface ScaleProps<T extends ITheme = Theme> {
-  scale?: SystemProp<number | string, T>
+  scale?: SystemProp<Scale, T>
 }
 export const scale = style<ScaleProps>({
   prop: 'scale',
@@ -100,7 +101,7 @@ export const scale = style<ScaleProps>({
 })
 
 export interface ScaleXProps<T extends ITheme = Theme> {
-  scaleX?: SystemProp<number | string, T>
+  scaleX?: SystemProp<Scale, T>
 }
 export const scaleX = style<ScaleXProps>({
   prop: 'scaleX',
@@ -109,7 +110,7 @@ export const scaleX = style<ScaleXProps>({
 })
 
 export interface ScaleYProps<T extends ITheme = Theme> {
-  scaleY?: SystemProp<number | string, T>
+  scaleY?: SystemProp<Scale, T>
 }
 export const scaleY = style<ScaleYProps>({
   prop: 'scaleY',

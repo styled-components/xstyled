@@ -1,10 +1,10 @@
 import * as CSS from 'csstype'
 import { SystemProp, ITheme, Theme, ThemeNamespaceValue } from '../types'
 import { style, compose } from '../style'
-import { getSpace, ThemeSpace } from './space'
+import { getSpace, Space } from './space'
 
 export interface GapProps<T extends ITheme = Theme> {
-  gap?: SystemProp<ThemeSpace<T> | CSS.Property.Gap, T>
+  gap?: SystemProp<Space<T> | CSS.Property.Gap, T>
 }
 export const gap = style<GapProps>({
   prop: 'gap',
@@ -12,7 +12,7 @@ export const gap = style<GapProps>({
 })
 
 export interface ColumnGapProps<T extends ITheme = Theme> {
-  columnGap?: SystemProp<ThemeSpace<T> | CSS.Property.ColumnGap, T>
+  columnGap?: SystemProp<Space<T> | CSS.Property.ColumnGap, T>
 }
 export const columnGap = style<ColumnGapProps>({
   prop: 'columnGap',
@@ -20,7 +20,7 @@ export const columnGap = style<ColumnGapProps>({
 })
 
 export interface RowGapProps<T extends ITheme = Theme> {
-  rowGap?: SystemProp<ThemeSpace<T> | CSS.Property.RowGap, T>
+  rowGap?: SystemProp<Space<T> | CSS.Property.RowGap, T>
 }
 export const rowGap = style<RowGapProps>({
   prop: 'rowGap',

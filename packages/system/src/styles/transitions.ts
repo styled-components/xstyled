@@ -1,6 +1,6 @@
 import * as CSS from 'csstype'
 import { style, themeGetter, compose } from '../style'
-import { getDuration, ThemeDuration } from './units'
+import { getDuration, Duration } from './units'
 import { SystemProp, ITheme, Theme, ThemeNamespaceValue } from '../types'
 
 export type ThemeTransition<T extends ITheme = Theme> = ThemeNamespaceValue<
@@ -12,9 +12,8 @@ export const getTransition = themeGetter<ThemeTransition>({
   key: 'transitions',
 })
 
-export type ThemeTransitionProperty<
-  T extends ITheme = Theme
-> = ThemeNamespaceValue<'transitionProperties', T>
+export type ThemeTransitionProperty<T extends ITheme = Theme> =
+  ThemeNamespaceValue<'transitionProperties', T>
 export const getTransitionProperty = themeGetter<ThemeTransitionProperty>({
   name: 'transitionProperty',
   key: 'transitionProperties',
@@ -50,7 +49,7 @@ export const transitionProperty = style<TransitionPropertyProps>({
 
 export interface TransitionDurationProps<T extends ITheme = Theme> {
   transitionDuration?: SystemProp<
-    ThemeDuration<T> | CSS.Property.TransitionDuration,
+    Duration<T> | CSS.Property.TransitionDuration,
     T
   >
 }
@@ -71,10 +70,7 @@ export const transitionTimingFunction = style<TransitionTimingFunctionProps>({
 })
 
 export interface TransitionDelayProps<T extends ITheme = Theme> {
-  transitionDelay?: SystemProp<
-    ThemeDuration<T> | CSS.Property.TransitionDelay,
-    T
-  >
+  transitionDelay?: SystemProp<Duration<T> | CSS.Property.TransitionDelay, T>
 }
 export const transitionDelay = style<TransitionDelayProps>({
   prop: 'transitionDelay',

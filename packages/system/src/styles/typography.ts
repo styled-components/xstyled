@@ -2,7 +2,7 @@ import * as CSS from 'csstype'
 import { SystemProp, ThemeNamespaceValue, ITheme, Theme } from '../types'
 import { style, compose, themeGetter } from '../style'
 import { rpx } from '../unit'
-import { getPx } from './units'
+import { getPx, Pixel } from './units'
 import { getColor, Color } from './colors'
 import { space, SpaceProps } from './space'
 
@@ -18,10 +18,14 @@ export type ThemeLineHeight<T extends ITheme = Theme> = ThemeNamespaceValue<
   'lineHeights',
   T
 >
+type LineHeightValue = number | string
+export type LineHeight<T extends ITheme = Theme> =
+  | LineHeightValue
+  | ThemeLineHeight<T>
 export const getLineHeight = themeGetter<ThemeLineHeight>({
   name: 'lineHeight',
   key: 'lineHeights',
-  transform: (value: number | string, { props }) => {
+  transform: (value: LineHeightValue, { props }) => {
     const rootFontSize = props?.theme?.settings?.rootFontSize ?? undefined
     return rpx(value, { rootFontSize })
   },
@@ -40,6 +44,9 @@ export type ThemeLetterSpacing<T extends ITheme = Theme> = ThemeNamespaceValue<
   'letterSpacings',
   T
 >
+export type LetterSpacing<T extends ITheme = Theme> =
+  | Pixel
+  | ThemeLetterSpacing<T>
 export const getLetterSpacing = themeGetter<ThemeLetterSpacing>({
   name: 'letterSpacing',
   key: 'letterSpacings',
@@ -50,6 +57,7 @@ export type ThemeFontSize<T extends ITheme = Theme> = ThemeNamespaceValue<
   'fontSizes',
   T
 >
+export type FontSize<T extends ITheme = Theme> = Pixel | ThemeFontSize<T>
 export const getFontSize = themeGetter<ThemeFontSize>({
   name: 'fontSize',
   key: 'fontSizes',
@@ -67,7 +75,7 @@ export const fontFamily = style<FontFamilyProps>({
 })
 
 export interface FontSizeProps<T extends ITheme = Theme> {
-  fontSize?: SystemProp<ThemeFontSize<T> | number | CSS.Property.FontSize, T>
+  fontSize?: SystemProp<FontSize<T> | CSS.Property.FontSize, T>
 }
 export const fontSize = style<FontSizeProps>({
   prop: 'fontSize',
@@ -75,7 +83,7 @@ export const fontSize = style<FontSizeProps>({
 })
 
 export interface LineHeightProps<T extends ITheme = Theme> {
-  lineHeight?: SystemProp<ThemeLineHeight<T> | CSS.Property.LineHeight, T>
+  lineHeight?: SystemProp<LineHeight<T> | CSS.Property.LineHeight, T>
 }
 export const lineHeight = style<LineHeightProps>({
   prop: 'lineHeight',
@@ -98,10 +106,7 @@ export const fontStyle = style<FontStyleProps>({
 })
 
 export interface LetterSpacingProps<T extends ITheme = Theme> {
-  letterSpacing?: SystemProp<
-    ThemeLetterSpacing<T> | number | CSS.Property.LetterSpacing,
-    T
-  >
+  letterSpacing?: SystemProp<LetterSpacing<T> | CSS.Property.LetterSpacing, T>
 }
 export const letterSpacing = style<LetterSpacingProps>({
   prop: 'letterSpacing',

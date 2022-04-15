@@ -1,6 +1,6 @@
 import * as CSS from 'csstype'
 import { style, compose } from '../style'
-import { getPercent } from './units'
+import { getPercent, Percent } from './units'
 import { display, DisplayProps } from './layout'
 import { SystemProp, ITheme, Theme } from '../types'
 
@@ -54,7 +54,7 @@ export const flexShrink = style<FlexShrinkProps>({
 })
 
 export interface FlexBasisProps<T extends ITheme = Theme> {
-  flexBasis?: SystemProp<CSS.Property.FlexBasis | number, T>
+  flexBasis?: SystemProp<Percent | CSS.Property.FlexBasis, T>
 }
 export const flexBasis = style<FlexBasisProps>({
   prop: 'flexBasis',
