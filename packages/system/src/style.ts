@@ -160,7 +160,7 @@ export const reduceVariants = <T extends Props>(
   for (const value in values) {
     const style = getStyle(values[value])
     if (style === null) continue
-    const state = variants[value]
+    const state = value in variants ? variants[value] : value
     if (state === undefined) continue
     if (state === null) {
       styles = merge(styles, style)
