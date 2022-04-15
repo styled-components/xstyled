@@ -7,29 +7,29 @@
     "bench-styled-components-create": "node ./styled-components-create.js",
     "bench-styled-components-render": "node ./styled-components-render.js",
     "bench-emotion": "node ./emotion.js",
-    "start": "webpack-dev-server"
+    "start": "webpack serve"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/preset-env": "^7.15.6",
-    "@babel/preset-react": "^7.14.5",
-    "babel-loader": "^8.2.2",
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.4",
     "benchmark": "^2.1.4",
-    "html-webpack-plugin": "^5.3.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "webpack": "^5.39.1",
-    "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
+    "html-webpack-plugin": "^5.5.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
     "@emotion/core": "^11.0.0",
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "@xstyled/emotion": "^3.5.1",
     "@xstyled/styled-components": "^3.5.1",
     "emotion-theming": "^11.0.0",
-    "styled-components": "^5.3.0",
+    "styled-components": "^5.3.5",
     "styled-system": "^5.1.5"
   }
 }
