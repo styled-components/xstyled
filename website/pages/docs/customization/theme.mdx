@@ -183,7 +183,7 @@ import { th, defaultTheme, ThemeProvider } from '@xstyled/styled-components'
 export const theme = {
   ...defaultTheme,
   colors: {
-    ...defaultTheme,
+    ...defaultTheme.colors,
     // Use `red-500` as `primary` color
     primary: th.color('red-500'),
   },
@@ -198,7 +198,7 @@ import { th, defaultTheme, ThemeProvider } from '@xstyled/styled-components'
 export const theme = {
   ...defaultTheme,
   colors: {
-    ...defaultTheme,
+    ...defaultTheme.colors,
     primary: th.color('red-500'),
     'button-bg': th.color('primary'),
   },
