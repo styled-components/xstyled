@@ -34,7 +34,8 @@ _Before_ submitting a pull request, please make sure the following is done…
     # build packages
     npm run build
     # run docs
-    npm run dev
+    cd website
+    npm run develop
     ```
 
 4.  If you've changed APIs, update the documentation.
