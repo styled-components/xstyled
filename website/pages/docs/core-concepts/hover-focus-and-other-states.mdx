@@ -177,6 +177,39 @@ Use nested objects to combine states.
 </>
 ```
 
+## Inline states
+
+Inline your states and breakpoints, `&:hover` works just like the default theme `hover` state.
+
+```jsx preview color=indigo
+<>
+  <template preview>
+    <x.div textAlign="center">
+      <x.a
+        href="#inline-states"
+        color={{
+          '&': 'indigo-500',
+          '&:hover': 'indigo-600',
+          '&[href^="#"]': { '&': 'green-500', '&:hover': 'green-600' },
+        }}
+      >
+        Link
+      </x.a>
+    </x.div>
+  </template>
+  <x.a
+    href="#inline-states"
+    color={{
+      '&': 'indigo-500',
+      '&:hover': 'indigo-600',
+      '&[href^="#"]': { '&': 'green-500', '&:hover': 'green-600' },
+    }}
+  >
+    Link
+  </x.a>
+</>
+```
+
 ## Available states
 
 Default theme includes a set of useful states.
