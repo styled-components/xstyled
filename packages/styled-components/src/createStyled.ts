@@ -1,15 +1,11 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
 import type { ElementType } from 'react'
-import { BoxElements } from '@xstyled/core'
 import { string } from '@xstyled/util'
-import { StyleGenerator, StyleGeneratorProps, Theme } from '@xstyled/system'
-import {
-  StyledConfig,
-  ThemedBaseStyledInterface,
-  ThemedStyledFunction,
-} from 'styled-components'
+import type { StyleGenerator } from '@xstyled/system'
+import type { StyledConfig, ThemedStyledFunction } from 'styled-components'
 import { scStyled } from './scStyled'
 import { createCssFunction, XCSSFunction } from './createCssFunction'
+import { XStyled } from './types'
 
 const getCreateStyle = (
   baseCreateStyle: ThemedStyledFunction<any, any>,
@@ -25,18 +21,6 @@ const getCreateStyle = (
     getCreateStyle(baseCreateStyle.withConfig(config), css, generator)
   return createStyle
 }
-
-type BoxStyledTags<TProps extends object> = {
-  [Key in keyof BoxElements]: ThemedStyledFunction<
-    BoxElements[Key],
-    Theme,
-    TProps
-  >
-}
-
-export interface XStyled<TGen extends StyleGenerator>
-  extends ThemedBaseStyledInterface<Theme>,
-    BoxStyledTags<StyleGeneratorProps<TGen>> {}
 
 const createShouldForwardProp = (
   generator: StyleGenerator,

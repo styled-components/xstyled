@@ -1,13 +1,14 @@
 import { StyleGenerator } from '@xstyled/system'
 import { createCssFunction, XCSSFunction } from './createCssFunction'
 import { createX, X } from './createX'
-import { createStyled, XStyled } from './createStyled'
+import { createStyled } from './createStyled'
 import {
   createCreateGlobalStyle,
   XCreateGlobalStyle,
 } from './createCreateGlobalStyle'
+import { XStyled } from './types'
 
-interface XStyledSet<TGen extends StyleGenerator> {
+export interface XStyledSet<TGen extends StyleGenerator> {
   css: XCSSFunction
   x: X<TGen>
   styled: XStyled<TGen>

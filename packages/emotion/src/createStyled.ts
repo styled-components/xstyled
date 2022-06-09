@@ -1,10 +1,7 @@
-import * as React from 'react'
-import { CreateStyledComponent, CreateStyled } from '@emotion/styled'
-import { Theme } from '@emotion/react'
-import { StyleGenerator, StyleGeneratorProps } from '@xstyled/system'
-import { BoxElements } from '@xstyled/core'
+import { StyleGenerator } from '@xstyled/system'
 import { createCssFunction, XCSSFunction } from './createCssFunction'
 import { emStyled } from './emStyled'
+import type { XStyled } from './types';
 
 const flattenArgs = (arg: any, props: any): any => {
   if (typeof arg === 'function') return flattenArgs(arg(props), props)
@@ -36,16 +33,6 @@ const getCreateStyle = (
   }
 }
 
-type BoxStyledTags<TProps extends object> = {
-  [Tag in keyof BoxElements]: CreateStyledComponent<
-    TProps & { as?: React.ElementType; theme?: Theme },
-    JSX.IntrinsicElements[BoxElements[Tag]]
-  >
-}
-
-export interface XStyled<TGen extends StyleGenerator>
-  extends CreateStyled,
-    BoxStyledTags<StyleGeneratorProps<TGen>> {}
 
 const createShouldForwardProp = (
   generator: StyleGenerator,
