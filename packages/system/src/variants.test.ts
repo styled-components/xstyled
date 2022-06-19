@@ -31,7 +31,7 @@ describe('#variants', () => {
     })
   })
 
-  it('allows to create high level variants', () => {
+  it('allows to create compound variants', () => {
     expect(
       systemWithVariants({
         variants: {
@@ -45,17 +45,31 @@ describe('#variants', () => {
           $rounded: {
             true: { borderRadius: 3 },
           },
-          $blueRounded: {
-            $rounded: true,
-            $color: 'blue',
+          $outlined: {
+            true: {
+              borderWidth: 2,
+              borderStyle: 'solid',
+            },
           },
         },
+        compoundVariants: [
+          {
+            $color: 'blue',
+            $outlined: true,
+            css: {
+              borderColor: 'blue',
+            },
+          },
+        ],
+        $color: 'blue',
+        $outlined: true,
       }),
     ).toEqual({
       color: 'blue',
       backgroundColor: 'azure',
-      fontSize: '10px',
-      borderRadius: '3px',
+      borderWidth: '2px',
+      borderStyle: 'solid',
+      borderColor: 'blue',
     })
   })
 })

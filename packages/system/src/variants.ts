@@ -11,9 +11,12 @@ type Widen<T> = T extends number
   ? number | T
   : T
 
-export const withVariants = <SG extends StyleGenerator>(generator: SG) => {
-  const getStyle = <
+export const withVariants =
+  <SG extends StyleGenerator>(generator: SG) =>
+  <
     TProps extends StyleGeneratorProps<SG> & {
+      [Name in string]: any
+    } & {
       variants?: {
         [Name in string]: {
           [Pair in number | string]: StyleGeneratorProps<SG>
@@ -25,19 +28,44 @@ export const withVariants = <SG extends StyleGenerator>(generator: SG) => {
               keyof TProps['variants'][Name]
             >
           }
-        : unknown),
+        : unknown) & {
+        compoundVariants?: ({
+          css: StyleGeneratorProps<SG>
+        } & ('variants' extends keyof TProps
+          ? {
+              [Name in keyof TProps['variants']]?: Widen<
+                keyof TProps['variants'][Name]
+              >
+            }
+          : unknown))[]
+      },
   >(
     props: TProps,
   ): CSSObject | null => {
     const result = generator(props)
     if (!obj(props.variants)) return result
-    for (const variant in props.variants) {
-      // @ts-ignore
-      const value = props[variant]
+    for (const variantName in props.variants) {
+      const value = props[variantName]
       if (!is(value)) continue
-      Object.assign(result, getStyle(props.variants[variant][value]))
+      Object.assign(
+        result,
+        generator({
+          theme: props.theme,
+          ...props.variants[variantName][value],
+        }),
+      )
+    }
+    if (!props.compoundVariants) return result
+    l1: for (let i = 0; i < props.compoundVariants.length; i++) {
+      const compoundVariant = props.compoundVariants[i]
+      for (const key in compoundVariant) {
+        if (key === 'css') continue
+        if (!props[key]) continue l1
+      }
+      Object.assign(
+        result,
+        generator({ theme: props.theme, ...compoundVariant.css }),
+      )
     }
     return result
   }
-  return getStyle
-}

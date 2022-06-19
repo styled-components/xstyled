@@ -75,7 +75,7 @@ export const createBaseStyled = <TGen extends StyleGenerator>(
     ? {
         shouldForwardProp: createShouldForwardProp(generator),
       }
-    : {}
+    : null
   return ((component: Parameters<typeof scStyled>[0]) => {
     const baseStyled = scStyled(component)
     return getCreateStyle(
