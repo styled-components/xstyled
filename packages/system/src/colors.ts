@@ -42,7 +42,7 @@ export const generateHexAlphaVariants = <
   variants: V = (defaultAlphaVariants as unknown) as V,
 ): C & AlphaVariants<C, V> => {
   const transform = (value: string, variant: number) =>
-    `${value}${Math.round((variant / 100) * 255).toString(16)}`
+    `${value}${Math.round((variant / 100) * 255).toString(16).padStart(2, '0')}`
   const alphaColors = Object.keys(colors).reduce((obj, key) => {
     variants.forEach((variant: number) => {
       const value = colors[key]
