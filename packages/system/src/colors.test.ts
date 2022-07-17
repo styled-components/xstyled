@@ -11,8 +11,8 @@ describe('#colors', () => {
 
       expect(colors).toEqual({
         white: '#ffffff',
-        'white-a0': '#ffffff0',
-        'white-a5': '#ffffffd',
+        'white-a0': '#ffffff00',
+        'white-a5': '#ffffff0d',
         'white-a10': '#ffffff1a',
         'white-a20': '#ffffff33',
         'white-a25': '#ffffff40',
@@ -28,8 +28,8 @@ describe('#colors', () => {
         'white-a100': '#ffffffff',
 
         'blue-gray-500': '#64748b',
-        'blue-gray-500-a0': '#64748b0',
-        'blue-gray-500-a5': '#64748bd',
+        'blue-gray-500-a0': '#64748b00',
+        'blue-gray-500-a5': '#64748b0d',
         'blue-gray-500-a10': '#64748b1a',
         'blue-gray-500-a20': '#64748b33',
         'blue-gray-500-a25': '#64748b40',
@@ -62,9 +62,9 @@ describe('#colors', () => {
         'white-a3': '#ffffff8',
 
         'blue-gray-500': '#64748b',
-        'blue-gray-500-a1': '#64748b3',
-        'blue-gray-500-a2': '#64748b5',
-        'blue-gray-500-a3': '#64748b8',
+        'blue-gray-500-a1': '#64748b03',
+        'blue-gray-500-a2': '#64748b05',
+        'blue-gray-500-a3': '#64748b08',
       })
     })
   })
