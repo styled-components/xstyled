@@ -15,7 +15,12 @@ const cacheSupported: boolean =
 
 const caches = cacheSupported ? new WeakMap<ITheme, ThemeCache>() : null
 
+const isCacheDisabled = (theme: ITheme): boolean =>
+  theme?.xstyled?.cache === false
+
 const getThemeCache = (theme: ITheme): ThemeCache | null => {
+  const cacheDisabled = isCacheDisabled(theme)
+  if (cacheDisabled) return null
   if (caches === null) return null
   if (caches.has(theme)) return caches.get(theme) || null
   const cache = {}
