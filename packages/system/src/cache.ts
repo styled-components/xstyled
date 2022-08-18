@@ -10,16 +10,16 @@ interface ThemeCache {
   [key: string]: XCache<any>
 }
 
-const cacheSupported: boolean =
-  typeof Map !== 'undefined' && typeof WeakMap !== 'undefined'
+const cacheSupported: boolean = typeof Map !== 'undefined'
 
-const caches = cacheSupported ? new WeakMap<ITheme, ThemeCache>() : null
+const caches = cacheSupported ? new Map<string, ThemeCache>() : null
 
 const getThemeCache = (theme: ITheme): ThemeCache | null => {
   if (caches === null) return null
-  if (caches.has(theme)) return caches.get(theme) || null
+  const stringifiedTheme = JSON.stringify(theme)
+  if (caches.has(stringifiedTheme)) return caches.get(stringifiedTheme) || null
   const cache = {}
-  caches.set(theme, cache)
+  caches.set(stringifiedTheme, cache)
   return cache
 }
 
