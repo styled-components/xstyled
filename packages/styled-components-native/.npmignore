@@ -1,0 +1,4 @@
+/*
+/dist/*
+!/dist/index.{d.ts,cjs,mjs}
+!/dist/index.{cjs,mjs}.map
