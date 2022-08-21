@@ -1,8 +1,7 @@
 import * as React from 'react'
 import '@testing-library/jest-native/extend-expect'
 import { render, cleanup, screen } from '@testing-library/react-native'
-import { ThemeProvider } from 'styled-components/native'
-import { x } from '.'
+import { x, ThemeProvider } from '.'
 import { Text, View } from 'react-native'
 
 afterEach(cleanup)

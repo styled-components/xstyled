@@ -1,8 +1,7 @@
 import * as React from 'react'
 import '@testing-library/jest-native/extend-expect'
 import { render, cleanup, screen } from '@testing-library/react-native'
-import { ThemeProvider } from 'styled-components/native'
-import styled, { css, system } from '.'
+import styled, { css, system, ThemeProvider } from '.'
 import { Text, View } from 'react-native'
 
 afterEach(cleanup)
@@ -14,6 +13,7 @@ describe('#styled', () => {
       padding: 4;
       margin-top: 2px;
     `
+
     render(<Dummy testID="dummy" />)
 
     expect(screen.getByTestId('dummy')).toHaveStyle({
