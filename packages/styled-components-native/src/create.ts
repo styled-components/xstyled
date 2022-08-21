@@ -6,7 +6,7 @@ import { createStyled, XStyled } from './createStyled'
 interface XStyledSet<TGen extends StyleGenerator> {
   css: XCSSFunction
   x: X<TGen>
-  styled: XStyled
+  styled: XStyled<TGen>
 }
 
 export const createCss = <TGen extends StyleGenerator>(

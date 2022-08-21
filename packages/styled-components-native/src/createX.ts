@@ -1,16 +1,16 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
+import * as ReactNative from 'react-native'
 import { StyledComponent } from 'styled-components'
 import { DefaultTheme } from 'styled-components/native'
-import { scStyled } from './scStyled'
 import { StyleGenerator, StyleGeneratorProps } from '@xstyled/system'
+import { scStyled } from './scStyled'
 import { createBaseStyled } from './createStyled'
 import { createCssFunction } from './createCssFunction'
-import { NativeElement, NativeElementsKeys } from './types'
-import * as RN from 'react-native'
+import { ReactNativeElement, ReactNativeElementsKeys } from './types'
 
 export type X<TGen extends StyleGenerator> = {
-  [Key in NativeElementsKeys]: StyledComponent<
-    NativeElement<Key>,
+  [Key in ReactNativeElementsKeys]: StyledComponent<
+    ReactNativeElement<Key, DefaultTheme>,
     DefaultTheme,
     StyleGeneratorProps<TGen>,
     'color'
@@ -30,7 +30,7 @@ export const createX = <TGen extends StyleGenerator>(
       configurable: false,
       get() {
         // @ts-ignore
-        return xstyled(RN[tag])``
+        return xstyled(ReactNative[tag])``
       },
     })
   })
