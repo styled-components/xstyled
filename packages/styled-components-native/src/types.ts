@@ -1,36 +1,23 @@
 import { Theme } from '@xstyled/system'
-import {
-  AnyStyledComponent,
-  StyledComponentInnerAttrs,
-  StyledComponentInnerComponent,
-  StyledComponentInnerOtherProps,
-  ThemedStyledFunction,
-} from 'styled-components'
 import type {
   ReactNativeStyledInterface,
   ReactNativeThemedStyledFunction,
 } from 'styled-components/native'
 
-export type NativeElements = ReactNativeStyledInterface<Theme>
+export type ReactNativeElements = ReactNativeStyledInterface<Theme>
 
-export type NativeElement<T extends NativeElementsKeys> =
-  NativeElements[T] extends ReactNativeThemedStyledFunction<infer U, any>
-    ? U
-    : never
+export type ReactNativeElementsKeys = keyof ReactNativeElements
 
-export type NativeElementsKeys = keyof NativeElements
-
-export interface ReactNativeThemedBaseStyledInterface<T extends object>
-  extends ReactNativeStyledInterface<Theme> {
-  <C extends AnyStyledComponent>(component: C): ThemedStyledFunction<
-    StyledComponentInnerComponent<C>,
-    T,
-    StyledComponentInnerOtherProps<C>,
-    StyledComponentInnerAttrs<C>
-  >
-  <C extends React.ComponentType<any>>(
-    // unfortunately using a conditional type to validate that it can receive a `theme?: Theme`
-    // causes tests to fail in TS 3.1
-    component: C,
-  ): ThemedStyledFunction<C, T>
+export type ReactNativeBoxElements = {
+  [ReactNativeElement in ReactNativeElementsKeys as `${ReactNativeElement}Box`]: ReactNativeElement
 }
+
+export type ReactNativeElement<
+  RNElement extends ReactNativeElementsKeys,
+  Theme extends object,
+> = ReactNativeElements[RNElement] extends ReactNativeThemedStyledFunction<
+  infer U,
+  Theme
+>
+  ? U
+  : never
