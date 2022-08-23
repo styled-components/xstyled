@@ -1,0 +1,7 @@
+{
+    "name": "@xstyled/styled-components/native",
+    "private": true,
+    "types": "./dist/index.d.ts",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.mjs"
+  }
