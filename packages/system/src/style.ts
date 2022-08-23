@@ -186,9 +186,10 @@ const getStyleFactory = (
     const value = props[prop]
     if (!is(value)) return null
     const cache = getCache<CSSObject | null | undefined>(props.theme, prop)
-    if (cache.has(value)) return cache.get(value)
-    const style = fromValue(props[prop])
-    cache.set(value, style)
+    const key = obj(value) ? JSON.stringify(value) : value
+    if (cache.has(key)) return cache.get(key)
+    const style = fromValue(value)
+    cache.set(key, style)
     return style
   }
 }
