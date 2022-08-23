@@ -1,14 +1,17 @@
 module.exports = (api) => {
   api.cache(true)
 
-  const config = {
+  return {
     presets: [
       ['@babel/preset-env', { targets: { node: 'current' } }],
       '@babel/preset-react',
-      'module:metro-react-native-babel-preset',
       '@babel/preset-typescript',
     ],
+    overrides: [
+      {
+        test: /react-native/,
+        presets: ['module:metro-react-native-babel-preset'],
+      },
+    ],
   }
-
-  return config
 }

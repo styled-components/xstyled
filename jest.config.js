@@ -10,7 +10,7 @@ module.exports = {
       testPathIgnorePatterns: [
         '/node_modules/',
         '/website/',
-        '/packages/styled-components-native/',
+        '/packages/styled-components/src/native/',
       ],
       coveragePathIgnorePatterns: ['/node_modules/', '/dist/'],
       moduleNameMapper: {
@@ -21,14 +21,10 @@ module.exports = {
     {
       displayName: 'native',
       preset: 'react-native',
-      transformIgnorePatterns: ['node_modules/(?!@react-native|react-native)'],
-      transform: {
-        '^.+\\.(j|t)sx?$': 'babel-jest',
-      },
-      testPathIgnorePatterns: [
-        '/node_modules/',
-        '/website/',
-        '/packages/(?!styled-components-native)',
+      testPathIgnorePatterns: ['/node_modules/', '/website/'],
+      testMatch: [
+        '<rootDir>/packages/styled-components/src/native/__tests__/**/*.[jt]s?(x)',
+        '<rootDir>/packages/styled-components/src/native/**/?(*.)+(spec|test).[jt]s?(x)',
       ],
       coveragePathIgnorePatterns: ['/node_modules/', '/dist/'],
     },
