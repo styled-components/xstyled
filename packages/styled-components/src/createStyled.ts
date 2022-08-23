@@ -5,26 +5,12 @@ import { string } from '@xstyled/util'
 import { StyleGenerator, StyleGeneratorProps, Theme } from '@xstyled/system'
 import {
   StyledConfig,
+  StyledInterface,
   ThemedBaseStyledInterface,
   ThemedStyledFunction,
 } from 'styled-components'
-import { scStyled } from './scStyled'
 import { createCssFunction, XCSSFunction } from './createCssFunction'
-
-const getCreateStyle = (
-  baseCreateStyle: ThemedStyledFunction<any, any>,
-  css: XCSSFunction,
-  generator?: StyleGenerator,
-) => {
-  const createStyle = (...args: Parameters<typeof css>) =>
-    // @ts-ignore
-    baseCreateStyle`${css(...args)}${generator}`
-  createStyle.attrs = (attrs: Parameters<typeof baseCreateStyle.attrs>[0]) =>
-    getCreateStyle(baseCreateStyle.attrs(attrs), css, generator)
-  createStyle.withConfig = (config: StyledConfig<any>) =>
-    getCreateStyle(baseCreateStyle.withConfig(config), css, generator)
-  return createStyle
-}
+import { ReactNativeStyledInterface } from 'styled-components/native'
 
 type BoxStyledTags<TProps extends object> = {
   [Key in keyof BoxElements]: ThemedStyledFunction<
@@ -37,6 +23,13 @@ type BoxStyledTags<TProps extends object> = {
 export interface XStyled<TGen extends StyleGenerator>
   extends ThemedBaseStyledInterface<Theme>,
     BoxStyledTags<StyleGeneratorProps<TGen>> {}
+
+export type StyledFunctions<XObj> = {
+  scStyled: StyledInterface | ReactNativeStyledInterface<Theme>
+  styled?: XObj
+  xstyled?: XObj
+  x?: XObj
+}
 
 const createShouldForwardProp = (
   generator: StyleGenerator,
@@ -67,37 +60,85 @@ const createShouldForwardProp = (
   }
 }
 
-export const createBaseStyled = <TGen extends StyleGenerator>(
+const getCreateStyle = (
+  baseCreateStyle: ThemedStyledFunction<any, any>,
+  css: XCSSFunction,
+  generator?: StyleGenerator,
+) => {
+  const createStyle = (...args: Parameters<typeof css>) =>
+    // @ts-ignore
+    baseCreateStyle`${css(...args)}${generator}`
+  createStyle.attrs = (attrs: Parameters<typeof baseCreateStyle.attrs>[0]) =>
+    getCreateStyle(baseCreateStyle.attrs(attrs), css, generator)
+  createStyle.withConfig = (config: StyledConfig<any>) =>
+    getCreateStyle(baseCreateStyle.withConfig(config), css, generator)
+  return createStyle
+}
+
+export const createBaseStyled = <XObj, TGen extends StyleGenerator>(
+  scStyled: StyledInterface | ReactNativeStyledInterface<Theme>,
   css: XCSSFunction,
   generator?: TGen,
-): XStyled<TGen> => {
+): XObj => {
   const config = generator
     ? {
         shouldForwardProp: createShouldForwardProp(generator),
       }
     : {}
   return ((component: Parameters<typeof scStyled>[0]) => {
-    const baseStyled = scStyled(component)
+    const baseStyled = (scStyled as StyledInterface)(component)
     return getCreateStyle(
       config ? baseStyled.withConfig(config) : baseStyled,
       css,
       generator,
     )
-  }) as XStyled<TGen>
+  }) as unknown as XObj
 }
 
-export const createStyled = <TGen extends StyleGenerator>(
+export const createStyled = <
+  SCFN extends StyledInterface | ReactNativeStyledInterface<Theme>,
+  SCCSSFN extends ReturnType<typeof createCssFunction>,
+  XObj,
+  TGen extends StyleGenerator,
+>(
+  scStyled: SCFN,
+  cssFunction: SCCSSFN,
   generator: TGen,
-): XStyled<TGen> => {
-  const css = createCssFunction(generator)
-  const styled = createBaseStyled(css)
-  const xstyled = createBaseStyled(css, generator)
+): StyledFunctions<XObj> => {
+  const styled = createBaseStyled<XObj, TGen>(scStyled, cssFunction)
+  const xstyled = createBaseStyled<XObj, TGen>(scStyled, cssFunction, generator)
+
+  return { scStyled, styled, xstyled }
+}
+
+export const defineStyledInterface = <XObj>({
+  scStyled,
+  styled,
+  xstyled,
+}: StyledFunctions<XObj>): XObj => {
+  //@ts-ignore
   styled.box = xstyled('div')
-  Object.keys(scStyled).forEach((key) => {
-    // @ts-ignore
-    styled[key] = styled(key)
-    // @ts-ignore
-    styled[`${key}Box`] = xstyled(key)
+
+  Object.keys(scStyled).forEach((tag) => {
+    //@ts-ignore
+    styled[tag] = styled(tag)
+
+    //@ts-ignore
+    styled[`${tag}Box`] = xstyled(tag)
   })
-  return styled
+
+  return styled as XObj
+}
+
+export const defineXStyledInterface = <XObj>({
+  scStyled,
+  styled,
+  xstyled,
+}: StyledFunctions<XObj>): XObj => {
+  Object.keys(scStyled).forEach((tag) => {
+    //@ts-ignore
+    styled[tag] = xstyled(tag)``
+  })
+
+  return styled as XObj
 }
