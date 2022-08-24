@@ -7,7 +7,7 @@ import {
 import { ReactNativeStyledInterface } from 'styled-components/native'
 import { StyleGenerator, StyleGeneratorProps, Theme } from '@xstyled/system'
 import { createBaseStyled, StyledFunctions } from './createStyled'
-import { createCssFunction } from './createCssFunction'
+import { XCSSFunction } from './createCssFunction'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
 
@@ -26,17 +26,20 @@ export type X<TGen extends StyleGenerator> = {
 
 export const createX = <
   StyledFunction extends StyledInterface | ReactNativeStyledInterface<Theme>,
-  StyledCssFunction extends ReturnType<typeof createCssFunction>,
-  XObj,
+  XStyledInterface,
   TGen extends StyleGenerator,
 >(
   scStyled: StyledFunction,
-  cssFunction: StyledCssFunction,
+  cssFunction: XCSSFunction,
   generator: TGen,
-): StyledFunctions<XObj> => {
-  const xstyled = createBaseStyled<XObj, TGen>(scStyled, cssFunction, generator)
+): StyledFunctions<XStyledInterface> => {
+  const xstyled = createBaseStyled<XStyledInterface, TGen>(
+    scStyled,
+    cssFunction,
+    generator,
+  )
 
-  const x = {} as XObj
+  const styled = {} as XStyledInterface
 
-  return { scStyled, styled: x, xstyled }
+  return { scStyled, styled, xstyled }
 }

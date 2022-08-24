@@ -9,7 +9,7 @@ import {
   ThemedBaseStyledInterface,
   ThemedStyledFunction,
 } from 'styled-components'
-import { createCssFunction, XCSSFunction } from './createCssFunction'
+import { XCSSFunction } from './createCssFunction'
 import { ReactNativeStyledInterface } from 'styled-components/native'
 
 type BoxStyledTags<TProps extends object> = {
@@ -24,11 +24,10 @@ export interface XStyled<TGen extends StyleGenerator>
   extends ThemedBaseStyledInterface<Theme>,
     BoxStyledTags<StyleGeneratorProps<TGen>> {}
 
-export type StyledFunctions<XObj> = {
+export type StyledFunctions<XStyledInterface> = {
   scStyled: StyledInterface | ReactNativeStyledInterface<Theme>
-  styled?: XObj
-  xstyled?: XObj
-  x?: XObj
+  styled: XStyledInterface
+  xstyled: XStyledInterface
 }
 
 const createShouldForwardProp = (
@@ -75,11 +74,11 @@ const getCreateStyle = (
   return createStyle
 }
 
-export const createBaseStyled = <XObj, TGen extends StyleGenerator>(
+export const createBaseStyled = <XStyledInterface, TGen extends StyleGenerator>(
   scStyled: StyledInterface | ReactNativeStyledInterface<Theme>,
   css: XCSSFunction,
   generator?: TGen,
-): XObj => {
+): XStyledInterface => {
   const config = generator
     ? {
         shouldForwardProp: createShouldForwardProp(generator),
@@ -92,30 +91,33 @@ export const createBaseStyled = <XObj, TGen extends StyleGenerator>(
       css,
       generator,
     )
-  }) as unknown as XObj
+  }) as unknown as XStyledInterface
 }
 
 export const createStyled = <
-  SCFN extends StyledInterface | ReactNativeStyledInterface<Theme>,
-  SCCSSFN extends ReturnType<typeof createCssFunction>,
-  XObj,
+  StyledFunction extends StyledInterface | ReactNativeStyledInterface<Theme>,
+  XStyledInterface,
   TGen extends StyleGenerator,
 >(
-  scStyled: SCFN,
-  cssFunction: SCCSSFN,
+  scStyled: StyledFunction,
+  cssFunction: XCSSFunction,
   generator: TGen,
-): StyledFunctions<XObj> => {
-  const styled = createBaseStyled<XObj, TGen>(scStyled, cssFunction)
-  const xstyled = createBaseStyled<XObj, TGen>(scStyled, cssFunction, generator)
+): StyledFunctions<XStyledInterface> => {
+  const styled = createBaseStyled<XStyledInterface, TGen>(scStyled, cssFunction)
+  const xstyled = createBaseStyled<XStyledInterface, TGen>(
+    scStyled,
+    cssFunction,
+    generator,
+  )
 
   return { scStyled, styled, xstyled }
 }
 
-export const defineStyledInterface = <XObj>({
+export const defineStyledInterface = <XStyledInterface>({
   scStyled,
   styled,
   xstyled,
-}: StyledFunctions<XObj>): XObj => {
+}: StyledFunctions<XStyledInterface>): XStyledInterface => {
   //@ts-ignore
   styled.box = xstyled('div')
 
@@ -127,18 +129,18 @@ export const defineStyledInterface = <XObj>({
     styled[`${tag}Box`] = xstyled(tag)
   })
 
-  return styled as XObj
+  return styled
 }
 
-export const defineXStyledInterface = <XObj>({
+export const defineXStyledInterface = <XStyledInterface>({
   scStyled,
   styled,
   xstyled,
-}: StyledFunctions<XObj>): XObj => {
+}: StyledFunctions<XStyledInterface>): XStyledInterface => {
   Object.keys(scStyled).forEach((tag) => {
     //@ts-ignore
     styled[tag] = xstyled(tag)``
   })
 
-  return styled as XObj
+  return styled
 }
