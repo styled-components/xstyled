@@ -13,7 +13,7 @@ const SpaceTheme = ({ children }: { children: React.ReactNode }) => {
 }
 
 describe('#x', () => {
-  it.only('creates system based components', () => {
+  it('creates system based components', () => {
     render(<x.View m={2} p={1} testID="dummy" />)
 
     expect(screen.getByTestId('dummy')).toHaveStyle({
@@ -28,7 +28,7 @@ describe('#x', () => {
     })
   })
 
-  it.only('supports "as" prop', () => {
+  it('supports "as" prop', () => {
     render(<x.View as={Text} m={2} p={1} testID="dummy" />)
 
     const dummyComponent = screen.getByTestId('dummy')
@@ -47,7 +47,7 @@ describe('#x', () => {
     })
   })
 
-  it.only('uses theme', () => {
+  it('uses theme', () => {
     render(
       <SpaceTheme>
         <x.Text m={2} p={1} testID="dummy">
@@ -72,7 +72,7 @@ describe('#x', () => {
     })
   })
 
-  it.only('does not forward props', () => {
+  it('does not forward props', () => {
     render(<x.View display="flex" data-foo="bar" testID="dummy" />)
 
     const dummyComponent = screen.getByTestId('dummy')
@@ -83,19 +83,19 @@ describe('#x', () => {
     expect(dummyComponent).toHaveProp('data-foo', 'bar')
   })
 
-  it.only('avoids passing system props to native element', () => {
+  it('avoids passing system props to native element', () => {
     render(<x.View fontSize={10} testID="dummy" />)
 
     expect(screen.getByTestId('dummy')).not.toHaveProp('fontSize')
   })
 
-  it.only('passes native attrs to native element', () => {
+  it('passes native attrs to native element', () => {
     render(<x.View accessibilityHint="test" testID="dummy" />)
 
     expect(screen.getByTestId('dummy')).toHaveProp('accessibilityHint', 'test')
   })
 
-  it.only('avoids passing system props to "as" component', () => {
+  it('avoids passing system props to "as" component', () => {
     const Component = (props: any) => <View {...props} />
 
     render(<x.View as={Component} fontSize={10} testID="dummy" />)
@@ -103,7 +103,7 @@ describe('#x', () => {
     expect(screen.getByTestId('dummy')).not.toHaveProp('fontSize')
   })
 
-  it.only('passes non-system props to "as" component', () => {
+  it('passes non-system props to "as" component', () => {
     const Component = ({ asdf, ...props }: any) => (
       <Text {...props}>{asdf}</Text>
     )
