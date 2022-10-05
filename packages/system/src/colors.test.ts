@@ -72,7 +72,7 @@ describe('#colors', () => {
   describe('#aliasColor', () => {
     it('aliases colors', () => {
       expect(aliasColor('primary', 'emerald')).toMatchInlineSnapshot(`
-        Object {
+        {
           "primary-100": [Function],
           "primary-100-a0": [Function],
           "primary-100-a10": [Function],

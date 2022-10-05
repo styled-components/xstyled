@@ -10,7 +10,7 @@ describe('#getSystemPropTypes', () => {
   it('generates PropTypes from system', () => {
     const propTypes = getSystemPropTypes(space)
     expect(Object.keys(propTypes)).toMatchInlineSnapshot(`
-      Array [
+      [
         "margin",
         "m",
         "marginTop",

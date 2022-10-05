@@ -4,7 +4,7 @@ export * from './types'
 
 const DEV = process.env.NODE_ENV !== 'production'
 
-const specialProperties = ['__proto__', 'constructor', 'prototype'];
+const specialProperties = ['__proto__', 'constructor', 'prototype']
 /**
  * Identity function.
  */
@@ -68,7 +68,7 @@ export const assign = <T, U>(target: T, source: U): T & U => {
   if (!is(source)) return target as T & U
   for (const key in source) {
     if (specialProperties.indexOf(key) !== -1) {
-      continue;
+      continue
     }
     // @ts-ignore
     target[key] = source[key]
@@ -83,7 +83,7 @@ export const merge = <T, U>(target: T, source: U): T & U => {
   if (!is(source)) return target as T & U
   for (const key in source) {
     if (specialProperties.indexOf(key) !== -1) {
-      continue;
+      continue
     }
     // @ts-ignore
     if (obj(target[key])) {

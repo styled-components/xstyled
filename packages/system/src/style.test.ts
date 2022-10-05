@@ -109,11 +109,13 @@ describe('#style', () => {
         states: { hover: '&:hover', first: '&:first-child' },
         screens: { _: 0, md: 400 },
       }
-      expect(fontFamily({ fontFamily: { '&:empty': 'title' }, theme })).toEqual({
-        '&:empty': {
-          fontFamily: 'title',
+      expect(fontFamily({ fontFamily: { '&:empty': 'title' }, theme })).toEqual(
+        {
+          '&:empty': {
+            fontFamily: 'title',
+          },
         },
-      })
+      )
       expect(fontFamily({ fontFamily: { hover: 'title' }, theme })).toEqual({
         '&:hover': {
           fontFamily: 'title',
@@ -200,10 +202,12 @@ describe('#style', () => {
           fontFamily: 'title',
         },
       })
-      expect(fontFamily({
-        fontFamily: { '@media (min-width: 355px)': 'title' },
-        theme
-      })).toEqual({
+      expect(
+        fontFamily({
+          fontFamily: { '@media (min-width: 355px)': 'title' },
+          theme,
+        }),
+      ).toEqual({
         '@media (min-width: 355px)': {
           fontFamily: 'title',
         },

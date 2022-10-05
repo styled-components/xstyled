@@ -6,21 +6,7 @@ export type ColorVariants = number[] | readonly number[]
 export type ColorTones = number[]
 
 const defaultAlphaVariants = [
-  0,
-  5,
-  10,
-  20,
-  25,
-  30,
-  40,
-  50,
-  60,
-  70,
-  75,
-  80,
-  90,
-  95,
-  100,
+  0, 5, 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 95, 100,
 ] as const
 
 export type DefaultAlphaVariants = typeof defaultAlphaVariants
@@ -36,10 +22,10 @@ type AlphaVariants<C extends Colors, V extends ColorVariants> = {
 
 export const generateHexAlphaVariants = <
   C extends Colors,
-  V extends ColorVariants
+  V extends ColorVariants,
 >(
   colors: C,
-  variants: V = (defaultAlphaVariants as unknown) as V,
+  variants: V = defaultAlphaVariants as unknown as V,
 ): C & AlphaVariants<C, V> => {
   const transform = (value: string, variant: number) =>
     `${value}${Math.round((variant / 100) * 255).toString(16)}`
@@ -64,7 +50,7 @@ export const aliasColor = <T extends ColorTones>(
   alias: string,
   color: string,
   tones: T = defaultTones as T,
-  variants: ColorVariants = (defaultAlphaVariants as unknown) as ColorVariants,
+  variants: ColorVariants = defaultAlphaVariants as unknown as ColorVariants,
 ): { [key: string]: ThemeAlias } => {
   return tones.reduce((obj, tone) => {
     obj[`${alias}-${tone}`] = th.color(`${color}-${tone}`)
