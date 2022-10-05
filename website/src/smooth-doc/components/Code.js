@@ -142,9 +142,12 @@ export function usePrismTheme() {
 }
 
 function LiveEditor() {
-  const { code: initialCode, language, theme, onChange } = useContext(
-    LiveContext,
-  )
+  const {
+    code: initialCode,
+    language,
+    theme,
+    onChange,
+  } = useContext(LiveContext)
   const [code, setCode] = useState(initialCode)
   const baseTheme = theme && typeof theme.plain === 'object' ? theme.plain : {}
   return (
@@ -165,7 +168,8 @@ function LiveEditor() {
   )
 }
 
-const PREVIEW_REGEXP = /<>\s*<template preview>(?<preview>[\s\S]*)<\/template>(?<code>[\s\S]*)\s*<\/>/m
+const PREVIEW_REGEXP =
+  /<>\s*<template preview>(?<preview>[\s\S]*)<\/template>(?<code>[\s\S]*)\s*<\/>/m
 
 export function Code({
   children,

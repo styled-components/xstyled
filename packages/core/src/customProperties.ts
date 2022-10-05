@@ -10,7 +10,7 @@ const toVarValue = (key: string, value: string): string =>
 const toProp = (key: string, value: string): string => `${key}: ${value};`
 
 export function toCustomPropertiesReferences<
-  T extends Record<string | number, unknown>
+  T extends Record<string | number, unknown>,
 >(
   values: T,
   theme?: ITheme,

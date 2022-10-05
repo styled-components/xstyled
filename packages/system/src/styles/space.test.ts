@@ -131,7 +131,7 @@ describe('#space', () => {
 
   it('should expose meta', () => {
     expect(space.meta.props).toMatchInlineSnapshot(`
-      Array [
+      [
         "margin",
         "m",
         "marginTop",

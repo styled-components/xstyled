@@ -4,7 +4,7 @@ import { createColorModeProvider, createColorStyles } from '@xstyled/core'
 
 function ColorModeStyle({ targetSelector }: { targetSelector?: string }) {
   const colorModeStyles = React.useCallback(
-    (theme) => createColorStyles(theme, { targetSelector }),
+    (theme: any) => createColorStyles(theme, { targetSelector }),
     [targetSelector],
   )
   return <Global styles={colorModeStyles} />

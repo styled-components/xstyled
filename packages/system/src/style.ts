@@ -124,7 +124,7 @@ export const themeGetter = <T = any>({
   return getter
 }
 
-export const createStyleGenerator = <TProps = {}>({
+export const createStyleGenerator = <TProps extends Props = {}>({
   getStyle,
   props,
   cssGetters = {},
@@ -296,7 +296,7 @@ const getMixinFromCSSOption = (css: CSSOption): Mixin => {
 
 const dasherize = (key: string) => key.replace(/[A-Z]/g, '-$&').toLowerCase()
 
-export const style = <TProps = {}>({
+export const style = <TProps extends Props = {}>({
   prop,
   css,
   themeGet,

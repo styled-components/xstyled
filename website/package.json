@@ -8,13 +8,13 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "prismjs": "^1.27.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "smooth-doc": "^9.0.0"
+    "prismjs": "^1.29.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "smooth-doc": "^10.1.0"
   },
   "devDependencies": {
-    "gatsby": "^4.12.1",
-    "gatsby-plugin-google-analytics": "^4.12.1"
+    "gatsby": "^4.24.1",
+    "gatsby-plugin-google-analytics": "^4.24.0"
   }
 }

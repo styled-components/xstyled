@@ -222,7 +222,7 @@ export function useColorModeState(
   const customPropertiesEnabled = checkHasCustomPropertiesEnabled(theme)
 
   const manualSetRef = React.useRef(false)
-  const manuallySetMode = React.useCallback((value) => {
+  const manuallySetMode = React.useCallback((value: string | null) => {
     manualSetRef.current = true
     setMode(value)
   }, [])

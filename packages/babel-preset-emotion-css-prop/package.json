@@ -23,9 +23,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.14.9",
-    "@emotion/babel-plugin": "^11.3.0",
-    "@emotion/babel-plugin-jsx-pragmatic": "^0.1.5"
+    "@babel/plugin-transform-react-jsx": "^7.19.0",
+    "@emotion/babel-plugin": "^11.10.2",
+    "@emotion/babel-plugin-jsx-pragmatic": "^0.2.0"
   },
   "peerDependencies": {
     "@babel/core": "^7.0.0"

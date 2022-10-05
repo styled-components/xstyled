@@ -40,6 +40,6 @@
   },
   "dependencies": {
     "@xstyled/util": "^3.5.1",
-    "csstype": "^3.0.8"
+    "csstype": "^3.1.1"
   }
 }

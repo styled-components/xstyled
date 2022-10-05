@@ -7,9 +7,9 @@ type PropsScreens<T extends Props> = T['theme'] extends { screens: Screens }
   : Screens
 
 export const getScreens = <T extends Props>(props: T): PropsScreens<T> => {
-  return (props.theme && props.theme.screens
-    ? props.theme.screens
-    : {}) as PropsScreens<T>
+  return (
+    props.theme && props.theme.screens ? props.theme.screens : {}
+  ) as PropsScreens<T>
 }
 
 type PropsStates<T extends Props> = T['theme'] extends { states: States }
@@ -17,9 +17,9 @@ type PropsStates<T extends Props> = T['theme'] extends { states: States }
   : Screens
 
 export const getStates = <T extends Props>(props: T): PropsStates<T> => {
-  return (props.theme && props.theme.states
-    ? props.theme.states
-    : {}) as PropsStates<T>
+  return (
+    props.theme && props.theme.states ? props.theme.states : {}
+  ) as PropsStates<T>
 }
 
 type PropsScreensVariants<T extends Props> = {
