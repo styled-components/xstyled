@@ -221,10 +221,13 @@ export function useColorModeState(
   // Add mode className
   const customPropertiesEnabled = checkHasCustomPropertiesEnabled(theme)
 
-  const manualSetRef = React.useRef(false)
   const manuallySetMode = React.useCallback((value: string | null) => {
-    manualSetRef.current = true
-    setMode(value)
+    setMode(value || null)
+    if (value) {
+      storage.set(value)
+    } else {
+      storage.clear()
+    }
   }, [])
 
   // Set initial color mode in lazy
@@ -236,17 +239,6 @@ export function useColorModeState(
       setMode(storedMode || systemMode || defaultColorMode)
     }
   }, [])
-
-  // Store mode preference
-  useIsomorphicLayoutEffect(() => {
-    if (manualSetRef.current) {
-      if (mode) {
-        storage.set(mode)
-      } else {
-        storage.clear()
-      }
-    }
-  }, [mode])
 
   // Sync system mode
   useIsomorphicLayoutEffect(() => {
