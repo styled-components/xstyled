@@ -516,6 +516,9 @@ export const defaultTheme = {
     disabled: '&:disabled, &[aria-disabled=true]',
     placeholder: '&::placeholder',
   },
+  xstyled: {
+    cache: true,
+  },
 }
 
 export type DefaultTheme = typeof defaultTheme
