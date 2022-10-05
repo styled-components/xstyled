@@ -57,9 +57,9 @@ describe('#colors', () => {
 
       expect(colors).toEqual({
         white: '#ffffff',
-        'white-a1': '#ffffff3',
-        'white-a2': '#ffffff5',
-        'white-a3': '#ffffff8',
+        'white-a1': '#ffffff03',
+        'white-a2': '#ffffff05',
+        'white-a3': '#ffffff08',
 
         'blue-gray-500': '#64748b',
         'blue-gray-500-a1': '#64748b03',
