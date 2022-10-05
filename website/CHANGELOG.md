@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/gregberge/xstyled/compare/v3.6.0...v3.7.0) (2022-10-05)
+
+
+### Features
+
+* **cache:** add option to disable xstyled cache ([#379](https://github.com/gregberge/xstyled/issues/379)) ([738f882](https://github.com/gregberge/xstyled/commit/738f88229e7d3a144fb150be2c4ca71e514cda96))
+
+
+
+
+
 # [3.6.0](https://github.com/gregberge/xstyled/compare/v3.5.1...v3.6.0) (2022-04-15)
 
 

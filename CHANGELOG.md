@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/gregberge/xstyled/compare/v3.6.0...v3.7.0) (2022-10-05)
+
+
+### Bug Fixes
+
+* **cache:** fix object keys caching ([#383](https://github.com/gregberge/xstyled/issues/383)) ([879708c](https://github.com/gregberge/xstyled/commit/879708cde533066cd728027275014df776b9709d))
+* **color-mode:** fix clearing color mode ([#385](https://github.com/gregberge/xstyled/issues/385)) ([1bb5cb8](https://github.com/gregberge/xstyled/commit/1bb5cb8109b168f99bc4fbe7247e9d10a43df95e))
+* fixed contributing guide setup step documentation ([9925f19](https://github.com/gregberge/xstyled/commit/9925f19b0de06a785ee28eef64479ebf44ecfd07))
+* fixed incomplete hex alpha value generation ([#373](https://github.com/gregberge/xstyled/issues/373)) ([fd0a097](https://github.com/gregberge/xstyled/commit/fd0a09781f7c2cc0eee5d59e485381e9f3fc1ed0))
+
+
+### Features
+
+* **cache:** add option to disable xstyled cache ([#379](https://github.com/gregberge/xstyled/issues/379)) ([738f882](https://github.com/gregberge/xstyled/commit/738f88229e7d3a144fb150be2c4ca71e514cda96))
+
+
+
+
+
 # [3.6.0](https://github.com/gregberge/xstyled/compare/v3.5.1...v3.6.0) (2022-04-15)
 
 

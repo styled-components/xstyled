@@ -1,6 +1,6 @@
 {
   "name": "@xstyled/website",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "private": true,
   "scripts": {
     "build": "gatsby build && cp _redirects public/",

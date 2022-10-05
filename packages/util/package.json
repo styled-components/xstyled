@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/util",
   "description": "xstyled common utilities.",
-  "version": "3.5.1",
+  "version": "3.7.0",
   "sideEffects": false,
   "type": "module",
   "main": "./dist/index.cjs",

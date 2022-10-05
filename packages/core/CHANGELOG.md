@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/gregberge/xstyled/compare/v3.6.0...v3.7.0) (2022-10-05)
+
+
+### Bug Fixes
+
+* **color-mode:** fix clearing color mode ([#385](https://github.com/gregberge/xstyled/issues/385)) ([1bb5cb8](https://github.com/gregberge/xstyled/commit/1bb5cb8109b168f99bc4fbe7247e9d10a43df95e))
+
+
+
+
+
 # [3.6.0](https://github.com/gregberge/xstyled/compare/v3.5.1...v3.6.0) (2022-04-15)
 
 
