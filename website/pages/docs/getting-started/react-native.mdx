@@ -1,0 +1,59 @@
+---
+section: Getting Started
+title: React Native
+slug: /docs/react-native/
+order: 8
+---
+
+# React Native
+
+<carbon-ad />
+
+xstyled can be used with React Native in the same way and with the same import just as styled-components did.
+
+### Diferrences between browser and react-native
+
+It works in the "same way" as the browser's xstyled but some utility properties have been removed because react-native doesn't support it, for example: grid, transformations.
+
+### Exposes components with and without utility props
+
+The philosophy of xstyled is to use x.\* as much as possible.
+
+But we provide all react native components in `styled` without utility props, and components with utility props using the `Box` suffix.
+
+```js
+import styled from '@xstyled/styled-components/native'
+
+const WithoutUtility = styled.View``
+const WithUtility = styled.ViewBox`` // it's the same as using x.View
+```
+
+## Setup
+
+Learn how to setup with react-native.
+
+### Use `ThemeProvider` from `@xstyled/styled-components/native`
+
+```js
+// App.js
+import { defaultTheme, ThemeProvider } from '@xstyled/styled-components/native'
+
+const theme = {
+  ...defaultTheme,
+  // Customize your theme here
+}
+
+export default function App() {
+  return <ThemeProvider theme={theme}></ThemeProvider>
+}
+```
+
+### Write your first component
+
+```js
+import { x } from '@xstyled/styled-components/native'
+
+function Button(props) {
+  return <x.Button bg="blue-500" title="Test" {...props} />
+}
+```
