@@ -10,7 +10,6 @@ import styled, {
 } from '@xstyled/styled-components'
 import Editor from 'react-simple-code-editor'
 import { LiveProvider, LiveError, LivePreview, LiveContext } from 'react-live'
-import { mdx } from '@mdx-js/react'
 import { Highlight } from '../../components/Prism'
 
 const Pre = styled.pre`
@@ -171,14 +170,19 @@ function LiveEditor() {
 const PREVIEW_REGEXP =
   /<>\s*<template preview>(?<preview>[\s\S]*)<\/template>(?<code>[\s\S]*)\s*<\/>/m
 
-export function Code({
-  children,
-  lang = 'jsx',
-  preview,
-  live,
-  noInline,
-  color,
-}) {
+const parseMeta = (metaString) => {
+  if (!metaString) return {}
+  const params = new URLSearchParams(metaString.replace(' ', '&'))
+  const obj = Object.fromEntries(params.entries())
+  return Object.entries(obj).reduce((obj, [key, value]) => {
+    obj[key] = value === '' ? true : value
+    return obj
+  }, {})
+}
+
+export function Code({ children, lang = 'jsx', meta: metaString }) {
+  const meta = parseMeta(metaString)
+  const { preview, live, noInline, color } = meta
   const prismTheme = usePrismTheme()
   if (preview) {
     const rawCode = children.trim()
@@ -189,8 +193,8 @@ export function Code({
       <>
         <LiveProvider
           code={preview}
-          transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
-          scope={{ mdx, require: req, x }}
+          transformCode={(code) => importToRequire(code)}
+          scope={{ require: req, x }}
           language={lang}
           theme={prismTheme}
           noInline={noInline}
@@ -223,8 +227,8 @@ export function Code({
     return (
       <LiveProvider
         code={children.trim()}
-        transformCode={(code) => `/* @jsx mdx */ ${importToRequire(code)}`}
-        scope={{ mdx, require: req }}
+        transformCode={(code) => importToRequire(code)}
+        scope={{ require: req }}
         language={lang}
         theme={prismTheme}
         noInline={noInline}
