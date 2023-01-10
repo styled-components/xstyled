@@ -9,7 +9,7 @@ import {
 import { createCx, Cx } from './createCx'
 import { createJsx, XJsx } from './createJsx'
 
-interface XStyledSet<TGen extends StyleGenerator> {
+export interface XStyledSet<TGen extends StyleGenerator> {
   css: XCSSFunction
   x: X<TGen>
   styled: XStyled<TGen>
