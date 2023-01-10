@@ -18,6 +18,8 @@ export * from './create'
 // Create and export default system
 import { system } from '@xstyled/system'
 import { createCss } from './create'
+import type { XStyled } from './createStyled'
+import type { X } from './createX'
 
 const { css, styled, x, createGlobalStyle } = createCss(system)
-export { css, styled, styled as default, x, createGlobalStyle }
+export { css, styled, styled as default, x, createGlobalStyle, XStyled, X }
