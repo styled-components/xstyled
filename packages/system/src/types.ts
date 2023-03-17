@@ -125,7 +125,7 @@ export type SynthesizedPath<T extends Record<string, unknown>> = {
         ? `${string & P}.${SynthesizedPath<T[P]>}`
         : `${string & P}`)
     | number
-}[T extends any[] ? number & keyof T : keyof T]
+}[keyof T]
 
 export type ThemeNamespaceValue<K extends string, T extends ITheme> =
   | NamespaceType<T[K]>
