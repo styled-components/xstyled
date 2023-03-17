@@ -120,11 +120,11 @@ export interface TransformValue {
  * leading to primitive values (non-objects.)
  */
 export type SynthesizedPath<T extends Record<string, unknown>> = {
-  [P in keyof T]:
-    | (T[P] extends Record<string, unknown>
-        ? `${string & P}.${SynthesizedPath<T[P]>}`
-        : `${string & P}`)
-    | number
+  [P in keyof T]: P extends string
+    ? T[P] extends Record<string, unknown>
+      ? `${P}.${SynthesizedPath<T[P]>}`
+      : P
+    : never
 }[keyof T]
 
 export type ThemeNamespaceValue<K extends string, T extends ITheme> =
