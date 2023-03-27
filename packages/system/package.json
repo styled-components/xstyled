@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/system",
   "description": "xstyled system utilities.",
-  "version": "3.7.3",
+  "version": "3.7.4",
   "keywords": [
     "emotion",
     "styled-components",
