@@ -28,12 +28,15 @@ export type ThemeColor<T extends ITheme = Theme> = SynthesizedPath<T['colors']>
 export type Color<T extends ITheme = Theme> =
   | ThemeColor<T>
   | CSS.DataType.NamedColor
+  | CSS.DataType.DeprecatedSystemColor
+  | CSS.Globals
   | HexColor
   | RgbColor
   | HslColor
   | LabColor
   | HwbColor
   | FnColor
+  | 'currentcolor'
 
 export const getColor = themeGetter<ThemeColor>({
   name: 'color',
