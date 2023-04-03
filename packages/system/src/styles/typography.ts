@@ -82,6 +82,13 @@ export const fontSize = style<FontSizeProps>({
   themeGet: getFontSize,
 })
 
+export interface FontVariantProps<T extends ITheme = Theme> {
+  fontVariant?: SystemProp<CSS.Property.FontVariant, T>
+}
+export const fontVariant = style<FontVariantProps>({
+  prop: 'fontVariant',
+})
+
 export interface LineHeightProps<T extends ITheme = Theme> {
   lineHeight?: SystemProp<LineHeight<T> | CSS.Property.LineHeight, T>
 }
@@ -197,6 +204,7 @@ interface AllProps<T extends ITheme = Theme>
   extends FontFamilyProps<T>,
     FontSizeProps<T>,
     FontStyleProps<T>,
+    FontVariantProps<T>,
     LineHeightProps<T>,
     FontWeightProps<T>,
     TextAlignProps<T>,
@@ -215,6 +223,7 @@ const all = compose<AllProps>(
   fontFamily,
   fontSize,
   fontStyle,
+  fontVariant,
   lineHeight,
   fontWeight,
   textAlign,
