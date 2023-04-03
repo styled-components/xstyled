@@ -1,0 +1,63 @@
+---
+section: Typography
+title: Font Variant
+slug: /docs/font-variant/
+---
+
+# Font Variant
+
+Utilities for controlling optional features of a given font family. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant) for more information.
+
+<carbon-ad />
+
+| React props             | CSS Properties             |
+| ----------------------- | -------------------------- |
+| `fontVariant={variant}` | `font-variant: {variant};` |
+
+## Usage
+
+Control the font variant of an element using the `fontVariant={variant}` utility.
+
+```jsx preview color=violet
+<>
+  <template preview>
+    <>
+      {['normal', 'common-ligatures', 'small-caps'].map((variant) => (
+        <x.dl
+          key={size}
+          display="flex"
+          alignItems="baseline"
+          color="violet-600"
+          overflow="hidden"
+        >
+          <x.dt
+            w={16}
+            flexShrink={0}
+            fontSize="sm"
+            opacity={0.8}
+            fontFamily="mono"
+          >
+            {size}
+          </x.dt>
+          <x.dd fontVariant={variant} fontWeight="medium">
+            Computers have lots of memory but no imagination.
+          </x.dd>
+        </x.dl>
+      ))}
+    </>
+  </template>
+  <x.p fontVariant="normal">Computers have lots ...</x.p>
+  <x.p fontVariant="common-ligatures">Computers have lots ...</x.p>
+  <x.p fontVariant="small-caps">Computers have lots ...</x.p>
+</>
+```
+
+## Responsive
+
+To control the font variant at a specific breakpoint, use responsive object notation. For example, adding the property `fontVariant={{ md: "small-caps" }}` to an element would apply the `fontVariant="small-caps"` utility at medium screen sizes and above.
+
+```jsx
+<x.p fontVariant={{ xs: 'auto', md: 'small-caps' }}>{/* ... */}</x.p>
+```
+
+For more information about xstyled's responsive design features, check out [Responsive Design](/docs/responsive-design/) documentation.
