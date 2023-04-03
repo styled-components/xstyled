@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/core",
   "description": "xstyled core utilities.",
-  "version": "3.7.5",
+  "version": "3.8.0",
   "sideEffects": false,
   "type": "module",
   "main": "./dist/index.cjs",
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@xstyled/system": "^3.7.5",
+    "@xstyled/system": "^3.8.0",
     "@xstyled/util": "^3.7.0"
   }
 }
