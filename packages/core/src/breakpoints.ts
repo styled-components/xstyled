@@ -57,7 +57,7 @@ export function useThemeBreakpoint(theme: ITheme): string | null {
     return (
       Object.keys(screns)
         .reverse()
-        .find((screen) => width !== null && width > screns[screen]) || null
+        .find((screen) => width !== null && width >= screns[screen]) || null
     )
   }, [screns, width])
 }
