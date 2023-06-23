@@ -1,9 +1,13 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
-import { StyledComponent, DefaultTheme } from 'styled-components'
-import { scStyled } from './scStyled'
-import { StyleGenerator, StyleGeneratorProps } from '@xstyled/system'
-import { createBaseStyled } from './createStyled'
-import { createCssFunction } from './createCssFunction'
+import {
+  StyledComponent,
+  DefaultTheme,
+  StyledInterface,
+} from 'styled-components'
+import { ReactNativeStyledInterface } from 'styled-components/native'
+import { StyleGenerator, StyleGeneratorProps, Theme } from '@xstyled/system'
+import { createBaseStyled, StyledFunctions } from './createStyled'
+import { XCSSFunction } from './createCssFunction'
 
 type JSXElementKeys = keyof JSX.IntrinsicElements
 
@@ -20,14 +24,22 @@ export type X<TGen extends StyleGenerator> = {
   >
 }
 
-export const createX = <TGen extends StyleGenerator>(
+export const createX = <
+  StyledFunction extends StyledInterface | ReactNativeStyledInterface<Theme>,
+  XStyledInterface,
+  TGen extends StyleGenerator,
+>(
+  scStyled: StyledFunction,
+  cssFunction: XCSSFunction,
   generator: TGen,
-): X<TGen> => {
-  const xstyled = createBaseStyled(createCssFunction(generator), generator)
-  const x = {} as X<TGen>
-  Object.keys(scStyled).forEach((tag) => {
-    // @ts-ignore
-    x[tag] = xstyled(tag)``
-  })
-  return x
+): StyledFunctions<XStyledInterface> => {
+  const xstyled = createBaseStyled<XStyledInterface, TGen>(
+    scStyled,
+    cssFunction,
+    generator,
+  )
+
+  const styled = {} as XStyledInterface
+
+  return { scStyled, styled, xstyled }
 }

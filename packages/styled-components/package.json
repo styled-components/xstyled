@@ -14,18 +14,12 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
+  "react-native": "./native/dist/index.cjs",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "reset": "rm -rf dist",
-    "build": "../../node_modules/.bin/rollup -c ../../build/rollup.config.js",
+    "reset": "rm -rf dist && rm -rf native/dist",
+    "build": "../../node_modules/.bin/rollup -c ./rollup.config.js",
     "prepublishOnly": "npm run reset && npm run build"
   },
   "publishConfig": {
@@ -44,5 +38,17 @@
     "@xstyled/core": "^3.8.0",
     "@xstyled/system": "^3.8.0",
     "@xstyled/util": "^3.7.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-native": "^4.0.11",
+    "@testing-library/react-native": "^11.0.0",
+    "@types/react-native": "^0.69.5",
+    "@types/styled-components-react-native": "^5.2.0",
+    "metro-react-native-babel-preset": "^0.72.1",
+    "react-native": "^0.69.4",
+    "react-test-renderer": "^17.0.2"
+  },
+  "overrides": {
+    "@types/react-native": "0.69.5"
   }
 }
