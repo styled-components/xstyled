@@ -15,27 +15,27 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version-file: ".nvmrc"
-          cache: "npm"
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: yarn build
 
       - name: Lint
-        run: npm run lint
+        run: yarn lint
 
       - name: Test
-        run: npm run test --ci --coverage --runInBand
+        run: yarn test --coverage
 
       - name: Codecov
         continue-on-error: true
-        run: npm run codecov
+        run: yarn codecov
 
       - name: Check bundle size
         continue-on-error: true
         env:
           BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
-        run: npm run bundlewatch
+        run: yarn bundlewatch
