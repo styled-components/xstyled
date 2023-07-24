@@ -1,0 +1,4 @@
+/.yarn/releases/** binary
+/.yarn/plugins/** binary
+**/*.sketch binary
+**/*.zip binary

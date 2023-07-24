@@ -82,5 +82,6 @@
   },
   "overrides": {
     "babel-plugin-styled-components": "2.0.2"
-  }
+  },
+  "packageManager": "yarn@3.6.1"
 }
