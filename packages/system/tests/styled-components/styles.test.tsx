@@ -588,10 +588,10 @@ describe('styles', () => {
         },
         styleRule: 'box-shadow',
         expectations: [
-          ['red', 'var(--x-ring-shadow,0 0 #0000),var(--x-shadow)'],
+          ['red', 'var(--x-ring-shadow, 0 0 #0000),var(--x-shadow)'],
           [
             '12px 12px 2px 1px rgba(0, 0, 255, .2)',
-            'var(--x-ring-shadow,0 0 #0000),var(--x-shadow)',
+            'var(--x-ring-shadow, 0 0 #0000),var(--x-shadow)',
           ],
         ],
       },
