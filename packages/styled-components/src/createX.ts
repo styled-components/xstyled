@@ -1,17 +1,26 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
-import styled, { IStyledComponent } from 'styled-components'
+import styled, { SupportedHTMLElements } from 'styled-components'
 
-import type { ExecutionProps } from 'styled-components/dist/types'
+import type {
+  ExecutionProps,
+  IStyledComponent,
+} from 'styled-components/dist/types'
+
+import type { Styled } from 'styled-components/dist/constructors/constructWithOptions'
+
 import { StyleGenerator, StyleGeneratorProps } from '@xstyled/system'
 import { createBaseStyled } from './createStyled'
 import { createCssFunction } from './createCssFunction'
 
-type JSXElementKeys = keyof JSX.IntrinsicElements
+type JSXElementKeys = keyof typeof styled
+
+type ExtractTagProps<T extends SupportedHTMLElements> =
+  (typeof styled)[T] extends Styled<'web', T, infer P, any> ? P : {}
 
 export type X<TGen extends StyleGenerator> = {
   [Key in JSXElementKeys]: IStyledComponent<
     'web',
-    Omit<ExecutionProps & StyleGeneratorProps<TGen>, 'color'>
+    ExecutionProps & StyleGeneratorProps<TGen> & ExtractTagProps<Key>
   >
 }
 
