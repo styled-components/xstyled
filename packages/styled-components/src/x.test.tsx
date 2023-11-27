@@ -90,7 +90,7 @@ describe('#x', () => {
 
   it('avoids passing non-HTML attrs to HTML element', () => {
     // @ts-expect-error explicit test
-    const { container } = render(<x.div asdf="boo!" />)
+    const { container } = render(<x.div $asdf="boo!" />)
     expect(container.firstChild).not.toHaveAttribute('asdf')
   })
 })

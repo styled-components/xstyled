@@ -11,8 +11,8 @@ export const createCreateGlobalStyle = <TGen extends StyleGenerator>(
   return ((
     ...args: Parameters<XCreateGlobalStyle>
   ): ReturnType<XCreateGlobalStyle> =>
-    scCreateGlobalStyle([
+    scCreateGlobalStyle(
       // @ts-ignore
-      css(...args),
-    ])) as XCreateGlobalStyle
+      [css(...args)],
+    )) as XCreateGlobalStyle
 }

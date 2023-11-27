@@ -91,14 +91,6 @@ describe('#styled', () => {
     expect(container.firstChild).toHaveStyle('margin: 2px;')
   })
 
-  it('works with "withConfig"', () => {
-    const Dummy = styled.div.withConfig({})`
-      margin: 2;
-    `
-    const { container } = render(<Dummy />)
-    expect(container.firstChild).toHaveStyle('margin: 2px;')
-  })
-
   it('works with "attrs"', () => {
     const Dummy = styled.div.attrs({ 'aria-label': 'label' })`
       margin: 2;

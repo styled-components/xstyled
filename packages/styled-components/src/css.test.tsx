@@ -2,7 +2,7 @@ import * as React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { render, cleanup } from '@testing-library/react'
 import { css, ThemeProvider } from '.'
-import { scStyled as styled } from './scStyled'
+import styled from 'styled-components'
 
 afterEach(cleanup)
 
