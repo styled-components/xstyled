@@ -6351,8 +6351,8 @@ __metadata:
     "@emotion/core": ^11.0.0
     "@emotion/react": ^11.10.4
     "@emotion/styled": ^11.10.4
-    "@xstyled/emotion": ^3.8.0
-    "@xstyled/styled-components": ^3.8.0
+    "@xstyled/emotion": ^3.8.1
+    "@xstyled/styled-components": ^3.8.1
     babel-loader: ^8.2.5
     benchmark: ^2.1.4
     emotion-theming: ^11.0.0
@@ -6367,21 +6367,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xstyled/core@^3.8.0, @xstyled/core@workspace:packages/core":
+"@xstyled/core@^3.8.1, @xstyled/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@xstyled/core@workspace:packages/core"
   dependencies:
-    "@xstyled/system": ^3.8.0
+    "@xstyled/system": ^3.8.1
     "@xstyled/util": ^3.7.0
   languageName: unknown
   linkType: soft
 
-"@xstyled/emotion@^3.8.0, @xstyled/emotion@workspace:packages/emotion":
+"@xstyled/emotion@^3.8.1, @xstyled/emotion@workspace:packages/emotion":
   version: 0.0.0-use.local
   resolution: "@xstyled/emotion@workspace:packages/emotion"
   dependencies:
-    "@xstyled/core": ^3.8.0
-    "@xstyled/system": ^3.8.0
+    "@xstyled/core": ^3.8.1
+    "@xstyled/system": ^3.8.1
     "@xstyled/util": ^3.7.0
   peerDependencies:
     "@emotion/react": ^11.0.0
@@ -6397,19 +6397,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xstyled/styled-components@^3.6.0, @xstyled/styled-components@^3.8.0, @xstyled/styled-components@workspace:packages/styled-components":
+"@xstyled/styled-components@^3.6.0, @xstyled/styled-components@^3.8.1, @xstyled/styled-components@workspace:packages/styled-components":
   version: 0.0.0-use.local
   resolution: "@xstyled/styled-components@workspace:packages/styled-components"
   dependencies:
-    "@xstyled/core": ^3.8.0
-    "@xstyled/system": ^3.8.0
+    "@xstyled/core": ^3.8.1
+    "@xstyled/system": ^3.8.1
     "@xstyled/util": ^3.7.0
   peerDependencies:
     styled-components: ^4.0.0 || ^5.0.0
   languageName: unknown
   linkType: soft
 
-"@xstyled/system@^3.8.0, @xstyled/system@workspace:packages/system":
+"@xstyled/system@^3.8.1, @xstyled/system@workspace:packages/system":
   version: 0.0.0-use.local
   resolution: "@xstyled/system@workspace:packages/system"
   dependencies:
