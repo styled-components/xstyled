@@ -56,21 +56,21 @@ export const container = createStyleGenerator<ContainerProps>({
 })
 
 export interface OverflowProps<T extends ITheme = Theme> {
-  overflow?: SystemProp<CSS.Property.Overflow, T>
+  overflow?: SystemProp<CSS.Property.Overflow | 'overlay', T>
 }
 export const overflow = style<OverflowProps>({
   prop: 'overflow',
 })
 
 export interface OverflowXProps<T extends ITheme = Theme> {
-  overflowX?: SystemProp<CSS.Property.OverflowX, T>
+  overflowX?: SystemProp<CSS.Property.OverflowX | 'overlay', T>
 }
 export const overflowX = style<OverflowXProps>({
   prop: 'overflowX',
 })
 
 export interface OverflowYProps<T extends ITheme = Theme> {
-  overflowY?: SystemProp<CSS.Property.OverflowY, T>
+  overflowY?: SystemProp<CSS.Property.OverflowY | 'overlay', T>
 }
 export const overflowY = style<OverflowYProps>({
   prop: 'overflowY',
