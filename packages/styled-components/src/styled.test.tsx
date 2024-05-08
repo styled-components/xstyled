@@ -38,11 +38,9 @@ describe('#styled', () => {
   })
 
   it('works with render props', () => {
-    const Foo = ({
-      children,
-    }: {
+    const Foo: React.FC<{
       children: ({ content }: { content: string }) => React.ReactNode
-    }) => <div>{children({ content: 'Hello World' })}</div>
+    }> = ({ children }) => <div>{children({ content: 'Hello World' })}</div>
 
     const StyledFoo = styled(Foo)``
 

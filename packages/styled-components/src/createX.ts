@@ -1,33 +1,33 @@
 /* eslint-disable no-continue, no-loop-func, no-cond-assign */
-import { StyledComponent, DefaultTheme } from 'styled-components'
-import { scStyled } from './scStyled'
 import { StyleGenerator, StyleGeneratorProps } from '@xstyled/system'
-import { createBaseStyled } from './createStyled'
+import {
+  FastOmit,
+  SupportedHTMLElements,
+  IStyledComponent,
+} from 'styled-components'
 import { createCssFunction } from './createCssFunction'
-
-type JSXElementKeys = keyof JSX.IntrinsicElements
-
-type SafeIntrinsicElement<T extends keyof JSX.IntrinsicElements> = (
-  props: Omit<JSX.IntrinsicElements[T], 'color'>,
-) => React.ReactElement<any, T>
+import { createBaseStyled } from './createStyled'
+import { scStyled } from './scStyled'
 
 export type X<TGen extends StyleGenerator> = {
-  [Key in JSXElementKeys]: StyledComponent<
-    SafeIntrinsicElement<Key>,
-    DefaultTheme,
-    StyleGeneratorProps<TGen>,
-    'color'
+  [Key in SupportedHTMLElements]: IStyledComponent<
+    'web',
+    FastOmit<JSX.IntrinsicElements[Key], keyof StyleGeneratorProps<TGen>> &
+      StyleGeneratorProps<TGen>
   >
 }
 
 export const createX = <TGen extends StyleGenerator>(
   generator: TGen,
 ): X<TGen> => {
-  const xstyled = createBaseStyled(createCssFunction(generator), generator)
+  const xstyled = createBaseStyled<TGen>(
+    createCssFunction<TGen>(generator),
+    generator,
+  )
   const x = {} as X<TGen>
   Object.keys(scStyled).forEach((tag) => {
-    // @ts-ignore
-    x[tag] = xstyled(tag)``
+    // @ts-expect-error
+    x[tag] = xstyled(tag)({})
   })
   return x
 }

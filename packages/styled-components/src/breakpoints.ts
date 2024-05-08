@@ -5,7 +5,7 @@ import {
   useThemeDown,
 } from '@xstyled/core'
 import { Screens } from '@xstyled/system'
-import { useTheme } from './theme'
+import { useTheme } from 'styled-components'
 
 export { useViewportWidth } from '@xstyled/core'
 

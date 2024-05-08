@@ -17,7 +17,7 @@ describe('#x', () => {
     const { container } = render(<x.div m={2} p={1} />)
     expect(container.firstChild).toHaveStyle(`
       margin: 2px;
-      padding: 1px;  
+      padding: 1px;
     `)
   })
 
@@ -26,7 +26,7 @@ describe('#x', () => {
     expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle(`
       margin: 2px;
-      padding: 1px; 
+      padding: 1px;
     `)
   })
 
@@ -39,7 +39,7 @@ describe('#x', () => {
     expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle(`
       margin: 2px;
-      padding: 1px; 
+      padding: 1px;
     `)
   })
 
@@ -54,7 +54,7 @@ describe('#x', () => {
     expect(container.firstChild!.nodeName).toBe('A')
     expect(container.firstChild).toHaveStyle(`
       margin: 8px;
-      padding: 4px; 
+      padding: 4px;
     `)
   })
 

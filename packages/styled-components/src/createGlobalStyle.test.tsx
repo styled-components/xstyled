@@ -16,7 +16,7 @@ describe('#createGlobalStyle', () => {
     const GlobalStyle = createGlobalStyle`
       .margin {
         margin: 2;
-      } 
+      }
     `
     const { container } = render(
       <>

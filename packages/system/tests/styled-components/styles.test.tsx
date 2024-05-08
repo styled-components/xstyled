@@ -1,6 +1,7 @@
 import * as React from 'react'
 import 'jest-styled-components'
 import '@testing-library/jest-dom/extend-expect'
+import isPropValid from '@emotion/is-prop-valid'
 import { render, cleanup } from '@testing-library/react'
 import styled from 'styled-components'
 import * as styles from '../../src'
@@ -588,10 +589,10 @@ describe('styles', () => {
         },
         styleRule: 'box-shadow',
         expectations: [
-          ['red', 'var(--x-ring-shadow,0 0 #0000),var(--x-shadow)'],
+          ['red', 'var(--x-ring-shadow, 0 0 #0000),var(--x-shadow)'],
           [
             '12px 12px 2px 1px rgba(0, 0, 255, .2)',
-            'var(--x-ring-shadow,0 0 #0000),var(--x-shadow)',
+            'var(--x-ring-shadow, 0 0 #0000),var(--x-shadow)',
           ],
         ],
       },
@@ -622,7 +623,7 @@ describe('styles', () => {
       },
     ],
   ])('#%s', (name, config) => {
-    const Dummy = styled.div`
+    const Dummy = styled.div.withConfig({ shouldForwardProp: isPropValid })`
       ${styles[(config as any).utility || name]};
     `
 
