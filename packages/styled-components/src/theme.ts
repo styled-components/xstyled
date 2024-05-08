@@ -1,11 +1,8 @@
-import { useContext, ContextType } from 'react'
-import { ThemeContext } from 'styled-components'
 import { createUseGetter } from '@xstyled/core'
 import { th } from '@xstyled/system'
+import { useTheme } from 'styled-components'
 
-export const useTheme = (): ContextType<typeof ThemeContext> => {
-  return useContext(ThemeContext)
-}
+export { useTheme }
 
 export const useTh = createUseGetter(th, useTheme)
 

@@ -7,12 +7,10 @@ export type XCreateGlobalStyle = typeof scCreateGlobalStyle
 export const createCreateGlobalStyle = <TGen extends StyleGenerator>(
   generator: TGen,
 ): XCreateGlobalStyle => {
-  const css = createCssFunction(generator)
-  return ((
-    ...args: Parameters<XCreateGlobalStyle>
-  ): ReturnType<XCreateGlobalStyle> =>
-    scCreateGlobalStyle([
-      // @ts-ignore
-      css(...args),
-    ])) as XCreateGlobalStyle
+  const css = createCssFunction<TGen>(generator)
+  return <Props extends object>(
+    ...args: Parameters<typeof scCreateGlobalStyle<Props>>
+  ) =>
+    // @ts-expect-error
+    scCreateGlobalStyle<Props>([css<Props>(...args)])
 }

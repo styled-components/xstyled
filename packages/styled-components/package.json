@@ -1,7 +1,7 @@
 {
   "name": "@xstyled/styled-components",
   "description": "A utility-first CSS-in-JS framework built for React (styled-components bindings).",
-  "version": "3.8.1",
+  "version": "4.0.0",
   "keywords": [
     "styled-components",
     "css",
@@ -38,9 +38,10 @@
     "url": "https://github.com/sponsors/gregberge"
   },
   "peerDependencies": {
-    "styled-components": "^4.0.0 || ^5.0.0"
+    "styled-components": "^6.1.11"
   },
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.2.2",
     "@xstyled/core": "^3.8.1",
     "@xstyled/system": "^3.8.1",
     "@xstyled/util": "^3.7.0"
