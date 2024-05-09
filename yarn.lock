@@ -6402,7 +6402,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xstyled/styled-components@^3.6.0, @xstyled/styled-components@workspace:*, @xstyled/styled-components@workspace:packages/styled-components":
+"@xstyled/styled-components@npm:^3.6.0":
+  version: 3.8.1
+  resolution: "@xstyled/styled-components@npm:3.8.1"
+  dependencies:
+    "@xstyled/core": ^3.8.1
+    "@xstyled/system": ^3.8.1
+    "@xstyled/util": ^3.7.0
+  peerDependencies:
+    styled-components: ^4.0.0 || ^5.0.0
+  checksum: e045c3000bfbe95e17004e4cfb7949f95fc9c6782e5b2df2a602477772015d57496a1ce1faf2b1cc3335ad761257ddf46248a4a505078afa9428fcbf2a1da7ac
+  languageName: node
+  linkType: hard
+
+"@xstyled/styled-components@workspace:*, @xstyled/styled-components@workspace:packages/styled-components":
   version: 0.0.0-use.local
   resolution: "@xstyled/styled-components@workspace:packages/styled-components"
   dependencies:
