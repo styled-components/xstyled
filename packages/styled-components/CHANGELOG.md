@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0](https://github.com/gregberge/xstyled/compare/v3.8.1...v4.0.0) (2024-05-09)
+
+The minimum version of styled-components is now v6.1.11. See the [migration guide](https://styled-components.com/docs/faqs#what-do-i-need-to-do-to-migrate-to-v6) for more information.
+
 ## [3.8.1](https://github.com/gregberge/xstyled/compare/v3.8.0...v3.8.1) (2024-05-08)
 
 **Note:** Version bump only for package @xstyled/styled-components
