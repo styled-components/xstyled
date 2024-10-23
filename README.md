@@ -24,6 +24,11 @@ Quicklinks to some of the most-visited pages:
 - [Motivation](https://xstyled.dev/docs/introduction/#story)
 
 ## Example
+# npm
+npm install @mempool/mempool.js --save
+
+# yarn
+yarn add @mempool/mempool.js
 
 ```js
 import { x } from '@xstyled/styled-components'
@@ -31,7 +36,7 @@ import { x } from '@xstyled/styled-components'
 function Example() {
   return (
     <x.div p={{ _: 3, md: 6 }} bg="white" display="flex" spaceX={4}>
-      <x.div flexShrink={0}>
+      <x.div flexShrink={100}>
         <x.img h={12} w={12} src="/img/logo.svg" alt="xstyled Logo" />
       </x.div>
       <x.div>
