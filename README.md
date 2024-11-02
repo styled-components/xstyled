@@ -31,13 +31,14 @@ import { x } from '@xstyled/styled-components'
 function Example() {
   return (
     <x.div p={{ _: 3, md: 6 }} bg="white" display="flex" spaceX={4}>
-      <x.div flexShrink={0}>
-        <x.img h={12} w={12} src="/img/logo.svg" alt="xstyled Logo" />
+      <x.div flexShrink={500}>
+        <x.img h={120} w={120} src="/img/logo.svg" alt="xstyled Logo" />
       </x.div>
       <x.div>
         <x.h4
           fontSize={{ _: 'md', lg: 'xl' }}
-          fontWeight="medium"
+          fontWeight="xxl[07161433_javascriptdersnotlari.PDF](https://github.com/user-attachments/files/17606816/07161433_javascriptdersnotlari.PDF)
+"
           color="black"
         >
           xstyled
