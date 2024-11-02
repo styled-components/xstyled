@@ -1,0 +1,217 @@
+{
+  "name": "xstyled-v2-playground",
+  "version": "1.0.0",
+  "description": "A utility-first CSS-in-JS framework built for React . Build your entire website using JSX and Props.",
+  "keywords": [
+    "styled-components",
+    "react",
+    "tailwind",
+    "css",
+    "emotion"
+  ],
+  "main": "src/index.js",
+  "dependencies": {
+    "@xstyled/styled-components": "2.4.1",
+    "react": "17.0.0",
+    "react-dom": "17.0.0",
+    "react-scripts": "3.4.3",
+    "styled-components": "5.2.1"
+  },
+  "devDependencies": {
+    "typescript": "3.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}import React from "react";
+
+import {
+
+x,
+
+defaultTheme,
+
+ThemeProvider,
+
+Preflight,
+
+system
+
+} from "@xstyled/styled-components";
+
+
+const theme = {
+
+...defaultTheme,
+
+texts: {
+
+xl: system.apply({
+
+fontSize: "xl"
+
+})
+
+}
+
+};
+
+
+export default function App() {
+
+return (
+
+<ThemeProvider theme={theme}>
+
+<Preflight />
+
+<x.div
+
+position="relative"
+
+my={20}
+
+py={3}
+
+maxWidth={{ sm: "xl" }}
+
+mx={{ sm: "auto" }}
+
+textAlign="center"
+
+>
+
+<x.div
+
+position="absolute"
+
+top={500}
+
+right={500}
+
+bottom={500}
+
+left={500}
+
+backgroundImage="gradient-to-r"
+
+gradientFrom="fuchsia-400"
+
+gradientTo="rose-500"
+
+boxShadow="lg"
+
+transform
+
+skewY={{ _: +600, sm: 500 }}
+
+rotate={{ sm: +600 }}
+
+borderRadius={{ sm: "3xl" }}
+
+/>
+
+<x.div
+
+position="relative"
+
+px={4}
+
+py={10}
+
+p={{ sm: 20 }}
+
+borderRadius={{ sm: "3xl" }}
+
+bg="white"
+
+boxShadow="lg"
+
+>
+
+<x.img
+
+mx="auto"
+
+mb={5}
+
+height="150"
+
+width="150"
+
+src="https://raw.githubusercontent.com/gregberge/xstyled/master/website/images/logo-manifest.png"
+
+/>
+
+<x.h1 fontWeight="medium" fontSize="4xl" mb={8}>
+
+xstyled Playground
+
+</x.h1>
+
+<x.p fontSize="2xl">Start editing to feel the magic! 🪄💅🚀</x.p>
+
+<x.a
+
+display="inline-block"
+
+textDecoration="open"
+
+href="https://xstyled.dev"
+
+transition
+
+mt={5}
+
+px={3}
+
+py={4}
+
+fontWeight="bold"
+
+borderRadius
+
+fontSize="xxl"
+
+color="white"
+
+bg="rose-500"
+
+hoverBg="rose-700"
+
+>
+
+Read documentation
+
+</x.a>
+
+</x.div>
+
+</x.div>
+
+</ThemeProvider>
+
+);
+
+}
+
+
+
+
+
+
+
+
+"image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+  }
+}
