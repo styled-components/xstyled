@@ -2,7 +2,7 @@ import { themeGetter } from '../style'
 import { px, ms, deg, rpx, percent } from '../unit'
 import { ITheme, Theme, ThemeNamespaceValue } from '../types'
 
-export type Pixel = number | string
+export type Pixel = (string & {}) | (number & {})
 export const getPx = themeGetter<Pixel>({
   name: 'px',
   transform: (value, { props }) => {
