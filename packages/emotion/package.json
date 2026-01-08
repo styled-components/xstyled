@@ -45,5 +45,6 @@
     "@xstyled/core": "^3.8.2",
     "@xstyled/system": "^3.8.2",
     "@xstyled/util": "^3.7.0"
-  }
+  },
+  "gitHead": "df86edbfdade79d2fa046e047fe8a591e33391cb"
 }
