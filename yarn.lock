@@ -6372,11 +6372,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@xstyled/core@^3.8.1, @xstyled/core@workspace:packages/core":
+"@xstyled/core@^3.8.1, @xstyled/core@^3.8.2, @xstyled/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@xstyled/core@workspace:packages/core"
   dependencies:
-    "@xstyled/system": ^3.8.1
+    "@xstyled/system": ^3.8.2
     "@xstyled/util": ^3.7.0
   languageName: unknown
   linkType: soft
@@ -6385,8 +6385,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@xstyled/emotion@workspace:packages/emotion"
   dependencies:
-    "@xstyled/core": ^3.8.1
-    "@xstyled/system": ^3.8.1
+    "@xstyled/core": ^3.8.2
+    "@xstyled/system": ^3.8.2
     "@xstyled/util": ^3.7.0
   peerDependencies:
     "@emotion/react": ^11.0.0
@@ -6420,15 +6420,15 @@ __metadata:
   resolution: "@xstyled/styled-components@workspace:packages/styled-components"
   dependencies:
     "@emotion/is-prop-valid": ^1.2.2
-    "@xstyled/core": ^3.8.1
-    "@xstyled/system": ^3.8.1
+    "@xstyled/core": ^3.8.2
+    "@xstyled/system": ^3.8.2
     "@xstyled/util": ^3.7.0
   peerDependencies:
     styled-components: ^6.1.11
   languageName: unknown
   linkType: soft
 
-"@xstyled/system@^3.8.1, @xstyled/system@workspace:packages/system":
+"@xstyled/system@^3.8.1, @xstyled/system@^3.8.2, @xstyled/system@workspace:packages/system":
   version: 0.0.0-use.local
   resolution: "@xstyled/system@workspace:packages/system"
   dependencies:
