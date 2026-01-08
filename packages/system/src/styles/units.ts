@@ -2,7 +2,11 @@ import { themeGetter } from '../style'
 import { px, ms, deg, rpx, percent } from '../unit'
 import { ITheme, Theme, ThemeNamespaceValue } from '../types'
 
-export type Pixel = number | string
+// Use `string & {}` and `number & {}` to avoid overriding IntelliSense suggestions
+// in unions with theme tokens (e.g., 'sm', 'md'). This allows raw values but ensures
+// theme tokens appear first in autocomplete.
+// Ref: https://github.com/microsoft/TypeScript/issues/29729
+export type Pixel = (string & {}) | (number & {})
 export const getPx = themeGetter<Pixel>({
   name: 'px',
   transform: (value, { props }) => {
