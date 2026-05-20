@@ -194,24 +194,6 @@ const getStyleFactory = (
   }
 }
 
-const indexGeneratorsByProp = (
-  generators: StyleGenerator[],
-): {
-  [key: string]: StyleGenerator
-} => {
-  const index: { [key: string]: StyleGenerator } = {}
-  for (let i = 0; i < generators.length; i++) {
-    const style = generators[i]
-    if (style && style.meta) {
-      for (let j = 0; j < style.meta.props.length; j++) {
-        const prop = style.meta.props[j]
-        index[prop] = style
-      }
-    }
-  }
-  return index
-}
-
 const sortStyles = (
   styles: CSSObject,
   variants: { [key: string]: string },
@@ -234,24 +216,42 @@ export function compose<T extends StyleGenerator[]>(
 ): StyleGenerator<StyleGeneratorPropsConcat<T>>
 
 export function compose(...generators: any[]): any {
-  let flatGenerators: StyleGenerator[] = []
+  // Single-pass flatten + per-prop index. Avoids the `[...acc, ...x]`
+  // accumulator pattern, which is O(n^2) when many composed sub-systems
+  // are passed in.
+  const flatGenerators: StyleGenerator[] = []
+  const generatorsByProp: { [key: string]: StyleGenerator } = {}
+  const propsList: string[] = []
+  const cssGetters: { [key: string]: ThemeGetter } = {}
 
-  generators.forEach((gen) => {
-    warn(Boolean(gen), `Undefined generator in "compose" method`)
-    if (!gen) return
-    if (gen.meta.generators) {
-      flatGenerators = [...flatGenerators, ...gen.meta.generators]
-    } else {
-      flatGenerators.push(gen)
+  const collect = (gen: StyleGenerator) => {
+    if (!gen || !gen.meta) return
+    flatGenerators.push(gen)
+    const genProps = gen.meta.props
+    for (let i = 0; i < genProps.length; i++) {
+      const p = genProps[i]
+      generatorsByProp[p] = gen
+      propsList.push(p)
     }
-  })
+    Object.assign(cssGetters, gen.meta.cssGetters)
+  }
 
-  const generatorsByProp = indexGeneratorsByProp(flatGenerators)
+  for (let i = 0; i < generators.length; i++) {
+    const gen = generators[i]
+    warn(Boolean(gen), `Undefined generator in "compose" method`)
+    if (!gen) continue
+    const children = gen.meta.generators as StyleGenerator[] | undefined
+    if (children) {
+      for (let j = 0; j < children.length; j++) collect(children[j])
+    } else {
+      collect(gen)
+    }
+  }
 
   const getStyle = (props: Props<Theme>, sort = true) => {
     const styles = {} as CSSObject
 
-    let merged
+    let merged = false
     for (const key in props) {
       const generator = generatorsByProp[key]
       if (generator) {
@@ -267,15 +267,12 @@ export function compose(...generators: any[]): any {
     return sortStyles(styles, medias)
   }
 
-  const props = [] as string[]
-  const cssGetters = {} as { [key: string]: ThemeGetter }
-  for (let i = 0; i < flatGenerators.length; i++) {
-    const generator = flatGenerators[i]
-    props.push(...generator.meta.props)
-    Object.assign(cssGetters, generator.meta.cssGetters)
-  }
-
-  return createStyleGenerator({ getStyle, props, cssGetters, generators })
+  return createStyleGenerator({
+    getStyle,
+    props: propsList,
+    cssGetters,
+    generators,
+  })
 }
 
 const getMixinFromCSSProperties =
@@ -283,8 +280,9 @@ const getMixinFromCSSProperties =
   (value) => {
     if (string(properties)) return { [properties]: value } as CSSObject
     const style = {} as CSSObject
-    for (const key in properties) {
-      style[properties[key as unknown as number]] = value as CSSObject
+    if (!properties) return style
+    for (let i = 0; i < properties.length; i++) {
+      style[properties[i]] = value as CSSObject
     }
     return style
   }
@@ -328,16 +326,14 @@ export const style = <TProps extends Props = {}>({
 
   const props = [prop] as string[]
   const mixin = getMixinFromCSSOption(css || props)
-
-  const generators = [] as StyleGenerator[]
   const getStyle = getStyleFactory(prop as string, mixin, getter)
-  const cssGetters = getter
-    ? cssProps.reduce((getters, cssProp) => {
-        getters[dasherize(cssProp)] = getter
-        return getters
-      }, {} as { [key: string]: ThemeGetter })
-    : {}
-  const generator = createStyleGenerator({ getStyle, props, cssGetters })
-  generators.push(generator)
-  return compose(...generators)
+
+  const cssGetters: { [key: string]: ThemeGetter } = {}
+  if (getter) {
+    for (let i = 0; i < cssProps.length; i++) {
+      cssGetters[dasherize(cssProps[i])] = getter
+    }
+  }
+
+  return compose(createStyleGenerator({ getStyle, props, cssGetters }))
 }

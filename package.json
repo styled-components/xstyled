@@ -11,7 +11,8 @@
     "format": "prettier --write .",
     "lint": "eslint .",
     "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
-    "test": "jest"
+    "test": "jest",
+    "bench:runtime": "node scripts/bench-runtime.mjs"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",

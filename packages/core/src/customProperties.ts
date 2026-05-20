@@ -21,8 +21,7 @@ export function toCustomPropertiesReferences<
     ? ([] as Record<number, string>)
     : ({} as Record<string, string>)
 
-  for (const i in keys) {
-    const key = keys[i]
+  for (const key of keys) {
     const value = values[key]
     const name = join(parent, key)
     if (obj(value)) {
@@ -54,8 +53,7 @@ export function toCustomPropertiesDeclarations(
   parent?: string,
   state = { value: '' },
 ): string {
-  for (const i in keys) {
-    const key = keys[i]
+  for (const key of keys) {
     const value = values[key]
     const name = join(parent, key)
     if (obj(value)) {
