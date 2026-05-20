@@ -1,6 +1,7 @@
 /**
  * Pins down how a downstream consumer is meant to specialise xstyled's
- * `Theme` via module augmentation (#344 / #417 / #418). The contract:
+ * `Theme` via module augmentation (#344 / #417 / #418). The contract,
+ * as documented at website/pages/docs/core-concepts/typescript.mdx, is:
  *
  *   declare module '@xstyled/system' {
  *     export interface Theme {
@@ -8,23 +9,24 @@
  *     }
  *   }
  *
- * After augmentation:
- *  - `Color` (no generic) narrows to the consumer's tokens + CSS color
- *    literals.
- *  - Typos are rejected, IntelliSense surfaces the configured tokens.
+ * This file mirrors that exactly — importing from `@xstyled/system` and
+ * augmenting `@xstyled/system` — so the test exercises the same code path
+ * a real consumer hits. The `tsconfig.aug.json` project owns this file,
+ * which keeps the project-wide augmentation from leaking into the normal
+ * src compile.
  *
- * Because `declare module` is project-wide we keep this file under its own
- * tsconfig (`tsconfig.aug.json`) — the augmented `Theme` does NOT leak into
- * the normal src compile.
+ * Requires `yarn build` to have produced `packages/system/dist/index.d.ts`
+ * first (the workspace symlink `node_modules/@xstyled/system` resolves
+ * through `package.json#types`); `yarn check:types` in CI runs after
+ * `yarn build`, so this is satisfied.
  */
-import type { Color, ThemeColor } from '../src/styles/colors'
-import type { Space, ThemeSpace } from '../src/styles/space'
+import type { Color, ThemeColor, Space, ThemeSpace } from '@xstyled/system'
 
 type Expect<T extends true> = T
 type Assignable<T, V> = [V] extends [T] ? true : false
 type NotAssignable<T, V> = Assignable<T, V> extends true ? false : true
 
-declare module '../src/types' {
+declare module '@xstyled/system' {
   interface Theme {
     colors: {
       brandPrimary: '#5b21b6'

@@ -7,7 +7,8 @@
  *
  *   yarn check:types
  *
- * Exits non-zero on the first failure.
+ * Runs every project even if one fails so all failures are visible in a
+ * single CI run, then exits non-zero at the end if anything failed.
  */
 import { spawnSync } from 'node:child_process'
 import { existsSync } from 'node:fs'

@@ -25,15 +25,33 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = join(__dirname, '..')
 const tscBin = join(repoRoot, 'node_modules', '.bin', 'tsc')
 
-const arg = (name, fallback) => {
-  const i = process.argv.indexOf(name)
-  return i >= 0 ? process.argv[i + 1] : fallback
+const usage = (msg) => {
+  if (msg) console.error(`error: ${msg}`)
+  console.error(
+    'usage: node scripts/bench-types.mjs [--sizes <n,n,...>]\n' +
+      '       --sizes  comma-separated list of token counts (default: 50,200,500)',
+  )
+  process.exit(msg ? 2 : 0)
 }
 
-const sizes = (arg('--sizes', '50,200,500'))
+const arg = (name, fallback) => {
+  const i = process.argv.indexOf(name)
+  if (i < 0) return fallback
+  const next = process.argv[i + 1]
+  if (next === undefined || next.startsWith('--')) {
+    usage(`missing value for ${name}`)
+  }
+  return next
+}
+
+if (process.argv.includes('--help') || process.argv.includes('-h')) usage()
+
+const sizesArg = arg('--sizes', '50,200,500')
+const sizes = sizesArg
   .split(',')
-  .map((s) => parseInt(s, 10))
+  .map((s) => parseInt(s.trim(), 10))
   .filter(Number.isFinite)
+if (sizes.length === 0) usage(`--sizes received no valid integers: "${sizesArg}"`)
 
 const fixturesRoot = mkdtempSync(join(tmpdir(), 'xstyled-typebench-'))
 
