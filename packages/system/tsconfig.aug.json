@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["type-tests-aug", "src/types.ts", "src/styles/colors.ts", "src/styles/space.ts", "src/styles/units.ts", "src/style.ts", "src/theme.ts", "src/cache.ts", "src/transformers.ts", "src/unit.ts"],
+  "exclude": [],
+  "compilerOptions": {
+    "noEmit": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true
+  }
+}

@@ -97,6 +97,7 @@ interface BigTheme {
     64: '256px'
   }
   screens: {
+    _: 0
     sm: 640
     md: 768
     lg: 1024
@@ -121,9 +122,10 @@ declare const _colorAtBreakpoint: ColorProp
 declare const _spaceAtRoot: SpaceProp
 
 // Touch concrete responsive shapes so the responsive-prop variant is
-// actually instantiated (not just declared).
-const _r1: ColorProp = { sm: 'red-500', md: 'blue-500', lg: 'brand.primary' }
-const _r2: SpaceProp = { sm: 1, md: 2, lg: 4 }
+// actually instantiated (not just declared). `_` is the base/no-breakpoint
+// key (provided by `screens._`); `md`/`lg` are real media keys.
+const _r1: ColorProp = { _: 'red-500', md: 'blue-500', lg: 'brand.primary' }
+const _r2: SpaceProp = { _: 1, md: 2, lg: 4 }
 const _r3: ColorProp = 'gray-900'
 const _r4: SpaceProp = '12px'
 
