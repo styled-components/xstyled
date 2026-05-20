@@ -40,7 +40,7 @@ export const getCache = <T>(
 ): XCache<T> => {
   if (!theme) return noopCache
   const cache = getThemeCache(theme)
-  if (!cache || !theme) return noopCache
+  if (!cache) return noopCache
   cache[namespace] = cache[namespace] || new Map()
   return cache[namespace]
 }

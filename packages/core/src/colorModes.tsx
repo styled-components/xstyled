@@ -109,9 +109,9 @@ function getDefaultColorModeName(theme: ITheme): string {
 }
 
 function getUsedColorKeys(modes: ColorModes) {
-  let keys: string[] = []
+  const keys: string[] = []
   for (const key in modes) {
-    keys = [...keys, ...Object.keys(modes[key])]
+    keys.push(...Object.keys(modes[key]))
   }
   return keys
 }

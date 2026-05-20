@@ -4,8 +4,13 @@ import { StyleGenerator } from '@xstyled/system'
 import { createTransform } from '@xstyled/core'
 
 const styleToString = (style: any, props: any): any => {
-  if (Array.isArray(style))
-    return style.reduce((str, style) => str + styleToString(style, props), '')
+  if (Array.isArray(style)) {
+    const parts: string[] = []
+    for (let i = 0; i < style.length; i++) {
+      parts.push(styleToString(style[i], props))
+    }
+    return parts.join('')
+  }
   if (typeof style === 'function') return styleToString(style(props), props)
   return style
 }
@@ -18,20 +23,26 @@ interface CSSInterpolationFn {
   (props: Props): CSSInterpolation
 }
 
+// The interpolation slots in a tagged template (`css\`color: ${x};\``)
+// accept either an emotion `CSSInterpolation` or a theme-aware function
+// `(props) => CSSInterpolation`. The function form isn't covered by
+// emotion's own `CSSInterpolation` type, hence the explicit union.
+type XInterpolation = CSSInterpolation | CSSInterpolationFn
+
 export interface SerializedStylesFn {
   (props: Props): SerializedStyles
 }
 
 export interface XCSSFunction {
   (fn: CSSInterpolationFn): SerializedStylesFn
-  (...args: CSSInterpolation[]): SerializedStylesFn
+  (...args: XInterpolation[]): SerializedStylesFn
   (
     strings: TemplateStringsArray,
-    ...rawArgs: CSSInterpolation[]
+    ...rawArgs: XInterpolation[]
   ): SerializedStylesFn
   (
     strings: TemplateStringsArray | CSSInterpolation | CSSInterpolationFn,
-    ...rawArgs: CSSInterpolation[]
+    ...rawArgs: XInterpolation[]
   ): SerializedStylesFn
 }
 
@@ -41,7 +52,7 @@ export const createCssFunction = <TGen extends StyleGenerator>(
   const transform = createTransform(generator)
   return ((
     strings: TemplateStringsArray | CSSInterpolation | CSSInterpolationFn,
-    ...rawArgs: CSSInterpolation[]
+    ...rawArgs: XInterpolation[]
   ): SerializedStylesFn => {
     return (props: Props): SerializedStyles => {
       const emCssArgs =
@@ -49,11 +60,9 @@ export const createCssFunction = <TGen extends StyleGenerator>(
           ? emCss(strings(props))
           : emCss(
               strings as TemplateStringsArray,
-              ...rawArgs.map((arg) => {
-                // @ts-expect-error
-                if (typeof arg === 'function') return arg(props)
-                return arg
-              }),
+              ...rawArgs.map((arg) =>
+                typeof arg === 'function' ? arg(props) : arg,
+              ),
             )
       return {
         ...emCssArgs,
