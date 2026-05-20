@@ -60,7 +60,7 @@ How to plan
 
 How to ship
 - Types are law. No `as any`, non-null assertions, or `@ts-expect-error` escape hatches except as deliberate negative-behavior tests, clearly differentiated.
-- Tests ship with features. Branch coverage above 80%. Cover happy paths, edge cases, failure modes. Prefer inline snapshots seeded empty. Use red/green to validate fix and test together. Local tests run well under 30s.
+- Tests ship with features. Aim for branch coverage above 80% (no tooling threshold; aspirational). Cover happy paths, edge cases, failure modes. Prefer inline snapshots seeded empty. Use red/green to validate fix and test together. Local tests run well under 30s.
 - Comments explain non-obvious current behavior. Never narrate change history.
 - Hot-path code earns microbenchmarks before claiming optimization.
 - Run the build to verify changes; don't start a dev server unless asked.
@@ -73,7 +73,7 @@ Git discipline
 - Treat the working tree as ephemeral; commit when work is at a stable point.
 - `git push -u origin <branch>`; on transient network failure retry with exponential backoff, diagnose anything that fails repeatedly.
 - Confirm before destructive ops (`push --force`, `reset --hard`, `branch -D`, amending or rebasing pushed commits). Never force-push `main`.
-- Never bypass hooks (`--no-verify`, `--no-gpg-sign`). Fix the underlying failure.
+- Never bypass hooks (`--no-verify`) or disable signing (`--no-gpg-sign`). Fix the underlying failure.
 - Investigate unexpected state before deleting or overwriting; it may be the user's in-progress work.
 
 Don't
