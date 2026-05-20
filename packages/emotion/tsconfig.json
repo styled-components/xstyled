@@ -1,5 +1,6 @@
 {
   "include": ["src"],
+  "exclude": ["src/__type-tests__"],
   "compilerOptions": {
     "strict": true,
     "noUnusedLocals": true,

@@ -13,7 +13,7 @@
     "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
     "test": "jest",
     "bench:runtime": "node scripts/bench-runtime.mjs",
-    "check:types": "tsc -p packages/system/tsconfig.types.json && tsc -p packages/system/tsconfig.aug.json",
+    "check:types": "node scripts/check-types.mjs",
     "bench:types": "node scripts/bench-types.mjs"
   },
   "devDependencies": {
