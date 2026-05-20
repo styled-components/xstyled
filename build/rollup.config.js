@@ -42,7 +42,11 @@ export default [
     ],
   }),
   bundle({
-    plugins: [dts()],
+    // Each package's tsconfig declares `paths` so workspace deps resolve
+    // from source for `yarn check:types`. The published `dist/index.d.ts`
+    // must instead reference siblings by their npm name, so override paths
+    // (and baseUrl) here to drop the source mapping during the dts emit.
+    plugins: [dts({ compilerOptions: { paths: {}, baseUrl: '.' } })],
     output: {
       file: `dist/index.d.ts`,
       format: 'es',

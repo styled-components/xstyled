@@ -12,7 +12,9 @@
     "lint": "eslint .",
     "release": "lerna publish --conventional-commits && conventional-github-releaser --preset angular",
     "test": "jest",
-    "bench:runtime": "node scripts/bench-runtime.mjs"
+    "bench:runtime": "node scripts/bench-runtime.mjs",
+    "check:types": "node scripts/check-types.mjs",
+    "bench:types": "node scripts/bench-types.mjs"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",

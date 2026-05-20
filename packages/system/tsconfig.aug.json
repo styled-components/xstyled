@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["type-tests-aug"],
+  "exclude": [],
+  "compilerOptions": {
+    "noEmit": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@xstyled/util": ["../util/src"]
+    }
+  }
+}

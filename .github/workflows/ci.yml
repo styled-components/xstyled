@@ -32,6 +32,9 @@ jobs:
       - name: Lint
         run: yarn lint
 
+      - name: Type tests
+        run: yarn check:types
+
       - name: Test
         run: yarn test --coverage
 
