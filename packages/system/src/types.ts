@@ -118,8 +118,11 @@ export interface TransformValue {
 // Bounded-depth tail for `SynthesizedPath`. Each recursive instantiation
 // peels one element off the front; reaching `never` stops the recursion
 // and the type widens to `string` so deep themes still type-check
-// without producing an unrepresentable union (#429).
-type _SynthesizedPathDepth = [never, 0, 1, 2, 3, 4, 5, 6]
+// without producing an unrepresentable union (#429). The `...never[]`
+// rest guards against an explicit out-of-range custom depth such as
+// `SynthesizedPath<T, 42>`: any index past the listed slots returns
+// `never`, which the next recursion treats as the stop condition.
+type _SynthesizedPathDepth = [never, 0, 1, 2, 3, 4, 5, 6, ...never[]]
 
 /**
  * Recursively explores a given object and creates a union of the deep paths

@@ -18,12 +18,18 @@
 import { spawnSync } from 'node:child_process'
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { dirname, join } from 'node:path'
+import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = join(__dirname, '..')
-const tscBin = join(repoRoot, 'node_modules', '.bin', 'tsc')
+// On Windows the yarn bin shim is `tsc.cmd`; spawnSync needs the exact name.
+const tscBin = join(
+  repoRoot,
+  'node_modules',
+  '.bin',
+  process.platform === 'win32' ? 'tsc.cmd' : 'tsc',
+)
 
 const usage = (msg) => {
   if (msg) console.error(`error: ${msg}`)
@@ -79,19 +85,27 @@ ${colors.join(',\n')}
 }`
 }
 
-const buildFixture = (n) => `
-import type { Color } from '${join(
-  repoRoot,
+// TS treats `C:/foo` as a bare specifier on Windows. Generate a
+// `./../...` relative path from the fixture directory so the bench is
+// cross-platform.
+const importFrom = (fixtureDir, target) => {
+  const rel = relative(fixtureDir, join(repoRoot, target)).replace(/\\/g, '/')
+  return rel.startsWith('.') ? rel : `./${rel}`
+}
+
+const buildFixture = (n, fixtureDir) => `
+import type { Color } from '${importFrom(
+  fixtureDir,
   'packages/system/src/styles/colors',
-).replace(/\\/g, '/')}'
-import type { Space } from '${join(
-  repoRoot,
+)}'
+import type { Space } from '${importFrom(
+  fixtureDir,
   'packages/system/src/styles/space',
-).replace(/\\/g, '/')}'
-import type { SystemProp } from '${join(
-  repoRoot,
+)}'
+import type { SystemProp } from '${importFrom(
+  fixtureDir,
   'packages/system/src/types',
-).replace(/\\/g, '/')}'
+)}'
 
 interface BenchTheme ${buildTheme(n)}
 
@@ -155,7 +169,7 @@ const results = []
 for (const n of sizes) {
   const dir = join(fixturesRoot, `n${n}`)
   mkdirSync(dir, { recursive: true })
-  writeFileSync(join(dir, 'fixture.ts'), buildFixture(n))
+  writeFileSync(join(dir, 'fixture.ts'), buildFixture(n, dir))
   writeFileSync(
     join(dir, 'tsconfig.json'),
     JSON.stringify(fixtureTsconfig, null, 2),

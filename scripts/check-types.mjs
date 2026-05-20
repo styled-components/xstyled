@@ -19,7 +19,13 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = join(__dirname, '..')
-const tscBin = join(repoRoot, 'node_modules', '.bin', 'tsc')
+// On Windows the yarn bin shim is `tsc.cmd`; spawnSync needs the exact name.
+const tscBin = join(
+  repoRoot,
+  'node_modules',
+  '.bin',
+  process.platform === 'win32' ? 'tsc.cmd' : 'tsc',
+)
 
 // Order matters: util has no deps, system depends on util, styled-components /
 // emotion depend on system. Each package's main tsconfig.json is also
