@@ -115,17 +115,37 @@ export interface TransformValue {
   ): CSSScalar
 }
 
+// Bounded-depth tail for `SynthesizedPath`. Each recursive instantiation
+// peels one element off the front; reaching `never` stops the recursion
+// and the type widens to `string` so deep themes still type-check
+// without producing an unrepresentable union (#429).
+type _SynthesizedPathDepth = [never, 0, 1, 2, 3, 4, 5, 6]
+
 /**
  * Recursively explores a given object and creates a union of the deep paths
  * leading to primitive values (non-objects.)
+ *
+ * Notes:
+ *  - Numeric keys are preserved as string-form path segments so themes like
+ *    `{ blue: { 50: '#…' } }` resolve to `'blue.50'` (#413).
+ *  - Recursion is depth-bounded; beyond `D = 6` the result widens to `string`
+ *    to keep TypeScript happy on very-deep themes (#429).
  */
-export type SynthesizedPath<T extends Record<string, unknown>> = {
-  [P in keyof T]: P extends string
-    ? T[P] extends Record<string, unknown>
-      ? `${P}.${SynthesizedPath<T[P]>}`
-      : P
-    : never
-}[keyof T]
+export type SynthesizedPath<
+  T,
+  D extends number = 6,
+> = [D] extends [never]
+  ? string
+  : T extends Record<string | number, unknown>
+  ? {
+      [P in keyof T & (string | number)]: T[P] extends Record<
+        string | number,
+        unknown
+      >
+        ? `${P}.${SynthesizedPath<T[P], _SynthesizedPathDepth[D]>}`
+        : `${P}`
+    }[keyof T & (string | number)]
+  : never
 
 export type ThemeNamespaceValue<K extends string, T extends ITheme> =
   | NamespaceType<T[K]>

@@ -4,7 +4,7 @@ module.exports = {
   transform: {
     '^.+\\.(j|t)sx?$': 'babel-jest',
   },
-  testPathIgnorePatterns: ['/node_modules/', '/website/'],
+  testPathIgnorePatterns: ['/node_modules/', '/website/', '/__type-tests__/'],
   coveragePathIgnorePatterns: ['/node_modules/', '/dist/'],
   moduleNameMapper: {
     'styled-components':
