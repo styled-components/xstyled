@@ -48,25 +48,29 @@ const projects = [
   'packages/babel-preset-emotion-css-prop/tsconfig.json',
 ]
 
-// The augmentation contract test resolves `@xstyled/system` via the
-// workspace symlink → `package.json#types` → `dist/index.d.ts`. Without a
-// prior `yarn build` the import dangles and tsc reports a misleading
-// "cannot find module" instead of the missing-prerequisite. Surface it.
+// The augmentation contract test (packages/system/tsconfig.aug.json) is the
+// only project that resolves `@xstyled/system` via the workspace symlink →
+// `package.json#types` → `dist/index.d.ts`. Without a prior `yarn build` the
+// import dangles and tsc reports a misleading "cannot find module" instead
+// of the missing-prerequisite — so scope the dist check to just that project
+// and skip with a clear message; every other project is independent of the
+// built dist and still runs.
 const systemDts = join(repoRoot, 'packages/system/dist/index.d.ts')
-if (!existsSync(systemDts)) {
-  console.error(
-    '\x1b[31merror\x1b[0m  packages/system/dist/index.d.ts is missing.\n' +
-      '       run `yarn build` first; the augmentation test resolves\n' +
-      '       `@xstyled/system` through the built dist.',
-  )
-  process.exit(1)
-}
+const needsBuiltSystemDist = (rel) =>
+  rel === 'packages/system/tsconfig.aug.json'
 
 let failed = 0
 for (const rel of projects) {
   const abs = join(repoRoot, rel)
   if (!existsSync(abs)) {
-    console.log(`[33mskip[0m  ${rel} (not found)`)
+    console.log(`\x1b[33mskip\x1b[0m  ${rel} (not found)`)
+    continue
+  }
+  if (needsBuiltSystemDist(rel) && !existsSync(systemDts)) {
+    console.log(
+      `\x1b[33mskip\x1b[0m  ${rel} (run \`yarn build\` first; resolves @xstyled/system through dist/)`,
+    )
+    failed += 1
     continue
   }
   process.stdout.write(`check  ${rel} ... `)
@@ -79,9 +83,9 @@ for (const rel of projects) {
   })
   const ms = Number((process.hrtime.bigint() - t0) / 1_000_000n)
   if (proc.status === 0) {
-    console.log(`[32mok[0m (${ms}ms)`)
+    console.log(`\x1b[32mok\x1b[0m (${ms}ms)`)
   } else {
-    console.log(`[31mFAIL[0m (${ms}ms)`)
+    console.log(`\x1b[31mFAIL\x1b[0m (${ms}ms)`)
     if (proc.stdout) console.log(proc.stdout)
     if (proc.stderr) console.error(proc.stderr)
     failed += 1

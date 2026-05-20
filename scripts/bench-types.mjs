@@ -165,71 +165,84 @@ const parseDiag = (stdout) => {
   return out
 }
 
-const results = []
-for (const n of sizes) {
-  const dir = join(fixturesRoot, `n${n}`)
-  mkdirSync(dir, { recursive: true })
-  writeFileSync(join(dir, 'fixture.ts'), buildFixture(n, dir))
-  writeFileSync(
-    join(dir, 'tsconfig.json'),
-    JSON.stringify(fixtureTsconfig, null, 2),
-  )
-  const t0 = process.hrtime.bigint()
-  const proc = spawnSync(
-    tscBin,
-    ['--noEmit', '--extendedDiagnostics', '-p', 'tsconfig.json'],
-    { cwd: dir, encoding: 'utf8' },
-  )
-  const wallMs = Number((process.hrtime.bigint() - t0) / 1_000_000n)
-  if (proc.status !== 0) {
-    if (!proc.stdout || !/Instantiations:/.test(proc.stdout)) {
-      console.error(`tsc failed for n=${n}`)
-      console.error(proc.stdout)
-      console.error(proc.stderr)
-      process.exit(1)
+// Wrap the body in try/finally so the temp fixturesRoot is always cleaned
+// up — including the `process.exit(1)` path on a hard tsc failure.
+let exitCode = 0
+try {
+  const results = []
+  for (const n of sizes) {
+    const dir = join(fixturesRoot, `n${n}`)
+    mkdirSync(dir, { recursive: true })
+    writeFileSync(join(dir, 'fixture.ts'), buildFixture(n, dir))
+    writeFileSync(
+      join(dir, 'tsconfig.json'),
+      JSON.stringify(fixtureTsconfig, null, 2),
+    )
+    const t0 = process.hrtime.bigint()
+    const proc = spawnSync(
+      tscBin,
+      ['--noEmit', '--extendedDiagnostics', '-p', 'tsconfig.json'],
+      { cwd: dir, encoding: 'utf8' },
+    )
+    const wallMs = Number((process.hrtime.bigint() - t0) / 1_000_000n)
+    if (proc.status !== 0) {
+      if (!proc.stdout || !/Instantiations:/.test(proc.stdout)) {
+        console.error(`tsc failed for n=${n}`)
+        console.error(proc.stdout)
+        console.error(proc.stderr)
+        exitCode = 1
+        break
+      }
+      // tsc reported type errors but still produced diagnostics; the perf
+      // numbers are valid, but the fixture isn't well-formed. Surface it so
+      // a regression doesn't silently turn into a "look how fast" win.
+      console.error(
+        `warn: tsc exited ${proc.status} for n=${n}; bench numbers retained but the fixture has type errors`,
+      )
     }
-    // tsc reported type errors but still produced diagnostics; the perf
-    // numbers are valid, but the fixture isn't well-formed. Surface it so
-    // a regression doesn't silently turn into a "look how fast" win.
-    console.error(`warn: tsc exited ${proc.status} for n=${n}; bench numbers retained but the fixture has type errors`)
+    const diag = parseDiag(proc.stdout || '')
+    results.push({ n, wallMs, ...diag })
   }
-  const diag = parseDiag(proc.stdout || '')
-  results.push({ n, wallMs, ...diag })
+
+  if (exitCode === 0) {
+    const fmt = (v) =>
+      v == null ? '-' : typeof v === 'number' ? v.toLocaleString() : v
+    const header = [
+      'tokens',
+      'wall(ms)',
+      'check(s)',
+      'total(s)',
+      'instantiations',
+      'types',
+      'symbols',
+      'identifiers',
+      'memory(KB)',
+    ]
+
+    const rows = results.map((r) => [
+      r.n,
+      r.wallMs,
+      r.checkTimeSec,
+      r.totalTimeSec,
+      r.instantiations,
+      r.types,
+      r.symbols,
+      r.identifiers,
+      r.memoryKB,
+    ])
+
+    const widths = header.map((h, i) =>
+      Math.max(h.length, ...rows.map((row) => String(fmt(row[i])).length)),
+    )
+    const pad = (s, w) => String(s).padStart(w)
+    console.log(header.map((h, i) => pad(h, widths[i])).join('  '))
+    console.log(widths.map((w) => '-'.repeat(w)).join('  '))
+    for (const row of rows) {
+      console.log(row.map((v, i) => pad(fmt(v), widths[i])).join('  '))
+    }
+  }
+} finally {
+  rmSync(fixturesRoot, { recursive: true, force: true })
 }
 
-const fmt = (v) => (v == null ? '-' : typeof v === 'number' ? v.toLocaleString() : v)
-const header = [
-  'tokens',
-  'wall(ms)',
-  'check(s)',
-  'total(s)',
-  'instantiations',
-  'types',
-  'symbols',
-  'identifiers',
-  'memory(KB)',
-]
-
-const rows = results.map((r) => [
-  r.n,
-  r.wallMs,
-  r.checkTimeSec,
-  r.totalTimeSec,
-  r.instantiations,
-  r.types,
-  r.symbols,
-  r.identifiers,
-  r.memoryKB,
-])
-
-const widths = header.map((h, i) =>
-  Math.max(h.length, ...rows.map((row) => String(fmt(row[i])).length)),
-)
-const pad = (s, w) => String(s).padStart(w)
-console.log(header.map((h, i) => pad(h, widths[i])).join('  '))
-console.log(widths.map((w) => '-'.repeat(w)).join('  '))
-for (const row of rows) {
-  console.log(row.map((v, i) => pad(fmt(v), widths[i])).join('  '))
-}
-
-rmSync(fixturesRoot, { recursive: true, force: true })
+if (exitCode !== 0) process.exit(exitCode)
