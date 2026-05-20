@@ -1,0 +1,55 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    groups:
+      babel:
+        patterns:
+          - '@babel/*'
+          - 'babel-*'
+      eslint:
+        patterns:
+          - 'eslint'
+          - 'eslint-*'
+          - '@typescript-eslint/*'
+      jest:
+        patterns:
+          - 'jest'
+          - 'jest-*'
+          - 'babel-jest'
+          - '@types/jest'
+      react:
+        patterns:
+          - 'react'
+          - 'react-dom'
+          - '@types/react'
+          - '@types/react-dom'
+      rollup:
+        patterns:
+          - 'rollup'
+          - 'rollup-plugin-*'
+      emotion:
+        patterns:
+          - '@emotion/*'
+      testing-library:
+        patterns:
+          - '@testing-library/*'
+      types:
+        patterns:
+          - '@types/*'
+        exclude-patterns:
+          - '@types/react'
+          - '@types/react-dom'
+          - '@types/jest'
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns:
+          - '*'
