@@ -128,7 +128,10 @@ void _v3
 void _v4
 `
 
-const fixtureTsconfig = {
+// Resolve workspace deps from source so the bench works without a prior
+// `yarn build`. `baseUrl` is the fixture dir (created per-run); paths
+// reach back into the repo via relative segments computed at fixture time.
+const fixtureTsconfig = (fixtureDir) => ({
   compilerOptions: {
     strict: true,
     skipLibCheck: true,
@@ -140,11 +143,24 @@ const fixtureTsconfig = {
     noUnusedLocals: false,
     noUnusedParameters: false,
     jsx: 'react',
-    types: [],
+    // Resolve source files reference `process.env`; pull in @types/node
+    // from the repo (the fixture lives in /tmp, outside the repo's
+    // node_modules walk).
+    typeRoots: [importFrom(fixtureDir, 'node_modules/@types')],
+    types: ['node'],
     lib: ['esnext', 'dom'],
+    baseUrl: '.',
+    paths: {
+      '@xstyled/util': [importFrom(fixtureDir, 'packages/util/src')],
+      '@xstyled/prop-types': [
+        importFrom(fixtureDir, 'packages/prop-types/src'),
+      ],
+      '@xstyled/system': [importFrom(fixtureDir, 'packages/system/src')],
+      '@xstyled/core': [importFrom(fixtureDir, 'packages/core/src')],
+    },
   },
   include: ['fixture.ts'],
-}
+})
 
 const parseDiag = (stdout) => {
   const out = {}
@@ -176,7 +192,7 @@ try {
     writeFileSync(join(dir, 'fixture.ts'), buildFixture(n, dir))
     writeFileSync(
       join(dir, 'tsconfig.json'),
-      JSON.stringify(fixtureTsconfig, null, 2),
+      JSON.stringify(fixtureTsconfig(dir), null, 2),
     )
     const t0 = process.hrtime.bigint()
     const proc = spawnSync(

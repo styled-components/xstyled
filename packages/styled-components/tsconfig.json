@@ -1,6 +1,10 @@
 {
-  "include": ["src"],
-  "exclude": ["src/__type-tests__"],
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "src/__type-tests__"
+  ],
   "compilerOptions": {
     "strict": true,
     "noUnusedLocals": true,
@@ -12,6 +16,21 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "jsx": "react",
-    "sourceMap": true
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@xstyled/util": [
+        "../util/src"
+      ],
+      "@xstyled/prop-types": [
+        "../prop-types/src"
+      ],
+      "@xstyled/system": [
+        "../system/src"
+      ],
+      "@xstyled/core": [
+        "../core/src"
+      ]
+    }
   }
 }

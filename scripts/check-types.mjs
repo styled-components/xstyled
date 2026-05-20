@@ -48,16 +48,16 @@ const projects = [
   'packages/babel-preset-emotion-css-prop/tsconfig.json',
 ]
 
-// The augmentation contract test (packages/system/tsconfig.aug.json) is the
-// only project that resolves `@xstyled/system` via the workspace symlink →
-// `package.json#types` → `dist/index.d.ts`. Without a prior `yarn build` the
-// import dangles and tsc reports a misleading "cannot find module" instead
-// of the missing-prerequisite — so scope the dist check to just that project
-// and skip with a clear message; every other project is independent of the
-// built dist and still runs.
+// Workspace deps resolve from source via tsconfig `paths`, so no prior
+// `yarn build` is required for the per-package type-checks. The one
+// exception is `packages/system/tsconfig.aug.json`: that project exercises
+// the *consumer* contract (`declare module '@xstyled/system'` through the
+// published `dist/index.d.ts`) and therefore deliberately resolves the
+// package via node_modules, not source. Skip it cleanly (no failure)
+// when dist isn't built so a fresh-checkout run produces no scary noise;
+// CI always builds first.
 const systemDts = join(repoRoot, 'packages/system/dist/index.d.ts')
-const needsBuiltSystemDist = (rel) =>
-  rel === 'packages/system/tsconfig.aug.json'
+const isAug = (rel) => rel === 'packages/system/tsconfig.aug.json'
 
 let failed = 0
 for (const rel of projects) {
@@ -66,11 +66,10 @@ for (const rel of projects) {
     console.log(`\x1b[33mskip\x1b[0m  ${rel} (not found)`)
     continue
   }
-  if (needsBuiltSystemDist(rel) && !existsSync(systemDts)) {
+  if (isAug(rel) && !existsSync(systemDts)) {
     console.log(
-      `\x1b[33mskip\x1b[0m  ${rel} (run \`yarn build\` first; resolves @xstyled/system through dist/)`,
+      `\x1b[33mskip\x1b[0m  ${rel} (run \`yarn build\` first to exercise the consumer contract)`,
     )
-    failed += 1
     continue
   }
   process.stdout.write(`check  ${rel} ... `)
