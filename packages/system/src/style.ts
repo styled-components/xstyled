@@ -238,7 +238,7 @@ export function compose(...generators: any[]): any {
     const gen = generators[i]
     warn(Boolean(gen), `Undefined generator in "compose" method`)
     if (!gen) continue
-    const children = gen.meta.generators as StyleGenerator[] | undefined
+    const children = gen.meta?.generators as StyleGenerator[] | undefined
     if (children) {
       for (let j = 0; j < children.length; j++) collect(children[j])
     } else {
