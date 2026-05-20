@@ -94,8 +94,10 @@ describe('#css', () => {
   it('runs function-form template interpolations against theme props', () => {
     const Dummy = styled.div`
       ${css`
-        margin: ${(p: { theme: { space: { 1: number; 2: number } } }) =>
-          `${p.theme.space[1]}px ${p.theme.space[2]}px`};
+        margin: ${(p) => {
+          const space = (p.theme as { space: { 1: number; 2: number } }).space
+          return `${space[1]}px ${space[2]}px`
+        }};
       `}
     `
     const { container } = render(
