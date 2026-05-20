@@ -91,6 +91,21 @@ describe('#css', () => {
     expect(container.firstChild).toHaveStyle('margin: 4px 8px;')
   })
 
+  it('runs function-form template interpolations against theme props', () => {
+    const Dummy = styled.div`
+      ${css`
+        margin: ${(p: { theme: { space: { 1: number; 2: number } } }) =>
+          `${p.theme.space[1]}px ${p.theme.space[2]}px`};
+      `}
+    `
+    const { container } = render(
+      <SpaceTheme>
+        <Dummy />
+      </SpaceTheme>,
+    )
+    expect(container.firstChild).toHaveStyle('margin: 4px 8px;')
+  })
+
   it('transforms babel-plugin-emotion output', () => {
     const Dummy = styled.div`
       ${css({

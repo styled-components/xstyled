@@ -13,8 +13,29 @@
  *   node scripts/bench-runtime.mjs
  */
 import { createRequire } from 'node:module'
+import { existsSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const require = createRequire(import.meta.url)
+
+// Preflight: this bench measures real JS hot paths, so it requires
+// built dist bundles (`require('@xstyled/system')` resolves through
+// `package.json#main` → `dist/index.cjs`). Surface a friendly
+// instruction instead of letting Node throw a cryptic "Cannot find
+// module" if `yarn build` hasn't run.
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const repoRoot = join(__dirname, '..')
+const systemCjs = join(repoRoot, 'packages/system/dist/index.cjs')
+if (!existsSync(systemCjs)) {
+  console.error(
+    'error: packages/system/dist/index.cjs is missing.\n' +
+      '       run `yarn build` first; the runtime bench loads the real\n' +
+      '       JS bundles, not source.',
+  )
+  process.exit(1)
+}
+
 const xsys = require('@xstyled/system')
 
 const measure = (label, fn, { iters = 200_000, warmup = 5_000 } = {}) => {
