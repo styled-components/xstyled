@@ -63,7 +63,10 @@ let failed = 0
 for (const rel of projects) {
   const abs = join(repoRoot, rel)
   if (!existsSync(abs)) {
-    console.log(`\x1b[33mskip\x1b[0m  ${rel} (not found)`)
+    // `projects` is hard-coded, so a missing tsconfig means the matrix
+    // is no longer complete. Fail loudly rather than quietly skipping.
+    console.log(`\x1b[31mFAIL\x1b[0m  ${rel} (not found — projects list out of sync)`)
+    failed += 1
     continue
   }
   if (isAug(rel) && !existsSync(systemDts)) {

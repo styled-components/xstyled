@@ -58,6 +58,13 @@ const sizes = sizesArg
   .map((s) => parseInt(s.trim(), 10))
   .filter(Number.isFinite)
 if (sizes.length === 0) usage(`--sizes received no valid integers: "${sizesArg}"`)
+const tooSmall = sizes.filter((n) => n < 1)
+if (tooSmall.length > 0) {
+  // The fixture references `'c0'` and `'c${Math.floor(n/2)}'`; sizes < 1
+  // would generate themes with no `c0`, which produces noisy/misleading
+  // type errors rather than a meaningful bench.
+  usage(`--sizes must all be >= 1; got: ${tooSmall.join(', ')}`)
+}
 
 const fixturesRoot = mkdtempSync(join(tmpdir(), 'xstyled-typebench-'))
 
