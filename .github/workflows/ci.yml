@@ -10,12 +10,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [22, 24]
+
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
+          node-version: ${{ matrix.node-version }}
           cache: 'yarn'
 
       - name: Install dependencies
@@ -31,10 +36,12 @@ jobs:
         run: yarn test --coverage
 
       - name: Codecov
+        if: matrix.node-version == 22
         continue-on-error: true
         run: yarn codecov
 
       - name: Check bundle size
+        if: matrix.node-version == 22
         continue-on-error: true
         env:
           BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
