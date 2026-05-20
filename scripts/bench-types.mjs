@@ -167,17 +167,23 @@ for (const n of sizes) {
     { cwd: dir, encoding: 'utf8' },
   )
   const wallMs = Number((process.hrtime.bigint() - t0) / 1_000_000n)
-  if (proc.status !== 0 && proc.stdout && !/Instantiations:/.test(proc.stdout)) {
-    console.error(`tsc failed for n=${n}`)
-    console.error(proc.stdout)
-    console.error(proc.stderr)
-    process.exit(1)
+  if (proc.status !== 0) {
+    if (!proc.stdout || !/Instantiations:/.test(proc.stdout)) {
+      console.error(`tsc failed for n=${n}`)
+      console.error(proc.stdout)
+      console.error(proc.stderr)
+      process.exit(1)
+    }
+    // tsc reported type errors but still produced diagnostics; the perf
+    // numbers are valid, but the fixture isn't well-formed. Surface it so
+    // a regression doesn't silently turn into a "look how fast" win.
+    console.error(`warn: tsc exited ${proc.status} for n=${n}; bench numbers retained but the fixture has type errors`)
   }
   const diag = parseDiag(proc.stdout || '')
   results.push({ n, wallMs, ...diag })
 }
 
-const fmt = (v) => (v == null ? '—' : typeof v === 'number' ? v.toLocaleString() : v)
+const fmt = (v) => (v == null ? '-' : typeof v === 'number' ? v.toLocaleString() : v)
 const header = [
   'tokens',
   'wall(ms)',
