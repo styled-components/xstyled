@@ -216,17 +216,15 @@ export function compose<T extends StyleGenerator[]>(
 ): StyleGenerator<StyleGeneratorPropsConcat<T>>
 
 export function compose(...generators: any[]): any {
-  // Single-pass flatten + per-prop index. Avoids the `[...acc, ...x]`
-  // accumulator pattern, which is O(n^2) when many composed sub-systems
-  // are passed in.
-  const flatGenerators: StyleGenerator[] = []
+  // Single-pass per-prop index + props list + cssGetters. Avoids the
+  // `[...acc, ...x]` accumulator pattern, which is O(n^2) when many
+  // composed sub-systems are passed in.
   const generatorsByProp: { [key: string]: StyleGenerator } = {}
   const propsList: string[] = []
   const cssGetters: { [key: string]: ThemeGetter } = {}
 
   const collect = (gen: StyleGenerator) => {
     if (!gen || !gen.meta) return
-    flatGenerators.push(gen)
     const genProps = gen.meta.props
     for (let i = 0; i < genProps.length; i++) {
       const p = genProps[i]
