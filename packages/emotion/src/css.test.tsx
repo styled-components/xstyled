@@ -79,7 +79,7 @@ describe('#css', () => {
 
   it('accepts function', () => {
     const Dummy = styled.div`
-      ${css((p) => ({
+      ${css(() => ({
         margin: '1 2',
       }))}
     `
