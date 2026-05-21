@@ -13,7 +13,7 @@
     "build": "../../node_modules/.bin/rollup -c ../../build/rollup.config.js"
   },
   "homepage": "https://xstyled.dev",
-  "repository": "https://github.com/gregberge/xstyled/tree/master/packages/babel-preset-emotion-css-prop",
+  "repository": "https://github.com/styled-components/xstyled/tree/main/packages/babel-preset-emotion-css-prop",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/gregberge"

@@ -6,3 +6,6 @@ dist/
 # pnpm
 .pnpm-store/
 pnpm-debug.log*
+
+# macOS
+.DS_Store

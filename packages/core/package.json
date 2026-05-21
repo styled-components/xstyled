@@ -21,7 +21,7 @@
     "build": "../../node_modules/.bin/rollup -c ../../build/rollup.config.js"
   },
   "homepage": "https://xstyled.dev",
-  "repository": "https://github.com/gregberge/xstyled/tree/master/packages/core",
+  "repository": "https://github.com/styled-components/xstyled/tree/main/packages/core",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/gregberge"

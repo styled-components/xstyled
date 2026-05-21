@@ -31,7 +31,7 @@
     "access": "public"
   },
   "homepage": "https://xstyled.dev",
-  "repository": "https://github.com/gregberge/xstyled/tree/master/packages/emotion",
+  "repository": "https://github.com/styled-components/xstyled/tree/main/packages/emotion",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/gregberge"
