@@ -23,7 +23,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.19.0",
+    "@babel/plugin-transform-react-jsx": "^7.28.0",
     "@emotion/babel-plugin": "^11.10.2",
     "@emotion/babel-plugin-jsx-pragmatic": "^0.3.0"
   },
