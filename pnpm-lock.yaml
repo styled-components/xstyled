@@ -122,8 +122,8 @@ importers:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
       react-simple-code-editor:
-        specifier: ^0.13.1
-        version: 0.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^0.14.1
+        version: 0.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rollup:
         specifier: ^2.79.1
         version: 2.80.0
@@ -7203,11 +7203,11 @@ packages:
       react: '*'
       react-dom: '*'
 
-  react-simple-code-editor@0.13.1:
-    resolution: {integrity: sha512-XYeVwRZwgyKtjNIYcAEgg2FaQcCZwhbarnkJIV20U2wkCU9q/CPFBo8nRXrK4GXUz3AvbqZFsZRrpUTkqqEYyQ==}
+  react-simple-code-editor@0.14.1:
+    resolution: {integrity: sha512-BR5DtNRy+AswWJECyA17qhUDvrrCZ6zXOCfkQY5zSmb96BVUbpVAv03WpcjcwtCwiLbIANx3gebHOcXYn1EHow==}
     peerDependencies:
-      react: '*'
-      react-dom: '*'
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
 
   react@18.3.1:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
@@ -17883,7 +17883,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  react-simple-code-editor@0.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-simple-code-editor@0.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
