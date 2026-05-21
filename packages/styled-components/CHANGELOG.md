@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.1.1
+
+### Patch Changes
+
+- 3517689: Type-checks cleanly against `styled-components@6.4+`. 6.4 added an `AttrsKeys` generic to its `Styled` interface; the recursion through `.attrs(...)` inside `createStyled` now casts back to the 4-generic shape so the published `dist/index.d.ts` compiles whether consumers are on `^6.1.11` or `^6.4`.
+- e8cfc97: Themes with numeric keys (for example `{ blue: { 50: '#…', 100: '#…' } }`) now produce precise string-literal types like `'blue.50' | 'blue.100'` instead of silently dropping out of the union. Deeply nested themes also type-check cleanly without producing "union too complex" errors.
+- Updated dependencies [d05f052]
+- Updated dependencies [e8cfc97]
+  - @xstyled/system@3.8.3
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
