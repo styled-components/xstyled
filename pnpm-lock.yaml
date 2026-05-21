@@ -213,8 +213,8 @@ importers:
         specifier: ^11.10.2
         version: 11.13.5
       '@emotion/babel-plugin-jsx-pragmatic':
-        specifier: ^0.2.0
-        version: 0.2.1(@babel/core@7.29.0)
+        specifier: ^0.3.0
+        version: 0.3.0(@babel/core@7.29.0)
 
   packages/core:
     dependencies:
@@ -1178,8 +1178,8 @@ packages:
       search-insights:
         optional: true
 
-  '@emotion/babel-plugin-jsx-pragmatic@0.2.1':
-    resolution: {integrity: sha512-xy1SlgEJygAAIvIuC2idkGKJYa6v5iwoyILkvNKgk347bV+IImXrUat5Z86EmLGyWhEoTplVT9EHqTnHZG4HFw==}
+  '@emotion/babel-plugin-jsx-pragmatic@0.3.0':
+    resolution: {integrity: sha512-XkRI5RdNl+f7HqpJADfTWlzZkd4tNaz2Gjzt97ZqN72jFSOqpL0grGGLdzKJ9dMQHXJBT/KZV+kphTycOblIsQ==}
     peerDependencies:
       '@babel/core': ^7.0.0
 
@@ -9956,7 +9956,7 @@ snapshots:
     transitivePeerDependencies:
       - '@algolia/client-search'
 
-  '@emotion/babel-plugin-jsx-pragmatic@0.2.1(@babel/core@7.29.0)':
+  '@emotion/babel-plugin-jsx-pragmatic@0.3.0(@babel/core@7.29.0)':
     dependencies:
       '@babel/core': 7.29.0
       '@babel/plugin-syntax-jsx': 7.28.6(@babel/core@7.29.0)
@@ -12478,7 +12478,7 @@ snapshots:
   capital-case@1.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.8.1
       upper-case-first: 2.0.2
 
   ccount@1.1.0: {}
@@ -12761,7 +12761,7 @@ snapshots:
   constant-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.8.1
       upper-case: 2.0.2
 
   content-disposition@0.5.4:
@@ -15182,7 +15182,7 @@ snapshots:
   header-case@2.0.4:
     dependencies:
       capital-case: 1.0.4
-      tslib: 2.4.1
+      tslib: 2.8.1
 
   hoist-non-react-statics@3.3.2:
     dependencies:
@@ -17356,7 +17356,7 @@ snapshots:
   path-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.8.1
 
   path-exists@3.0.0: {}
 
@@ -18322,7 +18322,7 @@ snapshots:
   sentence-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.8.1
       upper-case-first: 2.0.2
 
   serialize-javascript@5.0.1:
@@ -18529,7 +18529,7 @@ snapshots:
   snake-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.4.1
+      tslib: 2.8.1
 
   socket.io-adapter@2.4.0: {}
 
