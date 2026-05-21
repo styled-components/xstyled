@@ -110,8 +110,8 @@ importers:
         specifier: ^7.1.1
         version: 7.4.0(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       prettier:
-        specifier: ^2.7.1
-        version: 2.8.8
+        specifier: ^3.8.3
+        version: 3.8.3
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
@@ -6989,6 +6989,11 @@ packages:
   prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
+    hasBin: true
+
+  prettier@3.8.3:
+    resolution: {integrity: sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw==}
+    engines: {node: '>=14'}
     hasBin: true
 
   pretty-bytes@5.6.0:
@@ -17635,6 +17640,8 @@ snapshots:
   prepend-http@2.0.0: {}
 
   prettier@2.8.8: {}
+
+  prettier@3.8.3: {}
 
   pretty-bytes@5.6.0: {}
 
