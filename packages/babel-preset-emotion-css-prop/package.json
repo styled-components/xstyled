@@ -15,8 +15,8 @@
   "homepage": "https://xstyled.dev",
   "repository": "https://github.com/styled-components/xstyled/tree/main/packages/babel-preset-emotion-css-prop",
   "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/gregberge"
+    "type": "opencollective",
+    "url": "https://opencollective.com/styled-components"
   },
   "publishConfig": {
     "access": "public"
