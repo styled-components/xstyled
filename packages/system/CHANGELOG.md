@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.8.3
+
+### Patch Changes
+
+- d05f052: Module load and one-off `compose()` calls are noticeably faster on systems with many composed style generators. Per-render style application is unchanged.
+
+  Theme-aware function interpolations inside `css\`…\`` templates (for example `` css`color: ${(props) => props.theme.colors.primary};` ``) are now correctly typed.
+
+- e8cfc97: Themes with numeric keys (for example `{ blue: { 50: '#…', 100: '#…' } }`) now produce precise string-literal types like `'blue.50' | 'blue.100'` instead of silently dropping out of the union. Deeply nested themes also type-check cleanly without producing "union too complex" errors.
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
