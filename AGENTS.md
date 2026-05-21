@@ -1,13 +1,13 @@
 Agents guide for the xstyled monorepo. Tool-agnostic. Update when a convention changes.
 
 Repo
-- Yarn 3 workspaces, Lerna for release. Seven packages under `packages/`: `util`, `prop-types`, `system`, `core`, `emotion`, `styled-components`, `babel-preset-emotion-css-prop`.
+- pnpm workspaces, Changesets for release. Seven packages under `packages/`: `util`, `prop-types`, `system`, `core`, `emotion`, `styled-components`, `babel-preset-emotion-css-prop`.
 - `scripts/` holds repo-level tooling. `website/` is the Gatsby docs site. `benchmarks/` compares against `styled-system`.
 
 Commands
-- `yarn install --immutable` for a CI-equivalent install.
-- `yarn build` before `yarn check:types`; the augmentation test resolves `@xstyled/system` through `packages/system/dist/index.d.ts`.
-- `yarn lint`, `yarn test`, `yarn check:types`, `yarn bench:types`, `yarn bench:runtime`.
+- `pnpm install --frozen-lockfile` for a CI-equivalent install.
+- `pnpm build` before `pnpm check:types`; the augmentation test resolves `@xstyled/system` through `packages/system/dist/index.d.ts`.
+- `pnpm lint`, `pnpm test`, `pnpm check:types`, `pnpm bench:types`, `pnpm bench:runtime`.
 
 Type tests
 - Per package: `src/__type-tests__/*.test-d.ts(x)` + `tsconfig.types.json` (excluded from main tsconfig and from jest).
@@ -32,7 +32,8 @@ Type gotchas
 
 Commits and PRs
 - Conventional Commits (`chore:`, `fix:`, `feat:`, `refactor:`, `perf:`, `test:`, `review:`); scope optional.
-- Lerna + conventional-commits for releases, not Changesets. The changeset-bot's "no changeset" warning can be ignored.
+- Changesets drives versioning and changelogs. Run `pnpm changeset` to add one for any user-visible change to a public package; commit the generated `.changeset/*.md` with the change. Internal-only / repo-tooling changes don't need one.
+- Releases publish via `.github/workflows/release.yml` (changesets/action) using npm trusted publishing (OIDC). There is no `NPM_TOKEN`; the workflow needs `id-token: write`.
 - `Fixes #n` only when the diff genuinely resolves the issue. `Refs` for things mitigated, regression-locked by tests, or touched.
 - Don't open a PR unless asked. Pushing a branch is not opening a PR.
 - Be frugal with PR replies. Only post when a reply is genuinely needed; the diff is the record for routine fixes.
@@ -77,11 +78,11 @@ Git discipline
 - Investigate unexpected state before deleting or overwriting; it may be the user's in-progress work.
 
 Don't
-- Commit `.yarn/cache/` (gitignored as of `0a7867e`).
 - Push to `main` directly.
-- Bump versions or publish to npm.
+- Bump versions or publish to npm by hand; the release workflow does it from merged changesets.
 - Add new features in a modernize/triage PR.
 
 CI
-- `.github/workflows/ci.yml` on push to `main` and PRs to `main` or `next`. Steps: checkout v4, setup-node v4 (`.nvmrc`, currently 22), `yarn install --immutable`, `yarn build`, `yarn lint`, `yarn check:types`, `yarn test --coverage`, Codecov and bundlewatch as `continue-on-error`.
+- `.github/workflows/ci.yml` on push to `main` and PRs to `main` or `next`. Steps: checkout v4, pnpm/action-setup v4, setup-node v4 (`.nvmrc`, currently 22, `cache: pnpm`), `pnpm install --frozen-lockfile`, `pnpm build`, `pnpm lint`, `pnpm check:types`, `pnpm test --coverage`, Codecov and bundlewatch as `continue-on-error`.
+- `.github/workflows/release.yml` on push to `main`. Uses `changesets/action@v1` with `publish: pnpm release` and `id-token: write` for npm trusted publishing.
 - `.github/dependabot.yml` groups npm and GitHub Actions updates.

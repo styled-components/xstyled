@@ -26,31 +26,39 @@ _Before_ submitting a pull request, please make sure the following is done…
 
     Note: Replace `<your_username>` with your GitHub username
 
-2.  Run `npm install --legacy-peer-deps`
+2.  Install [pnpm](https://pnpm.io) (the repo pins it via `packageManager` and `.nvmrc` selects Node), then run `pnpm install`.
 
 3.  If you've added code that should be tested, add tests.
 
     ```sh
     # build packages
-    npm run build
+    pnpm build
     # run docs
     cd website
-    npm run develop
+    pnpm develop
     ```
 
 4.  If you've changed APIs, update the documentation.
 
-5.  Ensure the linting is good via `npm run lint`.
+5.  Ensure the linting is good via `pnpm lint`.
 
     ```sh-session
-    $ npm run lint
+    $ pnpm lint
     ```
 
-6.  Ensure the test suite passes via `npm run test`.
+6.  Ensure the test suite passes via `pnpm test`.
 
     ```sh-session
-    $ npm run test
+    $ pnpm test
     ```
+
+7.  For any user-visible change to a published package, add a changeset:
+
+    ```sh-session
+    $ pnpm changeset
+    ```
+
+    Pick the affected packages and bump level (patch / minor / major), write a short human-readable note, and commit the generated `.changeset/*.md` alongside your change. Internal-only or tooling changes don't need one.
 
 ## Bugs
 
