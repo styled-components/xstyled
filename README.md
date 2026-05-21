@@ -6,8 +6,6 @@
 [![License](https://img.shields.io/npm/l/@xstyled/styled-components.svg)](https://github.com/styled-components/xstyled/blob/master/LICENSE)
 [![npm package](https://img.shields.io/npm/v/@xstyled/styled-components/latest.svg)](https://www.npmjs.com/package/@xstyled/styled-components)
 [![npm downloads](https://img.shields.io/npm/dm/@xstyled/styled-components.svg)](https://www.npmjs.com/package/@xstyled/styled-components)
-[![CircleCI](https://circleci.com/gh/styled-components/xstyled.svg?style=svg)](https://circleci.com/gh/styled-components/xstyled)
-[![codecov](https://codecov.io/gh/styled-components/xstyled/branch/master/graph/badge.svg)](https://codecov.io/gh/styled-components/xstyled)
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 
 ```bash
