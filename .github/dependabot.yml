@@ -5,6 +5,27 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 10
+    # Dependabot reads the root pnpm-workspace.yaml and would open PRs for
+    # every workspace's dependencies. Suppress updates that are exclusive to
+    # `website/` (Gatsby docs site, not published) and `benchmarks/` (private
+    # comparison harness) so PRs focus on the npm-published packages under
+    # `packages/*` and their shared build tooling at the repo root.
+    ignore:
+      # website/ only
+      - dependency-name: gatsby
+      - dependency-name: gatsby-*
+      - dependency-name: smooth-doc
+      - dependency-name: prismjs
+      # benchmarks/ only
+      - dependency-name: '@emotion/core'
+      - dependency-name: emotion-theming
+      - dependency-name: styled-system
+      - dependency-name: benchmark
+      - dependency-name: babel-loader
+      - dependency-name: html-webpack-plugin
+      - dependency-name: webpack
+      - dependency-name: webpack-cli
+      - dependency-name: webpack-dev-server
     groups:
       babel:
         patterns:

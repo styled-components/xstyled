@@ -18,34 +18,36 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
 
       - name: Type tests
-        run: yarn check:types
+        run: pnpm check:types
 
       - name: Test
-        run: yarn test --coverage
+        run: pnpm test --coverage
 
       - name: Codecov
         if: matrix.node-version == 22
         continue-on-error: true
-        run: yarn codecov
+        run: pnpm exec codecov
 
       - name: Check bundle size
         if: matrix.node-version == 22
         continue-on-error: true
         env:
           BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
-        run: yarn bundlewatch
+        run: pnpm exec bundlewatch

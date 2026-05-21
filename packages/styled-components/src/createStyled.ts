@@ -15,15 +15,25 @@ import {
 import { XCSSFunction, createCssFunction } from './createCssFunction'
 import { scStyled } from './scStyled'
 
+// styled-components 6.4 added an `AttrsKeys` generic on `Styled`, so
+// `.attrs(...)` returns a widened type. Keep the parameter at the
+// 4-generic shape that the `^6.1.11` peerDep floor uses, and re-cast on
+// the recursive calls so both versions type-check.
+type BaseStyled = StyledInstance<'web', any, any>
+
 const getCreateStyle = <TGen extends StyleGenerator>(
-  baseCreateStyle: StyledInstance<'web', any, any>,
+  baseCreateStyle: BaseStyled,
   css: XCSSFunction,
   generator?: TGen,
 ): ReturnType<LibraryStyled<StyleGeneratorProps<TGen>>> => {
   const createStyle = (...args: Parameters<typeof css>) =>
     baseCreateStyle`${css(...args)}${generator}`
   createStyle.attrs = (attrs: Parameters<typeof baseCreateStyle.attrs>[0]) =>
-    getCreateStyle<TGen>(baseCreateStyle.attrs(attrs), css, generator)
+    getCreateStyle<TGen>(
+      baseCreateStyle.attrs(attrs) as BaseStyled,
+      css,
+      generator,
+    )
   createStyle.withConfig = (config: StyledOptions<'web', any>) =>
     getCreateStyle<TGen>(baseCreateStyle.withConfig(config), css, generator)
   // @ts-expect-error
