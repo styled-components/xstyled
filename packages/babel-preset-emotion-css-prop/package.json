@@ -10,8 +10,7 @@
   "license": "MIT",
   "scripts": {
     "reset": "rm -rf dist",
-    "build": "../../node_modules/.bin/rollup -c ../../build/rollup.config.js",
-    "prepublishOnly": "npm run reset && npm run build"
+    "build": "../../node_modules/.bin/rollup -c ../../build/rollup.config.js"
   },
   "homepage": "https://xstyled.dev",
   "repository": "https://github.com/gregberge/xstyled/tree/master/packages/babel-preset-emotion-css-prop",

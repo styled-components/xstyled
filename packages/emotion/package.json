@@ -25,8 +25,7 @@
   "license": "MIT",
   "scripts": {
     "reset": "rm -rf dist",
-    "build": "../../node_modules/.bin/rollup -c ../../build/rollup.config.js",
-    "prepublishOnly": "npm run reset && npm run build"
+    "build": "../../node_modules/.bin/rollup -c ../../build/rollup.config.js"
   },
   "publishConfig": {
     "access": "public"
