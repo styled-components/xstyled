@@ -10,9 +10,9 @@
     "start": "webpack serve"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
-    "@babel/preset-env": "^7.19.3",
-    "@babel/preset-react": "^7.18.6",
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "@babel/preset-react": "^8.0.1",
     "babel-loader": "^8.2.5",
     "benchmark": "^2.1.4",
     "html-webpack-plugin": "^5.5.0",
