@@ -52,7 +52,7 @@
     "rollup": "^2.79.1",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-esbuild": "^4.10.1",
-    "styled-components": "^6.1.11",
+    "styled-components": "^6.4.3",
     "typescript": "^4.8.4"
   },
   "pnpm": {

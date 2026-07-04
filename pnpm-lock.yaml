@@ -108,7 +108,7 @@ importers:
         version: 29.7.0
       jest-styled-components:
         specifier: ^7.1.1
-        version: 7.4.0(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 7.4.0(styled-components@6.4.3(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       prettier:
         specifier: ^2.7.1
         version: 2.8.8
@@ -134,8 +134,8 @@ importers:
         specifier: ^4.10.1
         version: 4.10.3(esbuild@0.15.18)(rollup@2.80.0)
       styled-components:
-        specifier: ^6.1.11
-        version: 6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^6.4.3
+        version: 6.4.3(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       typescript:
         specifier: ^4.8.4
         version: 4.9.5
@@ -161,8 +161,8 @@ importers:
         specifier: ^11.0.0
         version: 11.0.0
       styled-components:
-        specifier: ^6.1.9
-        version: 6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^6.4.3
+        version: 6.4.3(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       styled-system:
         specifier: ^5.1.5
         version: 5.1.5
@@ -295,7 +295,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       smooth-doc:
         specifier: ^10.1.0
-        version: 10.1.0(@algolia/client-search@5.52.1)(@babel/core@7.29.0)(@types/react@18.3.29)(core-js@3.49.0)(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))(graphql@15.10.2)(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1)(search-insights@2.17.3)(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))
+        version: 10.1.0(@algolia/client-search@5.52.1)(@babel/core@7.29.0)(@types/react@18.3.29)(core-js@3.49.0)(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))(graphql@15.10.2)(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1)(search-insights@2.17.3)(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))
     devDependencies:
       gatsby:
         specifier: ^4.24.1
@@ -398,6 +398,10 @@ packages:
     resolution: {integrity: sha512-9NhCeYjq9+3uxgdtp20LSiJXJvN0FeCtNGpJxuMFZ1Kv3cWUNb6DOhJwUvcVCzKGR66cw4njwM6hrJLqgOwbcw==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/code-frame@7.29.7':
+    resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/compat-data@7.29.3':
     resolution: {integrity: sha512-LIVqM46zQWZhj17qA8wb4nW/ixr2y1Nw+r1etiAWgRM6U1IqP+LNhL1yg440jYZR72jCWcWbLWzIosH+uP1fqg==}
     engines: {node: '>=6.9.0'}
@@ -415,6 +419,10 @@ packages:
 
   '@babel/generator@7.29.1':
     resolution: {integrity: sha512-qsaF+9Qcm2Qv8SRIMMscAvG4O3lJ0F1GuMo5HR/Bp02LopNgnZBC/EkbevHFeGs4ls/oPz9v+Bsmzbkbe+0dUw==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/generator@7.29.7':
+    resolution: {integrity: sha512-DkXD5OJQaAQIdZ1bt3UZdEnHAn9Imd3IVBdX03UFe+ony9Ojw5pzr9YVKGDY1jt+Gcn/FnGkNf8r+Vj5NOJWtQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-annotate-as-pure@7.27.3':
@@ -444,6 +452,10 @@ packages:
 
   '@babel/helper-globals@7.28.0':
     resolution: {integrity: sha512-+W6cISkXFa1jXsDEdYA8HeevQT/FULhxzR99pxphltZcVaugps53THCeiWA8SguxxpSp3gKPiuYfSWopkLQ4hw==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/helper-globals@7.29.7':
+    resolution: {integrity: sha512-3nQVUAtvkKH9zahfWgw96Jc/uFOmjACE1kQz82E2lqWmHBgjzbNlsC22nuQTfahmWeQtTq5nQ/4Nnd2A1wj4zA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-member-expression-to-functions@7.28.5':
@@ -488,8 +500,16 @@ packages:
     resolution: {integrity: sha512-qMlSxKbpRlAridDExk92nSobyDdpPijUq2DW6oDnUqd0iOGxmQjyqhMIihI9+zv4LPyZdRje2cavWPbCbWm3eA==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/helper-string-parser@7.29.7':
+    resolution: {integrity: sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/helper-validator-identifier@7.28.5':
     resolution: {integrity: sha512-qSs4ifwzKJSV39ucNjsvc6WVHs6b7S03sOh2OcHF9UHfVPqWWALUsNUVzhSBiItjRZoLHx7nIarVjqKVusUZ1Q==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/helper-validator-identifier@7.29.7':
+    resolution: {integrity: sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-validator-option@7.27.1':
@@ -510,6 +530,11 @@ packages:
 
   '@babel/parser@7.29.3':
     resolution: {integrity: sha512-b3ctpQwp+PROvU/cttc4OYl4MzfJUWy6FZg+PMXfzmt/+39iHVF0sDfqay8TQM3JA2EUOyKcFZt75jWriQijsA==}
+    engines: {node: '>=6.0.0'}
+    hasBin: true
+
+  '@babel/parser@7.29.7':
+    resolution: {integrity: sha512-hnORnjP/1P/zFEndoeX+n+t1RwWRJiJpM/jO7FW32Kn9r5+sJB2JWOdYo4L6k78j15eCwY3Gm/7364B1EMwtNg==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -1083,12 +1108,24 @@ packages:
     resolution: {integrity: sha512-YA6Ma2KsCdGb+WC6UpBVFJGXL58MDA6oyONbjyF/+5sBgxY/dwkhLogbMT2GXXyU84/IhRw/2D1Os1B/giz+BQ==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/template@7.29.7':
+    resolution: {integrity: sha512-puq+Gf35oI24FeN11LkoUQFqv9uwNeWpxXZi/Ji3rRIoKAzKnxRaZ+Gkj0vKS9ZCiTESfng1N9LyOyXvo+m+Gg==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/traverse@7.29.0':
     resolution: {integrity: sha512-4HPiQr0X7+waHfyXPZpWPfWL/J7dcN1mx9gL6WdQVMbPnF3+ZhSMs8tCxN7oHddJE9fhNE7+lxdnlyemKfJRuA==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/traverse@7.29.7':
+    resolution: {integrity: sha512-EhlfNQtZ+NK22w5BM61ciuiq1m58ed33Wr1Xan//ZRTy6hgjnwyCffRYwzsGXdASJSUJ1guZILsErh1eQcl+zw==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/types@7.29.0':
     resolution: {integrity: sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/types@7.29.7':
+    resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
     engines: {node: '>=6.9.0'}
 
   '@bcoe/v8-coverage@0.2.3':
@@ -7168,8 +7205,8 @@ packages:
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
 
-  react-is@19.2.6:
-    resolution: {integrity: sha512-XjBR15BhXuylgWGuslhDKqlSayuqvqBX91BP8pauG8kd1zY8kotkNWbXksTCNRarse4kuGbe2kIY05ARtwNIvw==}
+  react-is@19.2.7:
+    resolution: {integrity: sha512-kZFnouyVv7eP/Phmrlo9FK+zcAdriZJvzxXHF1Sl1P377WSGe2G/JxVolhTrB/jeV47lKImhNUsijjHAAbcl/A==}
 
   react-lifecycles-compat@3.0.4:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
@@ -7946,6 +7983,22 @@ packages:
 
   styled-components@6.4.2:
     resolution: {integrity: sha512-xZBhBJsMtGqb+aKcwKgaT+BtuFums9VynX2JRvXJGTx5UfZzN12rk5r4nVdhXYvRw+hE7yiYxVrOqJZaK2+Txg==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      css-to-react-native: '>= 3.2.0'
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+      react-native: '>= 0.68.0'
+    peerDependenciesMeta:
+      css-to-react-native:
+        optional: true
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+
+  styled-components@6.4.3:
+    resolution: {integrity: sha512-wYXrhu+JmDjZ1Tv7O0OopGTfztbzun43Pjjhh2H+xc0h5A09dwpZ5FJbrifJDcL8g5TA9btpWOX2+iSRuJTExw==}
     engines: {node: '>= 16'}
     peerDependencies:
       css-to-react-native: '>= 3.2.0'
@@ -8910,6 +8963,12 @@ snapshots:
       js-tokens: 4.0.0
       picocolors: 1.1.1
 
+  '@babel/code-frame@7.29.7':
+    dependencies:
+      '@babel/helper-validator-identifier': 7.29.7
+      js-tokens: 4.0.0
+      picocolors: 1.1.1
+
   '@babel/compat-data@7.29.3': {}
 
   '@babel/core@7.29.0':
@@ -8944,6 +9003,14 @@ snapshots:
     dependencies:
       '@babel/parser': 7.29.3
       '@babel/types': 7.29.0
+      '@jridgewell/gen-mapping': 0.3.13
+      '@jridgewell/trace-mapping': 0.3.31
+      jsesc: 3.1.0
+
+  '@babel/generator@7.29.7':
+    dependencies:
+      '@babel/parser': 7.29.7
+      '@babel/types': 7.29.7
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
       jsesc: 3.1.0
@@ -8992,6 +9059,8 @@ snapshots:
       - supports-color
 
   '@babel/helper-globals@7.28.0': {}
+
+  '@babel/helper-globals@7.29.7': {}
 
   '@babel/helper-member-expression-to-functions@7.28.5':
     dependencies:
@@ -9049,7 +9118,11 @@ snapshots:
 
   '@babel/helper-string-parser@7.27.1': {}
 
+  '@babel/helper-string-parser@7.29.7': {}
+
   '@babel/helper-validator-identifier@7.28.5': {}
+
+  '@babel/helper-validator-identifier@7.29.7': {}
 
   '@babel/helper-validator-option@7.27.1': {}
 
@@ -9076,6 +9149,10 @@ snapshots:
   '@babel/parser@7.29.3':
     dependencies:
       '@babel/types': 7.29.0
+
+  '@babel/parser@7.29.7':
+    dependencies:
+      '@babel/types': 7.29.7
 
   '@babel/plugin-bugfix-firefox-class-in-computed-class-key@7.28.5(@babel/core@7.29.0)':
     dependencies:
@@ -9774,6 +9851,12 @@ snapshots:
       '@babel/parser': 7.29.3
       '@babel/types': 7.29.0
 
+  '@babel/template@7.29.7':
+    dependencies:
+      '@babel/code-frame': 7.29.7
+      '@babel/parser': 7.29.7
+      '@babel/types': 7.29.7
+
   '@babel/traverse@7.29.0(supports-color@5.5.0)':
     dependencies:
       '@babel/code-frame': 7.29.0
@@ -9786,10 +9869,27 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@babel/traverse@7.29.7':
+    dependencies:
+      '@babel/code-frame': 7.29.7
+      '@babel/generator': 7.29.7
+      '@babel/helper-globals': 7.29.7
+      '@babel/parser': 7.29.7
+      '@babel/template': 7.29.7
+      '@babel/types': 7.29.7
+      debug: 4.4.3(supports-color@5.5.0)
+    transitivePeerDependencies:
+      - supports-color
+
   '@babel/types@7.29.0':
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
+
+  '@babel/types@7.29.7':
+    dependencies:
+      '@babel/helper-string-parser': 7.29.7
+      '@babel/helper-validator-identifier': 7.29.7
 
   '@bcoe/v8-coverage@0.2.3': {}
 
@@ -11707,12 +11807,12 @@ snapshots:
       '@xstyled/system': 3.8.2
       '@xstyled/util': 3.7.0
 
-  '@xstyled/styled-components@3.8.1(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1))':
+  '@xstyled/styled-components@3.8.1(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1))':
     dependencies:
       '@xstyled/core': 3.8.2
       '@xstyled/system': 3.8.2
       '@xstyled/util': 3.7.0
-      styled-components: 5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1)
+      styled-components: 5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1)
 
   '@xstyled/system@3.8.2':
     dependencies:
@@ -12028,10 +12128,10 @@ snapshots:
 
   babel-eslint@10.1.0(eslint@7.32.0):
     dependencies:
-      '@babel/code-frame': 7.29.0
-      '@babel/parser': 7.29.3
-      '@babel/traverse': 7.29.0(supports-color@5.5.0)
-      '@babel/types': 7.29.0
+      '@babel/code-frame': 7.29.7
+      '@babel/parser': 7.29.7
+      '@babel/traverse': 7.29.7
+      '@babel/types': 7.29.7
       eslint: 7.32.0
       eslint-visitor-keys: 1.3.0
       resolve: 1.22.12
@@ -12150,13 +12250,13 @@ snapshots:
       gatsby: 4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15)))
       gatsby-core-utils: 3.25.0
 
-  babel-plugin-styled-components@2.0.2(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1))(supports-color@5.5.0):
+  babel-plugin-styled-components@2.0.2(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1))(supports-color@5.5.0):
     dependencies:
       '@babel/helper-annotate-as-pure': 7.27.3
       '@babel/helper-module-imports': 7.28.6(supports-color@5.5.0)
       babel-plugin-syntax-jsx: 6.18.0
       lodash: 4.18.1
-      styled-components: 5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1)
+      styled-components: 5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -14550,14 +14650,14 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       sitemap: 7.1.3
 
-  gatsby-plugin-styled-components@5.25.0(babel-plugin-styled-components@2.0.2(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1)))(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1)):
+  gatsby-plugin-styled-components@5.25.0(babel-plugin-styled-components@2.0.2(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1)))(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1)):
     dependencies:
       '@babel/runtime': 7.29.2
-      babel-plugin-styled-components: 2.0.2(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1))(supports-color@5.5.0)
+      babel-plugin-styled-components: 2.0.2(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1))(supports-color@5.5.0)
       gatsby: 4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15)))
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      styled-components: 5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1)
+      styled-components: 5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1)
 
   gatsby-plugin-typescript@4.25.0(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15)))):
     dependencies:
@@ -16045,10 +16145,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  jest-styled-components@7.4.0(styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
+  jest-styled-components@7.4.0(styled-components@6.4.3(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
       '@adobe/css-tools': 4.4.4
-      styled-components: 6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      styled-components: 6.4.3(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   jest-util@29.7.0:
     dependencies:
@@ -17665,7 +17765,7 @@ snapshots:
       '@jest/schemas': 30.4.1
       ansi-styles: 5.2.0
       react-is-18: react-is@18.3.1
-      react-is-19: react-is@19.2.6
+      react-is-19: react-is@19.2.7
 
   prism-react-renderer@1.3.5(react@18.3.1):
     dependencies:
@@ -17847,7 +17947,7 @@ snapshots:
 
   react-is@18.3.1: {}
 
-  react-is@19.2.6: {}
+  react-is@19.2.7: {}
 
   react-lifecycles-compat@3.0.4: {}
 
@@ -18476,15 +18576,15 @@ snapshots:
 
   slugify@1.6.9: {}
 
-  smooth-doc@10.1.0(@algolia/client-search@5.52.1)(@babel/core@7.29.0)(@types/react@18.3.29)(core-js@3.49.0)(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))(graphql@15.10.2)(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1)(search-insights@2.17.3)(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15)):
+  smooth-doc@10.1.0(@algolia/client-search@5.52.1)(@babel/core@7.29.0)(@types/react@18.3.29)(core-js@3.49.0)(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))(graphql@15.10.2)(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1)(search-insights@2.17.3)(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15)):
     dependencies:
       '@docsearch/css': 3.9.0
       '@docsearch/react': 3.9.0(@algolia/client-search@5.52.1)(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.3)
       '@mdx-js/loader': 2.3.0(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))
       '@mdx-js/react': 2.3.0(react@18.3.1)
-      '@xstyled/styled-components': 3.8.1(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1))
+      '@xstyled/styled-components': 3.8.1(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1))
       ariakit: 2.0.0-next.44(@types/react@18.3.29)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      babel-plugin-styled-components: 2.0.2(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1))(supports-color@5.5.0)
+      babel-plugin-styled-components: 2.0.2(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1))(supports-color@5.5.0)
       babel-preset-gatsby: 2.25.0(@babel/core@7.29.0)(core-js@3.49.0)
       fs-extra: 10.1.0
       gatsby: 4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15)))
@@ -18498,7 +18598,7 @@ snapshots:
       gatsby-plugin-robots-txt: 1.5.6(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))
       gatsby-plugin-sharp: 4.25.1(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))(graphql@15.10.2)
       gatsby-plugin-sitemap: 5.25.0(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      gatsby-plugin-styled-components: 5.25.0(babel-plugin-styled-components@2.0.2(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1)))(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1))
+      gatsby-plugin-styled-components: 5.25.0(babel-plugin-styled-components@2.0.2(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1)))(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1))
       gatsby-remark-autolink-headers: 5.25.0(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       gatsby-remark-images: 6.25.0(gatsby-plugin-sharp@4.25.1(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))(graphql@15.10.2))(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))
       gatsby-source-filesystem: 4.25.0(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(esbuild@0.15.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@4.9.5)(webpack-dev-server@4.15.2(webpack@5.107.0(esbuild@0.15.18)(postcss@8.5.15))))
@@ -18513,7 +18613,7 @@ snapshots:
       react-icons: 4.12.0(react@18.3.1)
       react-live: 2.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       remark-gfm: 1.0.0
-      styled-components: 5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1)
+      styled-components: 5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1)
       unist-util-visit: 2.0.3
     transitivePeerDependencies:
       - '@algolia/client-search'
@@ -18822,23 +18922,33 @@ snapshots:
     dependencies:
       inline-style-parser: 0.1.1
 
-  styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1):
+  styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1):
     dependencies:
       '@babel/helper-module-imports': 7.28.6(supports-color@5.5.0)
       '@babel/traverse': 7.29.0(supports-color@5.5.0)
       '@emotion/is-prop-valid': 1.4.0
       '@emotion/stylis': 0.8.5
       '@emotion/unitless': 0.7.5
-      babel-plugin-styled-components: 2.0.2(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.6)(react@18.3.1))(supports-color@5.5.0)
+      babel-plugin-styled-components: 2.0.2(styled-components@5.3.11(react-dom@18.3.1(react@18.3.1))(react-is@19.2.7)(react@18.3.1))(supports-color@5.5.0)
       css-to-react-native: 3.2.0
       hoist-non-react-statics: 3.3.2
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-is: 19.2.6
+      react-is: 19.2.7
       shallowequal: 1.1.0
       supports-color: 5.5.0
 
   styled-components@6.4.2(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@emotion/is-prop-valid': 1.4.0
+      csstype: 3.2.3
+      react: 18.3.1
+      stylis: 4.3.6
+    optionalDependencies:
+      css-to-react-native: 3.2.0
+      react-dom: 18.3.1(react@18.3.1)
+
+  styled-components@6.4.3(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@emotion/is-prop-valid': 1.4.0
       csstype: 3.2.3
