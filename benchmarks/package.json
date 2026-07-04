@@ -29,7 +29,7 @@
     "@xstyled/emotion": "workspace:*",
     "@xstyled/styled-components": "workspace:*",
     "emotion-theming": "^11.0.0",
-    "styled-components": "^6.1.9",
+    "styled-components": "^6.4.3",
     "styled-system": "^5.1.5"
   }
 }
