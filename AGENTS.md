@@ -22,7 +22,7 @@ Perf benches
 - Hot paths: `packages/system/src/style.ts`, `packages/util/src/index.ts` (`merge`/`assign`/`flattenStrings`/`get`), `packages/core/src/transform.ts`, `packages/emotion/src/createCssFunction.ts`.
 
 Module augmentation (consumer contract)
-- `declare module '@xstyled/system' { export interface Theme { … } }` from `styled.d.ts`. Augmenting any other module specifier won't reach the system types.
+- Docs augment the binding (`declare module '@xstyled/styled-components'` or `'@xstyled/emotion'`), which re-exports `Theme`. `colors` uses `Omit` plus an intersection so the default palette stays. The augmentation test in `packages/system/type-tests-aug/` imports `@xstyled/system` directly and still augments that module.
 
 Type gotchas
 - `useTheme` in `@xstyled/emotion` returns `@emotion/react`'s `Theme`, not `@xstyled/system`'s. Emotion users augment `@emotion/react` separately.

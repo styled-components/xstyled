@@ -15,18 +15,17 @@ Add Prop Types on your declarative components.
 ## Installation
 
 ```
-npm i @xstyled/prop-types @xstyled/system styled-components prop-types
+npm i @xstyled/prop-types @xstyled/styled-components styled-components
 ```
 
-The sample imports `@xstyled/system` and `styled-components`. `prop-types` is a peer dependency of `@xstyled/prop-types`, and pnpm and Yarn do not install it for you.
+`prop-types` is a peer dependency of `@xstyled/prop-types`. npm and pnpm install it. Yarn 1 does not, so install `prop-types` directly or loading the library throws `Cannot find package 'prop-types'`.
 
 ## Usage
 
 `getSystemPropTypes` let you get prop types from a system utility.
 
 ```js
-import styled from 'styled-components'
-import { compose, space, color } from '@xstyled/system'
+import styled, { compose, space, color } from '@xstyled/styled-components'
 import { getSystemPropTypes } from '@xstyled/prop-types'
 
 const customSystem = compose(space, color)

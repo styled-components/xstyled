@@ -14,10 +14,8 @@
 [![Small size](https://img.badgesize.io/https://unpkg.com/@xstyled/styled-components/dist/xstyled-system.min.js?compression=gzip)](https://unpkg.com/@xstyled/styled-components/dist/xstyled-system.min.js)
 
 ```bash
-npm install @xstyled/system styled-components
+npm install @xstyled/system
 ```
-
-The example below imports `styled-components`, so that package has to be installed too.
 
 ## [Docs](https://xstyled.dev)
 
@@ -29,6 +27,12 @@ Quicklinks to some of the most-visited pages:
 - [System](https://xstyled.dev/docs/system/)
 
 ## Example
+
+The example imports `styled-components`. Install it for this sample only. An Emotion app should not add a second CSS-in-JS runtime.
+
+```bash
+npm install styled-components
+```
 
 ```js
 import styled from 'styled-components'
