@@ -28,6 +28,12 @@ Quicklinks to some of the most-visited pages:
 
 ## Example
 
+The example imports `styled-components`. Install it for this sample only. An Emotion app should not add a second CSS-in-JS runtime.
+
+```bash
+npm install styled-components
+```
+
 ```js
 import styled from 'styled-components'
 import { system } from '@xstyled/system'

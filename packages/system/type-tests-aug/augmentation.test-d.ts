@@ -1,19 +1,10 @@
 /**
- * Pins down how a downstream consumer is meant to specialise xstyled's
- * `Theme` via module augmentation (#344 / #417 / #418). The contract,
- * as documented at website/pages/docs/core-concepts/typescript.mdx, is:
- *
- *   declare module '@xstyled/system' {
- *     export interface Theme {
- *       colors: { ... }
- *     }
- *   }
- *
- * This file mirrors that exactly — importing from `@xstyled/system` and
- * augmenting `@xstyled/system` — so the test exercises the same code path
- * a real consumer hits. The `tsconfig.aug.json` project owns this file,
- * which keeps the project-wide augmentation from leaking into the normal
- * src compile.
+ * Pins down module augmentation of `Theme` (#344 / #417 / #418).
+ * This file imports `@xstyled/system` directly, so it augments that module.
+ * The docs augment the binding instead (`@xstyled/styled-components` or
+ * `@xstyled/emotion`), which re-exports `Theme`. The `tsconfig.aug.json`
+ * project owns this file, which keeps the project-wide augmentation from
+ * leaking into the normal src compile.
  *
  * Requires `yarn build` to have produced `packages/system/dist/index.d.ts`
  * first (the workspace symlink `node_modules/@xstyled/system` resolves

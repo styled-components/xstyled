@@ -18,23 +18,26 @@ You may have to configure styled-components or Emotion, especially if you use a 
 
 ### Create a declaration file
 
+`@xstyled/styled-components` re-exports `Theme`. Augment that package, the one the install command already added.
+
+`colors` is omitted and then intersected. Replacing the default palette outright is a type error, because the new `colors` would be missing the built-in keys.
+
 ```js
 // styled.d.ts
 
-// import original module declarations
 import 'styled-components'
-import '@xstyled/system'
 import {
   ITheme,
   DefaultTheme as XStyledDefaultTheme,
 } from '@xstyled/styled-components'
 
-interface AppTheme extends ITheme, XStyledDefaultTheme {
-  /* Customize your theme */
+interface AppTheme extends ITheme, Omit<XStyledDefaultTheme, 'colors'> {
+  colors: XStyledDefaultTheme['colors'] & {
+    brand: string
+  }
 }
 
-// and extend them!
-declare module '@xstyled/system' {
+declare module '@xstyled/styled-components' {
   export interface Theme extends AppTheme {}
 }
 declare module 'styled-components' {
@@ -48,26 +51,30 @@ Read [styled-components TypeScript guide](https://styled-components.com/docs/api
 
 ### Create a declaration file
 
+`@xstyled/emotion` re-exports `Theme`. Augment that package, the one the install command already added. `useTheme` from this package is Emotion's theme, so `@emotion/react` is augmented too.
+
+`colors` is omitted and then intersected. Replacing the default palette outright is a type error, because the new `colors` would be missing the built-in keys.
+
 ```js
 // styled.d.ts
 
-// import original module declarations
-import '@xstyled/system'
 import '@emotion/react'
-import { ITheme, DefaultTheme as XStyledDefaultTheme } from '@xstyled/emotion'
+import {
+  ITheme,
+  DefaultTheme as XStyledDefaultTheme,
+} from '@xstyled/emotion'
 
-interface AppTheme extends ITheme, XStyledDefaultTheme {
-  /* Customize your theme */
+interface AppTheme extends ITheme, Omit<XStyledDefaultTheme, 'colors'> {
+  colors: XStyledDefaultTheme['colors'] & {
+    brand: string
+  }
 }
 
-// and extend them!
-declare module '@xstyled/system' {
+declare module '@xstyled/emotion' {
   export interface Theme extends AppTheme {}
 }
 declare module '@emotion/react' {
-  export interface Theme extends XStyledDefaultTheme {
-    /* Customize your theme */
-  }
+  export interface Theme extends AppTheme {}
 }
 ```
 
