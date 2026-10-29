@@ -9,8 +9,10 @@
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 
 ```bash
-npm install @xstyled/styled-components styled-components
+npm install @xstyled/styled-components styled-components @xstyled/system
 ```
+
+`@xstyled/system` has to be installed directly. The TypeScript theme setup imports it and augments its `Theme`. pnpm and Yarn Plug'n'Play do not expose a package to your app just because another dependency uses it.
 
 ## [Docs](https://xstyled.dev)
 

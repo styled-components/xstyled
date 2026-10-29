@@ -16,6 +16,14 @@ You may have to configure styled-components or Emotion, especially if you use a 
 
 ## Use TypeScript with Styled Components
 
+### Install
+
+```
+npm install styled-components @xstyled/styled-components @xstyled/system
+```
+
+`@xstyled/system` has to be a direct dependency. The declaration file below imports it and augments its `Theme`. pnpm and Yarn Plug'n'Play do not expose a package to your app just because `@xstyled/styled-components` depends on it, so the import and the augmentation both fail until `@xstyled/system` is in your own `package.json`.
+
 ### Create a declaration file
 
 ```js
@@ -45,6 +53,14 @@ declare module 'styled-components' {
 Read [styled-components TypeScript guide](https://styled-components.com/docs/api#typescript) to learn more about it.
 
 ## Use TypeScript with Emotion
+
+### Install
+
+```
+npm install @emotion/react @emotion/styled @xstyled/emotion @xstyled/system
+```
+
+`@xstyled/system` has to be a direct dependency. The declaration file below imports it and augments its `Theme`. pnpm and Yarn Plug'n'Play do not expose a package to your app just because `@xstyled/emotion` depends on it, so the import and the augmentation both fail until `@xstyled/system` is in your own `package.json`.
 
 ### Create a declaration file
 

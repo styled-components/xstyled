@@ -14,8 +14,10 @@
 [![Small size](https://img.badgesize.io/https://unpkg.com/@xstyled/styled-components/dist/xstyled-system.min.js?compression=gzip)](https://unpkg.com/@xstyled/styled-components/dist/xstyled-system.min.js)
 
 ```bash
-npm install @xstyled/system
+npm install @xstyled/system styled-components
 ```
+
+The example below imports `styled-components`, so that package has to be installed too.
 
 ## [Docs](https://xstyled.dev)
 

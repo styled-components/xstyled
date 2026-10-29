@@ -20,8 +20,10 @@ If you already use styled-components on your project, then you should read [Migr
 ### Install styled-components and xstyled via npm
 
 ```
-npm install styled-components @xstyled/styled-components
+npm install styled-components @xstyled/styled-components @xstyled/system
 ```
+
+`@xstyled/system` has to be installed directly. The TypeScript theme setup imports `@xstyled/system` and augments its `Theme`. pnpm and Yarn Plug'n'Play do not expose a package to your app just because another dependency uses it, so that import and the augmentation both fail until `@xstyled/system` is in your own `package.json`.
 
 ### Setup `theme` and `Preflight`
 
@@ -67,8 +69,10 @@ If you already use Emotion on your project, then you should read [Migrate from E
 ### Install emotion and xstyled via npm
 
 ```
-npm install @emotion/react @emotion/styled @xstyled/emotion
+npm install @emotion/react @emotion/styled @xstyled/emotion @xstyled/system
 ```
+
+`@xstyled/system` has to be installed directly. The TypeScript theme setup imports `@xstyled/system` and augments its `Theme`. pnpm and Yarn Plug'n'Play do not expose a package to your app just because another dependency uses it, so that import and the augmentation both fail until `@xstyled/system` is in your own `package.json`.
 
 ### Setup `theme` and `Preflight`
 

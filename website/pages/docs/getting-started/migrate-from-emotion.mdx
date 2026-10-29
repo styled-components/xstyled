@@ -209,6 +209,12 @@ const Button = ({ children }) => {
 
 To avoid the `/** @jsx jsx */` you can use `@xstyled/babel-preset-emotion-css-prop`. It has the same interface as `@emotion/babel-preset-css-prop`, see [Emotion documentation](https://emotion.sh/docs/css-prop#babel-preset).
 
+```
+npm install @xstyled/babel-preset-emotion-css-prop @babel/core@^7
+```
+
+The preset peers on `@babel/core` `^7`. Install that range directly. An unpinned `@babel/core` currently resolves to v8, which is outside the peer range, and Yarn 1 does not install the peer at all.
+
 **.babelrc**
 
 ```js
